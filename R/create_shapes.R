@@ -4,12 +4,12 @@
 #' @param npoints The number of points with which to create the circle. This will also be the length of the resulting data frame. Default: 1000
 #' @param d The diameter of the circle IN THE UNITS OF THE PLOT. This default unit will be feet. Default: 2 (unit circle)
 #' @param start The angle (in radians, divided by pi) at which to start drawing the circle, where zero runs along the +x axis. Default: 0
-#' @param end: The angle (in radians, divided by pi) at which to stop drawing the circle, where zero runs along the +x axis. Default: 2
+#' @param end The angle (in radians, divided by pi) at which to stop drawing the circle, where zero runs along the +x axis. Default: 2
 #' @return A dataframe containing the points needed to draw the specified circle
 create_circle = function(center = c(0, 0), npoints = 1000, d = 2, start = 0, end = 2) {
   pts = seq(start * pi, end * pi, length.out = npoints)
   circle_coords = data.frame(
-    x = center[2] + ((d/2) * cos(pts)),
+    x = center[1] + ((d/2) * cos(pts)),
     y = center[2] + ((d/2) * sin(pts))
   )
 
@@ -21,7 +21,7 @@ create_circle = function(center = c(0, 0), npoints = 1000, d = 2, start = 0, end
 #' @param x_min The minimum value of x
 #' @param x_max The maximum value of x
 #' @param y_min The minimum value of y
-#' @param y_min The maximum value of y
+#' @param y_max The maximum value of y
 #' @return A dataframe containing the points needed to draw the specified rectangle
 create_rectangle = function(x_min, x_max, y_min, y_max){
   rectangle_coords = data.frame(
