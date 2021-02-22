@@ -1,13 +1,13 @@
 Package: sportyR
-Title: What the Package Does (One Line, Title Case)
+Title: Plot ggplot2 Representations of Sports Playing Surfaces
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Ross", "Drucker", email = "ross.a.drucker@gmail.com", role = c("aut", "cre"))
+Maintainer: Ross Drucker <ross.a.drucker@gmail.com>
+Description: An R package for creating ggplot2 representations of playing
+    surfaces. Playing surfaces are drawn pursuant to rule-book specifications.
+    This package should be used as a baseline plot for displaying player
+    tracking data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
