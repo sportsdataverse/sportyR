@@ -25,7 +25,7 @@ reflect = function(df, over_x = FALSE, over_y = TRUE){
 #' to counterclockwise
 #' @param angle the angle (in radians, divided by pi) through which to rotate the coordinates
 #' @return The rotated dataframe
-rotate = function(df, rotation_dir = 'ccw', angle = .5){
+rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
   # If the rotation direction is clockwise, take the negative of the angle
   if(!tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
     angle = angle * -1
@@ -34,9 +34,19 @@ rotate = function(df, rotation_dir = 'ccw', angle = .5){
   # Set theta to be the angle of rotation
   theta = angle * pi
 
-  # Rotate the dataframe
-  df['x'] = (df['x'] * cos(theta)) - (df['y'] * sin(theta))
-  df['y'] = (df['x'] * sin(theta)) + (df['y'] * cos(theta))
+  # Containers for the rotated coordinates
+  x = c()
+  y = c()
+
+  for(row in 1:nrow(df)){
+    x = c(x, df[row, 'x'] * cos(theta) - df[row, 'y'] * sin(theta))
+    y = c(y, df[row, 'x'] * sin(theta) + df[row, 'y'] * cos(theta))
+  }
+
+  df = data.frame(
+    x = x,
+    y = y
+  )
 
   return(df)
 }
