@@ -3,7 +3,7 @@ usethis::use_package("ggplot2")
 #' Generate the dataframe for the points that comprise the boards
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
@@ -14,7 +14,7 @@ boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # NHL boards are 200' long and 85' wide, with corners rounded at an arc of 28 feet
     corner_1_in = create_circle(
       center = c(-72, 14.5),
@@ -189,7 +189,7 @@ boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_
   }
 
   else{
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
     return(g)
   }
 
@@ -223,7 +223,7 @@ boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_
 #' Generate the dataframe for the points that comprise the center line
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
@@ -234,7 +234,7 @@ center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The center line is 12" thick, so 6" are on each side of 0. It spans the entire width of the ice
     center_line = create_rectangle(
       x_min = -.5,
@@ -342,7 +342,7 @@ center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
     return(g)
   }
 }
@@ -350,7 +350,7 @@ center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
 #' Generate the dataframe for the points that comprise the blue line(s)
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
@@ -361,7 +361,7 @@ blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The blue line is 12" thick with the edge closest to the center line lying 25' from the center of the ice. It spans the entire width of the ice
     blue_line = create_rectangle(
       x_min = -26,
@@ -470,7 +470,7 @@ blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
     return(g)
   }
 }
@@ -478,7 +478,7 @@ blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
 #' Generate the dataframe for the points that comprise the goal line
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
@@ -489,7 +489,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The center of the goal line is 11' away from the boards (or 89' from the center), but
     # follows the curvature of the boards in the corner. To get the curvature, a similar
     # calculation to that of the face-off spot interior can be performed
@@ -657,7 +657,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
     return(g)
   }
 }
@@ -665,7 +665,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
 #' Generate the dataframe for the points that comprise the goalkeeper's restricted area
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
@@ -676,7 +676,7 @@ goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rota
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The restricted area is the trapezoid area located behind each goal
     goalkeepers_restricted_area = data.frame(
       x = c(
@@ -740,7 +740,7 @@ goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rota
 #' Generate the dataframe for the points that comprise the goal crease
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
@@ -751,7 +751,7 @@ goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The angle through which to trace the outer radius of the goal crease
     theta_out = asin(4/6) / pi
 
@@ -1236,7 +1236,7 @@ goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
     return(g)
   }
 }
@@ -1246,7 +1246,7 @@ goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
 #' @param g A ggplot2 instance on which to add the feature
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
 #' Default: FALSE
@@ -1256,7 +1256,7 @@ referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, r
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The referee's crease
     referee_crease = rbind(
       create_circle(
@@ -1413,7 +1413,7 @@ referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, r
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
     return(g)
   }
 }
@@ -1421,19 +1421,19 @@ referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, r
 #' Generate the dataframe for the points that comprise the faceoff spots
 #'
 #' @param g A ggplot2 instance on which to add the feature
+#' @param league The league for which to draw the surface.
 #' @param center The center coordinates of the faceoff spot
-#' @param league The league for which to draw the surface. Default: NHL
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
 #' Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff spot added to it
-faceoff_spot = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     # The center dot on an NHL ice rink is 1' in diameter
     if(identical(center, c(0, 0))){
       center_spot = create_circle(
@@ -1829,7 +1829,7 @@ faceoff_spot = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE, r
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
@@ -1837,19 +1837,19 @@ faceoff_spot = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE, r
 #' Generate the dataframe for the points that comprise the faceoff circles
 #'
 #' @param g A ggplot2 instance on which to add the feature
+#' @param league The league for which to draw the surface.
 #' @param center The center coordinates of the faceoff circle
-#' @param league The league for which to draw the surface. Default: NHL
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
 #' Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff circle added to it
-faceoff_circle = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     if(identical(center, c(0, 0))){
       # The center circle on an NHL ice rink is 15' in diameter
       faceoff_circle = rbind(
@@ -2292,7 +2292,7 @@ faceoff_circle = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE,
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
@@ -2300,19 +2300,19 @@ faceoff_circle = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE,
 #' Generate the dataframe for the points that comprise the faceoff lines
 #'
 #' @param g A ggplot2 instance on which to add the feature
+#' @param league The league for which to draw the surface.
 #' @param center The center coordinates of the faceoff lines
 #' @param full_surf A boolean indicating whether or not this feature is needed for a
 #' full-surface representation of the surface. Default: TRUE
-#' @param league The league for which to draw the surface. Default: NHL
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
 #' Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
-faceoff_lines = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     if(!identical(center, c(0, 0))){
       # Only the four end-zone faceoff circles need these features. They measure 3'
       # tall, 4' long, and all lines are 2" in width. The lines begin (outer edges)
@@ -2618,14 +2618,14 @@ faceoff_lines = function(g, center = c(0, 0), league = 'NHL', full_surf = TRUE, 
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
 
 #' Generate a ggplot2 instance containing an ice rink for a specified league
 #'
-#' @param league The league for which to draw the surface. Default: NHL
+#' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not to plot a full surface represenation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated
 #' Default: FALSE
@@ -2645,7 +2645,7 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
 
   # Faceoff spot centers for half-sheets. These can be reflected over the y axis
   # for full-surface representations
-  if(league == 'NHL'){
+  if(league %in% c('NHL', 'NWHL')){
     faceoff_spots = list(
       center = c(0, 0),
       spot_1 = c(-69, -22),
@@ -2676,7 +2676,7 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   }
 
   else {
-    message(paste('Sorry, ', league, ' does not exist yet.'))
+    message(paste('Sorry,', league, 'does not exist yet.'))
     return(0)
   }
 
@@ -2711,7 +2711,8 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
       panel.background = ggplot2::element_blank(),
       axis.title = ggplot2::element_blank(),
       axis.text = ggplot2::element_blank(),
-      axis.ticks = ggplot2::element_blank()
+      axis.ticks = ggplot2::element_blank(),
+      plot.margin = margin(0, 0, 0, 0)
     )
 
   # Add the boards
@@ -2741,12 +2742,12 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
     center = faceoff_spots[[spot]]
 
     # Draw all faceoff spots
-    g = faceoff_spot(g, center, league, full_surf, rotate, rotation_dir)
+    g = faceoff_spot(g, league, center, full_surf, rotate, rotation_dir)
 
     # Only faceoff spots 1, 2, 7, 8, and center above need circles and details
     if(spot_name %in% c('center', 'spot_1', 'spot_2', 'spot_7', 'spot_8')){
-      g = faceoff_circle(g, center, league, full_surf, rotate, rotation_dir)
-      g = faceoff_lines(g, center, league, full_surf, rotate, rotation_dir)
+      g = faceoff_circle(g, league, center, full_surf, rotate, rotation_dir)
+      g = faceoff_lines(g, league, center, full_surf, rotate, rotation_dir)
     }
   }
 
