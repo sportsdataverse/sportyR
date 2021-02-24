@@ -30,7 +30,7 @@ geom_basketball(
 \item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
 }
 \value{
-A ggplot2 instance with the boards added to it
+A ggplot2 instance with a full-surface representation of a basketball court
 }
 \description{
 Generate a ggplot2 instance containing a regulation basketball court for a specified league

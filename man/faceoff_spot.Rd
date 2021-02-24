@@ -6,8 +6,8 @@
 \usage{
 faceoff_spot(
   g,
+  league,
   center = c(0, 0),
-  league = "NHL",
   full_surf = TRUE,
   rotate = FALSE,
   rotation_dir = "ccw"
@@ -16,15 +16,13 @@ faceoff_spot(
 \arguments{
 \item{g}{A ggplot2 instance on which to add the feature}
 
+\item{league}{The league for which to draw the surface}
+
 \item{center}{The center coordinates of the faceoff spot}
 
-\item{league}{The league for which to draw the surface. Default: NHL}
+\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a
-full-surface representation of the surface. Default: TRUE}
-
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated
-Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
 
 \item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
 }

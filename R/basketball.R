@@ -4118,7 +4118,7 @@ net = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #'
-#' @return A ggplot2 instance with the boards added to it
+#' @return A ggplot2 instance with a full-surface representation of a basketball court
 #'
 #' @export
 #'

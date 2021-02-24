@@ -4,10 +4,8 @@ usethis::use_package("ggplot2")
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface.
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
 boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -224,10 +222,8 @@ boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface.
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the center line added to it
 center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -351,10 +347,8 @@ center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface.
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the blue line(s) added to it
 blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -479,10 +473,8 @@ blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface.
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goal line
 goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -490,9 +482,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   x = y = NULL
 
   if(league %in% c('NHL', 'NWHL')){
-    # The center of the goal line is 11' away from the boards (or 89' from the center), but
-    # follows the curvature of the boards in the corner. To get the curvature, a similar
-    # calculation to that of the face-off spot interior can be performed
+    # The center of the goal line is 11' away from the boards (or 89' from the center), but follows the curvature of the boards in the corner. To get the curvature, a similar calculation to that of the face-off spot interior can be performed
     theta1 = asin((17 - (1/12))/28) / pi
     theta2 = asin((17 + (1/12))/28) / pi
 
@@ -545,10 +535,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   }
 
   else if(league == 'IIHF'){
-    # The edge of the goal line closest to the center line is 4m away from the boards (or
-    # 26m from the center), but follows the curvature of the boards in the corner. To get
-    # the curvature, a similar calculation to that of the face-off spot interior can be
-    # performed
+    # The edge of the goal line closest to the center line is 4m away from the boards (or  26m from the center), but follows the curvature of the boards in the corner. To get the curvature, a similar calculation to that of the face-off spot interior can be performed
     theta1 = asin(m_to_ft(4.5)/m_to_ft(8.5)) / pi
     theta2 = asin(m_to_ft(4.55)/m_to_ft(8.5)) / pi
 
@@ -601,10 +588,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
   }
 
   else if(league == 'NCAA'){
-    # The edge of the goal line closest to the center line is 11' away from the boards (or
-    # 89' from the center), but follows the curvature of the boards in the corner. To get
-    # the curvature, a similar calculation to that of the face-off spot interior can be
-    # performed
+    # The edge of the goal line closest to the center line is 11' away from the boards (or 89' from the center), but follows the curvature of the boards in the corner. To get the curvature, a similar calculation to that of the face-off spot interior can be performed
     theta1 = asin(9/20) / pi
     theta2 = asin((9 + (2/12))/20) / pi
 
@@ -666,10 +650,8 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface.
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goalkeeper's restricted
 goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -741,10 +723,8 @@ goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rota
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface.
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goal crease
 goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -1244,12 +1224,9 @@ goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
 #' Generate the dataframe for the points that comprise the referee's crease
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param league The league for which to draw the surface.
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param league The league for which to draw the surface
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the referee's crease
 referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -1421,12 +1398,10 @@ referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, r
 #' Generate the dataframe for the points that comprise the faceoff spots
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param center The center coordinates of the faceoff spot
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff spot added to it
 faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -1474,8 +1449,7 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
     else {
       # If the spot is NOT the center cir3cle, it should be drawn as shown in the rule book on page v in red
 
-      # The spot is comprised of two pieces: an outer ring (with outer diameter of 2', thickness 2"), and
-      # an inner filling
+      # The spot is comprised of two pieces: an outer ring (with outer diameter of 2', thickness 2"), and an inner filling
       spot_outer = rbind(
         create_circle(
           center = c(0, 0),
@@ -1507,15 +1481,9 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
         translate_y = center[2]
       )
 
-      # The non-center face-off spots are 2' in diameter, with a 3" gap
-      # between the top and bottom of the spot and the strip in the center.
-      # First, find the angle at which to start the trace for the interior
-      # of the spot.
+      # The non-center face-off spots are 2' in diameter, with a 3" gap between the top and bottom of the spot and the strip in the center. First, find the angle at which to start the trace for the interior of the spot.
 
-      # The spot has a radius of 1', and a thickness of 2", so the inner
-      # radius is 10". Since there is a 3" gap at theta = 180deg, this
-      # indicates that the stripe's curve starts at x = -7" from the center.
-      # Using trigonometry, the angle can be computed
+      # The spot has a radius of 1', and a thickness of 2", so the inner radius is 10". Since there is a 3" gap at theta = 180deg, this indicates that the stripe's curve starts at x = -7" from the center. Using trigonometry, the angle can be computed
       theta = asin(7/10) / pi
 
       # The inner filling can then be created
@@ -1605,8 +1573,7 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
     else {
       # If the spot is NOT the center circle, it should be drawn as shown in the rule book on page 26 in red
 
-      # The spot is comprised of two pieces: an outer ring (with outer diameter of 60cm, thickness 5cm), and
-      # an inner filling
+      # The spot is comprised of two pieces: an outer ring (with outer diameter of 60cm, thickness 5cm), and an inner filling
       spot_outer = rbind(
         create_circle(
           center = c(0, 0),
@@ -1638,15 +1605,9 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
         translate_y = m_to_ft(center[2])
       )
 
-      # The non-center face-off spots are 60cm in diameter, with a 12.5cm gap
-      # between the top and bottom of the spot and the strip in the center.
-      # First, find the angle at which to start the trace for the interior
-      # of the spot.
+      # The non-center face-off spots are 60cm in diameter, with a 12.5cm gap between the top and bottom of the spot and the strip in the center. First, find the angle at which to start the trace for the interior of the spot.
 
-      # The spot has a radius of 30cm, and a thickness of 5cm, so the inner
-      # radius is 15cm. Since there is a 7.5cm gap at theta = 180deg, this
-      # indicates that the stripe's curve starts at x = -17.5cm from the center.
-      # Using trigonometry, the angle can be computed
+      # The spot has a radius of 30cm, and a thickness of 5cm, so the inner radius is 15cm. Since there is a 7.5cm gap at theta = 180deg, this indicates that the stripe's curve starts at x = -17.5cm from the center. Using trigonometry, the angle can be computed
       theta = asin(17.5/25) / pi
 
       # The inner filling can then be created
@@ -1737,8 +1698,7 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
     else {
       # If the spot is NOT the center circle, it should be drawn as shown in the rule book on page 16 in red
 
-      # The spot is comprised of two pieces: an outer ring (with outer diameter of 2', thickness 2"), and
-      # an inner filling
+      # The spot is comprised of two pieces: an outer ring (with outer diameter of 2', thickness 2"), and an inner filling
       spot_outer = rbind(
         create_circle(
           center = c(0, 0),
@@ -1770,15 +1730,9 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
         translate_y = center[2]
       )
 
-      # The non-center face-off spots are 2' in diameter, with a 3" gap
-      # between the top and bottom of the spot and the strip in the center.
-      # First, find the angle at which to start the trace for the interior
-      # of the spot.
+      # The non-center face-off spots are 2' in diameter, with a 3" gap between the top and bottom of the spot and the strip in the center. First, find the angle at which to start the trace for the interior of the spot.
 
-      # The spot has a radius of 1', and a thickness of 2", so the inner
-      # radius is 10". The width of the solid red inside is 16", wchich
-      # indicates that the stripe's curve starts at x = -8" from the center.
-      # Using trigonometry, the angle can be computed
+      # The spot has a radius of 1', and a thickness of 2", so the inner radius is 10". The width of the solid red inside is 16", wchich indicates that the stripe's curve starts at x = -8" from the center. Using trigonometry, the angle can be computed
       theta = asin(8/10) / pi
 
       # The inner filling can then be created
@@ -1837,12 +1791,10 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
 #' Generate the dataframe for the points that comprise the faceoff circles
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
-#' @param center The center coordinates of the faceoff circle
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param league The league for which to draw the surface
+#' @param center The center coordinates of the faceoff spot
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff circle added to it
 faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -1903,14 +1855,10 @@ faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate 
     }
 
     else {
-      # Similar to the method described above, the starting angle to draw the
-      # outer ring can be computed. The hash marks are 5' 11" (71") apart on
-      # the exterior, so taking where this hash mark meets the circle to be
-      # the center, the starting angle is computed as follows
+      # Similar to the method described above, the starting angle to draw the outer ring can be computed. The hash marks are 5' 11" (71") apart on the exterior, so taking where this hash mark meets the circle to be the center, the starting angle is computed as follows
       theta1 = asin((35.5/12)/15) / pi
 
-      # The same process gives the angle to find the point on the interior
-      # of the hash mark, which are 5' 7" (67") apart
+      # The same process gives the angle to find the point on the interior of the hash mark, which are 5' 7" (67") apart
       theta2 = asin((33.5/12)/15) / pi
 
       faceoff_circle = rbind(
@@ -2049,14 +1997,10 @@ faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate 
     }
 
     else {
-      # Similar to the method described above, the starting angle to draw the
-      # outer ring can be computed. The hash marks are 180cm apart on
-      # the exterior, so taking where this hash mark meets the circle to be
-      # the center, the starting angle is computed as follows
+      # Similar to the method described above, the starting angle to draw the outer ring can be computed. The hash marks are 180cm apart on the exterior, so taking where this hash mark meets the circle to be the center, the starting angle is computed as follows
       theta1 = asin(90/450) / pi
 
-      # The same process gives the angle to find the point on the interior
-      # of the hash mark, which are 170cm apart
+      # The same process gives the angle to find the point on the interior of the hash mark, which are 170cm apart
       theta2 = asin(85/450) / pi
 
       faceoff_circle = rbind(
@@ -2199,14 +2143,10 @@ faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate 
     }
 
     else {
-      # Similar to the method described above, the starting angle to draw the
-      # outer ring can be computed. The hash marks are 5' 11" (71") apart on
-      # the exterior, so taking where this hash mark meets the circle to be
-      # the center, the starting angle is computed as follows
+      # Similar to the method described above, the starting angle to draw the outer ring can be computed. The hash marks are 5' 11" (71") apart on the exterior, so taking where this hash mark meets the circle to be the center, the starting angle is computed as follows
       theta1 = asin((35.5/12)/15) / pi
 
-      # The same process gives the angle to find the point on the interior
-      # of the hash mark, which are 5' 7" (67") apart
+      # The same process gives the angle to find the point on the interior of the hash mark, which are 5' 7" (67") apart
       theta2 = asin((33.5/12)/15) / pi
 
       faceoff_circle = rbind(
@@ -2300,12 +2240,10 @@ faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate 
 #' Generate the dataframe for the points that comprise the faceoff lines
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
-#' @param center The center coordinates of the faceoff lines
-#' @param full_surf A boolean indicating whether or not this feature is needed for a
-#' full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
+#' @param league The league for which to draw the surface
+#' @param center The center coordinates of the faceoff spot
+#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
 faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
@@ -2314,17 +2252,13 @@ faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate =
 
   if(league %in% c('NHL', 'NWHL')){
     if(!identical(center, c(0, 0))){
-      # Only the four end-zone faceoff circles need these features. They measure 3'
-      # tall, 4' long, and all lines are 2" in width. The lines begin (outer edges)
-      # 9" above the center of the faceoff spot
+      # Only the four end-zone faceoff circles need these features. They measure 3' tall, 4' long, and all lines are 2" in width. The lines begin (outer edges) 9" above the center of the faceoff spot
       faceoff_line_ul = data.frame(
         x = c(-2, -6, -6, -2 - (2/12), -2 - (2/12), -2, -2),
         y = c(.75, .75, .75 + (2/12), .75 + (2/12), 3.75, 3.75, .75)
       )
 
-      # Since the line-details are all the same dimensions but appear in all four
-      # quadrants relative to the center of the spot, the line can be reflected
-      # over the x and y axes accordingly to create the rest of the lines
+      # Since the line-details are all the same dimensions but appear in all four quadrants relative to the center of the spot, the line can be reflected over the x and y axes accordingly to create the rest of the lines
       faceoff_line_ur = reflect(
         faceoff_line_ul,
         over_x = FALSE,
@@ -2410,9 +2344,7 @@ faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate =
 
   else if(league == 'IIHF'){
     if(!identical(center, c(0, 0))){
-      # Only the four end-zone faceoff circles need these features. They measure .9m
-      # tall, 1.20 long, and all lines are 5cm in width. The lines begin (outer edges)
-      # .225m above the center of the faceoff spot
+      # Only the four end-zone faceoff circles need these features. They measure .9m tall, 1.20 long, and all lines are 5cm in width. The lines begin (outer edges) .225m above the center of the faceoff spot
       faceoff_line_ul = data.frame(
         x = c(
           m_to_ft(-.6),
@@ -2435,9 +2367,7 @@ faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate =
         )
       )
 
-      # Since the line-details are all the same dimensions but appear in all four
-      # quadrants relative to the center of the spot, the line can be reflected
-      # over the x and y axes accordingly to create the rest of the lines
+      # Since the line-details are all the same dimensions but appear in all four quadrants relative to the center of the spot, the line can be reflected over the x and y axes accordingly to create the rest of the lines
       faceoff_line_ur = reflect(
         faceoff_line_ul,
         over_x = FALSE,
@@ -2523,17 +2453,13 @@ faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate =
 
   else if(league == 'NCAA'){
     if(!identical(center, c(0, 0))){
-      # Only the four end-zone faceoff circles need these features. They measure 3'
-      # tall, 4' long, and all lines are 2" in width. The lines begin (outer edges)
-      # 9" above the center of the faceoff spot
+      # Only the four end-zone faceoff circles need these features. They measure 3' tall, 4' long, and all lines are 2" in width. The lines begin (outer edges) 9" above the center of the faceoff spot
       faceoff_line_ul = data.frame(
         x = c(-2, -6, -6, -2 - (2/12), -2 - (2/12), -2, -2),
         y = c(.75, .75, .75 + (2/12), .75 + (2/12), 3.75, 3.75, .75)
       )
 
-      # Since the line-details are all the same dimensions but appear in all four
-      # quadrants relative to the center of the spot, the line can be reflected
-      # over the x and y axes accordingly to create the rest of the lines
+      # Since the line-details are all the same dimensions but appear in all four quadrants relative to the center of the spot, the line can be reflected over the x and y axes accordingly to create the rest of the lines
       faceoff_line_ur = reflect(
         faceoff_line_ul,
         over_x = FALSE,
@@ -2627,11 +2553,10 @@ faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate =
 #'
 #' @param league The league for which to draw the surface.
 #' @param full_surf A boolean indicating whether or not to plot a full surface represenation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated
-#' Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not the final rink plot needs to be rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the final rink plot Default: 'ccw'
 #'
-#' @return A ggplot2 instance with the boards added to it
+#' @return A ggplot2 instance with a full-surface representation of an ice hockey rink
 #'
 #' @export
 #'
@@ -2643,8 +2568,7 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   # Force the league to be all upper case
   league = toupper(league)
 
-  # Faceoff spot centers for half-sheets. These can be reflected over the y axis
-  # for full-surface representations
+  # Faceoff spot centers for half-sheets. These can be reflected over the y axis for full-surface representations
   if(league %in% c('NHL', 'NWHL')){
     faceoff_spots = list(
       center = c(0, 0),
@@ -2712,7 +2636,7 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
       axis.title = ggplot2::element_blank(),
       axis.text = ggplot2::element_blank(),
       axis.ticks = ggplot2::element_blank(),
-      plot.margin = margin(0, 0, 0, 0)
+      plot.margin = ggplot2::margin(0, 0, 0, 0)
     )
 
   # Add the boards

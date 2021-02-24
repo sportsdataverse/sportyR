@@ -15,13 +15,11 @@ goalkeepers_restricted_area(
 \arguments{
 \item{g}{A ggplot2 instance on which to add the feature}
 
-\item{league}{The league for which to draw the surface. Default: NHL}
+\item{league}{The league for which to draw the surface.}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a
-full-surface representation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated
-Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
 
 \item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
 }
