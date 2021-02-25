@@ -8,7 +8,7 @@ usethis::use_package("ggplot2")
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
-boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -226,7 +226,7 @@ boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the center line added to it
-center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -351,7 +351,7 @@ center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the blue line(s) added to it
-blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -477,7 +477,7 @@ blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goal line
-goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -654,7 +654,7 @@ goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotati
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goalkeeper's restricted
-goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -727,7 +727,7 @@ goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rota
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goal crease
-goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1229,7 +1229,7 @@ goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rota
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the referee's crease
-referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1404,7 +1404,7 @@ referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, r
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff spot added to it
-faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1797,7 +1797,7 @@ faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = 
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff circle added to it
-faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -2246,7 +2246,7 @@ faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate 
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
-faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -2640,25 +2640,25 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
     )
 
   # Add the boards
-  g = boards(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_boards(g, league, full_surf, rotate, rotation_dir)
 
   # Add the center line
-  g = center_line(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_center_line(g, league, full_surf, rotate, rotation_dir)
 
   # Add the blue line(s)
-  g = blue_line(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_blue_line(g, league, full_surf, rotate, rotation_dir)
 
   # Add the goal line(s)
-  g = goal_line(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_goal_line(g, league, full_surf, rotate, rotation_dir)
 
   # Add the goalkeeper's restricted area (NHL only)
-  g = goalkeepers_restricted_area(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_goalkeepers_restricted_area(g, league, full_surf, rotate, rotation_dir)
 
   # Add the goal crease(s)
-  g = goal_crease(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_goal_crease(g, league, full_surf, rotate, rotation_dir)
 
   # Add the referee's crease
-  g = referee_crease(g, league, full_surf, rotate, rotation_dir)
+  g = hockey_referee_crease(g, league, full_surf, rotate, rotation_dir)
 
   # Loop over the faceoff spot centers and add the faceoff spots, their enclosing circles, and their detail lines (when applicable)
   for(spot in 1:length(faceoff_spots)){
@@ -2666,12 +2666,12 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
     center = faceoff_spots[[spot]]
 
     # Draw all faceoff spots
-    g = faceoff_spot(g, league, center, full_surf, rotate, rotation_dir)
+    g = hockey_faceoff_spot(g, league, center, full_surf, rotate, rotation_dir)
 
     # Only faceoff spots 1, 2, 7, 8, and center above need circles and details
     if(spot_name %in% c('center', 'spot_1', 'spot_2', 'spot_7', 'spot_8')){
-      g = faceoff_circle(g, league, center, full_surf, rotate, rotation_dir)
-      g = faceoff_lines(g, league, center, full_surf, rotate, rotation_dir)
+      g = hockey_faceoff_circle(g, league, center, full_surf, rotate, rotation_dir)
+      g = hockey_faceoff_lines(g, league, center, full_surf, rotate, rotation_dir)
     }
   }
 

@@ -8,7 +8,7 @@ usethis::use_package("ggplot2")
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the court added to it
-court = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_court = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -134,7 +134,7 @@ court = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'cc
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the center circle added to it
-center_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_center_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -332,7 +332,7 @@ center_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_d
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the division line added to it
-division_line = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_division_line = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -459,7 +459,7 @@ division_line = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_d
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the endline(s) added to it
-endline = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_endline = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -585,7 +585,7 @@ endline = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = '
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw''
 #' @return A ggplot2 instance with the sideline(s) added to it
-sideline = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_sideline = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -783,7 +783,7 @@ sideline = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the team bench added to it
-team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -981,7 +981,7 @@ team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir 
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the substitution area added to it
-substitution_area = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_substitution_area = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1084,7 +1084,7 @@ substitution_area = function(g, league, full_surf = TRUE, rotate = FALSE, rotati
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the three-point line added to it
-three_point_line = function(g, league, include_m_line = TRUE, include_w_line = TRUE, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_three_point_line = function(g, league, include_m_line = TRUE, include_w_line = TRUE, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1665,7 +1665,7 @@ three_point_line = function(g, league, include_m_line = TRUE, include_w_line = T
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the free-throw lane added to it
-free_throw_lane = function(g, league, include_amateur = FALSE, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_free_throw_lane = function(g, league, include_amateur = FALSE, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1968,7 +1968,7 @@ free_throw_lane = function(g, league, include_amateur = FALSE, full_surf = TRUE,
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the free-throw lane lines added to it
-free_throw_lane_lines = function(g, league, include_amateur = FALSE, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_free_throw_lane_lines = function(g, league, include_amateur = FALSE, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -2725,7 +2725,7 @@ free_throw_lane_lines = function(g, league, include_amateur = FALSE, full_surf =
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the free-throw semi-circle added to it
-free_throw_semi_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_free_throw_semi_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -2908,7 +2908,7 @@ free_throw_semi_circle = function(g, league, full_surf = TRUE, rotate = FALSE, r
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the dashed part of the free-throw circle added to it
-free_throw_dashed_semi_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_free_throw_dashed_semi_circle = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -3221,7 +3221,7 @@ free_throw_dashed_semi_circle = function(g, league, full_surf = TRUE, rotate = F
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the lower defensive box added to it
-lower_defensive_box = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_lower_defensive_box = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -3407,7 +3407,7 @@ lower_defensive_box = function(g, league, full_surf = TRUE, rotate = FALSE, rota
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the restricted area arc added to it
-restricted_area_arc = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_restricted_area_arc = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -3650,7 +3650,7 @@ restricted_area_arc = function(g, league, full_surf = TRUE, rotate = FALSE, rota
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the backboard added to it
-backboard = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_backboard = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -3776,7 +3776,7 @@ backboard = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir =
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the basket ring added to it
-basket_ring = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_basket_ring = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -3990,7 +3990,7 @@ basket_ring = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
 #' @return A ggplot2 instance with the net added to it
-net = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+basketball_net = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -4145,55 +4145,55 @@ geom_basketball = function(league, include_amateur = TRUE, include_m_line = TRUE
       )
 
     # Add the court
-    g = court(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_court(g, league, full_surf, rotate, rotation_dir)
 
     # Add the center circle
-    g = center_circle(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_center_circle(g, league, full_surf, rotate, rotation_dir)
 
     # Add the division line
-    g = division_line(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_division_line(g, league, full_surf, rotate, rotation_dir)
 
     # Add the endline(s)
-    g = endline(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_endline(g, league, full_surf, rotate, rotation_dir)
 
     # Add the sidelines
-    g = sideline(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_sideline(g, league, full_surf, rotate, rotation_dir)
 
     # Add the team bench(es)
-    g = team_bench(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_team_bench(g, league, full_surf, rotate, rotation_dir)
 
     # Add the substitution area(s)
-    g = substitution_area(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_substitution_area(g, league, full_surf, rotate, rotation_dir)
 
     # Add the three-point line
-    g = three_point_line(g, league, include_m_line, include_w_line, full_surf, rotate, rotation_dir)
+    g = basketball_three_point_line(g, league, include_m_line, include_w_line, full_surf, rotate, rotation_dir)
 
     # Add the free-throw lane(s)
-    g = free_throw_lane(g, league, include_amateur, full_surf, rotate, rotation_dir)
+    g = basketball_free_throw_lane(g, league, include_amateur, full_surf, rotate, rotation_dir)
 
     # Add the free-throw lane lines
-    g = free_throw_lane_lines(g, league, include_amateur, full_surf, rotate, rotation_dir)
+    g = basketball_free_throw_lane_lines(g, league, include_amateur, full_surf, rotate, rotation_dir)
 
     # Add the free-throw semi-circle(s)
-    g = free_throw_semi_circle(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_free_throw_semi_circle(g, league, full_surf, rotate, rotation_dir)
 
     # Add the dashed free-throw semi-circle(s) (NBA only)
-    g = free_throw_dashed_semi_circle(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_free_throw_dashed_semi_circle(g, league, full_surf, rotate, rotation_dir)
 
     # Add the restricted area arc(s)
-    g = restricted_area_arc(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_restricted_area_arc(g, league, full_surf, rotate, rotation_dir)
 
     # Add the lower defensive box(es)
-    g = lower_defensive_box(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_lower_defensive_box(g, league, full_surf, rotate, rotation_dir)
 
     # Add the backboard(s)
-    g = backboard(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_backboard(g, league, full_surf, rotate, rotation_dir)
 
     # Add the basket ring(s)
-    g = basket_ring(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_basket_ring(g, league, full_surf, rotate, rotation_dir)
 
     # Add the net(s)
-    g = net(g, league, full_surf, rotate, rotation_dir)
+    g = basketball_net(g, league, full_surf, rotate, rotation_dir)
 
     # Return the ggplot2 instance that contains the court plot
     return(g)
@@ -4204,8 +4204,3 @@ geom_basketball = function(league, include_amateur = TRUE, include_m_line = TRUE
     return(0)
   }
 }
-
-# geom_basketball('NBA')
-# geom_basketball('WNBA')
-# geom_basketball('NCAA')
-# geom_basketball('FIBA')
