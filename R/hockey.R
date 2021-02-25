@@ -187,7 +187,7 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
   }
 
   else{
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 
@@ -338,7 +338,7 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
@@ -464,7 +464,7 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
@@ -641,7 +641,7 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
@@ -1216,7 +1216,7 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }
@@ -1390,7 +1390,7 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHf), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
     return(g)
   }
 }

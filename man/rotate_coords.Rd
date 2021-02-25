@@ -11,8 +11,7 @@ rotate_coords(df, rotation_dir = "ccw", angle = 0.5)
 \arguments{
 \item{df}{The dataframe to rotate. It must have \code{x} and \code{y} columns}
 
-\item{rotation_dir}{The direction in which to rotate the coordinates. \code{ccw} corresponds
-to counterclockwise}
+\item{rotation_dir}{The direction in which to rotate the coordinates. \code{ccw} corresponds to counterclockwise}
 
 \item{angle}{the angle (in radians, divided by pi) through which to rotate the coordinates}
 }

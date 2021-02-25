@@ -2,8 +2,7 @@
 % Please edit documentation in R/create_shapes.R
 \name{create_diamond}
 \alias{create_diamond}
-\title{Create a set of x and y coordinates that form a diamond This function
-is a wrapper on create_rectangle() above}
+\title{Create a set of x and y coordinates that form a diamond This function is a wrapper on create_rectangle() above}
 \usage{
 create_diamond(height, width, center = c(0, 0))
 }
@@ -18,6 +17,5 @@ create_diamond(height, width, center = c(0, 0))
 A dataframe containing the points needed to draw the specified diamond
 }
 \description{
-Create a set of x and y coordinates that form a diamond This function
-is a wrapper on create_rectangle() above
+Create a set of x and y coordinates that form a diamond This function is a wrapper on create_rectangle() above
 }
