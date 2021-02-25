@@ -32,8 +32,7 @@ create_rectangle = function(x_min, x_max, y_min, y_max){
   return(rectangle_coords)
 }
 
-#' Create a set of x and y coordinates that form a square. This function
-#' is a wrapper on create_rectangle() above
+#' Create a set of x and y coordinates that form a square. This function is a wrapper on create_rectangle() above
 #'
 #' @param side_length The length of the side of the square
 #' @param center The center coordinates of the square
@@ -49,8 +48,7 @@ create_square = function(side_length, center = c(0, 0)){
   return(square_coords)
 }
 
-#' Create a set of x and y coordinates that form a diamond This function
-#' is a wrapper on create_rectangle() above
+#' Create a set of x and y coordinates that form a diamond This function is a wrapper on create_rectangle() above
 #'
 #' @param height The vertical height of the diamond
 #' @param width The horizontal width of the diamond
