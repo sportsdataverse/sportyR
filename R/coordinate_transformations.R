@@ -21,8 +21,7 @@ reflect = function(df, over_x = FALSE, over_y = TRUE){
 #' y' = x \* sin(theta) + y \* cos(theta)
 #'
 #' @param df The dataframe to rotate. It must have \code{x} and \code{y} columns
-#' @param rotation_dir The direction in which to rotate the coordinates. \code{ccw} corresponds
-#' to counterclockwise
+#' @param rotation_dir The direction in which to rotate the coordinates. \code{ccw} corresponds to counterclockwise
 #' @param angle the angle (in radians, divided by pi) through which to rotate the coordinates
 #' @return The rotated dataframe
 rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
