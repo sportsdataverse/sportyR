@@ -15,7 +15,7 @@ hockey_goal_line(
 \arguments{
 \item{g}{A ggplot2 instance on which to add the feature}
 
-\item{league}{The league for which to draw the surface.}
+\item{league}{The league for which to draw the surface}
 
 \item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
 

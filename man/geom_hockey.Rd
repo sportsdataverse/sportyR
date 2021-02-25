@@ -7,7 +7,7 @@
 geom_hockey(league, full_surf = TRUE, rotate = FALSE, rotation_dir = "ccw")
 }
 \arguments{
-\item{league}{The league for which to draw the surface.}
+\item{league}{The league for which to draw the surface}
 
 \item{full_surf}{A boolean indicating whether or not to plot a full surface represenation of the surface. Default: TRUE}
 

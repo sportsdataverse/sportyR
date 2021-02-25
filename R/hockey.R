@@ -3,7 +3,7 @@ usethis::use_package("ggplot2")
 #' Generate the dataframe for the points that comprise the boards
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
@@ -221,7 +221,7 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
 #' Generate the dataframe for the points that comprise the center line
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
@@ -346,7 +346,7 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
 #' Generate the dataframe for the points that comprise the blue line(s)
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
@@ -472,7 +472,7 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
 #' Generate the dataframe for the points that comprise the goal line
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
@@ -649,7 +649,7 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
 #' Generate the dataframe for the points that comprise the goalkeeper's restricted area
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
@@ -722,7 +722,7 @@ hockey_goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRU
 #' Generate the dataframe for the points that comprise the goal crease
 #'
 #' @param g A ggplot2 instance on which to add the feature
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
@@ -2551,7 +2551,7 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
 
 #' Generate a ggplot2 instance containing an ice rink for a specified league
 #'
-#' @param league The league for which to draw the surface.
+#' @param league The league for which to draw the surface
 #' @param full_surf A boolean indicating whether or not to plot a full surface represenation of the surface. Default: TRUE
 #' @param rotate A boolean indicating whether or not the final rink plot needs to be rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the final rink plot Default: 'ccw'
