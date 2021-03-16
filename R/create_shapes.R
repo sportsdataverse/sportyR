@@ -72,4 +72,6 @@ create_diamond = function(height, width, center = c(0, 0)){
       center[2]
     )
   )
+
+  return(diamond_coords)
 }
