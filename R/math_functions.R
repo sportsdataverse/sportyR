@@ -1,4 +1,5 @@
-#' Deploy the quadratic formula given inputs a, b, and c such that they satisfy the equation (a * (x ^ 2)) + bx + c = 0
+#' Deploy the quadratic formula given inputs a, b, and c such that they satisfy
+#' the equation (a * (x ^ 2)) + bx + c = 0
 #'
 #' @param a The coefficient of the squared term
 #' @param b The coefficient of the linear term

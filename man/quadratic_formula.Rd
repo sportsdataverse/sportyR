@@ -2,7 +2,8 @@
 % Please edit documentation in R/math_functions.R
 \name{quadratic_formula}
 \alias{quadratic_formula}
-\title{Deploy the quadratic formula given inputs a, b, and c such that they satisfy the equation (a * (x ^ 2)) + bx + c = 0}
+\title{Deploy the quadratic formula given inputs a, b, and c such that they satisfy
+the equation (a * (x ^ 2)) + bx + c = 0}
 \usage{
 quadratic_formula(a, b, c)
 }
@@ -17,5 +18,6 @@ quadratic_formula(a, b, c)
 The solutions to the equation
 }
 \description{
-Deploy the quadratic formula given inputs a, b, and c such that they satisfy the equation (a * (x ^ 2)) + bx + c = 0
+Deploy the quadratic formula given inputs a, b, and c such that they satisfy
+the equation (a * (x ^ 2)) + bx + c = 0
 }
