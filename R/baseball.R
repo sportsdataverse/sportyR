@@ -1,4 +1,5 @@
 usethis::use_package("ggplot2")
+usethis::use_package("glue")
 
 #' This draws a baseball diamond in its standard coordinate system, with (0, 0)
 #' being the back tip of home plate. The positive x direction extends to the
@@ -567,7 +568,6 @@ geom_baseball = function(league){
   }
 
   else {
-    message(paste('Sorry,', league, 'does not exist yet.'))
-    return(0)
+    stop(message(glue::glue("Sorry, {league} is not a valid league.")))
   }
 }

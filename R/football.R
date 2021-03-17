@@ -1,4 +1,5 @@
 usethis::use_package("ggplot2")
+usethis::use_package("glue")
 
 #' This draws a football field in its standard coordinate system, with (0, 0)
 #' being the bottom left corner of the left-most endzone. Each unit on the
@@ -1166,7 +1167,6 @@ geom_football = function(league, rotate = FALSE, rotation_dir = 'ccw'){
   }
 
   else {
-    message(paste('Sorry,', league, 'does not exist yet.'))
-    return(0)
+    stop(message(glue::glue("Sorry, {league} is not a valid league.")))
   }
 }

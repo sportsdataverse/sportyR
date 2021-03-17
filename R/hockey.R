@@ -1,4 +1,5 @@
 usethis::use_package("ggplot2")
+usethis::use_package("glue")
 
 #' Generate the dataframe for the points that comprise the boards
 #'
@@ -2749,8 +2750,7 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   }
 
   else {
-    message(paste('Sorry,', league, 'does not exist yet.'))
-    return(0)
+    stop(message(glue::glue("Sorry, {league} is not a valid league.")))
   }
 
   if(full_surf){
