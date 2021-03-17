@@ -2,7 +2,8 @@
 % Please edit documentation in R/baseball.R
 \name{baseball_batters_boxes}
 \alias{baseball_batters_boxes}
-\title{Generate the dataframe for the points that comprise the batter's boxes and catcher's box}
+\title{Generate the dataframe for the points that comprise the batter's boxes and
+catcher's box}
 \usage{
 baseball_batters_boxes(g, league)
 }
@@ -12,8 +13,10 @@ baseball_batters_boxes(g, league)
 \item{league}{The league for which to draw the surface}
 }
 \value{
-A ggplot2 instance with the batter's boxes and catcher's box added to it
+A ggplot2 instance with the batter's boxes and catcher's box added to
+it
 }
 \description{
-Generate the dataframe for the points that comprise the batter's boxes and catcher's box
+Generate the dataframe for the points that comprise the batter's boxes and
+catcher's box
 }

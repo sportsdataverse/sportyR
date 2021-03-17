@@ -18,13 +18,18 @@ basketball_free_throw_lane_lines(
 
 \item{league}{The league for which to draw the surface}
 
-\item{include_amateur}{A boolean indicating whether or not to include amateur free-throw lane markings (some professional (W)NBA courts include amateur free-throw lane markings)}
+\item{include_amateur}{A boolean indicating whether or not to include amateur
+free-throw lane markings (some professional (W)NBA courts include amateur
+free-throw lane markings)}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not this feature is needed
+for a full-surface representation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
 A ggplot2 instance with the free-throw lane lines added to it

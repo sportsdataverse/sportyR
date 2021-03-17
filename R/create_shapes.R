@@ -1,10 +1,16 @@
-#' Create a set of x and y coordinates that form a circle (or the arc of a circle)
+#' Create a set of x and y coordinates that form a circle (or the arc of a
+#' circle)
 #'
-#' @param center The (x, y) coordinates of the center of the circle. Default: (0, 0)
-#' @param npoints The number of points with which to create the circle. This will also be the length of the resulting data frame. Default: 1000
-#' @param d The diameter of the circle IN THE UNITS OF THE PLOT. This default unit will be feet. Default: 2 (unit circle)
-#' @param start The angle (in radians, divided by pi) at which to start drawing the circle, where zero runs along the +x axis. Default: 0
-#' @param end The angle (in radians, divided by pi) at which to stop drawing the circle, where zero runs along the +x axis. Default: 2
+#' @param center The (x, y) coordinates of the center of the circle. Default:
+#'   (0, 0)
+#' @param npoints The number of points with which to create the circle. This
+#'   will also be the length of the resulting data frame. Default: 1000
+#' @param d The diameter of the circle IN THE UNITS OF THE PLOT. This default
+#'   unit will be feet. Default: 2 (unit circle)
+#' @param start The angle (in radians, divided by pi) at which to start drawing
+#'   the circle, where zero runs along the +x axis. Default: 0
+#' @param end The angle (in radians, divided by pi) at which to stop drawing the
+#'   circle, where zero runs along the +x axis. Default: 2
 #' @return A dataframe containing the points needed to draw the specified circle
 create_circle = function(center = c(0, 0), npoints = 1000, d = 2, start = 0, end = 2) {
   pts = seq(start * pi, end * pi, length.out = npoints)
@@ -22,7 +28,8 @@ create_circle = function(center = c(0, 0), npoints = 1000, d = 2, start = 0, end
 #' @param x_max The maximum value of x
 #' @param y_min The minimum value of y
 #' @param y_max The maximum value of y
-#' @return A dataframe containing the points needed to draw the specified rectangle
+#' @return A dataframe containing the points needed to draw the specified
+#'   rectangle
 create_rectangle = function(x_min, x_max, y_min, y_max){
   rectangle_coords = data.frame(
     x = c(x_min, x_max, x_max, x_min, x_min),
@@ -32,7 +39,8 @@ create_rectangle = function(x_min, x_max, y_min, y_max){
   return(rectangle_coords)
 }
 
-#' Create a set of x and y coordinates that form a square. This function is a wrapper on create_rectangle() above
+#' Create a set of x and y coordinates that form a square. This function is a
+#' wrapper on create_rectangle() above
 #'
 #' @param side_length The length of the side of the square
 #' @param center The center coordinates of the square
@@ -48,12 +56,14 @@ create_square = function(side_length, center = c(0, 0)){
   return(square_coords)
 }
 
-#' Create a set of x and y coordinates that form a diamond This function is a wrapper on create_rectangle() above
+#' Create a set of x and y coordinates that form a diamond This function is a
+#' wrapper on create_rectangle() above
 #'
 #' @param height The vertical height of the diamond
 #' @param width The horizontal width of the diamond
 #' @param center The center coordinates of the diamond
-#' @return A dataframe containing the points needed to draw the specified diamond
+#' @return A dataframe containing the points needed to draw the specified
+#'   diamond
 create_diamond = function(height, width, center = c(0, 0)){
   diamond_coords = data.frame(
     x = c(

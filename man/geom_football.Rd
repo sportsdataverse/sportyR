@@ -2,22 +2,27 @@
 % Please edit documentation in R/football.R
 \name{geom_football}
 \alias{geom_football}
-\title{Generate a ggplot2 instance containing a regulation football field for a specified league}
+\title{Generate a ggplot2 instance containing a regulation football field for a
+specified league}
 \usage{
 geom_football(league, rotate = FALSE, rotation_dir = "ccw")
 }
 \arguments{
 \item{league}{The league for which to draw the surface}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated. Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
-A ggplot2 instance with a full-surface representation of a football field
+A ggplot2 instance with a full-surface representation of a football
+field
 }
 \description{
-Generate a ggplot2 instance containing a regulation football field for a specified league
+Generate a ggplot2 instance containing a regulation football field for a
+specified league
 }
 \examples{
 geom_football(league = "NFL")

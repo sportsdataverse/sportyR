@@ -11,9 +11,11 @@ football_yard_markings(g, league, rotate = FALSE, rotation_dir = "ccw")
 
 \item{league}{The league for which to draw the surface}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated. Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
 A ggplot2 instance with the yard lines added to it

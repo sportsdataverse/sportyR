@@ -2,7 +2,8 @@
 % Please edit documentation in R/baseball.R
 \name{baseball_lines}
 \alias{baseball_lines}
-\title{Generate the dataframe for the points that comprise the baselines and the running lane}
+\title{Generate the dataframe for the points that comprise the baselines and the
+running lane}
 \usage{
 baseball_lines(g, league)
 }
@@ -15,5 +16,6 @@ baseball_lines(g, league)
 A ggplot2 instance with the baselines and running lane added to it
 }
 \description{
-Generate the dataframe for the points that comprise the baselines and the running lane
+Generate the dataframe for the points that comprise the baselines and the
+running lane
 }

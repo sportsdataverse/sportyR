@@ -16,7 +16,8 @@ create_rectangle(x_min, x_max, y_min, y_max)
 \item{y_max}{The maximum value of y}
 }
 \value{
-A dataframe containing the points needed to draw the specified rectangle
+A dataframe containing the points needed to draw the specified
+rectangle
 }
 \description{
 Create a set of x and y coordinates that form a rectangle

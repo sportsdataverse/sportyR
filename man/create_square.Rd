@@ -2,7 +2,8 @@
 % Please edit documentation in R/create_shapes.R
 \name{create_square}
 \alias{create_square}
-\title{Create a set of x and y coordinates that form a square. This function is a wrapper on create_rectangle() above}
+\title{Create a set of x and y coordinates that form a square. This function is a
+wrapper on create_rectangle() above}
 \usage{
 create_square(side_length, center = c(0, 0))
 }
@@ -15,5 +16,6 @@ create_square(side_length, center = c(0, 0))
 A dataframe containing the points needed to draw the specified square
 }
 \description{
-Create a set of x and y coordinates that form a square. This function is a wrapper on create_rectangle() above
+Create a set of x and y coordinates that form a square. This function is a
+wrapper on create_rectangle() above
 }

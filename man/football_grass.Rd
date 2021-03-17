@@ -2,7 +2,10 @@
 % Please edit documentation in R/football.R
 \name{football_grass}
 \alias{football_grass}
-\title{This draws a football field in its standard coordinate system, with (0, 0) being the bottom left corner of the left-most endzone. Each unit on the coordinate system corresponds to 1 yard. The entire field will always be provided, although this may change in a future iteration
+\title{This draws a football field in its standard coordinate system, with (0, 0)
+being the bottom left corner of the left-most endzone. Each unit on the
+coordinate system corresponds to 1 yard. The entire field will always be
+provided, although this may change in a future iteration
 Generate the dataframe for the points that comprise the grass background}
 \usage{
 football_grass(g, league, rotate = FALSE, rotation_dir = "ccw")
@@ -12,14 +15,19 @@ football_grass(g, league, rotate = FALSE, rotation_dir = "ccw")
 
 \item{league}{The league for which to draw the surface}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated. Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
 A ggplot2 instance with the grass added to it
 }
 \description{
-This draws a football field in its standard coordinate system, with (0, 0) being the bottom left corner of the left-most endzone. Each unit on the coordinate system corresponds to 1 yard. The entire field will always be provided, although this may change in a future iteration
+This draws a football field in its standard coordinate system, with (0, 0)
+being the bottom left corner of the left-most endzone. Each unit on the
+coordinate system corresponds to 1 yard. The entire field will always be
+provided, although this may change in a future iteration
 Generate the dataframe for the points that comprise the grass background
 }

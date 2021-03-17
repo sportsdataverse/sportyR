@@ -1,6 +1,10 @@
 usethis::use_package("ggplot2")
 
-#' This draws a baseball diamond in its standard coordinate system, with (0, 0) being the back tip of home plate. The positive x direction extends to the first-base side of the field, and the positive y direction extends towards the pitcher's mound. The entire field will always be provided and will not rotate, although this may change in a future iteration
+#' This draws a baseball diamond in its standard coordinate system, with (0, 0)
+#' being the back tip of home plate. The positive x direction extends to the
+#' first-base side of the field, and the positive y direction extends towards
+#' the pitcher's mound. The entire field will always be provided and will not
+#' rotate, although this may change in a future iteration
 
 #' Generate the dataframe for the points that comprise home plate
 #'
@@ -12,7 +16,11 @@ baseball_infield_dirt = function(g, league){
   x = y = NULL
 
   if(league %in% c('MLB', 'NCAA')){
-    # The infield dirt follows an arc of radius 95' from the front-center point on the pitcher's mound, then goes down the base paths to a circle of diameter 26' centered at home plate, then back out along the third base line. The base paths themselves are 6' wide, with the outer edge of the foul line (y = x) in its center.
+    # The infield dirt follows an arc of radius 95' from the front-center point
+    # on the pitcher's mound, then goes down the base paths to a circle of
+    # diameter 26' centered at home plate, then back out along the third base
+    # line. The base paths themselves are 6' wide, with the outer edge of the
+    # foul line (y = x) in its center.
     a = 2
     b = (2 * (((45 - (3 * sin(pi/4))) - (45 + (3 * cos(pi/4)))) - 60.5))
     c =  (((((45 - (3 * sin(pi/4))) - (45 + (3 * cos(pi/4)))) - 60.5) ** 2) - (95 ** 2))
@@ -86,8 +94,11 @@ baseball_infield_grass = function(g, league){
   x = y = NULL
 
   if(league %in% c('MLB', 'NCAA')){
-    # Following a similar process to how the infield dirt was created, the infield grass can also be created
-    # The circle around home plate has diameter 26' (r = 13) and is centered at (0, 0). The infield grass must intersect the line given by y = -x + 3
+    # Following a similar process to how the infield dirt was created, the
+    # infield grass can also be created
+
+    # The circle around home plate has diameter 26' (r = 13) and is centered at
+    # (0, 0). The infield grass must intersect the line given by y = -x + 3
     # ((x - 0) ^ 2) + ((y - 0) ^ 2) = 13 ^ 2
     # (x ^ 2) + ((-x + 3) ^ 2) = 13 ^ 2
     # (x ^ 2) + (x ^ 2) - 6x + 9 = 169
@@ -97,7 +108,8 @@ baseball_infield_grass = function(g, league){
     c = -160
     quadratic_results = quadratic_formula(a, b, c)
 
-    # Since this point is on the third base side of the field, x must be negative
+    # Since this point is on the third base side of the field, x must be
+    # negative
     x_start = quadratic_results[which(quadratic_results < 0)]
 
     # Now the angle can be determined (and subsequently divided by pi)
@@ -112,7 +124,8 @@ baseball_infield_grass = function(g, league){
       d = 26
     )
 
-    # First base, second base, and third base are just rotations and translations of these coordinates
+    # First base, second base, and third base are just rotations and
+    # translations of these coordinates
     first_base_dirt_circle = rotate_coords(
       home_plate_dirt_circle,
       rotation_dir = 'ccw'
@@ -154,9 +167,11 @@ baseball_infield_grass = function(g, league){
       home_plate_dirt_circle[1, ]
     )
 
+    # Add the infield grass to the ggplot2 instance. It will be green in color
     g = g +
       ggplot2::geom_polygon(data = infield_grass, ggplot2::aes(x, y), fill = '#395d33')
 
+    # Return the ggplot2 instance
     return(g)
   }
 
@@ -166,11 +181,13 @@ baseball_infield_grass = function(g, league){
   }
 }
 
-#' Generate the dataframe for the points that comprise the pitcher's mound and pitcher's plate
+#' Generate the dataframe for the points that comprise the pitcher's mound and
+#' pitcher's plate
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @return A ggplot2 instance with the pitcher's mound and pitcher's plate added to it
+#' @return A ggplot2 instance with the pitcher's mound and pitcher's plate added
+#'   to it
 baseball_mound = function(g, league){
   # Initialize x and y (to pass checks)
   x = y = NULL
@@ -191,9 +208,14 @@ baseball_mound = function(g, league){
       y_max = 61
     )
 
+    # Add the mound and pitcher's plate to the ggplot2 instance. The mound will
+    # be tan in color, and the pitcher's plate will be white
     g = g +
       ggplot2::geom_polygon(data = mound, ggplot2::aes(x, y), fill = '#9b7653') +
       ggplot2::geom_polygon(data = pitchers_plate, ggplot2::aes(x, y), fill = '#ffffff')
+
+    # Return the ggplot2 instance
+    return(g)
   }
 
   else{
@@ -233,7 +255,8 @@ baseball_bases = function(g, league){
       )
     )
 
-    # First base and third base are 15" squares with their furthest corners (lying on the foul line) from the tip of home plate a distance of 90'
+    # First base and third base are 15" squares with their furthest corners
+    # (lying on the foul line) from the tip of home plate a distance of 90'
     first_base_bag = data.frame(
       x = c(
         44.375 * sqrt(2),
@@ -270,7 +293,8 @@ baseball_bases = function(g, league){
       )
     )
 
-    # The center of the second base bag is 127' 3 3/8" from the back tip of home plate. It is also a 15" square
+    # The center of the second base bag is 127' 3 3/8" from the back tip of home
+    # plate. It is also a 15" square
     second_base_center = 127 + (3/12) + ((3/8)/12)
     second_base_bag = data.frame(
       x = c(
@@ -307,11 +331,13 @@ baseball_bases = function(g, league){
   }
 }
 
-#' Generate the dataframe for the points that comprise the batter's boxes and catcher's box
+#' Generate the dataframe for the points that comprise the batter's boxes and
+#' catcher's box
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @return A ggplot2 instance with the batter's boxes and catcher's box added to it
+#' @return A ggplot2 instance with the batter's boxes and catcher's box added to
+#'   it
 baseball_batters_boxes = function(g, league){
   # Initialize x and y (to pass checks)
   x = y = NULL
@@ -360,7 +386,8 @@ baseball_batters_boxes = function(g, league){
       )
     )
 
-    # The righty's batter's box is the same as the lefty's, but reflected over the y axis
+    # The righty's batter's box is the same as the lefty's, but reflected over
+    # the y axis
     righty_batters_box = reflect(
       lefty_batters_box,
       over_y = TRUE
@@ -393,7 +420,8 @@ baseball_batters_boxes = function(g, league){
       )
     )
 
-    # Add the batters' boxes and catcher's box to the ggplot2 instance. They will be white in color
+    # Add the batters' boxes and catcher's box to the ggplot2 instance. They
+    # will be white in color
     g = g +
       ggplot2::geom_polygon(data = lefty_batters_box, ggplot2::aes(x, y), fill = '#ffffff') +
       ggplot2::geom_polygon(data = righty_batters_box, ggplot2::aes(x, y), fill = '#ffffff') +
@@ -409,7 +437,8 @@ baseball_batters_boxes = function(g, league){
   }
 }
 
-#' Generate the dataframe for the points that comprise the baselines and the running lane
+#' Generate the dataframe for the points that comprise the baselines and the
+#' running lane
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
@@ -438,7 +467,8 @@ baseball_lines = function(g, league){
       )
     )
 
-    # The left field line is the reflection of the right field line over the y axis
+    # The left field line is the reflection of the right field line over the y
+    # axis
     lf_line = reflect(
       rf_line,
       over_y = TRUE
@@ -465,7 +495,8 @@ baseball_lines = function(g, league){
       )
     )
 
-    # Add the left field line, right field line, and running lane to the ggplot2 instance. They will be white in color
+    # Add the left field line, right field line, and running lane to the ggplot2
+    # instance. They will be white in color
     g = g +
       ggplot2::geom_polygon(data = rf_line, ggplot2::aes(x, y), fill = '#ffffff') +
       ggplot2::geom_polygon(data = lf_line, ggplot2::aes(x, y), fill = '#ffffff') +
@@ -474,13 +505,20 @@ baseball_lines = function(g, league){
     # Return the ggplot2 instance
     return(g)
   }
+
+  else{
+    # If the league isn't valid (i.e. MLB, NCAA), return the ggplot2 instance
+    return(g)
+  }
 }
 
-#' Generate a ggplot2 instance containing a regulation baseball field for a specified league
+#' Generate a ggplot2 instance containing a regulation baseball field for a
+#' specified league
 #'
 #' @param league The league for which to draw the surface
 #'
-#' @return A ggplot2 instance with a full-surface representation of a baseball field
+#' @return A ggplot2 instance with a full-surface representation of a baseball
+#'   field
 #'
 #' @export
 #'

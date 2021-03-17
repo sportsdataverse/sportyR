@@ -1,13 +1,18 @@
 usethis::use_package("ggplot2")
 
-#' This draws a football field in its standard coordinate system, with (0, 0) being the bottom left corner of the left-most endzone. Each unit on the coordinate system corresponds to 1 yard. The entire field will always be provided, although this may change in a future iteration
+#' This draws a football field in its standard coordinate system, with (0, 0)
+#' being the bottom left corner of the left-most endzone. Each unit on the
+#' coordinate system corresponds to 1 yard. The entire field will always be
+#' provided, although this may change in a future iteration
 
 #' Generate the dataframe for the points that comprise the grass background
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the grass added to it
 football_grass = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
@@ -39,7 +44,8 @@ football_grass = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
@@ -48,15 +54,18 @@ football_grass = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the sidelines added to it
 football_sideline = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NFL', 'NCAA')){
-    # The sidelines are solid white and 6' (2 yards) in width. Their interior edges form the boundary line of the field
+    # The sidelines are solid white and 6' (2 yards) in width. Their interior
+    # edges form the boundary line of the field
     sideline_lower = create_rectangle(
       x_min = -2,
       x_max = 120,
@@ -94,7 +103,8 @@ football_sideline = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
@@ -103,15 +113,18 @@ football_sideline = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the endline added to it
 football_endline = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NFL', 'NCAA')){
-    # The endlines are solid white and 6' (2 yards) in width. Their interior edges form the boundary line of the field
+    # The endlines are solid white and 6' (2 yards) in width. Their interior
+    # edges form the boundary line of the field
     endline_left = create_rectangle(
       x_min = -2,
       x_max = 0,
@@ -149,7 +162,8 @@ football_endline = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
@@ -158,15 +172,18 @@ football_endline = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the goal line added to it
 football_goal_line = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NFL', 'NCAA')){
-    # The goal lines are solid white and 8" in width and span the entire width of the field. Their interior edges form the boundary line of the field
+    # The goal lines are solid white and 8" in width and span the entire width
+    # of the field. Their interior edges form the boundary line of the field
     goal_line_left = create_rectangle(
       x_min = 10 - inches_to_yd(8),
       x_max = 10,
@@ -204,7 +221,8 @@ football_goal_line = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
@@ -213,18 +231,28 @@ football_goal_line = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the yard lines added to it
 football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league == 'NFL'){
-    # The lines are to be placed 8" from the interior of the sidelines, and be 4" wide. At 5-yard intervals across the field, the lines should stretch the width of the field, with a 2' long by 4" wide hash 70' 9" from the interior of the nearest boundary. At 1-yard intervals between these markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed 8" from the interior of the sideline as well as 70' 9" from the interior of the sideline (and extending back towards the sideline)
+    # The lines are to be placed 8" from the interior of the sidelines, and be
+    # 4" wide. At 5-yard intervals across the field, the lines should stretch
+    # the width of the field, with a 2' long by 4" wide hash 70' 9" from the
+    # interior of the nearest boundary. At 1-yard intervals between these
+    # markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed
+    # 8" from the interior of the sideline as well as 70' 9" from the interior
+    # of the sideline (and extending back towards the sideline)
     for(yardage in 11:109){
       if(yardage %% 5 == 0){
-        # At 5-yard intervals, the line should stretch the width of the field, with the inbound line marker 70'9" from the interior of the sideline boundary
+        # At 5-yard intervals, the line should stretch the width of the field,
+        # with the inbound line marker 70'9" from the interior of the sideline
+        # boundary
         yard_marking = data.frame(
           x = c(
             # Start 8" from the sideline
@@ -317,13 +345,16 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
           )
         }
 
-        # Add the yard marking to the plot. It will be white in color
+        # Add the yard marking to the plot. They will be white in color
         g = g +
           ggplot2::geom_polygon(data = yard_marking, ggplot2::aes(x, y), fill = '#ffffff')
       }
 
       else {
-        # At 1-yard intervals, the line should be 2' long. The line should appear at the bottom (b) and top (t) of the field inside the 6' wide boundary, and also appear at 70'9" from the nearest boundary and extending from this point towards that boundary (l and u)
+        # At 1-yard intervals, the line should be 2' long. The line should
+        # appear at the bottom (b) and top (t) of the field inside the 6' wide
+        # boundary, and also appear at 70'9" from the nearest boundary and
+        # extending from this point towards that boundary (l and u)
         yard_marking_b = create_rectangle(
           x_min = yardage - inches_to_yd(2),
           x_max = yardage + inches_to_yd(2),
@@ -375,7 +406,7 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
           )
         }
 
-        # Add the yard markings to the plot. It will be white in color
+        # Add the yard markings to the plot. They will be white in color
         g = g +
           ggplot2::geom_polygon(data = yard_marking_b, ggplot2::aes(x, y), fill = '#ffffff') +
           ggplot2::geom_polygon(data = yard_marking_l, ggplot2::aes(x, y), fill = '#ffffff') +
@@ -389,10 +420,18 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
   }
 
   else if(league == 'NCAA'){
-    # The lines are to be placed 4" from the interior of the sidelines, and be 4" wide. At 5-yard intervals across the field, the lines should stretch the width of the field, with a 2' long by 4" wide hash 60' from the interior of the nearest boundary. At 1-yard intervals between these markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed 4" from the interior of the sideline as well as 60' from the interior of the sideline (and extending back towards the sideline)
+    # The lines are to be placed 4" from the interior of the sidelines, and be
+    # 4" wide. At 5-yard intervals across the field, the lines should stretch
+    # the width of the field, with a 2' long by 4" wide hash 60' from the
+    # interior of the nearest boundary. At 1-yard intervals between these
+    # markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed
+    # 4" from the interior of the sideline as well as 60' from the interior of
+    # the sideline (and extending back towards the sideline)
     for(yardage in 11:109){
       if(yardage %% 5 == 0){
-        # At 5-yard intervals, the line should stretch the width of the field, with the inbound line marker 70'9" from the interior of the sideline boundary
+        # At 5-yard intervals, the line should stretch the width of the field,
+        # with the inbound line marker 70'9" from the interior of the sideline
+        # boundary
         yard_marking = data.frame(
           x = c(
             # Start 4" from the sideline
@@ -485,13 +524,16 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
           )
         }
 
-        # Add the yard marking to the plot. It will be white in color
+        # Add the yard marking to the plot. They will be white in color
         g = g +
           ggplot2::geom_polygon(data = yard_marking, ggplot2::aes(x, y), fill = '#ffffff')
       }
 
       else {
-        # At 1-yard intervals, the line should be 2' long. The line should appear at the bottom (b) and top (t) of the field inside the 6' wide boundary, and also appear at 70'9" from the nearest boundary and extending from this point towards that boundary (l and u)
+        # At 1-yard intervals, the line should be 2' long. The line should
+        # appear at the bottom (b) and top (t) of the field inside the 6' wide
+        # boundary, and also appear at 70'9" from the nearest boundary and
+        # extending from this point towards that boundary (l and u)
         yard_marking_b = create_rectangle(
           x_min = yardage - inches_to_yd(2),
           x_max = yardage + inches_to_yd(2),
@@ -543,7 +585,7 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
           )
         }
 
-        # Add the yard markings to the plot. It will be white in color
+        # Add the yard markings to the plot. They will be white in color
         g = g +
           ggplot2::geom_polygon(data = yard_marking_b, ggplot2::aes(x, y), fill = '#ffffff') +
           ggplot2::geom_polygon(data = yard_marking_l, ggplot2::aes(x, y), fill = '#ffffff') +
@@ -557,7 +599,8 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
@@ -566,15 +609,18 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the try lines added to it
 football_try_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league == 'NFL'){
-    # The NFL try line is at the 2-yard line, is 1-yard in length (centered at the midpoint of the goal line), and has a 2" width
+    # The NFL try line is at the 2-yard line, is 1-yard in length (centered at
+    # the midpoint of the goal line), and has a 2" width
     try_line_left = create_rectangle(
       x_min = 12 - inches_to_yd(2),
       x_max = 12 + inches_to_yd(2),
@@ -612,7 +658,8 @@ football_try_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
   }
 
   else if(league == 'NCAA'){
-    # The NCAA try line is at the 3-yard line, is 1-yard in length (centered at the midpoint of the goal line), and has a 2" width
+    # The NCAA try line is at the 3-yard line, is 1-yard in length (centered at
+    # the midpoint of the goal line), and has a 2" width
     try_line_left = create_rectangle(
       x_min = 13 - inches_to_yd(2),
       x_max = 13 + inches_to_yd(2),
@@ -650,7 +697,8 @@ football_try_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
@@ -659,25 +707,32 @@ football_try_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the directional arrows added to it
 football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem can be used to determine the height (using half the length of the base, which in this case is 18")
+  # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem
+  # can be used to determine the height (using half the length of the base,
+  # which in this case is 18")
   arrow_width = sqrt((inches_to_yd(36) ** 2) - (inches_to_yd(9) ** 2))
 
   if(league == 'NFL'){
     for(yardage in seq(20, 100, 10)){
-      # The directional arrows should not be drawn at the 50-yard line. Other than that, an arrow should be drawn every 10 yards
+      # The directional arrows should not be drawn at the 50-yard line. Other
+      # than that, an arrow should be drawn every 10 yards
 
       if(yardage < 60){
         # Draw the directional arrow that's below the middle point of the field
         directional_arrow_lower = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
@@ -685,7 +740,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior of the sideline. The number itself is then 6' tall, and the top tip of the arrow is 15" below this line
+            # The bottom of the numbers must be 12 yards (36') off the interior
+            # of the sideline. The number itself is then 6' tall, and the top
+            # tip of the arrow is 15" below this line
             14 - inches_to_yd(15),
             14 - inches_to_yd(15) - inches_to_yd(18),
             14 - inches_to_yd(15) - inches_to_yd(9),
@@ -696,7 +753,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         # Draw the directional arrow that's above the middle point of the field
         directional_arrow_upper = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
@@ -704,7 +763,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior of the sideline. The number itself is then 6' tall, and the top tip of the arrow is 15" below this line
+            # The bottom of the numbers must be 12 yards (36') off the interior
+            # of the sideline. The number itself is then 6' tall, and the top
+            # tip of the arrow is 15" below this line
             53.3 - 14 + inches_to_yd(15),
             53.3 - 14 + inches_to_yd(15) + inches_to_yd(18),
             53.3 - 14 + inches_to_yd(15) + inches_to_yd(9),
@@ -717,7 +778,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         # Draw the directional arrow that's below the middle point of the field
         directional_arrow_lower = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
@@ -725,7 +788,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior of the sideline. The number itself is then 6' tall, and the top tip of the arrow is 15" below this line
+            # The bottom of the numbers must be 12 yards (36') off the interior
+            # of the sideline. The number itself is then 6' tall, and the top
+            # tip of the arrow is 15" below this line
             14 - inches_to_yd(15),
             14 - inches_to_yd(15) - inches_to_yd(18),
             14 - inches_to_yd(15) - inches_to_yd(9),
@@ -736,7 +801,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         # Draw the directional arrow that's above the middle point of the field
         directional_arrow_upper = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
@@ -744,7 +811,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior of the sideline. The number itself is then 6' tall, and the top tip of the arrow is 15" below this line
+            # The bottom of the numbers must be 12 yards (36') off the interior
+            # of the sideline. The number itself is then 6' tall, and the top
+            # tip of the arrow is 15" below this line
             53.3 - 14 + inches_to_yd(15),
             53.3 - 14 + inches_to_yd(15) + inches_to_yd(18),
             53.3 - 14 + inches_to_yd(15) + inches_to_yd(9),
@@ -766,7 +835,7 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         )
       }
 
-      # Add the directional arrow to the plot. It will be white in color
+      # Add the directional arrow to the plot. They will be white in color
       g = g +
         ggplot2::geom_polygon(data = directional_arrow_lower, ggplot2::aes(x, y), fill = '#ffffff') +
         ggplot2::geom_polygon(data = directional_arrow_upper, ggplot2::aes(x, y), fill = '#ffffff')
@@ -778,13 +847,16 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
 
   else if(league == 'NCAA'){
     for(yardage in seq(20, 100, 10)){
-      # The directional arrows should not be drawn at the 50-yard line. Other than that, an arrow should be drawn every 10 yards
+      # The directional arrows should not be drawn at the 50-yard line. Other
+      # than that, an arrow should be drawn every 10 yards
 
       if(yardage < 60){
         # Draw the directional arrow that's below the middle point of the field
         directional_arrow_lower = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
@@ -792,7 +864,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of the sideline. The number itself is 6' tall, and the top tip of the arrow is 15" below this line
+            # The top of the numbers must be 9 yards (27') off the interior of
+            # the sideline. The number itself is 6' tall, and the top tip of the
+            # arrow is 15" below this line
             9 - inches_to_yd(15),
             9 - inches_to_yd(15) - inches_to_yd(18),
             9 - inches_to_yd(15) - inches_to_yd(9),
@@ -803,7 +877,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         # Draw the directional arrow that's above the middle point of the field
         directional_arrow_upper = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5),
             yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
@@ -811,7 +887,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of the sideline. The number itself is 6' tall, and the top tip of the arrow is 15" below this line
+            # The top of the numbers must be 9 yards (27') off the interior of
+            # the sideline. The number itself is 6' tall, and the top tip of the
+            # arrow is 15" below this line
             53.3 - 9 + inches_to_yd(15),
             53.3 - 9 + inches_to_yd(15) + inches_to_yd(18),
             53.3 - 9 + inches_to_yd(15) + inches_to_yd(9),
@@ -824,7 +902,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         # Draw the directional arrow that's below the middle point of the field
         directional_arrow_lower = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
@@ -832,7 +912,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of the sideline. The number itself is 6' tall, and the top tip of the arrow is 15" below this line
+            # The top of the numbers must be 9 yards (27') off the interior of
+            # the sideline. The number itself is 6' tall, and the top tip of the
+            # arrow is 15" below this line
             9 - inches_to_yd(15),
             9 - inches_to_yd(15) - inches_to_yd(18),
             9 - inches_to_yd(15) - inches_to_yd(9),
@@ -843,7 +925,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         # Draw the directional arrow that's above the middle point of the field
         directional_arrow_upper = data.frame(
           x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is 2" wide. The number itself is 4' wide, and the number is 6" off the outside edge of the number
+            # The numbers are 1' from the outer edge of the yard line, which is
+            # 2" wide. The number itself is 4' wide, and the number is 6" off
+            # the outside edge of the number
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5),
             yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
@@ -851,7 +935,9 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
           ),
 
           y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of the sideline. The number itself is 6' tall, and the top tip of the arrow is 15" below this line
+            # The top of the numbers must be 9 yards (27') off the interior of
+            # the sideline. The number itself is 6' tall, and the top tip of the
+            # arrow is 15" below this line
             53.3 - 9 + inches_to_yd(15),
             53.3 - 9 + inches_to_yd(15) + inches_to_yd(18),
             53.3 - 9 + inches_to_yd(15) + inches_to_yd(9),
@@ -884,7 +970,8 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 
@@ -894,17 +981,21 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the yardline-marking numbers added to it
 football_yard_numbers = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
-  # Set the default text orientation for the lower and upper yardline-marking numbers
+  # Set the default text orientation for the lower and upper yardline-marking
+  # numbers
   angle_l = 0
   angle_u = 180
 
   if(rotate){
     if(rotation_dir == 'ccw'){
-      # If the rotation is counter-clockwise, rotate the numbers 90 degrees counter-clockwise
+      # If the rotation is counter-clockwise, rotate the numbers 90 degrees
+      # counter-clockwise
       angle_l = angle_l + 90
       angle_u = angle_u + 90
     }
@@ -1005,18 +1096,23 @@ football_yard_numbers = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
   }
 
   else {
-    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NFL or NCAA), return the ggplot2
+    # instance
     return(g)
   }
 }
 
-#' Generate a ggplot2 instance containing a regulation football field for a specified league
+#' Generate a ggplot2 instance containing a regulation football field for a
+#' specified league
 #'
 #' @param league The league for which to draw the surface
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #'
-#' @return A ggplot2 instance with a full-surface representation of a football field
+#' @return A ggplot2 instance with a full-surface representation of a football
+#'   field
 #'
 #' @export
 #'

@@ -2,7 +2,8 @@
 % Please edit documentation in R/baseball.R
 \name{geom_baseball}
 \alias{geom_baseball}
-\title{Generate a ggplot2 instance containing a regulation baseball field for a specified league}
+\title{Generate a ggplot2 instance containing a regulation baseball field for a
+specified league}
 \usage{
 geom_baseball(league)
 }
@@ -10,10 +11,12 @@ geom_baseball(league)
 \item{league}{The league for which to draw the surface}
 }
 \value{
-A ggplot2 instance with a full-surface representation of a baseball field
+A ggplot2 instance with a full-surface representation of a baseball
+field
 }
 \description{
-Generate a ggplot2 instance containing a regulation baseball field for a specified league
+Generate a ggplot2 instance containing a regulation baseball field for a
+specified league
 }
 \examples{
 geom_baseball(league = "MLB")

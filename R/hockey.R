@@ -4,16 +4,20 @@ usethis::use_package("ggplot2")
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
 hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NHL', 'NWHL')){
-    # NHL boards are 200' long and 85' wide, with corners rounded at an arc of 28 feet
+    # NHL boards are 200' long and 85' wide, with corners rounded at an arc of
+    # 28 feet
     corner_1_in = create_circle(
       center = c(-72, 14.5),
       start = .5,
@@ -71,7 +75,8 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
   }
 
   else if(league == 'IIHF'){
-    # IIHF boards are 60m long by 30m wide, with corners rounded at an arc of 8.5m
+    # IIHF boards are 60m long by 30m wide, with corners rounded at an arc of
+    # 8.5m
     corner_1_in = create_circle(
       center = c(m_to_ft(-21.5), m_to_ft(6.5)),
       start = .5,
@@ -129,7 +134,8 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
   }
 
   else if(league == 'NCAA'){
-    # NCAA boards are 200' long and 85' wide, with corners rounded at an arc of 20 feet
+    # NCAA boards are 200' long and 85' wide, with corners rounded at an arc of
+    # 20 feet
     corner_1_in = create_circle(
       center = c(-80, 22.5),
       start = .5,
@@ -187,12 +193,14 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
   }
 
   else{
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 
   if(full_surf){
-    # If the surface being drawn is a full-surface representation, reflect over the y axis
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
     boards = rbind(
       boards,
       reflect(
@@ -210,7 +218,8 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
     )
   }
 
-  # Add the boards to the ggplot2 instance. The boards will be black in color to make them easier to see on the plot
+  # Add the boards to the ggplot2 instance. The boards will be black in color to
+  # make them easier to see on the plot
   g = g +
     ggplot2::geom_polygon(data = boards, ggplot2::aes(x, y), fill = '#000000')
 
@@ -222,16 +231,20 @@ hockey_boards = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, ro
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the center line added to it
 hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NHL', 'NWHL')){
-    # The center line is 12" thick, so 6" are on each side of 0. It spans the entire width of the ice
+    # The center line is 12" thick, so 6" are on each side of 0. It spans the
+    # entire width of the ice
     center_line = create_rectangle(
       x_min = -.5,
       x_max = 0,
@@ -240,7 +253,8 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       center_line = rbind(
         center_line,
         reflect(
@@ -275,7 +289,8 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       center_line = rbind(
         center_line,
         reflect(
@@ -293,7 +308,7 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the center line to the ggplot2 instance. It will be red in color
     g = g +
       ggplot2::geom_polygon(data = center_line, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -302,7 +317,8 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
   }
 
   else if(league == 'NCAA'){
-    # The center line is 12" thick, so 6" are on each side of 0. It spans the entire width of the ice
+    # The center line is 12" thick, so 6" are on each side of 0. It spans the
+    # entire width of the ice
     center_line = create_rectangle(
       x_min = -.5,
       x_max = 0,
@@ -311,7 +327,8 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       center_line = rbind(
         center_line,
         reflect(
@@ -329,7 +346,7 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the center line to the ggplot2 instance. It will be red in color
     g = g +
       ggplot2::geom_polygon(data = center_line, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -338,7 +355,8 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
@@ -347,16 +365,20 @@ hockey_center_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the blue line(s) added to it
 hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NHL', 'NWHL')){
-    # The blue line is 12" thick with the edge closest to the center line lying 25' from the center of the ice. It spans the entire width of the ice
+    # The blue line is 12" thick with the edge closest to the center line lying
+    # 25' from the center of the ice. It spans the entire width of the ice
     blue_line = create_rectangle(
       x_min = -26,
       x_max = -25,
@@ -365,7 +387,8 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       blue_line = rbind(
         blue_line,
         reflect(
@@ -383,7 +406,7 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the blue line(s) to the ggplot2 instance. They will be blue in color
     g = g +
       ggplot2::geom_polygon(data = blue_line, ggplot2::aes(x, y), fill = '#0033a0')
 
@@ -392,7 +415,8 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else if(league == 'IIHF'){
-    # The blue line is 30cm thick with the edge closest to the center line lying 7.14m from the center of the ice. It spans the entire width of the ice
+    # The blue line is 30cm thick with the edge closest to the center line lying
+    # 7.14m from the center of the ice. It spans the entire width of the ice
     blue_line = create_rectangle(
       x_min = m_to_ft(-7.14 - .3),
       x_max = m_to_ft(-7.14),
@@ -401,7 +425,8 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       blue_line = rbind(
         blue_line,
         reflect(
@@ -419,7 +444,7 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the blue line(s) to the ggplot2 instance. They will be blue in color
     g = g +
       ggplot2::geom_polygon(data = blue_line, ggplot2::aes(x, y), fill = '#0033a0')
 
@@ -428,7 +453,8 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else if(league == 'NCAA'){
-    # The blue line is 12" thick with the edge closest to the center line lying 25' from the center of the ice. It spans the entire width of the ice
+    # The blue line is 12" thick with the edge closest to the center line lying
+    # 25' from the center of the ice. It spans the entire width of the ice
     blue_line = create_rectangle(
       x_min = -26,
       x_max = -25,
@@ -437,7 +463,8 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       blue_line = rbind(
         blue_line,
         reflect(
@@ -455,7 +482,7 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the blue line(s) to the ggplot2 instance. They will be blue in color
     g = g +
       ggplot2::geom_polygon(data = blue_line, ggplot2::aes(x, y), fill = '#0033a0')
 
@@ -464,7 +491,8 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
@@ -473,16 +501,22 @@ hockey_blue_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goal line
 hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   if(league %in% c('NHL', 'NWHL')){
-    # The center of the goal line is 11' away from the boards (or 89' from the center), but follows the curvature of the boards in the corner. To get the curvature, a similar calculation to that of the face-off spot interior can be performed
+    # The center of the goal line is 11' away from the boards (or 89' from the
+    # center), but follows the curvature of the boards in the corner. To get the
+    # curvature, a similar calculation to that of the face-off spot interior can
+    # be performed
     theta1 = asin((17 - (1/12))/28) / pi
     theta2 = asin((17 + (1/12))/28) / pi
 
@@ -508,7 +542,8 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goal_line = rbind(
         goal_line,
         reflect(
@@ -526,7 +561,7 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goal line(s) to the ggplot2 instance. They will be red in color
     g = g +
       ggplot2::geom_polygon(data = goal_line, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -535,7 +570,10 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else if(league == 'IIHF'){
-    # The edge of the goal line closest to the center line is 4m away from the boards (or  26m from the center), but follows the curvature of the boards in the corner. To get the curvature, a similar calculation to that of the face-off spot interior can be performed
+    # The edge of the goal line closest to the center line is 4m away from the
+    # boards (or  26m from the center), but follows the curvature of the boards
+    # in the corner. To get the curvature, a similar calculation to that of the
+    # face-off spot interior can be performed
     theta1 = asin(m_to_ft(4.5)/m_to_ft(8.5)) / pi
     theta2 = asin(m_to_ft(4.55)/m_to_ft(8.5)) / pi
 
@@ -561,7 +599,8 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goal_line = rbind(
         goal_line,
         reflect(
@@ -579,7 +618,7 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goal line(s) to the ggplot2 instance. They will be red in color
     g = g +
       ggplot2::geom_polygon(data = goal_line, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -588,7 +627,10 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else if(league == 'NCAA'){
-    # The edge of the goal line closest to the center line is 11' away from the boards (or 89' from the center), but follows the curvature of the boards in the corner. To get the curvature, a similar calculation to that of the face-off spot interior can be performed
+    # The edge of the goal line closest to the center line is 11' away from the
+    # boards (or 89' from the center), but follows the curvature of the boards
+    # in the corner. To get the curvature, a similar calculation to that of the
+    # face-off spot interior can be performed
     theta1 = asin(9/20) / pi
     theta2 = asin((9 + (2/12))/20) / pi
 
@@ -614,7 +656,8 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goal_line = rbind(
         goal_line,
         reflect(
@@ -632,7 +675,7 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goal line(s) to the ggplot2 instance. They will be red in color
     g = g +
       ggplot2::geom_polygon(data = goal_line, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -641,19 +684,25 @@ hockey_goal_line = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE,
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
 
-#' Generate the dataframe for the points that comprise the goalkeeper's restricted area
+#' Generate the dataframe for the points that comprise the goalkeeper's
+#' restricted area
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
-#' @return A dataframe containing the points necessary to draw the goalkeeper's restricted
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
+#' @return A dataframe containing the points necessary to draw the goalkeeper's
+#'   restricted area
 hockey_goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
@@ -687,7 +736,8 @@ hockey_goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRU
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goalkeepers_restricted_area = rbind(
         goalkeepers_restricted_area,
         reflect(
@@ -705,7 +755,8 @@ hockey_goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRU
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goalkeeper's restricted area to the ggplot2 instance. It will be
+    # red in color
     g = g +
       ggplot2::geom_polygon(data = goalkeepers_restricted_area, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -723,9 +774,12 @@ hockey_goalkeepers_restricted_area = function(g, league = 'NHL', full_surf = TRU
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A dataframe containing the points necessary to draw the goal crease
 hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
@@ -851,7 +905,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goal_crease_outline = rbind(
         goal_crease_outline,
         reflect(
@@ -882,7 +937,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goal crease to the ggplot2 instance. The outline will be red, and
+    # the inner fill will be blue in color
     g = g +
       ggplot2::geom_polygon(data = goal_crease_outline, ggplot2::aes(x, y), fill = '#c8102e') +
       ggplot2::geom_polygon(data = goal_crease_inner, ggplot2::aes(x, y), fill = '#41b6e6')
@@ -1015,7 +1071,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goal_crease_outline = rbind(
         goal_crease_outline,
         reflect(
@@ -1046,7 +1103,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goal crease to the ggplot2 instance. The outline will be red, and
+    # the inner fill will be blue in color
     g = g +
       ggplot2::geom_polygon(data = goal_crease_outline, ggplot2::aes(x, y), fill = '#c8102e') +
       ggplot2::geom_polygon(data = goal_crease_inner, ggplot2::aes(x, y), fill = '#41b6e6')
@@ -1175,7 +1233,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       goal_crease_outline = rbind(
         goal_crease_outline,
         reflect(
@@ -1206,7 +1265,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the goal crease to the ggplot2 instance. The outline will be red, and
+    # the inner fill will be blue in color
     g = g +
       ggplot2::geom_polygon(data = goal_crease_outline, ggplot2::aes(x, y), fill = '#c8102e') +
       ggplot2::geom_polygon(data = goal_crease_inner, ggplot2::aes(x, y), fill = '#41b6e6')
@@ -1216,7 +1276,8 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
@@ -1225,10 +1286,14 @@ hockey_goal_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALS
 #'
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
-#' @return A dataframe containing the points necessary to draw the referee's crease
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
+#' @return A dataframe containing the points necessary to draw the referee's
+#'   crease
 hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
@@ -1259,7 +1324,8 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       referee_crease = rbind(
         referee_crease,
         reflect(
@@ -1277,7 +1343,7 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the referee's crease to the ggplot2 instance. It will be red in color
     g = g +
       ggplot2::geom_polygon(data = referee_crease, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -1311,7 +1377,8 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       referee_crease = rbind(
         referee_crease,
         reflect(
@@ -1329,7 +1396,7 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the referee's crease to the ggplot2 instance. It will be red in color
     g = g +
       ggplot2::geom_polygon(data = referee_crease, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -1363,7 +1430,8 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
     )
 
     if(full_surf){
-      # If the surface being drawn is a full-surface representation, reflect over the y axis
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
       referee_crease = rbind(
         referee_crease,
         reflect(
@@ -1381,7 +1449,7 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
       )
     }
 
-    # Add the center line to the ggplot2 instance
+    # Add the referee's crease to the ggplot2 instance. It will be red in color
     g = g +
       ggplot2::geom_polygon(data = referee_crease, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -1400,9 +1468,12 @@ hockey_referee_crease = function(g, league = 'NHL', full_surf = TRUE, rotate = F
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
 #' @param center The center coordinates of the faceoff spot
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff spot added to it
 hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
@@ -1419,7 +1490,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
       )
 
       if(full_surf){
-        # If the surface being drawn is a full-surface representation, reflect over the y axis
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
         center_spot = rbind(
           center_spot,
           reflect(
@@ -1447,9 +1519,11 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
     }
 
     else {
-      # If the spot is NOT the center cir3cle, it should be drawn as shown in the rule book on page v in red
+      # If the spot is NOT the center circle, it should be drawn as shown in
+      # the rule book on page v in red
 
-      # The spot is comprised of two pieces: an outer ring (with outer diameter of 2', thickness 2"), and an inner filling
+      # The spot is comprised of two pieces: an outer ring (with outer diameter
+      # of 2', thickness 2"), and an inner filling
       spot_outer = rbind(
         create_circle(
           center = c(0, 0),
@@ -1465,7 +1539,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         )
       )
 
-      # Since the entire spot needs to be drawn, reflect the outer-ring coordinates over the y axis
+      # Since the entire spot needs to be drawn, reflect the outer-ring
+      # coordinates over the y axis
       spot_outer = rbind(
         spot_outer,
         reflect(
@@ -1481,9 +1556,14 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         translate_y = center[2]
       )
 
-      # The non-center face-off spots are 2' in diameter, with a 3" gap between the top and bottom of the spot and the strip in the center. First, find the angle at which to start the trace for the interior of the spot.
+      # The non-center face-off spots are 2' in diameter, with a 3" gap between
+      # the top and bottom of the spot and the strip in the center. First, find
+      # the angle at which to start the trace for the interior of the spot.
 
-      # The spot has a radius of 1', and a thickness of 2", so the inner radius is 10". Since there is a 3" gap at theta = 180deg, this indicates that the stripe's curve starts at x = -7" from the center. Using trigonometry, the angle can be computed
+      # The spot has a radius of 1', and a thickness of 2", so the inner radius
+      # is 10". Since there is a 3" gap at theta = 180deg, this indicates that
+      # the stripe's curve starts at x = -7" from the center. Using
+      # trigonometry, the angle can be computed
       theta = asin(7/10) / pi
 
       # The inner filling can then be created
@@ -1523,7 +1603,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
       )
     }
 
-    # Add the faceoff spot to the ggplot2 instance. The non-center spots will be red in color
+    # Add the faceoff spot to the ggplot2 instance. The non-center spots will be
+    # red in color
     g = g +
       ggplot2::geom_polygon(data = spot_outer, ggplot2::aes(x, y), fill = '#c8102e') +
       ggplot2::geom_polygon(data = spot_inner, ggplot2::aes(x, y), fill = '#c8102e')
@@ -1543,7 +1624,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
       )
 
       if(full_surf){
-        # If the surface being drawn is a full-surface representation, reflect over the y axis
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
         center_spot = rbind(
           center_spot,
           reflect(
@@ -1571,9 +1653,11 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
     }
 
     else {
-      # If the spot is NOT the center circle, it should be drawn as shown in the rule book on page 26 in red
+      # If the spot is NOT the center circle, it should be drawn as shown in the
+      # rule book on page 26 in red
 
-      # The spot is comprised of two pieces: an outer ring (with outer diameter of 60cm, thickness 5cm), and an inner filling
+      # The spot is comprised of two pieces: an outer ring (with outer diameter
+      # of 60cm, thickness 5cm), and an inner filling
       spot_outer = rbind(
         create_circle(
           center = c(0, 0),
@@ -1589,7 +1673,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         )
       )
 
-      # Since the entire spot needs to be drawn, reflect the outer-ring coordinates over the y axis
+      # Since the entire spot needs to be drawn, reflect the outer-ring
+      # coordinates over the y axis
       spot_outer = rbind(
         spot_outer,
         reflect(
@@ -1605,9 +1690,15 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         translate_y = m_to_ft(center[2])
       )
 
-      # The non-center face-off spots are 60cm in diameter, with a 12.5cm gap between the top and bottom of the spot and the strip in the center. First, find the angle at which to start the trace for the interior of the spot.
+      # The non-center face-off spots are 60cm in diameter, with a 12.5cm gap
+      # between the top and bottom of the spot and the strip in the center.
+      # First, find the angle at which to start the trace for the interior of
+      # the spot.
 
-      # The spot has a radius of 30cm, and a thickness of 5cm, so the inner radius is 15cm. Since there is a 7.5cm gap at theta = 180deg, this indicates that the stripe's curve starts at x = -17.5cm from the center. Using trigonometry, the angle can be computed
+      # The spot has a radius of 30cm, and a thickness of 5cm, so the inner
+      # radius is 15cm. Since there is a 7.5cm gap at theta = 180deg, this
+      # indicates that the stripe's curve starts at x = -17.5cm from the center.
+      # Using trigonometry, the angle can be computed
       theta = asin(17.5/25) / pi
 
       # The inner filling can then be created
@@ -1647,7 +1738,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
       )
     }
 
-    # Add the faceoff spot to the ggplot2 instance. The non-center spots will be red in color
+    # Add the faceoff spot to the ggplot2 instance. The non-center spots will be
+    # red in color
     g = g +
       ggplot2::geom_polygon(data = spot_outer, ggplot2::aes(x, y), fill = '#c8102e') +
       ggplot2::geom_polygon(data = spot_inner, ggplot2::aes(x, y), fill = '#c8102e')
@@ -1668,7 +1760,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
       )
 
       if(full_surf){
-        # If the surface being drawn is a full-surface representation, reflect over the y axis
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
         center_spot = rbind(
           center_spot,
           reflect(
@@ -1696,9 +1789,11 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
     }
 
     else {
-      # If the spot is NOT the center circle, it should be drawn as shown in the rule book on page 16 in red
+      # If the spot is NOT the center circle, it should be drawn as shown in the
+      # rule book on page 16 in red
 
-      # The spot is comprised of two pieces: an outer ring (with outer diameter of 2', thickness 2"), and an inner filling
+      # The spot is comprised of two pieces: an outer ring (with outer diameter
+      # of 2', thickness 2"), and an inner filling
       spot_outer = rbind(
         create_circle(
           center = c(0, 0),
@@ -1714,7 +1809,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         )
       )
 
-      # Since the entire spot needs to be drawn, reflect the outer-ring coordinates over the y axis
+      # Since the entire spot needs to be drawn, reflect the outer-ring
+      # coordinates over the y axis
       spot_outer = rbind(
         spot_outer,
         reflect(
@@ -1730,9 +1826,14 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         translate_y = center[2]
       )
 
-      # The non-center face-off spots are 2' in diameter, with a 3" gap between the top and bottom of the spot and the strip in the center. First, find the angle at which to start the trace for the interior of the spot.
+      # The non-center face-off spots are 2' in diameter, with a 3" gap between
+      # the top and bottom of the spot and the strip in the center. First, find
+      # the angle at which to start the trace for the interior of the spot.
 
-      # The spot has a radius of 1', and a thickness of 2", so the inner radius is 10". The width of the solid red inside is 16", wchich indicates that the stripe's curve starts at x = -8" from the center. Using trigonometry, the angle can be computed
+      # The spot has a radius of 1', and a thickness of 2", so the inner radius
+      # is 10". The width of the solid red inside is 16", wchich indicates that
+      # the stripe's curve starts at x = -8" from the center. Using
+      # trigonometry, the angle can be computed
       theta = asin(8/10) / pi
 
       # The inner filling can then be created
@@ -1771,7 +1872,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
         )
       }
 
-      # Add the faceoff spot to the ggplot2 instance. The non-center spots will be red in color
+      # Add the faceoff spot to the ggplot2 instance. The non-center spots will
+      # be red in color
       g = g +
         ggplot2::geom_polygon(data = spot_outer, ggplot2::aes(x, y), fill = '#c8102e') +
         ggplot2::geom_polygon(data = spot_inner, ggplot2::aes(x, y), fill = '#c8102e')
@@ -1783,7 +1885,8 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
@@ -1793,9 +1896,12 @@ hockey_faceoff_spot = function(g, league, center = c(0, 0), full_surf = TRUE, ro
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
 #' @param center The center coordinates of the faceoff spot
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the faceoff circle added to it
 hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
@@ -1828,7 +1934,8 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
       )
 
       if(full_surf){
-        # If the surface being drawn is a full-surface representation, reflect over the y axis
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
         faceoff_circle = rbind(
           faceoff_circle,
           reflect(
@@ -1846,7 +1953,7 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
         )
       }
 
-      # Add the center spot to the ggplot2 instance and color it blue
+      # Add the center spot to the ggplot2 instance. It will be blue in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_circle, ggplot2::aes(x, y), fill = '#0033a0')
 
@@ -1855,10 +1962,14 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
     }
 
     else {
-      # Similar to the method described above, the starting angle to draw the outer ring can be computed. The hash marks are 5' 11" (71") apart on the exterior, so taking where this hash mark meets the circle to be the center, the starting angle is computed as follows
+      # Similar to the method described above, the starting angle to draw the
+      # outer ring can be computed. The hash marks are 5' 11" (71") apart on the
+      # exterior, so taking where this hash mark meets the circle to be the
+      # center, the starting angle is computed as follows
       theta1 = asin((35.5/12)/15) / pi
 
-      # The same process gives the angle to find the point on the interior of the hash mark, which are 5' 7" (67") apart
+      # The same process gives the angle to find the point on the interior of
+      # the hash mark, which are 5' 7" (67") apart
       theta2 = asin((33.5/12)/15) / pi
 
       faceoff_circle = rbind(
@@ -1934,7 +2045,7 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
         )
       }
 
-      # Add the center spot to the ggplot2 instance and color it red
+      # Add the faceoff circle to the ggplot2 instance. It will be red in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_circle, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -1970,7 +2081,8 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
       )
 
       if(full_surf){
-        # If the surface being drawn is a full-surface representation, reflect over the y axis
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
         faceoff_circle = rbind(
           faceoff_circle,
           reflect(
@@ -1988,7 +2100,7 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
         )
       }
 
-      # Add the center spot to the ggplot2 instance and color it blue
+      # Add the faceoff circle to the ggplot2 instance. It will be blue in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_circle, ggplot2::aes(x, y), fill = '#0033a0')
 
@@ -1997,10 +2109,14 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
     }
 
     else {
-      # Similar to the method described above, the starting angle to draw the outer ring can be computed. The hash marks are 180cm apart on the exterior, so taking where this hash mark meets the circle to be the center, the starting angle is computed as follows
+      # Similar to the method described above, the starting angle to draw the
+      # outer ring can be computed. The hash marks are 180cm apart on the
+      # exterior, so taking where this hash mark meets the circle to be the
+      # center, the starting angle is computed as follows
       theta1 = asin(90/450) / pi
 
-      # The same process gives the angle to find the point on the interior of the hash mark, which are 170cm apart
+      # The same process gives the angle to find the point on the interior of
+      # the hash mark, which are 170cm apart
       theta2 = asin(85/450) / pi
 
       faceoff_circle = rbind(
@@ -2077,7 +2193,7 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
       )
     }
 
-    # Add the center spot to the ggplot2 instance and color it red
+    # Add the faceoff circle to the ggplot2 instance. It will be red in color
     g = g +
       ggplot2::geom_polygon(data = faceoff_circle, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -2116,7 +2232,8 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
       )
 
       if(full_surf){
-        # If the surface being drawn is a full-surface representation, reflect over the y axis
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
         faceoff_circle = rbind(
           faceoff_circle,
           reflect(
@@ -2134,7 +2251,7 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
         )
       }
 
-      # Add the center spot to the ggplot2 instance and color it blue
+      # Add the faceoff circle to the ggplot2 instance. It will be blue in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_circle, ggplot2::aes(x, y), fill = '#0033a0')
 
@@ -2143,10 +2260,14 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
     }
 
     else {
-      # Similar to the method described above, the starting angle to draw the outer ring can be computed. The hash marks are 5' 11" (71") apart on the exterior, so taking where this hash mark meets the circle to be the center, the starting angle is computed as follows
+      # Similar to the method described above, the starting angle to draw the
+      # outer ring can be computed. The hash marks are 5' 11" (71") apart on the
+      # exterior, so taking where this hash mark meets the circle to be the
+      # center, the starting angle is computed as follows
       theta1 = asin((35.5/12)/15) / pi
 
-      # The same process gives the angle to find the point on the interior of the hash mark, which are 5' 7" (67") apart
+      # The same process gives the angle to find the point on the interior of
+      # the hash mark, which are 5' 7" (67") apart
       theta2 = asin((33.5/12)/15) / pi
 
       faceoff_circle = rbind(
@@ -2222,7 +2343,7 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
         )
       }
 
-      # Add the center spot to the ggplot2 instance and color it red
+      # Add the faceoff circle to the ggplot2 instance. It will be red in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_circle, ggplot2::aes(x, y), fill = '#c8102e')
 
@@ -2232,7 +2353,8 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
@@ -2242,9 +2364,12 @@ hockey_faceoff_circle = function(g, league, center = c(0, 0), full_surf = TRUE, 
 #' @param g A ggplot2 instance on which to add the feature
 #' @param league The league for which to draw the surface
 #' @param center The center coordinates of the faceoff spot
-#' @param full_surf A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not this feature needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the feature. Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the boards added to it
 hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
@@ -2252,13 +2377,18 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
 
   if(league %in% c('NHL', 'NWHL')){
     if(!identical(center, c(0, 0))){
-      # Only the four end-zone faceoff circles need these features. They measure 3' tall, 4' long, and all lines are 2" in width. The lines begin (outer edges) 9" above the center of the faceoff spot
+      # Only the four end-zone faceoff circles need these features. They measure
+      # 3' tall, 4' long, and all lines are 2" in width. The lines begin (outer
+      # edges) 9" above the center of the faceoff spot
       faceoff_line_ul = data.frame(
         x = c(-2, -6, -6, -2 - (2/12), -2 - (2/12), -2, -2),
         y = c(.75, .75, .75 + (2/12), .75 + (2/12), 3.75, 3.75, .75)
       )
 
-      # Since the line-details are all the same dimensions but appear in all four quadrants relative to the center of the spot, the line can be reflected over the x and y axes accordingly to create the rest of the lines
+      # Since the line-details are all the same dimensions but appear in all
+      # four quadrants relative to the center of the spot, the line can be
+      # reflected over the x and y axes accordingly to create the rest of the
+      # lines
       faceoff_line_ur = reflect(
         faceoff_line_ul,
         over_x = FALSE,
@@ -2277,7 +2407,8 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         over_y = TRUE
       )
 
-      # Now all four detail lines must be moved to the correct positions on the ice
+      # Now all four detail lines must be moved to the correct positions on the
+      # ice
       faceoff_line_ul = translate(
         faceoff_line_ul,
         translate_x = center[1],
@@ -2325,7 +2456,7 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         )
       }
 
-      # Add the faceoff lines to the ggplot2 instance and color it red
+      # Add the faceoff lines to the ggplot2 instance. They will be red in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_line_ul, ggplot2::aes(x, y), fill = '#c8102e') +
         ggplot2::geom_polygon(data = faceoff_line_ur, ggplot2::aes(x, y), fill = '#c8102e') +
@@ -2344,7 +2475,9 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
 
   else if(league == 'IIHF'){
     if(!identical(center, c(0, 0))){
-      # Only the four end-zone faceoff circles need these features. They measure .9m tall, 1.20 long, and all lines are 5cm in width. The lines begin (outer edges) .225m above the center of the faceoff spot
+      # Only the four end-zone faceoff circles need these features. They measure
+      # .9m tall, 1.20 long, and all lines are 5cm in width. The lines begin
+      # (outer edges) .225m above the center of the faceoff spot
       faceoff_line_ul = data.frame(
         x = c(
           m_to_ft(-.6),
@@ -2367,7 +2500,10 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         )
       )
 
-      # Since the line-details are all the same dimensions but appear in all four quadrants relative to the center of the spot, the line can be reflected over the x and y axes accordingly to create the rest of the lines
+      # Since the line-details are all the same dimensions but appear in all
+      # four quadrants relative to the center of the spot, the line can be
+      # reflected over the x and y axes accordingly to create the rest of the
+      # lines
       faceoff_line_ur = reflect(
         faceoff_line_ul,
         over_x = FALSE,
@@ -2386,7 +2522,8 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         over_y = TRUE
       )
 
-      # Now all four detail lines must be moved to the correct positions on the ice
+      # Now all four detail lines must be moved to the correct positions on the
+      # ice
       faceoff_line_ul = translate(
         faceoff_line_ul,
         translate_x = m_to_ft(center[1]),
@@ -2434,7 +2571,7 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         )
       }
 
-      # Add the faceoff lines to the ggplot2 instance and color it red
+      # Add the faceoff lines to the ggplot2 instance. They will be red in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_line_ul, ggplot2::aes(x, y), fill = '#c8102e') +
         ggplot2::geom_polygon(data = faceoff_line_ur, ggplot2::aes(x, y), fill = '#c8102e') +
@@ -2453,13 +2590,18 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
 
   else if(league == 'NCAA'){
     if(!identical(center, c(0, 0))){
-      # Only the four end-zone faceoff circles need these features. They measure 3' tall, 4' long, and all lines are 2" in width. The lines begin (outer edges) 9" above the center of the faceoff spot
+      # Only the four end-zone faceoff circles need these features. They measure
+      # 3' tall, 4' long, and all lines are 2" in width. The lines begin (outer
+      # edges) 9" above the center of the faceoff spot
       faceoff_line_ul = data.frame(
         x = c(-2, -6, -6, -2 - (2/12), -2 - (2/12), -2, -2),
         y = c(.75, .75, .75 + (2/12), .75 + (2/12), 3.75, 3.75, .75)
       )
 
-      # Since the line-details are all the same dimensions but appear in all four quadrants relative to the center of the spot, the line can be reflected over the x and y axes accordingly to create the rest of the lines
+      # Since the line-details are all the same dimensions but appear in all
+      # four quadrants relative to the center of the spot, the line can be
+      # reflected over the x and y axes accordingly to create the rest of the
+      # lines
       faceoff_line_ur = reflect(
         faceoff_line_ul,
         over_x = FALSE,
@@ -2478,7 +2620,8 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         over_y = TRUE
       )
 
-      # Now all four detail lines must be moved to the correct positions on the ice
+      # Now all four detail lines must be moved to the correct positions on the
+      # ice
       faceoff_line_ul = translate(
         faceoff_line_ul,
         translate_x = center[1],
@@ -2526,7 +2669,7 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
         )
       }
 
-      # Add the faceoff lines to the ggplot2 instance and color it red
+      # Add the faceoff lines to the ggplot2 instance. They will be red in color
       g = g +
         ggplot2::geom_polygon(data = faceoff_line_ul, ggplot2::aes(x, y), fill = '#c8102e') +
         ggplot2::geom_polygon(data = faceoff_line_ur, ggplot2::aes(x, y), fill = '#c8102e') +
@@ -2544,7 +2687,8 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
   }
 
   else {
-    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return the ggplot2 instance
+    # If the league isn't valid (i.e. either NHL, NWHL, NCAA, or IIHF), return
+    # the ggplot2 instance
     return(g)
   }
 }
@@ -2552,11 +2696,15 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
 #' Generate a ggplot2 instance containing an ice rink for a specified league
 #'
 #' @param league The league for which to draw the surface
-#' @param full_surf A boolean indicating whether or not to plot a full surface represenation of the surface. Default: TRUE
-#' @param rotate A boolean indicating whether or not the final rink plot needs to be rotated. Default: FALSE
-#' @param rotation_dir A string indicating which direction to rotate the final rink plot Default: 'ccw'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   represenation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not the final rink plot needs
+#'   to be rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the final
+#'   rink plot Default: 'ccw'
 #'
-#' @return A ggplot2 instance with a full-surface representation of an ice hockey rink
+#' @return A ggplot2 instance with a full-surface representation of an ice
+#'   hockey rink
 #'
 #' @export
 #'
@@ -2568,7 +2716,8 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   # Force the league to be all upper case
   league = toupper(league)
 
-  # Faceoff spot centers for half-sheets. These can be reflected over the y axis for full-surface representations
+  # Faceoff spot centers for half-sheets. These can be reflected over the y axis
+  # for full-surface representations
   if(league %in% c('NHL', 'NWHL')){
     faceoff_spots = list(
       center = c(0, 0),
@@ -2605,7 +2754,8 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   }
 
   if(full_surf){
-    # If a full-surface representation is needed, reflect the spots over the y axis
+    # If a full-surface representation is needed, reflect the spots over the y
+    # axis
     faceoff_spots$spot_5 = c(
       -1 * faceoff_spots$spot_4[1],
       faceoff_spots$spot_4[2]
@@ -2660,7 +2810,8 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   # Add the referee's crease
   g = hockey_referee_crease(g, league, full_surf, rotate, rotation_dir)
 
-  # Loop over the faceoff spot centers and add the faceoff spots, their enclosing circles, and their detail lines (when applicable)
+  # Loop over the faceoff spot centers and add the faceoff spots, their
+  # enclosing circles, and their detail lines (when applicable)
   for(spot in 1:length(faceoff_spots)){
     spot_name = names(faceoff_spots[spot])
     center = faceoff_spots[[spot]]

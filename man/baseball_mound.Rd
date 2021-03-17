@@ -2,7 +2,8 @@
 % Please edit documentation in R/baseball.R
 \name{baseball_mound}
 \alias{baseball_mound}
-\title{Generate the dataframe for the points that comprise the pitcher's mound and pitcher's plate}
+\title{Generate the dataframe for the points that comprise the pitcher's mound and
+pitcher's plate}
 \usage{
 baseball_mound(g, league)
 }
@@ -12,8 +13,10 @@ baseball_mound(g, league)
 \item{league}{The league for which to draw the surface}
 }
 \value{
-A ggplot2 instance with the pitcher's mound and pitcher's plate added to it
+A ggplot2 instance with the pitcher's mound and pitcher's plate added
+to it
 }
 \description{
-Generate the dataframe for the points that comprise the pitcher's mound and pitcher's plate
+Generate the dataframe for the points that comprise the pitcher's mound and
+pitcher's plate
 }

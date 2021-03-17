@@ -2,7 +2,11 @@
 % Please edit documentation in R/baseball.R
 \name{baseball_infield_dirt}
 \alias{baseball_infield_dirt}
-\title{This draws a baseball diamond in its standard coordinate system, with (0, 0) being the back tip of home plate. The positive x direction extends to the first-base side of the field, and the positive y direction extends towards the pitcher's mound. The entire field will always be provided and will not rotate, although this may change in a future iteration
+\title{This draws a baseball diamond in its standard coordinate system, with (0, 0)
+being the back tip of home plate. The positive x direction extends to the
+first-base side of the field, and the positive y direction extends towards
+the pitcher's mound. The entire field will always be provided and will not
+rotate, although this may change in a future iteration
 Generate the dataframe for the points that comprise home plate}
 \usage{
 baseball_infield_dirt(g, league)
@@ -16,6 +20,10 @@ baseball_infield_dirt(g, league)
 A ggplot2 instance with home plate added to it
 }
 \description{
-This draws a baseball diamond in its standard coordinate system, with (0, 0) being the back tip of home plate. The positive x direction extends to the first-base side of the field, and the positive y direction extends towards the pitcher's mound. The entire field will always be provided and will not rotate, although this may change in a future iteration
+This draws a baseball diamond in its standard coordinate system, with (0, 0)
+being the back tip of home plate. The positive x direction extends to the
+first-base side of the field, and the positive y direction extends towards
+the pitcher's mound. The entire field will always be provided and will not
+rotate, although this may change in a future iteration
 Generate the dataframe for the points that comprise home plate
 }

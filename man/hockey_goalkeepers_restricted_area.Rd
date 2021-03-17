@@ -2,7 +2,8 @@
 % Please edit documentation in R/hockey.R
 \name{hockey_goalkeepers_restricted_area}
 \alias{hockey_goalkeepers_restricted_area}
-\title{Generate the dataframe for the points that comprise the goalkeeper's restricted area}
+\title{Generate the dataframe for the points that comprise the goalkeeper's
+restricted area}
 \usage{
 hockey_goalkeepers_restricted_area(
   g,
@@ -17,15 +18,20 @@ hockey_goalkeepers_restricted_area(
 
 \item{league}{The league for which to draw the surface}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not this feature is needed
+for a full-surface representation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated. Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
-A dataframe containing the points necessary to draw the goalkeeper's restricted
+A dataframe containing the points necessary to draw the goalkeeper's
+restricted area
 }
 \description{
-Generate the dataframe for the points that comprise the goalkeeper's restricted area
+Generate the dataframe for the points that comprise the goalkeeper's
+restricted area
 }

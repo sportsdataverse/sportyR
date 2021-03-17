@@ -7,11 +7,14 @@
 reflect(df, over_x = FALSE, over_y = TRUE)
 }
 \arguments{
-\item{df}{The dataframe to reflect. It must have \code{x} and \code{y} columns}
+\item{df}{The dataframe to reflect. It must have \code{x} and \code{y}
+columns}
 
-\item{over_x}{A boolean indicating whether or not to reflect over the x axis. Default: FALSE}
+\item{over_x}{A boolean indicating whether or not to reflect over the x axis.
+Default: FALSE}
 
-\item{over_y}{A boolean indicating whether or not to reflect over the y axis. Default: TRUE}
+\item{over_y}{A boolean indicating whether or not to reflect over the y axis.
+Default: TRUE}
 }
 \value{
 The reflected dataframe

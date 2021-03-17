@@ -9,14 +9,18 @@ geom_hockey(league, full_surf = TRUE, rotate = FALSE, rotation_dir = "ccw")
 \arguments{
 \item{league}{The league for which to draw the surface}
 
-\item{full_surf}{A boolean indicating whether or not to plot a full surface represenation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not to plot a full surface
+represenation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not the final rink plot needs to be rotated. Default: FALSE}
+\item{rotate}{A boolean indicating whether or not the final rink plot needs
+to be rotated. Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the final rink plot Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the final
+rink plot Default: 'ccw'}
 }
 \value{
-A ggplot2 instance with a full-surface representation of an ice hockey rink
+A ggplot2 instance with a full-surface representation of an ice
+hockey rink
 }
 \description{
 Generate a ggplot2 instance containing an ice rink for a specified league

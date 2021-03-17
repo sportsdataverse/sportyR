@@ -20,11 +20,14 @@ hockey_faceoff_circle(
 
 \item{center}{The center coordinates of the faceoff spot}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not this feature is needed
+for a full-surface representation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated. Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated. Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
 A ggplot2 instance with the faceoff circle added to it

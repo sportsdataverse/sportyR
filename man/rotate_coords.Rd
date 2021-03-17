@@ -2,24 +2,26 @@
 % Please edit documentation in R/coordinate_transformations.R
 \name{rotate_coords}
 \alias{rotate_coords}
-\title{Perform a mathematical rotation about (0, 0) of coordinates. This rotation is given as
-x' = x \* cos(theta) - y \* sin(theta)
-y' = x \* sin(theta) + y \* cos(theta)}
+\title{Perform a mathematical rotation about (0, 0) of coordinates. This rotation is
+given as x' = x \* cos(theta) - y \* sin(theta) y' = x \* sin(theta) + y \*
+cos(theta)}
 \usage{
 rotate_coords(df, rotation_dir = "ccw", angle = 0.5)
 }
 \arguments{
 \item{df}{The dataframe to rotate. It must have \code{x} and \code{y} columns}
 
-\item{rotation_dir}{The direction in which to rotate the coordinates. \code{ccw} corresponds to counterclockwise}
+\item{rotation_dir}{The direction in which to rotate the coordinates.
+\code{ccw} corresponds to counterclockwise}
 
-\item{angle}{the angle (in radians, divided by pi) through which to rotate the coordinates}
+\item{angle}{the angle (in radians, divided by pi) through which to rotate
+the coordinates}
 }
 \value{
 The rotated dataframe
 }
 \description{
-Perform a mathematical rotation about (0, 0) of coordinates. This rotation is given as
-x' = x \* cos(theta) - y \* sin(theta)
-y' = x \* sin(theta) + y \* cos(theta)
+Perform a mathematical rotation about (0, 0) of coordinates. This rotation is
+given as x' = x \* cos(theta) - y \* sin(theta) y' = x \* sin(theta) + y \*
+cos(theta)
 }

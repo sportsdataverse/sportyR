@@ -2,7 +2,8 @@
 % Please edit documentation in R/basketball.R
 \name{basketball_free_throw_dashed_semi_circle}
 \alias{basketball_free_throw_dashed_semi_circle}
-\title{Generate the dataframe for the points that comprise the dashed part of the free-throw circle}
+\title{Generate the dataframe for the points that comprise the dashed part of the
+free-throw circle}
 \usage{
 basketball_free_throw_dashed_semi_circle(
   g,
@@ -17,15 +18,20 @@ basketball_free_throw_dashed_semi_circle(
 
 \item{league}{The league for which to draw the surface}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not this feature is needed
+for a full-surface representation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
-A ggplot2 instance with the dashed part of the free-throw circle added to it
+A ggplot2 instance with the dashed part of the free-throw circle
+added to it
 }
 \description{
-Generate the dataframe for the points that comprise the dashed part of the free-throw circle
+Generate the dataframe for the points that comprise the dashed part of the
+free-throw circle
 }

@@ -19,15 +19,20 @@ basketball_three_point_line(
 
 \item{league}{The league for which to draw the surface}
 
-\item{include_m_line}{A boolean indicating whether or not to plot the men's three-point line (NCAA only)}
+\item{include_m_line}{A boolean indicating whether or not to plot the men's
+three-point line (NCAA only)}
 
-\item{include_w_line}{A boolean indicating whether or not to plot the women's three-point line (NCAA only)}
+\item{include_w_line}{A boolean indicating whether or not to plot the women's
+three-point line (NCAA only)}
 
-\item{full_surf}{A boolean indicating whether or not this feature is needed for a full-surface representation of the surface. Default: TRUE}
+\item{full_surf}{A boolean indicating whether or not this feature is needed
+for a full-surface representation of the surface. Default: TRUE}
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be rotated Default: FALSE}
+\item{rotate}{A boolean indicating whether or not this feature needs to be
+rotated Default: FALSE}
 
-\item{rotation_dir}{A string indicating which direction to rotate the feature. Default: 'ccw'}
+\item{rotation_dir}{A string indicating which direction to rotate the
+feature. Default: 'ccw'}
 }
 \value{
 A ggplot2 instance with the three-point line added to it
