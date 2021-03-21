@@ -25,3 +25,11 @@ ft_to_yd = function(ft){
   return(yd)
 }
 
+#' Converts inches to meters
+#'
+#' @param inches A number of inches to be converted to meters
+#' @return The converted number of inches to meters
+in_to_m = function(inches){
+  m = inches * 2.54 / 100
+  return(m)
+}
