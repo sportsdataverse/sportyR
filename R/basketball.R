@@ -4440,17 +4440,31 @@ geom_basketball = function(league, include_amateur = TRUE, include_m_line = TRUE
 
   if(league %in% c('NBA', 'WNBA', 'NCAA', 'NCAAM', 'NCAAW', 'COLLEGE', 'FIBA')){
     # Create the initial ggplot2 instance onto which the features will be added
-    g = ggplot2::ggplot() +
-      ggplot2::coord_fixed() +
-      ggplot2::theme(
-        plot.margin = ggplot2::margin(-1, -1, -1, -1, "cm"),
-        plot.background = ggplot2::element_blank(),
-        panel.border = ggplot2::element_blank(),
-        panel.background = ggplot2::element_blank(),
-        axis.title = ggplot2::element_blank(),
-        axis.text = ggplot2::element_blank(),
-        axis.ticks = ggplot2::element_blank()
-      )
+    if(rotate){
+      g = ggplot2::ggplot() +
+        ggplot2::coord_fixed() +
+        ggplot2::theme(
+          plot.margin = ggplot2::margin(0, -1, 0, -1, "cm"),
+          panel.border = ggplot2::element_blank(),
+          panel.background = ggplot2::element_blank(),
+          axis.title = ggplot2::element_blank(),
+          axis.text = ggplot2::element_blank(),
+          axis.ticks = ggplot2::element_blank(),
+        )
+    }
+
+    else {
+      g = ggplot2::ggplot() +
+        ggplot2::coord_fixed() +
+        ggplot2::theme(
+          plot.margin = ggplot2::margin(-1, 0, -1, 0, "cm"),
+          panel.border = ggplot2::element_blank(),
+          panel.background = ggplot2::element_blank(),
+          axis.title = ggplot2::element_blank(),
+          axis.text = ggplot2::element_blank(),
+          axis.ticks = ggplot2::element_blank(),
+        )
+    }
 
     # Add the court
     g = basketball_court(g, league, full_surf, rotate, rotation_dir)
