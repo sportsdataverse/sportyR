@@ -535,7 +535,7 @@ geom_baseball = function(league){
       ggplot2::coord_fixed() +
       ggplot2::theme_void() +
       ggplot2::theme(
-        plot.margin = ggplot2::margin(0, 0, 0, 0),
+        #plot.margin = ggplot2::margin(-1, -1, -1, -1, "cm"),
         plot.background = ggplot2::element_rect(fill = '#395d33'),
         panel.border = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),

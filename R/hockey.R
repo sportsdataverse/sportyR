@@ -2781,12 +2781,12 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
   g = ggplot2::ggplot() +
     ggplot2::coord_fixed() +
     ggplot2::theme(
+      plot.margin = ggplot2::margin(-1, -1, -1, -1, "cm"),
       panel.border = ggplot2::element_blank(),
       panel.background = ggplot2::element_blank(),
       axis.title = ggplot2::element_blank(),
       axis.text = ggplot2::element_blank(),
       axis.ticks = ggplot2::element_blank(),
-      plot.margin = ggplot2::margin(0, 0, 0, 0)
     )
 
   # Add the boards

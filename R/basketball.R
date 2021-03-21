@@ -4443,7 +4443,7 @@ geom_basketball = function(league, include_amateur = TRUE, include_m_line = TRUE
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
-        plot.margin = ggplot2::margin(0, 0, 0, 0),
+        plot.margin = ggplot2::margin(-1, -1, -1, -1, "cm"),
         plot.background = ggplot2::element_blank(),
         panel.border = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),
