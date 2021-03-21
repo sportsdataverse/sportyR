@@ -25,7 +25,7 @@ caniplot_league = function(league_code){
   # If the league code is only associated with 1 sport, notify user that the
   # league can be plotted with geom_{sport}()
   else if(n_sports == 1){
-    message(glue::glue("A plot for {league_code} can be created via the geom_{league_lookup[[league_code]]}() function"))
+    message(glue::glue("A plot for {league_code} can be created via the geom_{tolower(league_lookup[[league_code]])}() function"))
   }
 
   # If the league code is associated with more than 1 sport (i.e. NCAA or
