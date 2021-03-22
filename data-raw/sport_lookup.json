@@ -1,0 +1,33 @@
+{
+    "BASEBALL": [
+        "MLB",
+        "NCAA"
+    ],
+
+    "FOOTBALL": [
+        "NFL",
+        "NCAA"
+    ],
+
+    "BASKETBALL": [
+        "NBA",
+        "WNBA",
+        "NCAA",
+        "NCAAM",
+        "NCAAW",
+        "COLLEGE"
+    ],
+
+    "HOCKEY": [
+        "NHL",
+        "NCAA",
+        "IIHF"
+    ],
+
+    "SOCCER": [
+        "FIFA",
+        "MLS",
+        "PREMIER",
+        "NWSL"
+    ]
+}
