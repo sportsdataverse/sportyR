@@ -7,7 +7,7 @@
 #' and that this file is sourced on saving.
 usethis::use_package('rjson')
 
-league_lookup = rjson::fromJSON(file = "data/league_lookup.json")
-sport_lookup = rjson::fromJSON(file = "data/sport_lookup.json")
+league_lookup = rjson::fromJSON(file = "data-raw/league_lookup.json")
+sport_lookup = rjson::fromJSON(file = "data-raw/sport_lookup.json")
 
 usethis::use_data(league_lookup, sport_lookup, overwrite = TRUE, internal = TRUE)
