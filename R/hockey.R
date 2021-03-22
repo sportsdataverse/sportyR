@@ -2782,12 +2782,16 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
+        plot.caption = ggplot2::element_text(color = '#707372'),
         plot.margin = ggplot2::margin(0, -1, 0, -1, "cm"),
         panel.border = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),
         axis.title = ggplot2::element_blank(),
         axis.text = ggplot2::element_blank(),
         axis.ticks = ggplot2::element_blank(),
+      ) +
+      ggplot2::labs(
+        caption = "Plot made via sportyR"
       )
   }
 
@@ -2795,12 +2799,16 @@ geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
+        plot.caption = ggplot2::element_text(color = '#707372'),
         plot.margin = ggplot2::margin(-1, 0, -1, 0, "cm"),
         panel.border = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),
         axis.title = ggplot2::element_blank(),
         axis.text = ggplot2::element_blank(),
         axis.ticks = ggplot2::element_blank(),
+      ) +
+      ggplot2::labs(
+        caption = "Plot made via sportyR"
       )
   }
 

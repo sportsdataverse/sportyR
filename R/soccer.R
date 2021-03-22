@@ -851,7 +851,8 @@ geom_soccer = function(league, touchline_length = 120, goal_line_length = 90, ro
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
-        plot.margin = ggplot2::margin(-1, -1, -1, -1, "cm"),
+        plot.caption = ggplot2::element_text(color = '#707372'),
+        plot.margin = ggplot2::margin(0, 0, 0, 0, "cm"),
         plot.background = ggplot2::element_blank(),
         panel.border = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),
@@ -859,6 +860,9 @@ geom_soccer = function(league, touchline_length = 120, goal_line_length = 90, ro
         axis.title = ggplot2::element_blank(),
         axis.text = ggplot2::element_blank(),
         axis.ticks = ggplot2::element_blank(),
+      ) +
+      ggplot2::labs(
+        caption = "Plot made via sportyR"
       )
 
     # Add the grass

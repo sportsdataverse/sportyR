@@ -535,12 +535,16 @@ geom_baseball = function(league){
       ggplot2::coord_fixed() +
       ggplot2::theme_void() +
       ggplot2::theme(
+        plot.caption = ggplot2::element_text(color = '#707372'),
         plot.background = ggplot2::element_rect(fill = '#395d33'),
         panel.border = ggplot2::element_blank(),
         panel.background = ggplot2::element_blank(),
         axis.title = ggplot2::element_blank(),
         axis.text = ggplot2::element_blank(),
         axis.ticks = ggplot2::element_blank()
+      ) +
+      ggplot2::labs(
+        caption = "Plot made via sportyR"
       )
 
     # Add the infield dirt
