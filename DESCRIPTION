@@ -25,4 +25,4 @@ Suggests:
     vdiffr (>= 0.3.3)
 Config/testthat/edition: 3
 URL: https://github.com/rossdrucker/sportyR
-BugReports: https//github.com/rossdrucker/sportyR/issues
+BugReports: https://github.com/rossdrucker/sportyR/issues
