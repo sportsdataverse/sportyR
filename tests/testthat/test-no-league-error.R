@@ -1,5 +1,3 @@
-context('Errors')
-
 # If no league is supplied, an error should be returned
 test_that("Error when league is not supplied", {
   # Baseball

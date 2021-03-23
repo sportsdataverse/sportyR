@@ -1,5 +1,3 @@
-context('Plots')
-
 test_that('Basic league plots match expected outputs', {
   ## Baseball
   baseball_plot = geom_baseball('mlb')
