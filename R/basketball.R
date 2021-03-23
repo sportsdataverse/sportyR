@@ -441,10 +441,10 @@ basketball_division_line = function(g, league, full_surf = TRUE, rotate = FALSE,
     # The line is 5cm thick, goes right through the middle of the court (2.5cm
     # of its width on each side of it), and extends .15m beyond each sideline
     division_line = create_rectangle(
-      x_min = -1/12,
-      x_max = 0,
-      y_min = m_to_ft(-7.55),
-      y_max = m_to_ft(7.70)
+      x_min = m_to_ft(-.025),
+      x_max = m_to_ft(0),
+      y_min = m_to_ft(-7.65),
+      y_max = m_to_ft(7.65)
     )
 
     if(full_surf){
@@ -907,17 +907,7 @@ basketball_team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, ro
   else if(league %in% c('NCAA', 'NCAAM', 'NCAAW', 'COLLEGE')){
     # The team bench is 28' (interior) from the nearest endline sideline,
     # protrudes 3' into the court, and is 2" in thickness
-
-    # First, the lower sideline
-    team_bench_lower = create_rectangle(
-      x_min = -19,
-      x_max = -19 + (2/12),
-      y_min = -28,
-      y_max = -22
-    )
-
-    # Then, the upper sideline
-    team_bench_upper = create_rectangle(
+    team_bench = create_rectangle(
       x_min = -19,
       x_max = -19 + (2/12),
       y_min = 22,
@@ -927,18 +917,10 @@ basketball_team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, ro
     if(full_surf){
       # If the surface being drawn is a full-surface representation, reflect
       # over the y axis
-      team_bench_lower = rbind(
-        team_bench_lower,
+      team_bench = rbind(
+        team_bench,
         reflect(
-          team_bench_lower,
-          over_y = TRUE
-        )
-      )
-
-      team_bench_upper = rbind(
-        team_bench_upper,
-        reflect(
-          team_bench_upper,
+          team_bench,
           over_y = TRUE
         )
       )
@@ -946,13 +928,8 @@ basketball_team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, ro
 
     if(rotate){
       # If the desired output needs to be rotated, rotate the coordinates
-      team_bench_lower = rotate_coords(
-        team_bench_lower,
-        rotation_dir
-      )
-
-      team_bench_upper = rotate_coords(
-        team_bench_upper,
+      team_bench = rotate_coords(
+        team_bench,
         rotation_dir
       )
     }
@@ -960,8 +937,7 @@ basketball_team_bench = function(g, league, full_surf = TRUE, rotate = FALSE, ro
     # Add the team bench lines to the ggplot2 instance. They will be black in
     # color
     g = g +
-      ggplot2::geom_polygon(data = team_bench_lower, ggplot2::aes(x, y), fill = '#000000') +
-      ggplot2::geom_polygon(data = team_bench_upper, ggplot2::aes(x, y), fill = '#000000')
+      ggplot2::geom_polygon(data = team_bench, ggplot2::aes(x, y), fill = '#000000')
 
     # Return the ggplot2 instance
     return(g)
@@ -1141,6 +1117,250 @@ basketball_substitution_area = function(g, league, full_surf = TRUE, rotate = FA
 
   else if(league == 'FIBA'){
     # FIBA courts do not require a substitution area
+
+    # Return the ggplot2 instance
+    return(g)
+  }
+
+  else {
+    # If the league isn't valid (i.e. either NBA, WNBA, NCAA, or FIBA), return
+    # the ggplot2 instance
+    return(g)
+  }
+}
+
+#' Generate the dataframe for the points that comprise the court apron
+#'
+#' @param g A ggplot2 instance on which to add the feature
+#' @param league The league for which to draw the surface
+#' @param full_surf A boolean indicating whether or not this feature is needed
+#'   for a full-surface representation of the surface. Default: TRUE
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
+#' @return A ggplot2 instance with the court apron added to it
+basketball_court_apron = function(g, league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  if(league %in% c('NBA', 'WNBA')){
+    # The court apron is the boundary on the court, which may be made of a
+    # contrasting color. It must be 8' behind the baseline and 5' from the
+    # sideline
+    court_apron = data.frame(
+      x = c(
+        0,
+        -47 - (2/12),
+        -47 - (2/12),
+        -4 - (3/12),
+        -4 - (3/12),
+        -4 - (1/12),
+        -4 - (1/12),
+        0,
+        0,
+        -56,
+        -56,
+        0,
+        0
+      ),
+
+      y = c(
+        -25 - (2/12),
+        -25 - (2/12),
+        25 + (2/12),
+        25 + (2/12),
+        29 + (2/12),
+        29 + (2/12),
+        25 + (2/12),
+        25 + (2/12),
+        30,
+        30,
+        -30,
+        -30,
+        -25 - (2/12)
+      )
+    )
+
+    if(full_surf){
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
+      court_apron = rbind(
+        court_apron,
+        reflect(
+          court_apron,
+          over_y = TRUE
+        )
+      )
+    }
+
+    if(rotate){
+      # If the desired output needs to be rotated, rotate the coordinates
+      court_apron = rotate_coords(
+        court_apron,
+        rotation_dir
+      )
+    }
+
+    # Add the court apron to the ggplot2 instance. It will be tan in color
+    g = g +
+      ggplot2::geom_polygon(data = court_apron, ggplot2::aes(x, y), fill = '#d2ab6f')
+
+    # Return the ggplot2 instance
+    return(g)
+  }
+
+  else if(league %in% c('NCAA', 'NCAAM', 'NCAAW', 'COLLEGE')){
+    # The court apron is the boundary on the court, which may be made of a
+    # contrasting color. It must be at least 6' behind the baseline and 3' from
+    # the sideline, but 4' will be used for the sideline apron
+    court_apron = data.frame(
+      x = c(
+        0,
+        -47 - (2/12),
+        -47 - (2/12),
+        -19,
+        -19,
+        -19 + (2/12),
+        -19 + (2/12),
+        -9,
+        -9,
+        -9 + (2/12),
+        -9 + (2/12),
+        0,
+        0,
+        -53,
+        -53,
+        0,
+        0
+      ),
+
+      y = c(
+        -25 - (2/12),
+        -25 - (2/12),
+        25 + (2/12),
+        25 + (2/12),
+        28,
+        28,
+        25 + (2/12),
+        25 + (2/12),
+        27,
+        27,
+        25 + (2/12),
+        25 + (2/12),
+        29 + (2/12),
+        29 + (2/12),
+        -29 - (2/12),
+        -29 - (2/12),
+        -25 - (2/12)
+      )
+    )
+
+    if(full_surf){
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
+      court_apron = rbind(
+        court_apron,
+        reflect(
+          court_apron,
+          over_y = TRUE
+        )
+      )
+    }
+
+    if(rotate){
+      # If the desired output needs to be rotated, rotate the coordinates
+      court_apron = rotate_coords(
+        court_apron,
+        rotation_dir
+      )
+    }
+
+    # Add the court apron to the ggplot2 instance. It will be tan in color
+    g = g +
+      ggplot2::geom_polygon(data = court_apron, ggplot2::aes(x, y), fill = '#d2ab6f')
+
+    # Return the ggplot2 instance
+    return(g)
+  }
+
+  else if(league == 'FIBA'){
+    # The court apron is the boundary on the court, which may be made of a
+    # contrasting color. No distance is specified in the official FIBA rule
+    # book, so a distance of 3m on all sides will be used
+    court_apron = data.frame(
+      x = c(
+        m_to_ft(0),
+        m_to_ft(-.025),
+        m_to_ft(-.025),
+        m_to_ft(-5.675),
+        m_to_ft(-5.675),
+        m_to_ft(-5.725),
+        m_to_ft(-5.725),
+        m_to_ft(-14.05),
+        m_to_ft(-14.05),
+        m_to_ft(-5.05),
+        m_to_ft(-5.05),
+        m_to_ft(-5),
+        m_to_ft(-5),
+        m_to_ft(-.025),
+        m_to_ft(-.025),
+        m_to_ft(0),
+        m_to_ft(0),
+        m_to_ft(-17.05),
+        m_to_ft(-17.05),
+        m_to_ft(0),
+        m_to_ft(0)
+      ),
+
+      y = c(
+        m_to_ft(-7.65),
+        m_to_ft(-7.65),
+        m_to_ft(-7.55),
+        m_to_ft(-7.55),
+        m_to_ft(-7.65),
+        m_to_ft(-7.65),
+        m_to_ft(-7.55),
+        m_to_ft(-7.55),
+        m_to_ft(7.55),
+        m_to_ft(7.55),
+        m_to_ft(9.55),
+        m_to_ft(9.55),
+        m_to_ft(7.55),
+        m_to_ft(7.55),
+        m_to_ft(7.65),
+        m_to_ft(7.65),
+        m_to_ft(10.55),
+        m_to_ft(10.55),
+        m_to_ft(-10.55),
+        m_to_ft(-10.55),
+        m_to_ft(-7.65)
+      )
+    )
+
+    if(full_surf){
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
+      court_apron = rbind(
+        court_apron,
+        reflect(
+          court_apron,
+          over_y = TRUE
+        )
+      )
+    }
+
+    if(rotate){
+      # If the desired output needs to be rotated, rotate the coordinates
+      court_apron = rotate_coords(
+        court_apron,
+        rotation_dir
+      )
+    }
+
+    # Add the court apron to the ggplot2 instance. It will be tan in color
+    g = g +
+      ggplot2::geom_polygon(data = court_apron, ggplot2::aes(x, y), fill = '#d2ab6f')
 
     # Return the ggplot2 instance
     return(g)
@@ -1917,6 +2137,13 @@ basketball_free_throw_lane = function(g, league, include_amateur = FALSE, full_s
         )
       )
 
+      amateur_painted_area = create_rectangle(
+        x_min = -47,
+        x_max = -28 - (2/12),
+        y_min = -6 + (2/12),
+        y_max = 6 - (2/12)
+      )
+
       if(full_surf){
         # If the surface being drawn is a full-surface representation, reflect
         # over the y axis
@@ -1924,6 +2151,14 @@ basketball_free_throw_lane = function(g, league, include_amateur = FALSE, full_s
           amateur_free_throw_lane,
           reflect(
             amateur_free_throw_lane,
+            over_y = TRUE
+          )
+        )
+
+        amateur_painted_area = rbind(
+          amateur_painted_area,
+          reflect(
+            amateur_painted_area,
             over_y = TRUE
           )
         )
@@ -1935,12 +2170,18 @@ basketball_free_throw_lane = function(g, league, include_amateur = FALSE, full_s
           amateur_free_throw_lane,
           rotation_dir
         )
+
+        amateur_painted_area = rotate_coords(
+          amateur_painted_area,
+          rotation_dir
+        )
       }
 
       # Add the amateur (college) free-throw lane to the ggplot2 instance. They
       # will be black in color
       g = g +
-        ggplot2::geom_polygon(data = amateur_free_throw_lane, ggplot2::aes(x, y), fill = '#000000')
+        ggplot2::geom_polygon(data = amateur_free_throw_lane, ggplot2::aes(x, y), fill = '#000000') +
+        ggplot2::geom_polygon(data = amateur_painted_area, ggplot2::aes(x, y), fill = '#d2ab6f')
     }
 
     # Return the ggplot2 instance
@@ -4524,6 +4765,9 @@ geom_basketball = function(league, include_amateur = TRUE, include_m_line = TRUE
 
     # Add the net(s)
     g = basketball_net(g, league, full_surf, rotate, rotation_dir)
+
+    # Add the court apron
+    g = basketball_court_apron(g, league, full_surf, rotate, rotation_dir)
 
     # Return the ggplot2 instance that contains the court plot
     return(g)
