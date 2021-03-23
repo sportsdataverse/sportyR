@@ -9,7 +9,11 @@
 status](https://travis-ci.com/rossdrucker/sportyR.svg?branch=master)](https://travis-ci.com/rossdrucker/sportyR)
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+[![star this
+repo](https://githubbadges.com/star.svg?user=rossdrucker&repo=sportyR&style=flat)](https://github.com/rossdrucker/sportyR)
+[![fork this
+repo](https://githubbadges.com/fork.svg?user=rossdrucker&repo=sportyR&style=flat)](https://github.com/rossdrucker/sportyR/fork)
 <!-- badges: end -->
 
 As the field of sports analytics evolve, there’s a growing need for
