@@ -4,6 +4,10 @@
 # sportyR
 
 <!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/rossdrucker/sportyR.svg?branch=master)](https://travis-ci.com/rossdrucker/sportyR)
+[![R-CMD-check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 <!-- badges: end -->
 
 As the field of sports analytics evolve, there’s a growing need for

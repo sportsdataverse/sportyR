@@ -3,3 +3,5 @@
 ^LICENSE\.md$
 ^data-raw$
 ^README\.Rmd$
+^\.travis\.yml$
+^\.github$
