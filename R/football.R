@@ -823,6 +823,12 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         )
       }
 
+      else {
+        # If the current yard line is the 50-yard line, skip creating and adding
+        # the arrow
+        next
+      }
+
       if(rotate){
         # If the desired output needs to be rotated, rotate the coordinates
         directional_arrow_lower = rotate_coords(
@@ -947,6 +953,12 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
         )
       }
 
+      else {
+        # If the current yard line is the 50-yard line, skip creating and adding
+        # the arrow
+        next
+      }
+
       if(rotate){
         # If the desired output needs to be rotated, rotate the coordinates
         directional_arrow_lower = rotate_coords(
@@ -1009,91 +1021,275 @@ football_yard_numbers = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
   }
 
   if(league == 'NFL'){
-    # Add the field numbers to the plot
-    g = g +
-      ggplot2::annotate('text', label = '1', x = 20 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 30 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 40 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 50 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '5', x = 60 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 70 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 80 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 90 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '1', x = 100 - ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 20 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 30 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 40 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 50 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 60 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 70 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 80 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 90 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 100 + ft_to_yd(3), y = 13, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 20 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 30 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 40 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 50 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 60 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 70 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 80 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 90 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 100 - ft_to_yd(3), y =53.3 -  13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '1', x = 20 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 30 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 40 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 50 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '5', x = 60 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 70 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 80 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 90 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '1', x = 100 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 2, color = '#ffffff')
+    if(rotate){
+      if(rotation_dir == 'ccw'){
+        # Add the field numbers to the plot
+        g = g +
+          ggplot2::annotate('text', label = '1', x = -13, y = 20 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -13, y = 30 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -13, y = 40 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -13, y = 50 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = -13, y = 60 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -13, y = 70 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -13, y = 80 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -13, y = 90 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = -13, y = 100 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 20 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 30 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 40 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 50 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 60 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 70 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 80 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 90 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -13, y = 100 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 20 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 30 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 40 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 50 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 60 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 70 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 80 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 90 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 13, y = 100 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = -53.3 + 13, y = 20 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -53.3 + 13, y = 30 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -53.3 + 13, y = 40 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -53.3 + 13, y = 50 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = -53.3 + 13, y = 60 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -53.3 + 13, y = 70 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -53.3 + 13, y = 80 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -53.3 + 13, y = 90 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = -53.3 + 13, y = 100 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff')
 
-    # Return the ggplot2 instance
-    return(g)
+        # Return the ggplot2 instance
+        return(g)
+      }
+
+      else {
+        # Add the field numbers to the plot
+        g = g +
+          ggplot2::annotate('text', label = '1', x = 13, y = -20 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 13, y = -30 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 13, y = -40 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 13, y = -50 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = 13, y = -60 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 13, y = -70 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 13, y = -80 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 13, y = -90 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = 13, y = -100 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -20 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -30 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -40 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -50 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -60 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -70 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -80 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -90 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 13, y = -100 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -20 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -30 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -40 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -50 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -60 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -70 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -80 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -90 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 13, y = -100 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = 53.3 - 13, y = -20 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 53.3 - 13, y = -30 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 53.3 - 13, y = -40 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 53.3 - 13, y = -50 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = 53.3 - 13, y = -60 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 53.3 - 13, y = -70 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 53.3 - 13, y = -80 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 53.3 - 13, y = -90 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = 53.3 - 13, y = -100 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff')
+
+        # Return the ggplot2 instance
+        return(g)
+      }
+    }
+
+    else {
+      # Add the field numbers to the plot
+      g = g +
+        ggplot2::annotate('text', label = '1', x = 20 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 30 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 40 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 50 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '5', x = 60 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 70 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 80 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 90 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '1', x = 100 - ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 20 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 30 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 40 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 50 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 60 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 70 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 80 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 90 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 100 + ft_to_yd(3), y = 13, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 20 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 30 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 40 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 50 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 60 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 70 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 80 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 90 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 100 - ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '1', x = 20 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 30 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 40 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 50 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '5', x = 60 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 70 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 80 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 90 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '1', x = 100 + ft_to_yd(3), y = 53.3 - 13, angle = angle_u, size = 5, color = '#ffffff')
+
+      # Return the ggplot2 instance
+      return(g)
+    }
   }
 
   else if(league == 'NCAA'){
-    # Add the field numbers to the plot
-    g = g +
-      ggplot2::annotate('text', label = '1', x = 20 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 30 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 40 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 50 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '5', x = 60 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 70 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 80 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 90 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '1', x = 100 - ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 20 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 30 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 40 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 50 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 60 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 70 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 80 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 90 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 100 + ft_to_yd(3), y = 8, angle = angle_l, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 20 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 30 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 40 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 50 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 60 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 70 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 80 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 90 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '0', x = 100 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '1', x = 20 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 30 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 40 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 50 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '5', x = 60 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '4', x = 70 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '3', x = 80 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '2', x = 90 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff') +
-      ggplot2::annotate('text', label = '1', x = 100 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 2, color = '#ffffff')
+    if(rotate){
+      if(rotation_dir == 'ccw'){
+        # Add the field numbers to the plot
+        g = g +
+          ggplot2::annotate('text', label = '1', x = -8, y = 20 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -8, y = 30 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -8, y = 40 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -8, y = 50 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = -8, y = 60 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -8, y = 70 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -8, y = 80 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -8, y = 90 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = -8, y = 100 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 20 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 30 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 40 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 50 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 60 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 70 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 80 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 90 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -8, y = 100 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 20 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 30 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 40 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 50 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 60 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 70 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 80 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 90 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = -53.3 + 8, y = 100 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = -53.3 + 8, y = 20 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -53.3 + 8, y = 30 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -53.3 + 8, y = 40 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -53.3 + 8, y = 50 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = -53.3 + 8, y = 60 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = -53.3 + 8, y = 70 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = -53.3 + 8, y = 80 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = -53.3 + 8, y = 90 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = -53.3 + 8, y = 100 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff')
 
-    # Return the ggplot2 instance
-    return(g)
+        # Return the ggplot2 instance
+        return(g)
+      }
+
+      else {
+        # Add the field numbers to the plot
+        g = g +
+          ggplot2::annotate('text', label = '1', x = 8, y = -20 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 8, y = -30 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 8, y = -40 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 8, y = -50 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = 8, y = -60 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 8, y = -70 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 8, y = -80 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 8, y = -90 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = 8, y = -100 + ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -20 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -30 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -40 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -50 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -60 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -70 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -80 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -90 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 8, y = -100 - ft_to_yd(3), angle = angle_l, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -20 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -30 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -40 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -50 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -60 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -70 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -80 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -90 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '0', x = 53.3 - 8, y = -100 + ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = 53.3 - 8, y = -20 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 53.3 - 8, y = -30 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 53.3 - 8, y = -40 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 53.3 - 8, y = -50 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '5', x = 53.3 - 8, y = -60 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '4', x = 53.3 - 8, y = -70 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '3', x = 53.3 - 8, y = -80 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '2', x = 53.3 - 8, y = -90 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff') +
+          ggplot2::annotate('text', label = '1', x = 53.3 - 8, y = -100 - ft_to_yd(3), angle = angle_u, size = 5, color = '#ffffff')
+
+        # Return the ggplot2 instance
+        return(g)
+      }
+    }
+
+    else {
+      # Add the field numbers to the plot
+      g = g +
+        ggplot2::annotate('text', label = '1', x = 20 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 30 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 40 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 50 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '5', x = 60 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 70 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 80 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 90 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '1', x = 100 - ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 20 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 30 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 40 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 50 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 60 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 70 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 80 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 90 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 100 + ft_to_yd(3), y = 8, angle = angle_l, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 20 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 30 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 40 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 50 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 60 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 70 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 80 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 90 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '0', x = 100 - ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '1', x = 20 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 30 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 40 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 50 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '5', x = 60 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '4', x = 70 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '3', x = 80 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '2', x = 90 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff') +
+        ggplot2::annotate('text', label = '1', x = 100 + ft_to_yd(3), y = 53.3 - 8, angle = angle_u, size = 5, color = '#ffffff')
+
+      # Return the ggplot2 instance
+      return(g)
+    }
   }
 
   else {
