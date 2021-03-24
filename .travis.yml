@@ -5,7 +5,6 @@ r:
   - oldrel
   - release
   - devel
-os: osx
 warnings_are_errors: false
 sudo: required
 cache: packages
