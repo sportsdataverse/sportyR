@@ -18,7 +18,8 @@ package aims to make this easy regardless of sport needed to be plotted.
 
 ## Installation
 
-You can install the released version of `sportyR` from [GitHub]() with:
+You can install the released version of `sportyR` from
+[GitHub](https://github.com/rossdrucker/sportyR) with:
 
 ``` r
 # install.packages("devtools")
