@@ -1,8 +1,7 @@
 Package: sportyR
 Title: Plot ggplot2 Representations of Sports Playing Surfaces
 Version: 0.0.0.9000
-Authors@R: 
-    person("Ross", "Drucker", email = "ross.a.drucker@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Ross", "Drucker", email = "ross.a.drucker@gmail.com", role = c("aut", "cre"))
 Maintainer: Ross Drucker <ross.a.drucker@gmail.com>
 Description: An R package for creating ggplot2 representations of playing
     surfaces. Playing surfaces are drawn pursuant to rule-book specifications.
@@ -15,9 +14,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     ggplot2,
-    glue,
-    rjson,
-    utils
+    glue
 Depends: 
     R (>= 2.10)
 Suggests: 
