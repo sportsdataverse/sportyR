@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
+[![Codecov test coverage](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
@@ -27,11 +28,8 @@ As the field of sports analytics evolve, there's a growing need for methods to b
 
 You can install the released version of `sportyR` from [GitHub](https://github.com/rossdrucker/sportyR) with:
 
-``` r
+``` {r install-package, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("rossdrucker/sportyR")
-```
-```{r install-package, include = FALSE}
 devtools::install_github("rossdrucker/sportyR")
 ```
 
