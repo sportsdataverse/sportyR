@@ -25,8 +25,6 @@ Generate a ggplot2 instance containing a regulation football field for a
 specified league
 }
 \examples{
-\dontrun{
 geom_football(league = "NFL")
 geom_football(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
-}
 }
