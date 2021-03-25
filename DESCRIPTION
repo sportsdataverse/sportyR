@@ -1,6 +1,6 @@
 Package: sportyR
 Title: Plot ggplot2 Representations of Sports Playing Surfaces
-Version: 0.0.0.9000
+Version: 0.0.9
 Authors@R: person("Ross", "Drucker", email = "ross.a.drucker@gmail.com", role = c("aut", "cre"))
 Maintainer: Ross Drucker <ross.a.drucker@gmail.com>
 Description: An R package for creating ggplot2 representations of playing
