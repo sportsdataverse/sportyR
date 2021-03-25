@@ -26,7 +26,9 @@ hockey rink
 Generate a ggplot2 instance containing an ice rink for a specified league
 }
 \examples{
+\dontrun{
 geom_hockey(league = "NHL")
 geom_hockey(league = "IIHF", full_surf = FALSE)
 geom_hockey(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
+}
 }

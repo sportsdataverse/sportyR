@@ -1314,8 +1314,10 @@ football_yard_numbers = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' geom_football(league = "NFL")
 #' geom_football(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
+#' }
 geom_football = function(league, rotate = FALSE, rotation_dir = 'ccw'){
   # Force the league to be all upper case
   league = toupper(league)

@@ -2710,9 +2710,11 @@ hockey_faceoff_lines = function(g, league, center = c(0, 0), full_surf = TRUE, r
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' geom_hockey(league = "NHL")
 #' geom_hockey(league = "IIHF", full_surf = FALSE)
 #' geom_hockey(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
+#' }
 geom_hockey = function(league, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Force the league to be all upper case
   league = toupper(league)
