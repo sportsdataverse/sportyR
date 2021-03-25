@@ -16,7 +16,8 @@ Imports:
     ggplot2,
     glue,
     rjson,
-    utils
+    utils,
+    dplyr
 Depends: 
     R (>= 2.10)
 Suggests: 

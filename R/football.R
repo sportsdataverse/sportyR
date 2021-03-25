@@ -1,5 +1,6 @@
 usethis::use_package("ggplot2")
 usethis::use_package("glue")
+usethis::use_package("dplyr")
 
 #' This draws a football field in its standard coordinate system, with (0, 0)
 #' being the bottom left corner of the left-most endzone. Each unit on the
@@ -228,19 +229,19 @@ football_goal_line = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
   }
 }
 
-#' Generate the dataframe for the points that comprise the yard lines
+#' Generate the dataframes for the points that comprise the yard lines. This
+#' function is fed into the football_yard_markings() function below and helps to
+#' optimize performance
 #'
-#' @param g A ggplot2 instance on which to add the feature
+#' @param yardage The yardage for which to create the yard markings
 #' @param league The league for which to draw the surface
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: FALSE
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: 'ccw'
-#' @return A ggplot2 instance with the yard lines added to it
-football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
-  # Initialize x and y (to pass checks)
-  x = y = NULL
-
+#' @return A dataframe (or list of dataframes) that contain the coordinates for
+#'   the yard lines
+football_yard_markings_df_maker = function(yardage, league, rotate = FALSE, rotation_dir = 'ccw'){
   if(league == 'NFL'){
     # The lines are to be placed 8" from the interior of the sidelines, and be
     # 4" wide. At 5-yard intervals across the field, the lines should stretch
@@ -249,175 +250,165 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
     # markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed
     # 8" from the interior of the sideline as well as 70' 9" from the interior
     # of the sideline (and extending back towards the sideline)
-    for(yardage in 11:109){
-      if(yardage %% 5 == 0){
-        # At 5-yard intervals, the line should stretch the width of the field,
-        # with the inbound line marker 70'9" from the interior of the sideline
-        # boundary
-        yard_marking = data.frame(
-          x = c(
-            # Start 8" from the sideline
-            yardage - inches_to_yd(2),
+    if(yardage %% 5 == 0){
+      # At 5-yard intervals, the line should stretch the width of the field,
+      # with the inbound line marker 70'9" from the interior of the sideline
+      # boundary
+      yard_marking = data.frame(
+        x = c(
+          # Start 8" from the sideline
+          yardage - inches_to_yd(2),
 
-            # Lower inbound line marker
-            yardage - inches_to_yd(2),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2),
+          # Lower inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
 
-            # Upper inbound line marker
-            yardage - inches_to_yd(2),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2),
+          # Upper inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
 
-            # Top
-            yardage - inches_to_yd(2),
+          # Top
+          yardage - inches_to_yd(2),
 
-            # Crossover
-            yardage + inches_to_yd(2),
+          # Crossover
+          yardage + inches_to_yd(2),
 
-            # Upper inbound line marker
-            yardage + inches_to_yd(2),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2),
+          # Upper inbound line marker
+          yardage + inches_to_yd(2),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2),
 
-            # Lower inbound line marker
-            yardage + inches_to_yd(2),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2),
+          # Lower inbound line marker
+          yardage + inches_to_yd(2),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2),
 
-            # Return to bottom
-            yardage + inches_to_yd(2),
+          # Return to bottom
+          yardage + inches_to_yd(2),
 
-            # Return to start
-            yardage - inches_to_yd(2)
-          ),
+          # Return to start
+          yardage - inches_to_yd(2)
+        ),
 
-          y = c(
-            # Start 8" from the sideline
-            inches_to_yd(8),
+        y = c(
+          # Start 8" from the sideline
+          inches_to_yd(8),
 
-            # Lower inbound line marker
-            ft_to_yd(70) + inches_to_yd(5),
-            ft_to_yd(70) + inches_to_yd(5),
-            ft_to_yd(70) + inches_to_yd(9),
-            ft_to_yd(70) + inches_to_yd(9),
+          # Lower inbound line marker
+          ft_to_yd(70) + inches_to_yd(5),
+          ft_to_yd(70) + inches_to_yd(5),
+          ft_to_yd(70) + inches_to_yd(9),
+          ft_to_yd(70) + inches_to_yd(9),
 
-            # Upper inbound line marker
-            53.3 - ft_to_yd(70) - inches_to_yd(9),
-            53.3 - ft_to_yd(70) - inches_to_yd(9),
-            53.3 - ft_to_yd(70) - inches_to_yd(5),
-            53.3 - ft_to_yd(70) - inches_to_yd(5),
+          # Upper inbound line marker
+          53.3 - ft_to_yd(70) - inches_to_yd(9),
+          53.3 - ft_to_yd(70) - inches_to_yd(9),
+          53.3 - ft_to_yd(70) - inches_to_yd(5),
+          53.3 - ft_to_yd(70) - inches_to_yd(5),
 
-            # Top
-            53.3 - inches_to_yd(8),
+          # Top
+          53.3 - inches_to_yd(8),
 
-            # Crossover
-            53.3 - inches_to_yd(8),
+          # Crossover
+          53.3 - inches_to_yd(8),
 
-            # Upper inbound line marker
-            53.3 - ft_to_yd(70) - inches_to_yd(9),
-            53.3 - ft_to_yd(70) - inches_to_yd(9),
-            53.3 - ft_to_yd(70) - inches_to_yd(5),
-            53.3 - ft_to_yd(70) - inches_to_yd(5),
+          # Upper inbound line marker
+          53.3 - ft_to_yd(70) - inches_to_yd(9),
+          53.3 - ft_to_yd(70) - inches_to_yd(9),
+          53.3 - ft_to_yd(70) - inches_to_yd(5),
+          53.3 - ft_to_yd(70) - inches_to_yd(5),
 
-            # Lower inbound line marker
-            ft_to_yd(70) + inches_to_yd(5),
-            ft_to_yd(70) + inches_to_yd(5),
-            ft_to_yd(70) + inches_to_yd(9),
-            ft_to_yd(70) + inches_to_yd(9),
+          # Lower inbound line marker
+          ft_to_yd(70) + inches_to_yd(5),
+          ft_to_yd(70) + inches_to_yd(5),
+          ft_to_yd(70) + inches_to_yd(9),
+          ft_to_yd(70) + inches_to_yd(9),
 
-            # Return to bottom
-            inches_to_yd(8),
+          # Return to bottom
+          inches_to_yd(8),
 
-            # Return to start
-            inches_to_yd(8)
-          )
+          # Return to start
+          inches_to_yd(8)
         )
+      )
 
-        if(rotate){
-          # If the desired output needs to be rotated, rotate the coordinates
-          yard_marking = rotate_coords(
-            yard_marking,
-            rotation_dir
-          )
-        }
-
-        # Add the yard marking to the plot. They will be white in color
-        g = g +
-          ggplot2::geom_polygon(data = yard_marking, ggplot2::aes(x, y), fill = '#ffffff')
+      if(rotate){
+        # If the desired output needs to be rotated, rotate the coordinates
+        yard_marking = rotate_coords(
+          yard_marking,
+          rotation_dir
+        )
       }
 
-      else {
-        # At 1-yard intervals, the line should be 2' long. The line should
-        # appear at the bottom (b) and top (t) of the field inside the 6' wide
-        # boundary, and also appear at 70'9" from the nearest boundary and
-        # extending from this point towards that boundary (l and u)
-        yard_marking_b = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = inches_to_yd(8),
-          y_max = ft_to_yd(2) + inches_to_yd(8)
-        )
-
-        yard_marking_l = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = ft_to_yd(68) + inches_to_yd(9),
-          y_max = ft_to_yd(70) + inches_to_yd(9)
-        )
-
-        yard_marking_u = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = 53.3 - ft_to_yd(70) - inches_to_yd(9),
-          y_max = 53.3 - ft_to_yd(68) - inches_to_yd(9)
-        )
-
-        yard_marking_t = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = 53.3 - ft_to_yd(2) - inches_to_yd(8),
-          y_max = 53.3 - inches_to_yd(8)
-        )
-
-        if(rotate){
-          # If the desired output needs to be rotated, rotate the coordinates
-          yard_marking_b = rotate_coords(
-            yard_marking_b,
-            rotation_dir
-          )
-
-          yard_marking_l = rotate_coords(
-            yard_marking_l,
-            rotation_dir
-          )
-
-          yard_marking_u = rotate_coords(
-            yard_marking_u,
-            rotation_dir
-          )
-
-          yard_marking_t = rotate_coords(
-            yard_marking_t,
-            rotation_dir
-          )
-        }
-
-        # Add the yard markings to the plot. They will be white in color
-        g = g +
-          ggplot2::geom_polygon(data = yard_marking_b, ggplot2::aes(x, y), fill = '#ffffff') +
-          ggplot2::geom_polygon(data = yard_marking_l, ggplot2::aes(x, y), fill = '#ffffff') +
-          ggplot2::geom_polygon(data = yard_marking_u, ggplot2::aes(x, y), fill = '#ffffff') +
-          ggplot2::geom_polygon(data = yard_marking_t, ggplot2::aes(x, y), fill = '#ffffff')
-      }
+      # Return the yard marking
+      return(yard_marking)
     }
 
-    # Return the ggplot2 instance
-    return(g)
+    else {
+      # At 1-yard intervals, the line should be 2' long. The line should
+      # appear at the bottom (b) and top (t) of the field inside the 6' wide
+      # boundary, and also appear at 70'9" from the nearest boundary and
+      # extending from this point towards that boundary (l and u)
+      yard_marking_b = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = inches_to_yd(8),
+        y_max = ft_to_yd(2) + inches_to_yd(8)
+      )
+
+      yard_marking_l = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = ft_to_yd(68) + inches_to_yd(9),
+        y_max = ft_to_yd(70) + inches_to_yd(9)
+      )
+
+      yard_marking_u = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = 53.3 - ft_to_yd(70) - inches_to_yd(9),
+        y_max = 53.3 - ft_to_yd(68) - inches_to_yd(9)
+      )
+
+      yard_marking_t = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = 53.3 - ft_to_yd(2) - inches_to_yd(8),
+        y_max = 53.3 - inches_to_yd(8)
+      )
+
+      if(rotate){
+        # If the desired output needs to be rotated, rotate the coordinates
+        yard_marking_b = rotate_coords(
+          yard_marking_b,
+          rotation_dir
+        )
+
+        yard_marking_l = rotate_coords(
+          yard_marking_l,
+          rotation_dir
+        )
+
+        yard_marking_u = rotate_coords(
+          yard_marking_u,
+          rotation_dir
+        )
+
+        yard_marking_t = rotate_coords(
+          yard_marking_t,
+          rotation_dir
+        )
+      }
+
+      # Return the list of yard markings
+      return(list(yard_marking_b, yard_marking_l, yard_marking_u, yard_marking_t))
+    }
   }
 
   else if(league == 'NCAA'){
@@ -428,172 +419,203 @@ football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw
     # markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed
     # 4" from the interior of the sideline as well as 60' from the interior of
     # the sideline (and extending back towards the sideline)
-    for(yardage in 11:109){
-      if(yardage %% 5 == 0){
-        # At 5-yard intervals, the line should stretch the width of the field,
-        # with the inbound line marker 70'9" from the interior of the sideline
-        # boundary
-        yard_marking = data.frame(
-          x = c(
-            # Start 4" from the sideline
-            yardage - inches_to_yd(2),
+    if(yardage %% 5 == 0){
+      # At 5-yard intervals, the line should stretch the width of the field,
+      # with the inbound line marker 70'9" from the interior of the sideline
+      # boundary
+      yard_marking = data.frame(
+        x = c(
+          # Start 4" from the sideline
+          yardage - inches_to_yd(2),
 
-            # Lower inbound line marker
-            yardage - inches_to_yd(2),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2),
+          # Lower inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
 
-            # Upper inbound line marker
-            yardage - inches_to_yd(2),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2) - inches_to_yd(10),
-            yardage - inches_to_yd(2),
+          # Upper inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
 
-            # Top
-            yardage - inches_to_yd(2),
+          # Top
+          yardage - inches_to_yd(2),
 
-            # Crossover
-            yardage + inches_to_yd(2),
+          # Crossover
+          yardage + inches_to_yd(2),
 
-            # Upper inbound line marker
-            yardage + inches_to_yd(2),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2),
+          # Upper inbound line marker
+          yardage + inches_to_yd(2),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2),
 
-            # Lower inbound line marker
-            yardage + inches_to_yd(2),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2) + inches_to_yd(10),
-            yardage + inches_to_yd(2),
+          # Lower inbound line marker
+          yardage + inches_to_yd(2),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2),
 
-            # Return to bottom
-            yardage + inches_to_yd(2),
+          # Return to bottom
+          yardage + inches_to_yd(2),
 
-            # Return to start
-            yardage - inches_to_yd(2)
-          ),
+          # Return to start
+          yardage - inches_to_yd(2)
+        ),
 
-          y = c(
-            # Start 4" from the sideline
-            inches_to_yd(4),
+        y = c(
+          # Start 4" from the sideline
+          inches_to_yd(4),
 
-            # Lower inbound line marker
-            ft_to_yd(60),
-            ft_to_yd(60),
-            ft_to_yd(60) + inches_to_yd(4),
-            ft_to_yd(60) + inches_to_yd(4),
+          # Lower inbound line marker
+          ft_to_yd(60),
+          ft_to_yd(60),
+          ft_to_yd(60) + inches_to_yd(4),
+          ft_to_yd(60) + inches_to_yd(4),
 
-            # Upper inbound line marker
-            53.3 - ft_to_yd(60) - inches_to_yd(4),
-            53.3 - ft_to_yd(60) - inches_to_yd(4),
-            53.3 - ft_to_yd(60),
-            53.3 - ft_to_yd(60),
+          # Upper inbound line marker
+          53.3 - ft_to_yd(60) - inches_to_yd(4),
+          53.3 - ft_to_yd(60) - inches_to_yd(4),
+          53.3 - ft_to_yd(60),
+          53.3 - ft_to_yd(60),
 
-            # Top
-            53.3 - inches_to_yd(4),
+          # Top
+          53.3 - inches_to_yd(4),
 
-            # Crossover
-            53.3 - inches_to_yd(4),
+          # Crossover
+          53.3 - inches_to_yd(4),
 
-            # Upper inbound line marker
-            53.3 - ft_to_yd(60) - inches_to_yd(4),
-            53.3 - ft_to_yd(60) - inches_to_yd(4),
-            53.3 - ft_to_yd(60),
-            53.3 - ft_to_yd(60),
+          # Upper inbound line marker
+          53.3 - ft_to_yd(60) - inches_to_yd(4),
+          53.3 - ft_to_yd(60) - inches_to_yd(4),
+          53.3 - ft_to_yd(60),
+          53.3 - ft_to_yd(60),
 
-            # Lower inbound line marker
-            ft_to_yd(60) + inches_to_yd(4),
-            ft_to_yd(60) + inches_to_yd(4),
-            ft_to_yd(60),
-            ft_to_yd(60),
+          # Lower inbound line marker
+          ft_to_yd(60) + inches_to_yd(4),
+          ft_to_yd(60) + inches_to_yd(4),
+          ft_to_yd(60),
+          ft_to_yd(60),
 
-            # Return to bottom
-            inches_to_yd(4),
+          # Return to bottom
+          inches_to_yd(4),
 
-            # Return to start
-            inches_to_yd(4)
-          )
+          # Return to start
+          inches_to_yd(4)
         )
+      )
 
-        if(rotate){
-          # If the desired output needs to be rotated, rotate the coordinates
-          yard_marking = rotate_coords(
-            yard_marking,
-            rotation_dir
-          )
-        }
-
-        # Add the yard marking to the plot. They will be white in color
-        g = g +
-          ggplot2::geom_polygon(data = yard_marking, ggplot2::aes(x, y), fill = '#ffffff')
+      if(rotate){
+        # If the desired output needs to be rotated, rotate the coordinates
+        yard_marking = rotate_coords(
+          yard_marking,
+          rotation_dir
+        )
       }
 
-      else {
-        # At 1-yard intervals, the line should be 2' long. The line should
-        # appear at the bottom (b) and top (t) of the field inside the 6' wide
-        # boundary, and also appear at 70'9" from the nearest boundary and
-        # extending from this point towards that boundary (l and u)
-        yard_marking_b = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = inches_to_yd(4),
-          y_max = ft_to_yd(2) + inches_to_yd(4)
-        )
-
-        yard_marking_l = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = ft_to_yd(58),
-          y_max = ft_to_yd(60)
-        )
-
-        yard_marking_u = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = 53.3 - ft_to_yd(60),
-          y_max = 53.3 - ft_to_yd(58)
-        )
-
-        yard_marking_t = create_rectangle(
-          x_min = yardage - inches_to_yd(2),
-          x_max = yardage + inches_to_yd(2),
-          y_min = 53.3 - ft_to_yd(2) - inches_to_yd(4),
-          y_max = 53.3 - inches_to_yd(4)
-        )
-
-        if(rotate){
-          # If the desired output needs to be rotated, rotate the coordinates
-          yard_marking_b = rotate_coords(
-            yard_marking_b,
-            rotation_dir
-          )
-
-          yard_marking_l = rotate_coords(
-            yard_marking_l,
-            rotation_dir
-          )
-
-          yard_marking_u = rotate_coords(
-            yard_marking_u,
-            rotation_dir
-          )
-
-          yard_marking_t = rotate_coords(
-            yard_marking_t,
-            rotation_dir
-          )
-        }
-
-        # Add the yard markings to the plot. They will be white in color
-        g = g +
-          ggplot2::geom_polygon(data = yard_marking_b, ggplot2::aes(x, y), fill = '#ffffff') +
-          ggplot2::geom_polygon(data = yard_marking_l, ggplot2::aes(x, y), fill = '#ffffff') +
-          ggplot2::geom_polygon(data = yard_marking_u, ggplot2::aes(x, y), fill = '#ffffff') +
-          ggplot2::geom_polygon(data = yard_marking_t, ggplot2::aes(x, y), fill = '#ffffff')
-      }
+      # Return the yard marking
+      return(yard_marking)
     }
+
+    else {
+      # At 1-yard intervals, the line should be 2' long. The line should
+      # appear at the bottom (b) and top (t) of the field inside the 6' wide
+      # boundary, and also appear at 70'9" from the nearest boundary and
+      # extending from this point towards that boundary (l and u)
+      yard_marking_b = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = inches_to_yd(4),
+        y_max = ft_to_yd(2) + inches_to_yd(4)
+      )
+
+      yard_marking_l = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = ft_to_yd(58),
+        y_max = ft_to_yd(60)
+      )
+
+      yard_marking_u = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = 53.3 - ft_to_yd(60),
+        y_max = 53.3 - ft_to_yd(58)
+      )
+
+      yard_marking_t = create_rectangle(
+        x_min = yardage - inches_to_yd(2),
+        x_max = yardage + inches_to_yd(2),
+        y_min = 53.3 - ft_to_yd(2) - inches_to_yd(4),
+        y_max = 53.3 - inches_to_yd(4)
+      )
+
+      if(rotate){
+        # If the desired output needs to be rotated, rotate the coordinates
+        yard_marking_b = rotate_coords(
+          yard_marking_b,
+          rotation_dir
+        )
+
+        yard_marking_l = rotate_coords(
+          yard_marking_l,
+          rotation_dir
+        )
+
+        yard_marking_u = rotate_coords(
+          yard_marking_u,
+          rotation_dir
+        )
+
+        yard_marking_t = rotate_coords(
+          yard_marking_t,
+          rotation_dir
+        )
+      }
+
+      # Return the list of yard markings
+      return(list(yard_marking_b, yard_marking_l, yard_marking_u, yard_marking_t))
+    }
+  }
+
+  else {
+    # If the league isn't valid (i.e. either NFL or NCAA), return NULL
+    return(NULL)
+  }
+}
+
+#' Generate the dataframe for the points that comprise the yard lines
+#'
+#' @param g A ggplot2 instance on which to add the feature
+#' @param league The league for which to draw the surface
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
+#' @return A ggplot2 instance with the yard lines added to it
+football_yard_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x, y, and yardage (to pass checks)
+  x = y = NULL
+  yardage = NULL
+
+  if(league %in% c('NFL', 'NCAA')){
+    # The yard lines start at the left-side 1-yard mark, which is 11 yards from
+    # the back of the endzone. They end at the right-side 1-yard mark, which is 11
+    # yards from the back of the right endzone
+    yardages = 11:109
+
+    # Use lapply for speed to create the yard markings dataframes. NOTE: the
+    # result is a list, and will be stacked into a single dataframe
+    yard_markings_list = lapply(yardages, football_yard_markings_df_maker, league, rotate, rotation_dir)
+
+    # Reshape the list of dataframes into a single dataframe
+    yard_markings = dplyr::bind_rows(yard_markings_list, .id = 'yardage')
+
+    # Add the yard markings to the plot. They will be white in color
+    g = g +
+      ggplot2::geom_polygon(data = yard_markings, ggplot2::aes(x, y, group = yardage), fill = '#ffffff')
 
     # Return the ggplot2 instance
     return(g)
@@ -704,6 +726,273 @@ football_try_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
   }
 }
 
+#' Generate the dataframes for the points that comprise the directional arrows. This
+#' function is fed into the football_directional_arrows() function below and helps to
+#' optimize performance
+#'
+#' @param yardage The yardage for which to create the yard markings
+#' @param league The league for which to draw the surface
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: FALSE
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: 'ccw'
+#' @return A dataframe (or list of dataframes) that contain the coordinates for
+#'   the directional arrows
+football_directional_arrows_df_maker = function(yardage, league, rotate = FALSE, rotation_dir = 'ccw'){
+  # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem
+  # can be used to determine the height (using half the length of the base,
+  # which in this case is 18")
+  arrow_width = sqrt((inches_to_yd(36) ** 2) - (inches_to_yd(9) ** 2))
+
+  if(league == 'NFL'){
+    # The directional arrows should not be drawn at the 50-yard line. Other
+    # than that, an arrow should be drawn every 10 yards
+    if(yardage < 60){
+      # Draw the directional arrow that's below the middle point of the field
+      directional_arrow_lower = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
+          yardage - inches_to_yd(2) - ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The bottom of the numbers must be 12 yards (36') off the interior
+          # of the sideline. The number itself is then 6' tall, and the top
+          # tip of the arrow is 15" below this line
+          14 - inches_to_yd(15),
+          14 - inches_to_yd(15) - inches_to_yd(18),
+          14 - inches_to_yd(15) - inches_to_yd(9),
+          14 - inches_to_yd(15)
+        )
+      )
+
+      # Draw the directional arrow that's above the middle point of the field
+      directional_arrow_upper = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
+          yardage - inches_to_yd(2) - ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The bottom of the numbers must be 12 yards (36') off the interior
+          # of the sideline. The number itself is then 6' tall, and the top
+          # tip of the arrow is 15" below this line
+          53.3 - 14 + inches_to_yd(15),
+          53.3 - 14 + inches_to_yd(15) + inches_to_yd(18),
+          53.3 - 14 + inches_to_yd(15) + inches_to_yd(9),
+          53.3 - 14 + inches_to_yd(15)
+        )
+      )
+    }
+
+    else if(yardage > 60){
+      # Draw the directional arrow that's below the middle point of the field
+      directional_arrow_lower = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
+          yardage + inches_to_yd(2) + ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The bottom of the numbers must be 12 yards (36') off the interior
+          # of the sideline. The number itself is then 6' tall, and the top
+          # tip of the arrow is 15" below this line
+          14 - inches_to_yd(15),
+          14 - inches_to_yd(15) - inches_to_yd(18),
+          14 - inches_to_yd(15) - inches_to_yd(9),
+          14 - inches_to_yd(15)
+        )
+      )
+
+      # Draw the directional arrow that's above the middle point of the field
+      directional_arrow_upper = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
+          yardage + inches_to_yd(2) + ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The bottom of the numbers must be 12 yards (36') off the interior
+          # of the sideline. The number itself is then 6' tall, and the top
+          # tip of the arrow is 15" below this line
+          53.3 - 14 + inches_to_yd(15),
+          53.3 - 14 + inches_to_yd(15) + inches_to_yd(18),
+          53.3 - 14 + inches_to_yd(15) + inches_to_yd(9),
+          53.3 - 14 + inches_to_yd(15)
+        )
+      )
+    }
+
+    else {
+      # If the current yard line is the 50-yard line, skip creating and adding
+      # the arrow
+      return(data.frame(x = c(), y = c()))
+    }
+
+    if(rotate){
+      # If the desired output needs to be rotated, rotate the coordinates
+      directional_arrow_lower = rotate_coords(
+        directional_arrow_lower,
+        rotation_dir
+      )
+
+      directional_arrow_upper = rotate_coords(
+        directional_arrow_upper,
+        rotation_dir
+      )
+    }
+
+    return(list(directional_arrow_lower, directional_arrow_upper))
+  }
+
+  else if(league == 'NCAA'){
+    # The directional arrows should not be drawn at the 50-yard line. Other
+    # than that, an arrow should be drawn every 10 yards
+    if(yardage < 60){
+      # Draw the directional arrow that's below the middle point of the field
+      directional_arrow_lower = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
+          yardage - inches_to_yd(2) - ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The top of the numbers must be 9 yards (27') off the interior of
+          # the sideline. The number itself is 6' tall, and the top tip of the
+          # arrow is 15" below this line
+          9 - inches_to_yd(15),
+          9 - inches_to_yd(15) - inches_to_yd(18),
+          9 - inches_to_yd(15) - inches_to_yd(9),
+          9 - inches_to_yd(15)
+        )
+      )
+
+      # Draw the directional arrow that's above the middle point of the field
+      directional_arrow_upper = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5),
+          yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
+          yardage - inches_to_yd(2) - ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The top of the numbers must be 9 yards (27') off the interior of
+          # the sideline. The number itself is 6' tall, and the top tip of the
+          # arrow is 15" below this line
+          53.3 - 9 + inches_to_yd(15),
+          53.3 - 9 + inches_to_yd(15) + inches_to_yd(18),
+          53.3 - 9 + inches_to_yd(15) + inches_to_yd(9),
+          53.3 - 9 + inches_to_yd(15)
+        )
+      )
+    }
+
+    else if(yardage > 60){
+      # Draw the directional arrow that's below the middle point of the field
+      directional_arrow_lower = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
+          yardage + inches_to_yd(2) + ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The top of the numbers must be 9 yards (27') off the interior of
+          # the sideline. The number itself is 6' tall, and the top tip of the
+          # arrow is 15" below this line
+          9 - inches_to_yd(15),
+          9 - inches_to_yd(15) - inches_to_yd(18),
+          9 - inches_to_yd(15) - inches_to_yd(9),
+          9 - inches_to_yd(15)
+        )
+      )
+
+      # Draw the directional arrow that's above the middle point of the field
+      directional_arrow_upper = data.frame(
+        x = c(
+          # The numbers are 1' from the outer edge of the yard line, which is
+          # 2" wide. The number itself is 4' wide, and the number is 6" off
+          # the outside edge of the number
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5),
+          yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
+          yardage + inches_to_yd(2) + ft_to_yd(5.5)
+        ),
+
+        y = c(
+          # The top of the numbers must be 9 yards (27') off the interior of
+          # the sideline. The number itself is 6' tall, and the top tip of the
+          # arrow is 15" below this line
+          53.3 - 9 + inches_to_yd(15),
+          53.3 - 9 + inches_to_yd(15) + inches_to_yd(18),
+          53.3 - 9 + inches_to_yd(15) + inches_to_yd(9),
+          53.3 - 9 + inches_to_yd(15)
+        )
+      )
+    }
+
+    else {
+      # If the current yard line is the 50-yard line, skip creating and adding
+      # the arrow
+      return(data.frame(x = c(), y = c()))
+    }
+
+    if(rotate){
+      # If the desired output needs to be rotated, rotate the coordinates
+      directional_arrow_lower = rotate_coords(
+        directional_arrow_lower,
+        rotation_dir
+      )
+
+      directional_arrow_upper = rotate_coords(
+        directional_arrow_upper,
+        rotation_dir
+      )
+    }
+
+    # Return the list of yard markings
+    return(list(directional_arrow_lower, directional_arrow_upper))
+  }
+
+  else {
+    # If the league isn't valid (i.e. either NFL or NCAA), return NULL
+    return(NULL)
+  }
+}
+
 #' Generate the dataframe for the points that comprise the directional arrows
 #'
 #' @param g A ggplot2 instance on which to add the feature
@@ -714,269 +1003,26 @@ football_try_markings = function(g, league, rotate = FALSE, rotation_dir = 'ccw'
 #'   feature. Default: 'ccw'
 #' @return A ggplot2 instance with the directional arrows added to it
 football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir = 'ccw'){
-  # Initialize x and y (to pass checks)
+  # Initialize x, y, and yardage (to pass checks)
   x = y = NULL
+  yardage = NULL
 
-  # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem
-  # can be used to determine the height (using half the length of the base,
-  # which in this case is 18")
-  arrow_width = sqrt((inches_to_yd(36) ** 2) - (inches_to_yd(9) ** 2))
+  if(league %in% c('NFL', 'NCAA')){
+    # There should be a directional arrow every 10 yards, except for the 50 yard
+    # line. They start at the 10 yard line, which is 20 yards from the back of
+    # the endzone
+    yardages = seq(20, 100, 10)
 
-  if(league == 'NFL'){
-    for(yardage in seq(20, 100, 10)){
-      # The directional arrows should not be drawn at the 50-yard line. Other
-      # than that, an arrow should be drawn every 10 yards
+    # Use lapply for speed to create the directional arrows' dataframes. NOTE: the
+    # result is a list, and will be stacked into a single dataframe
+    directional_arrows_list = lapply(yardages, football_directional_arrows_df_maker, league, rotate, rotation_dir)
 
-      if(yardage < 60){
-        # Draw the directional arrow that's below the middle point of the field
-        directional_arrow_lower = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
-            yardage - inches_to_yd(2) - ft_to_yd(5.5)
-          ),
+    # Reshape the list of dataframes into a single dataframe
+    directional_arrows = dplyr::bind_rows(directional_arrows_list, .id = 'yardage')
 
-          y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior
-            # of the sideline. The number itself is then 6' tall, and the top
-            # tip of the arrow is 15" below this line
-            14 - inches_to_yd(15),
-            14 - inches_to_yd(15) - inches_to_yd(18),
-            14 - inches_to_yd(15) - inches_to_yd(9),
-            14 - inches_to_yd(15)
-          )
-        )
-
-        # Draw the directional arrow that's above the middle point of the field
-        directional_arrow_upper = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
-            yardage - inches_to_yd(2) - ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior
-            # of the sideline. The number itself is then 6' tall, and the top
-            # tip of the arrow is 15" below this line
-            53.3 - 14 + inches_to_yd(15),
-            53.3 - 14 + inches_to_yd(15) + inches_to_yd(18),
-            53.3 - 14 + inches_to_yd(15) + inches_to_yd(9),
-            53.3 - 14 + inches_to_yd(15)
-          )
-        )
-      }
-
-      else if(yardage > 60){
-        # Draw the directional arrow that's below the middle point of the field
-        directional_arrow_lower = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
-            yardage + inches_to_yd(2) + ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior
-            # of the sideline. The number itself is then 6' tall, and the top
-            # tip of the arrow is 15" below this line
-            14 - inches_to_yd(15),
-            14 - inches_to_yd(15) - inches_to_yd(18),
-            14 - inches_to_yd(15) - inches_to_yd(9),
-            14 - inches_to_yd(15)
-          )
-        )
-
-        # Draw the directional arrow that's above the middle point of the field
-        directional_arrow_upper = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
-            yardage + inches_to_yd(2) + ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The bottom of the numbers must be 12 yards (36') off the interior
-            # of the sideline. The number itself is then 6' tall, and the top
-            # tip of the arrow is 15" below this line
-            53.3 - 14 + inches_to_yd(15),
-            53.3 - 14 + inches_to_yd(15) + inches_to_yd(18),
-            53.3 - 14 + inches_to_yd(15) + inches_to_yd(9),
-            53.3 - 14 + inches_to_yd(15)
-          )
-        )
-      }
-
-      else {
-        # If the current yard line is the 50-yard line, skip creating and adding
-        # the arrow
-        next
-      }
-
-      if(rotate){
-        # If the desired output needs to be rotated, rotate the coordinates
-        directional_arrow_lower = rotate_coords(
-          directional_arrow_lower,
-          rotation_dir
-        )
-
-        directional_arrow_upper = rotate_coords(
-          directional_arrow_upper,
-          rotation_dir
-        )
-      }
-
-      # Add the directional arrow to the plot. They will be white in color
-      g = g +
-        ggplot2::geom_polygon(data = directional_arrow_lower, ggplot2::aes(x, y), fill = '#ffffff') +
-        ggplot2::geom_polygon(data = directional_arrow_upper, ggplot2::aes(x, y), fill = '#ffffff')
-    }
-
-    # Return the ggplot2 instance
-    return(g)
-  }
-
-  else if(league == 'NCAA'){
-    for(yardage in seq(20, 100, 10)){
-      # The directional arrows should not be drawn at the 50-yard line. Other
-      # than that, an arrow should be drawn every 10 yards
-
-      if(yardage < 60){
-        # Draw the directional arrow that's below the middle point of the field
-        directional_arrow_lower = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
-            yardage - inches_to_yd(2) - ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of
-            # the sideline. The number itself is 6' tall, and the top tip of the
-            # arrow is 15" below this line
-            9 - inches_to_yd(15),
-            9 - inches_to_yd(15) - inches_to_yd(18),
-            9 - inches_to_yd(15) - inches_to_yd(9),
-            9 - inches_to_yd(15)
-          )
-        )
-
-        # Draw the directional arrow that's above the middle point of the field
-        directional_arrow_upper = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5),
-            yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
-            yardage - inches_to_yd(2) - ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of
-            # the sideline. The number itself is 6' tall, and the top tip of the
-            # arrow is 15" below this line
-            53.3 - 9 + inches_to_yd(15),
-            53.3 - 9 + inches_to_yd(15) + inches_to_yd(18),
-            53.3 - 9 + inches_to_yd(15) + inches_to_yd(9),
-            53.3 - 9 + inches_to_yd(15)
-          )
-        )
-      }
-
-      else if(yardage > 60){
-        # Draw the directional arrow that's below the middle point of the field
-        directional_arrow_lower = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
-            yardage + inches_to_yd(2) + ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of
-            # the sideline. The number itself is 6' tall, and the top tip of the
-            # arrow is 15" below this line
-            9 - inches_to_yd(15),
-            9 - inches_to_yd(15) - inches_to_yd(18),
-            9 - inches_to_yd(15) - inches_to_yd(9),
-            9 - inches_to_yd(15)
-          )
-        )
-
-        # Draw the directional arrow that's above the middle point of the field
-        directional_arrow_upper = data.frame(
-          x = c(
-            # The numbers are 1' from the outer edge of the yard line, which is
-            # 2" wide. The number itself is 4' wide, and the number is 6" off
-            # the outside edge of the number
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5),
-            yardage + inches_to_yd(2) + ft_to_yd(5.5) + arrow_width,
-            yardage + inches_to_yd(2) + ft_to_yd(5.5)
-          ),
-
-          y = c(
-            # The top of the numbers must be 9 yards (27') off the interior of
-            # the sideline. The number itself is 6' tall, and the top tip of the
-            # arrow is 15" below this line
-            53.3 - 9 + inches_to_yd(15),
-            53.3 - 9 + inches_to_yd(15) + inches_to_yd(18),
-            53.3 - 9 + inches_to_yd(15) + inches_to_yd(9),
-            53.3 - 9 + inches_to_yd(15)
-          )
-        )
-      }
-
-      else {
-        # If the current yard line is the 50-yard line, skip creating and adding
-        # the arrow
-        next
-      }
-
-      if(rotate){
-        # If the desired output needs to be rotated, rotate the coordinates
-        directional_arrow_lower = rotate_coords(
-          directional_arrow_lower,
-          rotation_dir
-        )
-
-        directional_arrow_upper = rotate_coords(
-          directional_arrow_upper,
-          rotation_dir
-        )
-      }
-
-      # Add the directional arrow to the plot. It will be white in color
-      g = g +
-        ggplot2::geom_polygon(data = directional_arrow_lower, ggplot2::aes(x, y), fill = '#ffffff') +
-        ggplot2::geom_polygon(data = directional_arrow_upper, ggplot2::aes(x, y), fill = '#ffffff')
-    }
+    # Add the yard markings to the plot. They will be white in color
+    g = g +
+      ggplot2::geom_polygon(data = directional_arrows, ggplot2::aes(x, y, group = yardage), fill = '#ffffff')
 
     # Return the ggplot2 instance
     return(g)
@@ -987,7 +1033,6 @@ football_directional_arrows = function(g, league, rotate = FALSE, rotation_dir =
     # instance
     return(g)
   }
-
 }
 
 #' Add the yardline-marking numbers at 10-yard intervals
