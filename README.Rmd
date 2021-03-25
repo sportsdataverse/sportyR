@@ -27,7 +27,7 @@ As the field of sports analytics evolve, there's a growing need for methods to b
 
 ## Installation
 
-You can install the released version of `sportyR` from [GitHub](https://github.com/rossdrucker/sportyR) with:
+You can install `sportyR` from [GitHub](https://github.com/rossdrucker/sportyR) with:
 
 ``` {r install-package, eval = FALSE}
 # install.packages("devtools")
