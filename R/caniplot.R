@@ -83,14 +83,16 @@ caniplot_sport = function(sport){
     leagues = sort(sport_lookup[[sport]])
 
     # Notify user of viable functions
-    message(glue::glue("geom_{tolower(sport)}() can be used to plot for the following leagues: \n"))
+    message_str = glue::glue("geom_{tolower(sport)}() can be used to plot for the following leagues: ")
 
     # Initialize indexer for while loop
     i = 1
     while(i <= n_leagues){
       # Append the leagues to the string
-      message(glue::glue("- {leagues[i]}"))
+      leagues_str = paste(leagues, collapse = ', ')
       i = i + 1
     }
+
+    message(glue::glue("{message_str}{leagues_str}"))
   }
 }
