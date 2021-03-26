@@ -46,7 +46,7 @@ caniplot_league = function(league_code){
     }
 
     # Notify user of viable functions
-    message(glue::glue("{league_code} can be used in the following functions: {functions_string} or geom_{tolower(sports[i])}()"))
+    message(glue::glue("{league_code} can be used in the following functions: {functions_string}or geom_{tolower(sports[i])}()"))
   }
 }
 
