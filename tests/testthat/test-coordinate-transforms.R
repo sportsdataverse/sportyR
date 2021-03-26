@@ -12,12 +12,18 @@ test_that("Coordinate transformations should reflect, rotate, and translate the 
   # (1, 1) will be used
   rotation_square = translate(unit_square, translate_x = 1, translate_y = 1)
 
-  rotated_result = data.frame(
+  rotated_ccw_result = data.frame(
     x = c(-.5, -.5, -1.5, -1.5, -.5),
     y = c(.5, 1.5, 1.5, .5, .5)
   )
 
-  expect_equal(rotate_coords(rotation_square), rotated_result)
+  rotated_cw_result = data.frame(
+    x = c(.5, .5, 1.5, 1.5, .5),
+    y = c(-.5, -1.5, -1.5, -.5, -.5)
+  )
+
+  expect_equal(rotate_coords(rotation_square), rotated_ccw_result)
+  expect_equal(rotate_coords(rotation_square, rotation_dir = 'cw'), rotated_cw_result)
 
   # Test reflection
   reflected_square = translate(unit_square, translate_x = .5, translate_y = .5)
