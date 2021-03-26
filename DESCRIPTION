@@ -19,7 +19,7 @@ Imports:
     utils,
     dplyr
 Depends: 
-    R (>= 2.10)
+    R (>= 3.3)
 Suggests: 
     testthat (>= 3.0.0),
     vdiffr (>= 0.3.3),
