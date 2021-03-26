@@ -1,6 +1,3 @@
-usethis::use_package("ggplot2")
-usethis::use_package("glue")
-
 #' This draws a baseball diamond in its standard coordinate system, with (0, 0)
 #' being the back tip of home plate. The positive x direction extends to the
 #' first-base side of the field, and the positive y direction extends towards

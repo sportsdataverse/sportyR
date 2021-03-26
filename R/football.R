@@ -1,7 +1,3 @@
-usethis::use_package("ggplot2")
-usethis::use_package("glue")
-usethis::use_package("dplyr")
-
 #' This draws a football field in its standard coordinate system, with (0, 0)
 #' being the bottom left corner of the left-most endzone. Each unit on the
 #' coordinate system corresponds to 1 yard. The entire field will always be

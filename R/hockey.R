@@ -1,6 +1,3 @@
-usethis::use_package("ggplot2")
-usethis::use_package("glue")
-
 #' Generate the dataframe for the points that comprise the boards
 #'
 #' @param g A ggplot2 instance on which to add the feature

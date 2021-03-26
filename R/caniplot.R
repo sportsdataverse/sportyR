@@ -1,5 +1,3 @@
-usethis::use_package("glue")
-
 #' Check to see if a league can be plotted, and alert the user as to which
 #' functions that league will work for
 #'
