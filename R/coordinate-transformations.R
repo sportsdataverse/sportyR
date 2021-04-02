@@ -34,6 +34,7 @@ rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
   if(nrow(df) == 0){
     return(df)
   }
+
   # If the rotation direction is clockwise, take the negative of the angle
   if(!tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
     angle = angle * -1
