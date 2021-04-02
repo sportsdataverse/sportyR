@@ -30,6 +30,10 @@ reflect = function(df, over_x = FALSE, over_y = TRUE){
 #'   the coordinates
 #' @return The rotated data frame
 rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
+  # If the data frame is empty, just give back the data frame
+  if(nrow(df) == 0){
+    return(df)
+  }
   # If the rotation direction is clockwise, take the negative of the angle
   if(!tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
     angle = angle * -1
