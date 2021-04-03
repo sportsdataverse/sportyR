@@ -7,6 +7,7 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  cache = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%",
@@ -38,7 +39,11 @@ devtools::install_github("rossdrucker/sportyR")
 Once the library is installed, be sure to load it into the working environment.
 
 ```{r load-sportyR}
+# Required to use package
 library(sportyR)
+
+# Not required directly for utilization of sportyR, but useful to add more data
+# to plots and create animations
 library(ggplot2)
 library(gganimate)
 ```
@@ -60,9 +65,9 @@ All plotting functions in this library are named as `geom_{sport}()`, and take t
 
 Most playing surfaces are standard in size, so they can be rendered via a call to the proper `geom_{sport}()` like so:
 
-```{r nhl-example}
-# Draw a basic NHL rink plot
-geom_hockey('nhl')
+```{r mlb-example}
+# Draw a basic MLB field plot
+geom_baseball('mlb')
 ```
 
 However, certain functions are able to take additional parameters. As an example, soccer pitches are not always a standard size. For this reason, users can specify in the call to `geom_soccer()` what the touchline and goal line dimensions should be (in meters).
@@ -110,27 +115,13 @@ geom_basketball(
 )
 ```
 
-Another quick example with a soccer pitch:
+Another quick example with a football field, but this time only changing one of the coloring elements:
 
-```{r custom-soccer-plot}
-geom_soccer(
-  'nwsl',
-  grass_color = '#131862',
-  touchline_1_color = '#546bab',
-  touchline_2_color = '#546bab',
-  goal_line_color = '#546bab',
-  halfway_line_color = '#546bab',
-  center_circle_color = '#546bab',
-  corner_circle_1_color = '#546bab',
-  corner_circle_2_color = '#546bab',
-  corner_circle_3_color = '#546bab',
-  corner_circle_4_color = '#546bab',
-  box_6yd_color = '#546bab',
-  box_18yd_color = '#546bab',
-  penalty_arc_color = '#546bab',
-  penalty_mark_color = '#546bab',
-  center_mark_color = '#546bab',
-  goal_color = '#87889c'
+```{r custom-ncaa-football-plot}
+# Create a blue football field
+geom_football(
+  'ncaa',
+  grass_color = '#2e4597'
 )
 ```
 

@@ -31,7 +31,11 @@ Once the library is installed, be sure to load it into the working
 environment.
 
 ``` r
+# Required to use package
 library(sportyR)
+
+# Not required directly for utilization of sportyR, but useful to add more data
+# to plots and create animations
 library(ggplot2)
 library(gganimate)
 ```
@@ -65,11 +69,11 @@ Most playing surfaces are standard in size, so they can be rendered via
 a call to the proper `geom_{sport}()` like so:
 
 ``` r
-# Draw a basic NHL rink plot
-geom_hockey('nhl')
+# Draw a basic MLB field plot
+geom_baseball('mlb')
 ```
 
-<img src="man/figures/README-nhl-example-1.png" width="100%" />
+<img src="man/figures/README-mlb-example-1.png" width="100%" />
 
 However, certain functions are able to take additional parameters. As an
 example, soccer pitches are not always a standard size. For this reason,
@@ -129,31 +133,18 @@ geom_basketball(
 
 <img src="man/figures/README-custom-ncaa-bb-example-1.png" width="100%" />
 
-Another quick example with a soccer pitch:
+Another quick example with a football field, but this time only changing
+one of the coloring elements:
 
 ``` r
-geom_soccer(
-  'nwsl',
-  grass_color = '#131862',
-  touchline_1_color = '#546bab',
-  touchline_2_color = '#546bab',
-  goal_line_color = '#546bab',
-  halfway_line_color = '#546bab',
-  center_circle_color = '#546bab',
-  corner_circle_1_color = '#546bab',
-  corner_circle_2_color = '#546bab',
-  corner_circle_3_color = '#546bab',
-  corner_circle_4_color = '#546bab',
-  box_6yd_color = '#546bab',
-  box_18yd_color = '#546bab',
-  penalty_arc_color = '#546bab',
-  penalty_mark_color = '#546bab',
-  center_mark_color = '#546bab',
-  goal_color = '#87889c'
+# Create a blue football field
+geom_football(
+  'ncaa',
+  grass_color = '#2e4597'
 )
 ```
 
-<img src="man/figures/README-custom-soccer-plot-1.png" width="100%" />
+<img src="man/figures/README-custom-ncaa-football-plot-1.png" width="100%" />
 
 ## `cani` Functions
 
