@@ -172,7 +172,9 @@ bdc_data['Y.Coordinate'] = bdc_data['Y.Coordinate'] - 42.5
 
 # Subset to only be shots from the game on 2021-01-23 between the Minnesota
 # White Caps and Boston Pride
-bdc_shots = bdc_data[(bdc_data$Event == 'Shot') & (bdc_data$Home.Team == 'Minnesota Whitecaps') & (bdc_data$game_date == '2021-01-23'), ]
+bdc_shots = bdc_data[(bdc_data$Event == 'Shot') &
+                     (bdc_data$Home.Team == 'Minnesota Whitecaps') &
+                     (bdc_data$game_date == '2021-01-23'), ]
 
 # Separate shots by team
 whitecaps_shots = bdc_shots[bdc_shots$Team == 'Minnesota Whitecaps', ]
