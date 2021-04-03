@@ -1,0 +1,1039 @@
+#' Generate the data frame for the points that comprise the grass background
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the grass
+nfl_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  # This gives the green background of the field
+  grass = create_rectangle(
+    x_min = -64,
+    x_max = 0,
+    y_min = -30.65,
+    y_max = 30.65
+  )
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    grass = rbind(
+      grass,
+      reflect(
+        grass,
+        over_y = TRUE
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    grass = rotate_coords(
+      grass,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(grass)
+}
+
+#' Generate the data frame for the points that comprise the sidelines
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A list of data frames containing the points that comprise the
+#'   sidelines
+nfl_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  # The sidelines are solid white and 6' (2 yards) in width. Their interior
+  # edges form the boundary line of the field
+  sideline_1 = create_rectangle(
+    x_min = -62,
+    x_max = 0,
+    y_min = -28 - (2/3),
+    y_max = -26 - (2/3)
+  )
+
+  sideline_2 = create_rectangle(
+    x_min = -62,
+    x_max = 0,
+    y_min = 26 + (2/3),
+    y_max = 28 + (2/3)
+  )
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    sideline_1 = rbind(
+      sideline_1,
+      reflect(
+        sideline_1,
+        over_y = TRUE
+      )
+    )
+
+    sideline_2 = rbind(
+      sideline_2,
+      reflect(
+        sideline_2,
+        over_y = TRUE
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    sideline_1 = rotate_coords(
+      sideline_1,
+      rotation_dir
+    )
+
+    sideline_2 = rotate_coords(
+      sideline_2,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame as a list
+  sidelines = list(
+    sideline_1 = sideline_1,
+    sideline_2 = sideline_2
+  )
+
+  return(sidelines)
+}
+
+#' Generate the data frame for the points that comprise the endline
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the endlines
+nfl_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  # The endlines are solid white and 6' (2 yards) in width. Their interior
+  # edges form the boundary line of the field
+  endline = create_rectangle(
+    x_min = -62,
+    x_max = -60,
+    y_min = -28 - (2/12),
+    y_max = 28 + (2/12)
+  )
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    endline = rbind(
+      endline,
+      reflect(
+        endline,
+        over_y = TRUE
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    endline = rotate_coords(
+      endline,
+      rotation_dir
+    )
+
+  }
+
+  # Return the feature's data frame
+  return(endline)
+}
+
+#' Generate the data frame for the points that comprise the goal line
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the goal lines
+nfl_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  # The goal lines are solid white and 8" in width and span the entire width
+  # of the field. Their interior edges form the boundary line of the field
+  goal_line = create_rectangle(
+    x_min = -50 - inches_to_yd(8),
+    x_max = -50,
+    y_min = -26 - (2/3),
+    y_max = 26 + (2/3)
+  )
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    goal_line = rbind(
+      goal_line,
+      reflect(
+        goal_line,
+        over_y = TRUE
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    goal_line = rotate_coords(
+      goal_line,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(goal_line)
+}
+
+#' Generate the data frames for the points that comprise the yard lines. This
+#' function is fed into the nfl_feature_yard_markings() function below and helps to
+#' optimize performance
+#'
+#' @param yardage The yardage for which to create the yard markings
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame (or list of data frames) that contain the coordinates for
+#'   the yard lines
+nfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # The lines are to be placed 8" from the interior of the sidelines, and be
+  # 4" wide. At 5-yard intervals across the field, the lines should stretch
+  # the width of the field, with a 2' long by 4" wide hash 70' 9" from the
+  # interior of the nearest boundary. At 1-yard intervals between these
+  # markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed
+  # 8" from the interior of the sideline as well as 70' 9" from the interior
+  # of the sideline (and extending back towards the sideline)
+
+  if(yardage %% 5 == 0){
+    if(yardage == 0){
+      # Only draw the left half of the 50 yard line. The rest can be created via
+      # reflection
+      yard_marking = data.frame(
+        x = c(
+          # Start 8" from the sideline
+          yardage - inches_to_yd(2),
+
+          # Lower inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
+
+          # Upper inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
+
+          # Top
+          yardage - inches_to_yd(2),
+
+          # Crossover
+          0,
+
+          # Return to bottom
+          0,
+
+          # Return to start
+          yardage - inches_to_yd(2)
+        ),
+
+        y = c(
+          # Start 8" from the sideline
+          -26 - (2/3) + inches_to_yd(8),
+
+          # Lower inbound line marker
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(5),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(5),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9),
+
+          # Upper inbound line marker
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(5),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(5),
+
+          # Top
+          26 + (2/3) - inches_to_yd(8),
+
+          # Crossover
+          26 + (2/3) - inches_to_yd(8),
+
+          # Return to bottom
+          -26 - (2/3) + inches_to_yd(8),
+
+          # Return to start
+          -26 - (2/3) + inches_to_yd(8)
+        )
+      )
+
+      if(full_surf){
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
+        yard_marking = rbind(
+          yard_marking,
+          reflect(
+            yard_marking,
+            over_y = TRUE
+          )
+        )
+      }
+
+      if(rotate){
+        # If the desired output needs to be rotated, rotate the coordinates
+        yard_marking = rotate_coords(
+          yard_marking,
+          rotation_dir
+        )
+      }
+
+      # Return the yard marking
+      return(yard_marking)
+    }
+
+    else{
+      # At 5-yard intervals, the line should stretch the width of the field,
+      # with the inbound line marker 70'9" from the interior of the sideline
+      # boundary
+      yard_marking = data.frame(
+        x = c(
+          # Start 8" from the sideline
+          yardage - inches_to_yd(2),
+
+          # Lower inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
+
+          # Upper inbound line marker
+          yardage - inches_to_yd(2),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2) - inches_to_yd(10),
+          yardage - inches_to_yd(2),
+
+          # Top
+          yardage - inches_to_yd(2),
+
+          # Crossover
+          yardage + inches_to_yd(2),
+
+          # Upper inbound line marker
+          yardage + inches_to_yd(2),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2),
+
+          # Lower inbound line marker
+          yardage + inches_to_yd(2),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2) + inches_to_yd(10),
+          yardage + inches_to_yd(2),
+
+          # Return to bottom
+          yardage + inches_to_yd(2),
+
+          # Return to start
+          yardage - inches_to_yd(2)
+        ),
+
+        y = c(
+          # Start 8" from the sideline
+          -26 - (2/3) + inches_to_yd(8),
+
+          # Lower inbound line marker
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(5),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(5),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9),
+
+          # Upper inbound line marker
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(5),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(5),
+
+          # Top
+          26 + (2/3) - inches_to_yd(8),
+
+          # Crossover
+          26 + (2/3) - inches_to_yd(8),
+
+          # Upper inbound line marker
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(5),
+          26 + (2/3) - ft_to_yd(70) - inches_to_yd(5),
+
+          # Lower inbound line marker
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(5),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(5),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9),
+          -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9),
+
+          # Return to bottom
+          -26 - (2/3) + inches_to_yd(8),
+
+          # Return to start
+          -26 - (2/3) + inches_to_yd(8)
+        )
+      )
+
+      if(full_surf){
+        # If the surface being drawn is a full-surface representation, reflect
+        # over the y axis
+        yard_marking = rbind(
+          yard_marking,
+          reflect(
+            yard_marking,
+            over_y = TRUE
+          )
+        )
+      }
+
+      if(rotate){
+        # If the desired output needs to be rotated, rotate the coordinates
+        yard_marking = rotate_coords(
+          yard_marking,
+          rotation_dir
+        )
+      }
+
+      # Return the yard marking
+      return(yard_marking)}
+  }
+
+  else {
+    # At 1-yard intervals, the line should be 2' long. The line should
+    # appear at the bottom (b) and top (t) of the field inside the 6' wide
+    # boundary, and also appear at 70'9" from the nearest boundary and
+    # extending from this point towards that boundary (l and u)
+    yard_marking_b = create_rectangle(
+      x_min = yardage - inches_to_yd(2),
+      x_max = yardage + inches_to_yd(2),
+      y_min = -26 - (2/3) + inches_to_yd(8),
+      y_max = -26 - (2/3) + ft_to_yd(2) + inches_to_yd(8)
+    )
+
+    yard_marking_l = create_rectangle(
+      x_min = yardage - inches_to_yd(2),
+      x_max = yardage + inches_to_yd(2),
+      y_min = -26 - (2/3) + ft_to_yd(68) + inches_to_yd(9),
+      y_max = -26 - (2/3) + ft_to_yd(70) + inches_to_yd(9)
+    )
+
+    yard_marking_u = create_rectangle(
+      x_min = yardage - inches_to_yd(2),
+      x_max = yardage + inches_to_yd(2),
+      y_min = 26 + (2/3) - ft_to_yd(70) - inches_to_yd(9),
+      y_max = 26 + (2/3) - ft_to_yd(68) - inches_to_yd(9)
+    )
+
+    yard_marking_t = create_rectangle(
+      x_min = yardage - inches_to_yd(2),
+      x_max = yardage + inches_to_yd(2),
+      y_min = 26 + (2/3) - ft_to_yd(2) - inches_to_yd(8),
+      y_max = 26 + (2/3) - inches_to_yd(8)
+    )
+
+    if(full_surf){
+      # If the surface being drawn is a full-surface representation, reflect
+      # over the y axis
+      yard_marking_b = rbind(
+        yard_marking_b,
+        reflect(
+          yard_marking_b,
+          over_y = TRUE
+        )
+      )
+
+      yard_marking_l = rbind(
+        yard_marking_l,
+        reflect(
+          yard_marking_l,
+          over_y = TRUE
+        )
+      )
+
+      yard_marking_u = rbind(
+        yard_marking_u,
+        reflect(
+          yard_marking_u,
+          over_y = TRUE
+        )
+      )
+
+      yard_marking_t = rbind(
+        yard_marking_t,
+        reflect(
+          yard_marking_t,
+          over_y = TRUE
+        )
+      )
+    }
+
+    if(rotate){
+      # If the desired output needs to be rotated, rotate the coordinates
+      yard_marking_b = rotate_coords(
+        yard_marking_b,
+        rotation_dir
+      )
+
+      yard_marking_l = rotate_coords(
+        yard_marking_l,
+        rotation_dir
+      )
+
+      yard_marking_u = rotate_coords(
+        yard_marking_u,
+        rotation_dir
+      )
+
+      yard_marking_t = rotate_coords(
+        yard_marking_t,
+        rotation_dir
+      )
+    }
+
+    # Return the list of yard markings
+    return(list(yard_marking_b, yard_marking_l, yard_marking_u, yard_marking_t))
+  }
+}
+
+#' Generate the data frame for the points that comprise the yard lines
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the yard lines
+nfl_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x, y, and yardage (to pass checks)
+  x = y = NULL
+  yardage = NULL
+
+  # The yard lines start at the left-side 1-yard mark, which is 11 yards from
+  # the back of the endzone. They end at the right-side 1-yard mark, which is 11
+  # yards from the back of the right endzone
+  yardages = -49:0
+
+  # Use lapply for speed to create the yard markings data frames. NOTE: the
+  # result is a list, and will be stacked into a single data frame
+  yard_markings_list = lapply(yardages, nfl_feature_yard_markings_df_maker, full_surf, rotate, rotation_dir)
+
+  # Reshape the list of data frames into a single data frame
+  yard_markings = dplyr::bind_rows(yard_markings_list, .id = 'yardage')
+
+  # Return the feature's data frame
+  return(yard_markings)
+}
+
+#' Generate the data frame for the points that comprise the try lines
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A list of data frames containing the points that comprise the try
+#'   markings
+nfl_feature_try_markings = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  # The NFL try line is at the 2-yard line, is 1-yard in length (centered at
+  # the midpoint of the goal line), and has a 2" width
+  try_line = create_rectangle(
+    x_min = -48 - inches_to_yd(2),
+    x_max = -48 + inches_to_yd(2),
+    y_min = -0.5,
+    y_max = 0.5
+  )
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    try_line = rbind(
+      try_line,
+      reflect(
+        try_line,
+        over_y = TRUE
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    try_line = rotate_coords(
+      try_line,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(try_line)
+}
+
+#' Generate the data frames for the points that comprise the directional arrows. This
+#' function is fed into the nfl_feature_directional_arrows() function below and helps to
+#' optimize performance
+#'
+#' @param yardage The yardage for which to create the yard markings
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#' @param lower A boolean indicating whether or not to return the lower
+#'   directional arrows
+#'
+#' @return A data frame (or list of data frames) that contain the coordinates for
+#'   the directional arrows
+nfl_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', lower = TRUE){
+  # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem
+  # can be used to determine the height (using half the length of the base,
+  # which in this case is 18")
+  arrow_width = sqrt((inches_to_yd(36) ** 2) - (inches_to_yd(9) ** 2))
+
+  # The directional arrows should not be drawn at the 50-yard line. Other
+  # than that, an arrow should be drawn every 10 yards
+  if(yardage < 0){
+    # Draw the directional arrow that's below the middle point of the field
+    directional_arrow_1 = data.frame(
+      x = c(
+        # The numbers are 1' from the outer edge of the yard line, which is
+        # 2" wide. The number itself is 4' wide, and the number is 6" off
+        # the outside edge of the number
+        yardage - inches_to_yd(2) - ft_to_yd(5.5),
+        yardage - inches_to_yd(2) - ft_to_yd(5.5),
+        yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
+        yardage - inches_to_yd(2) - ft_to_yd(5.5)
+      ),
+
+      y = c(
+        # The bottom of the numbers must be 12 yards (36') off the interior
+        # of the sideline. The number itself is then 6' tall, and the top
+        # tip of the arrow is 15" below this line
+        -26 - (2/3) + 14 - inches_to_yd(15),
+        -26 - (2/3) + 14 - inches_to_yd(15) - inches_to_yd(18),
+        -26 - (2/3) + 14 - inches_to_yd(15) - inches_to_yd(9),
+        -26 - (2/3) + 14 - inches_to_yd(15)
+      )
+    )
+
+    # Draw the directional arrow that's above the middle point of the field
+    directional_arrow_2 = data.frame(
+      x = c(
+        # The numbers are 1' from the outer edge of the yard line, which is
+        # 2" wide. The number itself is 4' wide, and the number is 6" off
+        # the outside edge of the number
+        yardage - inches_to_yd(2) - ft_to_yd(5.5),
+        yardage - inches_to_yd(2) - ft_to_yd(5.5),
+        yardage - inches_to_yd(2) - ft_to_yd(5.5) - arrow_width,
+        yardage - inches_to_yd(2) - ft_to_yd(5.5)
+      ),
+
+      y = c(
+        # The bottom of the numbers must be 12 yards (36') off the interior
+        # of the sideline. The number itself is then 6' tall, and the top
+        # tip of the arrow is 15" below this line
+        26 + (2/3) - 14 + inches_to_yd(15),
+        26 + (2/3) - 14 + inches_to_yd(15) + inches_to_yd(18),
+        26 + (2/3) - 14 + inches_to_yd(15) + inches_to_yd(9),
+        26 + (2/3) - 14 + inches_to_yd(15)
+      )
+    )
+  }
+
+  else {
+    # If the current yard line is the 50-yard line, skip creating and adding
+    # the arrow
+    return(data.frame(x = c(), y = c()))
+  }
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    directional_arrow_1 = rbind(
+      directional_arrow_1,
+      reflect(
+        directional_arrow_1,
+        over_y = TRUE
+      )
+    )
+
+    directional_arrow_2 = rbind(
+      directional_arrow_2,
+      reflect(
+        directional_arrow_2,
+        over_y = TRUE
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    directional_arrow_1 = rotate_coords(
+      directional_arrow_1,
+      rotation_dir
+    )
+
+    directional_arrow_2 = rotate_coords(
+      directional_arrow_2,
+      rotation_dir
+    )
+  }
+
+  # Combine the feature's data frames as a list
+  directional_arrows = list(
+    directional_arrow_1 = directional_arrow_1,
+    directional_arrow_2 = directional_arrow_2
+  )
+
+  # Return the correct set of arrows
+  if(lower){
+    return(directional_arrows$directional_arrow_1)
+  }
+
+  else{
+    return(directional_arrows$directional_arrow_2)
+  }
+}
+
+#' Generate the data frame for the points that comprise the directional arrows
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame that contains the points that comprise the directional
+#'   arrows
+nfl_feature_directional_arrows = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x, y, and yardage (to pass checks)
+  x = y = NULL
+  yardage = NULL
+
+  # There should be a directional arrow every 10 yards, except for the 50 yard
+  # line. They start at the 10 yard line, which is 20 yards from the back of
+  # the endzone
+  yardages = seq(-40, 0, 10)
+
+  # Use lapply for speed to create the directional arrows' data frames. NOTE: the
+  # result is a list, and will be stacked into a single data frame
+  directional_arrows_1_list = lapply(yardages, nfl_feature_directional_arrows_df_maker, full_surf, rotate, rotation_dir, lower = TRUE)
+  directional_arrows_2_list = lapply(yardages, nfl_feature_directional_arrows_df_maker, full_surf, rotate, rotation_dir, lower = FALSE)
+
+  # Reshape the list of data frames into a single data frame
+  directional_arrows_1 = dplyr::bind_rows(directional_arrows_1_list, .id = 'yardage')
+  directional_arrows_2 = dplyr::bind_rows(directional_arrows_2_list, .id = 'yardage')
+
+  # Return the feature's data frames as a list
+  directional_arrows = list(
+    directional_arrows_1 = directional_arrows_1,
+    directional_arrows_2 = directional_arrows_2
+  )
+  return(directional_arrows)
+}
+
+#' Generate the data frame for the points that will become the yard marking
+#' numbers
+#'
+#' @param full_surf A boolean indicating whether or not to plot a full surface
+#'   representation of the surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return a data frame that contains the information needed to add the yard
+#'   marking numbers
+nfl_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+  # Set the initial rotation angle for the text
+  angle_1 = 0
+  angle_2 = 180
+
+  if(rotate){
+    if(tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
+      # If the rotation is counter-clockwise, rotate the numbers 90 degrees
+      # counter-clockwise
+      angle_1 = angle_1 + 90
+      angle_2 = angle_2 + 90
+    }
+
+    else {
+      # Otherwise, rotate the numbers 90 degrees clockwise
+      angle_1 = angle_1 - 90
+      angle_2 = angle_2 - 90
+    }
+  }
+
+  # Create the yard marking numbers' data frame
+  yard_marking_numbers = rbind(
+    data.frame(
+      x = seq(-40, 0, 10) - ft_to_yd(3),
+      y = rep(-26 - (2/3) + 13, 5),
+      label = c('1', '2', '3', '4', '5'),
+      angle = angle_1
+    ),
+
+    data.frame(
+      x = seq(-40, -10, 10) + ft_to_yd(3),
+      y = rep(-26 - (2/3) + 13, 4),
+      label = rep('0', 4),
+      angle = angle_1
+    ),
+
+    data.frame(
+      x = seq(-40, -10, 10) + ft_to_yd(3),
+      y = rep(26 + (2/3) - 13, 4),
+      label = c('1', '2', '3', '4'),
+      angle = angle_2
+    ),
+
+    data.frame(
+      x = seq(-40, 0, 10) - ft_to_yd(3),
+      y = rep(26 + (2/3) - 13, 5),
+      label = rep('0', 5),
+      angle = angle_2
+    )
+  )
+
+  if(full_surf){
+    # If the surface being drawn is a full-surface representation, reflect over
+    # the y axis
+    yard_marking_numbers = rbind(
+      yard_marking_numbers,
+      data.frame(
+        x = seq(10, 40, 10) - ft_to_yd(3),
+        y = rep(-26 - (2/3) + 13, 4),
+        label = c('4', '3', '2', '1'),
+        angle = angle_1
+      ),
+
+      data.frame(
+        x = seq(0, 40, 10) + ft_to_yd(3),
+        y = rep(-26 - (2/3) + 13, 5),
+        label = rep('0', 5),
+        angle = angle_1
+      ),
+
+      data.frame(
+        x = seq(0, 40, 10) + ft_to_yd(3),
+        y = rep(26 + (2/3) - 13, 5),
+        label = c('5', '4', '3', '2', '1'),
+        angle = angle_2
+      ),
+
+      data.frame(
+        x = seq(10, 40, 10) - ft_to_yd(3),
+        y = rep(26 + (2/3) - 13, 4),
+        label = rep('0', 4),
+        angle = angle_2
+      )
+    )
+  }
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    yard_marking_numbers = rotate_coords(
+      yard_marking_numbers,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(yard_marking_numbers)
+}
+
+#' Generate the list of colors for an NFL field plot. The defaults can be
+#' overwritten by supplying the names of the list elements to the
+#' \code{geom_nfl()} function (or its wrapper \code{geom_football()})
+#'
+#' @param grass_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param sideline_1_color A hexadecimal string representing the color to use
+#'   for this feature
+#' @param sideline_2_color A hexadecimal string representing the color to use
+#'   for this feature
+#' @param endline_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param goal_line_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param yard_markings_color A hexadecimal string representing the color to use
+#'   for this feature
+#' @param try_marking_color A hexadecimal string representing the color to use
+#'   for this feature
+#' @param directional_arrows_color A hexadecimal string representing the color
+#'   to use for this feature
+#' @param yard_numbers_color A hexadecimal string representing the color to use
+#'   for this feature
+#'
+#' @return A list of hexadecimal colors to use to color the features on the
+#'   resulting plot
+nfl_features_set_colors = function(grass_color = '#196f0c',
+                                   sideline_1_color = '#ffffff',
+                                   sideline_2_color = '#ffffff',
+                                   endline_color = '#ffffff',
+                                   goal_line_color = '#ffffff',
+                                   yard_markings_color = '#ffffff',
+                                   try_marking_color = '#ffffff',
+                                   directional_arrows_color = '#ffffff',
+                                   yard_numbers_color = '#ffffff'
+){
+
+  # Create the colors to use for the plot
+  feature_colors = list(
+    grass_color = grass_color,
+    sideline_1_color = sideline_1_color,
+    sideline_2_color = sideline_2_color,
+    endline_color = endline_color,
+    goal_line_color = goal_line_color,
+    yard_markings_color = yard_markings_color,
+    try_marking_color = try_marking_color,
+    directional_arrows_color = directional_arrows_color,
+    yard_numbers_color = yard_numbers_color
+  )
+
+  # Return the list of colors
+  return(feature_colors)
+}
+
+#' Create a ggplot2 instance that represents a regulation NFL field, with the
+#' bottom left corner of the left-most endzone corresponding to  (0, 0)
+#'
+#' @param full_surf A boolean indicating whether or not to draw a full-surface
+#'   representation of the playing surface. Default: \code{TRUE}
+#' @param rotate A boolean indicating whether or not the surface representation
+#'   needs to be rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the surface
+#'   representation. Default: \code{'ccw'}
+#' @param origin_bottom_left A boolean indicating whether or not to place the
+#'   origin at the bottom-left corner of the plot (where the endline meets the
+#'   sideline). Default: \code{TRUE}
+#' @param caption_color A hexadecimal string representing the color to use for
+#'   the plot's caption. Default: '#707372' (grey)
+#' @param background_color A hexadecimal string representing the color to use
+#'   for the plot's background. Default: \code{NULL}
+#' @param ... Additional arguments to pass to the function. These should be the
+#'   colors to pass to the \code{nfl_features_set_colors()} function
+#'
+#' @return A ggplot2 instance that represents a regulation NFL field
+geom_nfl = function(full_surf = TRUE,
+                    rotate = FALSE,
+                    rotation_dir = 'ccw',
+                    origin_bottom_left = TRUE,
+                    caption_color = '#707372',
+                    background_color = NULL,
+                    ...
+){
+  # Create the colors to use for the plot
+  color_list = nfl_features_set_colors(...)
+
+  # Generate the data frames for the features of an NFL field
+  grass = nfl_feature_grass(full_surf, rotate, rotation_dir)
+  sideline = nfl_feature_sideline(full_surf, rotate, rotation_dir)
+  endline = nfl_feature_endline(full_surf, rotate, rotation_dir)
+  goal_line = nfl_feature_goal_line(full_surf, rotate, rotation_dir)
+  yard_markings = nfl_feature_yard_markings(full_surf, rotate, rotation_dir)
+  try_marking = nfl_feature_try_markings(full_surf, rotate, rotation_dir)
+  directional_arrows = nfl_feature_directional_arrows(full_surf, rotate, rotation_dir)
+  yard_numbers = nfl_feature_yard_numbers(full_surf, rotate, rotation_dir)
+
+  if(origin_bottom_left){
+    if(rotate){
+      grass = translate(grass, translate_x = 26 + (2/3), translate_y = 60)
+      sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 26 + (2/3), translate_y = 60)
+      sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 26 + (2/3), translate_y = 60)
+      endline = translate(endline, translate_x = 26 + (2/3), translate_y = 60)
+      goal_line = translate(goal_line, translate_x = 26 + (2/3), translate_y = 60)
+      yard_markings = translate(yard_markings, translate_x = 26 + (2/3), translate_y = 60)
+      try_marking = translate(try_marking, translate_x = 26 + (2/3), translate_y = 60)
+      directional_arrows$directional_arrows_1 = translate(directional_arrows$directional_arrows_1, translate_x = 26 + (2/3), translate_y = 60)
+      directional_arrows$directional_arrows_2 = translate(directional_arrows$directional_arrows_2, translate_x = 26 + (2/3), translate_y = 60)
+      yard_numbers = translate(yard_numbers, translate_x = 26 + (2/3), translate_y = 60)
+    }
+
+    else {
+      grass = translate(grass, translate_x = 60, translate_y = 26 + (2/3))
+      sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 60, translate_y = 26 + (2/3))
+      sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 60, translate_y = 26 + (2/3))
+      endline = translate(endline, translate_x = 60, translate_y = 26 + (2/3))
+      goal_line = translate(goal_line, translate_x = 60, translate_y = 26 + (2/3))
+      yard_markings = translate(yard_markings, translate_x = 60, translate_y = 26 + (2/3))
+      try_marking = translate(try_marking, translate_x = 60, translate_y = 26 + (2/3))
+      directional_arrows$directional_arrows_1 = translate(directional_arrows$directional_arrows_1, translate_x = 60, translate_y = 26 + (2/3))
+      directional_arrows$directional_arrows_2 = translate(directional_arrows$directional_arrows_2, translate_x = 60, translate_y = 26 + (2/3))
+      yard_numbers = translate(yard_numbers, translate_x = 60, translate_y = 26 + (2/3))
+    }
+  }
+
+  # Create the initial ggplot2 instance onto which the features will be added
+  g = create_plot_base(rotate, caption_color, background_color)
+
+  # Add the features to the ggplot2 instance
+  g = add_feature(g, grass, color_list$grass_color)
+  g = add_feature(g, sideline$sideline_1, color_list$sideline_1_color)
+  g = add_feature(g, sideline$sideline_2, color_list$sideline_2_color)
+  g = add_feature(g, endline, color_list$endline_color)
+  g = add_feature(g, goal_line, color_list$goal_line_color)
+  g = add_feature(g, yard_markings, color_list$yard_markings_color, yard_markings$yardage)
+  g = add_feature(g, try_marking, color_list$try_marking_color)
+  g = add_feature(g, directional_arrows$directional_arrows_1, color_list$directional_arrows_color, directional_arrows$yardage)
+  g = add_feature(g, directional_arrows$directional_arrows_2, color_list$directional_arrows_color, directional_arrows$yardage)
+
+  # Add yardage numbers at 10-yard intervals
+  g = g +
+    ggplot2::annotate(
+      'text',
+      x = yard_numbers$x,
+      y = yard_numbers$y,
+      label = yard_numbers$label,
+      angle = yard_numbers$angle,
+      color = color_list$yard_numbers_color,
+      size = 5
+    )
+
+  # Return the ggplot2 instance that contains the field plot
+  return(g)
+}

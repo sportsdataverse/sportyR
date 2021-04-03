@@ -1,11 +1,11 @@
 #' Create the base for the ggplot2 instance with the correct theme elements
 #'
 #' @param rotate Whether or not the final output will be rotated (adjusts the
-#'   margins)
+#'   margins). Default: \code{FALSE}
 #' @param caption_color A hexadecimal string representing the color to use for
 #'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use for
-#'   the plot's background. Default: NULL
+#'   the plot's background. Default: \code{NULL}
 #'
 #' @return A ggplot2 instance onto which the features will be added
 create_plot_base = function(rotate = FALSE, caption_color = '#707372', background_color = NULL){
@@ -68,7 +68,7 @@ create_plot_base = function(rotate = FALSE, caption_color = '#707372', backgroun
 #' @param df A data frame to check
 #'
 #' @return A boolean indicating whether the minimal features needed for plotting
-#'   (a column called 'x' and a column called 'y') are present
+#'   (a column called \code{x} and a column called \code{y}) are present
 check_data_frame_for_plot = function(df){
   if(nrow(df) == 0){
     # If the data frame is empty, it's suitable for plotting since nothing will
@@ -93,8 +93,8 @@ check_data_frame_for_plot = function(df){
 #' @param feature_df The data frame containing the points to add to the feature
 #' @param feature_color A hexadecimal string with which to color the feature
 #'   once added to the plot
-#' @param group A grouping to pass along to ggplot2::aes(). This is used for
-#'   speed in the NFL and NCAA Football plotting functions
+#' @param group A grouping to pass along to \code{ggplot2::aes()}. This is used
+#'   for speed in the NFL and NCAA Football plotting functions
 #'
 #' @return A ggplot2 instance with the feature added to it
 add_feature = function(g, feature_df, feature_color, group = NULL){
