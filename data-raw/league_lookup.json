@@ -2,17 +2,10 @@
     "MLB": "BASEBALL",
     
     "NCAA": [
-        "BASEBALL",
         "BASKETBALL",
         "FOOTBALL",
-        "HOCKEY"
-    ],
-
-    "COLLEGE": [
-        "BASEBALL",
-        "BASKETBALL",
-        "FOOTBALL",
-        "HOCKEY"
+        "HOCKEY",
+        "SOCCER"
     ],
 
     "NFL": "FOOTBALL",
