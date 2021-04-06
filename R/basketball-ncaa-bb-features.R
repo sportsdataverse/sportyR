@@ -1583,10 +1583,10 @@ ncaa_bb_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotatio
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  # The connector has a width of 5.5", so 2.75" are on either side of the x
+  # The connector has a width of 7", so 3.5" are on either side of the x
   # axis. The ring has a radius of 9", so the arcsine of these measurements
   # should give the angle at which point they connect
-  start_angle = pi - asin(2.75/9)
+  start_angle = pi - asin(3.5/9)
 
   # The ending angle of the ring would be the negative of the starting angle
   end_angle = -start_angle
@@ -1595,7 +1595,7 @@ ncaa_bb_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotatio
   basket_ring = rbind(
     data.frame(
       x = c(-43, -41.75 - ((9/12) * cos(start_angle))),
-      y = c(2.75/12, 2.75/12)
+      y = c(3.5/12, 3.5/12)
     ),
 
     create_circle(
@@ -1613,9 +1613,9 @@ ncaa_bb_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotatio
       ),
 
       y = c(
-        -2.75/12,
-        -2.75/12,
-        2.75/12
+        -3.5/12,
+        -3.5/12,
+        3.5/12
       )
     )
   )
