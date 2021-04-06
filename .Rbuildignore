@@ -5,3 +5,4 @@
 ^README\.Rmd$
 ^\.travis\.yml$
 ^\.github$
+^README_cache
