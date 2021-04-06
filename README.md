@@ -6,8 +6,10 @@
 <!-- badges: start -->
 
 [![](https://img.shields.io/badge/devel%20version-0.0.9-blue.svg)](https://github.com/rossdrucker/sportyR)
-[![R-CMD-check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
-[![test-coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
+[![R CMD
+check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
+[![Test
+Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
