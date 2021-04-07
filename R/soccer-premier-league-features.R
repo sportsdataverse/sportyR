@@ -394,13 +394,13 @@ premier_league_feature_corner_circle = function(touchline_length, goal_line_leng
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 6-yard box
-premier_league_feature_box_6yd = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_box_5.5m = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  # The 6-yard box extends 5.5m into the pitch from the outer edge of the goal
+  # The 5.5m box extends 5.5m into the pitch from the outer edge of the goal
   # line. It is 12cm in width
-  box_6yd = data.frame(
+  box_5.5m = data.frame(
     x = c(
       -touchline_length / 2,
       (-touchline_length / 2) + 5.5,
@@ -429,10 +429,10 @@ premier_league_feature_box_6yd = function(touchline_length, full_surf = TRUE, ro
   if(full_surf){
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
-    box_6yd = rbind(
-      box_6yd,
+    box_5.5m = rbind(
+      box_5.5m,
       reflect(
-        box_6yd,
+        box_5.5m,
         over_y = TRUE
       )
     )
@@ -440,14 +440,14 @@ premier_league_feature_box_6yd = function(touchline_length, full_surf = TRUE, ro
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
-    box_6yd = rotate_coords(
-      box_6yd,
+    box_5.5m = rotate_coords(
+      box_5.5m,
       rotation_dir
     )
   }
 
   # Return the feature's data frame
-  return(box_6yd)
+  return(box_5.5m)
 }
 
 #' Generate the data frame for the points that comprise the 18-yard box
@@ -462,13 +462,13 @@ premier_league_feature_box_6yd = function(touchline_length, full_surf = TRUE, ro
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 18-yard box
-premier_league_feature_box_18yd = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_box_9.15m = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  # The 6-yard box extends 5.5m into the pitch from the outer edge of the goal
+  # The 9.15m box extends 9.15m into the pitch from the outer edge of the goal
   # line. It is 12cm in width
-  box_18yd = data.frame(
+  box_9.15m = data.frame(
     x = c(
       -touchline_length / 2,
       (-touchline_length / 2) + 16.5,
@@ -497,10 +497,10 @@ premier_league_feature_box_18yd = function(touchline_length, full_surf = TRUE, r
   if(full_surf){
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
-    box_18yd = rbind(
-      box_18yd,
+    box_9.15m = rbind(
+      box_9.15m,
       reflect(
-        box_18yd,
+        box_9.15m,
         over_y = TRUE
       )
     )
@@ -508,14 +508,14 @@ premier_league_feature_box_18yd = function(touchline_length, full_surf = TRUE, r
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
-    box_18yd = rotate_coords(
-      box_18yd,
+    box_9.15m = rotate_coords(
+      box_9.15m,
       rotation_dir
     )
   }
 
   # Return the feature's data frame
-  return(box_18yd)
+  return(box_9.15m)
 }
 
 #' Generate the data frame for the points that comprise the penalty arc
@@ -609,7 +609,7 @@ premier_league_feature_penalty_mark = function(touchline_length, full_surf = TRU
     center = c((-touchline_length / 2) + 11, 0),
     start = 0,
     end = 2,
-    d = in_to_m(12)
+    d = .3
   )
 
   if(full_surf){
@@ -658,7 +658,7 @@ premier_league_feature_center_mark = function(touchline_length, full_surf = TRUE
     center = c(0, 0),
     start = .5,
     end = 1.5,
-    d = in_to_m(12)
+    d = .3
   )
 
   if(full_surf){
@@ -778,9 +778,9 @@ premier_league_feature_goal = function(touchline_length, full_surf = TRUE, rotat
 #'   use for this feature
 #' @param corner_circle_4_color A hexadecimal string representing the color to
 #'   use for this feature
-#' @param box_6yd_color A hexadecimal string representing the color to use for
+#' @param box_5.5m_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param box_18yd_color A hexadecimal string representing the color to use for
+#' @param box_9.15m_color A hexadecimal string representing the color to use for
 #'   this feature
 #' @param penalty_arc_color A hexadecimal string representing the color to use
 #'   for this feature
@@ -803,8 +803,8 @@ premier_league_features_set_colors = function(grass_color = '#196f0c',
                                               corner_circle_2_color = '#ffffff',
                                               corner_circle_3_color = '#ffffff',
                                               corner_circle_4_color = '#ffffff',
-                                              box_6yd_color = '#ffffff',
-                                              box_18yd_color = '#ffffff',
+                                              box_5.5m_color = '#ffffff',
+                                              box_9.15m_color = '#ffffff',
                                               penalty_arc_color = '#ffffff',
                                               penalty_mark_color = '#ffffff',
                                               center_mark_color = '#ffffff',
@@ -822,8 +822,8 @@ premier_league_features_set_colors = function(grass_color = '#196f0c',
     corner_circle_2_color = corner_circle_2_color,
     corner_circle_3_color = corner_circle_3_color,
     corner_circle_4_color = corner_circle_4_color,
-    box_6yd_color = box_6yd_color,
-    box_18yd_color = box_18yd_color,
+    box_5.5m_color = box_5.5m_color,
+    box_9.15m_color = box_9.15m_color,
     penalty_arc_color = penalty_arc_color,
     penalty_mark_color = penalty_mark_color,
     center_mark_color = center_mark_color,
@@ -845,6 +845,8 @@ premier_league_features_set_colors = function(grass_color = '#196f0c',
 #'   representation of the playing surface. Default: \code{TRUE}
 #' @param rotate A boolean indicating whether or not the surface representation
 #'   needs to be rotated. Default: \code{FALSE}
+#' @param unit A string indicating the units with which to make the plot.
+#'   Default: \code{'m'}
 #' @param rotation_dir A string indicating which direction to rotate the surface
 #'   representation. Default: \code{'ccw'}
 #' @param caption_color A hexadecimal string representing the color to use for
@@ -860,6 +862,7 @@ geom_premier_league = function(touchline_length = 120,
                                full_surf = TRUE,
                                rotate = FALSE,
                                rotation_dir = 'ccw',
+                               unit = 'm',
                                caption_color = '#707372',
                                background_color = NULL,
                                ...
@@ -874,12 +877,32 @@ geom_premier_league = function(touchline_length = 120,
   halfway_line = premier_league_feature_halfway_line(goal_line_length, full_surf, rotate, rotation_dir)
   center_circle = premier_league_feature_center_circle(full_surf, rotate, rotation_dir)
   corner_circle = premier_league_feature_corner_circle(touchline_length, goal_line_length, full_surf, rotate, rotation_dir)
-  box_6yd = premier_league_feature_box_6yd(touchline_length, full_surf, rotate, rotation_dir)
-  box_18yd = premier_league_feature_box_18yd(touchline_length, full_surf, rotate, rotation_dir)
+  box_5.5m = premier_league_feature_box_5.5m(touchline_length, full_surf, rotate, rotation_dir)
+  box_9.15m = premier_league_feature_box_9.15m(touchline_length, full_surf, rotate, rotation_dir)
   penalty_arc = premier_league_feature_penalty_arc(touchline_length, full_surf, rotate, rotation_dir)
   penalty_mark = premier_league_feature_penalty_mark(touchline_length, full_surf, rotate, rotation_dir)
   center_mark = premier_league_feature_center_mark(touchline_length, full_surf, rotate, rotation_dir)
   goal = premier_league_feature_goal(touchline_length, full_surf, rotate, rotation_dir)
+
+  # Convert units as necessary
+  if(!(unit %in% c('m', 'meters'))){
+    grass = convert_units(grass, 'm', unit, conversion_columns = c('x', 'y'))
+    touchlines$touchline_1 = convert_units(touchlines$touchline_1, 'm', unit, conversion_columns = c('x', 'y'))
+    touchlines$touchline_2 = convert_units(touchlines$touchline_2, 'm', unit, conversion_columns = c('x', 'y'))
+    goal_line = convert_units(goal_line, 'm', unit, conversion_columns = c('x', 'y'))
+    halfway_line = convert_units(halfway_line, 'm', unit, conversion_columns = c('x', 'y'))
+    center_circle = convert_units(center_circle, 'm', unit, conversion_columns = c('x', 'y'))
+    corner_circle$corner_circle_1 = convert_units(corner_circle$corner_circle_1, 'm', unit, conversion_columns = c('x', 'y'))
+    corner_circle$corner_circle_2 = convert_units(corner_circle$corner_circle_2, 'm', unit, conversion_columns = c('x', 'y'))
+    corner_circle$corner_circle_3 = convert_units(corner_circle$corner_circle_3, 'm', unit, conversion_columns = c('x', 'y'))
+    corner_circle$corner_circle_4 = convert_units(corner_circle$corner_circle_4, 'm', unit, conversion_columns = c('x', 'y'))
+    box_5.5m = convert_units(box_5.5m, 'm', unit, conversion_columns = c('x', 'y'))
+    box_9.15m = convert_units(box_9.15m, 'm', unit, conversion_columns = c('x', 'y'))
+    penalty_arc = convert_units(penalty_arc, 'm', unit, conversion_columns = c('x', 'y'))
+    penalty_mark = convert_units(penalty_mark, 'm', unit, conversion_columns = c('x', 'y'))
+    center_mark = convert_units(center_mark, 'm', unit, conversion_columns = c('x', 'y'))
+    goal = convert_units(goal, 'm', unit, conversion_columns = c('x', 'y'))
+  }
 
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate, caption_color, background_color)
@@ -895,8 +918,8 @@ geom_premier_league = function(touchline_length = 120,
   g = add_feature(g, corner_circle$corner_circle_2, color_list$corner_circle_2_color)
   g = add_feature(g, corner_circle$corner_circle_3, color_list$corner_circle_3_color)
   g = add_feature(g, corner_circle$corner_circle_4, color_list$corner_circle_4_color)
-  g = add_feature(g, box_6yd, color_list$box_6yd_color)
-  g = add_feature(g, box_18yd, color_list$box_18yd_color)
+  g = add_feature(g, box_5.5m, color_list$box_5.5m_color)
+  g = add_feature(g, box_9.15m, color_list$box_9.15m_color)
   g = add_feature(g, penalty_arc, color_list$penalty_arc_color)
   g = add_feature(g, penalty_mark, color_list$penalty_mark_color)
   g = add_feature(g, center_mark, color_list$center_mark_color)

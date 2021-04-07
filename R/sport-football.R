@@ -14,7 +14,8 @@
 #'   feature. Default: \code{'ccw'}
 #' @param ... Additional arguments to pass to the function. These should be the
 #'   colors to pass to the \code{{league}_features_set_colors()} function,
-#'   although the colors are defined in the rule book
+#'   (although the colors are defined in the rule book) or units with which to
+#'   draw the plot
 #'
 #' @return A ggplot2 instance with a full-surface representation of a football
 #'   field

@@ -1184,6 +1184,8 @@ nwhl_features_set_colors = function(boards_color = '#000000',
 #'   needs to be rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the surface
 #'   representation. Default: \code{'ccw'}
+#' @param unit A string indicating the units with which to make the plot.
+#'   Default: \code{'ft'}
 #' @param caption_color A hexadecimal string representing the color to use for
 #'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use
@@ -1195,6 +1197,7 @@ nwhl_features_set_colors = function(boards_color = '#000000',
 geom_nwhl = function(full_surf = TRUE,
                     rotate = FALSE,
                     rotation_dir = 'ccw',
+                    unit = 'ft',
                     caption_color = '#707372',
                     background_color = NULL,
                     ...
@@ -1236,7 +1239,7 @@ geom_nwhl = function(full_surf = TRUE,
   # Create the colors to use for the plot
   color_list = nwhl_features_set_colors(...)
 
-  # Generate the data frames for the features of an NWHL rink
+  # Generate the data frames for the features of an NHL rink
   boards = nwhl_feature_boards(full_surf, rotate, rotation_dir)
   center_line = nwhl_feature_center_line(full_surf, rotate, rotation_dir)
   blue_line = nwhl_feature_blue_line(full_surf, rotate, rotation_dir)
@@ -1245,6 +1248,20 @@ geom_nwhl = function(full_surf = TRUE,
   goal_crease = nwhl_feature_goal_crease(full_surf, rotate, rotation_dir)
   referee_crease = nwhl_feature_referee_crease(full_surf, rotate, rotation_dir)
   goal = nwhl_feature_goal(full_surf, rotate, rotation_dir)
+
+  # Convert between units as necessary
+  if(!(unit %in% c('ft', 'feet'))){
+    boards = convert_units(boards, 'ft', unit, conversion_columns = c('x', 'y'))
+    center_line = convert_units(center_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    blue_line = convert_units(blue_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    goal$goal = convert_units(goal$goal, 'ft', unit, conversion_columns = c('x', 'y'))
+    goal$goal_fill = convert_units(goal$goal_fill, 'ft', unit, conversion_columns = c('x', 'y'))
+    goalkeepers_restricted_area = convert_units(goalkeepers_restricted_area, 'ft', unit, conversion_columns = c('x', 'y'))
+    goal_line = convert_units(goal_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    goal_crease$goal_crease_outline = convert_units(goal_crease$goal_crease_outline, 'ft', unit, conversion_columns = c('x', 'y'))
+    goal_crease$goal_crease_fill = convert_units(goal_crease$goal_crease_fill, 'ft', unit, conversion_columns = c('x', 'y'))
+    referee_crease = convert_units(referee_crease, 'ft', unit, conversion_columns = c('x', 'y'))
+  }
 
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate, caption_color, background_color)
@@ -1273,11 +1290,28 @@ geom_nwhl = function(full_surf = TRUE,
 
     # Draw the faceoff spot
     if(identical(center, c(0, 0))){
+      # Convert between units as necessary
+      if(!(unit %in% c('ft', 'feet'))){
+        faceoff_spot = convert_units(faceoff_spot, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_circle = convert_units(faceoff_circle, 'ft', unit, conversion_columns = c('x', 'y'))
+      }
+
       g = add_feature(g, faceoff_spot, color_list$center_faceoff_spot_color)
       g = add_feature(g, faceoff_circle, color_list$center_faceoff_circle_color)
     }
 
     else if(spot_name %in% c('spot_1', 'spot_2', 'spot_7', 'spot_8')){
+      # Convert between units as necessary
+      if(!(unit %in% c('ft', 'feet'))){
+        faceoff_spot$spot_outer_ring = convert_units(faceoff_spot$spot_outer_ring, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_spot$spot_fill = convert_units(faceoff_spot$spot_fill, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_circle = convert_units(faceoff_circle, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_ul = convert_units(faceoff_lines$faceoff_line_ul, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_ur = convert_units(faceoff_lines$faceoff_line_ur, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_ll = convert_units(faceoff_lines$faceoff_line_ll, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_lr = convert_units(faceoff_lines$faceoff_line_lr, 'ft', unit, conversion_columns = c('x', 'y'))
+      }
+
       g = add_feature(g, faceoff_spot$spot_outer_ring, color_list$faceoff_spot_outer_ring_color)
       g = add_feature(g, faceoff_spot$spot_fill, color_list$faceoff_spot_fill_color)
       g = add_feature(g, faceoff_circle, color_list$non_center_faceoff_circle_color)
@@ -1288,11 +1322,17 @@ geom_nwhl = function(full_surf = TRUE,
     }
 
     else {
+      # Convert between units as necessary
+      if(!(unit %in% c('ft', 'feet'))){
+        faceoff_spot$spot_outer_ring = convert_units(faceoff_spot$spot_outer_ring, 'ft', unit, conversion_columns = c('x', 'y'))
+        faceoff_spot$spot_fill = convert_units(faceoff_spot$spot_fill, 'ft', unit, conversion_columns = c('x', 'y'))
+      }
+
       g = add_feature(g, faceoff_spot$spot_outer_ring, color_list$faceoff_spot_outer_ring_color)
       g = add_feature(g, faceoff_spot$spot_fill, color_list$faceoff_spot_fill_color)
     }
   }
 
-  # Return the ggplot2 instance
+  # Return the ggplot2 instance that contains the rink plot
   return(g)
 }

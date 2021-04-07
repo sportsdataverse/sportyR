@@ -510,14 +510,20 @@ mlb_features_set_colors = function(infield_dirt_color = '#9b7653',
 #'   the plot's caption. Default: '#ffffff' (white)
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: '#395d33' (green)
+#' @param unit A string indicating the units with which to make the plot.
+#'   Default: \code{'ft'}
 #' @param ... Additional arguments to pass to the function. These should be the
 #'   colors to pass to the \code{mlb_features_set_colors()} function
 #'
 #' @return A ggplot2 instance that represents a regulation NBA court
 geom_mlb = function(caption_color = '#707372',
                     background_color = '#395d33',
+                    unit = 'ft',
                     ...
 ){
+  # Force the plot unit to be lower case
+  unit = tolower(unit)
+
   # Create the colors to use for the plot
   color_list = mlb_features_set_colors(...)
 
@@ -528,6 +534,25 @@ geom_mlb = function(caption_color = '#707372',
   bases = mlb_feature_bases()
   batters_boxes = mlb_feature_batters_boxes()
   baselines = mlb_feature_baselines()
+
+  # Convert between units as necessary
+  if(!(unit %in% c('ft', 'feet'))){
+    infield_dirt$infield_dirt = convert_units(infield_dirt$infield_dirt, 'ft', unit, conversion_columns = c('x', 'y'))
+    infield_dirt$home_dirt = convert_units(infield_dirt$home_dirt, 'ft', unit, conversion_columns = c('x', 'y'))
+    infield_grass = convert_units(infield_grass, 'ft', unit, conversion_columns = c('x', 'y'))
+    mound$mound = convert_units(mound$mound, 'ft', unit, conversion_columns = c('x', 'y'))
+    mound$pitchers_plate = convert_units(mound$pitchers_plate, 'ft', unit, conversion_columns = c('x', 'y'))
+    bases$home_plate = convert_units(bases$home_plate, 'ft', unit, conversion_columns = c('x', 'y'))
+    bases$first_base_bag = convert_units(bases$first_base_bag, 'ft', unit, conversion_columns = c('x', 'y'))
+    bases$second_base_bag = convert_units(bases$second_base_bag, 'ft', unit, conversion_columns = c('x', 'y'))
+    bases$third_base_bag = convert_units(bases$third_base_bag, 'ft', unit, conversion_columns = c('x', 'y'))
+    batters_boxes$lefty_batters_box = convert_units(batters_boxes$lefty_batters_box, 'ft', unit, conversion_columns = c('x', 'y'))
+    batters_boxes$righty_batters_box = convert_units(batters_boxes$righty_batters_box, 'ft', unit, conversion_columns = c('x', 'y'))
+    batters_boxes$catchers_box = convert_units(batters_boxes$catchers_box, 'ft', unit, conversion_columns = c('x', 'y'))
+    baselines$rf_line = convert_units(baselines$rf_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    baselines$lf_line = convert_units(baselines$lf_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    baselines$running_lane = convert_units(baselines$running_lane, 'ft', unit, conversion_columns = c('x', 'y'))
+  }
 
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate = FALSE, caption_color, background_color)

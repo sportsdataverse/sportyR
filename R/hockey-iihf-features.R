@@ -14,57 +14,57 @@ iihf_feature_boards = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 
 
   # IIHF boards are 60m long by 30m wide, with corners rounded at an arc of 8.5m
   corner_1_in = create_circle(
-    center = c(m_to_ft(-21.5), m_to_ft(6.5)),
+    center = c(-21.5, 6.5),
     start = .5,
     end = 1,
-    d = m_to_ft(17)
+    d = 17
   )
 
   corner_2_in = create_circle(
-    center = c(m_to_ft(-21.5), m_to_ft(-6.5)),
+    center = c(-21.5, -6.5),
     start = 1,
     end = 1.5,
-    d = m_to_ft(17)
+    d = 17
   )
 
   corner_2_out = create_circle(
-    center = c(m_to_ft(-21.5), m_to_ft(-6.5)),
+    center = c(-21.5, -6.5),
     start = 1.5,
     end = 1,
-    d = m_to_ft(17.1)
+    d = 17.1
   )
 
   corner_1_out = create_circle(
-    center = c(m_to_ft(-21.5), m_to_ft(6.5)),
+    center = c(-21.5, 6.5),
     start = 1,
     end = .5,
-    d = m_to_ft(17.1)
+    d = 17.1
   )
 
   boards = rbind(
     data.frame(
       x = 0,
-      y = m_to_ft(15)
+      y = 15
     ),
     corner_1_in,
     data.frame(
-      x = m_to_ft(-30),
+      x = -30,
       y = 0
     ),
     corner_2_in,
     data.frame(
       x = c(0, 0),
-      y = c(m_to_ft(-15), m_to_ft(-15.05))
+      y = c(-15, -15.05)
     ),
     corner_2_out,
     data.frame(
-      x = m_to_ft(-30) - (2/12),
+      x = -30 - 0.05,
       y = 0
     ),
     corner_1_out,
     data.frame(
       x = c(0, 0),
-      y = c(m_to_ft(15.05), m_to_ft(15))
+      y = c(15.05, 15)
     )
   )
 
@@ -107,10 +107,10 @@ iihf_feature_center_line = function(full_surf = TRUE, rotate = FALSE, rotation_d
   x = y = NULL
 
   center_line = create_rectangle(
-    x_min = m_to_ft(.15),
-    x_max = m_to_ft(0),
-    y_min = m_to_ft(-15),
-    y_max = m_to_ft(15)
+    x_min = .15,
+    x_max = 0,
+    y_min = -15,
+    y_max = 15
   )
 
   if(full_surf){
@@ -154,10 +154,10 @@ iihf_feature_blue_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir
   # The blue line is 30cm thick with the edge closest to the center line lying
   # 7.14m from the center of the ice. It spans the entire width of the ice
   blue_line = create_rectangle(
-    x_min = m_to_ft(-7.14 - .3),
-    x_max = m_to_ft(-7.14),
-    y_min = m_to_ft(-15),
-    y_max = m_to_ft(15)
+    x_min = -7.14 - .3,
+    x_max = -7.14,
+    y_min = -15,
+    y_max = 15
   )
 
   if(full_surf){
@@ -202,27 +202,27 @@ iihf_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir
   # boards (or  26m from the center), but follows the curvature of the boards
   # in the corner. To get the curvature, a similar calculation to that of the
   # face-off spot interior can be performed
-  theta1 = asin(m_to_ft(4.5)/m_to_ft(8.5)) / pi
-  theta2 = asin(m_to_ft(4.55)/m_to_ft(8.5)) / pi
+  theta1 = asin(4.5/8.5) / pi
+  theta2 = asin(4.55/8.5) / pi
 
   goal_line = rbind(
     create_circle(
-      center = c(m_to_ft(-21.5), m_to_ft(6.5)),
+      center = c(-21.5, 6.5),
       start = .5 + theta1,
       end = .5 + theta2,
-      d = m_to_ft(17)
+      d = 17
     ),
     create_circle(
-      center = c(m_to_ft(-21.5), m_to_ft(-6.5)),
+      center = c(-21.5, -6.5),
       start = 1.5 - theta2,
       end = 1.5 - theta1,
-      d = m_to_ft(17)
+      d = 17
     ),
     create_circle(
-      center = c(m_to_ft(-21.5), m_to_ft(6.5)),
+      center = c(-21.5, 6.5),
       start = .5 + theta1,
       end = .5 + theta2,
-      d = m_to_ft(17)
+      d = 17
     )[1, ]
   )
 
@@ -272,71 +272,71 @@ iihf_feature_goal_crease = function(full_surf = TRUE, rotate = FALSE, rotation_d
 
   # The outer arc of the crease semi-circle
   crease_outer_arc = create_circle(
-    center = c(m_to_ft(-26), m_to_ft(0)),
+    center = c(-26, 0),
     start = theta_out,
     end = -theta_out,
-    d = m_to_ft(3.66)
+    d = 3.66
   )
 
   # The inner arc of the crease semi-circle
   crease_fill_arc = create_circle(
-    center = c(m_to_ft(-26), m_to_ft(0)),
+    center = c(-26, 0),
     start = -theta_in,
     end = theta_in,
-    d = m_to_ft(3.56)
+    d = 3.56
   )
 
   # Goal crease outline (red)
   goal_crease_outline = rbind(
     data.frame(
       x = c(
-        m_to_ft(-26),
-        m_to_ft(-24.63)
+        -26,
+        -24.63
       ),
 
       y = c(
-        m_to_ft(1.22),
-        m_to_ft(1.22)
+        1.22,
+        1.22
       )
     ),
     crease_outer_arc,
     data.frame(
       x = c(
-        m_to_ft(-26),
-        m_to_ft(-26),
-        m_to_ft(-24.78),
-        m_to_ft(-24.78),
-        m_to_ft(-24.73),
-        m_to_ft(-24.73)
+        -26,
+        -26,
+        -24.78,
+        -24.78,
+        -24.73,
+        -24.73
       ),
 
       y = c(
-        m_to_ft(-1.22),
-        m_to_ft(-1.17),
-        m_to_ft(-1.17),
-        m_to_ft(-1.04),
-        m_to_ft(-1.04),
-        m_to_ft(-1.17)
+        -1.22,
+        -1.17,
+        -1.17,
+        -1.04,
+        -1.04,
+        -1.17
       )
     ),
     crease_fill_arc,
     data.frame(
       x = c(
-        m_to_ft(-24.73),
-        m_to_ft(-24.73),
-        m_to_ft(-24.78),
-        m_to_ft(-24.78),
-        m_to_ft(-26),
-        m_to_ft(-26)
+        -24.73,
+        -24.73,
+        -24.78,
+        -24.78,
+        -26,
+        -26
       ),
 
       y = c(
-        m_to_ft(1.17),
-        m_to_ft(1.04),
-        m_to_ft(1.04),
-        m_to_ft(1.17),
-        m_to_ft(1.17),
-        m_to_ft(1.22)
+        1.17,
+        1.04,
+        1.04,
+        1.17,
+        1.17,
+        1.22
       )
     )
   )
@@ -345,43 +345,43 @@ iihf_feature_goal_crease = function(full_surf = TRUE, rotate = FALSE, rotation_d
   goal_crease_fill = rbind(
     data.frame(
       x = c(
-        m_to_ft(-26),
-        m_to_ft(-26),
-        m_to_ft(-24.78),
-        m_to_ft(-24.78),
-        m_to_ft(-24.73),
-        m_to_ft(-24.73)
+        -26,
+        -26,
+        -24.78,
+        -24.78,
+        -24.73,
+        -24.73
       ),
 
       y = c(
-        m_to_ft(-1.22),
-        m_to_ft(-1.17),
-        m_to_ft(-1.17),
-        m_to_ft(-1.04),
-        m_to_ft(-1.04),
-        m_to_ft(-1.17)
+        -1.22,
+        -1.17,
+        -1.17,
+        -1.04,
+        -1.04,
+        -1.17
       )
     ),
     crease_fill_arc,
     data.frame(
       x = c(
-        m_to_ft(-24.73),
-        m_to_ft(-24.73),
-        m_to_ft(-24.78),
-        m_to_ft(-24.78),
-        m_to_ft(-26),
-        m_to_ft(-26),
-        m_to_ft(-26)
+        -24.73,
+        -24.73,
+        -24.78,
+        -24.78,
+        -26,
+        -26,
+        -26
       ),
 
       y = c(
-        m_to_ft(1.17),
-        m_to_ft(1.04),
-        m_to_ft(1.04),
-        m_to_ft(1.17),
-        m_to_ft(1.17),
-        m_to_ft(1.22),
-        m_to_ft(-1.22)
+        1.17,
+        1.04,
+        1.04,
+        1.17,
+        1.17,
+        1.22,
+        -1.22
       )
     )
   )
@@ -445,24 +445,24 @@ iihf_feature_referee_crease = function(full_surf = TRUE, rotate = FALSE, rotatio
   # The referee's crease
   referee_crease = rbind(
     create_circle(
-      center = c(m_to_ft(0), m_to_ft(-15)),
+      center = c(0, -15),
       start = .5,
       end = 1,
-      d = m_to_ft(6)
+      d = 6
     ),
     data.frame(
-      x = m_to_ft(-2.95),
-      y = m_to_ft(-15)
+      x = -2.95,
+      y = -15
     ),
     create_circle(
-      center = c(m_to_ft(0), m_to_ft(-15)),
+      center = c(0, -15),
       start = 1,
       end = .5,
-      d = m_to_ft(5.9)
+      d = 5.9
     ),
     data.frame(
       x = 0,
-      y = m_to_ft(-12)
+      y = -12
     )
   )
 
@@ -511,7 +511,7 @@ iihf_feature_faceoff_spot = function(center = c(0, 0), full_surf = TRUE, rotate 
       center = c(0, 0),
       start = .5,
       end = 1.5,
-      d = m_to_ft(.3)
+      d = .3
     )
 
     if(full_surf){
@@ -550,13 +550,13 @@ iihf_feature_faceoff_spot = function(center = c(0, 0), full_surf = TRUE, rotate 
         center = c(0, 0),
         start = .5,
         end = 1.5,
-        d = m_to_ft(.6)
+        d = .6
       ),
       create_circle(
         center = c(0, 0),
         start = 1.5,
         end = .5,
-        d = m_to_ft(.5)
+        d = .5
       )
     )
 
@@ -573,8 +573,8 @@ iihf_feature_faceoff_spot = function(center = c(0, 0), full_surf = TRUE, rotate 
     # Move the outer ring's center to its correct location
     spot_outer_ring = translate(
       spot_outer_ring,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     # The non-center face-off spots are 60cm in diameter, with a 12.5cm gap
@@ -594,21 +594,21 @@ iihf_feature_faceoff_spot = function(center = c(0, 0), full_surf = TRUE, rotate 
         center = c(0, 0),
         start = .5 - theta,
         end = .5 + theta,
-        d = m_to_ft(.5)
+        d = .5
       ),
       create_circle(
         center = c(0, 0),
         start = 1.5 - theta,
         end = 1.5 + theta,
-        d = m_to_ft(.5)
+        d = .5
       )
     )
 
     # Move the inner filling's center to the correct location
     spot_fill = translate(
       spot_fill,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     if(rotate){
@@ -653,21 +653,21 @@ iihf_feature_faceoff_circle = function(center = c(0, 0), full_surf = TRUE, rotat
         center = c(0, 0),
         start = .5,
         end = 1.5,
-        d = m_to_ft(9)
+        d = 9
       ),
       data.frame(
         x = c(0, 0),
-        y = c(m_to_ft(-4.5), m_to_ft(-4.45))
+        y = c(-4.5, -4.45)
       ),
       create_circle(
         center = c(0, 0),
         start = 1.5,
         end = .5,
-        d = m_to_ft(8.9)
+        d = 8.9
       ),
       data.frame(
         x = c(0, 0),
-        y = c(m_to_ft(8.9), m_to_ft(9))
+        y = c(8.9, 9)
       )
     )
 
@@ -711,47 +711,47 @@ iihf_feature_faceoff_circle = function(center = c(0, 0), full_surf = TRUE, rotat
         center = c(0, 0),
         start = .5 + theta1,
         end = 1.5 - theta1,
-        d = m_to_ft(9)
+        d = 9
       ),
       data.frame(
-        x = c(m_to_ft(-.9), m_to_ft(-.85)),
-        y = c(m_to_ft(-5.1), m_to_ft(-5.1))
+        x = c(-.9, -.85),
+        y = c(-5.1, -5.1)
       ),
       create_circle(
         center = c(0, 0),
         start = 1.5 - theta2,
         end = 1.5,
-        d = m_to_ft(9)
+        d = 9
       ),
       data.frame(
         x = 0,
-        y = m_to_ft(8.9)
+        y = 8.9
       ),
       create_circle(
         center = c(0, 0),
         start = 1.5,
         end = .5,
-        d = m_to_ft(8.9)
+        d = 8.9
       ),
       data.frame(
         x = 0,
-        y = m_to_ft(9)
+        y = 9
       ),
       create_circle(
         center = c(0, 0),
         start = .5,
         end = .5 + theta2,
-        d = m_to_ft(9)
+        d = 9
       ),
       data.frame(
-        x = c(m_to_ft(-.85), m_to_ft(-.9)),
-        y = c(m_to_ft(5.1), m_to_ft(5.1))
+        x = c(-.85, -.9),
+        y = c(5.1, 5.1)
       ),
       create_circle(
         center = c(0, 0),
         start = .5 + theta1,
         end = 1.5 - theta1,
-        d = m_to_ft(9)
+        d = 9
       )[1, ]
     )
 
@@ -767,8 +767,8 @@ iihf_feature_faceoff_circle = function(center = c(0, 0), full_surf = TRUE, rotat
     # Move the faceoff circle to the correct position on the ice
     faceoff_circle = translate(
       faceoff_circle,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     if(rotate){
@@ -805,23 +805,23 @@ iihf_feature_faceoff_lines = function(center = c(0, 0), full_surf = TRUE, rotate
     # (outer edges) .225m above the center of the faceoff spot
     faceoff_line_ul = data.frame(
       x = c(
-        m_to_ft(-.6),
-        m_to_ft(-1.8),
-        m_to_ft(-1.8),
-        m_to_ft(-.65),
-        m_to_ft(-.65),
-        m_to_ft(-.6),
-        m_to_ft(-.6)
+        -.6,
+        -1.8,
+        -1.8,
+        -.65,
+        -.65,
+        -.6,
+        -.6
       ),
 
       y = c(
-        m_to_ft(.225),
-        m_to_ft(.225),
-        m_to_ft(.275),
-        m_to_ft(.275),
-        m_to_ft(1.125),
-        m_to_ft(1.125),
-        m_to_ft(.225)
+        .225,
+        .225,
+        .275,
+        .275,
+        1.125,
+        1.125,
+        .225
       )
     )
 
@@ -851,26 +851,26 @@ iihf_feature_faceoff_lines = function(center = c(0, 0), full_surf = TRUE, rotate
     # ice
     faceoff_line_ul = translate(
       faceoff_line_ul,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     faceoff_line_ur = translate(
       faceoff_line_ur,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     faceoff_line_ll = translate(
       faceoff_line_ll,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     faceoff_line_lr = translate(
       faceoff_line_lr,
-      translate_x = m_to_ft(center[1]),
-      translate_y = m_to_ft(center[2])
+      translate_x = center[1],
+      translate_y = center[2]
     )
 
     if(rotate){
@@ -932,72 +932,72 @@ iihf_feature_goal = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'c
   # thickness 1.9" (outer diameter)
   goal = rbind(
     data.frame(
-      x = c(m_to_ft(-26) - (2.5/12)),
-      y = c(3 + (2.375/12))
+      x = c(-26 - convert_units(2.5, 'in', 'm')),
+      y = c(convert_units(3, 'ft', 'm') + convert_units(2.375, 'in', 'm'))
     ),
 
     create_circle(
-      center = c(m_to_ft(-26) - (20/12), 2),
+      center = c(-26 - convert_units(20, 'in', 'm'), convert_units(2, 'ft', 'm')),
       start = 1/3 + (1/16),
       end = 1,
-      d = 40/12
+      d = convert_units(40, 'in', 'm')
     ),
 
     create_circle(
-      center = c(m_to_ft(-26) - (20/12), -2),
+      center = c(-26 - convert_units(20, 'in', 'm'), convert_units(-2, 'ft', 'm')),
       start = -1,
       end = -1/3 - (1/16),
-      d = 40/12
+      d = convert_units(40, 'in', 'm')
     ),
 
     data.frame(
-      x = c(m_to_ft(-26) - (2.5/12), m_to_ft(-26) - (2.5/12)),
-      y = c(-3 - (2.375/12), -3)
+      x = c(-26 - convert_units(2.5, 'in', 'm'), -26 - convert_units(2.5, 'in', 'm')),
+      y = c(convert_units(-3, 'ft', 'm') - convert_units(2.375, 'in', 'm'), convert_units(-3, 'ft', 'm'))
     ),
 
     create_circle(
-      center = c(m_to_ft(-26) - (20/12), -2),
+      center = c(-26 - convert_units(20, 'in', 'm'), convert_units(-2, 'ft', 'm')),
       start = -1/3 - (1/16),
       end = -1,
-      d = 36.2/12
+      d = convert_units(36.2, 'in', 'm')
     ),
 
     create_circle(
-      center = c(m_to_ft(-26) - (20/12), 2),
+      center = c(-26 - convert_units(20, 'in', 'm'), convert_units(2, 'ft', 'm')),
       start = 1,
       end = 1/3 + (1/16),
-      d = 36.2/12
+      d = convert_units(36.2, 'in', 'm')
     ),
 
     data.frame(
-      x = c(m_to_ft(-26) - (2.5/12), m_to_ft(-26) - (2.5/12)),
-      y = c(3, 3 + (2.375/12))
+      x = c(-26 - convert_units(2.5, 'in', 'm'), -26 - convert_units(2.5, 'in', 'm')),
+      y = c(convert_units(3, 'ft', 'm'), convert_units(3, 'ft', 'm') + convert_units(2.375, 'in', 'm'))
     )
   )
 
   goal_fill = rbind(
     data.frame(
-      x = m_to_ft(-26) - (2.5/12),
-      y = -3
+      x = -26 - convert_units(2.5, 'in', 'm'),
+      y = convert_units(-3, 'ft', 'm')
     ),
 
     create_circle(
-      center = c(m_to_ft(-26) - (20/12), -2),
+      center = c(-26 - convert_units(20, 'in', 'm'), convert_units(-2, 'ft', 'm')),
       start = -1/3 - (1/16),
       end = -1,
-      d = 36.2/12
+      d = convert_units(36.2, 'in', 'm')
     ),
 
     create_circle(
-      center = c(m_to_ft(-26) - (20/12), 2),
+      center = c(-26 - convert_units(20, 'in', 'm'), convert_units(2, 'ft', 'm')),
       start = 1,
       end = 1/3 + (1/16),
-      d = 36.2/12
+      d = convert_units(36.2, 'in', 'm')
     ),
 
     data.frame(
-      x = c(m_to_ft(-26) - (2.5/12), m_to_ft(-26) - (2.5/12)),
-      y = c(3, -3)
+      x = c(-26 - convert_units(2.5, 'in', 'm'), -26 - convert_units(2.5, 'in', 'm')),
+      y = c(convert_units(3, 'ft', 'm'), convert_units(-3, 'ft', 'm'))
     )
   )
 
@@ -1129,6 +1129,8 @@ iihf_features_set_colors = function(boards_color = '#000000',
 #'   needs to be rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the surface
 #'   representation. Default: \code{'ccw'}
+#' @param unit A string indicating the units with which to make the plot.
+#'   Default: \code{'m'}
 #' @param caption_color A hexadecimal string representing the color to use for
 #'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use
@@ -1140,6 +1142,7 @@ iihf_features_set_colors = function(boards_color = '#000000',
 geom_iihf = function(full_surf = TRUE,
                      rotate = FALSE,
                      rotation_dir = 'ccw',
+                     unit = 'm',
                      caption_color = '#707372',
                      background_color = NULL,
                      ...
@@ -1190,6 +1193,19 @@ geom_iihf = function(full_surf = TRUE,
   referee_crease = iihf_feature_referee_crease(full_surf, rotate, rotation_dir)
   goal = iihf_feature_goal(full_surf, rotate, rotation_dir)
 
+  # Convert between units as necessary
+  if(!(unit %in% c('m', 'meters'))){
+    boards = convert_units(boards, 'm', unit, conversion_columns = c('x', 'y'))
+    center_line = convert_units(center_line, 'm', unit, conversion_columns = c('x', 'y'))
+    blue_line = convert_units(blue_line, 'm', unit, conversion_columns = c('x', 'y'))
+    goal$goal = convert_units(goal$goal, 'm', unit, conversion_columns = c('x', 'y'))
+    goal$goal_fill = convert_units(goal$goal_fill, 'm', unit, conversion_columns = c('x', 'y'))
+    goal_line = convert_units(goal_line, 'm', unit, conversion_columns = c('x', 'y'))
+    goal_crease$goal_crease_outline = convert_units(goal_crease$goal_crease_outline, 'm', unit, conversion_columns = c('x', 'y'))
+    goal_crease$goal_crease_fill = convert_units(goal_crease$goal_crease_fill, 'm', unit, conversion_columns = c('x', 'y'))
+    referee_crease = convert_units(referee_crease, 'm', unit, conversion_columns = c('x', 'y'))
+  }
+
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate, caption_color, background_color)
 
@@ -1216,11 +1232,28 @@ geom_iihf = function(full_surf = TRUE,
 
     # Draw the faceoff spot
     if(identical(center, c(0, 0))){
+      # Convert between units as necessary
+      if(!(unit %in% c('m', 'meters'))){
+        faceoff_spot = convert_units(faceoff_spot, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_circle = convert_units(faceoff_circle, 'm', unit, conversion_columns = c('x', 'y'))
+      }
+
       g = add_feature(g, faceoff_spot, color_list$center_faceoff_spot_color)
       g = add_feature(g, faceoff_circle, color_list$center_faceoff_circle_color)
     }
 
     else if(spot_name %in% c('spot_1', 'spot_2', 'spot_7', 'spot_8')){
+      # Convert between units as necessary
+      if(!(unit %in% c('m', 'meters'))){
+        faceoff_spot$spot_outer_ring = convert_units(faceoff_spot$spot_outer_ring, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_spot$spot_fill = convert_units(faceoff_spot$spot_fill, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_circle = convert_units(faceoff_circle, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_ul = convert_units(faceoff_lines$faceoff_line_ul, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_ur = convert_units(faceoff_lines$faceoff_line_ur, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_ll = convert_units(faceoff_lines$faceoff_line_ll, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_lines$faceoff_line_lr = convert_units(faceoff_lines$faceoff_line_lr, 'm', unit, conversion_columns = c('x', 'y'))
+      }
+
       g = add_feature(g, faceoff_spot$spot_outer_ring, color_list$faceoff_spot_outer_ring_color)
       g = add_feature(g, faceoff_spot$spot_fill, color_list$faceoff_spot_fill_color)
       g = add_feature(g, faceoff_circle, color_list$non_center_faceoff_circle_color)
@@ -1231,6 +1264,12 @@ geom_iihf = function(full_surf = TRUE,
     }
 
     else {
+      # Convert between units as necessary
+      if(!(unit %in% c('m', 'meters'))){
+        faceoff_spot$spot_outer_ring = convert_units(faceoff_spot$spot_outer_ring, 'm', unit, conversion_columns = c('x', 'y'))
+        faceoff_spot$spot_fill = convert_units(faceoff_spot$spot_fill, 'm', unit, conversion_columns = c('x', 'y'))
+      }
+
       g = add_feature(g, faceoff_spot$spot_outer_ring, color_list$faceoff_spot_outer_ring_color)
       g = add_feature(g, faceoff_spot$spot_fill, color_list$faceoff_spot_fill_color)
     }

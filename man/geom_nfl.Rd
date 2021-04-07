@@ -9,6 +9,7 @@ geom_nfl(
   full_surf = TRUE,
   rotate = FALSE,
   rotation_dir = "ccw",
+  unit = "yd",
   origin_bottom_left = TRUE,
   caption_color = "#707372",
   background_color = NULL,
@@ -24,6 +25,9 @@ needs to be rotated. Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the surface
 representation. Default: \code{'ccw'}}
+
+\item{unit}{A string indicating the units with which to make the plot.
+Default: \code{'yd'}}
 
 \item{origin_bottom_left}{A boolean indicating whether or not to place the
 origin at the bottom-left corner of the plot (where the endline meets the

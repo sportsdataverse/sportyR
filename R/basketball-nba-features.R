@@ -2107,6 +2107,8 @@ nba_features_set_colors = function(court_background_color = '#d2ab6f',
 #'   needs to be rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the surface
 #'   representation. Default: \code{'ccw'}
+#' @param unit A string indicating the units with which to make the plot.
+#'   Default: \code{'ft'}
 #' @param include_amateur_free_throw_lane A boolean indicating whether or not to
 #'   include the amateur (NCAA) free-throw lane in the final plot. Default: \code{TRUE}
 #' @param include_amateur_free_throw_lane_lines A boolean indicating whether or
@@ -2123,12 +2125,16 @@ nba_features_set_colors = function(court_background_color = '#d2ab6f',
 geom_nba = function(full_surf = TRUE,
                     rotate = FALSE,
                     rotation_dir = 'ccw',
+                    unit = 'ft',
                     include_amateur_free_throw_lane = TRUE,
                     include_amateur_free_throw_lane_lines = TRUE,
                     caption_color = '#707372',
                     background_color = NULL,
                     ...
 ){
+  # Force the plot unit to be lower case
+  unit = tolower(unit)
+
   # Create the colors to use for the plot
   color_list = nba_features_set_colors(...)
 
@@ -2151,6 +2157,68 @@ geom_nba = function(full_surf = TRUE,
   backboard = nba_feature_backboard(full_surf, rotate, rotation_dir)
   basket_ring = nba_feature_basket_ring(full_surf, rotate, rotation_dir)
   net = nba_feature_net(full_surf, rotate, rotation_dir)
+
+  # Convert between units as necessary
+  if(!(unit %in% c('ft', 'feet'))){
+    court_background = convert_units(court_background, 'ft', unit, conversion_columns = c('x', 'y'))
+    center_circles$inner_circle = convert_units(center_circles$inner_circle, 'ft', unit, conversion_columns = c('x', 'y'))
+    center_circles$outer_circle = convert_units(center_circles$outer_circle, 'ft', unit, conversion_columns = c('x', 'y'))
+    division_line = convert_units(division_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    endline = convert_units(endline, 'ft', unit, conversion_columns = c('x', 'y'))
+    sideline$sideline_1 = convert_units(sideline$sideline_1, 'ft', unit, conversion_columns = c('x', 'y'))
+    sideline$sideline_2 = convert_units(sideline$sideline_2, 'ft', unit, conversion_columns = c('x', 'y'))
+    court_apron = convert_units(court_apron, 'ft', unit, conversion_columns = c('x', 'y'))
+    team_bench$team_bench_1 = convert_units(team_bench$team_bench_1, 'ft', unit, conversion_columns = c('x', 'y'))
+    team_bench$team_bench_2 = convert_units(team_bench$team_bench_2, 'ft', unit, conversion_columns = c('x', 'y'))
+    substitution_area = convert_units(substitution_area, 'ft', unit, conversion_columns = c('x', 'y'))
+    three_point_line$three_point_line = convert_units(three_point_line$three_point_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    three_point_line$two_point_range = convert_units(three_point_line$two_point_range, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane$professional_free_throw_lane = convert_units(free_throw_lane$professional_free_throw_lane, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane$professional_painted_area = convert_units(free_throw_lane$professional_painted_area, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_1 = convert_units(free_throw_lane_lines$professional_lane_line_1, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_2 = convert_units(free_throw_lane_lines$professional_lane_line_2, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_3 = convert_units(free_throw_lane_lines$professional_lane_line_3, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_4 = convert_units(free_throw_lane_lines$professional_lane_line_4, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_5 = convert_units(free_throw_lane_lines$professional_lane_line_5, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_6 = convert_units(free_throw_lane_lines$professional_lane_line_6, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_7 = convert_units(free_throw_lane_lines$professional_lane_line_7, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$professional_lane_line_8 = convert_units(free_throw_lane_lines$professional_lane_line_8, 'ft', unit, conversion_columns = c('x', 'y'))
+
+    if(include_amateur_free_throw_lane){
+      free_throw_lane$amateur_free_throw_lane = convert_units(free_throw_lane$amateur_free_throw_lane, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane$amateur_painted_area = convert_units(free_throw_lane$amateur_painted_area, 'ft', unit, conversion_columns = c('x', 'y'))
+    }
+
+    if(include_amateur_free_throw_lane_lines){
+      free_throw_lane_lines$amateur_lane_line_1 = convert_units(free_throw_lane_lines$amateur_lane_line_1, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_2 = convert_units(free_throw_lane_lines$amateur_lane_line_2, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_3 = convert_units(free_throw_lane_lines$amateur_lane_line_3, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_4 = convert_units(free_throw_lane_lines$amateur_lane_line_4, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_5 = convert_units(free_throw_lane_lines$amateur_lane_line_5, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_6 = convert_units(free_throw_lane_lines$amateur_lane_line_6, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_7 = convert_units(free_throw_lane_lines$amateur_lane_line_7, 'ft', unit, conversion_columns = c('x', 'y'))
+      free_throw_lane_lines$amateur_lane_line_8 = convert_units(free_throw_lane_lines$amateur_lane_line_8, 'ft', unit, conversion_columns = c('x', 'y'))
+    }
+
+    free_throw_semi_circle$free_throw_semi_circle_line = convert_units(free_throw_semi_circle$free_throw_semi_circle_line, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_semi_circle$free_throw_semi_circle_fill = convert_units(free_throw_semi_circle$free_throw_semi_circle_fill, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_1 = convert_units(free_throw_dashed_semi_circle$dash_1, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_2 = convert_units(free_throw_dashed_semi_circle$dash_2, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_3 = convert_units(free_throw_dashed_semi_circle$dash_3, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_4 = convert_units(free_throw_dashed_semi_circle$dash_4, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_5 = convert_units(free_throw_dashed_semi_circle$dash_5, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_6 = convert_units(free_throw_dashed_semi_circle$dash_6, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_7 = convert_units(free_throw_dashed_semi_circle$dash_7, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_dashed_semi_circle$dash_8 = convert_units(free_throw_dashed_semi_circle$dash_8, 'ft', unit, conversion_columns = c('x', 'y'))
+    restricted_area_arc = convert_units(restricted_area_arc, 'ft', unit, conversion_columns = c('x', 'y'))
+    lower_defensive_box$dash_1 = convert_units(lower_defensive_box$dash_1, 'ft', unit, conversion_columns = c('x', 'y'))
+    lower_defensive_box$dash_2 = convert_units(lower_defensive_box$dash_2, 'ft', unit, conversion_columns = c('x', 'y'))
+    lower_defensive_box$dash_3 = convert_units(lower_defensive_box$dash_3, 'ft', unit, conversion_columns = c('x', 'y'))
+    lower_defensive_box$dash_4 = convert_units(lower_defensive_box$dash_4, 'ft', unit, conversion_columns = c('x', 'y'))
+    backboard = convert_units(backboard, 'ft', unit, conversion_columns = c('x', 'y'))
+    basket_ring = convert_units(basket_ring, 'ft', unit, conversion_columns = c('x', 'y'))
+    net = convert_units(net, 'ft', unit, conversion_columns = c('x', 'y'))
+  }
 
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate, caption_color, background_color)

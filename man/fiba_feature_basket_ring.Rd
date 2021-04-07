@@ -7,8 +7,7 @@
 fiba_feature_basket_ring(
   full_surf = TRUE,
   rotate = FALSE,
-  rotation_dir = "ccw",
-  unit = "ft"
+  rotation_dir = "ccw"
 )
 }
 \arguments{
@@ -20,9 +19,6 @@ rotated Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the
 feature. Default: \code{'ccw'}}
-
-\item{unit}{A string indicating the unit with which to make the plot.
-Default: \code{'ft'}}
 }
 \value{
 A data frame containing the points that comprise the basket ring

@@ -11,7 +11,8 @@ geom_baseball(league, ...)
 \item{league}{The league for which to draw the surface}
 
 \item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{mlb_features_set_colors()} function}
+colors to pass to the \code{mlb_features_set_colors()} function, or units
+with which to draw the plot}
 }
 \value{
 A ggplot2 instance with a full-surface representation of a baseball

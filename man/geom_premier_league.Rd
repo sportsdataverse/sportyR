@@ -11,6 +11,7 @@ geom_premier_league(
   full_surf = TRUE,
   rotate = FALSE,
   rotation_dir = "ccw",
+  unit = "m",
   caption_color = "#707372",
   background_color = NULL,
   ...
@@ -31,6 +32,9 @@ needs to be rotated. Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the surface
 representation. Default: \code{'ccw'}}
+
+\item{unit}{A string indicating the units with which to make the plot.
+Default: \code{'m'}}
 
 \item{caption_color}{A hexadecimal string representing the color to use for
 the plot's caption. Default: '#707372' (grey)}

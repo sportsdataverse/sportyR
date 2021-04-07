@@ -9,7 +9,6 @@ geom_basketball(
   full_surf = TRUE,
   rotate = FALSE,
   rotation_dir = "ccw",
-  unit = "ft",
   ...
 )
 }
@@ -25,11 +24,9 @@ rotated. Default: \code{FALSE}}
 \item{rotation_dir}{A string indicating which direction to rotate the
 feature. Default: \code{'ccw'}}
 
-\item{unit}{A string indicating the unit with which to make the plot.
-Default: \code{'ft'}}
-
 \item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{{league}_features_set_colors()} function}
+colors to pass to the \code{mlb_features_set_colors()} function, or units
+with which to draw the plot}
 }
 \value{
 A ggplot2 instance with a full-surface representation of a basketball

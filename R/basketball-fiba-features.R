@@ -7,35 +7,19 @@
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the court
-fiba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # A regulation college court is 28m long and 15m wide, but this will only draw
   # the half-court, so it will measure 14m long and 7.5m wide
-  court = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-14.0),
-        x_max = m_to_ft( 0.00),
-        y_min = m_to_ft(-7.50),
-        y_max = m_to_ft( 7.50)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -14.0,
-        x_max =  0.00,
-        y_min = -7.50,
-        y_max =  7.50
-      )
-    }
+  court = create_rectangle(
+    x_min = -14.0,
+    x_max =  0.00,
+    y_min = -7.50,
+    y_max =  7.50
   )
 
   if(full_surf){
@@ -70,60 +54,32 @@ fiba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frames containing the points that comprise the center
 #'   circles
-fiba_feature_center_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_center_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # A regulation college court is 28m long and 15m wide, but this will only draw
   # the half-court, so it will measure 14m long and 7.5m wide
-  center_circle = switch(
-    unit,
-    'ft' = {
-      rbind(
-        create_circle(
-          center = c(0, 0),
-          start  = 0.5,
-          end    = 1.5,
-          d      = m_to_ft(3.6)
-        ),
-        data.frame(
-          x = m_to_ft( 0.0),
-          y = m_to_ft(-3.5)
-        ),
-        create_circle(
-          center = c(0, 0),
-          start  = 1.5,
-          end    = 0.5,
-          d      = m_to_ft(3.5)
-        )
-      )
-    },
-
-    'm' = {
-      rbind(
-        create_circle(
-          center = c(0, 0),
-          start  = 0.5,
-          end    = 1.5,
-          d      = 3.6
-        ),
-        data.frame(
-          x =  0.0,
-          y = -3.5
-        ),
-        create_circle(
-          center = c(0, 0),
-          start  = 1.5,
-          end    = 0.5,
-          d      = 3.5
-        )
-      )
-    }
+  center_circle = rbind(
+    create_circle(
+      center = c(0, 0),
+      start  = 0.5,
+      end    = 1.5,
+      d      = 3.6
+    ),
+    data.frame(
+      x =  0.0,
+      y = -3.5
+    ),
+    create_circle(
+      center = c(0, 0),
+      start  = 1.5,
+      end    = 0.5,
+      d      = 3.5
+    )
   )
 
   if(full_surf){
@@ -158,35 +114,19 @@ fiba_feature_center_circle = function(full_surf = TRUE, rotate = FALSE, rotation
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the division line
-fiba_feature_division_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_division_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The line is 5cm thick, goes right through the middle of the court (2.5cm of
   # its width on each side of it), and extends .15m beyond each sideline
-  division_line = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-0.025),
-        x_max = m_to_ft( 0.000),
-        y_min = m_to_ft(-7.650),
-        y_max = m_to_ft( 7.650)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -0.025,
-        x_max =  0.000,
-        y_min = -7.650,
-        y_max =  7.650
-      )
-    }
+  division_line = create_rectangle(
+    x_min = -0.025,
+    x_max =  0.000,
+    y_min = -7.650,
+    y_max =  7.650
   )
 
   if(full_surf){
@@ -221,35 +161,19 @@ fiba_feature_division_line = function(full_surf = TRUE, rotate = FALSE, rotation
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the end lines
-fiba_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The endline is 14m (interior) from the center of the court, spans the width
   # of the court, and is 5cm in thickness
-  endline = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-14.05),
-        x_max = m_to_ft(-14.00),
-        y_min = m_to_ft(- 7.50),
-        y_max = m_to_ft(  7.50)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -14.05,
-        x_max = -14.00,
-        y_min = - 7.50,
-        y_max =   7.50
-      )
-    }
+  endline = create_rectangle(
+    x_min = -14.05,
+    x_max = -14.00,
+    y_min = - 7.50,
+    y_max =   7.50
   )
 
   if(full_surf){
@@ -284,12 +208,10 @@ fiba_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   sidelines
-fiba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -297,47 +219,19 @@ fiba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
   # length of the court, and is 2" in thickness
 
   # First sideline
-  sideline_1 = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-14.05),
-        x_max = m_to_ft(  0.00),
-        y_min = m_to_ft(- 7.55),
-        y_max = m_to_ft(- 7.50)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -14.05,
-        x_max =   0.00,
-        y_min = - 7.55,
-        y_max = - 7.50
-      )
-    }
+  sideline_1 = create_rectangle(
+    x_min = -14.05,
+    x_max =   0.00,
+    y_min = - 7.55,
+    y_max = - 7.50
   )
 
   # Second sideline
-  sideline_2 = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-14.05),
-        x_max = m_to_ft(  0.00),
-        y_min = m_to_ft(  7.50),
-        y_max = m_to_ft(  7.55)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -14.05,
-        x_max =   0.00,
-        y_min =   7.50,
-        y_max =   7.55
-      )
-    }
+  sideline_2 = create_rectangle(
+    x_min = -14.05,
+    x_max =   0.00,
+    y_min =   7.50,
+    y_max =   7.55
   )
 
   if(full_surf){
@@ -390,12 +284,10 @@ fiba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frames containing the points that comprise the team
 #'   bench
-fiba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -406,47 +298,19 @@ fiba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_di
   # width
 
   # Throw-in line
-  throw_in_line = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-5.725),
-        x_max = m_to_ft(-5.675),
-        y_min = m_to_ft(-7.700),
-        y_max = m_to_ft(-7.550)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -5.725,
-        x_max = -5.675,
-        y_min = -7.700,
-        y_max = -7.550
-      )
-    }
+  throw_in_line = create_rectangle(
+    x_min = -5.725,
+    x_max = -5.675,
+    y_min = -7.700,
+    y_max = -7.550
   )
 
   # Team bench
-  team_bench = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-5.05),
-        x_max = m_to_ft(-5.00),
-        y_min = m_to_ft( 7.55),
-        y_max = m_to_ft( 9.55)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -5.05,
-        x_max = -5.00,
-        y_min =  7.55,
-        y_max =  9.55
-      )
-    }
+  team_bench = create_rectangle(
+    x_min = -5.05,
+    x_max = -5.00,
+    y_min =  7.55,
+    y_max =  9.55
   )
 
   if(full_surf){
@@ -499,122 +363,63 @@ fiba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_di
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the court apron
-fiba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The court apron is the boundary on the court, which may be made of a
   # contrasting color. No distance is specified in the official FIBA rule book,
   # so a distance of 3m on all sides will be used
-  court_apron = switch(
-    unit,
-    'ft' = {
-      data.frame(
-        x = c(
-          m_to_ft(  0.000),
-          m_to_ft(- 0.025),
-          m_to_ft(- 0.025),
-          m_to_ft(- 5.675),
-          m_to_ft(- 5.675),
-          m_to_ft(- 5.725),
-          m_to_ft(- 5.725),
-          m_to_ft(-14.050),
-          m_to_ft(-14.050),
-          m_to_ft(- 5.050),
-          m_to_ft(- 5.050),
-          m_to_ft(- 5.000),
-          m_to_ft(- 5.000),
-          m_to_ft(- 0.025),
-          m_to_ft(- 0.025),
-          m_to_ft(  0.000),
-          m_to_ft(  0.000),
-          m_to_ft(-17.050),
-          m_to_ft(-17.050),
-          m_to_ft(  0.000),
-          m_to_ft(  0.000)
-        ),
+  court_apron = data.frame(
+    x = c(
+        0.000,
+      - 0.025,
+      - 0.025,
+      - 5.675,
+      - 5.675,
+      - 5.725,
+      - 5.725,
+      -14.050,
+      -14.050,
+      - 5.050,
+      - 5.050,
+      - 5.000,
+      - 5.000,
+      - 0.025,
+      - 0.025,
+        0.000,
+        0.000,
+      -17.050,
+      -17.050,
+        0.000,
+        0.000
+    ),
 
-        y = c(
-          m_to_ft(- 7.65),
-          m_to_ft(- 7.65),
-          m_to_ft(- 7.55),
-          m_to_ft(- 7.55),
-          m_to_ft(- 7.65),
-          m_to_ft(- 7.65),
-          m_to_ft(- 7.55),
-          m_to_ft(- 7.55),
-          m_to_ft(  7.55),
-          m_to_ft(  7.55),
-          m_to_ft(  9.55),
-          m_to_ft(  9.55),
-          m_to_ft(  7.55),
-          m_to_ft(  7.55),
-          m_to_ft(  7.65),
-          m_to_ft(  7.65),
-          m_to_ft( 10.55),
-          m_to_ft( 10.55),
-          m_to_ft(-10.55),
-          m_to_ft(-10.55),
-          m_to_ft(- 7.65)
-        )
-      )
-    },
-
-    'm' = {
-      data.frame(
-        x = c(
-            0.000,
-          - 0.025,
-          - 0.025,
-          - 5.675,
-          - 5.675,
-          - 5.725,
-          - 5.725,
-          -14.050,
-          -14.050,
-          - 5.050,
-          - 5.050,
-          - 5.000,
-          - 5.000,
-          - 0.025,
-          - 0.025,
-            0.000,
-            0.000,
-          -17.050,
-          -17.050,
-            0.000,
-            0.000
-        ),
-
-        y = c(
-          - 7.65,
-          - 7.65,
-          - 7.55,
-          - 7.55,
-          - 7.65,
-          - 7.65,
-          - 7.55,
-          - 7.55,
-            7.55,
-            7.55,
-            9.55,
-            9.55,
-            7.55,
-            7.55,
-            7.65,
-            7.65,
-           10.55,
-           10.55,
-          -10.55,
-          -10.55,
-          - 7.65
-        )
-      )
-    }
+    y = c(
+      - 7.65,
+      - 7.65,
+      - 7.55,
+      - 7.55,
+      - 7.65,
+      - 7.65,
+      - 7.55,
+      - 7.55,
+        7.55,
+        7.55,
+        9.55,
+        9.55,
+        7.55,
+        7.55,
+        7.65,
+        7.65,
+       10.55,
+       10.55,
+      -10.55,
+      -10.55,
+      - 7.65
+    )
   )
 
   if(full_surf){
@@ -650,28 +455,18 @@ fiba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   three-point line and two-point range
-fiba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # First, a bit of math is needed to determine the starting and ending angles
   # of the three-point arc, relative to 0 radians. Since in the end, the angle
   # is what matters, the units of measure do not. The angle begins .90m from the
   # interior edge of the sideline
-  start_y = switch(
-    unit,
-    'ft' = m_to_ft(6.6),
-    'm' = 6.6
-  )
+  start_y = 6.6
 
   # The rule book describes the arc as having a radius of 6.75m
-  radius_outer = switch(
-    unit,
-    'ft' = m_to_ft(6.75),
-    'm' = 6.75
-  )
+  radius_outer = 6.75
 
   # From here, the calculation is relatively straightforward. To determine the
   # angle, the inverse sine is needed. It will be multiplied by pi so that it
@@ -682,136 +477,64 @@ fiba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
   # The same method can be used for the inner angles, however, since the inner
   # radius will be traced from bottom to top, the angle must be negative to
   # start
-  radius_inner = switch(
-    unit,
-    'ft' = m_to_ft(6.70),
-    'm' = 6.70
-  )
+  radius_inner = 6.70
 
-  start_angle_inner = switch(
-    unit,
-    'ft' = -asin((start_y - m_to_ft(0.05)) / radius_inner) / pi,
-    'm' = -asin((start_y - 0.05) / radius_inner) / pi
-  )
+  start_angle_inner = -asin((start_y - 0.05) / radius_inner) / pi
 
   end_angle_inner = -start_angle_inner
 
   # FIBA three-point line
-  three_point_line = switch(
-    unit,
-    'ft' = {
-      rbind(
-        data.frame(
-          x = m_to_ft(-14),
-          y = m_to_ft(6.6)
-        ),
+  three_point_line = rbind(
+    data.frame(
+      x = -14,
+      y = 6.6
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-12.425), m_to_ft(0)),
-          start = start_angle_outer,
-          end = end_angle_outer,
-          d = 2 * radius_outer
-        ),
+    create_circle(
+      center = c(-12.425, 0),
+      start = start_angle_outer,
+      end = end_angle_outer,
+      d = 2 * radius_outer
+    ),
 
-        data.frame(
-          x = c(m_to_ft(-14), m_to_ft(-14)),
-          y = c(m_to_ft(-6.6), m_to_ft(-6.55))
-        ),
+    data.frame(
+      x = c(-14, -14),
+      y = c(-6.6, -6.55)
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-12.425), m_to_ft(0)),
-          start = start_angle_inner,
-          end = end_angle_inner,
-          d = 2 * radius_inner
-        ),
+    create_circle(
+      center = c(-12.425, 0),
+      start = start_angle_inner,
+      end = end_angle_inner,
+      d = 2 * radius_inner
+    ),
 
-        data.frame(
-          x = c(m_to_ft(-14), m_to_ft(-14)),
-          y = c(m_to_ft(6.55), m_to_ft(6.6))
-        )
-      )
-    },
-
-    'm' = {
-      rbind(
-        data.frame(
-          x = -14,
-          y = 6.6
-        ),
-
-        create_circle(
-          center = c(-12.425, 0),
-          start = start_angle_outer,
-          end = end_angle_outer,
-          d = 2 * radius_outer
-        ),
-
-        data.frame(
-          x = c(-14, -14),
-          y = c(-6.6, -6.55)
-        ),
-
-        create_circle(
-          center = c(-12.425, 0),
-          start = start_angle_inner,
-          end = end_angle_inner,
-          d = 2 * radius_inner
-        ),
-
-        data.frame(
-          x = c(-14, -14),
-          y = c(6.55, 6.6)
-        )
-      )
-    }
+    data.frame(
+      x = c(-14, -14),
+      y = c(6.55, 6.6)
+    )
   )
 
   # Sometimes, the inside of the three-point arc (aka 2-point range) will be a
   # different color than the floor. This section allows for this to happen in a
   # future iteration
-  two_point_range = switch(
-    unit,
-    'ft' = {
-      rbind(
-        data.frame(
-          x = m_to_ft(-14),
-          y =  m_to_ft(-6.55)
-        ),
+  two_point_range = rbind(
+    data.frame(
+      x = -14,
+      y =  -6.55
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-12.425), m_to_ft(0)),
-          start = start_angle_inner,
-          end = end_angle_inner,
-          d = 2 * radius_inner
-        ),
+    create_circle(
+      center = c(-12.425, 0),
+      start = start_angle_inner,
+      end = end_angle_inner,
+      d = 2 * radius_inner
+    ),
 
-        data.frame(
-          x = c(m_to_ft(-14), m_to_ft(-14)),
-          y = c(m_to_ft(6.55), m_to_ft(-6.55))
-        )
-      )
-    },
-
-    'm' = {
-      rbind(
-        data.frame(
-          x = -14,
-          y =  -6.55
-        ),
-
-        create_circle(
-          center = c(-12.425, 0),
-          start = start_angle_inner,
-          end = end_angle_inner,
-          d = 2 * radius_inner
-        ),
-
-        data.frame(
-          x = c(-14, -14),
-          y = c(6.55, -6.55)
-        )
-      )
-    }
+    data.frame(
+      x = c(-14, -14),
+      y = c(6.55, -6.55)
+    )
   )
 
   if(full_surf){
@@ -866,101 +589,48 @@ fiba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frames containing the points that comprise both the
 #'   professional and amateur free-throw lanes
-fiba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # The free-throw lane measures 5.8m from the inside edge of the endline to the
   # outside edge of the free-throw line, has a width of 4.9m, and has lines of
   # width of 5cm
-  free_throw_lane = switch(
-    unit,
-    'ft' = {
-      data.frame(
-        x = c(
-          m_to_ft(-14),
-          m_to_ft(-8.2),
-          m_to_ft(-8.2),
-          m_to_ft(-14),
+  free_throw_lane = data.frame(
+    x = c(
+      -14,
+      -8.2,
+      -8.2,
+      -14,
 
-          m_to_ft(-14),
-          m_to_ft(-8.25),
-          m_to_ft(-8.25),
-          m_to_ft(-14),
+      -14,
+      -8.25,
+      -8.25,
+      -14,
 
-          m_to_ft(-14)
-        ),
+      -14
+    ),
 
-        y = c(
-          m_to_ft(-2.45),
-          m_to_ft(-2.45),
-          m_to_ft(2.45),
-          m_to_ft(2.45),
+    y = c(
+      -2.45,
+      -2.45,
+      2.45,
+      2.45,
 
-          m_to_ft(2.40),
-          m_to_ft(2.40),
-          m_to_ft(-2.40),
-          m_to_ft(-2.40),
+      2.40,
+      2.40,
+      -2.40,
+      -2.40,
 
-          m_to_ft(-2.45)
-        )
-      )
-    },
-
-    'm' = {
-      data.frame(
-        x = c(
-          -14,
-          -8.2,
-          -8.2,
-          -14,
-
-          -14,
-          -8.25,
-          -8.25,
-          -14,
-
-          -14
-        ),
-
-        y = c(
-          -2.45,
-          -2.45,
-          2.45,
-          2.45,
-
-          2.40,
-          2.40,
-          -2.40,
-          -2.40,
-
-          -2.45
-        )
-      )
-    }
+      -2.45
+    )
   )
 
-  painted_area = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-14),
-        x_max = m_to_ft(-8.25),
-        y_min = m_to_ft(-2.40),
-        y_max = m_to_ft(2.40)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -14,
-        x_max = -8.25,
-        y_min = -2.40,
-        y_max = 2.40
-      )
-    }
+  painted_area = create_rectangle(
+    x_min = -14,
+    x_max = -8.25,
+    y_min = -2.40,
+    y_max = 2.40
   )
 
   if(full_surf){
@@ -1014,105 +684,47 @@ fiba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   free-throw lane lines (the blocks)
-fiba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The first set of lane lines are 1.75m from the interior of the baseline,
   # measure 5cm in width, and extend 10cm towards the nearest sideline
-  lane_line_1 = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-12.25),
-        x_max = m_to_ft(-12.20),
-        y_min = m_to_ft(- 2.55),
-        y_max = m_to_ft(- 2.45)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -12.25,
-        x_max = -12.20,
-        y_min = - 2.55,
-        y_max = - 2.45
-      )
-    }
+  lane_line_1 = create_rectangle(
+    x_min = -12.25,
+    x_max = -12.20,
+    y_min = - 2.55,
+    y_max = - 2.45
   )
 
   # The second set of lane lines are 85cm from the first lane line, and measure
   # 40cm in width, and extend 10cm towards the nearest sideline
-  lane_line_2 = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-11.35),
-        x_max = m_to_ft(-10.95),
-        y_min = m_to_ft(- 2.55),
-        y_max = m_to_ft(- 2.45)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -11.35,
-        x_max = -10.95,
-        y_min = - 2.55,
-        y_max = - 2.45
-      )
-    }
+  lane_line_2 = create_rectangle(
+    x_min = -11.35,
+    x_max = -10.95,
+    y_min = - 2.55,
+    y_max = - 2.45
   )
 
   # The third set of lane lines are 85cm from the second lane line, and measure
   # 5cm in width, and extend 10cm towards the nearest sideline
-  lane_line_3 = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-10.10),
-        x_max = m_to_ft(-10.05),
-        y_min = m_to_ft(-2.55),
-        y_max = m_to_ft(-2.45)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -10.10,
-        x_max = -10.05,
-        y_min = - 2.55,
-        y_max = - 2.45
-      )
-    }
+  lane_line_3 = create_rectangle(
+    x_min = -10.10,
+    x_max = -10.05,
+    y_min = - 2.55,
+    y_max = - 2.45
   )
 
   # The fourth set of lane lines are 85cm from the third lane line, and measure
   # 5cm in width, and extend 10cm towards the nearest sideline
-  lane_line_4 = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-9.20),
-        x_max = m_to_ft(-9.15),
-        y_min = m_to_ft(-2.55),
-        y_max = m_to_ft(-2.45)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -9.20,
-        x_max = -9.15,
-        y_min = -2.55,
-        y_max = -2.45
-      )
-    }
+  lane_line_4 = create_rectangle(
+    x_min = -9.20,
+    x_max = -9.15,
+    y_min = -2.55,
+    y_max = -2.45
   )
 
   # Lane line 4 but on the other side of the free-throw lane
@@ -1278,129 +890,60 @@ fiba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, 
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A list of data frame containing the points that comprise the
 #'   free-throw semi-circles (where a free-throw shooter would shoot from)
-fiba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The free-throw semi-circle has radius 1.8m and is centered at the center of
   # the free-throw line (5.8m from the interior edge of the baseline)
-  free_throw_semi_circle_line = switch(
-    unit,
-    'ft' = {
-      rbind(
-        create_circle(
-          center = c(m_to_ft(-8.2), m_to_ft(0)),
-          start = .5,
-          end = -.5,
-          d = m_to_ft(3.6)
-        ),
+  free_throw_semi_circle_line = rbind(
+    create_circle(
+      center = c(-8.2, 0),
+      start = .5,
+      end = -.5,
+      d = 3.6
+    ),
 
-        data.frame(
-          x = m_to_ft(-8.2),
-          y = m_to_ft(-1.8)
-        ),
+    data.frame(
+      x = -8.2,
+      y = -1.8
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-8.2), m_to_ft(0)),
-          start = -.5,
-          end = .5,
-          d = m_to_ft(3.5)
-        ),
+    create_circle(
+      center = c(-8.2, 0),
+      start = -.5,
+      end = .5,
+      d = 3.5
+    ),
 
-        data.frame(
-          x = m_to_ft(-8.2),
-          y = m_to_ft(1.8)
-        )
-      )
-    },
-
-    'm' = {
-      rbind(
-        create_circle(
-          center = c(-8.2, 0),
-          start = .5,
-          end = -.5,
-          d = 3.6
-        ),
-
-        data.frame(
-          x = -8.2,
-          y = -1.8
-        ),
-
-        create_circle(
-          center = c(-8.2, 0),
-          start = -.5,
-          end = .5,
-          d = 3.5
-        ),
-
-        data.frame(
-          x = -8.2,
-          y =  1.8
-        )
-      )
-    }
+    data.frame(
+      x = -8.2,
+      y =  1.8
+    )
   )
 
-  free_throw_semi_circle_fill = switch(
-    unit,
-    'ft' = {
-      rbind(
-        create_circle(
-          center = c(m_to_ft(-8.2), m_to_ft(0)),
-          start = -.5,
-          end = .5,
-          d = m_to_ft(3.5)
-        ),
+  free_throw_semi_circle_fill = rbind(
+    create_circle(
+      center = c(-8.2, 0),
+      start = -.5,
+      end = .5,
+      d = 3.5
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-8.2), m_to_ft(0)),
-          start = -.5,
-          end = .5,
-          d = m_to_ft(3.5)
-        )[1, ]
-      )
-    },
-
-    'm' = {
-      rbind(
-        create_circle(
-          center = c(-8.2, 0),
-          start = -.5,
-          end = .5,
-          d = 3.5
-        ),
-
-        create_circle(
-          center = c(-8.2, 0),
-          start = -.5,
-          end = .5,
-          d = 3.5
-        )[1, ]
-      )
-    }
+    create_circle(
+      center = c(-8.2, 0),
+      start = -.5,
+      end = .5,
+      d = 3.5
+    )[1, ]
   )
 
-  free_throw_semi_circle_fill = switch(
-    unit,
-    'ft' = {
-      # Keep the centering aligned, but only keep the points that are inside the
-      # semi-circle's fill
-      free_throw_semi_circle_fill[free_throw_semi_circle_fill$x >= m_to_ft(-8.2), ]
-    },
-
-    'm' = {
-      # Keep the centering aligned, but only keep the points that are inside the
-      # semi-circle's fill
-      free_throw_semi_circle_fill[free_throw_semi_circle_fill$x >= -8.2, ]
-    }
-  )
+  # Keep the centering aligned, but only keep the points that are inside the
+  # semi-circle's fill
+  free_throw_semi_circle_fill = free_throw_semi_circle_fill[free_throw_semi_circle_fill$x >= -8.2, ]
 
   if(full_surf){
     # If the surface being drawn is a full-surface representation, reflect over
@@ -1453,40 +996,20 @@ fiba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE,
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the restricted area
 #'   arc underneath the basket
-fiba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # Following the same process as for the three-point line, the restricted area
   # arc's starting and ending angle can be computed
-  start_y = switch(
-    unit,
-    'ft' = {
-      m_to_ft(-1.3)
-    },
-
-    'm' = {
-      -1.3
-    }
-  )
+  start_y = -1.3
 
   # The rule book describes the arc as having an inner radius of 1.25m and
   # thickness of 5cm
-  radius_outer = switch(
-    unit,
-    'ft' = {
-      m_to_ft(1.3)
-    },
-
-    'm' = {
-      1.3
-    }
-  )
+  radius_outer = 1.3
 
   # From here, the calculation is relatively straightforward. To determine the
   # angle, the inverse sine is needed. It will be multiplied by pi so that it
@@ -1497,100 +1020,44 @@ fiba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
   # The same method can be used for the inner angles, however, since the inner
   # radius will be traced from bottom to top, the angle must be negative to
   # start
-  radius_inner = switch(
-    unit,
-    'ft' = {
-      m_to_ft(1.25)
-    },
+  radius_inner = 1.25
 
-    'm' = {
-      1.25
-    }
-  )
-
-  start_angle_inner = switch(
-    unit,
-    'ft' = {
-      -asin(m_to_ft(-1.25) / radius_inner) / pi
-    },
-
-    'm' = {
-      -asin(-1.25 / radius_inner) / pi
-    }
-  )
+  start_angle_inner = -asin(-1.25 / radius_inner) / pi
 
   end_angle_inner = -start_angle_inner
 
   # The restricted area arc is an arc of radius 1.25m from the center of the
   # basket, and extending in a straight line to the front face of the backboard,
   # and having thickness of 5cm
-  restricted_area_arc = switch(
-    unit,
-    'ft' = {
-      rbind(
-        data.frame(
-          x = m_to_ft(-12.8),
-          y = m_to_ft(-1.3)
-        ),
+  restricted_area_arc = rbind(
+    data.frame(
+      x = -12.8,
+      y = -1.3
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-12.425), m_to_ft(0)),
-          start = start_angle_outer,
-          end = end_angle_outer,
-          d = m_to_ft(2.6)
-        ),
+    create_circle(
+      center = c(-12.425, 0),
+      start = start_angle_outer,
+      end = end_angle_outer,
+      d = 2.6
+    ),
 
-        data.frame(
-          x = c(m_to_ft(-12.8), m_to_ft(-12.8)),
-          y = c(m_to_ft(1.3), m_to_ft(1.25))
-        ),
+    data.frame(
+      x = c(-12.8, -12.8),
+      y = c(1.3, 1.25)
+    ),
 
-        create_circle(
-          center = c(m_to_ft(-12.425), m_to_ft(0)),
-          start = start_angle_inner,
-          end = end_angle_inner,
-          d = m_to_ft(2.5)
-        ),
+    create_circle(
+      center = c(-12.425, 0),
+      start = start_angle_inner,
+      end = end_angle_inner,
+      d = 2.5
+    ),
 
-        data.frame(
-          x = c(m_to_ft(-12.8), m_to_ft(-12.8)),
-          y = c(m_to_ft(-1.25), m_to_ft(-1.3))
-        )
-      )
-    },
-
-    'm' = {
-      rbind(
-        data.frame(
-          x = -12.8,
-          y = -1.3
-        ),
-
-        create_circle(
-          center = c(-12.425, 0),
-          start = start_angle_outer,
-          end = end_angle_outer,
-          d = 2.6
-        ),
-
-        data.frame(
-          x = c(-12.8, -12.8),
-          y = c(1.3, 1.25)
-        ),
-
-        create_circle(
-          center = c(-12.425, 0),
-          start = start_angle_inner,
-          end = end_angle_inner,
-          d = 2.5
-        ),
-
-        data.frame(
-          x = c(-12.8, -12.8),
-          y = c(-1.25, -1.3)
-        )
-      )
-    }
+    data.frame(
+      x = c(-12.8, -12.8),
+      y = c(-1.25, -1.3)
+    )
   )
 
   if(full_surf){
@@ -1624,35 +1091,19 @@ fiba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the backboard
-fiba_feature_backboard = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_backboard = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # In FIBA, the backboard is 1.8m in width, with its front edge 1.2m from the
   # interior of the baseline
-  backboard = switch(
-    unit,
-    'ft' = {
-      create_rectangle(
-        x_min = m_to_ft(-12.8),
-        x_max = m_to_ft(-12.9),
-        y_min = m_to_ft(- 0.9),
-        y_max = m_to_ft(  0.9)
-      )
-    },
-
-    'm' = {
-      create_rectangle(
-        x_min = -12.8,
-        x_max = -12.9,
-        y_min = - 0.9,
-        y_max =   0.9
-      )
-    }
+  backboard = create_rectangle(
+    x_min = -12.8,
+    x_max = -12.9,
+    y_min = - 0.9,
+    y_max =   0.9
   )
 
   if(full_surf){
@@ -1687,107 +1138,54 @@ fiba_feature_backboard = function(full_surf = TRUE, rotate = FALSE, rotation_dir
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the basket ring
-fiba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The connector has a width of .126m, so .063m are on either side of the x
   # axis. The ring has a radius of .225m, so the arcsine of these measurements
   # should give the angle at which point they connect
-  start_angle = switch(
-    unit,
-    'ft' = {
-      pi - asin(m_to_ft(.063)/m_to_ft(.225))
-    },
-
-    'm' = {
-      pi - asin(0.063/0.225)
-    }
-  )
+  start_angle = pi - asin(0.063/0.225)
 
   # The ending angle of the ring would be the negative of the starting angle
   end_angle = -start_angle
 
   # Get the ring
-  basket_ring = switch(
-    unit,
-    'ft' = {
-      rbind(
-        data.frame(
-          x = c(
-            m_to_ft(-12.8),
-            m_to_ft(-12.8) - (m_to_ft(.45) * cos(start_angle))
-          ),
+  basket_ring = rbind(
+    data.frame(
+      x = c(
+        -12.8,
+        -12.8 - (.45) * cos(start_angle)
+      ),
 
-          y = c(
-            m_to_ft(.063),
-            m_to_ft(.063)
-          )
-        ),
-
-        create_circle(
-          center = c(m_to_ft(-12.425), m_to_ft(0)),
-          start = start_angle,
-          end = end_angle,
-          d = m_to_ft(.55)
-        ),
-
-        data.frame(
-          x = c(
-            m_to_ft(-12.8) - (m_to_ft(.45) * cos(start_angle)),
-            m_to_ft(-12.8),
-            m_to_ft(-12.8)
-          ),
-
-          y = c(
-            m_to_ft(-.063),
-            m_to_ft(-.063),
-            m_to_ft(.063)
-          )
-        )
+      y = c(
+        .063,
+        .063
       )
-    },
+    ),
 
-    'm' = {
-      rbind(
-        data.frame(
-          x = c(
-            -12.8,
-            -12.8 - (.45) * cos(start_angle)
-          ),
+    create_circle(
+      center = c(-12.425, 0),
+      start = start_angle,
+      end = end_angle,
+      d = .55
+    ),
 
-          y = c(
-            .063,
-            .063
-          )
-        ),
+    data.frame(
+      x = c(
+        -12.8 - (.45) * cos(start_angle),
+        -12.8,
+        -12.8
+      ),
 
-        create_circle(
-          center = c(-12.425, 0),
-          start = start_angle,
-          end = end_angle,
-          d = .55
-        ),
-
-        data.frame(
-          x = c(
-            -12.8 - (.45) * cos(start_angle),
-            -12.8,
-            -12.8
-          ),
-
-          y = c(
-            -.063,
-            -.063,
-            .063
-          )
-        )
+      y = c(
+        -.063,
+        -.063,
+        .063
       )
-    }
+    )
   )
 
   if(full_surf){
@@ -1822,33 +1220,17 @@ fiba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'   rotated Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #'
 #' @return A data frame containing the points that comprise the net
-fiba_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', unit = 'ft'){
+fiba_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # The ring's center is .375m from the backboard, and 1.575m from the baseline,
   # which means it is centered at (+/-12.425m, 0). The ring has an interior
   # diameter of 450mm, which is where the net is visible from above
-  net = switch(
-    unit,
-    'ft' = {
-      create_circle(
-        center = c(m_to_ft(-12.425), m_to_ft(0)),
-        start = 0,
-        end = 2,
-        d = m_to_ft(.450)
-      )
-    },
-
-    'm' = {
-      create_circle(
-        center = c(-12.425, 0),
-        start = 0,
-        end = 2,
-        d = .450
-      )
-    }
+  net = create_circle(
+    center = c(-12.425, 0),
+    start = 0,
+    end = 2,
+    d = .450
   )
 
   if(full_surf){
@@ -1973,8 +1355,8 @@ fiba_features_set_colors = function(court_background_color = '#d2ab6f',
 #'   needs to be rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the surface
 #'   representation. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
+#' @param unit A string indicating the units with which to make the plot.
+#'   Default: \code{'m'}
 #' @param caption_color A hexadecimal string representing the color to use for
 #'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use for
@@ -1986,30 +1368,64 @@ fiba_features_set_colors = function(court_background_color = '#d2ab6f',
 geom_fiba = function(full_surf = TRUE,
                     rotate = FALSE,
                     rotation_dir = 'ccw',
-                    unit = 'ft',
+                    unit = 'm',
                     caption_color = '#707372',
                     background_color = NULL,
                     ...
 ){
+  # Force the plot unit to be lower case
+  unit = tolower(unit)
+
   # Create the colors to use for the plot
   color_list = fiba_features_set_colors(...)
 
   # Generate the data frames for the features of an NBA court
-  court_background = fiba_feature_court_bground(full_surf, rotate, rotation_dir, unit)
-  center_circle = fiba_feature_center_circle(full_surf, rotate, rotation_dir, unit)
-  division_line = fiba_feature_division_line(full_surf, rotate, rotation_dir, unit)
-  endline = fiba_feature_endline(full_surf, rotate, rotation_dir, unit)
-  sideline = fiba_feature_sideline(full_surf, rotate, rotation_dir, unit)
-  court_apron = fiba_feature_court_apron(full_surf, rotate, rotation_dir, unit)
-  team_bench = fiba_feature_team_bench(full_surf, rotate, rotation_dir, unit)
-  three_point_line = fiba_feature_three_point_line(full_surf, rotate, rotation_dir, unit)
-  free_throw_lane = fiba_feature_free_throw_lane(full_surf, rotate, rotation_dir, unit)
-  free_throw_lane_lines = fiba_feature_free_throw_lane_lines(full_surf, rotate, rotation_dir, unit)
-  free_throw_semi_circle = fiba_feature_free_throw_semi_circle(full_surf, rotate, rotation_dir, unit)
-  restricted_area_arc = fiba_feature_restricted_area_arc(full_surf, rotate, rotation_dir, unit)
-  backboard = fiba_feature_backboard(full_surf, rotate, rotation_dir, unit)
-  basket_ring = fiba_feature_basket_ring(full_surf, rotate, rotation_dir, unit)
-  net = fiba_feature_net(full_surf, rotate, rotation_dir, unit)
+  court_background = fiba_feature_court_bground(full_surf, rotate, rotation_dir)
+  center_circle = fiba_feature_center_circle(full_surf, rotate, rotation_dir)
+  division_line = fiba_feature_division_line(full_surf, rotate, rotation_dir)
+  endline = fiba_feature_endline(full_surf, rotate, rotation_dir)
+  sideline = fiba_feature_sideline(full_surf, rotate, rotation_dir)
+  court_apron = fiba_feature_court_apron(full_surf, rotate, rotation_dir)
+  team_bench = fiba_feature_team_bench(full_surf, rotate, rotation_dir)
+  three_point_line = fiba_feature_three_point_line(full_surf, rotate, rotation_dir)
+  free_throw_lane = fiba_feature_free_throw_lane(full_surf, rotate, rotation_dir)
+  free_throw_lane_lines = fiba_feature_free_throw_lane_lines(full_surf, rotate, rotation_dir)
+  free_throw_semi_circle = fiba_feature_free_throw_semi_circle(full_surf, rotate, rotation_dir)
+  restricted_area_arc = fiba_feature_restricted_area_arc(full_surf, rotate, rotation_dir)
+  backboard = fiba_feature_backboard(full_surf, rotate, rotation_dir)
+  basket_ring = fiba_feature_basket_ring(full_surf, rotate, rotation_dir)
+  net = fiba_feature_net(full_surf, rotate, rotation_dir)
+
+  # Convert between units as necessary
+  if(!(unit %in% c('m', 'meters'))){
+    court_background = convert_units(court_background, 'm', unit, conversion_columns = c('x', 'y'))
+    center_circle = convert_units(center_circle, 'm', unit, conversion_columns = c('x', 'y'))
+    division_line = convert_units(division_line, 'm', unit, conversion_columns = c('x', 'y'))
+    endline = convert_units(endline, 'm', unit, conversion_columns = c('x', 'y'))
+    sideline$sideline_1 = convert_units(sideline$sideline_1, 'm', unit, conversion_columns = c('x', 'y'))
+    sideline$sideline_2 = convert_units(sideline$sideline_2, 'm', unit, conversion_columns = c('x', 'y'))
+    court_apron = convert_units(court_apron, 'm', unit, conversion_columns = c('x', 'y'))
+    team_bench$team_bench_1 = convert_units(team_bench$team_bench_1, 'm', unit, conversion_columns = c('x', 'y'))
+    team_bench$team_bench_2 = convert_units(team_bench$team_bench_2, 'm', unit, conversion_columns = c('x', 'y'))
+    three_point_line$three_point_line = convert_units(three_point_line$three_point_line, 'm', unit, conversion_columns = c('x', 'y'))
+    three_point_line$two_point_range = convert_units(three_point_line$two_point_range, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane$free_throw_lane = convert_units(free_throw_lane$free_throw_lane, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane$painted_area = convert_units(free_throw_lane$painted_area, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_1 = convert_units(free_throw_lane_lines$lane_line_1, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_2 = convert_units(free_throw_lane_lines$lane_line_2, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_3 = convert_units(free_throw_lane_lines$lane_line_3, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_4 = convert_units(free_throw_lane_lines$lane_line_4, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_5 = convert_units(free_throw_lane_lines$lane_line_5, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_6 = convert_units(free_throw_lane_lines$lane_line_6, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_7 = convert_units(free_throw_lane_lines$lane_line_7, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_lane_lines$lane_line_8 = convert_units(free_throw_lane_lines$lane_line_8, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_semi_circle$free_throw_semi_circle_line = convert_units(free_throw_semi_circle$free_throw_semi_circle_line, 'm', unit, conversion_columns = c('x', 'y'))
+    free_throw_semi_circle$free_throw_semi_circle_fill = convert_units(free_throw_semi_circle$free_throw_semi_circle_fill, 'm', unit, conversion_columns = c('x', 'y'))
+    restricted_area_arc = convert_units(restricted_area_arc, 'm', unit, conversion_columns = c('x', 'y'))
+    backboard = convert_units(backboard, 'm', unit, conversion_columns = c('x', 'y'))
+    basket_ring = convert_units(basket_ring, 'm', unit, conversion_columns = c('x', 'y'))
+    net = convert_units(net, 'm', unit, conversion_columns = c('x', 'y'))
+  }
 
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate, caption_color, background_color)

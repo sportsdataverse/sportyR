@@ -7,10 +7,9 @@
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
-#' @param unit A string indicating the unit with which to make the plot.
-#'   Default: \code{'ft'}
 #' @param ... Additional arguments to pass to the function. These should be the
-#'   colors to pass to the \code{{league}_features_set_colors()} function
+#'   colors to pass to the \code{mlb_features_set_colors()} function, or units
+#'   with which to draw the plot
 #'
 #' @return A ggplot2 instance with a full-surface representation of a basketball
 #'   court
@@ -25,7 +24,6 @@ geom_basketball = function(league,
                            full_surf = TRUE,
                            rotate = FALSE,
                            rotation_dir = 'ccw',
-                           unit = 'ft',
                            ...
 ){
   # Force the league to be all upper case
@@ -34,7 +32,7 @@ geom_basketball = function(league,
   # Call the appropriate plot-generating function
   g = switch(
     league,
-    'FIBA' = geom_fiba(full_surf, rotate, rotation_dir, unit, ...),
+    'FIBA' = geom_fiba(full_surf, rotate, rotation_dir, ...),
 
     'NCAA' = geom_ncaa_bb(full_surf, rotate, rotation_dir, ...),
 

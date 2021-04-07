@@ -17,8 +17,8 @@ nwsl_features_set_colors(
   corner_circle_2_color = "#ffffff",
   corner_circle_3_color = "#ffffff",
   corner_circle_4_color = "#ffffff",
-  box_6yd_color = "#ffffff",
-  box_18yd_color = "#ffffff",
+  box_5.5m_color = "#ffffff",
+  box_9.15m_color = "#ffffff",
   penalty_arc_color = "#ffffff",
   penalty_mark_color = "#ffffff",
   center_mark_color = "#ffffff",
@@ -56,10 +56,10 @@ use for this feature}
 \item{corner_circle_4_color}{A hexadecimal string representing the color to
 use for this feature}
 
-\item{box_6yd_color}{A hexadecimal string representing the color to use for
+\item{box_5.5m_color}{A hexadecimal string representing the color to use for
 this feature}
 
-\item{box_18yd_color}{A hexadecimal string representing the color to use for
+\item{box_9.15m_color}{A hexadecimal string representing the color to use for
 this feature}
 
 \item{penalty_arc_color}{A hexadecimal string representing the color to use

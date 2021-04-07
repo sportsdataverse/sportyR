@@ -9,6 +9,7 @@ geom_wnba(
   full_surf = TRUE,
   rotate = FALSE,
   rotation_dir = "ccw",
+  unit = "ft",
   include_amateur_free_throw_lane = TRUE,
   include_amateur_free_throw_lane_lines = TRUE,
   caption_color = "#707372",
@@ -25,6 +26,9 @@ needs to be rotated. Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the surface
 representation. Default: \code{'ccw'}}
+
+\item{unit}{A string indicating the units with which to make the plot.
+Default: \code{'ft'}}
 
 \item{include_amateur_free_throw_lane}{A boolean indicating whether or not to
 include the amateur (NCAA) free-throw lane in the final plot. Default: \code{TRUE}}

@@ -4,12 +4,7 @@
 \alias{fiba_feature_endline}
 \title{Generate the data frame for the points that comprise the end lines}
 \usage{
-fiba_feature_endline(
-  full_surf = TRUE,
-  rotate = FALSE,
-  rotation_dir = "ccw",
-  unit = "ft"
-)
+fiba_feature_endline(full_surf = TRUE, rotate = FALSE, rotation_dir = "ccw")
 }
 \arguments{
 \item{full_surf}{A boolean indicating whether or not this feature is needed
@@ -20,9 +15,6 @@ rotated Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the
 feature. Default: \code{'ccw'}}
-
-\item{unit}{A string indicating the unit with which to make the plot.
-Default: \code{'ft'}}
 }
 \value{
 A data frame containing the points that comprise the end lines

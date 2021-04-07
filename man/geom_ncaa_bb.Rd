@@ -9,6 +9,7 @@ geom_ncaa_bb(
   full_surf = TRUE,
   rotate = FALSE,
   rotation_dir = "ccw",
+  unit = "ft",
   include_m_three_point_line = TRUE,
   include_w_three_point_line = TRUE,
   include_professional_free_throw_lane = FALSE,
@@ -27,6 +28,9 @@ needs to be rotated. Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the surface
 representation. Default: \code{'ccw'}}
+
+\item{unit}{A string indicating the units with which to make the plot.
+Default: \code{'ft'}}
 
 \item{include_m_three_point_line}{A boolean indicating whether or not to
 include the men's three-point line in the final plot. Default: \code{TRUE}}

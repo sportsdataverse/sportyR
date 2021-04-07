@@ -8,8 +8,7 @@ semi-circles (where a free-throw shooter would shoot from)}
 fiba_feature_free_throw_semi_circle(
   full_surf = TRUE,
   rotate = FALSE,
-  rotation_dir = "ccw",
-  unit = "ft"
+  rotation_dir = "ccw"
 )
 }
 \arguments{
@@ -21,9 +20,6 @@ rotated Default: \code{FALSE}}
 
 \item{rotation_dir}{A string indicating which direction to rotate the
 feature. Default: \code{'ccw'}}
-
-\item{unit}{A string indicating the unit with which to make the plot.
-Default: \code{'ft'}}
 }
 \value{
 A list of data frame containing the points that comprise the
