@@ -7,13 +7,11 @@ test_that('Non-rotated league plots match expected outputs', {
   vdiffr::expect_doppelganger('mlb plot', mlb_plot)
 
   # Basketball
-  fiba_ft_plot = geom_basketball('fiba', unit = 'ft')
-  fiba_m_plot = geom_basketball('fiba', unit = 'm')
+  fiba_plot = geom_basketball('fiba')
   ncaa_bb_plot = geom_basketball('ncaa')
   nba_plot = geom_basketball('nba')
   wnba_plot = geom_basketball('wnba')
-  vdiffr::expect_doppelganger('fiba ft plot', fiba_ft_plot)
-  vdiffr::expect_doppelganger('fiba m plot', fiba_m_plot)
+  vdiffr::expect_doppelganger('fiba plot', fiba_plot)
   vdiffr::expect_doppelganger('ncaa bb plot', ncaa_bb_plot)
   vdiffr::expect_doppelganger('nba plot', nba_plot)
   vdiffr::expect_doppelganger('wnba plot', wnba_plot)
@@ -49,15 +47,13 @@ test_that('Non-rotated league plots match expected outputs', {
 
 test_that('Rotated league plots match expected outputs', {
   # Basketball
-  fiba_ft_plot = geom_basketball('fiba', unit = 'ft', rotate = TRUE)
-  fiba_m_plot = geom_basketball('fiba', unit = 'm', rotate = TRUE)
+  fiba_plot = geom_basketball('fiba', rotate = TRUE)
   # NOTE: the professional free-throw lane features are added for additional
   # testing
   ncaa_bb_plot = geom_basketball('ncaa', rotate = TRUE, include_professional_free_throw_lane = TRUE, include_professional_free_throw_lane_lines = TRUE)
   nba_plot = geom_basketball('nba', rotate = TRUE)
   wnba_plot = geom_basketball('wnba', rotate = TRUE)
-  vdiffr::expect_doppelganger('fiba ft rotated plot', fiba_ft_plot)
-  vdiffr::expect_doppelganger('fiba m rotated plot', fiba_m_plot)
+  vdiffr::expect_doppelganger('fiba rotated plot', fiba_plot)
   vdiffr::expect_doppelganger('ncaa bb rotated plot', ncaa_bb_plot)
   vdiffr::expect_doppelganger('nba rotated plot', nba_plot)
   vdiffr::expect_doppelganger('wnba rotated plot', wnba_plot)
@@ -93,6 +89,51 @@ test_that('Rotated league plots match expected outputs', {
   vdiffr::expect_doppelganger('mls rotated plot', mls_plot)
   vdiffr::expect_doppelganger('nwsl rotated plot', nwsl_plot)
   vdiffr::expect_doppelganger('premier league rotated plot', premier_league_plot)
+})
+
+test_that('Plots can be made in different units', {
+  # Baseball
+  mlb_in_plot = geom_baseball('mlb', unit = 'in')
+  vdiffr::expect_doppelganger('mlb inch plot', mlb_in_plot)
+
+  # Basketball
+  fiba_plot = geom_basketball('fiba', unit = 'in')
+  ncaa_bb_plot = geom_basketball('ncaa', unit = 'in', include_professional_free_throw_lane = TRUE, include_professional_free_throw_lane_lines = TRUE)
+  nba_plot = geom_basketball('nba', unit = 'in')
+  wnba_plot = geom_basketball('wnba', unit = 'in')
+  vdiffr::expect_doppelganger('fiba inch plot', fiba_plot)
+  vdiffr::expect_doppelganger('ncaa inch bb plot', ncaa_bb_plot)
+  vdiffr::expect_doppelganger('nba inch plot', nba_plot)
+  vdiffr::expect_doppelganger('wnba inch plot', wnba_plot)
+
+  # Hockey
+  iihf_plot = geom_hockey('iihf', unit = 'in')
+  ncaa_hockey_plot = geom_hockey('ncaa', unit = 'in')
+  nhl_plot = geom_hockey('nhl', unit = 'in')
+  nwhl_plot = geom_hockey('nwhl', unit = 'in')
+  vdiffr::expect_doppelganger('iihf inch plot', iihf_plot)
+  vdiffr::expect_doppelganger('ncaa inch hockey plot', ncaa_hockey_plot)
+  vdiffr::expect_doppelganger('nhl inch plot', nhl_plot)
+  vdiffr::expect_doppelganger('nwhl inch plot', nwhl_plot)
+
+  # Football
+  nfl_plot = geom_football('nfl', unit = 'in')
+  ncaa_football_plot = geom_football('ncaa', unit = 'in')
+  vdiffr::expect_doppelganger('nfl inch plot', nfl_plot)
+  vdiffr::expect_doppelganger('ncaa inch football plot', ncaa_football_plot)
+
+  # Soccer
+  fifa_plot = geom_soccer('fifa', unit = 'in')
+  mls_plot = geom_soccer('mls', unit = 'in')
+  ncaa_soccer_plot = geom_soccer('ncaa', unit = 'in')
+  nwsl_plot = geom_soccer('nwsl', unit = 'in')
+  premier_league_plot = geom_soccer('premier', unit = 'in')
+  vdiffr::expect_doppelganger('fifa inch plot', fifa_plot)
+  vdiffr::expect_doppelganger('mls inch plot', mls_plot)
+  vdiffr::expect_doppelganger('ncaa inch soccer plot', ncaa_soccer_plot)
+  vdiffr::expect_doppelganger('nwsl inch plot', nwsl_plot)
+  vdiffr::expect_doppelganger('premier inch league plot', premier_league_plot)
+
 })
 
 test_that('Plot must have non-null caption color', {
