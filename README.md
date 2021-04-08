@@ -21,7 +21,7 @@ package aims to make this easy regardless of sport needed to be plotted.
 
 ## Installation
 
-You can install `sportyR` from
+`sportyR` can be installed from
 [GitHub](https://github.com/rossdrucker/sportyR) with:
 
 ``` r
@@ -65,10 +65,48 @@ and take the following arguments:
 -   `rotation_dir`: the direction in which to rotate the plot (if
     `rotate == TRUE`). This defaults to `'ccw'` for counterclockwise.
 
+## Plot Units
+
+Each plot function has a standardized unit of measure in which the plot
+is created, and is standardized by the primary units specified in their
+respective rule books. They are as follows:
+
+|   Sport    |     League      | Primary Plotting Unit |
+|:----------:|:---------------:|:---------------------:|
+|  Baseball  |       MLB       |         `ft`          |
+| Basketball |      FIBA       |          `m`          |
+| Basketball |       NBA       |         `ft`          |
+| Basketball | NCAA Basketball |         `ft`          |
+| Basketball |      WNBA       |         `ft`          |
+|  Football  |  NCAA Football  |         `yd`          |
+|  Football  |       NFL       |         `yd`          |
+|   Hockey   |      IIHF       |          `m`          |
+|   Hockey   |   NCAA Hockey   |         `ft`          |
+|   Hockey   |       NHL       |         `ft`          |
+|   Hockey   |      NWHL       |         `ft`          |
+|   Soccer   |      FIFA       |          `m`          |
+|   Soccer   |       MLS       |          `m`          |
+|   Soccer   |   NCAA Soccer   |          `m`          |
+|   Soccer   |      NWSL       |          `m`          |
+|   Soccer   | Premier League  |          `m`          |
+
+However, since the data that is supplied may come in various units of
+measure, the plots are able to be generated in the data’s units. This is
+done via the `unit` argument in `geom_{sport}()`. The features
+themselves will look visually identical, but the underlying coordinate
+grid will change.
+
+Additionally, the `convert_units()` function can be called on a data
+frame to convert from the data’s arguments to the plot’s. For example,
+if soccer data is given in yards, but is desirable to be plotted in
+meters, calling
+`convert_units(tracking_data, 'yd', 'm', conversion_columns = c('x', 'y'))`
+will convert the x and y coordinates from yards to meters.
+
 ## Surface Examples
 
 Most playing surfaces are standard in size, so they can be rendered via
-a call to the proper `geom_{sport}()` like so:
+a call to the proper `geom_{sport}()` function like so:
 
 ``` r
 # Draw a basic MLB field plot
@@ -77,10 +115,10 @@ geom_baseball('mlb')
 
 <img src="man/figures/README-mlb-example-1.png" width="100%" />
 
-However, certain functions are able to take additional parameters. As an
-example, soccer pitches are not always a standard size. For this reason,
-users can specify in the call to `geom_soccer()` what the touchline and
-goal line dimensions should be (in meters).
+Certain functions are able to take additional parameters. As an example,
+soccer pitches are not always a standard size. For this reason, users
+can specify in the call to `geom_soccer()` what the touchline and goal
+line lengths should be.
 
 ``` r
 # Create a 100m by 75m FIFA pitch
@@ -151,9 +189,9 @@ geom_football(
 ## `cani` Functions
 
 The main functionality of plotting is intended to be straightforward and
-easy to use. However, questions are sure to arise about what can and
-can’t be plotted and customized in the current version of the package.
-The `cani_` family of functions are here to help answer those questions
+easy to use, but questions are sure to arise about what can and can’t be
+plotted and customized in the current version of the package. The
+`cani_` family of functions are here to help answer those questions
 directly. Their syntax is meant to resemble a question like
 
 > Can I plot a football field?
@@ -162,7 +200,7 @@ or
 
 > Can `sportyR` make a baseball plot?
 
-and message you back with the answer. Here’s how they work:
+and message back the answer. Here’s how they work:
 
 ``` r
 cani_plot_league('mlb')
