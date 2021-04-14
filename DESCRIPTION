@@ -9,7 +9,6 @@ Description: An R package for creating scaled representations of playing
     tracking data.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
