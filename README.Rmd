@@ -15,8 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# sportyR
-<img src="logos/sportyr-logo-hex.png" align="right" style="height: 25vh"/>
+# sportyR <img src="logos/sportyr-logo-hex.png" align="right" width="120"/>
 
 <!-- badges: start -->
 `r badger::badge_devel('rossdrucker/sportyR', 'blue')`

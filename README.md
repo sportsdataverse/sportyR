@@ -1,9 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sportyR
-
-<img src="logos/sportyr-logo-hex.png" align="right" style="height: 25vh"/>
+# sportyR <img src="logos/sportyr-logo-hex.png" align="right" width="120"/>
 
 <!-- badges: start -->
 
