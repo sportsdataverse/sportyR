@@ -1,11 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sportyR <img src="logos/sportyr-logo-hex.png" align="right" style="height: 25vh"/>
+# sportyR
+
+<img src="logos/sportyr-logo-hex.png" align="right" style="height: 25vh"/>
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-0.0.9-blue.svg)](https://github.com/rossdrucker/sportyR)
+[![](https://img.shields.io/badge/devel%20version-1.0.0-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![R CMD
 check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![Test
