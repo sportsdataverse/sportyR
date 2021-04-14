@@ -1,9 +1,9 @@
 Package: sportyR
-Title: Plot ggplot2 Representations of Sports Playing Surfaces
+Title: Plot Scaled Representations of Sports Playing Surfaces
 Version: 1.0.0
 Authors@R: person("Ross", "Drucker", email = "ross.a.drucker@gmail.com", role = c("aut", "cre"))
 Maintainer: Ross Drucker <ross.a.drucker@gmail.com>
-Description: An R package for creating ggplot2 representations of playing
+Description: An R package for creating scaled representations of playing
     surfaces. Playing surfaces are drawn pursuant to rule-book specifications.
     This package should be used as a baseline plot for displaying player
     tracking data.
