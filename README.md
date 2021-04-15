@@ -102,6 +102,14 @@ meters, calling
 `convert_units(tracking_data, 'yd', 'm', conversion_columns = c('x', 'y'))`
 will convert the x and y coordinates from yards to meters.
 
+As mentioned [above](#plotting-functions), the `geom_{sport}()` family
+of functions allow for rotations of surfaces via the `rotate` argument.
+To make this easy, `sportyR` also allows for the rotation of data
+frames’ coordinates ***so long as they contain an *** `x` ***and*** `y`
+***column*** via the `rotate_coords()` function. Translation and
+reflection of coordinates are also possible through `translate()` and
+`reflect()` functions respectively.
+
 ## Surface Examples
 
 Most playing surfaces are standard in size, so they can be rendered via
@@ -257,9 +265,11 @@ and the Boston Pride (data provided for the [Big Data Cup -
 # Read data from the Big Data Cup
 bdc_data = read.csv('https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021/main/hackathon_nwhl.csv')
 
+# Change names of X.Coordinate and Y.coordinate to x and y respectively
+names(bdc_data)[13:14] = c('x', 'y')
+
 # Shift coordinates to fit on the rink
-bdc_data['X.Coordinate'] = bdc_data['X.Coordinate'] - 100
-bdc_data['Y.Coordinate'] = bdc_data['Y.Coordinate'] - 42.5
+bdc_data = translate(bdc_data, translate_x = -100, translate_y = -42.5)
 
 # Subset to only be shots from the game on 2021-01-23 between the Minnesota
 # White Caps and Boston Pride
@@ -273,15 +283,15 @@ pride_shots = bdc_shots[bdc_shots$Team == 'Boston Pride', ]
 
 # Reflect the Boston Pride shots to make them appear on the other side of the
 # ice
-pride_shots['X.Coordinate'] = -1 * pride_shots['X.Coordinate']
+pride_shots = reflect(pride_shots, over_y = TRUE)
 
 # Draw the rink
 nwhl_rink = geom_hockey('nwhl')
 
 # Add the shot locations
 nwhl_rink +
-  geom_point(data = whitecaps_shots, aes(X.Coordinate, Y.Coordinate), color = '#2251b8') +
-  geom_point(data = pride_shots, aes(X.Coordinate, Y.Coordinate), color = '#fec52e')
+  geom_point(data = whitecaps_shots, aes(x, y), color = '#2251b8') +
+  geom_point(data = pride_shots, aes(x, y), color = '#fec52e')
 ```
 
 <img src="man/figures/README-bdc-example-1.png" width="100%" />
@@ -315,6 +325,11 @@ play_anim
 ```
 
 <img src="man/figures/README-bdb-example-1.gif" width="100%" />
+
+## License
+
+This package is released under the [MIT
+License](https://github.com/rossdrucker/sportyR/blob/master/LICENSE.md).
 
 ## Authorship
 
