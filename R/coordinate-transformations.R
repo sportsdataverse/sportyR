@@ -6,6 +6,9 @@
 #'   Default: FALSE
 #' @param over_y A boolean indicating whether or not to reflect over the y axis.
 #'   Default: TRUE
+#'
+#' @export
+#'
 #' @return The reflected data frame
 reflect = function(df, over_x = FALSE, over_y = TRUE){
   if(over_y){
@@ -28,6 +31,9 @@ reflect = function(df, over_x = FALSE, over_y = TRUE){
 #'   \code{ccw} corresponds to counterclockwise
 #' @param angle the angle (in radians, divided by pi) through which to rotate
 #'   the coordinates
+#'
+#' @export
+#'
 #' @return The rotated data frame
 rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
   # If the data frame is empty, just give back the data frame
@@ -62,6 +68,9 @@ rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
 #'   translate the points in the +x direction. Default: 0
 #' @param translate_y The number of units (in the input data frame's units) to
 #'   translate the points in the +y direction. Default: 0
+#'
+#' @export
+#'
 #' @return The translated data frame
 translate = function(df, translate_x = 0, translate_y = 0){
   df['x'] = df['x'] + translate_x
