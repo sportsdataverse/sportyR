@@ -105,7 +105,7 @@ will convert the x and y coordinates from yards to meters.
 As mentioned [above](#plotting-functions), the `geom_{sport}()` family
 of functions allow for rotations of surfaces via the `rotate` argument.
 To make this easy, `sportyR` also allows for the rotation of data
-frames’ coordinates ***so long as they contain an *** `x` ***and*** `y`
+frames’ coordinates ***so long as they contain an*** `x` ***and*** `y`
 ***column*** via the `rotate_coords()` function. Translation and
 reflection of coordinates are also possible through `translate()` and
 `reflect()` functions respectively.

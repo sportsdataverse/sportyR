@@ -81,7 +81,7 @@ However, since the data that is supplied may come in various units of measure, t
 
 Additionally, the `convert_units()` function can be called on a data frame to convert from the data's arguments to the plot's. For example, if soccer data is given in yards, but is desirable to be plotted in meters, calling `convert_units(tracking_data, 'yd', 'm', conversion_columns = c('x', 'y'))` will convert the x and y coordinates from yards to meters.
 
-As mentioned [above](#plotting-functions), the `geom_{sport}()` family of functions allow for rotations of surfaces via the `rotate` argument. To make this easy, `sportyR` also allows for the rotation of data frames' coordinates ***so long as they contain an *** `x` ***and*** `y` ***column*** via the `rotate_coords()` function. Translation and reflection of coordinates are also possible through `translate()` and `reflect()` functions respectively.
+As mentioned [above](#plotting-functions), the `geom_{sport}()` family of functions allow for rotations of surfaces via the `rotate` argument. To make this easy, `sportyR` also allows for the rotation of data frames' coordinates ***so long as they contain an*** `x` ***and*** `y` ***column*** via the `rotate_coords()` function. Translation and reflection of coordinates are also possible through `translate()` and `reflect()` functions respectively.
 
 ## Surface Examples
 
