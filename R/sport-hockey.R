@@ -18,11 +18,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' geom_hockey(league = "NHL")
 #' geom_hockey(league = "IIHF", full_surf = FALSE)
 #' geom_hockey(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
-#' }
 geom_hockey = function(league,
                        full_surf = TRUE,
                        rotate = FALSE,
