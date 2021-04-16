@@ -17,3 +17,6 @@ Nothing, but a message is sent to the console for the user
 Check to see if a league can be plotted, and alert the user as to which
 functions that league will work for
 }
+\examples{
+cani_plot_league('MLB')
+}

@@ -19,3 +19,6 @@ Nothing, but a message is sent to the console for the user
 \description{
 Check to see what features of a surface can be colored by a user
 }
+\examples{
+cani_color_league_features('NCAA', 'basketball')
+}

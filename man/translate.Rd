@@ -22,3 +22,7 @@ The translated data frame
 \description{
 Perform a mathematical translation of coordinates
 }
+\examples{
+translate(data.frame(x = 0, y = 1), translate_x = 1)
+translate(data.frame(x = 0, y = 1), translate_y = 1)
+}

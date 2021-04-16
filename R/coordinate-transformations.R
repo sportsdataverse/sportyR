@@ -7,9 +7,12 @@
 #' @param over_y A boolean indicating whether or not to reflect over the y axis.
 #'   Default: TRUE
 #'
+#' @return The reflected data frame
+#'
 #' @export
 #'
-#' @return The reflected data frame
+#' @examples
+#' reflect(data.frame(x = 1, y = 0))
 reflect = function(df, over_x = FALSE, over_y = TRUE){
   if(over_y){
     df['x'] = -1 * df['x']
@@ -32,9 +35,12 @@ reflect = function(df, over_x = FALSE, over_y = TRUE){
 #' @param angle the angle (in radians, divided by pi) through which to rotate
 #'   the coordinates
 #'
+#' @return The rotated data frame
+#'
 #' @export
 #'
-#' @return The rotated data frame
+#' @examples
+#' rotate_coords(data.frame(x = 0, y = 1))
 rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
   # If the data frame is empty, just give back the data frame
   if(nrow(df) == 0){
@@ -69,9 +75,13 @@ rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
 #' @param translate_y The number of units (in the input data frame's units) to
 #'   translate the points in the +y direction. Default: 0
 #'
+#' @return The translated data frame
+#'
 #' @export
 #'
-#' @return The translated data frame
+#' @examples
+#' translate(data.frame(x = 0, y = 1), translate_x = 1)
+#' translate(data.frame(x = 0, y = 1), translate_y = 1)
 translate = function(df, translate_x = 0, translate_y = 0){
   df['x'] = df['x'] + translate_x
   df['y'] = df['y'] + translate_y

@@ -25,3 +25,6 @@ Perform a mathematical rotation about (0, 0) of coordinates. This rotation is
 given as x' = x \* cos(theta) - y \* sin(theta) y' = x \* sin(theta) + y \*
 cos(theta)
 }
+\examples{
+rotate_coords(data.frame(x = 0, y = 1))
+}

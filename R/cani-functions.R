@@ -6,6 +6,9 @@
 #' @return Nothing, but a message is sent to the console for the user
 #'
 #' @export
+#'
+#' @examples
+#' cani_plot_league('MLB')
 cani_plot_league = function(league_code){
   # Force the league code to be capitalized, as that is how it appears in the
   # JSON file
@@ -57,6 +60,9 @@ cani_plot_league = function(league_code){
 #' @return Nothing, but a message is sent to the console for the user
 #'
 #' @export
+#'
+#' @examples
+#' cani_plot_sport('basketball')
 cani_plot_sport = function(sport){
   # Force the sport to be capitalized, as that is how it appears in the JSON
   # file
@@ -107,6 +113,9 @@ cani_plot_sport = function(sport){
 #' @return Nothing, but a message is sent to the console for the user
 #'
 #' @export
+#'
+#' @examples
+#' cani_color_league_features('NCAA', 'basketball')
 cani_color_league_features = function(league_code, sport_name = NULL){
   # Convert league to upper case
   league_code = toupper(league_code)

@@ -23,3 +23,7 @@ The measurement in converted units
 \description{
 Function to convert all units, regardless of starting and ending units
 }
+\examples{
+convert_units(1, 'in', 'cm')
+convert_units(100, 'cm', 'm')
+}

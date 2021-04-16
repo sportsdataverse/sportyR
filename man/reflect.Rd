@@ -22,3 +22,6 @@ The reflected data frame
 \description{
 Perform a mathematical reflection of coordinates over a specified axis
 }
+\examples{
+reflect(data.frame(x = 1, y = 0))
+}

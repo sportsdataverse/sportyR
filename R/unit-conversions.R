@@ -7,9 +7,13 @@
 #' @param conversion_columns A vector containing the columns to convert if
 #'   \code{meas} is of type \code{data.frame}
 #'
+#' @return The measurement in converted units
+#'
 #' @export
 #'
-#' @return The measurement in converted units
+#' @examples
+#' convert_units(1, 'in', 'cm')
+#' convert_units(100, 'cm', 'm')
 convert_units = function(meas, from_unit, to_unit, conversion_columns = NULL){
   # Convert the from_unit and to_unit to be lower case
   from_unit = tolower(from_unit)
