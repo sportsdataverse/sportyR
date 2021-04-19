@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![](https://img.shields.io/badge/devel%20version-1.0.0-blue.svg)](https://github.com/rossdrucker/sportyR)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
 [![Test
 Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
