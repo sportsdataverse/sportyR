@@ -37,7 +37,6 @@ The most recent release of `sportyR` is available on [CRAN](https://cran.r-proje
 install.packages('sportyR')
 ```
 
-
 The development version of `sportyR` can be installed from [GitHub](https://github.com/rossdrucker/sportyR) with:
 
 ```{r install-package-github, eval = FALSE}
