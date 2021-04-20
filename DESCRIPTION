@@ -1,6 +1,6 @@
 Package: sportyR
 Title: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Ross", "Drucker", email = "ross.a.drucker@gmail.com", role = c("aut", "cre"))
 Maintainer: Ross Drucker <ross.a.drucker@gmail.com>
 Description: Create scaled 'ggplot' representations of playing surfaces.
