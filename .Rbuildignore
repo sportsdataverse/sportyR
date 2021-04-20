@@ -31,6 +31,7 @@
 ^man/premier_.*\.Rd$
 ^man/wnba_.*\.Rd$
 ^man/quadratic_formula.Rd$
+^man/distance_formula.Rd$
 ^man/sport_lookup.Rd$
 ^man/geom_fiba.Rd$
 ^man/geom_fifa.Rd$
