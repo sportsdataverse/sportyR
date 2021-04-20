@@ -7,9 +7,13 @@
 distance_formula(point_1_x, point_1_y, point_2_x = 0, point_2_y = 0)
 }
 \arguments{
-\item{point_1}{A vector containing a point's coordinates}
+\item{point_1_x}{A point's (or vector of points') x coordinate}
 
-\item{point_2}{A vector containing a second point's coordinates}
+\item{point_1_y}{A point's (or vector of points') y coordinate}
+
+\item{point_2_x}{A point's (or vector of points') x coordinate}
+
+\item{point_2_y}{A point's (or vector of points') y coordinate}
 }
 \value{
 The distance between the two supplied points
