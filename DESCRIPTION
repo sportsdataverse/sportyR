@@ -14,8 +14,6 @@ RoxygenNote: 7.1.1
 Imports: 
     ggplot2,
     glue,
-    rjson,
-    utils,
     dplyr
 Depends: 
     R (>= 3.3)
