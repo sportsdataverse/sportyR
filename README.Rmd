@@ -18,8 +18,8 @@ knitr::opts_chunk$set(
 # sportyR <img src="logos/sportyr-logo-hex.png" align="right" width="120"/>
 
 <!-- badges: start -->
-`r badger::badge_devel('rossdrucker/sportyR', 'blue')`
 [![CRAN status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
+`r badger::badge_devel('rossdrucker/sportyR', 'blue')`
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
 [![Test Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
@@ -30,10 +30,18 @@ As the field of sports analytics evolve, there's a growing need for methods to b
 
 ## Installation
 
-`sportyR` can be installed from [GitHub](https://github.com/rossdrucker/sportyR) with:
+The most recent release of `sportyR` is available on [CRAN](https://cran.r-project.org/web/packages/sportyR/index.html), and it can be installed directly via:
 
-``` {r install-package, eval = FALSE}
-# install.packages("devtools")
+```{r install-package-cran, eval = FALSE}
+# Install released version from CRAN
+install.packages('sportyR')
+```
+
+
+The development version of `sportyR` can be installed from [GitHub](https://github.com/rossdrucker/sportyR) with:
+
+```{r install-package-github, eval = FALSE}
+# Install development version from GitHub
 devtools::install_github("rossdrucker/sportyR")
 ```
 

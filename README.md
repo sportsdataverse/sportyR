@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/devel%20version-1.0.0-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
+[![](https://img.shields.io/badge/devel%20version-1.0.0-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
 [![Test
 Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
@@ -22,11 +22,20 @@ package aims to make this easy regardless of sport needed to be plotted.
 
 ## Installation
 
-`sportyR` can be installed from
+The most recent release of `sportyR` is available on
+[CRAN](https://cran.r-project.org/web/packages/sportyR/index.html), and
+it can be installed directly via:
+
+``` r
+# Install released version from CRAN
+install.packages('sportyR')
+```
+
+The development version of `sportyR` can be installed from
 [GitHub](https://github.com/rossdrucker/sportyR) with:
 
 ``` r
-# install.packages("devtools")
+# Install development version from GitHub
 devtools::install_github("rossdrucker/sportyR")
 ```
 
