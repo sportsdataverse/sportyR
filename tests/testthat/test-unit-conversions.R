@@ -1,4 +1,3 @@
-# Check that unit conversions function correctly
 test_that("convert_units() works with all possible input unit arguments (i.e. 'in' or 'inches' on single measures", {
   # 1in is 2.54cm, and the possible names are "in", "inches", "cm", or
   # "centimeters"
@@ -24,6 +23,7 @@ test_that("convert_units() works with all possible input unit arguments (i.e. 'i
   )
 
   # Run the tests
+  expect_identical(convert_units(test_df, 'in', 'cm', c('x', 'y')), expected_df)
   expect_identical(convert_units(test_df, 'in', 'centimeters', c('x', 'y')), expected_df)
   expect_identical(convert_units(test_df, 'inches', 'cm', c('x', 'y')), expected_df)
   expect_identical(convert_units(test_df, 'inches', 'centimeters', c('x', 'y')), expected_df)
@@ -56,7 +56,7 @@ test_that("convert_units() errors when input or output units are unavailable", {
   expect_error(convert_units(2.54, 'cm', 'bar'))
 })
 
-test_that("convert_units() errors when a data frame is supplied with no conversion_columns", {
+test_that("convert_units() errors when a data frame is supplied with no conversion_columns argument", {
   # Make a test data frame
   test_df = data.frame(
     x = 1:5,
