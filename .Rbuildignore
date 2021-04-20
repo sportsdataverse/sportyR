@@ -12,6 +12,8 @@
 ^tests/testthat/test-plot-functions.R
 ^.github/workflows
 ^.git$
+^cran-comments\.md$
+^NEWS\.md$
 
 # Ignore the non-exported function documentation
 ^man/add_feature.Rd$
