@@ -22,3 +22,18 @@ quadratic_formula = function(a, b, c){
   # Return the solution
   return(solutions)
 }
+
+#' Get the Euclidean distance between two points
+#'
+#' @param point_1 A vector containing a point's coordinates
+#' @param point_2 A vector containing a second point's coordinates
+#'
+#' @return The distance between the two supplied points
+distance_formula = function(point_1_x, point_1_y, point_2_x = 0, point_2_y = 0){
+  sqrt(
+    (
+      ((point_2_x - point_1_x) ^ 2) +
+      ((point_2_y - point_1_y) ^ 2)
+    )
+  )
+}
