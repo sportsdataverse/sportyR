@@ -17,6 +17,7 @@
 # Ignore the non-exported function documentation
 ^man/add_feature.Rd$
 ^man/check_data_frame_for_plot.Rd$
+^man/cfl_.*\.Rd$
 ^man/create_.*\.Rd$
 ^man/fiba_.*\.Rd$
 ^man/fifa_.*\.Rd$
@@ -51,3 +52,4 @@
 ^man/geom_premier_league.Rd$
 ^man/geom_wnba.Rd$
 ^man/league_lookup.Rd$
+^CRAN-RELEASE$

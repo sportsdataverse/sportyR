@@ -1,3 +1,7 @@
+## sportyR 1.0.2
+
+- Added CFL plotting capability
+
 ## sportyR 1.0.1
 
 - Introduced new testing infrastructure

@@ -38,10 +38,13 @@ test_that('Non-rotated league plots match expected outputs', {
   # Football
   nfl_plot = geom_football('nfl')
   ncaa_football_plot = geom_football('ncaa')
+  cfl_plot = geom_football('cfl')
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('nfl plot', nfl_plot)
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('ncaa football plot', ncaa_football_plot)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('cfl plot', cfl_plot)
 
   # Soccer
   fifa_plot = geom_soccer('fifa')
@@ -93,10 +96,16 @@ test_that('Rotated league plots match expected outputs', {
   vdiffr::expect_doppelganger('nwhl rotated plot', nwhl_plot)
 
   # Football
+  cfl_ccw_plot = geom_football('cfl', rotate = TRUE)
+  cfl_cw_plot = geom_football('cfl', rotate = TRUE, rotation_dir = 'cw')
   nfl_ccw_plot = geom_football('nfl', rotate = TRUE)
   nfl_cw_plot = geom_football('nfl', rotate = TRUE, rotation_dir = 'cw')
   ncaa_football_ccw_plot = geom_football('ncaa', rotate = TRUE)
   ncaa_football_cw_plot = geom_football('ncaa', rotate = TRUE, rotation_dir = 'cw')
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('cfl rotated ccw plot', cfl_ccw_plot)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('cfl rotated cw plot', cfl_cw_plot)
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('nfl rotated ccw plot', nfl_ccw_plot)
   testthat::skip_if(getRversion() >= 4.1)
@@ -158,8 +167,11 @@ test_that('Plots can be made in different units', {
   vdiffr::expect_doppelganger('nwhl inch plot', nwhl_plot)
 
   # Football
+  cfl_plot = geom_football('cfl', unit = 'in')
   nfl_plot = geom_football('nfl', unit = 'in')
   ncaa_football_plot = geom_football('ncaa', unit = 'in')
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('cfl inch plot', cfl_plot)
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('nfl inch plot', nfl_plot)
   testthat::skip_if(getRversion() >= 4.1)

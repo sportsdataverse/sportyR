@@ -37,6 +37,9 @@ geom_football = function(league,
   # Call the appropriate plot-generating function
   g = switch(
     league,
+
+    'CFL' = geom_cfl(full_surf, rotate, rotation_dir, ...),
+
     'NCAA' = geom_ncaa_football(full_surf, rotate, rotation_dir, ...),
 
     'NFL' = geom_nfl(full_surf, rotate, rotation_dir, ...),

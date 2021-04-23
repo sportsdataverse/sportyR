@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 [![Test Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+[![](https://cranlogs.r-pkg.org/badges/sportyR)](https://cran.r-project.org/package=sportyR)
 <!-- badges: end -->
 
 As the field of sports analytics evolve, there's a growing need for methods to both track and visualize players throughout the game. This package aims to make this easy regardless of sport needed to be plotted.
@@ -75,9 +76,9 @@ Each plot function has a standardized unit of measure in which the plot is creat
 
 ```{r plot-units-table, echo = FALSE}
 units_df = data.frame(
-  sport = c('Baseball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Football', 'Football', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Soccer'),
-  league = c('MLB', 'FIBA', 'NBA', 'NCAA Basketball', 'WNBA', 'NCAA Football', 'NFL', 'IIHF', 'NCAA Hockey', 'NHL', 'NWHL', 'FIFA', 'MLS', 'NCAA Soccer', 'NWSL', 'Premier League'),
-  primary_unit = c('`ft`', '`m`', '`ft`', '`ft`', '`ft`', '`yd`', '`yd`', '`m`', '`ft`', '`ft`', '`ft`', '`m`', '`m`', '`m`', '`m`', '`m`')
+  sport = c('Baseball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Football', 'Football', 'Football', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Soccer'),
+  league = c('MLB', 'FIBA', 'NBA', 'NCAA Basketball', 'WNBA', 'CFL', 'NCAA Football', 'NFL', 'IIHF', 'NCAA Hockey', 'NHL', 'NWHL', 'FIFA', 'MLS', 'NCAA Soccer', 'NWSL', 'Premier League'),
+  primary_unit = c('`ft`', '`m`', '`ft`', '`ft`', '`ft`', '`yd`', '`yd`', '`yd`', '`m`', '`ft`', '`ft`', '`ft`', '`m`', '`m`', '`m`', '`m`', '`m`')
 )
 
 names(units_df) = c('Sport', 'League', 'Primary Plotting Unit')

@@ -7,13 +7,14 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
-[![](https://img.shields.io/badge/devel%20version-1.0.1-blue.svg)](https://github.com/rossdrucker/sportyR)
+[![](https://img.shields.io/badge/devel%20version-1.0.2-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
 [![Test
 Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
+[![](https://cranlogs.r-pkg.org/badges/sportyR)](https://cran.r-project.org/package=sportyR)
 <!-- badges: end -->
 
 As the field of sports analytics evolve, there’s a growing need for
@@ -88,6 +89,7 @@ respective rule books. They are as follows:
 | Basketball |       NBA       |         `ft`          |
 | Basketball | NCAA Basketball |         `ft`          |
 | Basketball |      WNBA       |         `ft`          |
+|  Football  |       CFL       |         `yd`          |
 |  Football  |  NCAA Football  |         `yd`          |
 |  Football  |       NFL       |         `yd`          |
 |   Hockey   |      IIHF       |          `m`          |
