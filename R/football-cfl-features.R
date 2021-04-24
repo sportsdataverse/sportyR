@@ -229,10 +229,10 @@ cfl_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
 cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
   # The lines are to be placed 8" from the interior of the sidelines, and be
   # 4" wide. At 5-yard intervals across the field, the lines should stretch
-  # the width of the field, with a 2' long by 4" wide hash 70' 9" from the
+  # the width of the field, with a 2' long by 4" wide hash 24 yards from the
   # interior of the nearest boundary. At 1-yard intervals between these
   # markings at 5-yard intervals, a 2' tall by 4" wide marker should be placed
-  # 8" from the interior of the sideline as well as 70' 9" from the interior
+  # 8" from the interior of the sideline as well as 24 yards from the interior
   # of the sideline (and extending back towards the sideline)
 
   if(yardage %% 5 == 0){
