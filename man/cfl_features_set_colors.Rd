@@ -41,9 +41,6 @@ to use for this feature}
 
 \item{yard_numbers_color}{A hexadecimal string representing the color to use
 for this feature}
-
-\item{try_marking_color}{A hexadecimal string representing the color to use
-for this feature}
 }
 \value{
 A list of hexadecimal colors to use to color the features on the

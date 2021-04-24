@@ -855,8 +855,6 @@ cfl_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'   this feature
 #' @param yard_markings_color A hexadecimal string representing the color to use
 #'   for this feature
-#' @param try_marking_color A hexadecimal string representing the color to use
-#'   for this feature
 #' @param directional_arrows_color A hexadecimal string representing the color
 #'   to use for this feature
 #' @param yard_numbers_color A hexadecimal string representing the color to use
