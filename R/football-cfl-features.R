@@ -839,9 +839,9 @@ cfl_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_d
   return(yard_marking_numbers)
 }
 
-#' Generate the list of colors for an NFL field plot. The defaults can be
+#' Generate the list of colors for an CFL field plot. The defaults can be
 #' overwritten by supplying the names of the list elements to the
-#' \code{geom_nfl()} function (or its wrapper \code{geom_football()})
+#' \code{geom_cfl()} function (or its wrapper \code{geom_football()})
 #'
 #' @param grass_color A hexadecimal string representing the color to use for
 #'   this feature
@@ -888,7 +888,7 @@ cfl_features_set_colors = function(grass_color = '#196f0c',
   return(feature_colors)
 }
 
-#' Create a ggplot2 instance that represents a regulation NFL field, with the
+#' Create a ggplot2 instance that represents a regulation CFL field, with the
 #' bottom left corner of the left-most endzone corresponding to  (0, 0)
 #'
 #' @param full_surf A boolean indicating whether or not to draw a full-surface
@@ -909,7 +909,7 @@ cfl_features_set_colors = function(grass_color = '#196f0c',
 #' @param ... Additional arguments to pass to the function. These should be the
 #'   colors to pass to the \code{cfl_features_set_colors()} function
 #'
-#' @return A ggplot2 instance that represents a regulation NFL field
+#' @return A ggplot2 instance that represents a regulation CFL field
 geom_cfl = function(full_surf = TRUE,
                     rotate = FALSE,
                     rotation_dir = 'ccw',
@@ -925,7 +925,7 @@ geom_cfl = function(full_surf = TRUE,
   # Create the colors to use for the plot
   color_list = cfl_features_set_colors(...)
 
-  # Generate the data frames for the features of an NFL field
+  # Generate the data frames for the features of an CFL field
   grass = cfl_feature_grass(full_surf, rotate, rotation_dir)
   sideline = cfl_feature_sideline(full_surf, rotate, rotation_dir)
   dead_line = cfl_feature_dead_line(full_surf, rotate, rotation_dir)
