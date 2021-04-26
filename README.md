@@ -7,7 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
-[![](https://img.shields.io/badge/devel%20version-1.0.2-blue.svg)](https://github.com/rossdrucker/sportyR)
+[![](https://img.shields.io/badge/devel%20version-1.0.3-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
 [![Test
 Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
@@ -101,6 +101,8 @@ respective rule books. They are as follows:
 |   Soccer   |   NCAA Soccer   |          `m`          |
 |   Soccer   |      NWSL       |          `m`          |
 |   Soccer   | Premier League  |          `m`          |
+|   Tennis   |       ITF       |         `ft`          |
+|   Tennis   |      NCAA       |         `ft`          |
 
 However, since the data that is supplied may come in various units of
 measure, the plots are able to be generated in the data’s units. This is
