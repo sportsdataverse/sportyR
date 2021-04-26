@@ -5,7 +5,8 @@
         "BASKETBALL",
         "FOOTBALL",
         "HOCKEY",
-        "SOCCER"
+        "SOCCER",
+        "TENNIS"
     ],
 
     "CFL": "FOOTBALL",
@@ -25,5 +26,7 @@
     "FIFA": "SOCCER",
     "PREMIER": "SOCCER",
     "MLS": "SOCCER",
-    "NWSL": "SOCCER"
+    "NWSL": "SOCCER",
+
+    "ITF": "TENNIS"
 }

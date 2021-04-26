@@ -62,6 +62,14 @@ test_that('Non-rotated league plots match expected outputs', {
   vdiffr::expect_doppelganger('nwsl plot', nwsl_plot)
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('premier league plot', premier_league_plot)
+
+  # Tennis
+  itf_plot = geom_tennis('itf')
+  ncaa_tennis_plot = geom_tennis('ncaa')
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('itf plot', itf_plot)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('ncaa tennis plot', ncaa_tennis_plot)
 })
 
 test_that('Rotated league plots match expected outputs', {
@@ -130,6 +138,14 @@ test_that('Rotated league plots match expected outputs', {
   vdiffr::expect_doppelganger('nwsl rotated plot', nwsl_plot)
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('premier league rotated plot', premier_league_plot)
+
+  # Tennis
+  itf_plot = geom_tennis('itf', rotate = TRUE)
+  ncaa_tennis_plot = geom_tennis('ncaa', rotate = TRUE)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('itf rotated plot', itf_plot)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('ncaa tennis rotated plot', ncaa_tennis_plot)
 })
 
 test_that('Plots can be made in different units', {
@@ -194,6 +210,13 @@ test_that('Plots can be made in different units', {
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('premier inch league plot', premier_league_plot)
 
+  # Tennis
+  itf_plot = geom_tennis('itf', unit = 'in')
+  ncaa_tennis_plot = geom_tennis('ncaa', unit = 'in')
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('itf inch plot', itf_plot)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('ncaa tennis inch plot', ncaa_tennis_plot)
 })
 
 test_that('Plot must have non-null caption color', {

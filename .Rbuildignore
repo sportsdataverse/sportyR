@@ -30,6 +30,7 @@
 ^man/nhl_.*\.Rd$
 ^man/nwhl_.*\.Rd$
 ^man/nwsl_.*\.Rd$
+^man/itf_.*\.Rd$
 ^man/premier_.*\.Rd$
 ^man/wnba_.*\.Rd$
 ^man/quadratic_formula.Rd$
@@ -51,5 +52,7 @@
 ^man/geom_nwsl.Rd$
 ^man/geom_premier_league.Rd$
 ^man/geom_wnba.Rd$
+^man/geom_itf.Rd$
+^man/geom_ncaa_tennis.Rd$
 ^man/league_lookup.Rd$
 ^CRAN-RELEASE$

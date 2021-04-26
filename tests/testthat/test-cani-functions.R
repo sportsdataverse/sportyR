@@ -5,7 +5,7 @@
 test_that("cani_plot_() functions are working correctly for multiple leagues/sports", {
   # Test to make sure proper messages are returned when multiple leagues/sports
   # are possible
-  expect_message(cani_plot_league('ncaa'), fixed = TRUE, regexp = 'NCAA can be used in the following functions: geom_basketball(), geom_football(), geom_hockey(), or geom_soccer()')
+  expect_message(cani_plot_league('ncaa'), fixed = TRUE, regexp = 'NCAA can be used in the following functions: geom_basketball(), geom_football(), geom_hockey(), geom_soccer(), or geom_tennis()')
   expect_message(cani_plot_sport('basketball'), fixed = TRUE, regexp = 'geom_basketball() can be used to plot for the following leagues: COLLEGE, NBA, NCAA, NCAAM, NCAAW, WNBA')
 })
 

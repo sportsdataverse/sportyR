@@ -29,5 +29,10 @@
         "MLS",
         "PREMIER",
         "NWSL"
+    ],
+
+    "TENNIS": [
+        "ITF",
+        "NCAA"
     ]
 }

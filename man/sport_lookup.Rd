@@ -8,7 +8,7 @@ that can be plotted from its geom_{sport}() function. This data is primarily
 useful in the caniplot_sport() function, and is intended to be an internal
 dataset.}
 \format{
-An object of class \code{list} of length 5.
+An object of class \code{list} of length 6.
 }
 \usage{
 sport_lookup
