@@ -2,9 +2,9 @@
 % Please edit documentation in R/football-cfl-features.R
 \name{cfl_features_set_colors}
 \alias{cfl_features_set_colors}
-\title{Generate the list of colors for an NFL field plot. The defaults can be
+\title{Generate the list of colors for an CFL field plot. The defaults can be
 overwritten by supplying the names of the list elements to the
-\code{geom_nfl()} function (or its wrapper \code{geom_football()})}
+\code{geom_cfl()} function (or its wrapper \code{geom_football()})}
 \usage{
 cfl_features_set_colors(
   grass_color = "#196f0c",
@@ -47,7 +47,7 @@ A list of hexadecimal colors to use to color the features on the
 resulting plot
 }
 \description{
-Generate the list of colors for an NFL field plot. The defaults can be
+Generate the list of colors for an CFL field plot. The defaults can be
 overwritten by supplying the names of the list elements to the
-\code{geom_nfl()} function (or its wrapper \code{geom_football()})
+\code{geom_cfl()} function (or its wrapper \code{geom_football()})
 }

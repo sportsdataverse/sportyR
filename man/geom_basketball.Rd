@@ -25,8 +25,8 @@ rotated. Default: \code{FALSE}}
 feature. Default: \code{'ccw'}}
 
 \item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{mlb_features_set_colors()} function, or units
-with which to draw the plot}
+colors to pass to the \code{{league}_features_set_colors()} function, or
+units with which to draw the plot}
 }
 \value{
 A ggplot2 instance with a full-surface representation of a basketball

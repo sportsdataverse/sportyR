@@ -2,7 +2,7 @@
 % Please edit documentation in R/football-cfl-features.R
 \name{geom_cfl}
 \alias{geom_cfl}
-\title{Create a ggplot2 instance that represents a regulation NFL field, with the
+\title{Create a ggplot2 instance that represents a regulation CFL field, with the
 bottom left corner of the left-most endzone corresponding to  (0, 0)}
 \usage{
 geom_cfl(
@@ -43,9 +43,9 @@ for the plot's background. Default: \code{NULL}}
 colors to pass to the \code{cfl_features_set_colors()} function}
 }
 \value{
-A ggplot2 instance that represents a regulation NFL field
+A ggplot2 instance that represents a regulation CFL field
 }
 \description{
-Create a ggplot2 instance that represents a regulation NFL field, with the
+Create a ggplot2 instance that represents a regulation CFL field, with the
 bottom left corner of the left-most endzone corresponding to  (0, 0)
 }
