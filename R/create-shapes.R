@@ -90,3 +90,23 @@ create_diamond = function(height, width, center = c(0, 0)){
 
   return(diamond_coords)
 }
+
+#' Create a set of \code{x} and \code{y} coordinates that form a line
+#'
+#' @param x_start The value of \code{x} at the line start
+#' @param x_end The value of \code{x} at the line end
+#' @param y_start The value of \code{y} at the line start
+#' @param y_end The value of \code{y} at the line end
+#'
+#' @return A data frame containing the points needed to draw the specified
+#'   line
+create_line = function(x_start, x_end, y_start, y_end){
+  line_coords = data.frame(
+    x = x_start,
+    xend = x_end,
+    y = y_start,
+    yend = y_end
+  )
+
+  return(line_coords)
+}

@@ -115,3 +115,31 @@ add_feature = function(g, feature_df, feature_color, group = NULL){
     stop('Incorrect column names. Data frame must have columns \'x\' and \'y\' to be plotted')
   }
 }
+
+#' Add a line feature to a ggplot2 instance
+#'
+#' @param g The ggplot2 instance onto which the feature will be added
+#' @param feature_df The data frame containing the points to add to the feature
+#' @param feature_color A hexadecimal string with which to color the feature
+#'   once added to the plot
+#' @param linetype a string containing a ggplot2 linetype
+#'
+#' @return A ggplot2 instance with the feature added to it
+add_line_feature = function(g, feature_df, feature_color, linetype = 1, ...){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  # First, check the data frame to ensure it has 'x' and 'y' columns
+  data_frame_checked_and_passed = check_data_frame_for_plot(feature_df)
+
+  if(data_frame_checked_and_passed){
+    # So long as the input data frame has the correct features, add the feature
+    # to the plot
+    g = g +
+      ggplot2::geom_segment(data = feature_df, ggplot2::aes(x = x, y = y, xend = xend, yend = yend), color = feature_color, linetype = linetype, ...)
+  }
+
+  else {
+    stop('Incorrect column names. Data frame must have columns \'x\', \'xend\', \'y\' and \'yend\' to be plotted')
+  }
+}

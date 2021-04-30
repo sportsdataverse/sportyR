@@ -1,0 +1,421 @@
+#' Generate the data frame for the points that comprise the pool deck background
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the pool deck
+swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+
+  # This gives the grey background of the deck
+  deck = create_rectangle(
+    x_min = (-pool_length/2) - 3,
+    x_max = (pool_length/2) + 3,
+    y_min = ((-lane_width * number_of_lanes)/2) - overflow_channels - 3,
+    y_max = ((lane_width * number_of_lanes)/2) +  overflow_channels + 3
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    deck = rotate_coords(
+      deck,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(deck)
+}
+
+#' Generate the data frame for the points that comprise the water background
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the pool
+swimming_feature_pool = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+
+  # This gives the blue background of the pool
+  pool = create_rectangle(
+    x_min = -pool_length/2,
+    x_max = pool_length/2,
+    y_min = ((-lane_width * number_of_lanes)/2) - overflow_channels,
+    y_max = ((lane_width * number_of_lanes)/2) + overflow_channels
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    pool = rotate_coords(
+      pool,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(pool)
+}
+
+#' Generate the data frame for the points that comprise the 15m line for the start end of the pool
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the 15m line from the start end
+swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15)
+
+  # 15 meter marks are 15 meters from the start and turn ends of the pool
+  m15_line_start = create_line(
+    x_start = (-pool_length/2) + m15_distance,
+    x_end = (-pool_length/2) + m15_distance,
+    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels,
+    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    m15_line_start = rotate_coords(
+      m15_line_start,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(m15_line_start)
+}
+
+#' Generate the data frame for the points that comprise the 15m line for the turn end of the pool
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the 15m line from the turn end
+swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15)
+
+# 15 meter marks are 15 meters from the start and turn ends of the pool
+  m15_line_turn = create_line(
+    x_start = (pool_length/2) - m15_distance,
+    x_end = (pool_length/2) - m15_distance,
+    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels,
+    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels
+  )
+
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    m15_line_turn = rotate_coords(
+      m15_line_turn,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(m15_line_turn)
+}
+
+#' Generate the data frame for the points that comprise the backstroke flags for the start end of the pool
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the backstroke flags for the start end
+swimming_feature_flags_start_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+
+  # course = "SCY"
+  # lane_width = 3
+  # number_of_lanes = 8
+  # overflow_channels = 1
+  # rotate = FALSE
+  # rotation_dir = 'ccw'
+
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+
+  # flags are 5m from the walls
+  flags_start = create_line(
+    x_start = (-pool_length/2) + flags_distance,
+    x_end = (-pool_length/2) + flags_distance,
+    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels - 1.5,
+    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels + 1.5
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    flags_start = rotate_coords(
+      flags_start,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(flags_start)
+}
+
+#' Generate the data frame for the points that comprise the backstroke flags for the turn end of the pool
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the flags at the turn end
+swimming_feature_flags_turn_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+
+ # flags are 5m from the walls
+  flags_turn = create_line(
+    x_start = (pool_length/2) - flags_distance,
+    x_end = (pool_length/2) - flags_distance,
+    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels - 1.5,
+    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels + 1.5
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    flags_turn = rotate_coords(
+      flags_turn,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(flags_turn)
+}
+
+#' Generate the data frame for the points that comprise the lane markers
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the lane markers
+swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  t_offset <- 5 # ts are 5ft from the walls
+  line_thickness <- 1 # ts are 1ft thick
+
+  offset <- overflow_channels + lane_width/2
+  lane_list <- seq(1, number_of_lanes, 1)
+  centerlines <- (offset * lane_list) - ((lane_width * number_of_lanes)/2) - overflow_channels
+
+
+  lane_markers_fun <- function(centerline, t_offset, line_thickness) {
+    df = create_rectangle(
+      x_min = (-pool_length / 2) + (t_offset / 3),
+      x_max = (pool_length / 2) - (t_offset / 3),
+      y_min = centerline - ((line_thickness / 2) / 3),
+      y_max = centerline + ((line_thickness / 2) / 3)
+    )
+
+    return(df)
+  }
+
+  lane_markers <- lapply(centerlines, lane_markers_fun, t_offset = t_offset, line_thickness = line_thickness)
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    lane_markers = rotate_coords(
+      lane_markers,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(lane_markers)
+}
+
+
+#' Generate the list of colors for a pool. The defaults can
+#' be overwritten by supplying the names of the list elements to the
+#' \code{geom_swimming()} function
+#'
+#' @param deck_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param pool_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param m15_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param  lane_markers_color  A hexadecimal string representing the color to use for
+#'   this feature
+#'
+#' @return A list of hexadecimal colors to use to color the features on the
+#'   resulting plot
+swimming_features_set_colors = function(deck_color = 'grey',
+                                        pool_color = 'blue',
+                                        m15_start_color = 'red',
+                                        m15_turn_color = 'red',
+                                        flags_start_color = 'black',
+                                        flags_turn_color = 'black',
+                                        lane_markers_color = 'black'
+
+){
+  # Create the colors to use for the plot
+  feature_colors = list(
+    deck_color = deck_color,
+    pool_color = pool_color,
+    m15_start_color = m15_start_color,
+    m15_turn_color = m15_turn_color,
+    flags_start_color = flags_start_color,
+    flags_turn_color = flags_turn_color,
+    lane_markers_color = lane_markers_color
+
+    )
+
+  # Return the list of colors
+  return(feature_colors)
+}
+
+#' Create a ggplot2 instance that represents a regulation pool,
+#' with the center of the pool corresponding to (0, 0)
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not the surface representation
+#'   needs to be rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the surface
+#'   representation. Default: \code{'ccw'}
+#' @param caption_color A hexadecimal string representing the color to use for
+#'   the plot's caption. Default: '#707372' (grey)
+#' @param background_color A hexadecimal string representing the color to use
+#'   for the plot's background. Default: \code{NULL}
+#' @param ... Additional arguments to pass to the function. These should be the
+#'   colors to pass to the \code{swimming_features_set_colors()} function
+#'
+#' @return A ggplot2 instance that represents a regulation pool
+geom_swimming_course = function(course,
+                         lane_width = 3,
+                         number_of_lanes = 8,
+                         overflow_channels = 1.5,
+                         rotate = FALSE,
+                         rotation_dir = 'ccw',
+                         caption_color = '#707372',
+                         background_color = NULL,
+                         ...) {
+
+  # Create the colors to use for the plot
+  color_list = swimming_features_set_colors(...)
+
+  # Generate the data frames for the features of a pool + deck
+  deck = swimming_feature_deck(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  pool = swimming_feature_pool(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_start = swimming_feature_15m_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_turn = swimming_feature_15m_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start = swimming_feature_flags_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn = swimming_feature_flags_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers = swimming_feature_lane_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+
+  unit <- ifelse(course %in% c("SCM", "LCM"), "m", "y")
+
+  # Convert units as necessary
+  if(!(unit %in% c('m', 'meters'))){
+    deck = convert_units(deck, 'm', unit, conversion_columns = c('x', 'y'))
+    pool = convert_units(pool, 'm', unit, conversion_columns = c('x', 'y'))
+    m15_start = convert_units(m15_start, 'm', unit, conversion_columns = c('x', 'y'))
+    m15_turn = convert_units(m15_turn, 'm', unit, conversion_columns = c('x', 'y'))
+    flags_start = convert_units(flags_start, 'm', unit, conversion_columns = c('x', 'y'))
+    flags_turn = convert_units(flags_end, 'm', unit, conversion_columns = c('x', 'y'))
+  }
+
+  # Create the initial ggplot2 instance onto which the features will be added
+  g = create_plot_base(rotate, caption_color, background_color)
+
+  # Add the features to the ggplot2 instance
+  g = add_feature(g, deck, color_list$deck_color)
+  g = add_feature(g, pool, color_list$pool_color)
+
+  g = add_feature(g, lane_markers[[1]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[2]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[3]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[4]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[5]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[6]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[7]], color_list$lane_markers)
+  g = add_feature(g, lane_markers[[8]], color_list$lane_markers)
+
+  # add_lane_markers <- function(lane_makers_list, g){
+  #   g <- add_feature(g, feature_df = lane_makers_list, feature_color = 'black')
+  # }
+  #
+  # lane_markers_g <- lapply(lane_markers, add_lane_markers, g = g)
+  # g + lane_markers_g[1]
+
+  g = add_line_feature(g, m15_start, color_list$m15_start_color, size = 2)
+  g = add_line_feature(g, m15_turn, color_list$m15_turn_color, size = 2)
+  g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75)
+  g = add_line_feature(g, flags_turn, color_list$flags_turn_color, size = 0.75)
+
+  # g = add_feature(g, lane_markers, color_list$lane_markers_color)
+
+
+  # Return the ggplot2 instance that contains the swimming pool plot
+  return(g)
+}
