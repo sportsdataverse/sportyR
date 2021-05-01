@@ -5,6 +5,7 @@
 \title{Generate a ggplot2 instance containing a swimming for a specified course}
 \usage{
 geom_swimming(
+  league,
   course,
   lane_width = 3,
   number_of_lanes = 8,
@@ -15,13 +16,13 @@ geom_swimming(
 )
 }
 \arguments{
-\item{course}{The course for which to draw the surface}
+\item{course}{The course for which to draw the pool}
 
-\item{lane_width}{The width of an individual lane}
+\item{lane_width}{The width of an individual lane in the same units as \code{course}}
 
 \item{number_of_lanes}{The number of lanes in the pool}
 
-\item{overflow_channels}{Width of overflow channels (if they exist)}
+\item{overflow_channels}{Width of overflow channels (if they exist) in the same units as \code{course}}
 
 \item{rotate}{A boolean indicating whether or not this feature needs to be
 rotated. Default: \code{FALSE}}
@@ -32,6 +33,8 @@ feature. Default: \code{'ccw'}}
 \item{...}{Additional arguments to pass to the function. These should be the
 colors to pass to the \code{{league}_features_set_colors()} function, or
 units with which to draw the plot}
+
+\item{leauge}{The league for which to draw the pool}
 }
 \value{
 A ggplot2 instance with a full-surface representation of a swimming pool
@@ -40,6 +43,6 @@ A ggplot2 instance with a full-surface representation of a swimming pool
 Generate a ggplot2 instance containing a swimming for a specified course
 }
 \examples{
-geom_swimming(course = "SCM")
-geom_swimming(league = "LCM", rotate = TRUE, rotation_dir = "ccw")
+geom_swimming(league = "NHFS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
+geom_swimming(league = "NCAA", course =  "LCM")
 }

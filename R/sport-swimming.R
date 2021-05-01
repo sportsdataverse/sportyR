@@ -1,9 +1,10 @@
 #' Generate a ggplot2 instance containing a swimming for a specified course
 #'
-#' @param course The course for which to draw the surface
-#' @param lane_width The width of an individual lane
+#' @param leauge The league for which to draw the pool
+#' @param course The course for which to draw the pool
+#' @param lane_width The width of an individual lane in the same units as \code{course}
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -17,16 +18,17 @@
 #' @export
 #'
 #' @examples
-#' geom_swimming(course = "SCM")
-#' geom_swimming(league = "LCM", rotate = TRUE, rotation_dir = "ccw")
-geom_swimming = function(course,
-                       lane_width = 3,
-                       number_of_lanes = 8,
-                       overflow_channels = 1.5,
-                       rotate = FALSE,
-                       rotation_dir = 'ccw',
-                       ...
-){
+#' geom_swimming(league = "NHFS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
+#' geom_swimming(league = "NCAA", course =  "LCM")
+geom_swimming = function(league,
+                         course,
+                         lane_width = 3,
+                         number_of_lanes = 8,
+                         overflow_channels = 1.5,
+                         rotate = FALSE,
+                         rotation_dir = 'ccw',
+                         ...) {
+
   # Force the league to be all upper case
   course = toupper(course)
 

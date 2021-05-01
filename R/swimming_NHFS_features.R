@@ -350,9 +350,8 @@ NFHS_swimmng_feature_flags_start_2 = function(course = "SCY", lane_width = 7/3, 
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
-
   flags_distance <- 5 # flags are 5y or 5m from wall
-  alternate_offset <- ifelse(course %in% c("SCY"), 8/12/3, 20.32/100)
+  alternate_offset <- ifelse(course %in% c("SCY"), 10/12/3, 25.40/100)
 
   # flags are 5m from the walls
   flags_start_2 = create_line(
@@ -485,7 +484,7 @@ NFHS_swimmng_feature_flags_turn_2 = function(course = "SCY", lane_width = 7/3, n
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   flags_distance <- 5 # flags are 5y or 5m from wall
-  alternate_offset <- ifelse(course %in% c("SCY"), 8/12/3, 20.32/100)
+  alternate_offset <- ifelse(course %in% c("SCY"), 10/12/3, 25.40/100)
 
   # flags are 5m from the walls
   flags_turn_2 = create_line(
