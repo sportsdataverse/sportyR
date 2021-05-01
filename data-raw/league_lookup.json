@@ -1,12 +1,13 @@
 {
     "MLB": "BASEBALL",
-    
+
     "NCAA": [
         "BASKETBALL",
         "FOOTBALL",
         "HOCKEY",
         "SOCCER",
-        "TENNIS"
+        "TENNIS",
+        "SWIMMING"
     ],
 
     "CFL": "FOOTBALL",
@@ -17,7 +18,7 @@
     "NCAAM": "BASKETBALL",
     "NCAAW": "BASKETBALL",
     "FIBA": "BASKETBALL",
-    
+
     "NHL": "HOCKEY",
     "NWHL": "HOCKEY",
     "IIHF": "HOCKEY",
@@ -28,5 +29,7 @@
     "MLS": "SOCCER",
     "NWSL": "SOCCER",
 
-    "ITF": "TENNIS"
+    "ITF": "TENNIS",
+
+    "FINA": "SWIMMING"
 }

@@ -34,5 +34,11 @@
     "TENNIS": [
         "ITF",
         "NCAA"
+    ],
+
+    "SWIMMING": [
+        "FINA",
+        "NCAA",
+        "NFHS"
     ]
 }

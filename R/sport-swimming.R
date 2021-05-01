@@ -34,7 +34,18 @@ geom_swimming = function(course,
   if(course %in% c("SCM", "LCM", "SCY") == FALSE){
     stop(paste0(course, " is not a valid course.  Courses are 'LCM', 'SCM' or 'SCY'."))
   }
-  g = geom_swimming_course(course = course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+
+  # Call the appropriate plot-generating function
+  g = switch(
+    league,
+    'NCAA' = geom_NCAA_swimmng(course, lane_width, number_of_lanes, overflow_channels, ...),
+
+    'NHFS' = geom_NFHS_swimmng(course, lane_width, number_of_lanes, overflow_channels, ...),
+
+    'FINA' = geom_FINA(course, lane_width, number_of_lanes, overflow_channels, ...),
+
+    stop(glue::glue('{league} is not a valid league at this time.'))
+  )
 
   # Return the ggplot2 instance
   return(g)
