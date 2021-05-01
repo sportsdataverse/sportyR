@@ -11,6 +11,7 @@ swimming_features_set_colors(
   pool_color = "blue",
   m15_start_color = "black",
   m15_turn_color = "black",
+  m15_markers_color = "red",
   flags_start_color = "red",
   flags_turn_color = "red",
   flags_string_color = "black",
