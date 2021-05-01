@@ -480,7 +480,7 @@ swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_of_lan
   return(blocks)
 }
 
-#' Generate the data frame for the points that comprise thelane lines
+#' Generate the data frame for the points that comprise the lane lines
 #'
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
@@ -491,7 +491,7 @@ swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_of_lan
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
-#' @return A data frame containing the points that comprise the lne lines
+#' @return A data frame containing the points that comprise the lane lines
 swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
 
   # course = "SCY"
@@ -521,7 +521,7 @@ swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of
 
   lane_line_centerlines <- (lane_list * lane_width) - (lane_width/2) - ((lane_width * number_of_lanes)/2) - overflow_channels
 
-  lane_lines_fun <- function(lane_line_centerline, pool_length, lane_line_thickness, lane_line_width) {
+  lane_lines_fun <- function(lane_line_centerline, pool_length, lane_line_width) {
     df = create_rectangle(
       x_min = (-pool_length / 2) + 1,
       x_max = (pool_length / 2) - 1,
@@ -537,7 +537,6 @@ swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of
       lane_line_centerlines,
       lane_lines_fun,
       pool_length = pool_length,
-      lane_line_thickness = lane_line_thickness,
       lane_line_width = lane_line_width
     )
 
@@ -558,6 +557,82 @@ swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of
   return(lane_lines)
 }
 
+#' Generate the data frame for the points that comprise the lane line strings
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the lane line strings
+swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
+  # course = "SCY"
+  # lane_width = 3
+  # number_of_lanes = 8
+  # overflow_channels = 1
+  # rotate = FALSE
+  # rotation_dir = 'ccw'
+
+  # course = "SCY"
+  # lane_width = 3
+  # number_of_lanes = 8
+  # overflow_channels = 1.5
+
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  lane_line_string_width <- 1/12/3 # 1 inches
+
+  offset_width <- overflow_channels/2
+  if (overflow_channels > 0) {
+    lane_list <- seq(1, number_of_lanes + 1, 1)
+  } else {
+    lane_list <- seq(1, number_of_lanes - 1, 1)
+  }
+
+  lane_line_centerlines <- (lane_list * lane_width) - (lane_width/2) - ((lane_width * number_of_lanes)/2) - overflow_channels
+
+  lane_line_strings_fun <- function(lane_line_centerline, pool_length, lane_line_string_width) {
+    df = create_rectangle(
+      x_min = (-pool_length / 2),
+      x_max = (pool_length / 2),
+      y_min = lane_line_centerline - (lane_line_string_width / 2),
+      y_max = lane_line_centerline + (lane_line_string_width / 2)
+    )
+
+    return(df)
+  }
+
+  lane_line_strings <-
+    lapply(
+      lane_line_centerlines,
+      lane_line_strings_fun,
+      pool_length = pool_length,
+      lane_line_string_width = lane_line_string_width
+    )
+
+  # convert to single dataframe with id column for each separate marker
+  id <- seq(1, length(lane_line_strings)) # id column
+  lane_line_strings <- Map(cbind, lane_line_strings, group = id) # add id column to each data frame
+  lane_line_strings <- do.call("rbind", lane_line_strings) # bind into single dataframe
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    lane_line_strings = rotate_coords(
+      lane_line_strings,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(lane_line_strings)
+}
 
 
 #' Generate the list of colors for a pool. The defaults can
@@ -585,7 +660,8 @@ swimming_features_set_colors = function(deck_color = 'grey',
                                         flags_turn_color = 'black',
                                         lane_markers_color = 'black',
                                         blocks_color = 'white',
-                                        lane_lines_color = 'red'
+                                        lane_lines_color = 'red',
+                                        lane_line_strings_color = 'black'
 
 ){
   # Create the colors to use for the plot
@@ -598,7 +674,8 @@ swimming_features_set_colors = function(deck_color = 'grey',
     flags_turn_color = flags_turn_color,
     lane_markers_color = lane_markers_color,
     blocks_color = blocks_color,
-    lane_lines_color = lane_lines_color
+    lane_lines_color = lane_lines_color,
+    lane_line_strings_color = lane_line_strings_color
 
     )
 
@@ -650,6 +727,7 @@ geom_swimming_course = function(course,
   lane_markers_cross_turn = swimming_feature_lane_markers_cross_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   blocks = swimming_feature_blocks(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_lines = swimming_feature_lane_lines(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_line_strings = swimming_feature_lane_line_strings(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
 
 
   unit <- ifelse(course %in% c("SCM", "LCM"), "meters", "yards")
@@ -682,6 +760,7 @@ geom_swimming_course = function(course,
   g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, blocks, group = group, color_list$blocks)
+  g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_strings)
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75)
   g = add_line_feature(g, flags_turn, color_list$flags_turn_color, size = 0.75)
