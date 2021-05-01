@@ -1142,8 +1142,6 @@ FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM", number_of_l
 #'   this feature
 #' @param m15_turn_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param m15_markers_color A hexadecimal string representing the color to use for
-#'   this feature
 #' @param center_line_color A hexadecimal string representing the color to use for
 #'   this feature
 #' @param flags_start_color A hexadecimal string representing the color to use for
