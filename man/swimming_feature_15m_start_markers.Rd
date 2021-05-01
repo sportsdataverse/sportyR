@@ -20,7 +20,7 @@ swimming_feature_15m_start_markers(
 
 \item{number_of_lanes}{The number of lanes in the pool}
 
-\item{overflow_channels}{Width of overflow channels (if they exist)}
+\item{overflow_channels}{Width of overflow channels (if they exist) in the same units as \code{course}}
 
 \item{rotate}{A boolean indicating whether or not this feature needs to be
 rotated. Default: \code{FALSE}}

@@ -3,7 +3,7 @@
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -41,7 +41,7 @@ swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_lanes
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -79,7 +79,7 @@ swimming_feature_pool = function(course = "SCY", lane_width = 3, number_of_lanes
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -91,14 +91,15 @@ swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, numbe
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15)
+  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
+  line_thickness <- ifelse(course %in% c("SCY"), 6/12/3, 15/100) # line is approxmiately 6in (15cm) thick
 
   # 15 meter marks are 15 meters from the start and turn ends of the pool
-  m15_line_start = create_line(
-    x_start = (-pool_length/2) + m15_distance,
-    x_end = (-pool_length/2) + m15_distance,
-    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels,
-    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels
+  m15_line_start = create_rectangle(
+    x_min = (-pool_length/2) + m15_distance - (line_thickness/2),
+    x_max = (-pool_length/2) + m15_distance + (line_thickness/2),
+    y_min = ((-lane_width * number_of_lanes)/2) - overflow_channels,
+    y_max = ((lane_width * number_of_lanes)/2) + overflow_channels
   )
 
   if(rotate){
@@ -118,7 +119,7 @@ swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, numbe
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -130,8 +131,8 @@ swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 3, nu
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15)
-  mark_thickness <- 2/12/3 # lines are two inches thick
+  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
+  mark_thickness <- ifelse(course %in% c("SCY"), 2/12/3, 5.8/100) # lines are 2in (5.08cm) thick
 
   pool_width <- ((lane_width * number_of_lanes)) + (overflow_channels * 2)
   centerlines <- c((-pool_width/2) - (mark_thickness/2), (pool_width/2) + (mark_thickness/2))
@@ -171,7 +172,7 @@ swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 3, nu
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -183,14 +184,15 @@ swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, number
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15)
+  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
+  line_thickness <- ifelse(course %in% c("SCY"), 6/12/3, 15/100) # line is approxmiately 6in (15cm) thick
 
 # 15 meter marks are 15 meters from the start and turn ends of the pool
-  m15_line_turn = create_line(
-    x_start = (pool_length/2) - m15_distance,
-    x_end = (pool_length/2) - m15_distance,
-    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels,
-    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels
+  m15_line_turn = create_rectangle(
+    x_min = (pool_length/2) - m15_distance - (line_thickness/2),
+    x_max = (pool_length/2) - m15_distance + (line_thickness/2),
+    y_min = ((-lane_width * number_of_lanes)/2) - overflow_channels,
+    y_max = ((lane_width * number_of_lanes)/2) + overflow_channels
   )
 
 
@@ -211,7 +213,7 @@ swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, number
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -223,8 +225,8 @@ swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3, num
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15)
-  mark_thickness <- 2/12/3 # lines are two inches thick
+  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
+  mark_thickness <- ifelse(course %in% c("SCY"), 2/12/3, 5.8/100) # lines are 2in (5.08cm) thick
 
   pool_width <- ((lane_width * number_of_lanes)) + (overflow_channels * 2)
   centerlines <- c((-pool_width/2) - (mark_thickness/2), (pool_width/2) + (mark_thickness/2))
@@ -264,7 +266,7 @@ swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3, num
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -284,7 +286,8 @@ swimming_feature_flags_start = function(course = "SCY", lane_width = 3, number_o
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  flags_distance <- 5 # flags are 5y or 5m from wall
 
   # flags are 5m from the walls
   flags_start = create_line(
@@ -311,7 +314,7 @@ swimming_feature_flags_start = function(course = "SCY", lane_width = 3, number_o
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -331,7 +334,8 @@ swimming_feature_flags_start_string = function(course = "SCY", lane_width = 3, n
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  flags_distance <- 5 # flags are 5y or 5m from wall
 
   # flags are 5m from the walls
   flags_start_string = create_line(
@@ -358,7 +362,7 @@ swimming_feature_flags_start_string = function(course = "SCY", lane_width = 3, n
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -370,7 +374,8 @@ swimming_feature_flags_turn = function(course = "SCY", lane_width = 3, number_of
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  flags_distance <- 5 # flags are 5y or 5m from wall
 
  # flags are 5m from the walls
   flags_turn = create_line(
@@ -397,7 +402,7 @@ swimming_feature_flags_turn = function(course = "SCY", lane_width = 3, number_of
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -409,7 +414,8 @@ swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 3, nu
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  flags_distance <- 5 # flags are 5y or 5m from wall
 
   # flags are 5m from the walls
   flags_turn_string = create_line(
@@ -436,7 +442,7 @@ swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 3, nu
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -455,7 +461,7 @@ swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, number_
   lane_list <- seq(1, number_of_lanes, 1)
   centerlines <- (offset * lane_list) - ((lane_width * number_of_lanes)/2) - overflow_channels
 
-  lane_markers_fun <- function(centerline, t_offset, line_thickness) {
+  lane_markers_fun <- function(centerline, pool_length, t_offset, line_thickness) {
     df = create_rectangle(
       x_min = (-pool_length / 2) + (t_offset / 3),
       x_max = (pool_length / 2) - (t_offset / 3),
@@ -466,7 +472,7 @@ swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, number_
     return(df)
   }
 
-  lane_markers <- lapply(centerlines, lane_markers_fun, t_offset = t_offset, line_thickness = line_thickness)
+  lane_markers <- lapply(centerlines, lane_markers_fun, pool_length = pool_length, t_offset = t_offset, line_thickness = line_thickness)
 
   # convert to single dataframe with id column for each separate marker
   id <- seq(1, length(lane_markers)) # id column
@@ -489,7 +495,7 @@ swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, number_
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -553,7 +559,7 @@ swimming_feature_lane_markers_cross_start = function(course = "SCY", lane_width 
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -566,8 +572,8 @@ swimming_feature_lane_markers_cross_turn = function(course = "SCY", lane_width =
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   t_offset <- 5/3 # ts are 5ft from the walls
-  line_thickness <- 1/3 # ts are 1ft thick
-  cross_length <- 3/3 # crosses are 3ft long
+  line_thickness <-  1/3 # ts are 1ft or 1/3m thick
+  cross_length <- 3/3 # crosses are 3ft or 1m long
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
@@ -616,7 +622,7 @@ swimming_feature_lane_markers_cross_turn = function(course = "SCY", lane_width =
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -628,8 +634,8 @@ swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_of_lan
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  blocks_depth <- 34/12/3 # blocks are 34 inches deep
-  blocks_width <- 34/12/3 # blocks are 34 inches wide
+  blocks_depth <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) deep
+  blocks_width <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) wide
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
@@ -677,7 +683,7 @@ swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_of_lan
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -702,7 +708,7 @@ swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  lane_line_width <- 6/12/3 # 6 inches
+  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -754,7 +760,7 @@ swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -779,7 +785,7 @@ swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3, num
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  lane_line_width <- 6/12/3 # 6 inches
+  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -831,7 +837,7 @@ swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3, num
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -856,7 +862,7 @@ swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3, numb
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  lane_line_width <- 6/12/3 # 6 inches
+  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -908,7 +914,7 @@ swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3, numb
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
 #' @param lane_width The width of an individual lane
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
@@ -933,7 +939,7 @@ swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 3, nu
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  lane_line_string_width <- 1/12/3 # 1 inches
+  lane_line_string_width <- ifelse(course %in% c("SCY"), 1/12/3, 2.54/100) # 1in or 2.54cm  - needs to be large enough to be visible
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -1113,9 +1119,9 @@ geom_swimming_course = function(course,
   # Add the features to the ggplot2 instance
   g = add_feature(g, deck, color_list$deck_color)
   g = add_feature(g, pool, color_list$pool_color)
-  g = add_line_feature(g, m15_start, color_list$m15_start_color, size = 1.5, alpha = 0.5)
+  g = add_feature(g, m15_start, color_list$m15_start_color, alpha = 0.5)
   g = add_feature(g, m15_markers_start, group = group, color_list$m15_markers)
-  g = add_line_feature(g, m15_turn, color_list$m15_turn_color, size = 1.5, alpha = 0.5)
+  g = add_feature(g, m15_turn, color_list$m15_turn_color, alpha = 0.5)
   g = add_feature(g, m15_markers_turn, group = group, color_list$m15_markers)
   g = add_feature(g, lane_markers, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
