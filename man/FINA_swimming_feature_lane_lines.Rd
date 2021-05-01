@@ -6,7 +6,6 @@
 \usage{
 FINA_swimming_feature_lane_lines(
   course = "LCM",
-  lane_width = 2.5,
   number_of_lanes = 8,
   overflow_channels = 0.2,
   rotate = FALSE,
