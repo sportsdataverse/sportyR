@@ -15,7 +15,8 @@ swimming_features_set_colors(
   flags_turn_color = "black",
   lane_markers_color = "black",
   blocks_color = "white",
-  lane_lines_color = "red",
+  lane_lines_color = "white",
+  lane_line_ends_color = "red",
   lane_line_strings_color = "black"
 )
 }
