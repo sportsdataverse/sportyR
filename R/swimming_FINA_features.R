@@ -1,20 +1,22 @@
 #' Generate the data frame for the points that comprise the pool deck background
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the pool deck
-NCAA_swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_deck = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
 
   # This gives the grey background of the deck
   deck = create_rectangle(
@@ -38,21 +40,23 @@ NCAA_swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_
 
 #' Generate the data frame for the points that comprise the water background
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the pool
-NCAA_swimming_feature_pool = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_pool = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
 
   # This gives the blue background of the pool
   pool = create_rectangle(
@@ -76,31 +80,57 @@ NCAA_swimming_feature_pool = function(course = "SCY", lane_width = 3, number_of_
 
 #' Generate the data frame for the points that comprise the 15m line for the start end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the 15m line from the start end
-NCAA_swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_15m_start_line = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
-  line_thickness <- ifelse(course %in% c("SCY"), 6/12/3, 15/100) # line is approxmiately 6in (15cm) thick
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  m15_distance <- 15 # 15m mark is always at 15m
+  line_thickness <- 15/100 # line is approxmiately (15cm) thick
+  cross_length <- 1.5 # crosses are 1.5m long
+
+  offset <- overflow_channels + lane_width/2
+  lane_list <- seq(1, number_of_lanes, 1)
+  centerlines <- (offset * lane_list) - ((lane_width * number_of_lanes)/2) - overflow_channels
 
   # 15 meter marks are 15 meters from the start and turn ends of the pool
-  m15_line_start = create_rectangle(
-    x_min = (-pool_length/2) + m15_distance - (line_thickness/2),
-    x_max = (-pool_length/2) + m15_distance + (line_thickness/2),
-    y_min = ((-lane_width * number_of_lanes)/2) - overflow_channels,
-    y_max = ((lane_width * number_of_lanes)/2) + overflow_channels
-  )
+  m15_line_start_fun <- function(centerline, pool_length, t_offset, line_thickness, cross_length) {
+    df = create_rectangle(
+      x_min = (-pool_length/2) + m15_distance - (line_thickness/2),
+      x_max = (-pool_length/2) + m15_distance + (line_thickness/2),
+      y_min = centerline - (cross_length / 2),
+      y_max = centerline + (cross_length / 2)
+    )
+
+    return(df)
+  }
+
+  m15_line_start <-
+    lapply(
+      centerlines,
+      m15_line_start_fun,
+      pool_length = pool_length,
+      m15_distance = m15_distance,
+      line_thickness = line_thickness,
+      cross_length = cross_length
+    )
+
+  # convert to single dataframe with id column for each separate marker
+  id <- seq(1, length(m15_line_start)) # id column
+  m15_line_start <- Map(cbind, m15_line_start, group = id) # add id column to each data frame
+  m15_line_start <- do.call("rbind", m15_line_start) # bind into single dataframe
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -116,28 +146,30 @@ NCAA_swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, 
 
 #' Generate the data frame for the points that comprise the 15m marks for the start end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the 15m marks from the start end
-NCAA_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_15m_start_markers = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
-  mark_thickness <- ifelse(course %in% c("SCY"), 2/12/3, 5.8/100) # lines are 2in (5.08cm) thick
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  m15_distance <- 15 # 15m mark is always at 15m
+  mark_thickness <- 5.8/100 # lines are (5.08cm) thick
 
   pool_width <- ((lane_width * number_of_lanes)) + (overflow_channels * 2)
   centerlines <- c((-pool_width/2) - (mark_thickness/2), (pool_width/2) + (mark_thickness/2))
 
-  m15_markers_fun <- function(centerline, pool_length, mark_thickness) {
+  m15_markers_fun <- function(centerline, pool_length, m15_distance, mark_thickness) {
     df = create_rectangle(
       x_min = (-pool_length/2) + m15_distance - (mark_thickness/2),
       x_max = (-pool_length/2) + m15_distance + (mark_thickness/2),
@@ -148,7 +180,12 @@ NCAA_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 
     return(df)
   }
 
-  m15_markers_start <- lapply(centerlines, m15_markers_fun, pool_length = pool_length, mark_thickness = mark_thickness)
+  m15_markers_start <-
+    lapply(centerlines,
+           m15_markers_fun,
+           pool_length = pool_length,
+           m15_distance = m15_distance,
+           mark_thickness = mark_thickness)
 
   # convert to single dataframe with id column for each separate marker
   id <- seq(1, length(m15_markers_start)) # id column
@@ -169,32 +206,52 @@ NCAA_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 
 
 #' Generate the data frame for the points that comprise the 15m line for the turn end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the 15m line from the turn end
-NCAA_swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_15m_turn_line = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
-  line_thickness <- ifelse(course %in% c("SCY"), 6/12/3, 15/100) # line is approxmiately 6in (15cm) thick
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  m15_distance <- 15 # 15m mark is always at 15m
+  line_thickness <- 15/100 # line is approxmiately (15cm) thick
+  cross_length <- 1.5 # crosses are 1.5 long
 
-# 15 meter marks are 15 meters from the start and turn ends of the pool
-  m15_line_turn = create_rectangle(
-    x_min = (pool_length/2) - m15_distance - (line_thickness/2),
-    x_max = (pool_length/2) - m15_distance + (line_thickness/2),
-    y_min = ((-lane_width * number_of_lanes)/2) - overflow_channels,
-    y_max = ((lane_width * number_of_lanes)/2) + overflow_channels
-  )
+  offset <- overflow_channels + lane_width/2
+  lane_list <- seq(1, number_of_lanes, 1)
+  centerlines <- (offset * lane_list) - ((lane_width * number_of_lanes)/2) - overflow_channels
 
+  # 15 meter marks are 15 meters from the start and turn ends of the pool
+  m15_line_turn_fun <- function(centerline, pool_length, m15_distance, line_thickness, cross_length) {
+    df = create_rectangle(
+      x_min = (pool_length/2) - m15_distance - (line_thickness/2),
+      x_max = (pool_length/2) - m15_distance + (line_thickness/2),
+      y_min = centerline - (cross_length / 2),
+      y_max = centerline + (cross_length / 2)
+    )
+
+    return(df)
+  }
+
+  m15_line_turn <-
+    lapply(
+      centerlines,
+      m15_line_turn_fun,
+      pool_length = pool_length,
+      m15_distance = m15_distance,
+      line_thickness = line_thickness,
+      cross_length = cross_length
+    )
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -210,28 +267,30 @@ NCAA_swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, n
 
 #' Generate the data frame for the points that comprise the 15m marks for the turn end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the 15m marks from the turn end
-NCAA_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_15m_turn_markers = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   m15_distance <- ifelse(course %in% c("SCY"), 16.40, 15) # 15m mark is always at 15m, so 16.40y
   mark_thickness <- ifelse(course %in% c("SCY"), 2/12/3, 5.8/100) # lines are 2in (5.08cm) thick
 
   pool_width <- ((lane_width * number_of_lanes)) + (overflow_channels * 2)
   centerlines <- c((-pool_width/2) - (mark_thickness/2), (pool_width/2) + (mark_thickness/2))
 
-  m15_markers_fun <- function(centerline, pool_length, mark_thickness) {
+  m15_markers_fun <- function(centerline, pool_length, m15_distance, mark_thickness) {
     df = create_rectangle(
       x_min = (pool_length/2) - m15_distance - (mark_thickness/2),
       x_max = (pool_length/2) - m15_distance + (mark_thickness/2),
@@ -242,7 +301,12 @@ NCAA_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3
     return(df)
   }
 
-  m15_markers_turn <- lapply(centerlines, m15_markers_fun, pool_length = pool_length, mark_thickness = mark_thickness)
+  m15_markers_turn <-
+    lapply(centerlines,
+           m15_markers_fun,
+           pool_length = pool_length,
+           m15_distance = m15_distance,
+           mark_thickness = mark_thickness)
 
   # convert to single dataframe with id column for each separate marker
   id <- seq(1, length(m15_markers_turn)) # id column
@@ -261,23 +325,83 @@ NCAA_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3
   return(m15_markers_turn)
 }
 
-#' Generate the data frame for the points that comprise the backstroke flags for the start end of the pool
+#' Generate the data frame for the points that comprise the center line for the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
+#' @return A data frame containing the points that comprise center line for the pool
+FINA_swimming_feature_center_line = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  line_thickness <- 15/100 # line is approxmiately (15cm) thick
+  cross_length <- 2 # crosses are 2m long
+
+  offset <- overflow_channels + lane_width/2
+  lane_list <- seq(1, number_of_lanes, 1)
+  centerlines <- (offset * lane_list) - ((lane_width * number_of_lanes)/2) - overflow_channels
+
+  # 15 meter marks are 15 meters from the start and turn ends of the pool
+  center_line_fun <- function(centerline, pool_length, t_offset, line_thickness, cross_length) {
+    df = create_rectangle(
+      x_min = (pool_length/2) - (line_thickness/2),
+      x_max = (pool_length/2) + (line_thickness/2),
+      y_min = centerline - (cross_length / 2),
+      y_max = centerline + (cross_length / 2)
+    )
+
+    return(df)
+  }
+
+  center_line <-
+    lapply(
+      centerlines,
+      center_line_fun,
+      pool_length = pool_length,
+      line_thickness = line_thickness,
+      cross_length = cross_length
+    )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    center_line = rotate_coords(
+      center_line,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(center_line)
+}
+
+#' Generate the data frame for the points that comprise the backstroke flags for the start end of the pool
+#'
+#' @param course The length of the pool as "SCM" or "LCM"
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the backstroke flags for the start end
-NCAA_swimming_feature_flags_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_flags_start = function(course = "LCM", lane_width = 2.5, number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
 
-  # course = "SCY"
-  # lane_width = 3
+  # course = "LCM"
+  # lane_width = 2.5
   # number_of_lanes = 8
   # overflow_channels = 1
   # rotate = FALSE
@@ -285,8 +409,8 @@ NCAA_swimming_feature_flags_start = function(course = "SCY", lane_width = 3, num
 
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   flags_distance <- 5 # flags are 5y or 5m from wall
 
   # flags are 5m from the walls
@@ -311,21 +435,22 @@ NCAA_swimming_feature_flags_start = function(course = "SCY", lane_width = 3, num
 
 #' Generate the data frame for the points that comprise the backstroke flags string for the start end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the backstroke flags string for the start end
-NCAA_swimming_feature_flags_start_string = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_flags_start_string = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
 
-  # course = "SCY"
-  # lane_width = 3
+  # course = "LCM"
+  # lane_width = 2.5
   # number_of_lanes = 8
   # overflow_channels = 1
   # rotate = FALSE
@@ -333,7 +458,8 @@ NCAA_swimming_feature_flags_start_string = function(course = "SCY", lane_width =
 
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
@@ -359,25 +485,27 @@ NCAA_swimming_feature_flags_start_string = function(course = "SCY", lane_width =
 
 #' Generate the data frame for the points that comprise the backstroke flags for the turn end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#'  @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the flags at the turn end
-NCAA_swimming_feature_flags_turn = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_flags_turn = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
- # flags are 5m from the walls
+  # flags are 5m from the walls
   flags_turn = create_line(
     x_start = (pool_length/2) - flags_distance,
     x_end = (pool_length/2) - flags_distance,
@@ -399,21 +527,23 @@ NCAA_swimming_feature_flags_turn = function(course = "SCY", lane_width = 3, numb
 
 #' Generate the data frame for the points that comprise the backstroke flags string for the turn end of the pool
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#'  @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the flags string at the turn end
-NCAA_swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_flags_turn_string = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
@@ -439,21 +569,23 @@ NCAA_swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 
 
 #' Generate the data frame for the points that comprise the lane markers
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#'  @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the lane markers
-NCAA_swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_lane_markers = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   t_offset <- 5 # ts are 5ft from the walls
   line_thickness <- 1 # ts are 1ft thick
 
@@ -492,21 +624,23 @@ NCAA_swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, nu
 }
 #' Generate the data frame for the points that comprise the lane marker crosses at the start end
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#'  @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the lane marker crosses at the start end
-NCAA_swimming_feature_lane_markers_cross_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_lane_markers_cross_start = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   t_offset <- 5/3 # ts are 5ft from the walls
   line_thickness <- 1/3 # ts are 1ft thick
   cross_length <- 3/3 # crosses are 3ft long
@@ -556,21 +690,23 @@ NCAA_swimming_feature_lane_markers_cross_start = function(course = "SCY", lane_w
 
 #' Generate the data frame for the points that comprise the lane marker crosses at the turn end
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the lane marker crosses at the turn end
-NCAA_swimming_feature_lane_markers_cross_turn = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_lane_markers_cross_turn = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   t_offset <- 5/3 # ts are 5ft from the walls
   line_thickness <-  1/3 # ts are 1ft or 1/3m thick
   cross_length <- 3/3 # crosses are 3ft or 1m long
@@ -619,21 +755,23 @@ NCAA_swimming_feature_lane_markers_cross_turn = function(course = "SCY", lane_wi
 
 #' Generate the data frame for the points that comprise the blocks
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the blocks
-NCAA_swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+FINA_swimming_feature_blocks = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   blocks_depth <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) deep
   blocks_width <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) wide
 
@@ -680,34 +818,24 @@ NCAA_swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_o
 
 #' Generate the data frame for the points that comprise the lane lines
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the lane lines
-NCAA_swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
+FINA_swimming_feature_lane_lines = function(course = "LCM", lane_width = 2.5, number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
 
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
 
   offset_width <- overflow_channels/2
@@ -755,36 +883,26 @@ NCAA_swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, numb
   return(lane_lines)
 }
 
-#' Generate the data frame for the points that comprise the lane lines at the start end
+#' Generate the data frame for the points that comprise the lane lines at the start end.  FINA lane lines must extend to the end of the course
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
+#' @author Gregory A. Pilgrim
+#'
 #' @return A data frame containing the points that comprise the lane lines at the start end
-NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
+FINA_swimming_feature_lane_lines_start = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
 
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
 
   offset_width <- overflow_channels/2
@@ -798,8 +916,8 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3
 
   lane_lines_fun <- function(lane_line_centerline, pool_length, lane_line_width) {
     df = create_rectangle(
-      x_min = (-pool_length / 2) + 1,
-      x_max = (-pool_length / 2) + 4.57,
+      x_min = (-pool_length / 2),
+      x_max = (-pool_length / 2),
       y_min = lane_line_centerline - (lane_line_width / 2),
       y_max = lane_line_centerline + (lane_line_width/ 2)
     )
@@ -832,36 +950,97 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3
   return(lane_lines_start)
 }
 
-#' Generate the data frame for the points that comprise the lane lines at the turn end
+#' Generate the data frame for the points that comprise the lane line bouy marking 15m from the start end.
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
-#' @return A data frame containing the points that comprise the lane lines at the turn end
-NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
+#' @author Gregory A. Pilgrim
+#'
+#' @return A data frame containing the points that comprise the lane line bouy marking 15m at the start end
+FINA_swimming_feature_lane_lines_start_15m = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
 
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  m15_distance <- 15
+  bouy_thickness <- 7.62/100
+
+  offset_width <- overflow_channels/2
+  if (overflow_channels > 0) {
+    lane_list <- seq(1, number_of_lanes + 1, 1)
+  } else {
+    lane_list <- seq(1, number_of_lanes - 1, 1)
+  }
+
+  lane_line_centerlines <- (lane_list * lane_width) - (lane_width/2) - ((lane_width * number_of_lanes)/2) - overflow_channels
+
+  lane_lines_fun <- function(lane_line_centerline, pool_length, m15_distance, bouy_thickness, lane_line_width) {
+    df = create_rectangle(
+      x_min = (-pool_length / 2) + m15_distance,
+      x_max = (-pool_length / 2) + m15_distance + bouy_thickness,
+      y_min = lane_line_centerline - (lane_line_width / 2),
+      y_max = lane_line_centerline + (lane_line_width/ 2)
+    )
+
+    return(df)
+  }
+
+  lane_lines_start_15m <-
+    lapply(
+      lane_line_centerlines,
+      lane_lines_fun,
+      pool_length = pool_length,
+      m15_distance = m15_distance,
+      bouy_thickness = bouy_thickness,
+      lane_line_width = lane_line_width
+    )
+
+  # convert to single dataframe with id column for each separate marker
+  id <- seq(1, length(lane_lines_start_15m)) # id column
+  lane_lines_start_15m <- Map(cbind, lane_lines_start_15m, group = id) # add id column to each data frame
+  lane_lines_start_15m <- do.call("rbind", lane_lines_start_15m) # bind into single dataframe
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    lane_lines_start_15m = rotate_coords(
+      lane_lines_start_15m,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(lane_lines_start_15m)
+}
+
+#' Generate the data frame for the points that comprise the lane lines at the turn end.  FINA lane lines must extend to the end of the course
+#'
+#' @param course The length of the pool as "SCM" or "LCM"
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @author Gregory A. Pilgrim
+#'
+#' @return A data frame containing the points that comprise the lane lines at the turn end
+FINA_swimming_feature_lane_lines_turn = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
+
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
   lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
 
   offset_width <- overflow_channels/2
@@ -875,8 +1054,8 @@ NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3,
 
   lane_lines_fun <- function(lane_line_centerline, pool_length, lane_line_width) {
     df = create_rectangle(
-      x_min = (pool_length / 2) - 4.57,
-      x_max = (pool_length / 2) - 1,
+      x_min = (pool_length / 2),
+      x_max = (pool_length / 2),
       y_min = lane_line_centerline - (lane_line_width / 2),
       y_max = lane_line_centerline + (lane_line_width / 2)
     )
@@ -909,37 +1088,29 @@ NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3,
   return(lane_lines_turn)
 }
 
-#' Generate the data frame for the points that comprise the lane line strings
+#' Generate the data frame for the points that comprise the lane line bouy marking 15m from the turn end.
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
 #' @param rotation_dir A string indicating which direction to rotate the
 #'   feature. Default: \code{'ccw'}
 #'
-#' @return A data frame containing the points that comprise the lane line strings
-NCAA_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
+#' @author Gregory A. Pilgrim
+#'
+#' @return A data frame containing the points that comprise the lane line bouy marking 15m at the turn end
+FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
 
   # Initialize x and y (to pass checks)
   x = y = NULL
 
-  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  lane_line_string_width <- ifelse(course %in% c("SCY"), 1/12/3, 2.54/100) # 1in or 2.54cm  - needs to be large enough to be visible
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  m15_distance <- 15
+  bouy_thickness <- 7.62/100
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -950,42 +1121,43 @@ NCAA_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 
 
   lane_line_centerlines <- (lane_list * lane_width) - (lane_width/2) - ((lane_width * number_of_lanes)/2) - overflow_channels
 
-  lane_line_strings_fun <- function(lane_line_centerline, pool_length, lane_line_string_width) {
+  lane_lines_fun <- function(lane_line_centerline, pool_length, m15_distance, bouy_thickness, lane_line_width) {
     df = create_rectangle(
-      x_min = (-pool_length / 2),
-      x_max = (pool_length / 2),
-      y_min = lane_line_centerline - (lane_line_string_width / 2),
-      y_max = lane_line_centerline + (lane_line_string_width / 2)
+      x_min = (pool_length / 2) - m15_distance - bouy_thickness,
+      x_max = (pool_length / 2) - m15_distance,
+      y_min = lane_line_centerline - (lane_line_width / 2),
+      y_max = lane_line_centerline + (lane_line_width/ 2)
     )
 
     return(df)
   }
 
-  lane_line_strings <-
+  lane_lines_turn_15m <-
     lapply(
       lane_line_centerlines,
-      lane_line_strings_fun,
+      lane_lines_fun,
       pool_length = pool_length,
-      lane_line_string_width = lane_line_string_width
+      m15_distance = m15_distance,
+      bouy_thickness = bouy_thickness,
+      lane_line_width = lane_line_width
     )
 
   # convert to single dataframe with id column for each separate marker
-  id <- seq(1, length(lane_line_strings)) # id column
-  lane_line_strings <- Map(cbind, lane_line_strings, group = id) # add id column to each data frame
-  lane_line_strings <- do.call("rbind", lane_line_strings) # bind into single dataframe
+  id <- seq(1, length(lane_lines_turn_15m)) # id column
+  lane_lines_turn_15m <- Map(cbind, lane_lines_turn_15m, group = id) # add id column to each data frame
+  lane_lines_turn_15m <- do.call("rbind", lane_lines_turn_15m) # bind into single dataframe
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
-    lane_line_strings = rotate_coords(
-      lane_line_strings,
+    lane_lines_turn_15m = rotate_coords(
+      lane_lines_turn_15m,
       rotation_dir
     )
   }
 
   # Return the feature's data frame
-  return(lane_line_strings)
+  return(lane_lines_turn_15m)
 }
-
 
 #' Generate the list of colors for a pool. The defaults can
 #' be overwritten by supplying the names of the list elements to the
@@ -995,28 +1167,45 @@ NCAA_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 
 #'   this feature
 #' @param pool_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param m15_color A hexadecimal string representing the color to use for
+#' @param m15_start_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param flags_color A hexadecimal string representing the color to use for
+#' @param m15_turn_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param m15_markers_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param center_line_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_start_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_turn_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_string_color A hexadecimal string representing the color to use for
 #'   this feature
 #' @param  lane_markers_color  A hexadecimal string representing the color to use for
+#'   this feature
+#' @param blocks_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param  lane_lines_color  A hexadecimal string representing the color to use for
+#'   this feature
+#' @param  lane_lines_ends_color  A hexadecimal string representing the color to use for
 #'   this feature
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-NCAA_swimming_features_set_colors = function(deck_color = 'grey',
-                                        pool_color = 'blue',
-                                        m15_start_color = 'black',
-                                        m15_turn_color = 'black',
-                                        m15_markers_color = 'red',
-                                        flags_start_color = 'red',
-                                        flags_turn_color = 'red',
-                                        flags_string_color = 'black',
-                                        lane_markers_color = 'black',
-                                        blocks_color = 'white',
-                                        lane_lines_color = 'white',
-                                        lane_line_ends_color = 'red',
-                                        lane_line_string_color = 'black'
+FINA_swimming_features_set_colors = function(deck_color = 'grey',
+                                            pool_color = 'blue',
+                                            m15_start_color = 'black',
+                                            m15_turn_color = 'black',
+                                            m15_markers_color = 'red',
+                                            center_line_color = 'black',
+                                            flags_start_color = 'red',
+                                            flags_turn_color = 'red',
+                                            flags_string_color = 'black',
+                                            lane_markers_color = 'black',
+                                            blocks_color = 'white',
+                                            lane_lines_color = 'white',
+                                            lane_line_ends_color = 'red',
+                                            lane_line_15m_color = 'red'
 
 ){
   # Create the colors to use for the plot
@@ -1026,6 +1215,7 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
     m15_start_color = m15_start_color,
     m15_turn_color = m15_turn_color,
     m15_markers_color = m15_markers_color,
+    center_line_color = center_line_color,
     flags_start_color = flags_start_color,
     flags_turn_color = flags_turn_color,
     flags_string_color = flags_string_color,
@@ -1033,10 +1223,10 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
     lane_line_ends_color = lane_line_ends_color,
-    lane_line_string_color = lane_line_string_color
+    lane_line_15m_color = lane_line_15m_color
 
 
-    )
+  )
 
   # Return the list of colors
   return(feature_colors)
@@ -1045,8 +1235,7 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
 #' Create a ggplot2 instance that represents a regulation pool,
 #' with the center of the pool corresponding to (0, 0)
 #'
-#' @param course The length of the pool as "SCM", "SCY" or "LCM"
-#' @param lane_width The width of an individual lane
+#' @param course The length of the pool as "SCM" or "LCM"
 #' @param number_of_lanes The number of lanes in the pool
 #' @param overflow_channels Width of overflow channels (if they exist)
 #' @param rotate A boolean indicating whether or not the surface representation
@@ -1058,11 +1247,10 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
-#'   colors to pass to the \code{NCAA_swimming_features_set_colors()} function
+#'   colors to pass to the \code{FINA_swimming_features_set_colors()} function
 #'
 #' @return A ggplot2 instance that represents a regulation pool
-geom_NCAA_swimming = function(course,
-                             lane_width = 3,
+geom_FINA_swimming = function(course,
                              number_of_lanes = 8,
                              overflow_channels = 1.5,
                              rotate = FALSE,
@@ -1073,28 +1261,29 @@ geom_NCAA_swimming = function(course,
 
 
   # Create the colors to use for the plot
-  color_list = NCAA_swimming_features_set_colors(...)
+  color_list = FINA_swimming_features_set_colors(...)
 
   # Generate the data frames for the features of a pool + deck
-  deck = NCAA_swimming_feature_deck(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  pool = NCAA_swimming_feature_pool(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_start = NCAA_swimming_feature_15m_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_markers_start = NCAA_swimming_feature_15m_start_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_turn = NCAA_swimming_feature_15m_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_markers_turn = NCAA_swimming_feature_15m_turn_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_start = NCAA_swimming_feature_flags_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_turn = NCAA_swimming_feature_flags_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_start_string = NCAA_swimming_feature_flags_start_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_turn_string = NCAA_swimming_feature_flags_turn_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_markers = NCAA_swimming_feature_lane_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_markers_cross_start = NCAA_swimming_feature_lane_markers_cross_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_markers_cross_turn = NCAA_swimming_feature_lane_markers_cross_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  blocks = NCAA_swimming_feature_blocks(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_lines = NCAA_swimming_feature_lane_lines(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_lines_start = NCAA_swimming_feature_lane_lines_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_lines_turn = NCAA_swimming_feature_lane_lines_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_line_strings = NCAA_swimming_feature_lane_line_strings(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-
+  deck = FINA_swimming_feature_deck(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  pool = FINA_swimming_feature_pool(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_start = FINA_swimming_feature_15m_start_line(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_markers_start = FINA_swimming_feature_15m_start_markers(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_turn = FINA_swimming_feature_15m_turn_line(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_markers_turn = FINA_swimming_feature_15m_turn_markers(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  center_line = FINA_swimming_feature_center_line(course, number_of_lanes, overflow_channels, rotate, rotation_di)
+  flags_start = FINA_swimming_feature_flags_start(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn = FINA_swimming_feature_flags_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start_string = FINA_swimming_feature_flags_start_string(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn_string = FINA_swimming_feature_flags_turn_string(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers = FINA_swimming_feature_lane_markers(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers_cross_start = FINA_swimming_feature_lane_markers_cross_start(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers_cross_turn = FINA_swimming_feature_lane_markers_cross_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  blocks = FINA_swimming_feature_blocks(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines = FINA_swimming_feature_lane_lines(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_start = FINA_swimming_feature_lane_lines_start(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_start_15m = FINA_swimming_feature_lane_lines_start_15m(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_turn = FINA_swimming_feature_lane_lines_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_turn_15m = FINA_swimming_feature_lane_lines_turn_15m(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
 
   unit <- ifelse(course %in% c("SCM", "LCM"), "meters", "yards")
 
@@ -1128,10 +1317,11 @@ geom_NCAA_swimming = function(course,
   g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, blocks, group = group, color_list$blocks)
-  g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_strings)
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
   g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
+  g = add_feature(g, lane_lines_start_15m, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
+  g = add_feature(g, lane_lines_turn_15m, group = group, color_list$lane_line_ends)
   g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")

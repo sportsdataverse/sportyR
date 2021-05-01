@@ -37,14 +37,19 @@ geom_swimming = function(league,
     stop(paste0(course, " is not a valid course.  Courses are 'LCM', 'SCM' or 'SCY'."))
   }
 
+  # FINA requires overflow channels to be at least 0.2m
+  if(all(league == "FINA" & overflow_channels < 0.2)){
+    stop("FINA requires overflow channels to be at least 0.2m")
+  }
+
   # Call the appropriate plot-generating function
   g = switch(
     league,
-    'NCAA' = geom_NCAA_swimmng(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'NCAA' = geom_NCAA_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
-    'NHFS' = geom_NFHS_swimmng(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'NHFS' = geom_NFHS_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
-    'FINA' = geom_FINA(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'FINA' = geom_FINA_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
     stop(glue::glue('{league} is not a valid league at this time.'))
   )

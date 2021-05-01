@@ -12,7 +12,7 @@
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the pool deck
-NFHS_swimmng_feature_deck = function(course = "SCY", lane_width = 2, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -52,7 +52,7 @@ NFHS_swimmng_feature_deck = function(course = "SCY", lane_width = 2, number_of_l
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the pool
-NFHS_swimmng_feature_pool = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_pool = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -92,7 +92,7 @@ NFHS_swimmng_feature_pool = function(course = "SCY", lane_width = 7/3, number_of
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the 15m line from the start end
-NFHS_swimmng_feature_15m_start_line = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_15m_start_line = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -134,7 +134,7 @@ NFHS_swimmng_feature_15m_start_line = function(course = "SCY", lane_width = 7/3,
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the 15m marks from the start end
-NFHS_swimmng_feature_15m_start_markers = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -189,7 +189,7 @@ NFHS_swimmng_feature_15m_start_markers = function(course = "SCY", lane_width = 7
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the 15m line from the turn end
-NFHS_swimmng_feature_15m_turn_line = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -232,7 +232,7 @@ NFHS_swimmng_feature_15m_turn_line = function(course = "SCY", lane_width = 7/3, 
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the 15m marks from the turn end
-NFHS_swimmng_feature_15m_turn_markers = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -287,7 +287,7 @@ NFHS_swimmng_feature_15m_turn_markers = function(course = "SCY", lane_width = 7/
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the backstroke flags for the start end
-NFHS_swimmng_feature_flags_start = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_flags_start = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
 
   # course = "SCY"
@@ -337,7 +337,7 @@ NFHS_swimmng_feature_flags_start = function(course = "SCY", lane_width = 7/3, nu
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the alternate color backstroke flags for the start end
-NFHS_swimmng_feature_flags_start_2 = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_flags_start_2 = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
 
   # course = "SCY"
@@ -387,7 +387,7 @@ NFHS_swimmng_feature_flags_start_2 = function(course = "SCY", lane_width = 7/3, 
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the backstroke flags string for the start end
-NFHS_swimmng_feature_flags_start_string = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_flags_start_string = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
 
   # course = "SCY"
@@ -437,7 +437,7 @@ NFHS_swimmng_feature_flags_start_string = function(course = "SCY", lane_width = 
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the flags at the turn end
-NFHS_swimmng_feature_flags_turn = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_flags_turn = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -478,7 +478,7 @@ NFHS_swimmng_feature_flags_turn = function(course = "SCY", lane_width = 7/3, num
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the alternate flags at the turn end
-NFHS_swimmng_feature_flags_turn_2 = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_flags_turn_2 = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -520,7 +520,7 @@ NFHS_swimmng_feature_flags_turn_2 = function(course = "SCY", lane_width = 7/3, n
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the flags string at the turn end
-NFHS_swimmng_feature_flags_turn_string = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -561,7 +561,7 @@ NFHS_swimmng_feature_flags_turn_string = function(course = "SCY", lane_width = 7
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane markers
-NFHS_swimmng_feature_lane_markers = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_lane_markers = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -616,7 +616,7 @@ NFHS_swimmng_feature_lane_markers = function(course = "SCY", lane_width = 7/3, n
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the start end
-NFHS_swimmng_feature_lane_markers_cross_start = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_lane_markers_cross_start = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -682,7 +682,7 @@ NFHS_swimmng_feature_lane_markers_cross_start = function(course = "SCY", lane_wi
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the turn end
-NFHS_swimmng_feature_lane_markers_cross_turn = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_lane_markers_cross_turn = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -747,7 +747,7 @@ NFHS_swimmng_feature_lane_markers_cross_turn = function(course = "SCY", lane_wid
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the blocks
-NFHS_swimmng_feature_blocks = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_blocks = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -810,7 +810,7 @@ NFHS_swimmng_feature_blocks = function(course = "SCY", lane_width = 7/3, number_
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane lines
-NFHS_swimmng_feature_lane_lines = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_lane_lines = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
 
   # course = "SCY"
   # lane_width = 3
@@ -888,8 +888,8 @@ NFHS_swimmng_feature_lane_lines = function(course = "SCY", lane_width = 7/3, num
 #'
 #' @author Gregory A. Pilgrim
 #'
-#' @return A data frame containing the points that comprise the lane lines at thed start end
-NFHS_swimmng_feature_lane_lines_start = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+#' @return A data frame containing the points that comprise the lane lines at the start end
+NFHS_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
 
   # course = "SCY"
   # lane_width = 3
@@ -969,8 +969,8 @@ NFHS_swimmng_feature_lane_lines_start = function(course = "SCY", lane_width = 7/
 #'
 #' @author Gregory A. Pilgrim
 #'
-#' @return A data frame containing the points that comprise the lane lines at thed turn end
-NFHS_swimmng_feature_lane_lines_turn = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+#' @return A data frame containing the points that comprise the lane lines at the turn end
+NFHS_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
 
   # course = "SCY"
   # lane_width = 3
@@ -1051,7 +1051,7 @@ NFHS_swimmng_feature_lane_lines_turn = function(course = "SCY", lane_width = 7/3
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane line strings
-NFHS_swimmng_feature_lane_line_strings = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
 
   # course = "SCY"
   # lane_width = 3
@@ -1156,7 +1156,7 @@ NFHS_swimmng_feature_lane_line_strings = function(course = "SCY", lane_width = 7
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-NFHS_swimmng_features_set_colors = function(deck_color = 'grey',
+NFHS_swimming_features_set_colors = function(deck_color = 'grey',
                                             pool_color = 'blue',
                                             m15_start_color = 'black',
                                             m15_turn_color = 'black',
@@ -1220,12 +1220,12 @@ NFHS_swimmng_features_set_colors = function(deck_color = 'grey',
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
-#'   colors to pass to the \code{NFHS_swimmng_features_set_colors()} function
+#'   colors to pass to the \code{NFHS_swimming_features_set_colors()} function
 #'
 #' @author Gregory A. Pilgrim
 #'
 #' @return A ggplot2 instance that represents a regulation pool
-geom_NFHS_swimmng = function(course,
+geom_NFHS_swimming = function(course,
                              lane_width = 7 / 3,
                              number_of_lanes = 8,
                              overflow_channels = 1.5,
@@ -1237,29 +1237,29 @@ geom_NFHS_swimmng = function(course,
 
 
   # Create the colors to use for the plot
-  color_list = NFHS_swimmng_features_set_colors(...)
+  color_list = NFHS_swimming_features_set_colors(...)
 
   # Generate the data frames for the features of a pool + deck
-  deck = NFHS_swimmng_feature_deck(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  pool = NFHS_swimmng_feature_pool(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_start = NFHS_swimmng_feature_15m_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_markers_start = NFHS_swimmng_feature_15m_start_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_turn = NFHS_swimmng_feature_15m_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_markers_turn = NFHS_swimmng_feature_15m_turn_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_start = NFHS_swimmng_feature_flags_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_start_alternate = NFHS_swimmng_feature_flags_start_2(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_turn = NFHS_swimmng_feature_flags_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_turn_alternate = NFHS_swimmng_feature_flags_turn_2(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_start_string = NFHS_swimmng_feature_flags_start_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_turn_string = NFHS_swimmng_feature_flags_turn_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_markers = NFHS_swimmng_feature_lane_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_markers_cross_start = NFHS_swimmng_feature_lane_markers_cross_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_markers_cross_turn = NFHS_swimmng_feature_lane_markers_cross_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  blocks = NFHS_swimmng_feature_blocks(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_lines = NFHS_swimmng_feature_lane_lines(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_lines_start = NFHS_swimmng_feature_lane_lines_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_lines_turn = NFHS_swimmng_feature_lane_lines_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  lane_line_strings = NFHS_swimmng_feature_lane_line_strings(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  deck = NFHS_swimming_feature_deck(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  pool = NFHS_swimming_feature_pool(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_start = NFHS_swimming_feature_15m_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_markers_start = NFHS_swimming_feature_15m_start_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_turn = NFHS_swimming_feature_15m_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  m15_markers_turn = NFHS_swimming_feature_15m_turn_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start = NFHS_swimming_feature_flags_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start_alternate = NFHS_swimming_feature_flags_start_2(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn = NFHS_swimming_feature_flags_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn_alternate = NFHS_swimming_feature_flags_turn_2(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start_string = NFHS_swimming_feature_flags_start_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn_string = NFHS_swimming_feature_flags_turn_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers = NFHS_swimming_feature_lane_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers_cross_start = NFHS_swimming_feature_lane_markers_cross_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_markers_cross_turn = NFHS_swimming_feature_lane_markers_cross_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  blocks = NFHS_swimming_feature_blocks(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines = NFHS_swimming_feature_lane_lines(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_start = NFHS_swimming_feature_lane_lines_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_turn = NFHS_swimming_feature_lane_lines_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_line_strings = NFHS_swimming_feature_lane_line_strings(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
 
 
   unit <- ifelse(course %in% c("SCM"), "meters", "yards")
@@ -1296,8 +1296,8 @@ geom_NFHS_swimmng = function(course,
   g = add_feature(g, blocks, group = group, color_list$blocks)
   g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_strings)
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
-  g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
+  g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
   g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")
