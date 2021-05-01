@@ -165,7 +165,7 @@ swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, number
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the backstroke flags for the start end
-swimming_feature_flags_start_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+swimming_feature_flags_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
 
   # course = "SCY"
@@ -200,6 +200,53 @@ swimming_feature_flags_start_line = function(course = "SCY", lane_width = 3, num
   return(flags_start)
 }
 
+#' Generate the data frame for the points that comprise the backstroke flags string for the start end of the pool
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the backstroke flags string for the start end
+swimming_feature_flags_start_string = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+
+  # course = "SCY"
+  # lane_width = 3
+  # number_of_lanes = 8
+  # overflow_channels = 1
+  # rotate = FALSE
+  # rotation_dir = 'ccw'
+
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+
+  # flags are 5m from the walls
+  flags_start_string = create_line(
+    x_start = (-pool_length/2) + flags_distance,
+    x_end = (-pool_length/2) + flags_distance,
+    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels - 1.5,
+    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels + 1.5
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    flags_start_string = rotate_coords(
+      flags_start_string,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(flags_start_string)
+}
+
 #' Generate the data frame for the points that comprise the backstroke flags for the turn end of the pool
 #'
 #' @param course The length of the pool as "SCM", "SCY" or "LCM"
@@ -212,7 +259,7 @@ swimming_feature_flags_start_line = function(course = "SCY", lane_width = 3, num
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the flags at the turn end
-swimming_feature_flags_turn_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+swimming_feature_flags_turn = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -237,6 +284,45 @@ swimming_feature_flags_turn_line = function(course = "SCY", lane_width = 3, numb
 
   # Return the feature's data frame
   return(flags_turn)
+}
+
+#' Generate the data frame for the points that comprise the backstroke flags string for the turn end of the pool
+#'
+#' @param course The length of the pool as "SCM", "SCY" or "LCM"
+#' @param lane_width The width of an individual lane
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist)
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @return A data frame containing the points that comprise the flags string at the turn end
+swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
+  flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
+
+  # flags are 5m from the walls
+  flags_turn_string = create_line(
+    x_start = (pool_length/2) - flags_distance,
+    x_end = (pool_length/2) - flags_distance,
+    y_start = ((-lane_width * number_of_lanes)/2) - overflow_channels - 1.5,
+    y_end = ((lane_width * number_of_lanes)/2) + overflow_channels + 1.5
+  )
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    flags_turn_string = rotate_coords(
+      flags_turn_string,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(flags_turn_string)
 }
 
 #' Generate the data frame for the points that comprise the lane markers
@@ -810,8 +896,9 @@ swimming_features_set_colors = function(deck_color = 'grey',
                                         pool_color = 'blue',
                                         m15_start_color = 'black',
                                         m15_turn_color = 'black',
-                                        flags_start_color = 'black',
-                                        flags_turn_color = 'black',
+                                        flags_start_color = 'red',
+                                        flags_turn_color = 'red',
+                                        flags_string_color = 'black',
                                         lane_markers_color = 'black',
                                         blocks_color = 'white',
                                         lane_lines_color = 'white',
@@ -827,6 +914,7 @@ swimming_features_set_colors = function(deck_color = 'grey',
     m15_turn_color = m15_turn_color,
     flags_start_color = flags_start_color,
     flags_turn_color = flags_turn_color,
+    flags_string_color = flags_string_color,
     lane_markers_color = lane_markers_color,
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
@@ -876,8 +964,10 @@ geom_swimming_course = function(course,
   pool = swimming_feature_pool(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   m15_start = swimming_feature_15m_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   m15_turn = swimming_feature_15m_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_start = swimming_feature_flags_start_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  flags_turn = swimming_feature_flags_turn_line(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start = swimming_feature_flags_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn = swimming_feature_flags_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_start_string = swimming_feature_flags_start_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  flags_turn_string = swimming_feature_flags_turn_string(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_markers = swimming_feature_lane_markers(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_markers_cross_start = swimming_feature_lane_markers_cross_start(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_markers_cross_turn = swimming_feature_lane_markers_cross_turn(course, lane_width, number_of_lanes, overflow_channels, rotate, rotation_dir)
@@ -922,6 +1012,8 @@ geom_swimming_course = function(course,
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
+  g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
+  g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")
   g = add_line_feature(g, flags_turn, color_list$flags_turn_color, size = 0.75, linetype = "dashed")
 
