@@ -4,7 +4,7 @@
 \alias{add_line_feature}
 \title{Add a line feature to a ggplot2 instance}
 \usage{
-add_line_feature(g, feature_df, feature_color, linetype = 1, ...)
+add_line_feature(g, feature_df, feature_color, linetype = 1, group = NULL, ...)
 }
 \arguments{
 \item{g}{The ggplot2 instance onto which the feature will be added}

@@ -97,7 +97,7 @@ check_data_frame_for_plot = function(df){
 #'   for speed in the NFL and NCAA Football plotting functions
 #'
 #' @return A ggplot2 instance with the feature added to it
-add_feature = function(g, feature_df, feature_color, group = NULL){
+add_feature = function(g, feature_df, feature_color, group = NULL, ...){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -108,7 +108,7 @@ add_feature = function(g, feature_df, feature_color, group = NULL){
     # So long as the input data frame has the correct features, add the feature
     # to the plot
     g = g +
-      ggplot2::geom_polygon(data = feature_df, ggplot2::aes(x, y, group = group), fill = feature_color)
+      ggplot2::geom_polygon(data = feature_df, ggplot2::aes(x, y, group = group), fill = feature_color, ...)
   }
 
   else {
@@ -125,7 +125,7 @@ add_feature = function(g, feature_df, feature_color, group = NULL){
 #' @param linetype a string containing a ggplot2 linetype
 #'
 #' @return A ggplot2 instance with the feature added to it
-add_line_feature = function(g, feature_df, feature_color, linetype = 1, ...){
+add_line_feature = function(g, feature_df, feature_color, linetype = 1, group = NULL, ...){
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -136,7 +136,7 @@ add_line_feature = function(g, feature_df, feature_color, linetype = 1, ...){
     # So long as the input data frame has the correct features, add the feature
     # to the plot
     g = g +
-      ggplot2::geom_segment(data = feature_df, ggplot2::aes(x = x, y = y, xend = xend, yend = yend), color = feature_color, linetype = linetype, ...)
+      ggplot2::geom_segment(data = feature_df, ggplot2::aes(x = x, y = y, xend = xend, yend = yend, group = group), color = feature_color, linetype = linetype, ...)
   }
 
   else {

@@ -4,7 +4,7 @@
 \alias{add_feature}
 \title{Add a feature to a ggplot2 instance}
 \usage{
-add_feature(g, feature_df, feature_color, group = NULL)
+add_feature(g, feature_df, feature_color, group = NULL, ...)
 }
 \arguments{
 \item{g}{The ggplot2 instance onto which the feature will be added}

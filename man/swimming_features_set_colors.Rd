@@ -9,11 +9,13 @@ be overwritten by supplying the names of the list elements to the
 swimming_features_set_colors(
   deck_color = "grey",
   pool_color = "blue",
-  m15_start_color = "red",
-  m15_turn_color = "red",
+  m15_start_color = "black",
+  m15_turn_color = "black",
   flags_start_color = "black",
   flags_turn_color = "black",
-  lane_markers_color = "black"
+  lane_markers_color = "black",
+  blocks_color = "white",
+  lane_lines_color = "red"
 )
 }
 \arguments{
