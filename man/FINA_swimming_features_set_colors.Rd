@@ -11,7 +11,6 @@ FINA_swimming_features_set_colors(
   pool_color = "blue",
   m15_start_color = "black",
   m15_turn_color = "black",
-  m15_markers_color = "red",
   center_line_color = "black",
   flags_start_color = "red",
   flags_turn_color = "red",
@@ -36,9 +35,6 @@ this feature}
 \item{m15_turn_color}{A hexadecimal string representing the color to use for
 this feature}
 
-\item{m15_markers_color}{A hexadecimal string representing the color to use for
-this feature}
-
 \item{center_line_color}{A hexadecimal string representing the color to use for
 this feature}
 
@@ -58,6 +54,9 @@ this feature}
 this feature}
 
 \item{lane_lines_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{m15_markers_color}{A hexadecimal string representing the color to use for
 this feature}
 
 \item{lane_lines_ends_color}{A hexadecimal string representing the color to use for

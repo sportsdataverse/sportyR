@@ -110,8 +110,8 @@ FINA_swimming_feature_15m_start_line = function(course = "LCM",
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
   m15_distance <- 15 # 15m mark is always at 15m
-  line_thickness <- 15/100 # line is approxmiately (15cm) thick
-  cross_length <- 1.25 # crosses are 1.5m long
+  line_thickness <- 0.25 # line is 0.25m thick
+  cross_length <- 0.5 # crosses are 0.5m long
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -158,66 +158,6 @@ FINA_swimming_feature_15m_start_line = function(course = "LCM",
   return(m15_line_start)
 }
 
-#' Generate the data frame for the points that comprise the 15m marks for the start end of the pool
-#'
-#' @param course The length of the pool as "SCM" or "LCM"
-#' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in meters
-#' @param rotate A boolean indicating whether or not this feature needs to be
-#'   rotated. Default: \code{FALSE}
-#' @param rotation_dir A string indicating which direction to rotate the
-#'   feature. Default: \code{'ccw'}
-#'
-#' @author Gregory A. Pilgrim
-#'
-#' @return A data frame containing the points that comprise the 15m marks from the start end
-FINA_swimming_feature_15m_start_markers = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
-  # Initialize x and y (to pass checks)
-  x = y = NULL
-
-  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
-  lane_width <- 2.5 # must be 2.5m
-  m15_distance <- 15 # 15m mark is always at 15m
-  mark_thickness <- 5.8/100 # lines are (5.08cm) thick
-
-  pool_width <- ((lane_width * number_of_lanes)) + (overflow_channels * 2)
-  centerlines <- c((-pool_width/2) - (mark_thickness/2), (pool_width/2) + (mark_thickness/2))
-
-  m15_markers_fun <- function(centerline, pool_length, m15_distance, mark_thickness) {
-    df = create_rectangle(
-      x_min = (-pool_length/2) + m15_distance - (mark_thickness/2),
-      x_max = (-pool_length/2) + m15_distance + (mark_thickness/2),
-      y_min = centerline - (mark_thickness / 2),
-      y_max = centerline + (mark_thickness / 2)
-    )
-
-    return(df)
-  }
-
-  m15_markers_start <-
-    lapply(centerlines,
-           m15_markers_fun,
-           pool_length = pool_length,
-           m15_distance = m15_distance,
-           mark_thickness = mark_thickness)
-
-  # convert to single dataframe with id column for each separate marker
-  id <- seq(1, length(m15_markers_start)) # id column
-  m15_markers_start <- Map(cbind, m15_markers_start, group = id) # add id column to each data frame
-  m15_markers_start <- do.call("rbind", m15_markers_start) # bind into single dataframe
-
-  if(rotate){
-    # If the desired output needs to be rotated, rotate the coordinates
-    m15_markers_start = rotate_coords(
-      m15_markers_start,
-      rotation_dir
-    )
-  }
-
-  # Return the feature's data frame
-  return(m15_markers_start)
-}
-
 #' Generate the data frame for the points that comprise the 15m line for the turn end of the pool
 #'
 #' @param course The length of the pool as "SCM" or "LCM"
@@ -238,8 +178,8 @@ FINA_swimming_feature_15m_turn_line = function(course = "LCM", number_of_lanes =
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
   m15_distance <- 15 # 15m mark is always at 15m
-  line_thickness <- 15/100 # line is approxmiately (15cm) thick
-  cross_length <- 1.25 # crosses are 1.5 long
+  line_thickness <- 0.25 # line is 0.25m thick
+  cross_length <- 0.5 # crosses are 0.5m long
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -287,66 +227,6 @@ FINA_swimming_feature_15m_turn_line = function(course = "LCM", number_of_lanes =
   return(m15_line_turn)
 }
 
-#' Generate the data frame for the points that comprise the 15m marks for the turn end of the pool
-#'
-#' @param course The length of the pool as "SCM" or "LCM"
-#' @param number_of_lanes The number of lanes in the pool
-#' @param overflow_channels Width of overflow channels (if they exist) in meters
-#' @param rotate A boolean indicating whether or not this feature needs to be
-#'   rotated. Default: \code{FALSE}
-#' @param rotation_dir A string indicating which direction to rotate the
-#'   feature. Default: \code{'ccw'}
-#'
-#' @author Gregory A. Pilgrim
-#'
-#' @return A data frame containing the points that comprise the 15m marks from the turn end
-FINA_swimming_feature_15m_turn_markers = function(course = "LCM", number_of_lanes = 8, overflow_channels = 0.2, rotate = FALSE, rotation_dir = 'ccw'){
-  # Initialize x and y (to pass checks)
-  x = y = NULL
-
-  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
-  lane_width <- 2.5 # must be 2.5m
-  m15_distance <- 15 # 15m mark is always at 15m
-  mark_thickness <- 5.8/100 # lines are (5.08cm) thick
-
-  pool_width <- ((lane_width * number_of_lanes)) + (overflow_channels * 2)
-  centerlines <- c((-pool_width/2) - (mark_thickness/2), (pool_width/2) + (mark_thickness/2))
-
-  m15_markers_fun <- function(centerline, pool_length, m15_distance, mark_thickness) {
-    df = create_rectangle(
-      x_min = (pool_length/2) - m15_distance - (mark_thickness/2),
-      x_max = (pool_length/2) - m15_distance + (mark_thickness/2),
-      y_min = centerline - (mark_thickness / 2),
-      y_max = centerline + (mark_thickness / 2)
-    )
-
-    return(df)
-  }
-
-  m15_markers_turn <-
-    lapply(centerlines,
-           m15_markers_fun,
-           pool_length = pool_length,
-           m15_distance = m15_distance,
-           mark_thickness = mark_thickness)
-
-  # convert to single dataframe with id column for each separate marker
-  id <- seq(1, length(m15_markers_turn)) # id column
-  m15_markers_turn <- Map(cbind, m15_markers_turn, group = id) # add id column to each data frame
-  m15_markers_turn <- do.call("rbind", m15_markers_turn) # bind into single dataframe
-
-  if(rotate){
-    # If the desired output needs to be rotated, rotate the coordinates
-    m15_markers_turn = rotate_coords(
-      m15_markers_turn,
-      rotation_dir
-    )
-  }
-
-  # Return the feature's data frame
-  return(m15_markers_turn)
-}
-
 #' Generate the data frame for the points that comprise the center line for the pool
 #'
 #' @param course The length of the pool as "SCM" or "LCM"
@@ -370,8 +250,8 @@ FINA_swimming_feature_center_line = function(course = "LCM",
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  line_thickness <- 15/100 # line is approxmiately (15cm) thick
-  cross_length <- 1.75 # crosses are 2m long
+  line_thickness <- 0.25 # line is 0.25m thick
+  cross_length <- 1 # crosses are 1m long
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -381,7 +261,7 @@ FINA_swimming_feature_center_line = function(course = "LCM",
   lane_list <- seq(1, number_of_lanes, 1)
   centerlines <- (offset + ((lane_list - 1) * lane_width)) - pool_width/2
 
-  # 15 meter marks are 15 meters from the start and turn ends of the pool
+  # center line is at x = 0
   center_line_fun <- function(centerline, pool_length, t_offset, line_thickness, cross_length) {
     df = create_rectangle(
       x_min = 0 - (line_thickness/2),
@@ -418,6 +298,76 @@ FINA_swimming_feature_center_line = function(course = "LCM",
 
   # Return the feature's data frame
   return(center_line)
+}
+
+#' Generate the data frame for the points that comprise the center markers on lane lines
+#'
+#' @param course The length of the pool as "SCM" or "LCM"
+#' @param number_of_lanes The number of lanes in the pool
+#' @param overflow_channels Width of overflow channels (if they exist) in meters
+#' @param rotate A boolean indicating whether or not this feature needs to be
+#'   rotated. Default: \code{FALSE}
+#' @param rotation_dir A string indicating which direction to rotate the
+#'   feature. Default: \code{'ccw'}
+#'
+#' @author Gregory A. Pilgrim
+#'
+#' @return A data frame containing the points that comprise the center markers on lane lines
+FINA_swimming_feature_lane_lines_center = function(course = "LCM",
+                                             number_of_lanes = 8,
+                                             overflow_channels = 0.2,
+                                             rotate = FALSE,
+                                             rotation_dir = 'ccw') {
+  # Initialize x and y (to pass checks)
+  x = y = NULL
+
+  pool_length <- ifelse(course %in% c("SCM"), 25, 50)
+  lane_width <- 2.5 # must be 2.5m
+  lane_line_width <- 0.125 # 0.125m
+  bouy_thickness <- 10/100
+
+  pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
+
+  lane_list <- seq(0, number_of_lanes, 1)
+
+  lane_line_centerlines <- overflow_channels + (lane_list * lane_width) - (pool_width/2)
+
+  # center line is at x = 0
+  center_line_fun <- function(lane_line_centerline, bouy_thickness, lane_line_width) {
+    df = create_rectangle(
+      x_min = 0 - (3 * bouy_thickness),
+      x_max = 0 + (3 * bouy_thickness),
+      y_min = lane_line_centerline - (lane_line_width / 2),
+      y_max = lane_line_centerline + (lane_line_width / 2)
+    )
+
+    return(df)
+  }
+
+  lane_line_center <-
+    lapply(
+      lane_line_centerlines,
+      center_line_fun,
+      bouy_thickness = bouy_thickness,
+      lane_line_width = lane_line_width
+    )
+
+  # convert to single dataframe with id column for each separate marker
+  id <- seq(1, length(lane_line_center)) # id column
+  lane_line_center <- Map(cbind, lane_line_center, group = id) # add id column to each data frame
+  lane_line_center <- do.call("rbind", lane_line_center) # bind into single dataframe
+
+
+  if(rotate){
+    # If the desired output needs to be rotated, rotate the coordinates
+    lane_line_center = rotate_coords(
+      lane_line_center,
+      rotation_dir
+    )
+  }
+
+  # Return the feature's data frame
+  return(lane_line_center)
 }
 
 #' Generate the data frame for the points that comprise the backstroke flags for the start end of the pool
@@ -617,8 +567,8 @@ FINA_swimming_feature_lane_markers = function(course = "LCM", number_of_lanes = 
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  t_offset <- 5 # ts are 5ft from the walls
-  line_thickness <- 1 # ts are 1ft thick
+  t_offset <- 2 # ts are 2m from the walls
+  line_thickness <- 0.25 # ts are 0.25m thick
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
   offset <- overflow_channels + lane_width/2
@@ -627,10 +577,10 @@ FINA_swimming_feature_lane_markers = function(course = "LCM", number_of_lanes = 
 
   lane_markers_fun <- function(centerline, pool_length, t_offset, line_thickness) {
     df = create_rectangle(
-      x_min = (-pool_length / 2) + (t_offset / 3),
-      x_max = (pool_length / 2) - (t_offset / 3),
-      y_min = centerline - ((line_thickness / 2) / 3),
-      y_max = centerline + ((line_thickness / 2) / 3)
+      x_min = (-pool_length / 2) + t_offset,
+      x_max = (pool_length / 2) - t_offset,
+      y_min = centerline - (line_thickness / 2),
+      y_max = centerline + (line_thickness / 2)
     )
 
     return(df)
@@ -673,15 +623,15 @@ FINA_swimming_feature_lane_markers_cross_start = function(course = "LCM", number
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  t_offset <- 5/3 # ts are 5ft from the walls
-  line_thickness <- 1/3 # ts are 1ft thick
-  cross_length <- 3/3 # crosses are 3ft long
+  t_offset <- 2 # ts are 2m from the walls
+  line_thickness <- 0.25 # ts are 0.25m thick
+  cross_length <- 1 # crosses are 1m long
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
-  centerlines <- (offset + ((lane_list - 1) * lane_width)) - pool_width/2
+  centerlines <- (offset + ((lane_list - 1) * lane_width)) - (pool_width/2)
 
   lane_markers_cross_fun <- function(centerline, pool_length, t_offset, line_thickness, cross_length) {
     df = create_rectangle(
@@ -741,15 +691,15 @@ FINA_swimming_feature_lane_markers_cross_turn = function(course = "LCM", number_
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  t_offset <- 5/3 # ts are 5ft from the walls
-  line_thickness <-  1/3 # ts are 1ft or 1/3m thick
-  cross_length <- 3/3 # crosses are 3ft or 1m long
+  t_offset <- 2 # ts are 2m from the walls
+  line_thickness <- 0.25 # ts are 0.25m thick
+  cross_length <- 1 # crosses are 1m long
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
-  centerlines <- (offset + ((lane_list - 1) * lane_width)) - pool_width/2
+  centerlines <- (offset + ((lane_list - 1) * lane_width)) - (pool_width/2)
 
   lane_markers_cross_fun <- function(centerline, pool_length, t_offset, line_thickness, cross_length) {
     df = create_rectangle(
@@ -875,7 +825,7 @@ FINA_swimming_feature_lane_lines = function(course = "LCM", number_of_lanes = 8,
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
-  lane_line_width <- 15.24/100 # 15.24cm
+  lane_line_width <- 0.125 # 0.125m
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
   lane_list <- seq(0, number_of_lanes, 1)
@@ -938,7 +888,7 @@ FINA_swimming_feature_lane_lines_start = function(course = "LCM", number_of_lane
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  lane_line_width <- 0.125 # 0.125m
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
   lane_list <- seq(0, number_of_lanes, 1)
@@ -1001,9 +951,9 @@ FINA_swimming_feature_lane_lines_start_15m = function(course = "LCM", number_of_
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  lane_line_width <- 0.125 # 0.125m
   m15_distance <- 15
-  bouy_thickness <- 7.62/100
+  bouy_thickness <- 10/100
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -1069,7 +1019,7 @@ FINA_swimming_feature_lane_lines_turn = function(course = "LCM", number_of_lanes
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  lane_line_width <- 0.125 # 0.125m
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -1133,9 +1083,9 @@ FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM", number_of_l
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
-  lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  lane_line_width <- 0.125 # 0.125m
+  bouy_thickness <- 10/100
   m15_distance <- 15
-  bouy_thickness <- 7.62/100
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -1143,42 +1093,41 @@ FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM", number_of_l
 
   lane_line_centerlines <- overflow_channels + (lane_list * lane_width) - (pool_width/2)
 
-  lane_lines_fun <- function(lane_line_centerline, pool_length, m15_distance, bouy_thickness, lane_line_width) {
+  lane_lines_fun <- function(lane_line_centerline, m15_distance, bouy_thickness, lane_line_width) {
     df = create_rectangle(
       x_min = (pool_length / 2) - m15_distance - bouy_thickness,
       x_max = (pool_length / 2) - m15_distance,
       y_min = lane_line_centerline - (lane_line_width / 2),
-      y_max = lane_line_centerline + (lane_line_width/ 2)
+      y_max = lane_line_centerline + (lane_line_width / 2)
     )
 
     return(df)
   }
 
-  lane_lines_turn_15m <-
+  lane_lines_start_15m <-
     lapply(
       lane_line_centerlines,
       lane_lines_fun,
-      pool_length = pool_length,
       m15_distance = m15_distance,
       bouy_thickness = bouy_thickness,
       lane_line_width = lane_line_width
     )
 
   # convert to single dataframe with id column for each separate marker
-  id <- seq(1, length(lane_lines_turn_15m)) # id column
-  lane_lines_turn_15m <- Map(cbind, lane_lines_turn_15m, group = id) # add id column to each data frame
-  lane_lines_turn_15m <- do.call("rbind", lane_lines_turn_15m) # bind into single dataframe
+  id <- seq(1, length(lane_lines_start_15m)) # id column
+  lane_lines_start_15m <- Map(cbind, lane_lines_start_15m, group = id) # add id column to each data frame
+  lane_lines_start_15m <- do.call("rbind", lane_lines_start_15m) # bind into single dataframe
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
-    lane_lines_turn_15m = rotate_coords(
-      lane_lines_turn_15m,
+    lane_lines_start_15m = rotate_coords(
+      lane_lines_start_15m,
       rotation_dir
     )
   }
 
   # Return the feature's data frame
-  return(lane_lines_turn_15m)
+  return(lane_lines_start_15m)
 }
 
 #' Generate the list of colors for a pool. The defaults can
@@ -1218,7 +1167,6 @@ FINA_swimming_features_set_colors = function(deck_color = 'grey',
                                             pool_color = 'blue',
                                             m15_start_color = 'black',
                                             m15_turn_color = 'black',
-                                            m15_markers_color = 'red',
                                             center_line_color = 'black',
                                             flags_start_color = 'red',
                                             flags_turn_color = 'red',
@@ -1236,7 +1184,6 @@ FINA_swimming_features_set_colors = function(deck_color = 'grey',
     pool_color = pool_color,
     m15_start_color = m15_start_color,
     m15_turn_color = m15_turn_color,
-    m15_markers_color = m15_markers_color,
     center_line_color = center_line_color,
     flags_start_color = flags_start_color,
     flags_turn_color = flags_turn_color,
@@ -1289,9 +1236,7 @@ geom_FINA_swimming = function(course,
   deck = FINA_swimming_feature_deck(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   pool = FINA_swimming_feature_pool(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   m15_start = FINA_swimming_feature_15m_start_line(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_markers_start = FINA_swimming_feature_15m_start_markers(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   m15_turn = FINA_swimming_feature_15m_turn_line(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
-  m15_markers_turn = FINA_swimming_feature_15m_turn_markers(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   center_line = FINA_swimming_feature_center_line(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   flags_start = FINA_swimming_feature_flags_start(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   flags_turn = FINA_swimming_feature_flags_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
@@ -1306,6 +1251,7 @@ geom_FINA_swimming = function(course,
   lane_lines_start_15m = FINA_swimming_feature_lane_lines_start_15m(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_lines_turn = FINA_swimming_feature_lane_lines_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_lines_turn_15m = FINA_swimming_feature_lane_lines_turn_15m(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+  lane_lines_center = FINA_swimming_feature_lane_lines_center(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
 
   unit <- ifelse(course %in% c("SCM", "LCM"), "meters", "yards")
 
@@ -1332,9 +1278,7 @@ geom_FINA_swimming = function(course,
   g = add_feature(g, deck, color_list$deck_color)
   g = add_feature(g, pool, color_list$pool_color)
   g = add_feature(g, m15_start, color_list$m15_start_color, alpha = 0.5)
-  g = add_feature(g, m15_markers_start, group = group, color_list$m15_markers)
   g = add_feature(g, m15_turn, color_list$m15_turn_color, alpha = 0.5)
-  g = add_feature(g, m15_markers_turn, group = group, color_list$m15_markers)
   g = add_feature(g, lane_markers, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
@@ -1345,6 +1289,7 @@ geom_FINA_swimming = function(course,
   g = add_feature(g, lane_lines_start_15m, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn_15m, group = group, color_list$lane_line_ends)
+  g = add_feature(g, lane_lines_center, group = group, color_list$lane_line_ends)
   g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")
