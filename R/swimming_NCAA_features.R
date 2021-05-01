@@ -634,8 +634,8 @@ NCAA_swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_o
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  blocks_depth <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) deep
-  blocks_width <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) wide
+  blocks_depth <- ifelse(course %in% c("SCY"), 34/12/3, 86.36/100) # blocks are 34in (86.26cm) deep
+  blocks_width <- ifelse(course %in% c("SCY"), 34/12/3, 86.36/100) # blocks are 34in (86.26cm) wide
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
@@ -724,7 +724,7 @@ NCAA_swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, numb
       x_min = (-pool_length / 2) + 1,
       x_max = (pool_length / 2) - 1,
       y_min = lane_line_centerline - (lane_line_width / 2),
-      y_max = lane_line_centerline + (lane_line_width/ 2)
+      y_max = lane_line_centerline + (lane_line_width / 2)
     )
 
     return(df)
@@ -801,7 +801,7 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3
       x_min = (-pool_length / 2) + 1,
       x_max = (-pool_length / 2) + 4.57,
       y_min = lane_line_centerline - (lane_line_width / 2),
-      y_max = lane_line_centerline + (lane_line_width/ 2)
+      y_max = lane_line_centerline + (lane_line_width / 2)
     )
 
     return(df)

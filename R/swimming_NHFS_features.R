@@ -752,8 +752,8 @@ NFHS_swimming_feature_blocks = function(course = "SCY", lane_width = 7/3, number
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
-  blocks_depth <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) deep
-  blocks_width <- ifelse(course %in% c("SCY"), 34/12/3, 86/36/100) # blocks are 34in (86.26cm) wide
+  blocks_depth <- ifelse(course %in% c("SCY"), 34/12/3, 86.36/100) # blocks are 34in (86.26cm) deep
+  blocks_width <- ifelse(course %in% c("SCY"), 34/12/3, 86.36/100) # blocks are 34in (86.26cm) wide
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
