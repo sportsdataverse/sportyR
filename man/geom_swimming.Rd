@@ -45,4 +45,5 @@ Generate a ggplot2 instance containing a swimming for a specified course
 \examples{
 geom_swimming(league = "NHFS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
 geom_swimming(league = "NCAA", course =  "LCM")
+geom_swimming(league = "FINA", course =  "LCM")
 }

@@ -1051,7 +1051,12 @@ NFHS_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 7/
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane line strings
-NFHS_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 7/3, number_of_lanes = 8, overflow_channels = 0.5, rotate = FALSE, rotation_dir = 'ccw'){
+NFHS_swimming_feature_lane_line_strings = function(course = "SCY",
+                                                   lane_width = 7 / 3,
+                                                   number_of_lanes = 8,
+                                                   overflow_channels = 0.5,
+                                                   rotate = FALSE,
+                                                   rotation_dir = 'ccw') {
 
   # course = "SCY"
   # lane_width = 3
@@ -1294,7 +1299,7 @@ geom_NFHS_swimming = function(course,
   g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, blocks, group = group, color_list$blocks)
-  g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_strings)
+  g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_string)
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
   g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)

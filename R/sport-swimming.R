@@ -20,6 +20,7 @@
 #' @examples
 #' geom_swimming(league = "NHFS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
 #' geom_swimming(league = "NCAA", course =  "LCM")
+#' geom_swimming(league = "FINA", course =  "LCM")
 geom_swimming = function(league,
                          course,
                          lane_width = 3,
@@ -49,7 +50,7 @@ geom_swimming = function(league,
 
     'NHFS' = geom_NFHS_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
-    'FINA' = geom_FINA_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'FINA' = geom_FINA_swimming(course, number_of_lanes, overflow_channels, ...),
 
     stop(glue::glue('{league} is not a valid league at this time.'))
   )

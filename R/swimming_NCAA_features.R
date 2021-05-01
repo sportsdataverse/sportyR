@@ -1016,7 +1016,7 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
                                         blocks_color = 'white',
                                         lane_lines_color = 'white',
                                         lane_line_ends_color = 'red',
-                                        lane_line_string_color = 'black'
+                                        lane_line_strings_color = 'black'
 
 ){
   # Create the colors to use for the plot
@@ -1033,7 +1033,7 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
     lane_line_ends_color = lane_line_ends_color,
-    lane_line_string_color = lane_line_string_color
+    lane_line_strings_color = lane_line_strings_color
 
 
     )
@@ -1130,8 +1130,8 @@ geom_NCAA_swimming = function(course,
   g = add_feature(g, blocks, group = group, color_list$blocks)
   g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_strings)
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
-  g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
+  g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
   g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")
