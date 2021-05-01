@@ -1016,7 +1016,7 @@ NCAA_swimmng_features_set_colors = function(deck_color = 'grey',
                                         blocks_color = 'white',
                                         lane_lines_color = 'white',
                                         lane_line_ends_color = 'red',
-                                        lane_line_strings_color = 'black'
+                                        lane_line_string_color = 'black'
 
 ){
   # Create the colors to use for the plot
@@ -1033,7 +1033,7 @@ NCAA_swimmng_features_set_colors = function(deck_color = 'grey',
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
     lane_line_ends_color = lane_line_ends_color,
-    lane_line_strings_color = lane_line_strings_color
+    lane_line_string_color = lane_line_string_color
 
 
     )

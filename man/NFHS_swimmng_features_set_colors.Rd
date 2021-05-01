@@ -21,7 +21,7 @@ NFHS_swimmng_features_set_colors(
   blocks_color = "white",
   lane_lines_color = "white",
   lane_line_ends_color = "red",
-  lane_line_strings_color = "black"
+  lane_line_string_color = "black"
 )
 }
 \arguments{
@@ -31,13 +31,43 @@ this feature}
 \item{pool_color}{A hexadecimal string representing the color to use for
 this feature}
 
+\item{m15_start_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{m15_turn_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{m15_markers_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{flags_start_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{flags_start_alternate_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{flags_turn_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{flags_turn_alternate_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{flags_string_color}{A hexadecimal string representing the color to use for
+this feature}
+
 \item{lane_markers_color}{A hexadecimal string representing the color to use for
 this feature}
 
-\item{m15_color}{A hexadecimal string representing the color to use for
+\item{blocks_color}{A hexadecimal string representing the color to use for
 this feature}
 
-\item{flags_color}{A hexadecimal string representing the color to use for
+\item{lane_lines_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{lane_lines_ends_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{lane_lines_string_color}{A hexadecimal string representing the color to use for
 this feature}
 }
 \value{

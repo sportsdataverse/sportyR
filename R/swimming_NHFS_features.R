@@ -1125,11 +1125,31 @@ NFHS_swimmng_feature_lane_line_strings = function(course = "SCY", lane_width = 7
 #'   this feature
 #' @param pool_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param m15_color A hexadecimal string representing the color to use for
+#' @param m15_start_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param flags_color A hexadecimal string representing the color to use for
+#' @param m15_turn_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param m15_markers_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_start_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_start_alternate_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_turn_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_turn_alternate_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_string_color A hexadecimal string representing the color to use for
 #'   this feature
 #' @param  lane_markers_color  A hexadecimal string representing the color to use for
+#'   this feature
+#' @param blocks_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param  lane_lines_color  A hexadecimal string representing the color to use for
+#'   this feature
+#' @param  lane_lines_ends_color  A hexadecimal string representing the color to use for
+#'   this feature
+#' @param  lane_lines_string_color  A hexadecimal string representing the color to use for
 #'   this feature
 #'
 #' @author Gregory A. Pilgrim
@@ -1150,7 +1170,7 @@ NFHS_swimmng_features_set_colors = function(deck_color = 'grey',
                                             blocks_color = 'white',
                                             lane_lines_color = 'white',
                                             lane_line_ends_color = 'red',
-                                            lane_line_strings_color = 'black'
+                                            lane_line_string_color = 'black'
 
 ){
   # Create the colors to use for the plot
@@ -1169,7 +1189,7 @@ NFHS_swimmng_features_set_colors = function(deck_color = 'grey',
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
     lane_line_ends_color = lane_line_ends_color,
-    lane_line_strings_color = lane_line_strings_color
+    lane_line_string_color = lane_line_string_color
   )
 
   if(flags_start_color == flags_start_alternate_color){
