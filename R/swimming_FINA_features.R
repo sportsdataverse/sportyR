@@ -1245,6 +1245,20 @@ geom_FINA_swimming = function(course,
   lane_markers_cross_turn = FINA_swimming_feature_lane_markers_cross_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   blocks = FINA_swimming_feature_blocks(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_lines = FINA_swimming_feature_lane_lines(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
+
+  # FINA requires these lane line color schemes for pools with 8 and 10 lanes
+  if(number_of_lanes == 8){
+    green_lane_lines <- lane_lines[lane_lines$group %in% c(1, 9),]
+    blue_lane_lines <- lane_lines[lane_lines$group %in% c(2, 3, 7, 8),]
+    yellow_lane_lines <- lane_lines[lane_lines$group %in% c(4, 5, 6),]
+  }
+
+  if(number_of_lanes == 10){
+    green_lane_lines <- lane_lines[lane_lines$group %in% c(1, 11),]
+    blue_lane_lines <- lane_lines[lane_lines$group %in% c(2, 3, 4, 8, 9, 10),]
+    yellow_lane_lines <- lane_lines[lane_lines$group %in% c(5, 6, 7),]
+  }
+
   lane_lines_start = FINA_swimming_feature_lane_lines_start(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_lines_start_15m = FINA_swimming_feature_lane_lines_start_15m(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
   lane_lines_turn = FINA_swimming_feature_lane_lines_turn(course, number_of_lanes, overflow_channels, rotate, rotation_dir)
@@ -1282,7 +1296,17 @@ geom_FINA_swimming = function(course,
   g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, center_line, group = group, color_list$center_line, alpha = 0.75)
   g = add_feature(g, blocks, group = group, color_list$blocks)
+  if(number_of_lanes == 8){
+    g = add_feature(g, green_lane_lines, group = group, 'green')
+    g = add_feature(g, blue_lane_lines, group = group, 'lightblue')
+    g = add_feature(g, yellow_lane_lines, group = group, 'yellow')
+  } else if(number_of_lanes == 10){
+    g = add_feature(g, green_lane_lines, group = group, 'green')
+    g = add_feature(g, blue_lane_lines, group = group, 'lightblue')
+    g = add_feature(g, yellow_lane_lines, group = group, 'yellow')
+  } else {
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
+  }
   g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_start_15m, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)

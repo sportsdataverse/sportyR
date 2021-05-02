@@ -56,9 +56,6 @@ this feature}
 \item{lane_lines_color}{A hexadecimal string representing the color to use for
 this feature}
 
-\item{m15_markers_color}{A hexadecimal string representing the color to use for
-this feature}
-
 \item{lane_lines_ends_color}{A hexadecimal string representing the color to use for
 this feature}
 }
