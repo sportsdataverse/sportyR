@@ -3,7 +3,7 @@
 #' @param leauge The league for which to draw the pool
 #' @param course The course for which to draw the pool
 #' @param lane_width The width of an individual lane in the same units as \code{course}
-#' @param number_of_lanes The number of lanes in the pool
+#' @param number_of_lanes An integar giving the number of lanes in the pool
 #' @param overflow_channels Width of overflow channels (if they exist) in the same units as \code{course}
 #' @param rotate A boolean indicating whether or not this feature needs to be
 #'   rotated. Default: \code{FALSE}
@@ -18,7 +18,7 @@
 #' @export
 #'
 #' @examples
-#' geom_swimming(league = "NHFS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
+#' geom_swimming(league = "NFHS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
 #' geom_swimming(league = "NCAA", course =  "LCM")
 #' geom_swimming(league = "FINA", course =  "LCM")
 geom_swimming = function(league,
@@ -33,9 +33,37 @@ geom_swimming = function(league,
   # Force the league to be all upper case
   course = toupper(course)
 
-  # Call the appropriate plot-generating function
+  # Require viable course
   if(course %in% c("SCM", "LCM", "SCY") == FALSE){
     stop(paste0(course, " is not a valid course.  Courses are 'LCM', 'SCM' or 'SCY'."))
+  }
+
+  # Require lane_width to be numeric
+  lane_width = as.numeric(lane_width)
+  if(is.na(lane_width)){
+    stop("lane_width must be a numeric value, with the same implied units as course")
+  }
+
+  # Require lane_width to be postive
+  if(lane_width <= 0){
+    stop("lane_width must be a postive value, with the same implied units as course")
+  }
+
+  # Require number_of_lanes to be an integar
+  number_of_lanes = as.integer(number_of_lanes)
+  if(is.na(number_of_lanes)){
+    stop("number_of_lanes must be an integer value")
+  }
+
+  # Require number_of_lanes to be postive, greater than zero
+  if(number_of_lanes <= 0){
+    stop("number_of_lanes must be an integer greater than zero")
+  }
+
+  # Require overflow_channels to be numeric
+  overflow_channels = as.numeric(overflow_channels)
+  if(is.na(overflow_channels)){
+    stop("overflow_channels must be a numeric value, with the same implied units as course")
   }
 
   # FINA requires overflow channels to be at least 0.2m
@@ -48,7 +76,7 @@ geom_swimming = function(league,
     league,
     'NCAA' = geom_NCAA_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
-    'NHFS' = geom_NFHS_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'NFHS' = geom_NFHS_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
     'FINA' = geom_FINA_swimming(course, number_of_lanes, overflow_channels, ...),
 

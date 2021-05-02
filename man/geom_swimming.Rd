@@ -20,7 +20,7 @@ geom_swimming(
 
 \item{lane_width}{The width of an individual lane in the same units as \code{course}}
 
-\item{number_of_lanes}{The number of lanes in the pool}
+\item{number_of_lanes}{An integar giving the number of lanes in the pool}
 
 \item{overflow_channels}{Width of overflow channels (if they exist) in the same units as \code{course}}
 
@@ -43,7 +43,7 @@ A ggplot2 instance with a full-surface representation of a swimming pool
 Generate a ggplot2 instance containing a swimming for a specified course
 }
 \examples{
-geom_swimming(league = "NHFS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
+geom_swimming(league = "NFHS", course = "SCY", rotate = TRUE, rotation_dir = "ccw")
 geom_swimming(league = "NCAA", course =  "LCM")
 geom_swimming(league = "FINA", course =  "LCM")
 }
