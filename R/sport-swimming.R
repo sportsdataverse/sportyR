@@ -31,6 +31,7 @@ geom_swimming = function(league,
                          ...) {
 
   # Force the league to be all upper case
+  league = toupper(league)
   course = toupper(course)
 
   # Require viable course
