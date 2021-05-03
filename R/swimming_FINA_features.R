@@ -842,7 +842,7 @@ fina_swimming_feature_blocks = function(course = "LCM",
 
   offset <- overflow_channels + lane_width / 2
   lane_list <- seq(1, number_of_lanes, 1)
-  centerlines <-
+  blocks_centerlines <-
     (offset + ((lane_list - 1) * lane_width)) - pool_width / 2
 
   blocks_fun <-
@@ -862,7 +862,7 @@ fina_swimming_feature_blocks = function(course = "LCM",
 
   blocks <-
     lapply(
-      centerlines,
+      blocks_centerlines,
       blocks_fun,
       pool_length = pool_length,
       blocks_depth = blocks_depth,

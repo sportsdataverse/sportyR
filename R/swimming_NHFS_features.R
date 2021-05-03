@@ -616,6 +616,8 @@ nfhs_swimming_feature_lane_markers = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   t_offset <-
     5 / 3 # ts are between 60-80 inches (5-6.67ft) or 1.5-2m from the walls
   line_thickness <- 1 / 3 # lines are 10-12in thick
@@ -623,7 +625,7 @@ nfhs_swimming_feature_lane_markers = function(course = "SCY",
   offset <- overflow_channels + lane_width / 2
   lane_list <- seq(1, number_of_lanes, 1)
   centerlines <-
-    (offset * lane_list) - ((lane_width * number_of_lanes) / 2) - overflow_channels
+    (offset + ((lane_list - 1) * lane_width)) - pool_width / 2
 
   lane_markers_fun <-
     function(centerline,
@@ -690,6 +692,8 @@ nfhs_swimming_feature_lane_markers_cross_start = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   t_offset <- 5 / 3 # ts are 5ft from the walls
   line_thickness <- 1 / 3 # ts are 1ft thick
   cross_length <-
@@ -698,7 +702,7 @@ nfhs_swimming_feature_lane_markers_cross_start = function(course = "SCY",
   offset <- overflow_channels + lane_width / 2
   lane_list <- seq(1, number_of_lanes, 1)
   centerlines <-
-    (offset * lane_list) - ((lane_width * number_of_lanes) / 2) - overflow_channels
+    (offset + ((lane_list - 1) * lane_width)) - pool_width / 2
 
   lane_markers_cross_fun <-
     function(centerline,
@@ -767,6 +771,8 @@ nfhs_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   t_offset <- 5 / 3 # ts are 5ft from the walls
   line_thickness <-  1 / 3 # ts are 1ft or 1/3m thick
   cross_length <-
@@ -775,7 +781,7 @@ nfhs_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
   offset <- overflow_channels + lane_width / 2
   lane_list <- seq(1, number_of_lanes, 1)
   centerlines <-
-    (offset * lane_list) - ((lane_width * number_of_lanes) / 2) - overflow_channels
+    (offset + ((lane_list - 1) * lane_width)) - pool_width / 2
 
   lane_markers_cross_fun <-
     function(centerline,
@@ -844,6 +850,8 @@ nfhs_swimming_feature_blocks = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   blocks_depth <-
     ifelse(course %in% c("SCY"), 34 / 12 / 3, 86.36 / 100) # blocks are 34in (86.26cm) deep
   blocks_width <-
@@ -851,8 +859,8 @@ nfhs_swimming_feature_blocks = function(course = "SCY",
 
   offset <- overflow_channels + lane_width / 2
   lane_list <- seq(1, number_of_lanes, 1)
-  centerlines <-
-    (offset * lane_list) - ((lane_width * number_of_lanes) / 2) - overflow_channels
+  blocks_centerlines <-
+    (offset + ((lane_list - 1) * lane_width)) - (pool_width / 2)
 
   blocks_fun <-
     function(centerline,
@@ -871,7 +879,7 @@ nfhs_swimming_feature_blocks = function(course = "SCY",
 
   blocks <-
     lapply(
-      centerlines,
+      blocks_centerlines,
       blocks_fun,
       pool_length = pool_length,
       blocks_depth = blocks_depth,
@@ -918,19 +926,20 @@ nfhs_swimming_feature_lane_lines = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   lane_line_width <-
     ifelse(course %in% c("SCY"), 6 / 12 / 3, 15.24 / 100) # 6in or 15.24cm
 
   offset_width <- overflow_channels / 2
   if (overflow_channels > 0) {
-    lane_list <- seq(1, number_of_lanes + 1, 1)
+    lane_list <- seq(0, number_of_lanes , 1)
   } else {
     lane_list <- seq(1, number_of_lanes - 1, 1)
   }
 
   lane_line_centerlines <-
-    (lane_list * lane_width) - (lane_width / 2) - ((lane_width * number_of_lanes) /
-                                                     2) - overflow_channels
+    overflow_channels + (lane_list * lane_width) - (pool_width / 2)
 
   lane_lines_fun <-
     function(lane_line_centerline,
@@ -995,20 +1004,21 @@ nfhs_swimming_feature_lane_lines_start = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   lane_line_width <-
     ifelse(course %in% c("SCY"), 6 / 12 / 3, 15.24 / 100) # 6in or 15.24cm
   color_length <- 5
 
   offset_width <- overflow_channels / 2
   if (overflow_channels > 0) {
-    lane_list <- seq(1, number_of_lanes + 1, 1)
+    lane_list <- seq(0, number_of_lanes , 1)
   } else {
     lane_list <- seq(1, number_of_lanes - 1, 1)
   }
 
   lane_line_centerlines <-
-    (lane_list * lane_width) - (lane_width / 2) - ((lane_width * number_of_lanes) /
-                                                     2) - overflow_channels
+    overflow_channels + (lane_list * lane_width) - (pool_width / 2)
 
   lane_lines_fun <-
     function(lane_line_centerline,
@@ -1075,20 +1085,21 @@ nfhs_swimming_feature_lane_lines_turn = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   lane_line_width <-
     ifelse(course %in% c("SCY"), 6 / 12 / 3, 15.24 / 100) # 6in or 15.24cm
   color_length <- 5
 
   offset_width <- overflow_channels / 2
   if (overflow_channels > 0) {
-    lane_list <- seq(1, number_of_lanes + 1, 1)
+    lane_list <- seq(0, number_of_lanes , 1)
   } else {
     lane_list <- seq(1, number_of_lanes - 1, 1)
   }
 
   lane_line_centerlines <-
-    (lane_list * lane_width) - (lane_width / 2) - ((lane_width * number_of_lanes) /
-                                                     2) - overflow_channels
+    overflow_channels + (lane_list * lane_width) - (pool_width / 2)
 
   lane_lines_fun <-
     function(lane_line_centerline,
@@ -1155,19 +1166,20 @@ nfhs_swimming_feature_lane_line_strings = function(course = "SCY",
   x = y = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
+  pool_width <-
+    (lane_width * number_of_lanes) + (overflow_channels * 2)
   lane_line_string_width <-
     ifelse(course %in% c("SCY"), 1 / 12 / 3, 2.54 / 100) # 1in or 2.54cm  - needs to be large enough to be visible
 
   offset_width <- overflow_channels / 2
   if (overflow_channels > 0) {
-    lane_list <- seq(1, number_of_lanes + 1, 1)
+    lane_list <- seq(0, number_of_lanes , 1)
   } else {
     lane_list <- seq(1, number_of_lanes - 1, 1)
   }
 
   lane_line_centerlines <-
-    (lane_list * lane_width) - (lane_width / 2) - ((lane_width * number_of_lanes) /
-                                                     2) - overflow_channels
+    overflow_channels + (lane_list * lane_width) - (pool_width / 2)
 
   # using rectangles sometimes results in rectangle not being shown because it's to thin
   # heavily dependent on viewer window
