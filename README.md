@@ -101,6 +101,9 @@ respective rule books. They are as follows:
 |   Soccer   |   NCAA Soccer   |          `m`          |
 |   Soccer   |      NWSL       |          `m`          |
 |   Soccer   | Premier League  |          `m`          |
+|   Swimming |      FINA       |          `m`          |
+|   Swimming |      NCAA       |          `m`          |
+|   Swimming |      NFHS       |          `m`          |
 |   Tennis   |       ITF       |         `ft`          |
 |   Tennis   |      NCAA       |         `ft`          |
 
@@ -148,6 +151,15 @@ geom_soccer('fifa', touchline_length = 100, goal_line_length = 75)
 ```
 
 <img src="man/figures/README-fifa-example-1.png" width="100%" />
+
+Swimming pools require a specification of `course` as either `LCM` for long course meters, `SCM` for short course meters or `SCY` for short course yards.
+
+``` r
+# Create a 100m by 75m FIFA pitch
+geom_soccer('fifa', touchline_length = 100, goal_line_length = 75)
+```
+
+<img src="man/figures/README-fina-example-1.png" width="100%" />
 
 It’s also possible to plot half-surfaces and rotated surfaces:
 
