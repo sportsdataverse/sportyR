@@ -8,7 +8,7 @@ A list of lists (JSON) that associates a league code with a given sport that
 it can create. This data is primarily useful in the caniplot_league()
 function, and is intended to be an internal dataset.}
 \format{
-An object of class \code{list} of length 18.
+An object of class \code{list} of length 19.
 }
 \usage{
 league_lookup
