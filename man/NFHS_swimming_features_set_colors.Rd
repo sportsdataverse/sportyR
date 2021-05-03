@@ -7,7 +7,7 @@ be overwritten by supplying the names of the list elements to the
 \code{geom_swimming()} function}
 \usage{
 nfhs_swimming_features_set_colors(
-  deck_color = "grey",
+  deck_color = "lightgrey",
   pool_color = "blue",
   m15_start_color = "black",
   m15_turn_color = "black",
@@ -20,8 +20,8 @@ nfhs_swimming_features_set_colors(
   lane_markers_color = "black",
   blocks_color = "white",
   lane_lines_color = "white",
-  lane_line_ends_color = "red",
-  lane_line_string_color = "black"
+  lane_lines_ends_color = "red",
+  lane_lines_string_color = "black"
 )
 }
 \arguments{

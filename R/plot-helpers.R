@@ -123,11 +123,13 @@ add_feature = function(g, feature_df, feature_color, group = NULL, ...){
 #' @param feature_color A hexadecimal string with which to color the feature
 #'   once added to the plot
 #' @param linetype a string containing a ggplot2 linetype
+#' @param group value differentiating between different lines
+#' @param ... other ggplot2 arguments as needed
 #'
 #' @return A ggplot2 instance with the feature added to it
 add_line_feature = function(g, feature_df, feature_color, linetype = 1, group = NULL, ...){
   # Initialize x and y (to pass checks)
-  x = y = NULL
+  x = y = xend = yend = NULL
 
   # First, check the data frame to ensure it has 'x' and 'y' columns
   data_frame_checked_and_passed = check_data_frame_for_plot(feature_df)

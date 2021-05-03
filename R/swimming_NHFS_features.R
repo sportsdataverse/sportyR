@@ -18,12 +18,12 @@ nfhs_swimming_feature_deck = function(course = "SCY",
                                       overflow_channels = 0.5,
                                       rotate = FALSE,
                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
 
-  # This gives the grey background of the deck
+  # This gives the background of the deck
   deck = create_rectangle(
     x_min = (-pool_length / 2) - 3,
     x_max = (pool_length / 2) + 3,
@@ -61,8 +61,8 @@ nfhs_swimming_feature_pool = function(course = "SCY",
                                       overflow_channels = 0.5,
                                       rotate = FALSE,
                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
 
@@ -104,8 +104,8 @@ nfhs_swimming_feature_15m_start_line = function(course = "SCY",
                                                 overflow_channels = 0.5,
                                                 rotate = FALSE,
                                                 rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   m15_distance <-
@@ -151,8 +151,8 @@ nfhs_swimming_feature_15m_start_markers = function(course = "SCY",
                                                    overflow_channels = 0.5,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   m15_distance <-
@@ -223,8 +223,8 @@ nfhs_swimming_feature_15m_turn_line = function(course = "SCY",
                                                overflow_channels = 0.5,
                                                rotate = FALSE,
                                                rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   m15_distance <-
@@ -271,8 +271,8 @@ nfhs_swimming_feature_15m_turn_markers = function(course = "SCY",
                                                   overflow_channels = 0.5,
                                                   rotate = FALSE,
                                                   rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   m15_distance <-
@@ -343,8 +343,8 @@ nfhs_swimming_feature_flags_start = function(course = "SCY",
                                              overflow_channels = 0.5,
                                              rotate = FALSE,
                                              rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
 
@@ -388,8 +388,8 @@ nfhs_swimming_feature_flags_start_2 = function(course = "SCY",
                                                overflow_channels = 0.5,
                                                rotate = FALSE,
                                                rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -434,8 +434,8 @@ nfhs_swimming_feature_flags_start_string = function(course = "SCY",
                                                     overflow_channels = 0.5,
                                                     rotate = FALSE,
                                                     rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -478,8 +478,8 @@ nfhs_swimming_feature_flags_turn = function(course = "SCY",
                                             overflow_channels = 0.5,
                                             rotate = FALSE,
                                             rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -522,8 +522,8 @@ nfhs_swimming_feature_flags_turn_2 = function(course = "SCY",
                                               overflow_channels = 0.5,
                                               rotate = FALSE,
                                               rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -568,8 +568,8 @@ nfhs_swimming_feature_flags_turn_string = function(course = "SCY",
                                                    overflow_channels = 0.5,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -612,8 +612,8 @@ nfhs_swimming_feature_lane_markers = function(course = "SCY",
                                               overflow_channels = 0.5,
                                               rotate = FALSE,
                                               rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -688,8 +688,8 @@ nfhs_swimming_feature_lane_markers_cross_start = function(course = "SCY",
                                                           overflow_channels = 0.5,
                                                           rotate = FALSE,
                                                           rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -767,8 +767,8 @@ nfhs_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
                                                          overflow_channels = 0.5,
                                                          rotate = FALSE,
                                                          rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -846,8 +846,8 @@ nfhs_swimming_feature_blocks = function(course = "SCY",
                                         overflow_channels = 0.5,
                                         rotate = FALSE,
                                         rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -922,8 +922,8 @@ nfhs_swimming_feature_lane_lines = function(course = "SCY",
                                             overflow_channels = 0.5,
                                             rotate = FALSE,
                                             rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -1000,8 +1000,8 @@ nfhs_swimming_feature_lane_lines_start = function(course = "SCY",
                                                   overflow_channels = 0.5,
                                                   rotate = FALSE,
                                                   rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -1081,8 +1081,8 @@ nfhs_swimming_feature_lane_lines_turn = function(course = "SCY",
                                                  overflow_channels = 0.5,
                                                  rotate = FALSE,
                                                  rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -1162,8 +1162,8 @@ nfhs_swimming_feature_lane_line_strings = function(course = "SCY",
                                                    overflow_channels = 0.5,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- 25 # all NHFS pools are 25y or 25m long
   pool_width <-
@@ -1272,7 +1272,7 @@ nfhs_swimming_feature_lane_line_strings = function(course = "SCY",
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-nfhs_swimming_features_set_colors = function(deck_color = 'grey',
+nfhs_swimming_features_set_colors = function(deck_color = 'lightgrey',
                                              pool_color = 'blue',
                                              m15_start_color = 'black',
                                              m15_turn_color = 'black',
@@ -1285,8 +1285,8 @@ nfhs_swimming_features_set_colors = function(deck_color = 'grey',
                                              lane_markers_color = 'black',
                                              blocks_color = 'white',
                                              lane_lines_color = 'white',
-                                             lane_line_ends_color = 'red',
-                                             lane_line_string_color = 'black') {
+                                             lane_lines_ends_color = 'red',
+                                             lane_lines_string_color = 'black') {
   # Create the colors to use for the plot
   feature_colors = list(
     deck_color = deck_color,
@@ -1302,8 +1302,8 @@ nfhs_swimming_features_set_colors = function(deck_color = 'grey',
     lane_markers_color = lane_markers_color,
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
-    lane_line_ends_color = lane_line_ends_color,
-    lane_line_string_color = lane_line_string_color
+    lane_lines_ends_color = lane_lines_ends_color,
+    lane_lines_string_color = lane_lines_string_color
   )
 
   if (flags_start_color == flags_start_alternate_color) {
@@ -1348,6 +1348,9 @@ geom_nfhs_swimming = function(course,
                               caption_color = '#707372',
                               background_color = NULL,
                               ...) {
+  # Initialize group (to pass checks)
+  group = NULL
+
   # Create the colors to use for the plot
   color_list = nfhs_swimming_features_set_colors(...)
 
@@ -1466,7 +1469,7 @@ geom_nfhs_swimming = function(course,
                                                           overflow_channels,
                                                           rotate,
                                                           rotation_dir)
-  lane_line_strings = nfhs_swimming_feature_lane_line_strings(course,
+  lane_lines_strings = nfhs_swimming_feature_lane_line_strings(course,
                                                               lane_width,
                                                               number_of_lanes,
                                                               overflow_channels,
@@ -1502,65 +1505,21 @@ geom_nfhs_swimming = function(course,
   g = add_feature(g, m15_markers_start, group = group, color_list$m15_markers)
   g = add_feature(g, m15_turn, color_list$m15_turn_color, alpha = 0.5)
   g = add_feature(g, m15_markers_turn, group = group, color_list$m15_markers)
-  g = add_feature(g,
-                  lane_markers,
-                  group = group,
-                  color_list$lane_markers,
-                  alpha = 0.75)
-  g = add_feature(
-    g,
-    lane_markers_cross_start,
-    group = group,
-    color_list$lane_markers,
-    alpha = 0.75
-  )
-  g = add_feature(
-    g,
-    lane_markers_cross_turn,
-    group = group,
-    color_list$lane_markers,
-    alpha = 0.75
-  )
+  g = add_feature(g, lane_markers, group = group, color_list$lane_markers, alpha = 0.75)
+  g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
+  g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, blocks, group = group, color_list$blocks)
-  # g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_string)
-  g = add_line_feature(
-    g,
-    lane_line_strings,
-    group = group,
-    color_list$lane_line_string,
-    size = 0.25
-  )
-  g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
-  g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
-  g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
+  # g = add_feature(g, lane_lines_strings, group = group, color_list$lane_lines_string)
+  g = add_line_feature(g, lane_lines_strings, group = group, color_list$lane_lines_string, size = 0.25)
+  g = add_feature(g, lane_lines, group = group, color_list$lane_lines_color) ###
+  g = add_feature(g, lane_lines_start, group = group, color_list$lane_lines_ends)
+  g = add_feature(g, lane_lines_turn, group = group, color_list$lane_lines_ends)
   g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
-  g = add_line_feature(
-    g,
-    flags_start,
-    color_list$flags_start_color,
-    size = 0.75,
-    linetype = "dashed"
-  )
-  g = add_line_feature(
-    g,
-    flags_start_alternate,
-    color_list$flags_start_alternate_color,
-    size = 0.75,
-    linetype = "dashed"
-  )
-  g = add_line_feature(g,
-                       flags_turn,
-                       color_list$flags_turn_color,
-                       size = 0.75,
-                       linetype = "dashed")
-  g = add_line_feature(
-    g,
-    flags_turn_alternate,
-    color_list$flags_turn_alternate_color,
-    size = 0.75,
-    linetype = "dashed"
-  )
+  g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")
+  g = add_line_feature(g, flags_start_alternate, color_list$flags_start_alternate_color, size = 0.75, linetype = "dashed")
+  g = add_line_feature(g, flags_turn, color_list$flags_turn_color, size = 0.75, linetype = "dashed")
+  g = add_line_feature(g, flags_turn_alternate, color_list$flags_turn_alternate_color, size = 0.75, linetype = "dashed")
 
   # Return the ggplot2 instance that contains the NHFS swimming pool plot
   return(g)

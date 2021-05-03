@@ -63,6 +63,17 @@ test_that('Non-rotated league plots match expected outputs', {
   testthat::skip_if(getRversion() >= 4.1)
   vdiffr::expect_doppelganger('premier league plot', premier_league_plot)
 
+  # Swimming
+  fina_plot = geom_swimming(league = "fina", course =  "lcm", number_of_lanes = 10)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('fina plot', fina_plot)
+  ncaa_swimming_plot = geom_swimming(league = "NCAA", course =  "SCY", overflow_channels = 0)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('ncaa swimming plot', ncaa_swimming_plot)
+  nfhs_plot = geom_swimming(league = "nfhs", course =  "SCY", number_of_lanes = 6)
+  testthat::skip_if(getRversion() >= 4.1)
+  vdiffr::expect_doppelganger('nfhs plot', nfhs_plot)
+
   # Tennis
   itf_plot = geom_tennis('itf')
   ncaa_tennis_plot = geom_tennis('ncaa')

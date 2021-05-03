@@ -101,6 +101,11 @@ create_diamond = function(height, width, center = c(0, 0)){
 #' @return A data frame containing the points needed to draw the specified
 #'   line
 create_line = function(x_start, x_end, y_start, y_end){
+
+  # Initialize xend and yend (to pass checks)
+
+  xend = yend = NULL
+
   line_coords = data.frame(
     x = x_start,
     xend = x_end,

@@ -16,8 +16,8 @@ ncaa_swimming_feature_deck = function(course = "SCY",
                                       overflow_channels = 1,
                                       rotate = FALSE,
                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
 
@@ -57,8 +57,8 @@ ncaa_swimming_feature_pool = function(course = "SCY",
                                       overflow_channels = 1,
                                       rotate = FALSE,
                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
 
@@ -98,8 +98,8 @@ ncaa_swimming_feature_15m_start_line = function(course = "SCY",
                                                 overflow_channels = 1,
                                                 rotate = FALSE,
                                                 rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_width <- (lane_width * number_of_lanes) + (overflow_channels * 2)
 
@@ -152,8 +152,8 @@ ncaa_swimming_feature_15m_start_markers = function(course = "SCY",
                                                    overflow_channels = 1,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   m15_distance <-
@@ -222,8 +222,8 @@ ncaa_swimming_feature_15m_turn_line = function(course = "SCY",
                                                overflow_channels = 1,
                                                rotate = FALSE,
                                                rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   m15_distance <-
@@ -268,8 +268,8 @@ ncaa_swimming_feature_15m_turn_markers = function(course = "SCY",
                                                   overflow_channels = 1,
                                                   rotate = FALSE,
                                                   rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   m15_distance <-
@@ -338,7 +338,7 @@ ncaa_swimming_feature_flags_start = function(course = "SCY",
                                              overflow_channels = 1,
                                              rotate = FALSE,
                                              rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
+  # Initialize x, y and group (to pass checks)
 
   # course = "SCY"
   # lane_width = 3
@@ -347,7 +347,7 @@ ncaa_swimming_feature_flags_start = function(course = "SCY",
   # rotate = FALSE
   # rotation_dir = 'ccw'
 
-  x = y = NULL
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -388,8 +388,8 @@ ncaa_swimming_feature_flags_start_string = function(course = "SCY",
                                                     overflow_channels = 1,
                                                     rotate = FALSE,
                                                     rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -430,8 +430,8 @@ ncaa_swimming_feature_flags_turn = function(course = "SCY",
                                             overflow_channels = 1,
                                             rotate = FALSE,
                                             rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -472,8 +472,8 @@ ncaa_swimming_feature_flags_turn_string = function(course = "SCY",
                                                    overflow_channels = 1,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   flags_distance <- 5 # flags are 5y or 5m from wall
@@ -514,8 +514,8 @@ ncaa_swimming_feature_lane_markers = function(course = "SCY",
                                               overflow_channels = 1,
                                               rotate = FALSE,
                                               rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -586,8 +586,8 @@ ncaa_swimming_feature_lane_markers_cross_start = function(course = "SCY",
                                                           overflow_channels = 1,
                                                           rotate = FALSE,
                                                           rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -663,8 +663,8 @@ ncaa_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
                                                          overflow_channels = 1,
                                                          rotate = FALSE,
                                                          rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -739,8 +739,8 @@ ncaa_swimming_feature_blocks = function(course = "SCY",
                                         overflow_channels = 1,
                                         rotate = FALSE,
                                         rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -816,8 +816,8 @@ ncaa_swimming_feature_lane_lines = function(course = "SCY",
                                             overflow_channels = 1,
                                             rotate = FALSE,
                                             rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -894,8 +894,8 @@ ncaa_swimming_feature_lane_lines_start = function(course = "SCY",
                                                   overflow_channels = 1,
                                                   rotate = FALSE,
                                                   rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -971,8 +971,8 @@ ncaa_swimming_feature_lane_lines_turn = function(course = "SCY",
                                                  overflow_channels = 1,
                                                  rotate = FALSE,
                                                  rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -1049,8 +1049,8 @@ ncaa_swimming_feature_lane_line_strings = function(course = "SCY",
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
 
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   pool_width <-
@@ -1220,6 +1220,9 @@ geom_ncaa_swimming = function(course,
                               caption_color = '#707372',
                               background_color = NULL,
                               ...) {
+  # Initialize group (to pass checks)
+  group = NULL
+
   # Create the colors to use for the plot
   color_list = ncaa_swimming_features_set_colors(...)
 

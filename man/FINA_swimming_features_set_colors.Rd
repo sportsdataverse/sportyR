@@ -18,8 +18,8 @@ fina_swimming_features_set_colors(
   lane_markers_color = "black",
   blocks_color = "white",
   lane_lines_color = "white",
-  lane_line_ends_color = "red",
-  lane_line_15m_color = "red"
+  lane_lines_ends_color = "red",
+  lane_lines_15m_color = "red"
 )
 }
 \arguments{
@@ -57,6 +57,9 @@ this feature}
 this feature}
 
 \item{lane_lines_ends_color}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{lane_lines_15m_color}{A hexadecimal string representing the color to use for
 this feature}
 }
 \value{

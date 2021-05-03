@@ -15,6 +15,10 @@ add_line_feature(g, feature_df, feature_color, linetype = 1, group = NULL, ...)
 once added to the plot}
 
 \item{linetype}{a string containing a ggplot2 linetype}
+
+\item{group}{value differentiating between different lines}
+
+\item{...}{other ggplot2 arguments as needed}
 }
 \value{
 A ggplot2 instance with the feature added to it

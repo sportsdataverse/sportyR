@@ -16,8 +16,8 @@ fina_swimming_feature_deck = function(course = "LCM",
                                       overflow_channels = 0.2,
                                       rotate = FALSE,
                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -58,8 +58,8 @@ fina_swimming_feature_pool = function(course = "LCM",
                                       overflow_channels = 0.2,
                                       rotate = FALSE,
                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -100,8 +100,8 @@ fina_swimming_feature_15m_start_line = function(course = "LCM",
                                                 overflow_channels = 0.2,
                                                 rotate = FALSE,
                                                 rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -179,8 +179,8 @@ fina_swimming_feature_15m_turn_line = function(course = "LCM",
                                                overflow_channels = 0.2,
                                                rotate = FALSE,
                                                rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -259,8 +259,8 @@ fina_swimming_feature_center_line = function(course = "LCM",
                                              overflow_channels = 0.2,
                                              rotate = FALSE,
                                              rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -340,8 +340,8 @@ fina_swimming_feature_lane_lines_center = function(course = "LCM",
                                                    overflow_channels = 0.2,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -415,9 +415,9 @@ fina_swimming_feature_flags_start = function(course = "LCM",
                                              overflow_channels = 0.2,
                                              rotate = FALSE,
                                              rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
+  # Initialize x, y and group (to pass checks)
 
-  x = y = NULL
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -459,7 +459,7 @@ fina_swimming_feature_flags_start_string = function(course = "LCM",
                                                     overflow_channels = 0.2,
                                                     rotate = FALSE,
                                                     rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
+  # Initialize x, y and group (to pass checks)
 
   # course = "LCM"
   # lane_width = 2.5
@@ -468,7 +468,7 @@ fina_swimming_feature_flags_start_string = function(course = "LCM",
   # rotate = FALSE
   # rotation_dir = 'ccw'
 
-  x = y = NULL
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -511,8 +511,8 @@ fina_swimming_feature_flags_turn = function(course = "LCM",
                                             overflow_channels = 0.2,
                                             rotate = FALSE,
                                             rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -555,8 +555,8 @@ fina_swimming_feature_flags_turn_string = function(course = "LCM",
                                                    overflow_channels = 0.2,
                                                    rotate = FALSE,
                                                    rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -599,8 +599,8 @@ fina_swimming_feature_lane_markers = function(course = "LCM",
                                               overflow_channels = 0.2,
                                               rotate = FALSE,
                                               rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -672,8 +672,8 @@ fina_swimming_feature_lane_markers_cross_start = function(course = "LCM",
                                                           overflow_channels = 0.2,
                                                           rotate = FALSE,
                                                           rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -751,8 +751,8 @@ fina_swimming_feature_lane_markers_cross_turn = function(course = "LCM",
                                                          overflow_channels = 0.2,
                                                          rotate = FALSE,
                                                          rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -829,8 +829,8 @@ fina_swimming_feature_blocks = function(course = "LCM",
                                         overflow_channels = 0.2,
                                         rotate = FALSE,
                                         rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -903,8 +903,8 @@ fina_swimming_feature_lane_lines = function(course = "LCM",
                                             overflow_channels = 0.2,
                                             rotate = FALSE,
                                             rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -976,8 +976,8 @@ fina_swimming_feature_lane_lines_start = function(course = "LCM",
                                                   overflow_channels = 0.2,
                                                   rotate = FALSE,
                                                   rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -1047,8 +1047,8 @@ fina_swimming_feature_lane_lines_start_15m = function(course = "LCM",
                                                       overflow_channels = 0.2,
                                                       rotate = FALSE,
                                                       rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -1125,8 +1125,8 @@ fina_swimming_feature_lane_lines_turn = function(course = "LCM",
                                                  overflow_channels = 0.2,
                                                  rotate = FALSE,
                                                  rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -1197,8 +1197,8 @@ fina_swimming_feature_lane_lines_turn_15m = function(course = "LCM",
                                                      overflow_channels = 0.2,
                                                      rotate = FALSE,
                                                      rotation_dir = 'ccw') {
-  # Initialize x and y (to pass checks)
-  x = y = NULL
+  # Initialize x, y and group (to pass checks)
+  x = y = group = NULL
 
   pool_length <- ifelse(course %in% c("SCM"), 25, 50)
   lane_width <- 2.5 # must be 2.5m
@@ -1283,6 +1283,8 @@ fina_swimming_feature_lane_lines_turn_15m = function(course = "LCM",
 #'   this feature
 #' @param  lane_lines_ends_color  A hexadecimal string representing the color to use for
 #'   this feature
+#' @param  lane_lines_15m_color  A hexadecimal string representing the color to use for
+#'   this feature
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
@@ -1297,8 +1299,8 @@ fina_swimming_features_set_colors = function(deck_color = 'grey',
                                              lane_markers_color = 'black',
                                              blocks_color = 'white',
                                              lane_lines_color = 'white',
-                                             lane_line_ends_color = 'red',
-                                             lane_line_15m_color = 'red') {
+                                             lane_lines_ends_color = 'red',
+                                             lane_lines_15m_color = 'red') {
   # Create the colors to use for the plot
   feature_colors = list(
     deck_color = deck_color,
@@ -1312,8 +1314,8 @@ fina_swimming_features_set_colors = function(deck_color = 'grey',
     lane_markers_color = lane_markers_color,
     blocks_color = blocks_color,
     lane_lines_color = lane_lines_color,
-    lane_line_ends_color = lane_line_ends_color,
-    lane_line_15m_color = lane_line_15m_color
+    lane_lines_ends_color = lane_lines_ends_color,
+    lane_lines_15m_color = lane_lines_15m_color
 
 
   )
@@ -1348,6 +1350,9 @@ geom_fina_swimming = function(course,
                               caption_color = '#707372',
                               background_color = NULL,
                               ...) {
+  # Initialize group (to pass checks)
+  group = NULL
+
   # Create the colors to use for the plot
   color_list = fina_swimming_features_set_colors(...)
 
@@ -1528,11 +1533,11 @@ geom_fina_swimming = function(course,
   } else {
     g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
   }
-  g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
-  g = add_feature(g, lane_lines_start_15m, group = group, color_list$lane_line_ends)
-  g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
-  g = add_feature(g, lane_lines_turn_15m, group = group, color_list$lane_line_ends)
-  g = add_feature(g, lane_lines_center, group = group, color_list$lane_line_ends)
+  g = add_feature(g, lane_lines_start, group = group, color_list$lane_lines_ends)
+  g = add_feature(g, lane_lines_start_15m, group = group, color_list$lane_lines_ends)
+  g = add_feature(g, lane_lines_turn, group = group, color_list$lane_lines_ends)
+  g = add_feature(g, lane_lines_turn_15m, group = group, color_list$lane_lines_ends)
+  g = add_feature(g, lane_lines_center, group = group, color_list$lane_lines_ends)
   g = add_line_feature(g, flags_start_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(

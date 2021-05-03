@@ -16,6 +16,8 @@ geom_swimming(
 )
 }
 \arguments{
+\item{league}{The league for which to draw the pool}
+
 \item{course}{The course for which to draw the pool}
 
 \item{lane_width}{The width of an individual lane in the same units as \code{course}}
@@ -33,8 +35,6 @@ feature. Default: \code{'ccw'}}
 \item{...}{Additional arguments to pass to the function. These should be the
 colors to pass to the \code{{league}_features_set_colors()} function, or
 units with which to draw the plot}
-
-\item{leauge}{The league for which to draw the pool}
 }
 \value{
 A ggplot2 instance with a full-surface representation of a swimming pool

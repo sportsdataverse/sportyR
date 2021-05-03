@@ -1,6 +1,6 @@
 #' Generate a ggplot2 instance containing a swimming for a specified course
 #'
-#' @param leauge The league for which to draw the pool
+#' @param league The league for which to draw the pool
 #' @param course The course for which to draw the pool
 #' @param lane_width The width of an individual lane in the same units as \code{course}
 #' @param number_of_lanes An integar giving the number of lanes in the pool
