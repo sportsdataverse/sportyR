@@ -38,24 +38,44 @@ geom_swimming = function(league,
     stop(paste0(course, " is not a valid course.  Courses are 'LCM', 'SCM' or 'SCY'."))
   }
 
+  # NFHS does not use LCM
+  if(all(league == "NFHS" & course == "LCM")){
+    stop("Allowed courses for NFHS competition are 'SCM' and 'SCY'")
+  }
+
+  # FINA does not use SCY
+  if(all(league == "FINA" & course == "SCY")){
+    stop("Allowed courses for FINA competition are 'SCM' and 'LCM'")
+  }
+
   # Require lane_width to be numeric
   lane_width = as.numeric(lane_width)
   if(is.na(lane_width)){
     stop("lane_width must be a numeric value, with the same implied units as course")
   }
 
-  # Require lane_width to be postive
+  # Require lane_width to be positive
   if(lane_width <= 0){
     stop("lane_width must be a postive value, with the same implied units as course")
   }
 
-  # Require number_of_lanes to be an integar
+  # NCAA requires lanes to be at least 6ft (2y) wide
+  if(all(league == "NCAA" & lane_width < 2)){
+    stop("NCAA requires lanes to be at least 2y (6ft) wide")
+  }
+
+  # NFHS requires lanes to be at least 7ft (2.33y) wide
+  if(all(league == "NFHS" & lane_width < 2.32)){
+    stop("NFHS requires lanes to be at least 2.33y (7ft) wide")
+  }
+
+  # Require number_of_lanes to be an integer
   number_of_lanes = as.integer(number_of_lanes)
   if(is.na(number_of_lanes)){
     stop("number_of_lanes must be an integer value")
   }
 
-  # Require number_of_lanes to be postive, greater than zero
+  # Require number_of_lanes to be positive, greater than zero
   if(number_of_lanes <= 0){
     stop("number_of_lanes must be an integer greater than zero")
   }

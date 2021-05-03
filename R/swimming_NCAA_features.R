@@ -11,6 +11,7 @@
 #'
 #' @return A data frame containing the points that comprise the pool deck
 NCAA_swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -49,6 +50,7 @@ NCAA_swimming_feature_deck = function(course = "SCY", lane_width = 2, number_of_
 #'
 #' @return A data frame containing the points that comprise the pool
 NCAA_swimming_feature_pool = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -87,6 +89,7 @@ NCAA_swimming_feature_pool = function(course = "SCY", lane_width = 3, number_of_
 #'
 #' @return A data frame containing the points that comprise the 15m line from the start end
 NCAA_swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -127,6 +130,7 @@ NCAA_swimming_feature_15m_start_line = function(course = "SCY", lane_width = 3, 
 #'
 #' @return A data frame containing the points that comprise the 15m marks from the start end
 NCAA_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -150,10 +154,10 @@ NCAA_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 
 
   m15_markers_start <- lapply(centerlines, m15_markers_fun, pool_length = pool_length, mark_thickness = mark_thickness)
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(m15_markers_start)) # id column
   m15_markers_start <- Map(cbind, m15_markers_start, group = id) # add id column to each data frame
-  m15_markers_start <- do.call("rbind", m15_markers_start) # bind into single dataframe
+  m15_markers_start <- do.call("rbind", m15_markers_start) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -180,6 +184,7 @@ NCAA_swimming_feature_15m_start_markers = function(course = "SCY", lane_width = 
 #'
 #' @return A data frame containing the points that comprise the 15m line from the turn end
 NCAA_swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -221,6 +226,7 @@ NCAA_swimming_feature_15m_turn_line = function(course = "SCY", lane_width = 3, n
 #'
 #' @return A data frame containing the points that comprise the 15m marks from the turn end
 NCAA_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -244,10 +250,10 @@ NCAA_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3
 
   m15_markers_turn <- lapply(centerlines, m15_markers_fun, pool_length = pool_length, mark_thickness = mark_thickness)
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(m15_markers_turn)) # id column
   m15_markers_turn <- Map(cbind, m15_markers_turn, group = id) # add id column to each data frame
-  m15_markers_turn <- do.call("rbind", m15_markers_turn) # bind into single dataframe
+  m15_markers_turn <- do.call("rbind", m15_markers_turn) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -274,6 +280,7 @@ NCAA_swimming_feature_15m_turn_markers = function(course = "SCY", lane_width = 3
 #'
 #' @return A data frame containing the points that comprise the backstroke flags for the start end
 NCAA_swimming_feature_flags_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
 
   # course = "SCY"
@@ -286,10 +293,9 @@ NCAA_swimming_feature_flags_start = function(course = "SCY", lane_width = 3, num
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
-  # flags are 5m from the walls
+  # flags are 5m or 5y from the walls
   flags_start = create_line(
     x_start = (-pool_length/2) + flags_distance,
     x_end = (-pool_length/2) + flags_distance,
@@ -322,22 +328,14 @@ NCAA_swimming_feature_flags_start = function(course = "SCY", lane_width = 3, num
 #'
 #' @return A data frame containing the points that comprise the backstroke flags string for the start end
 NCAA_swimming_feature_flags_start_string = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
-  # flags are 5m from the walls
+  # flags are 5m or 5y from the walls
   flags_start_string = create_line(
     x_start = (-pool_length/2) + flags_distance,
     x_end = (-pool_length/2) + flags_distance,
@@ -370,14 +368,14 @@ NCAA_swimming_feature_flags_start_string = function(course = "SCY", lane_width =
 #'
 #' @return A data frame containing the points that comprise the flags at the turn end
 NCAA_swimming_feature_flags_turn = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
- # flags are 5m from the walls
+ # flags are 5m or 5y from the walls
   flags_turn = create_line(
     x_start = (pool_length/2) - flags_distance,
     x_end = (pool_length/2) - flags_distance,
@@ -414,10 +412,9 @@ NCAA_swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  # flags_distance <- ifelse(course %in% c("SCY"), 5.468, 5)
   flags_distance <- 5 # flags are 5y or 5m from wall
 
-  # flags are 5m from the walls
+  # flags are 5m or 5y from the walls
   flags_turn_string = create_line(
     x_start = (pool_length/2) - flags_distance,
     x_end = (pool_length/2) - flags_distance,
@@ -450,12 +447,13 @@ NCAA_swimming_feature_flags_turn_string = function(course = "SCY", lane_width = 
 #'
 #' @return A data frame containing the points that comprise the lane markers
 NCAA_swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
-  t_offset <- 5 # ts are 5ft from the walls
-  line_thickness <- 1 # ts are 1ft thick
+  t_offset <- 5/3 # ts are 5ft so (5/3)y or m from the walls
+  line_thickness <- 1/3 # ts are 1ft so 1/3y thick
 
   offset <- overflow_channels + lane_width/2
   lane_list <- seq(1, number_of_lanes, 1)
@@ -463,10 +461,10 @@ NCAA_swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, nu
 
   lane_markers_fun <- function(centerline, pool_length, t_offset, line_thickness) {
     df = create_rectangle(
-      x_min = (-pool_length / 2) + (t_offset / 3),
-      x_max = (pool_length / 2) - (t_offset / 3),
-      y_min = centerline - ((line_thickness / 2) / 3),
-      y_max = centerline + ((line_thickness / 2) / 3)
+      x_min = (-pool_length / 2) + t_offset,
+      x_max = (pool_length / 2) - t_offset,
+      y_min = centerline - (line_thickness / 2),
+      y_max = centerline + (line_thickness / 2)
     )
 
     return(df)
@@ -474,10 +472,10 @@ NCAA_swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, nu
 
   lane_markers <- lapply(centerlines, lane_markers_fun, pool_length = pool_length, t_offset = t_offset, line_thickness = line_thickness)
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_markers)) # id column
   lane_markers <- Map(cbind, lane_markers, group = id) # add id column to each data frame
-  lane_markers <- do.call("rbind", lane_markers) # bind into single dataframe
+  lane_markers <- do.call("rbind", lane_markers) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -503,6 +501,7 @@ NCAA_swimming_feature_lane_markers = function(course = "SCY", lane_width = 3, nu
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the start end
 NCAA_swimming_feature_lane_markers_cross_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
+
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -536,10 +535,10 @@ NCAA_swimming_feature_lane_markers_cross_start = function(course = "SCY", lane_w
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_markers_cross_start)) # id column
   lane_markers_cross_start <- Map(cbind, lane_markers_cross_start, group = id) # add id column to each data frame
-  lane_markers_cross_start <- do.call("rbind", lane_markers_cross_start) # bind into single dataframe
+  lane_markers_cross_start <- do.call("rbind", lane_markers_cross_start) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -600,10 +599,10 @@ NCAA_swimming_feature_lane_markers_cross_turn = function(course = "SCY", lane_wi
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_markers_cross_turn)) # id column
   lane_markers_cross_turn <- Map(cbind, lane_markers_cross_turn, group = id) # add id column to each data frame
-  lane_markers_cross_turn <- do.call("rbind", lane_markers_cross_turn) # bind into single dataframe
+  lane_markers_cross_turn <- do.call("rbind", lane_markers_cross_turn) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -661,10 +660,10 @@ NCAA_swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_o
       blocks_width = blocks_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(blocks)) # id column
   blocks <- Map(cbind, blocks, group = id) # add id column to each data frame
-  blocks <- do.call("rbind", blocks) # bind into single dataframe
+  blocks <- do.call("rbind", blocks) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -691,18 +690,6 @@ NCAA_swimming_feature_blocks = function(course = "SCY", lane_width = 3, number_o
 #'
 #' @return A data frame containing the points that comprise the lane lines
 NCAA_swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
 
   # Initialize x and y (to pass checks)
   x = y = NULL
@@ -738,10 +725,10 @@ NCAA_swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, numb
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines)) # id column
   lane_lines <- Map(cbind, lane_lines, group = id) # add id column to each data frame
-  lane_lines <- do.call("rbind", lane_lines) # bind into single dataframe
+  lane_lines <- do.call("rbind", lane_lines) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -769,23 +756,12 @@ NCAA_swimming_feature_lane_lines = function(course = "SCY", lane_width = 3, numb
 #' @return A data frame containing the points that comprise the lane lines at the start end
 NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
 
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
-
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  color_length <- 5 # to meet flags at 5y / 5m
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -799,7 +775,7 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3
   lane_lines_fun <- function(lane_line_centerline, pool_length, lane_line_width) {
     df = create_rectangle(
       x_min = (-pool_length / 2) + 1,
-      x_max = (-pool_length / 2) + 4.57,
+      x_max = (-pool_length / 2) + color_length,
       y_min = lane_line_centerline - (lane_line_width / 2),
       y_max = lane_line_centerline + (lane_line_width / 2)
     )
@@ -815,10 +791,10 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines_start)) # id column
   lane_lines_start <- Map(cbind, lane_lines_start, group = id) # add id column to each data frame
-  lane_lines_start <- do.call("rbind", lane_lines_start) # bind into single dataframe
+  lane_lines_start <- do.call("rbind", lane_lines_start) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -846,23 +822,12 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY", lane_width = 3
 #' @return A data frame containing the points that comprise the lane lines at the turn end
 NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
 
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
-
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   pool_length <- ifelse(course %in% c("SCY", "SCM"), 25, 50)
   lane_line_width <- ifelse(course %in% c("SCY"), 6/12/3, 15.24/100) # 6in or 15.24cm
+  color_length <- 5
 
   offset_width <- overflow_channels/2
   if (overflow_channels > 0) {
@@ -875,7 +840,7 @@ NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3,
 
   lane_lines_fun <- function(lane_line_centerline, pool_length, lane_line_width) {
     df = create_rectangle(
-      x_min = (pool_length / 2) - 4.57,
+      x_min = (pool_length / 2) - color_length,
       x_max = (pool_length / 2) - 1,
       y_min = lane_line_centerline - (lane_line_width / 2),
       y_max = lane_line_centerline + (lane_line_width / 2)
@@ -892,10 +857,10 @@ NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3,
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines_turn)) # id column
   lane_lines_turn <- Map(cbind, lane_lines_turn, group = id) # add id column to each data frame
-  lane_lines_turn <- do.call("rbind", lane_lines_turn) # bind into single dataframe
+  lane_lines_turn <- do.call("rbind", lane_lines_turn) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -922,18 +887,6 @@ NCAA_swimming_feature_lane_lines_turn = function(course = "SCY", lane_width = 3,
 #'
 #' @return A data frame containing the points that comprise the lane line strings
 NCAA_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 3, number_of_lanes = 8, overflow_channels = 1, rotate = FALSE, rotation_dir = 'ccw'){
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1
-  # rotate = FALSE
-  # rotation_dir = 'ccw'
-
-  # course = "SCY"
-  # lane_width = 3
-  # number_of_lanes = 8
-  # overflow_channels = 1.5
 
   # Initialize x and y (to pass checks)
   x = y = NULL
@@ -969,10 +922,10 @@ NCAA_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 
       lane_line_string_width = lane_line_string_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_line_strings)) # id column
   lane_line_strings <- Map(cbind, lane_line_strings, group = id) # add id column to each data frame
-  lane_line_strings <- do.call("rbind", lane_line_strings) # bind into single dataframe
+  lane_line_strings <- do.call("rbind", lane_line_strings) # bind into single data frame
 
   if(rotate){
     # If the desired output needs to be rotated, rotate the coordinates
@@ -995,11 +948,29 @@ NCAA_swimming_feature_lane_line_strings = function(course = "SCY", lane_width = 
 #'   this feature
 #' @param pool_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param m15_color A hexadecimal string representing the color to use for
+#' @param m15_start_color A hexadecimal string representing the color to use for
 #'   this feature
-#' @param flags_color A hexadecimal string representing the color to use for
+#' @param m15_turn_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param m15_markers_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_start_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_turn_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param flags_string_color A hexadecimal string representing the color to use for
 #'   this feature
 #' @param  lane_markers_color  A hexadecimal string representing the color to use for
+#'   this feature
+#' @param blocks_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param lane_markers_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param lane_lines_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param lane_line_ends_color A hexadecimal string representing the color to use for
+#'   this feature
+#' @param lane_line_strings_color A hexadecimal string representing the color to use for
 #'   this feature
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
@@ -1136,9 +1107,6 @@ geom_NCAA_swimming = function(course,
   g = add_line_feature(g, flags_turn_string, color_list$flags_string, size = 0.25)
   g = add_line_feature(g, flags_start, color_list$flags_start_color, size = 0.75, linetype = "dashed")
   g = add_line_feature(g, flags_turn, color_list$flags_turn_color, size = 0.75, linetype = "dashed")
-
-  # g = add_feature(g, lane_markers, color_list$lane_markers_color)
-
 
   # Return the ggplot2 instance that contains the swimming pool plot
   return(g)
