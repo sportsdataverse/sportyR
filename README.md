@@ -102,8 +102,8 @@ respective rule books. They are as follows:
 |   Soccer   |      NWSL       |          `m`          |
 |   Soccer   | Premier League  |          `m`          |
 |   Swimming |      FINA       |          `m`          |
-|   Swimming |      NCAA       |          `m`          |
-|   Swimming |      NFHS       |          `m`          |
+|   Swimming |      NCAA       |         `yd`          |
+|   Swimming |      NFHS       |         `yd`          |
 |   Tennis   |       ITF       |         `ft`          |
 |   Tennis   |      NCAA       |         `ft`          |
 
@@ -154,9 +154,9 @@ geom_soccer('fifa', touchline_length = 100, goal_line_length = 75)
 
 Swimming pools require a specification of `course` as either `LCM` for long course meters, `SCM` for short course meters or `SCY` for short course yards.
 
-``` r
-# Create a 100m by 75m FIFA pitch
-geom_soccer('fifa', touchline_length = 100, goal_line_length = 75)
+```{r fina-example}
+# Create an LCM FINA pool
+geom_swimming('fina', course = "LCM")
 ```
 
 <img src="man/figures/README-fina-example-1.png" width="100%" />
