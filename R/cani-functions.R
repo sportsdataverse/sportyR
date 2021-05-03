@@ -159,6 +159,10 @@ cani_color_league_features = function(league_code, sport_name = NULL){
       names(fifa_features_set_colors())
     },
 
+    'FINA' = {
+      names(fina_swimming_features_set_colors())
+    },
+
     'IIHF' = {
       names(iihf_features_set_colors())
     },
@@ -189,6 +193,14 @@ cani_color_league_features = function(league_code, sport_name = NULL){
 
     'NCAA SOCCER' = {
       names(ncaa_soccer_features_set_colors())
+    },
+
+    'NCAA SWIMMING' = {
+      names(ncaa_swimming_features_set_colors())
+    },
+
+    'NFHS' = {
+      names(nfhs_swimming_features_set_colors())
     },
 
     'NFL' = {

@@ -94,11 +94,11 @@ geom_swimming = function(league,
   # Call the appropriate plot-generating function
   g = switch(
     league,
-    'NCAA' = geom_NCAA_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'NCAA' = geom_ncaa_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
-    'NFHS' = geom_NFHS_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
+    'NFHS' = geom_nfhs_swimming(course, lane_width, number_of_lanes, overflow_channels, ...),
 
-    'FINA' = geom_FINA_swimming(course, number_of_lanes, overflow_channels, ...),
+    'FINA' = geom_fina_swimming(course, number_of_lanes, overflow_channels, ...),
 
     stop(glue::glue('{league} is not a valid league at this time.'))
   )

@@ -76,9 +76,9 @@ Each plot function has a standardized unit of measure in which the plot is creat
 
 ```{r plot-units-table, echo = FALSE}
 units_df = data.frame(
-  sport = c('Baseball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Football', 'Football', 'Football', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Tennis', 'Tennis'),
-  league = c('MLB', 'FIBA', 'NBA', 'NCAA Basketball', 'WNBA', 'CFL', 'NCAA Football', 'NFL', 'IIHF', 'NCAA Hockey', 'NHL', 'NWHL', 'FIFA', 'MLS', 'NCAA Soccer', 'NWSL', 'Premier League', 'ITF', 'NCAA'),
-  primary_unit = c('`ft`', '`m`', '`ft`', '`ft`', '`ft`', '`yd`', '`yd`', '`yd`', '`m`', '`ft`', '`ft`', '`ft`', '`m`', '`m`', '`m`', '`m`', '`m`', '`ft`', '`ft`')
+  sport = c('Baseball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Football', 'Football', 'Football', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Swimming', 'Swimming', 'Swimming', 'Tennis', 'Tennis'),
+  league = c('MLB', 'FIBA', 'NBA', 'NCAA Basketball', 'WNBA', 'CFL', 'NCAA Football', 'NFL', 'IIHF', 'NCAA Hockey', 'NHL', 'NWHL', 'FIFA', 'MLS', 'NCAA Soccer', 'NWSL', 'Premier League', 'FINA', 'NCAA', 'NFHS', 'ITF', 'NCAA'),
+  primary_unit = c('`ft`', '`m`', '`ft`', '`ft`', '`ft`', '`yd`', '`yd`', '`yd`', '`m`', '`ft`', '`ft`', '`ft`', '`m`', '`m`', '`m`', '`m`', '`m`', '`m`', '`yd`', '`yd`',  '`ft`', '`ft`')
 )
 
 names(units_df) = c('Sport', 'League', 'Primary Plotting Unit')
@@ -106,6 +106,13 @@ Certain functions are able to take additional parameters. As an example, soccer 
 ```{r fifa-example}
 # Create a 100m by 75m FIFA pitch
 geom_soccer('fifa', touchline_length = 100, goal_line_length = 75)
+```
+
+Swimming pools require a specification of `course` as either `LCM` for long course meters, `SCM` for short course meters or `SCY` for short course yards.
+
+```{r fina-example}
+# Create an LCM FINA pool
+geom_swimming('fina', course = "LCM")
 ```
 
 It's also possible to plot half-surfaces and rotated surfaces:

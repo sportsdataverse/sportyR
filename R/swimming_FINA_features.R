@@ -11,7 +11,7 @@
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the pool deck
-FINA_swimming_feature_deck = function(course = "LCM",
+fina_swimming_feature_deck = function(course = "LCM",
                                       number_of_lanes = 8,
                                       overflow_channels = 0.2,
                                       rotate = FALSE,
@@ -53,7 +53,7 @@ FINA_swimming_feature_deck = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the pool
-FINA_swimming_feature_pool = function(course = "LCM",
+fina_swimming_feature_pool = function(course = "LCM",
                                       number_of_lanes = 8,
                                       overflow_channels = 0.2,
                                       rotate = FALSE,
@@ -95,7 +95,7 @@ FINA_swimming_feature_pool = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the 15m line from the start end
-FINA_swimming_feature_15m_start_line = function(course = "LCM",
+fina_swimming_feature_15m_start_line = function(course = "LCM",
                                                 number_of_lanes = 8,
                                                 overflow_channels = 0.2,
                                                 rotate = FALSE,
@@ -144,12 +144,12 @@ FINA_swimming_feature_15m_start_line = function(course = "LCM",
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(m15_line_start)) # id column
   m15_line_start <-
     Map(cbind, m15_line_start, group = id) # add id column to each data frame
   m15_line_start <-
-    do.call("rbind", m15_line_start) # bind into single dataframe
+    do.call("rbind", m15_line_start) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -174,7 +174,7 @@ FINA_swimming_feature_15m_start_line = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the 15m line from the turn end
-FINA_swimming_feature_15m_turn_line = function(course = "LCM",
+fina_swimming_feature_15m_turn_line = function(course = "LCM",
                                                number_of_lanes = 8,
                                                overflow_channels = 0.2,
                                                rotate = FALSE,
@@ -223,12 +223,12 @@ FINA_swimming_feature_15m_turn_line = function(course = "LCM",
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(m15_line_turn)) # id column
   m15_line_turn <-
     Map(cbind, m15_line_turn, group = id) # add id column to each data frame
   m15_line_turn <-
-    do.call("rbind", m15_line_turn) # bind into single dataframe
+    do.call("rbind", m15_line_turn) # bind into single data frame
 
 
   if (rotate) {
@@ -254,7 +254,7 @@ FINA_swimming_feature_15m_turn_line = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise center line for the pool
-FINA_swimming_feature_center_line = function(course = "LCM",
+fina_swimming_feature_center_line = function(course = "LCM",
                                              number_of_lanes = 8,
                                              overflow_channels = 0.2,
                                              rotate = FALSE,
@@ -304,12 +304,12 @@ FINA_swimming_feature_center_line = function(course = "LCM",
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(center_line)) # id column
   center_line <-
     Map(cbind, center_line, group = id) # add id column to each data frame
   center_line <-
-    do.call("rbind", center_line) # bind into single dataframe
+    do.call("rbind", center_line) # bind into single data frame
 
 
   if (rotate) {
@@ -335,7 +335,7 @@ FINA_swimming_feature_center_line = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the center markers on lane lines
-FINA_swimming_feature_lane_lines_center = function(course = "LCM",
+fina_swimming_feature_lane_lines_center = function(course = "LCM",
                                                    number_of_lanes = 8,
                                                    overflow_channels = 0.2,
                                                    rotate = FALSE,
@@ -379,12 +379,12 @@ FINA_swimming_feature_lane_lines_center = function(course = "LCM",
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_line_center)) # id column
   lane_line_center <-
     Map(cbind, lane_line_center, group = id) # add id column to each data frame
   lane_line_center <-
-    do.call("rbind", lane_line_center) # bind into single dataframe
+    do.call("rbind", lane_line_center) # bind into single data frame
 
 
   if (rotate) {
@@ -410,7 +410,7 @@ FINA_swimming_feature_lane_lines_center = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the backstroke flags for the start end
-FINA_swimming_feature_flags_start = function(course = "LCM",
+fina_swimming_feature_flags_start = function(course = "LCM",
                                              number_of_lanes = 8,
                                              overflow_channels = 0.2,
                                              rotate = FALSE,
@@ -454,7 +454,7 @@ FINA_swimming_feature_flags_start = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the backstroke flags string for the start end
-FINA_swimming_feature_flags_start_string = function(course = "LCM",
+fina_swimming_feature_flags_start_string = function(course = "LCM",
                                                     number_of_lanes = 8,
                                                     overflow_channels = 0.2,
                                                     rotate = FALSE,
@@ -506,7 +506,7 @@ FINA_swimming_feature_flags_start_string = function(course = "LCM",
 #'  @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the flags at the turn end
-FINA_swimming_feature_flags_turn = function(course = "LCM",
+fina_swimming_feature_flags_turn = function(course = "LCM",
                                             number_of_lanes = 8,
                                             overflow_channels = 0.2,
                                             rotate = FALSE,
@@ -550,7 +550,7 @@ FINA_swimming_feature_flags_turn = function(course = "LCM",
 #'  @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the flags string at the turn end
-FINA_swimming_feature_flags_turn_string = function(course = "LCM",
+fina_swimming_feature_flags_turn_string = function(course = "LCM",
                                                    number_of_lanes = 8,
                                                    overflow_channels = 0.2,
                                                    rotate = FALSE,
@@ -594,7 +594,7 @@ FINA_swimming_feature_flags_turn_string = function(course = "LCM",
 #'  @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane markers
-FINA_swimming_feature_lane_markers = function(course = "LCM",
+fina_swimming_feature_lane_markers = function(course = "LCM",
                                               number_of_lanes = 8,
                                               overflow_channels = 0.2,
                                               rotate = FALSE,
@@ -638,12 +638,12 @@ FINA_swimming_feature_lane_markers = function(course = "LCM",
       line_thickness = line_thickness
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_markers)) # id column
   lane_markers <-
     Map(cbind, lane_markers, group = id) # add id column to each data frame
   lane_markers <-
-    do.call("rbind", lane_markers) # bind into single dataframe
+    do.call("rbind", lane_markers) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -667,7 +667,7 @@ FINA_swimming_feature_lane_markers = function(course = "LCM",
 #'  @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the start end
-FINA_swimming_feature_lane_markers_cross_start = function(course = "LCM",
+fina_swimming_feature_lane_markers_cross_start = function(course = "LCM",
                                                           number_of_lanes = 8,
                                                           overflow_channels = 0.2,
                                                           rotate = FALSE,
@@ -715,12 +715,12 @@ FINA_swimming_feature_lane_markers_cross_start = function(course = "LCM",
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_markers_cross_start)) # id column
   lane_markers_cross_start <-
     Map(cbind, lane_markers_cross_start, group = id) # add id column to each data frame
   lane_markers_cross_start <-
-    do.call("rbind", lane_markers_cross_start) # bind into single dataframe
+    do.call("rbind", lane_markers_cross_start) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -746,7 +746,7 @@ FINA_swimming_feature_lane_markers_cross_start = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the turn end
-FINA_swimming_feature_lane_markers_cross_turn = function(course = "LCM",
+fina_swimming_feature_lane_markers_cross_turn = function(course = "LCM",
                                                          number_of_lanes = 8,
                                                          overflow_channels = 0.2,
                                                          rotate = FALSE,
@@ -794,12 +794,12 @@ FINA_swimming_feature_lane_markers_cross_turn = function(course = "LCM",
       cross_length = cross_length
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_markers_cross_turn)) # id column
   lane_markers_cross_turn <-
     Map(cbind, lane_markers_cross_turn, group = id) # add id column to each data frame
   lane_markers_cross_turn <-
-    do.call("rbind", lane_markers_cross_turn) # bind into single dataframe
+    do.call("rbind", lane_markers_cross_turn) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -824,7 +824,7 @@ FINA_swimming_feature_lane_markers_cross_turn = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the blocks
-FINA_swimming_feature_blocks = function(course = "LCM",
+fina_swimming_feature_blocks = function(course = "LCM",
                                         number_of_lanes = 8,
                                         overflow_channels = 0.2,
                                         rotate = FALSE,
@@ -869,11 +869,11 @@ FINA_swimming_feature_blocks = function(course = "LCM",
       blocks_width = blocks_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(blocks)) # id column
   blocks <-
     Map(cbind, blocks, group = id) # add id column to each data frame
-  blocks <- do.call("rbind", blocks) # bind into single dataframe
+  blocks <- do.call("rbind", blocks) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -898,7 +898,7 @@ FINA_swimming_feature_blocks = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane lines
-FINA_swimming_feature_lane_lines = function(course = "LCM",
+fina_swimming_feature_lane_lines = function(course = "LCM",
                                             number_of_lanes = 8,
                                             overflow_channels = 0.2,
                                             rotate = FALSE,
@@ -941,12 +941,12 @@ FINA_swimming_feature_lane_lines = function(course = "LCM",
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines)) # id column
   lane_lines <-
     Map(cbind, lane_lines, group = id) # add id column to each data frame
   lane_lines <-
-    do.call("rbind", lane_lines) # bind into single dataframe
+    do.call("rbind", lane_lines) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -971,7 +971,7 @@ FINA_swimming_feature_lane_lines = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane lines at the start end
-FINA_swimming_feature_lane_lines_start = function(course = "LCM",
+fina_swimming_feature_lane_lines_start = function(course = "LCM",
                                                   number_of_lanes = 8,
                                                   overflow_channels = 0.2,
                                                   rotate = FALSE,
@@ -1012,12 +1012,12 @@ FINA_swimming_feature_lane_lines_start = function(course = "LCM",
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines_start)) # id column
   lane_lines_start <-
     Map(cbind, lane_lines_start, group = id) # add id column to each data frame
   lane_lines_start <-
-    do.call("rbind", lane_lines_start) # bind into single dataframe
+    do.call("rbind", lane_lines_start) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -1042,7 +1042,7 @@ FINA_swimming_feature_lane_lines_start = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane line bouy marking 15m at the start end
-FINA_swimming_feature_lane_lines_start_15m = function(course = "LCM",
+fina_swimming_feature_lane_lines_start_15m = function(course = "LCM",
                                                       number_of_lanes = 8,
                                                       overflow_channels = 0.2,
                                                       rotate = FALSE,
@@ -1090,12 +1090,12 @@ FINA_swimming_feature_lane_lines_start_15m = function(course = "LCM",
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines_start_15m)) # id column
   lane_lines_start_15m <-
     Map(cbind, lane_lines_start_15m, group = id) # add id column to each data frame
   lane_lines_start_15m <-
-    do.call("rbind", lane_lines_start_15m) # bind into single dataframe
+    do.call("rbind", lane_lines_start_15m) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -1120,7 +1120,7 @@ FINA_swimming_feature_lane_lines_start_15m = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane lines at the turn end
-FINA_swimming_feature_lane_lines_turn = function(course = "LCM",
+fina_swimming_feature_lane_lines_turn = function(course = "LCM",
                                                  number_of_lanes = 8,
                                                  overflow_channels = 0.2,
                                                  rotate = FALSE,
@@ -1162,12 +1162,12 @@ FINA_swimming_feature_lane_lines_turn = function(course = "LCM",
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines_turn)) # id column
   lane_lines_turn <-
     Map(cbind, lane_lines_turn, group = id) # add id column to each data frame
   lane_lines_turn <-
-    do.call("rbind", lane_lines_turn) # bind into single dataframe
+    do.call("rbind", lane_lines_turn) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -1192,7 +1192,7 @@ FINA_swimming_feature_lane_lines_turn = function(course = "LCM",
 #' @author Gregory A. Pilgrim
 #'
 #' @return A data frame containing the points that comprise the lane line bouy marking 15m at the turn end
-FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM",
+fina_swimming_feature_lane_lines_turn_15m = function(course = "LCM",
                                                      number_of_lanes = 8,
                                                      overflow_channels = 0.2,
                                                      rotate = FALSE,
@@ -1238,12 +1238,12 @@ FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM",
       lane_line_width = lane_line_width
     )
 
-  # convert to single dataframe with id column for each separate marker
+  # convert to single data frame with id column for each separate marker
   id <- seq(1, length(lane_lines_start_15m)) # id column
   lane_lines_start_15m <-
     Map(cbind, lane_lines_start_15m, group = id) # add id column to each data frame
   lane_lines_start_15m <-
-    do.call("rbind", lane_lines_start_15m) # bind into single dataframe
+    do.call("rbind", lane_lines_start_15m) # bind into single data frame
 
   if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
@@ -1286,7 +1286,7 @@ FINA_swimming_feature_lane_lines_turn_15m = function(course = "LCM",
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-FINA_swimming_features_set_colors = function(deck_color = 'grey',
+fina_swimming_features_set_colors = function(deck_color = 'grey',
                                              pool_color = 'blue',
                                              m15_start_color = 'black',
                                              m15_turn_color = 'black',
@@ -1337,10 +1337,10 @@ FINA_swimming_features_set_colors = function(deck_color = 'grey',
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
-#'   colors to pass to the \code{FINA_swimming_features_set_colors()} function
+#'   colors to pass to the \code{fina_swimming_features_set_colors()} function
 #'
 #' @return A ggplot2 instance that represents a regulation pool
-geom_FINA_swimming = function(course,
+geom_fina_swimming = function(course,
                               number_of_lanes = 8,
                               overflow_channels = 1.5,
                               rotate = FALSE,
@@ -1349,75 +1349,75 @@ geom_FINA_swimming = function(course,
                               background_color = NULL,
                               ...) {
   # Create the colors to use for the plot
-  color_list = FINA_swimming_features_set_colors(...)
+  color_list = fina_swimming_features_set_colors(...)
 
   # Generate the data frames for the features of a pool + deck
-  deck = FINA_swimming_feature_deck(course,
+  deck = fina_swimming_feature_deck(course,
                                     number_of_lanes,
                                     overflow_channels,
                                     rotate,
                                     rotation_dir)
-  pool = FINA_swimming_feature_pool(course,
+  pool = fina_swimming_feature_pool(course,
                                     number_of_lanes,
                                     overflow_channels,
                                     rotate,
                                     rotation_dir)
-  m15_start = FINA_swimming_feature_15m_start_line(course,
+  m15_start = fina_swimming_feature_15m_start_line(course,
                                                    number_of_lanes,
                                                    overflow_channels,
                                                    rotate,
                                                    rotation_dir)
-  m15_turn = FINA_swimming_feature_15m_turn_line(course,
+  m15_turn = fina_swimming_feature_15m_turn_line(course,
                                                  number_of_lanes,
                                                  overflow_channels,
                                                  rotate,
                                                  rotation_dir)
-  center_line = FINA_swimming_feature_center_line(course,
+  center_line = fina_swimming_feature_center_line(course,
                                                   number_of_lanes,
                                                   overflow_channels,
                                                   rotate,
                                                   rotation_dir)
-  flags_start = FINA_swimming_feature_flags_start(course,
+  flags_start = fina_swimming_feature_flags_start(course,
                                                   number_of_lanes,
                                                   overflow_channels,
                                                   rotate,
                                                   rotation_dir)
-  flags_turn = FINA_swimming_feature_flags_turn(course,
+  flags_turn = fina_swimming_feature_flags_turn(course,
                                                 number_of_lanes,
                                                 overflow_channels,
                                                 rotate,
                                                 rotation_dir)
-  flags_start_string = FINA_swimming_feature_flags_start_string(course,
+  flags_start_string = fina_swimming_feature_flags_start_string(course,
                                                                 number_of_lanes,
                                                                 overflow_channels,
                                                                 rotate,
                                                                 rotation_dir)
-  flags_turn_string = FINA_swimming_feature_flags_turn_string(course,
+  flags_turn_string = fina_swimming_feature_flags_turn_string(course,
                                                               number_of_lanes,
                                                               overflow_channels,
                                                               rotate,
                                                               rotation_dir)
-  lane_markers = FINA_swimming_feature_lane_markers(course,
+  lane_markers = fina_swimming_feature_lane_markers(course,
                                                     number_of_lanes,
                                                     overflow_channels,
                                                     rotate,
                                                     rotation_dir)
-  lane_markers_cross_start = FINA_swimming_feature_lane_markers_cross_start(course,
+  lane_markers_cross_start = fina_swimming_feature_lane_markers_cross_start(course,
                                                                             number_of_lanes,
                                                                             overflow_channels,
                                                                             rotate,
                                                                             rotation_dir)
-  lane_markers_cross_turn = FINA_swimming_feature_lane_markers_cross_turn(course,
+  lane_markers_cross_turn = fina_swimming_feature_lane_markers_cross_turn(course,
                                                                           number_of_lanes,
                                                                           overflow_channels,
                                                                           rotate,
                                                                           rotation_dir)
-  blocks = FINA_swimming_feature_blocks(course,
+  blocks = fina_swimming_feature_blocks(course,
                                         number_of_lanes,
                                         overflow_channels,
                                         rotate,
                                         rotation_dir)
-  lane_lines = FINA_swimming_feature_lane_lines(course,
+  lane_lines = fina_swimming_feature_lane_lines(course,
                                                 number_of_lanes,
                                                 overflow_channels,
                                                 rotate,
@@ -1440,27 +1440,27 @@ geom_FINA_swimming = function(course,
       lane_lines[lane_lines$group %in% c(5, 6, 7), ]
   }
 
-  lane_lines_start = FINA_swimming_feature_lane_lines_start(course,
+  lane_lines_start = fina_swimming_feature_lane_lines_start(course,
                                                             number_of_lanes,
                                                             overflow_channels,
                                                             rotate,
                                                             rotation_dir)
-  lane_lines_start_15m = FINA_swimming_feature_lane_lines_start_15m(course,
+  lane_lines_start_15m = fina_swimming_feature_lane_lines_start_15m(course,
                                                                     number_of_lanes,
                                                                     overflow_channels,
                                                                     rotate,
                                                                     rotation_dir)
-  lane_lines_turn = FINA_swimming_feature_lane_lines_turn(course,
+  lane_lines_turn = fina_swimming_feature_lane_lines_turn(course,
                                                           number_of_lanes,
                                                           overflow_channels,
                                                           rotate,
                                                           rotation_dir)
-  lane_lines_turn_15m = FINA_swimming_feature_lane_lines_turn_15m(course,
+  lane_lines_turn_15m = fina_swimming_feature_lane_lines_turn_15m(course,
                                                                   number_of_lanes,
                                                                   overflow_channels,
                                                                   rotate,
                                                                   rotation_dir)
-  lane_lines_center = FINA_swimming_feature_lane_lines_center(course,
+  lane_lines_center = fina_swimming_feature_lane_lines_center(course,
                                                               number_of_lanes,
                                                               overflow_channels,
                                                               rotate,

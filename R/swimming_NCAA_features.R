@@ -10,7 +10,7 @@
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the pool deck
-NCAA_swimming_feature_deck = function(course = "SCY",
+ncaa_swimming_feature_deck = function(course = "SCY",
                                       lane_width = 2,
                                       number_of_lanes = 8,
                                       overflow_channels = 1,
@@ -51,7 +51,7 @@ NCAA_swimming_feature_deck = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the pool
-NCAA_swimming_feature_pool = function(course = "SCY",
+ncaa_swimming_feature_pool = function(course = "SCY",
                                       lane_width = 3,
                                       number_of_lanes = 8,
                                       overflow_channels = 1,
@@ -92,7 +92,7 @@ NCAA_swimming_feature_pool = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 15m line from the start end
-NCAA_swimming_feature_15m_start_line = function(course = "SCY",
+ncaa_swimming_feature_15m_start_line = function(course = "SCY",
                                                 lane_width = 3,
                                                 number_of_lanes = 8,
                                                 overflow_channels = 1,
@@ -137,7 +137,7 @@ NCAA_swimming_feature_15m_start_line = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 15m marks from the start end
-NCAA_swimming_feature_15m_start_markers = function(course = "SCY",
+ncaa_swimming_feature_15m_start_markers = function(course = "SCY",
                                                    lane_width = 3,
                                                    number_of_lanes = 8,
                                                    overflow_channels = 1,
@@ -207,7 +207,7 @@ NCAA_swimming_feature_15m_start_markers = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 15m line from the turn end
-NCAA_swimming_feature_15m_turn_line = function(course = "SCY",
+ncaa_swimming_feature_15m_turn_line = function(course = "SCY",
                                                lane_width = 3,
                                                number_of_lanes = 8,
                                                overflow_channels = 1,
@@ -253,7 +253,7 @@ NCAA_swimming_feature_15m_turn_line = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 15m marks from the turn end
-NCAA_swimming_feature_15m_turn_markers = function(course = "SCY",
+ncaa_swimming_feature_15m_turn_markers = function(course = "SCY",
                                                   lane_width = 3,
                                                   number_of_lanes = 8,
                                                   overflow_channels = 1,
@@ -323,7 +323,7 @@ NCAA_swimming_feature_15m_turn_markers = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the backstroke flags for the start end
-NCAA_swimming_feature_flags_start = function(course = "SCY",
+ncaa_swimming_feature_flags_start = function(course = "SCY",
                                              lane_width = 3,
                                              number_of_lanes = 8,
                                              overflow_channels = 1,
@@ -373,7 +373,7 @@ NCAA_swimming_feature_flags_start = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the backstroke flags string for the start end
-NCAA_swimming_feature_flags_start_string = function(course = "SCY",
+ncaa_swimming_feature_flags_start_string = function(course = "SCY",
                                                     lane_width = 3,
                                                     number_of_lanes = 8,
                                                     overflow_channels = 1,
@@ -415,7 +415,7 @@ NCAA_swimming_feature_flags_start_string = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the flags at the turn end
-NCAA_swimming_feature_flags_turn = function(course = "SCY",
+ncaa_swimming_feature_flags_turn = function(course = "SCY",
                                             lane_width = 3,
                                             number_of_lanes = 8,
                                             overflow_channels = 1,
@@ -457,7 +457,7 @@ NCAA_swimming_feature_flags_turn = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the flags string at the turn end
-NCAA_swimming_feature_flags_turn_string = function(course = "SCY",
+ncaa_swimming_feature_flags_turn_string = function(course = "SCY",
                                                    lane_width = 3,
                                                    number_of_lanes = 8,
                                                    overflow_channels = 1,
@@ -499,7 +499,7 @@ NCAA_swimming_feature_flags_turn_string = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane markers
-NCAA_swimming_feature_lane_markers = function(course = "SCY",
+ncaa_swimming_feature_lane_markers = function(course = "SCY",
                                               lane_width = 3,
                                               number_of_lanes = 8,
                                               overflow_channels = 1,
@@ -569,7 +569,7 @@ NCAA_swimming_feature_lane_markers = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the start end
-NCAA_swimming_feature_lane_markers_cross_start = function(course = "SCY",
+ncaa_swimming_feature_lane_markers_cross_start = function(course = "SCY",
                                                           lane_width = 3,
                                                           number_of_lanes = 8,
                                                           overflow_channels = 1,
@@ -644,7 +644,7 @@ NCAA_swimming_feature_lane_markers_cross_start = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane marker crosses at the turn end
-NCAA_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
+ncaa_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
                                                          lane_width = 3,
                                                          number_of_lanes = 8,
                                                          overflow_channels = 1,
@@ -718,7 +718,7 @@ NCAA_swimming_feature_lane_markers_cross_turn = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the blocks
-NCAA_swimming_feature_blocks = function(course = "SCY",
+ncaa_swimming_feature_blocks = function(course = "SCY",
                                         lane_width = 3,
                                         number_of_lanes = 8,
                                         overflow_channels = 1,
@@ -790,7 +790,7 @@ NCAA_swimming_feature_blocks = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane lines
-NCAA_swimming_feature_lane_lines = function(course = "SCY",
+ncaa_swimming_feature_lane_lines = function(course = "SCY",
                                             lane_width = 3,
                                             number_of_lanes = 8,
                                             overflow_channels = 1,
@@ -865,7 +865,7 @@ NCAA_swimming_feature_lane_lines = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane lines at the start end
-NCAA_swimming_feature_lane_lines_start = function(course = "SCY",
+ncaa_swimming_feature_lane_lines_start = function(course = "SCY",
                                                   lane_width = 3,
                                                   number_of_lanes = 8,
                                                   overflow_channels = 1,
@@ -941,7 +941,7 @@ NCAA_swimming_feature_lane_lines_start = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane lines at the turn end
-NCAA_swimming_feature_lane_lines_turn = function(course = "SCY",
+ncaa_swimming_feature_lane_lines_turn = function(course = "SCY",
                                                  lane_width = 3,
                                                  number_of_lanes = 8,
                                                  overflow_channels = 1,
@@ -1017,7 +1017,7 @@ NCAA_swimming_feature_lane_lines_turn = function(course = "SCY",
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the lane line strings
-NCAA_swimming_feature_lane_line_strings = function(course = "SCY",
+ncaa_swimming_feature_lane_line_strings = function(course = "SCY",
                                                    lane_width = 3,
                                                    number_of_lanes = 8,
                                                    overflow_channels = 1,
@@ -1134,7 +1134,7 @@ NCAA_swimming_feature_lane_line_strings = function(course = "SCY",
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-NCAA_swimming_features_set_colors = function(deck_color = 'grey',
+ncaa_swimming_features_set_colors = function(deck_color = 'grey',
                                              pool_color = 'blue',
                                              m15_start_color = 'black',
                                              m15_turn_color = 'black',
@@ -1186,10 +1186,10 @@ NCAA_swimming_features_set_colors = function(deck_color = 'grey',
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
-#'   colors to pass to the \code{NCAA_swimming_features_set_colors()} function
+#'   colors to pass to the \code{ncaa_swimming_features_set_colors()} function
 #'
 #' @return A ggplot2 instance that represents a regulation pool
-geom_NCAA_swimming = function(course,
+geom_ncaa_swimming = function(course,
                               lane_width = 3,
                               number_of_lanes = 8,
                               overflow_channels = 1.5,
@@ -1199,112 +1199,112 @@ geom_NCAA_swimming = function(course,
                               background_color = NULL,
                               ...) {
   # Create the colors to use for the plot
-  color_list = NCAA_swimming_features_set_colors(...)
+  color_list = ncaa_swimming_features_set_colors(...)
 
   # Generate the data frames for the features of a pool + deck
-  deck = NCAA_swimming_feature_deck(course,
+  deck = ncaa_swimming_feature_deck(course,
                                     lane_width,
                                     number_of_lanes,
                                     overflow_channels,
                                     rotate,
                                     rotation_dir)
-  pool = NCAA_swimming_feature_pool(course,
+  pool = ncaa_swimming_feature_pool(course,
                                     lane_width,
                                     number_of_lanes,
                                     overflow_channels,
                                     rotate,
                                     rotation_dir)
-  m15_start = NCAA_swimming_feature_15m_start_line(course,
+  m15_start = ncaa_swimming_feature_15m_start_line(course,
                                                    lane_width,
                                                    number_of_lanes,
                                                    overflow_channels,
                                                    rotate,
                                                    rotation_dir)
-  m15_markers_start = NCAA_swimming_feature_15m_start_markers(course,
+  m15_markers_start = ncaa_swimming_feature_15m_start_markers(course,
                                                               lane_width,
                                                               number_of_lanes,
                                                               overflow_channels,
                                                               rotate,
                                                               rotation_dir)
-  m15_turn = NCAA_swimming_feature_15m_turn_line(course,
+  m15_turn = ncaa_swimming_feature_15m_turn_line(course,
                                                  lane_width,
                                                  number_of_lanes,
                                                  overflow_channels,
                                                  rotate,
                                                  rotation_dir)
-  m15_markers_turn = NCAA_swimming_feature_15m_turn_markers(course,
+  m15_markers_turn = ncaa_swimming_feature_15m_turn_markers(course,
                                                             lane_width,
                                                             number_of_lanes,
                                                             overflow_channels,
                                                             rotate,
                                                             rotation_dir)
-  flags_start = NCAA_swimming_feature_flags_start(course,
+  flags_start = ncaa_swimming_feature_flags_start(course,
                                                   lane_width,
                                                   number_of_lanes,
                                                   overflow_channels,
                                                   rotate,
                                                   rotation_dir)
-  flags_turn = NCAA_swimming_feature_flags_turn(course,
+  flags_turn = ncaa_swimming_feature_flags_turn(course,
                                                 lane_width,
                                                 number_of_lanes,
                                                 overflow_channels,
                                                 rotate,
                                                 rotation_dir)
-  flags_start_string = NCAA_swimming_feature_flags_start_string(course,
+  flags_start_string = ncaa_swimming_feature_flags_start_string(course,
                                                                 lane_width,
                                                                 number_of_lanes,
                                                                 overflow_channels,
                                                                 rotate,
                                                                 rotation_dir)
-  flags_turn_string = NCAA_swimming_feature_flags_turn_string(course,
+  flags_turn_string = ncaa_swimming_feature_flags_turn_string(course,
                                                               lane_width,
                                                               number_of_lanes,
                                                               overflow_channels,
                                                               rotate,
                                                               rotation_dir)
-  lane_markers = NCAA_swimming_feature_lane_markers(course,
+  lane_markers = ncaa_swimming_feature_lane_markers(course,
                                                     lane_width,
                                                     number_of_lanes,
                                                     overflow_channels,
                                                     rotate,
                                                     rotation_dir)
-  lane_markers_cross_start = NCAA_swimming_feature_lane_markers_cross_start(course,
+  lane_markers_cross_start = ncaa_swimming_feature_lane_markers_cross_start(course,
                                                                             lane_width,
                                                                             number_of_lanes,
                                                                             overflow_channels,
                                                                             rotate,
                                                                             rotation_dir)
-  lane_markers_cross_turn = NCAA_swimming_feature_lane_markers_cross_turn(course,
+  lane_markers_cross_turn = ncaa_swimming_feature_lane_markers_cross_turn(course,
                                                                           lane_width,
                                                                           number_of_lanes,
                                                                           overflow_channels,
                                                                           rotate,
                                                                           rotation_dir)
-  blocks = NCAA_swimming_feature_blocks(course,
+  blocks = ncaa_swimming_feature_blocks(course,
                                         lane_width,
                                         number_of_lanes,
                                         overflow_channels,
                                         rotate,
                                         rotation_dir)
-  lane_lines = NCAA_swimming_feature_lane_lines(course,
+  lane_lines = ncaa_swimming_feature_lane_lines(course,
                                                 lane_width,
                                                 number_of_lanes,
                                                 overflow_channels,
                                                 rotate,
                                                 rotation_dir)
-  lane_lines_start = NCAA_swimming_feature_lane_lines_start(course,
+  lane_lines_start = ncaa_swimming_feature_lane_lines_start(course,
                                                             lane_width,
                                                             number_of_lanes,
                                                             overflow_channels,
                                                             rotate,
                                                             rotation_dir)
-  lane_lines_turn = NCAA_swimming_feature_lane_lines_turn(course,
+  lane_lines_turn = ncaa_swimming_feature_lane_lines_turn(course,
                                                           lane_width,
                                                           number_of_lanes,
                                                           overflow_channels,
                                                           rotate,
                                                           rotation_dir)
-  lane_line_strings = NCAA_swimming_feature_lane_line_strings(course,
+  lane_line_strings = ncaa_swimming_feature_lane_line_strings(course,
                                                               lane_width,
                                                               number_of_lanes,
                                                               overflow_channels,
