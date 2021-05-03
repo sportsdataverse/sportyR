@@ -1028,12 +1028,25 @@ NFHS_swimming_feature_lane_line_strings = function(course = "SCY",
 
   lane_line_centerlines <- (lane_list * lane_width) - (lane_width/2) - ((lane_width * number_of_lanes)/2) - overflow_channels
 
+  # using rectangles sometimes results in rectangle not being shown because it's to thin
+  # heavily dependent on viewer window
+  # lane_line_strings_fun <- function(lane_line_centerline, pool_length, lane_line_string_width) {
+  #   df = create_rectangle(
+  #     x_min = (-pool_length / 2),
+  #     x_max = (pool_length / 2),
+  #     y_min = lane_line_centerline - (lane_line_string_width / 2),
+  #     y_max = lane_line_centerline + (lane_line_string_width / 2)
+  #   )
+  #
+  #   return(df)
+  # }
+
   lane_line_strings_fun <- function(lane_line_centerline, pool_length, lane_line_string_width) {
-    df = create_rectangle(
-      x_min = (-pool_length / 2),
-      x_max = (pool_length / 2),
-      y_min = lane_line_centerline - (lane_line_string_width / 2),
-      y_max = lane_line_centerline + (lane_line_string_width / 2)
+    df = create_line(
+      x_start = (-pool_length / 2),
+      x_end = (pool_length / 2),
+      y_start = lane_line_centerline,
+      y_end = lane_line_centerline
     )
 
     return(df)
@@ -1241,7 +1254,8 @@ geom_NFHS_swimming = function(course,
   g = add_feature(g, lane_markers_cross_start, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, lane_markers_cross_turn, group = group, color_list$lane_markers, alpha = 0.75)
   g = add_feature(g, blocks, group = group, color_list$blocks)
-  g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_string)
+  # g = add_feature(g, lane_line_strings, group = group, color_list$lane_line_string)
+  g = add_line_feature(g, lane_line_strings, group = group, color_list$lane_line_string, size = 0.25)
   g = add_feature(g, lane_lines, group = group, color_list$lane_lines)
   g = add_feature(g, lane_lines_start, group = group, color_list$lane_line_ends)
   g = add_feature(g, lane_lines_turn, group = group, color_list$lane_line_ends)
