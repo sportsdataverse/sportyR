@@ -1,3 +1,7 @@
+## sportyR 1.0.4
+
+- Added plotting capability for swimming leagues FINA, NCAA and NFHS
+
 ## sportyR 1.0.2
 
 - Added CFL plotting capability
