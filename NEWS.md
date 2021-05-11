@@ -1,3 +1,8 @@
+## sportyR 1.0.3
+
+- Added tennis plotting capability
+- Fixed issue with NCAA football plot hash marks (initially typed as 6, should have been typed as 60)
+
 ## sportyR 1.0.2
 
 - Added CFL plotting capability

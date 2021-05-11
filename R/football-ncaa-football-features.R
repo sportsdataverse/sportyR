@@ -374,10 +374,10 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
           -26 - (2/3) + convert_units(4, 'in', 'yd'),
 
           # Lower inbound line marker
-          -26 - (2/3) + convert_units(6, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(6, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(6, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
-          -26 - (2/3) + convert_units(6, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
+          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
+          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
+          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
+          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
 
           # Upper inbound line marker
           26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
