@@ -7,6 +7,8 @@
 ^\.github$
 ^README_cache
 ^README
+^CONTRIBUTING.md$
+^CODE-OF-CONDUCT.md$
 ^logos
 ^tests/figs
 ^tests/testthat/test-plot-functions.R

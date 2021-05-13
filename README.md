@@ -346,8 +346,39 @@ play_anim
 This package is released under the [MIT
 License](https://github.com/rossdrucker/sportyR/blob/master/LICENSE.md).
 
-## Authorship
+## Contributions
 
-This package was developed and is being maintained by [Ross
-Drucker](https://github.com/rossdrucker). Please reach out with any
-questions, bugs, or suggestions.
+### League Office
+
+The package maintainers and functional engineers
+
+-   [Ross Drucker](https://github.com/rossdrucker) - `sportyR`
+    Commissioner
+
+### General Managers
+
+Contribute by adding a new sport and become its general manager. Current
+general managers (and their sports) are:
+
+-   [Ross Drucker](https://github.com/rossdrucker) - Baseball
+-   [Ross Drucker](https://github.com/rossdrucker) - Basketball
+-   [Ross Drucker](https://github.com/rossdrucker) - Football
+-   [Ross Drucker](https://github.com/rossdrucker) - Hockey
+-   [Ross Drucker](https://github.com/rossdrucker) - Soccer
+
+### Coaching Staffs
+
+Notice something for a sport that already exists, but isn’t quite right?
+Join that sport’s coaching staff!
+
+### Scout Team
+
+By regularly reporting issues, making very slight modifications, fixing
+typos, or just helping others navigate their own issues, you’re able to
+join the Scout Team!
+
+### `sportyR`tist
+
+The `sportyR` logo was created by Lindsey Kelso. Check her out on
+[Instagram](http://Instagram.com/kelsokreationsbylindsey) or her [online
+shop](http://kelsokreationsbylindsey.bigcartel.com)!
