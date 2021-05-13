@@ -15,24 +15,22 @@
 #' @export
 #'
 #' @examples
-#' geom_tennis(league = 'itf')
+#' geom_tennis(league = "itf")
 geom_tennis = function(league,
                        full_surf = TRUE,
                        rotate = FALSE,
-                       rotation_dir = 'ccw',
-                       ...
-){
+                       rotation_dir = "ccw",
+                       ...) {
   # Force the league to be all upper case
   league = toupper(league)
 
   # Call the appropriate plot-generating function
-  g = switch(
-    league,
-    'ITF' = geom_itf(full_surf, rotate, rotation_dir, ...),
+  g = switch(league,
+    "ITF" = geom_itf(full_surf, rotate, rotation_dir, ...),
 
-    'NCAA' = geom_ncaa_tennis(full_surf, rotate, rotation_dir, ...),
+    "NCAA" = geom_ncaa_tennis(full_surf, rotate, rotation_dir, ...),
 
-    stop(glue::glue('{league} is not a valid league at this time.'))
+    stop(glue::glue("{league} is not a valid league at this time."))
   )
 
   # Return the ggplot2 instance

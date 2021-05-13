@@ -27,29 +27,26 @@ geom_soccer = function(league,
                        goal_line_length = 90,
                        full_surf = TRUE,
                        rotate = FALSE,
-                       rotation_dir = 'ccw',
-                       ...
-){
+                       rotation_dir = "ccw",
+                       ...) {
   # Force the league to be all upper case
   league = toupper(league)
 
   # Call the appropriate plot-generating function
-  g = switch(
-    league,
-    'FIFA' = geom_fifa(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
+  g = switch(league,
+    "FIFA" = geom_fifa(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
 
-    'MLS' = geom_mls(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
+    "MLS" = geom_mls(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
 
-    'NCAA' = geom_ncaa_soccer(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
+    "NCAA" = geom_ncaa_soccer(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
 
-    'NWSL' = geom_nwsl(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
+    "NWSL" = geom_nwsl(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
 
-    'PREMIER' = geom_premier_league(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
+    "PREMIER" = geom_premier_league(touchline_length, goal_line_length, full_surf, rotate, rotation_dir, ...),
 
-    stop(glue::glue('{league} is not a valid league at this time.'))
+    stop(glue::glue("{league} is not a valid league at this time."))
   )
 
   # Return the ggplot2 instance
   return(g)
 }
-

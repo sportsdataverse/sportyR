@@ -23,24 +23,22 @@
 geom_basketball = function(league,
                            full_surf = TRUE,
                            rotate = FALSE,
-                           rotation_dir = 'ccw',
-                           ...
-){
+                           rotation_dir = "ccw",
+                           ...) {
   # Force the league to be all upper case
   league = toupper(league)
 
   # Call the appropriate plot-generating function
-  g = switch(
-    league,
-    'FIBA' = geom_fiba(full_surf, rotate, rotation_dir, ...),
+  g = switch(league,
+    "FIBA" = geom_fiba(full_surf, rotate, rotation_dir, ...),
 
-    'NCAA' = geom_ncaa_bb(full_surf, rotate, rotation_dir, ...),
+    "NCAA" = geom_ncaa_bb(full_surf, rotate, rotation_dir, ...),
 
-    'NBA' = geom_nba(full_surf, rotate, rotation_dir, ...),
+    "NBA" = geom_nba(full_surf, rotate, rotation_dir, ...),
 
-    'WNBA' = geom_wnba(full_surf, rotate, rotation_dir, ...),
+    "WNBA" = geom_wnba(full_surf, rotate, rotation_dir, ...),
 
-    stop(glue::glue('{league} is not a valid league at this time.'))
+    stop(glue::glue("{league} is not a valid league at this time."))
   )
 
   # Return the ggplot2 instance

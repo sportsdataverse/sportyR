@@ -16,8 +16,8 @@ test_that("create_circle() correctly generates a unit circle", {
   # Check that all x and y values are between -1 and 1 (inclusive). NOTE: a
   # point that is radially at least .999 units in distance from the origin will
   # be considered at radius 1
-  unit_circle['dist'] = distance_formula(unit_circle$x, unit_circle$y, 0, 0)
-  unit_circle[unit_circle['dist'] >= .999, 'dist_okay'] = 1
+  unit_circle["dist"] = distance_formula(unit_circle$x, unit_circle$y, 0, 0)
+  unit_circle[unit_circle["dist"] >= .999, "dist_okay"] = 1
 
   # If each point on the circle is an equal number of units away from the
   # origin, then the sum of dist_okay should be the same as the number of rows

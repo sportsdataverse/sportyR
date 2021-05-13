@@ -5,7 +5,7 @@
 #'
 #' NOTE: When adding datasets, be sure the working directory is set to sportyR/
 #' and that this file is sourced on saving.
-usethis::use_package('rjson')
+usethis::use_package("rjson")
 
 league_lookup = rjson::fromJSON(file = "data-raw/league_lookup.json")
 sport_lookup = rjson::fromJSON(file = "data-raw/sport_lookup.json")

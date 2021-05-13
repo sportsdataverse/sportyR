@@ -8,7 +8,9 @@
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the court
-wnba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_court_bground = function(full_surf = TRUE,
+                                      rotate = FALSE,
+                                      rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -21,7 +23,7 @@ wnba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation
     y_max = 25
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     court = rbind(
@@ -33,7 +35,7 @@ wnba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     court = rotate_coords(
       court,
@@ -56,7 +58,9 @@ wnba_feature_court_bground = function(full_surf = TRUE, rotate = FALSE, rotation
 #'
 #' @return A list of data frames containing the points that comprise the center
 #'   circles
-wnba_feature_center_circles = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_center_circles = function(full_surf = TRUE,
+                                       rotate = FALSE,
+                                       rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -71,15 +75,17 @@ wnba_feature_center_circles = function(full_surf = TRUE, rotate = FALSE, rotatio
       end = 1.5,
       d = 4
     ),
+
     data.frame(
       x = 0,
       y = -4
     ),
+
     create_circle(
       center = c(0, 0),
       start = 1.5,
       end = .5,
-      d = 4 + (4/12)
+      d = 4 + (4 / 12)
     )
   )
 
@@ -91,19 +97,21 @@ wnba_feature_center_circles = function(full_surf = TRUE, rotate = FALSE, rotatio
       end = 1.5,
       d = 12
     ),
+
     data.frame(
       x = 0,
       y = -12
     ),
+
     create_circle(
       center = c(0, 0),
       start = 1.5,
       end = .5,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     inner_circle = rbind(
@@ -123,7 +131,7 @@ wnba_feature_center_circles = function(full_surf = TRUE, rotate = FALSE, rotatio
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     inner_circle = rotate_coords(
       inner_circle,
@@ -155,20 +163,22 @@ wnba_feature_center_circles = function(full_surf = TRUE, rotate = FALSE, rotatio
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the division line
-wnba_feature_division_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_division_line = function(full_surf = TRUE,
+                                      rotate = FALSE,
+                                      rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The line is 2" thick, goes right through the middle of the court (1" of its
   # width on each side of it), and spans the width of the court
   division_line = create_rectangle(
-    x_min = -1/12,
+    x_min = -1 / 12,
     x_max = 0,
     y_min = -25,
     y_max = 25
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     division_line = rbind(
@@ -180,7 +190,7 @@ wnba_feature_division_line = function(full_surf = TRUE, rotate = FALSE, rotation
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     division_line = rotate_coords(
       division_line,
@@ -202,20 +212,22 @@ wnba_feature_division_line = function(full_surf = TRUE, rotate = FALSE, rotation
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the end lines
-wnba_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_endline = function(full_surf = TRUE,
+                                rotate = FALSE,
+                                rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The endline is 47' (interior) from the center of the court, spans the width
   # of the court, and is 2" in thickness
   endline = create_rectangle(
-    x_min = -47 - (2/12),
+    x_min = -47 - (2 / 12),
     x_max = -47,
     y_min = -25,
-    y_max =  25
+    y_max = 25
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     endline = rbind(
@@ -227,7 +239,7 @@ wnba_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     endline = rotate_coords(
       endline,
@@ -250,7 +262,9 @@ wnba_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   sidelines
-wnba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_sideline = function(full_surf = TRUE,
+                                 rotate = FALSE,
+                                 rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -259,21 +273,21 @@ wnba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
 
   # First sideline
   sideline_1 = create_rectangle(
-    x_min = -47 - (2/12),
+    x_min = -47 - (2 / 12),
     x_max = 0,
-    y_min = -25 - (2/12),
+    y_min = -25 - (2 / 12),
     y_max = -25
   )
 
   # Second sideline
   sideline_2 = create_rectangle(
-    x_min = -47 - (2/12),
+    x_min = -47 - (2 / 12),
     x_max = 0,
     y_min = 25,
-    y_max = 25 + (2/12)
+    y_max = 25 + (2 / 12)
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     sideline_1 = rbind(
@@ -293,7 +307,7 @@ wnba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     sideline_1 = rotate_coords(
       sideline_1,
@@ -326,14 +340,16 @@ wnba_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
 #'
 #' @return A list of data frames containing the points that comprise the team
 #'   bench
-wnba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_team_bench = function(full_surf = TRUE,
+                                   rotate = FALSE,
+                                   rotation_dir = "ccw") {
   # The team bench is 28' (interior) from the nearest endline sideline,
   # protrudes 3' into the court, and is 2" in thickness
 
   # The first bench markings
   team_bench_1 = create_rectangle(
     x_min = -19,
-    x_max = -19 + (2/12),
+    x_max = -19 + (2 / 12),
     y_min = -25,
     y_max = -22
   )
@@ -341,12 +357,12 @@ wnba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_di
   # Then, the opposite side
   team_bench_2 = create_rectangle(
     x_min = -19,
-    x_max = -19 + (2/12),
+    x_max = -19 + (2 / 12),
     y_min = 22,
     y_max = 25
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     team_bench_1 = rbind(
@@ -366,7 +382,7 @@ wnba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_di
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     team_bench_1 = rotate_coords(
       team_bench_1,
@@ -398,7 +414,9 @@ wnba_feature_team_bench = function(full_surf = TRUE, rotate = FALSE, rotation_di
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the substitution area
-wnba_feature_substitution_area = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_substitution_area = function(full_surf = TRUE,
+                                          rotate = FALSE,
+                                          rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -408,13 +426,13 @@ wnba_feature_substitution_area = function(full_surf = TRUE, rotate = FALSE, rota
 
   # Substitution area
   substitution_area = create_rectangle(
-    x_min = -4 - (3/12),
-    x_max = -4 - (1/12),
-    y_min = 25 + (2/12),
-    y_max = 29 + (2/12)
+    x_min = -4 - (3 / 12),
+    x_max = -4 - (1 / 12),
+    y_min = 25 + (2 / 12),
+    y_max = 29 + (2 / 12)
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     substitution_area = rbind(
@@ -426,7 +444,7 @@ wnba_feature_substitution_area = function(full_surf = TRUE, rotate = FALSE, rota
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     substitution_area = rotate_coords(
       substitution_area,
@@ -448,7 +466,9 @@ wnba_feature_substitution_area = function(full_surf = TRUE, rotate = FALSE, rota
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the court apron
-wnba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_court_apron = function(full_surf = TRUE,
+                                    rotate = FALSE,
+                                    rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -458,12 +478,12 @@ wnba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_d
   court_apron = data.frame(
     x = c(
       0,
-      -47 - (2/12),
-      -47 - (2/12),
-      -4 - (3/12),
-      -4 - (3/12),
-      -4 - (1/12),
-      -4 - (1/12),
+      -47 - (2 / 12),
+      -47 - (2 / 12),
+      -4 - (3 / 12),
+      -4 - (3 / 12),
+      -4 - (1 / 12),
+      -4 - (1 / 12),
       0,
       0,
       -56,
@@ -473,23 +493,23 @@ wnba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_d
     ),
 
     y = c(
-      -25 - (2/12),
-      -25 - (2/12),
-      25 + (2/12),
-      25 + (2/12),
-      29 + (2/12),
-      29 + (2/12),
-      25 + (2/12),
-      25 + (2/12),
+      -25 - (2 / 12),
+      -25 - (2 / 12),
+      25 + (2 / 12),
+      25 + (2 / 12),
+      29 + (2 / 12),
+      29 + (2 / 12),
+      25 + (2 / 12),
+      25 + (2 / 12),
       30,
       30,
       -30,
       -30,
-      -25 - (2/12)
+      -25 - (2 / 12)
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     court_apron = rbind(
@@ -501,7 +521,7 @@ wnba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_d
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     court_apron = rotate_coords(
       court_apron,
@@ -525,7 +545,9 @@ wnba_feature_court_apron = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   three-point line and two-point range
-wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_three_point_line = function(full_surf = TRUE,
+                                         rotate = FALSE,
+                                         rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -567,9 +589,8 @@ wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
 
     data.frame(
       x = c(-47, -47),
-      y = c(-22, -22 + (2/12))
+      y = c(-22, -22 + (2 / 12))
     ),
-
     create_circle(
       center = c(-41.75, 0),
       start = start_angle_inner,
@@ -579,7 +600,7 @@ wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
 
     data.frame(
       x = c(-47, -47),
-      y = c(22 - (2/12), 22)
+      y = c(22 - (2 / 12), 22)
     )
   )
 
@@ -589,7 +610,7 @@ wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
   two_point_range = rbind(
     data.frame(
       x = -47,
-      y = -22 + (2/12)
+      y = -22 + (2 / 12)
     ),
 
     create_circle(
@@ -601,11 +622,11 @@ wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
 
     data.frame(
       x = c(-47, -47),
-      y = c(22 - (2/12), -22 + (2/12))
+      y = c(22 - (2 / 12), -22 + (2 / 12))
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     three_point_line = rbind(
@@ -625,7 +646,7 @@ wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     three_point_line = rotate_coords(
       three_point_line,
@@ -659,7 +680,9 @@ wnba_feature_three_point_line = function(full_surf = TRUE, rotate = FALSE, rotat
 #'
 #' @return A list of data frames containing the points that comprise both the
 #'   professional and amateur free-throw lanes
-wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_free_throw_lane = function(full_surf = TRUE,
+                                        rotate = FALSE,
+                                        rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -673,8 +696,8 @@ wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
       -28,
       -47,
       -47,
-      -28 - (2/12),
-      -28 - (2/12),
+      -28 - (2 / 12),
+      -28 - (2 / 12),
       -47,
       -47
     ),
@@ -684,19 +707,19 @@ wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
       -8,
       8,
       8,
-      8 - (2/12),
-      8 - (2/12),
-      -8 + (2/12),
-      -8 + (2/12),
+      8 - (2 / 12),
+      8 - (2 / 12),
+      -8 + (2 / 12),
+      -8 + (2 / 12),
       -8
     )
   )
 
   professional_painted_area = create_rectangle(
     x_min = -47,
-    x_max = -28 - (2/12),
-    y_min = -8 + (2/12),
-    y_max = 8 - (2/12)
+    x_max = -28 - (2 / 12),
+    y_min = -8 + (2 / 12),
+    y_max = 8 - (2 / 12)
   )
 
   # Some courts have the amateur (NCAA) free-throw lane included as well
@@ -707,8 +730,8 @@ wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
       -28,
       -47,
       -47,
-      -28 - (2/12),
-      -28 - (2/12),
+      -28 - (2 / 12),
+      -28 - (2 / 12),
       -47,
       -47
     ),
@@ -718,22 +741,22 @@ wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
       -6,
       6,
       6,
-      6 - (2/12),
-      6 - (2/12),
-      -6 + (2/12),
-      -6 + (2/12),
+      6 - (2 / 12),
+      6 - (2 / 12),
+      -6 + (2 / 12),
+      -6 + (2 / 12),
       -6
     )
   )
 
   amateur_painted_area = create_rectangle(
     x_min = -47,
-    x_max = -28 - (2/12),
-    y_min = -6 + (2/12),
-    y_max = 6 - (2/12)
+    x_max = -28 - (2 / 12),
+    y_min = -6 + (2 / 12),
+    y_max = 6 - (2 / 12)
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     professional_free_throw_lane = rbind(
@@ -769,7 +792,7 @@ wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     professional_free_throw_lane = rotate_coords(
       professional_free_throw_lane,
@@ -815,7 +838,9 @@ wnba_feature_free_throw_lane = function(full_surf = TRUE, rotate = FALSE, rotati
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   free-throw lane lines (the blocks)
-wnba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_free_throw_lane_lines = function(full_surf = TRUE,
+                                              rotate = FALSE,
+                                              rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -947,7 +972,7 @@ wnba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, 
     over_y = FALSE
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     professional_lane_line_1 = rbind(
@@ -1079,7 +1104,7 @@ wnba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     professional_lane_line_1 = rotate_coords(
       professional_lane_line_1,
@@ -1197,7 +1222,9 @@ wnba_feature_free_throw_lane_lines = function(full_surf = TRUE, rotate = FALSE, 
 #'
 #' @return A list of data frame containing the points that comprise the
 #'   free-throw semi-circles (where a free-throw shooter would shoot from)
-wnba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_free_throw_semi_circle = function(full_surf = TRUE,
+                                               rotate = FALSE,
+                                               rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1205,26 +1232,26 @@ wnba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE,
   # the free-throw line (18' 11" from the interior edge of the baseline)
   free_throw_semi_circle_line = rbind(
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = .5,
       end = -.5,
       d = 12
     ),
 
     data.frame(
-      x = -28 - (1/12),
+      x = -28 - (1 / 12),
       y = -6
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = -.5,
       end = .5,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     ),
 
     data.frame(
-      x = -28 - (1/12),
+      x = -28 - (1 / 12),
       y = 6
     )
   )
@@ -1233,10 +1260,10 @@ wnba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE,
   # two-point area
   free_throw_semi_circle_fill = rbind(
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = -.5,
       end = .5,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     )
   )
 
@@ -1250,7 +1277,7 @@ wnba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE,
     free_throw_semi_circle_fill[1, ]
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     free_throw_semi_circle_line = rbind(
@@ -1270,7 +1297,7 @@ wnba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE,
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     free_throw_semi_circle_line = rotate_coords(
       free_throw_semi_circle_line,
@@ -1304,7 +1331,9 @@ wnba_feature_free_throw_semi_circle = function(full_surf = TRUE, rotate = FALSE,
 #'
 #' @return A list of data frames containing the points that comprise the dashed
 #'   part of the free-throw circle
-wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE,
+                                                      rotate = FALSE,
+                                                      rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1332,21 +1361,21 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
   # Create the first dash
   dash_1 = rbind(
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = start_angle,
       end = end_angle,
       d = 12
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = end_angle,
       end = start_angle,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = start_angle,
       end = end_angle,
       d = 12
@@ -1382,21 +1411,21 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
   # Create the remaining dashes to complete the quarter-circle
   dash_2 = rbind(
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_2_start_angle,
       end = dash_2_end_angle,
       d = 12
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_2_end_angle,
       end = dash_2_start_angle,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_2_start_angle,
       end = dash_2_end_angle,
       d = 12
@@ -1405,21 +1434,21 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
 
   dash_3 = rbind(
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_3_start_angle,
       end = dash_3_end_angle,
       d = 12
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_3_end_angle,
       end = dash_3_start_angle,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_3_start_angle,
       end = dash_3_end_angle,
       d = 12
@@ -1428,21 +1457,21 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
 
   dash_4 = rbind(
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_4_start_angle,
       end = dash_4_end_angle,
       d = 12
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_4_end_angle,
       end = dash_4_start_angle,
-      d = 12 - (4/12)
+      d = 12 - (4 / 12)
     ),
 
     create_circle(
-      center = c(-28 - (1/12), 0),
+      center = c(-28 - (1 / 12), 0),
       start = dash_4_start_angle,
       end = dash_4_end_angle,
       d = 12
@@ -1474,7 +1503,7 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
     over_y = FALSE
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     dash_1 = rbind(
@@ -1542,7 +1571,7 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     dash_1 = rotate_coords(
       dash_1,
@@ -1611,7 +1640,9 @@ wnba_feature_free_throw_dashed_semi_circle = function(full_surf = TRUE, rotate =
 #'
 #' @return A data frame containing the points that comprise the lower defensive
 #'   box
-wnba_feature_lower_defensive_box = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_lower_defensive_box = function(full_surf = TRUE,
+                                            rotate = FALSE,
+                                            rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1626,13 +1657,13 @@ wnba_feature_lower_defensive_box = function(full_surf = TRUE, rotate = FALSE, ro
     x_min = -47,
     x_max = -46.5,
     y_min = 11,
-    y_max = 11 + (2/12)
+    y_max = 11 + (2 / 12)
   )
 
   # Dash 2 is the line in the painted area
   dash_2 = create_rectangle(
     x_min = -34,
-    x_max = -34 + (2/12),
+    x_max = -34 + (2 / 12),
     y_min = 5,
     y_max = 5.5
   )
@@ -1651,7 +1682,7 @@ wnba_feature_lower_defensive_box = function(full_surf = TRUE, rotate = FALSE, ro
     over_y = FALSE
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     dash_1 = rbind(
@@ -1687,7 +1718,7 @@ wnba_feature_lower_defensive_box = function(full_surf = TRUE, rotate = FALSE, ro
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     dash_1 = rotate_coords(
       dash_1,
@@ -1733,16 +1764,18 @@ wnba_feature_lower_defensive_box = function(full_surf = TRUE, rotate = FALSE, ro
 #'
 #' @return A data frame containing the points that comprise the restricted area
 #'   arc underneath the basket
-wnba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_restricted_area_arc = function(full_surf = TRUE,
+                                            rotate = FALSE,
+                                            rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # Following the same process as for the three-point line, the restricted area
   # arc's starting and ending angle can be computed
-  start_y = -4 - (2/12)
+  start_y = -4 - (2 / 12)
 
   # The rule book describes the arc as having a radius of 4'
-  radius_outer = 4 + (2/12)
+  radius_outer = 4 + (2 / 12)
 
   # From here, the calculation is relatively straightforward. To determine the
   # angle, the inverse sine is needed. It will be multiplied by pi so that it
@@ -1754,7 +1787,7 @@ wnba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
   # radius will be traced from bottom to top, the angle must be negative to
   # start
   radius_inner = 4
-  start_angle_inner = -asin((start_y + (2/12)) / radius_inner) / pi
+  start_angle_inner = -asin((start_y + (2 / 12)) / radius_inner) / pi
   end_angle_inner = -start_angle_inner
 
   # The restricted area arc is an arc of radius 4' from the center of the
@@ -1763,19 +1796,19 @@ wnba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
   restricted_area_arc = rbind(
     data.frame(
       x = -43,
-      y = -4 - (2/12)
+      y = -4 - (2 / 12)
     ),
 
     create_circle(
       center = c(-41.75, 0),
       start = start_angle_outer,
       end = end_angle_outer,
-      d = 8 + (4/12)
+      d = 8 + (4 / 12)
     ),
 
     data.frame(
       x = c(-43, -43),
-      y = c(4 + (2/12), 4)
+      y = c(4 + (2 / 12), 4)
     ),
 
     create_circle(
@@ -1787,11 +1820,11 @@ wnba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
 
     data.frame(
       x = c(-43, -43),
-      y = c(-4, -4 - (2/12))
+      y = c(-4, -4 - (2 / 12))
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     restricted_area_arc = rbind(
@@ -1803,7 +1836,7 @@ wnba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     restricted_area_arc = rotate_coords(
       restricted_area_arc,
@@ -1825,17 +1858,19 @@ wnba_feature_restricted_area_arc = function(full_surf = TRUE, rotate = FALSE, ro
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the backboard
-wnba_feature_backboard = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_backboard = function(full_surf = TRUE,
+                                  rotate = FALSE,
+                                  rotation_dir = "ccw") {
   # In the WNBA, the backboard is 6' in width, with its front edge 4' from the
   # interior of the baseline
   backboard = create_rectangle(
-    x_min = -43 - (4/12),
+    x_min = -43 - (4 / 12),
     x_max = -43,
     y_min = -3,
     y_max = 3
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     backboard = rbind(
@@ -1847,7 +1882,7 @@ wnba_feature_backboard = function(full_surf = TRUE, rotate = FALSE, rotation_dir
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     backboard = rotate_coords(
       backboard,
@@ -1869,14 +1904,16 @@ wnba_feature_backboard = function(full_surf = TRUE, rotate = FALSE, rotation_dir
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the basket ring
-wnba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_basket_ring = function(full_surf = TRUE,
+                                    rotate = FALSE,
+                                    rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The connector has a width of 7", so 3.5" are on either side of the x
   # axis. The ring has a radius of 9", so the arcsine of these measurements
   # should give the angle at which point they connect
-  start_angle = pi - asin(3.5/9)
+  start_angle = pi - asin(3.5 / 9)
 
   # The ending angle of the ring would be the negative of the starting angle
   end_angle = -start_angle
@@ -1884,33 +1921,33 @@ wnba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_d
   # Get the ring
   basket_ring = rbind(
     data.frame(
-      x = c(-43, -41.75 - ((9/12) * cos(start_angle))),
-      y = c(3.5/12, 3.5/12)
+      x = c(-43, -41.75 - ((9 / 12) * cos(start_angle))),
+      y = c(3.5 / 12, 3.5 / 12)
     ),
 
     create_circle(
       center = c(-41.75, 0),
       start = start_angle,
       end = end_angle,
-      d = 1.5 + (4/12)
+      d = 1.5 + (4 / 12)
     ),
 
     data.frame(
       x = c(
-        -41.75 - ((9/12) * cos(start_angle)),
+        -41.75 - ((9 / 12) * cos(start_angle)),
         -43,
         -43
       ),
 
       y = c(
-        -3.5/12,
-        -3.5/12,
-        3.5/12
+        -3.5 / 12,
+        -3.5 / 12,
+        3.5 / 12
       )
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     basket_ring = rbind(
@@ -1922,7 +1959,7 @@ wnba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_d
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     basket_ring = rotate_coords(
       basket_ring,
@@ -1944,7 +1981,9 @@ wnba_feature_basket_ring = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the net
-wnba_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+wnba_feature_net = function(full_surf = TRUE,
+                            rotate = FALSE,
+                            rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -1958,7 +1997,7 @@ wnba_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'cc
     d = 1.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     net = rbind(
@@ -1970,7 +2009,7 @@ wnba_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'cc
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     net = rotate_coords(
       net,
@@ -2039,32 +2078,31 @@ wnba_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'cc
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-wnba_features_set_colors = function(court_background_color = '#d2ab6f',
-                                    inner_center_circle_color = '#000000',
-                                    outer_center_circle_color = '#000000',
-                                    division_line_color = '#000000',
-                                    endline_color = '#000000',
-                                    sideline_color = '#000000',
-                                    team_bench_color = '#000000',
-                                    substitution_area_color = '#000000',
-                                    court_apron_color = '#d2ab6f',
-                                    three_point_line_color = '#000000',
-                                    two_point_range_color = '#d2ab6f',
-                                    professional_free_throw_lane_color = '#000000',
-                                    professional_painted_area_color = '#d2ab6f',
-                                    amateur_free_throw_lane_color = '#000000',
-                                    amateur_painted_area_color = '#d2ab6f',
-                                    professional_free_throw_lane_lines_color = '#000000',
-                                    amateur_free_throw_lane_lines_color = '#000000',
-                                    free_throw_semi_circle_line_color = '#000000',
-                                    free_throw_semi_circle_fill_color = '#d2ab6f',
-                                    free_throw_dashed_semi_circle_color = '#000000',
-                                    lower_defensive_box_color = '#000000',
-                                    restricted_area_arc_color = '#000000',
-                                    backboard_color = '#000000',
-                                    basket_ring_color = '#000000',
-                                    net_color = '#ffffff'
-){
+wnba_features_set_colors = function(court_background_color = "#d2ab6f",
+                                    inner_center_circle_color = "#000000",
+                                    outer_center_circle_color = "#000000",
+                                    division_line_color = "#000000",
+                                    endline_color = "#000000",
+                                    sideline_color = "#000000",
+                                    team_bench_color = "#000000",
+                                    substitution_area_color = "#000000",
+                                    court_apron_color = "#d2ab6f",
+                                    three_point_line_color = "#000000",
+                                    two_point_range_color = "#d2ab6f",
+                                    professional_free_throw_lane_color = "#000000",
+                                    professional_painted_area_color = "#d2ab6f",
+                                    amateur_free_throw_lane_color = "#000000",
+                                    amateur_painted_area_color = "#d2ab6f",
+                                    professional_free_throw_lane_lines_color = "#000000",
+                                    amateur_free_throw_lane_lines_color = "#000000",
+                                    free_throw_semi_circle_line_color = "#000000",
+                                    free_throw_semi_circle_fill_color = "#d2ab6f",
+                                    free_throw_dashed_semi_circle_color = "#000000",
+                                    lower_defensive_box_color = "#000000",
+                                    restricted_area_arc_color = "#000000",
+                                    backboard_color = "#000000",
+                                    basket_ring_color = "#000000",
+                                    net_color = "#ffffff") {
 
   # Create the colors to use for the plot
   feature_colors = list(
@@ -2125,14 +2163,13 @@ wnba_features_set_colors = function(court_background_color = '#d2ab6f',
 #' @return A ggplot2 instance that represents a regulation WNBA court
 geom_wnba = function(full_surf = TRUE,
                      rotate = FALSE,
-                     rotation_dir = 'ccw',
-                     unit = 'ft',
+                     rotation_dir = "ccw",
+                     unit = "ft",
                      include_amateur_free_throw_lane = TRUE,
                      include_amateur_free_throw_lane_lines = TRUE,
-                     caption_color = '#707372',
+                     caption_color = "#707372",
                      background_color = NULL,
-                     ...
-){
+                     ...) {
   # Force the plot unit to be lower case
   unit = tolower(unit)
 
@@ -2160,65 +2197,65 @@ geom_wnba = function(full_surf = TRUE,
   net = wnba_feature_net(full_surf, rotate, rotation_dir)
 
   # Convert between units as necessary
-  if(!(unit %in% c('ft', 'feet'))){
-    court_background = convert_units(court_background, 'ft', unit, conversion_columns = c('x', 'y'))
-    center_circles$inner_circle = convert_units(center_circles$inner_circle, 'ft', unit, conversion_columns = c('x', 'y'))
-    center_circles$outer_circle = convert_units(center_circles$outer_circle, 'ft', unit, conversion_columns = c('x', 'y'))
-    division_line = convert_units(division_line, 'ft', unit, conversion_columns = c('x', 'y'))
-    endline = convert_units(endline, 'ft', unit, conversion_columns = c('x', 'y'))
-    sideline$sideline_1 = convert_units(sideline$sideline_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    sideline$sideline_2 = convert_units(sideline$sideline_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    court_apron = convert_units(court_apron, 'ft', unit, conversion_columns = c('x', 'y'))
-    team_bench$team_bench_1 = convert_units(team_bench$team_bench_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    team_bench$team_bench_2 = convert_units(team_bench$team_bench_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    substitution_area = convert_units(substitution_area, 'ft', unit, conversion_columns = c('x', 'y'))
-    three_point_line$three_point_line = convert_units(three_point_line$three_point_line, 'ft', unit, conversion_columns = c('x', 'y'))
-    three_point_line$two_point_range = convert_units(three_point_line$two_point_range, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane$professional_free_throw_lane = convert_units(free_throw_lane$professional_free_throw_lane, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane$professional_painted_area = convert_units(free_throw_lane$professional_painted_area, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_1 = convert_units(free_throw_lane_lines$professional_lane_line_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_2 = convert_units(free_throw_lane_lines$professional_lane_line_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_3 = convert_units(free_throw_lane_lines$professional_lane_line_3, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_4 = convert_units(free_throw_lane_lines$professional_lane_line_4, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_5 = convert_units(free_throw_lane_lines$professional_lane_line_5, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_6 = convert_units(free_throw_lane_lines$professional_lane_line_6, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_7 = convert_units(free_throw_lane_lines$professional_lane_line_7, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_lane_lines$professional_lane_line_8 = convert_units(free_throw_lane_lines$professional_lane_line_8, 'ft', unit, conversion_columns = c('x', 'y'))
+  if (!(unit %in% c("ft", "feet"))) {
+    court_background = convert_units(court_background, "ft", unit, conversion_columns = c("x", "y"))
+    center_circles$inner_circle = convert_units(center_circles$inner_circle, "ft", unit, conversion_columns = c("x", "y"))
+    center_circles$outer_circle = convert_units(center_circles$outer_circle, "ft", unit, conversion_columns = c("x", "y"))
+    division_line = convert_units(division_line, "ft", unit, conversion_columns = c("x", "y"))
+    endline = convert_units(endline, "ft", unit, conversion_columns = c("x", "y"))
+    sideline$sideline_1 = convert_units(sideline$sideline_1, "ft", unit, conversion_columns = c("x", "y"))
+    sideline$sideline_2 = convert_units(sideline$sideline_2, "ft", unit, conversion_columns = c("x", "y"))
+    court_apron = convert_units(court_apron, "ft", unit, conversion_columns = c("x", "y"))
+    team_bench$team_bench_1 = convert_units(team_bench$team_bench_1, "ft", unit, conversion_columns = c("x", "y"))
+    team_bench$team_bench_2 = convert_units(team_bench$team_bench_2, "ft", unit, conversion_columns = c("x", "y"))
+    substitution_area = convert_units(substitution_area, "ft", unit, conversion_columns = c("x", "y"))
+    three_point_line$three_point_line = convert_units(three_point_line$three_point_line, "ft", unit, conversion_columns = c("x", "y"))
+    three_point_line$two_point_range = convert_units(three_point_line$two_point_range, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane$professional_free_throw_lane = convert_units(free_throw_lane$professional_free_throw_lane, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane$professional_painted_area = convert_units(free_throw_lane$professional_painted_area, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_1 = convert_units(free_throw_lane_lines$professional_lane_line_1, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_2 = convert_units(free_throw_lane_lines$professional_lane_line_2, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_3 = convert_units(free_throw_lane_lines$professional_lane_line_3, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_4 = convert_units(free_throw_lane_lines$professional_lane_line_4, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_5 = convert_units(free_throw_lane_lines$professional_lane_line_5, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_6 = convert_units(free_throw_lane_lines$professional_lane_line_6, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_7 = convert_units(free_throw_lane_lines$professional_lane_line_7, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_lane_lines$professional_lane_line_8 = convert_units(free_throw_lane_lines$professional_lane_line_8, "ft", unit, conversion_columns = c("x", "y"))
 
-    if(include_amateur_free_throw_lane){
-      free_throw_lane$amateur_free_throw_lane = convert_units(free_throw_lane$amateur_free_throw_lane, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane$amateur_painted_area = convert_units(free_throw_lane$amateur_painted_area, 'ft', unit, conversion_columns = c('x', 'y'))
+    if (include_amateur_free_throw_lane) {
+      free_throw_lane$amateur_free_throw_lane = convert_units(free_throw_lane$amateur_free_throw_lane, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane$amateur_painted_area = convert_units(free_throw_lane$amateur_painted_area, "ft", unit, conversion_columns = c("x", "y"))
     }
 
-    if(include_amateur_free_throw_lane_lines){
-      free_throw_lane_lines$amateur_lane_line_1 = convert_units(free_throw_lane_lines$amateur_lane_line_1, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_2 = convert_units(free_throw_lane_lines$amateur_lane_line_2, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_3 = convert_units(free_throw_lane_lines$amateur_lane_line_3, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_4 = convert_units(free_throw_lane_lines$amateur_lane_line_4, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_5 = convert_units(free_throw_lane_lines$amateur_lane_line_5, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_6 = convert_units(free_throw_lane_lines$amateur_lane_line_6, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_7 = convert_units(free_throw_lane_lines$amateur_lane_line_7, 'ft', unit, conversion_columns = c('x', 'y'))
-      free_throw_lane_lines$amateur_lane_line_8 = convert_units(free_throw_lane_lines$amateur_lane_line_8, 'ft', unit, conversion_columns = c('x', 'y'))
+    if (include_amateur_free_throw_lane_lines) {
+      free_throw_lane_lines$amateur_lane_line_1 = convert_units(free_throw_lane_lines$amateur_lane_line_1, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_2 = convert_units(free_throw_lane_lines$amateur_lane_line_2, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_3 = convert_units(free_throw_lane_lines$amateur_lane_line_3, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_4 = convert_units(free_throw_lane_lines$amateur_lane_line_4, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_5 = convert_units(free_throw_lane_lines$amateur_lane_line_5, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_6 = convert_units(free_throw_lane_lines$amateur_lane_line_6, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_7 = convert_units(free_throw_lane_lines$amateur_lane_line_7, "ft", unit, conversion_columns = c("x", "y"))
+      free_throw_lane_lines$amateur_lane_line_8 = convert_units(free_throw_lane_lines$amateur_lane_line_8, "ft", unit, conversion_columns = c("x", "y"))
     }
 
-    free_throw_semi_circle$free_throw_semi_circle_line = convert_units(free_throw_semi_circle$free_throw_semi_circle_line, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_semi_circle$free_throw_semi_circle_fill = convert_units(free_throw_semi_circle$free_throw_semi_circle_fill, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_1 = convert_units(free_throw_dashed_semi_circle$dash_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_2 = convert_units(free_throw_dashed_semi_circle$dash_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_3 = convert_units(free_throw_dashed_semi_circle$dash_3, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_4 = convert_units(free_throw_dashed_semi_circle$dash_4, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_5 = convert_units(free_throw_dashed_semi_circle$dash_5, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_6 = convert_units(free_throw_dashed_semi_circle$dash_6, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_7 = convert_units(free_throw_dashed_semi_circle$dash_7, 'ft', unit, conversion_columns = c('x', 'y'))
-    free_throw_dashed_semi_circle$dash_8 = convert_units(free_throw_dashed_semi_circle$dash_8, 'ft', unit, conversion_columns = c('x', 'y'))
-    restricted_area_arc = convert_units(restricted_area_arc, 'ft', unit, conversion_columns = c('x', 'y'))
-    lower_defensive_box$dash_1 = convert_units(lower_defensive_box$dash_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    lower_defensive_box$dash_2 = convert_units(lower_defensive_box$dash_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    lower_defensive_box$dash_3 = convert_units(lower_defensive_box$dash_3, 'ft', unit, conversion_columns = c('x', 'y'))
-    lower_defensive_box$dash_4 = convert_units(lower_defensive_box$dash_4, 'ft', unit, conversion_columns = c('x', 'y'))
-    backboard = convert_units(backboard, 'ft', unit, conversion_columns = c('x', 'y'))
-    basket_ring = convert_units(basket_ring, 'ft', unit, conversion_columns = c('x', 'y'))
-    net = convert_units(net, 'ft', unit, conversion_columns = c('x', 'y'))
+    free_throw_semi_circle$free_throw_semi_circle_line = convert_units(free_throw_semi_circle$free_throw_semi_circle_line, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_semi_circle$free_throw_semi_circle_fill = convert_units(free_throw_semi_circle$free_throw_semi_circle_fill, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_1 = convert_units(free_throw_dashed_semi_circle$dash_1, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_2 = convert_units(free_throw_dashed_semi_circle$dash_2, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_3 = convert_units(free_throw_dashed_semi_circle$dash_3, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_4 = convert_units(free_throw_dashed_semi_circle$dash_4, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_5 = convert_units(free_throw_dashed_semi_circle$dash_5, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_6 = convert_units(free_throw_dashed_semi_circle$dash_6, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_7 = convert_units(free_throw_dashed_semi_circle$dash_7, "ft", unit, conversion_columns = c("x", "y"))
+    free_throw_dashed_semi_circle$dash_8 = convert_units(free_throw_dashed_semi_circle$dash_8, "ft", unit, conversion_columns = c("x", "y"))
+    restricted_area_arc = convert_units(restricted_area_arc, "ft", unit, conversion_columns = c("x", "y"))
+    lower_defensive_box$dash_1 = convert_units(lower_defensive_box$dash_1, "ft", unit, conversion_columns = c("x", "y"))
+    lower_defensive_box$dash_2 = convert_units(lower_defensive_box$dash_2, "ft", unit, conversion_columns = c("x", "y"))
+    lower_defensive_box$dash_3 = convert_units(lower_defensive_box$dash_3, "ft", unit, conversion_columns = c("x", "y"))
+    lower_defensive_box$dash_4 = convert_units(lower_defensive_box$dash_4, "ft", unit, conversion_columns = c("x", "y"))
+    backboard = convert_units(backboard, "ft", unit, conversion_columns = c("x", "y"))
+    basket_ring = convert_units(basket_ring, "ft", unit, conversion_columns = c("x", "y"))
+    net = convert_units(net, "ft", unit, conversion_columns = c("x", "y"))
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
@@ -2249,12 +2286,12 @@ geom_wnba = function(full_surf = TRUE,
   g = add_feature(g, free_throw_lane_lines$professional_lane_line_7, color_list$professional_free_throw_lane_lines_color)
   g = add_feature(g, free_throw_lane_lines$professional_lane_line_8, color_list$professional_free_throw_lane_lines_color)
 
-  if(include_amateur_free_throw_lane){
+  if (include_amateur_free_throw_lane) {
     g = add_feature(g, free_throw_lane$amateur_free_throw_lane, color_list$amateur_free_throw_lane_color)
     g = add_feature(g, free_throw_lane$amateur_painted_area, color_list$amateur_painted_area_color)
   }
 
-  if(include_amateur_free_throw_lane_lines){
+  if (include_amateur_free_throw_lane_lines) {
     g = add_feature(g, free_throw_lane_lines$amateur_lane_line_1, color_list$amateur_free_throw_lane_lines_color)
     g = add_feature(g, free_throw_lane_lines$amateur_lane_line_2, color_list$amateur_free_throw_lane_lines_color)
     g = add_feature(g, free_throw_lane_lines$amateur_lane_line_3, color_list$amateur_free_throw_lane_lines_color)

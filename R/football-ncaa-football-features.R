@@ -8,7 +8,9 @@
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the grass
-ncaa_football_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_grass = function(full_surf = TRUE,
+                                       rotate = FALSE,
+                                       rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -20,7 +22,7 @@ ncaa_football_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotatio
     y_max = 30.65
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     grass = rbind(
@@ -32,7 +34,7 @@ ncaa_football_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotatio
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     grass = rotate_coords(
       grass,
@@ -55,7 +57,9 @@ ncaa_football_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotatio
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   sidelines
-ncaa_football_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_sideline = function(full_surf = TRUE,
+                                          rotate = FALSE,
+                                          rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -64,18 +68,18 @@ ncaa_football_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rota
   sideline_1 = create_rectangle(
     x_min = -62,
     x_max = 0,
-    y_min = -28 - (2/3),
-    y_max = -26 - (2/3)
+    y_min = -28 - (2 / 3),
+    y_max = -26 - (2 / 3)
   )
 
   sideline_2 = create_rectangle(
     x_min = -62,
     x_max = 0,
-    y_min = 26 + (2/3),
-    y_max = 28 + (2/3)
+    y_min = 26 + (2 / 3),
+    y_max = 28 + (2 / 3)
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     sideline_1 = rbind(
@@ -95,7 +99,7 @@ ncaa_football_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rota
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     sideline_1 = rotate_coords(
       sideline_1,
@@ -127,7 +131,9 @@ ncaa_football_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rota
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the endlines
-ncaa_football_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_endline = function(full_surf = TRUE,
+                                         rotate = FALSE,
+                                         rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -136,11 +142,11 @@ ncaa_football_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotat
   endline = create_rectangle(
     x_min = -62,
     x_max = -60,
-    y_min = -28 - (2/12),
-    y_max = 28 + (2/12)
+    y_min = -28 - (2 / 12),
+    y_max = 28 + (2 / 12)
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     endline = rbind(
@@ -152,13 +158,12 @@ ncaa_football_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotat
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     endline = rotate_coords(
       endline,
       rotation_dir
     )
-
   }
 
   # Return the feature's data frame
@@ -175,20 +180,22 @@ ncaa_football_feature_endline = function(full_surf = TRUE, rotate = FALSE, rotat
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the goal lines
-ncaa_football_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_goal_line = function(full_surf = TRUE,
+                                           rotate = FALSE,
+                                           rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The goal lines are solid white and 8" in width and span the entire width
   # of the field. Their interior edges form the boundary line of the field
   goal_line = create_rectangle(
-    x_min = -50 - convert_units(8, 'in', 'yd'),
+    x_min = -50 - convert_units(8, "in", "yd"),
     x_max = -50,
-    y_min = -26 - (2/3),
-    y_max = 26 + (2/3)
+    y_min = -26 - (2 / 3),
+    y_max = 26 + (2 / 3)
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     goal_line = rbind(
@@ -200,7 +207,7 @@ ncaa_football_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rot
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     goal_line = rotate_coords(
       goal_line,
@@ -226,7 +233,10 @@ ncaa_football_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rot
 #'
 #' @return A data frame (or list of data frames) that contain the coordinates for
 #'   the yard lines
-ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_yard_markings_df_maker = function(yardage,
+                                                        full_surf = TRUE,
+                                                        rotate = FALSE,
+                                                        rotation_dir = "ccw") {
   # The lines are to be placed 4" from the interior of the sidelines, and be
   # 4" wide. At 5-yard intervals across the field, the lines should stretch
   # the width of the field, with a 2' long by 4" wide hash 60' from the
@@ -235,29 +245,29 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
   # 4" from the interior of the sideline as well as 60' from the interior of
   # the sideline (and extending back towards the sideline)
 
-  if(yardage %% 5 == 0){
-    if(yardage == 0){
+  if (yardage %% 5 == 0) {
+    if (yardage == 0) {
       # Only draw the left half of the 50 yard line. The rest can be created via
       # reflection
       yard_marking = data.frame(
         x = c(
           # Start 8" from the sideline
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Lower inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Upper inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Top
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Crossover
           0,
@@ -266,40 +276,40 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
           0,
 
           # Return to start
-          yardage - convert_units(2, 'in', 'yd')
+          yardage - convert_units(2, "in", "yd")
         ),
 
         y = c(
           # Start 4" from the sideline
-          -26 - (2/3) + convert_units(4, 'in', 'yd'),
+          -26 - (2 / 3) + convert_units(4, "in", "yd"),
 
           # Lower inbound line marker
-          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd") + convert_units(4, "in", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd") + convert_units(4, "in", "yd"),
 
           # Upper inbound line marker
-          26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd'),
+          26 + (2 / 3) - convert_units(60, "ft", "yd") - convert_units(4, "in", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd") - convert_units(4, "in", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd"),
 
           # Top
-          26 + (2/3) - convert_units(4, 'in', 'yd'),
+          26 + (2 / 3) - convert_units(4, "in", "yd"),
 
           # Crossover
-          26 + (2/3) - convert_units(4, 'in', 'yd'),
+          26 + (2 / 3) - convert_units(4, "in", "yd"),
 
           # Return to bottom
-          -26 - (2/3) + convert_units(4, 'in', 'yd'),
+          -26 - (2 / 3) + convert_units(4, "in", "yd"),
 
           # Return to start
-          -26 - (2/3) + convert_units(4, 'in', 'yd')
+          -26 - (2 / 3) + convert_units(4, "in", "yd")
         )
       )
 
-      if(full_surf){
+      if (full_surf) {
         # If the surface being drawn is a full-surface representation, reflect
         # over the y axis
         yard_marking = rbind(
@@ -311,7 +321,7 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
         )
       }
 
-      if(rotate){
+      if (rotate) {
         # If the desired output needs to be rotated, rotate the coordinates
         yard_marking = rotate_coords(
           yard_marking,
@@ -323,95 +333,95 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
       return(yard_marking)
     }
 
-    else{
+    else {
       # At 5-yard intervals, the line should stretch the width of the field,
       # with the inbound line marker 70'9" from the interior of the sideline
       # boundary
       yard_marking = data.frame(
         x = c(
           # Start 8" from the sideline
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Lower inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Upper inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Top
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Crossover
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
 
           # Upper inbound line marker
-          yardage + convert_units(2, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd"),
 
           # Lower inbound line marker
-          yardage + convert_units(2, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd"),
 
           # Return to bottom
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
 
           # Return to start
-          yardage - convert_units(2, 'in', 'yd')
+          yardage - convert_units(2, "in", "yd")
         ),
 
         y = c(
           # Start 8" from the sideline
-          -26 - (2/3) + convert_units(4, 'in', 'yd'),
+          -26 - (2 / 3) + convert_units(4, "in", "yd"),
 
           # Lower inbound line marker
-          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd") + convert_units(4, "in", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd") + convert_units(4, "in", "yd"),
 
           # Upper inbound line marker
-          26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd'),
+          26 + (2 / 3) - convert_units(60, "ft", "yd") - convert_units(4, "in", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd") - convert_units(4, "in", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd"),
 
           # Top
-          26 + (2/3) - convert_units(4, 'in', 'yd'),
+          26 + (2 / 3) - convert_units(4, "in", "yd"),
 
           # Crossover
-          26 + (2/3) - convert_units(4, 'in', 'yd'),
+          26 + (2 / 3) - convert_units(4, "in", "yd"),
 
           # Upper inbound line marker
-          26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd'),
-          26 + (2/3) - convert_units(60, 'ft', 'yd'),
+          26 + (2 / 3) - convert_units(60, "ft", "yd") - convert_units(4, "in", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd") - convert_units(4, "in", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd"),
+          26 + (2 / 3) - convert_units(60, "ft", "yd"),
 
           # Lower inbound line marker
-          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd') + convert_units(4, 'in', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
-          -26 - (2/3) + convert_units(60, 'ft', 'yd'),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd") + convert_units(4, "in", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd") + convert_units(4, "in", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd"),
+          -26 - (2 / 3) + convert_units(60, "ft", "yd"),
 
           # Return to bottom
-          -26 - (2/3) + convert_units(4, 'in', 'yd'),
+          -26 - (2 / 3) + convert_units(4, "in", "yd"),
 
           # Return to start
-          -26 - (2/3) + convert_units(4, 'in', 'yd')
+          -26 - (2 / 3) + convert_units(4, "in", "yd")
         )
       )
 
-      if(full_surf){
+      if (full_surf) {
         # If the surface being drawn is a full-surface representation, reflect
         # over the y axis
         yard_marking = rbind(
@@ -423,7 +433,7 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
         )
       }
 
-      if(rotate){
+      if (rotate) {
         # If the desired output needs to be rotated, rotate the coordinates
         yard_marking = rotate_coords(
           yard_marking,
@@ -432,7 +442,8 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
       }
 
       # Return the yard marking
-      return(yard_marking)}
+      return(yard_marking)
+    }
   }
 
   else {
@@ -441,34 +452,34 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
     # boundary, and also appear at 70'9" from the nearest boundary and
     # extending from this point towards that boundary (l and u)
     yard_marking_b = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = -26 - (2/3) + convert_units(4, 'in', 'yd'),
-      y_max = -26 - (2/3) + convert_units(2, 'ft', 'yd') + convert_units(4, 'in', 'yd')
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = -26 - (2 / 3) + convert_units(4, "in", "yd"),
+      y_max = -26 - (2 / 3) + convert_units(2, "ft", "yd") + convert_units(4, "in", "yd")
     )
 
     yard_marking_l = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = -26 - (2/3) + convert_units(58, 'ft', 'yd'),
-      y_max = -26 - (2/3) + convert_units(60, 'ft', 'yd')
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = -26 - (2 / 3) + convert_units(58, "ft", "yd"),
+      y_max = -26 - (2 / 3) + convert_units(60, "ft", "yd")
     )
 
     yard_marking_u = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = 26 + (2/3) - convert_units(60, 'ft', 'yd'),
-      y_max = 26 + (2/3) - convert_units(58, 'ft', 'yd')
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = 26 + (2 / 3) - convert_units(60, "ft", "yd"),
+      y_max = 26 + (2 / 3) - convert_units(58, "ft", "yd")
     )
 
     yard_marking_t = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = 26 + (2/3) - convert_units(2, 'ft', 'yd') - convert_units(4, 'in', 'yd'),
-      y_max = 26 + (2/3) - convert_units(4, 'in', 'yd')
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = 26 + (2 / 3) - convert_units(2, "ft", "yd") - convert_units(4, "in", "yd"),
+      y_max = 26 + (2 / 3) - convert_units(4, "in", "yd")
     )
 
-    if(full_surf){
+    if (full_surf) {
       # If the surface being drawn is a full-surface representation, reflect
       # over the y axis
       yard_marking_b = rbind(
@@ -504,7 +515,7 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
       )
     }
 
-    if(rotate){
+    if (rotate) {
       # If the desired output needs to be rotated, rotate the coordinates
       yard_marking_b = rotate_coords(
         yard_marking_b,
@@ -542,7 +553,9 @@ ncaa_football_feature_yard_markings_df_maker = function(yardage, full_surf = TRU
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the yard lines
-ncaa_football_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_yard_markings = function(full_surf = TRUE,
+                                               rotate = FALSE,
+                                               rotation_dir = "ccw") {
   # Initialize x, y, and yardage (to pass checks)
   x = y = NULL
   yardage = NULL
@@ -557,7 +570,7 @@ ncaa_football_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE,
   yard_markings_list = lapply(yardages, ncaa_football_feature_yard_markings_df_maker, full_surf, rotate, rotation_dir)
 
   # Reshape the list of data frames into a single data frame
-  yard_markings = dplyr::bind_rows(yard_markings_list, .id = 'yardage')
+  yard_markings = dplyr::bind_rows(yard_markings_list, .id = "yardage")
 
   # Return the feature's data frame
   return(yard_markings)
@@ -574,20 +587,22 @@ ncaa_football_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE,
 #'
 #' @return A list of data frames containing the points that comprise the try
 #'   markings
-ncaa_football_feature_try_markings = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_try_markings = function(full_surf = TRUE,
+                                              rotate = FALSE,
+                                              rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The NFL try line is at the 2-yard line, is 1-yard in length (centered at
   # the midpoint of the goal line), and has a 2" width
   try_line = create_rectangle(
-    x_min = -47 - convert_units(2, 'in', 'yd'),
-    x_max = -47 + convert_units(2, 'in', 'yd'),
+    x_min = -47 - convert_units(2, "in", "yd"),
+    x_max = -47 + convert_units(2, "in", "yd"),
     y_min = -0.5,
     y_max = 0.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     try_line = rbind(
@@ -599,7 +614,7 @@ ncaa_football_feature_try_markings = function(full_surf = TRUE, rotate = FALSE, 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     try_line = rotate_coords(
       try_line,
@@ -627,35 +642,39 @@ ncaa_football_feature_try_markings = function(full_surf = TRUE, rotate = FALSE, 
 #'
 #' @return A data frame (or list of data frames) that contain the coordinates for
 #'   the directional arrows
-ncaa_football_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', lower = TRUE){
+ncaa_football_feature_directional_arrows_df_maker = function(yardage,
+                                                             full_surf = TRUE,
+                                                             rotate = FALSE,
+                                                             rotation_dir = "ccw",
+                                                             lower = TRUE) {
   # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem
   # can be used to determine the height (using half the length of the base,
   # which in this case is 18")
-  arrow_width = sqrt((convert_units(36, 'in', 'yd') ** 2) - (convert_units(9, 'in', 'yd') ** 2))
+  arrow_width = sqrt((convert_units(36, "in", "yd")**2) - (convert_units(9, "in", "yd")**2))
 
   # The directional arrows should not be drawn at the 50-yard line. Other
   # than that, an arrow should be drawn every 10 yards
-  if(yardage < 0){
+  if (yardage < 0) {
     # Draw the directional arrow that's below the middle point of the field
     directional_arrow_1 = data.frame(
       x = c(
         # The numbers are 1' from the outer edge of the yard line, which is
         # 2" wide. The number itself is 4' wide, and the number is 6" off
         # the outside edge of the number
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd') - arrow_width,
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd')
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd") - arrow_width,
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd")
       ),
 
       y = c(
         # The top of the numbers must be 9 yards (27') off the interior of the
         # sideline. The number itself is 6' tall, and the top tip of the arrow
         # is 15" below this line
-        -26 - (2/3) + 9 - convert_units(15, 'in', 'yd'),
-        -26 - (2/3) + 9 - convert_units(15, 'in', 'yd') - convert_units(18, 'in', 'yd'),
-        -26 - (2/3) + 9 - convert_units(15, 'in', 'yd') - convert_units(9, 'in', 'yd'),
-        -26 - (2/3) + 9 - convert_units(15, 'in', 'yd')
+        -26 - (2 / 3) + 9 - convert_units(15, "in", "yd"),
+        -26 - (2 / 3) + 9 - convert_units(15, "in", "yd") - convert_units(18, "in", "yd"),
+        -26 - (2 / 3) + 9 - convert_units(15, "in", "yd") - convert_units(9, "in", "yd"),
+        -26 - (2 / 3) + 9 - convert_units(15, "in", "yd")
       )
     )
 
@@ -665,20 +684,20 @@ ncaa_football_feature_directional_arrows_df_maker = function(yardage, full_surf 
         # The numbers are 1' from the outer edge of the yard line, which is
         # 2" wide. The number itself is 4' wide, and the number is 6" off
         # the outside edge of the number
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd') - arrow_width,
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd')
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd") - arrow_width,
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd")
       ),
 
       y = c(
         # The bottom of the numbers must be 12 yards (36') off the interior
         # of the sideline. The number itself is then 6' tall, and the top
         # tip of the arrow is 15" below this line
-        26 + (2/3) - 9 + convert_units(15, 'in', 'yd'),
-        26 + (2/3) - 9 + convert_units(15, 'in', 'yd') + convert_units(18, 'in', 'yd'),
-        26 + (2/3) - 9 + convert_units(15, 'in', 'yd') + convert_units(9, 'in', 'yd'),
-        26 + (2/3) - 9 + convert_units(15, 'in', 'yd')
+        26 + (2 / 3) - 9 + convert_units(15, "in", "yd"),
+        26 + (2 / 3) - 9 + convert_units(15, "in", "yd") + convert_units(18, "in", "yd"),
+        26 + (2 / 3) - 9 + convert_units(15, "in", "yd") + convert_units(9, "in", "yd"),
+        26 + (2 / 3) - 9 + convert_units(15, "in", "yd")
       )
     )
   }
@@ -689,7 +708,7 @@ ncaa_football_feature_directional_arrows_df_maker = function(yardage, full_surf 
     return(data.frame(x = c(), y = c()))
   }
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     directional_arrow_1 = rbind(
@@ -709,7 +728,7 @@ ncaa_football_feature_directional_arrows_df_maker = function(yardage, full_surf 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     directional_arrow_1 = rotate_coords(
       directional_arrow_1,
@@ -729,11 +748,11 @@ ncaa_football_feature_directional_arrows_df_maker = function(yardage, full_surf 
   )
 
   # Return the correct set of arrows
-  if(lower){
+  if (lower) {
     return(directional_arrows$directional_arrow_1)
   }
 
-  else{
+  else {
     return(directional_arrows$directional_arrow_2)
   }
 }
@@ -749,7 +768,9 @@ ncaa_football_feature_directional_arrows_df_maker = function(yardage, full_surf 
 #'
 #' @return A data frame that contains the points that comprise the directional
 #'   arrows
-ncaa_football_feature_directional_arrows = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_directional_arrows = function(full_surf = TRUE,
+                                                    rotate = FALSE,
+                                                    rotation_dir = "ccw") {
   # Initialize x, y, and yardage (to pass checks)
   x = y = NULL
   yardage = NULL
@@ -765,8 +786,8 @@ ncaa_football_feature_directional_arrows = function(full_surf = TRUE, rotate = F
   directional_arrows_2_list = lapply(yardages, ncaa_football_feature_directional_arrows_df_maker, full_surf, rotate, rotation_dir, lower = FALSE)
 
   # Reshape the list of data frames into a single data frame
-  directional_arrows_1 = dplyr::bind_rows(directional_arrows_1_list, .id = 'yardage')
-  directional_arrows_2 = dplyr::bind_rows(directional_arrows_2_list, .id = 'yardage')
+  directional_arrows_1 = dplyr::bind_rows(directional_arrows_1_list, .id = "yardage")
+  directional_arrows_2 = dplyr::bind_rows(directional_arrows_2_list, .id = "yardage")
 
   # Return the feature's data frames as a list
   directional_arrows = list(
@@ -788,13 +809,15 @@ ncaa_football_feature_directional_arrows = function(full_surf = TRUE, rotate = F
 #'
 #' @return a data frame that contains the information needed to add the yard
 #'   marking numbers
-ncaa_football_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+ncaa_football_feature_yard_numbers = function(full_surf = TRUE,
+                                              rotate = FALSE,
+                                              rotation_dir = "ccw") {
   # Set the initial rotation angle for the text
   angle_1 = 0
   angle_2 = 180
 
-  if(rotate){
-    if(tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
+  if (rotate) {
+    if (tolower(rotation_dir) %in% c("ccw", "pos", "positive", "counterclockwise", "anticlockwise")) {
       # If the rotation is counter-clockwise, rotate the numbers 90 degrees
       # counter-clockwise
       angle_1 = angle_1 + 90
@@ -811,70 +834,70 @@ ncaa_football_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, 
   # Create the yard marking numbers' data frame
   yard_marking_numbers = rbind(
     data.frame(
-      x = seq(-40, 0, 10) - convert_units(3, 'ft', 'yd'),
-      y = rep(-26 - (2/3) + 8, 5),
-      label = c('1', '2', '3', '4', '5'),
+      x = seq(-40, 0, 10) - convert_units(3, "ft", "yd"),
+      y = rep(-26 - (2 / 3) + 8, 5),
+      label = c("1", "2", "3", "4", "5"),
       angle = angle_1
     ),
 
     data.frame(
-      x = seq(-40, -10, 10) + convert_units(3, 'ft', 'yd'),
-      y = rep(-26 - (2/3) + 8, 4),
-      label = rep('0', 4),
+      x = seq(-40, -10, 10) + convert_units(3, "ft", "yd"),
+      y = rep(-26 - (2 / 3) + 8, 4),
+      label = rep("0", 4),
       angle = angle_1
     ),
 
     data.frame(
-      x = seq(-40, -10, 10) + convert_units(3, 'ft', 'yd'),
-      y = rep(26 + (2/3) - 8, 4),
-      label = c('1', '2', '3', '4'),
+      x = seq(-40, -10, 10) + convert_units(3, "ft", "yd"),
+      y = rep(26 + (2 / 3) - 8, 4),
+      label = c("1", "2", "3", "4"),
       angle = angle_2
     ),
 
     data.frame(
-      x = seq(-40, 0, 10) - convert_units(3, 'ft', 'yd'),
-      y = rep(26 + (2/3) - 8, 5),
-      label = rep('0', 5),
+      x = seq(-40, 0, 10) - convert_units(3, "ft", "yd"),
+      y = rep(26 + (2 / 3) - 8, 5),
+      label = rep("0", 5),
       angle = angle_2
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     yard_marking_numbers = rbind(
       yard_marking_numbers,
       data.frame(
-        x = seq(10, 40, 10) - convert_units(3, 'ft', 'yd'),
-        y = rep(-26 - (2/3) + 8, 4),
-        label = c('4', '3', '2', '1'),
+        x = seq(10, 40, 10) - convert_units(3, "ft", "yd"),
+        y = rep(-26 - (2 / 3) + 8, 4),
+        label = c("4", "3", "2", "1"),
         angle = angle_1
       ),
 
       data.frame(
-        x = seq(0, 40, 10) + convert_units(3, 'ft', 'yd'),
-        y = rep(-26 - (2/3) + 8, 5),
-        label = rep('0', 5),
+        x = seq(0, 40, 10) + convert_units(3, "ft", "yd"),
+        y = rep(-26 - (2 / 3) + 8, 5),
+        label = rep("0", 5),
         angle = angle_1
       ),
 
       data.frame(
-        x = seq(0, 40, 10) + convert_units(3, 'ft', 'yd'),
-        y = rep(26 + (2/3) - 8, 5),
-        label = c('5', '4', '3', '2', '1'),
+        x = seq(0, 40, 10) + convert_units(3, "ft", "yd"),
+        y = rep(26 + (2 / 3) - 8, 5),
+        label = c("5", "4", "3", "2", "1"),
         angle = angle_2
       ),
 
       data.frame(
-        x = seq(10, 40, 10) - convert_units(3, 'ft', 'yd'),
-        y = rep(26 + (2/3) - 8, 4),
-        label = rep('0', 4),
+        x = seq(10, 40, 10) - convert_units(3, "ft", "yd"),
+        y = rep(26 + (2 / 3) - 8, 4),
+        label = rep("0", 4),
         angle = angle_2
       )
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     yard_marking_numbers = rotate_coords(
       yard_marking_numbers,
@@ -911,16 +934,15 @@ ncaa_football_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, 
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-ncaa_football_features_set_colors = function(grass_color = '#196f0c',
-                                             sideline_1_color = '#ffffff',
-                                             sideline_2_color = '#ffffff',
-                                             endline_color = '#ffffff',
-                                             goal_line_color = '#ffffff',
-                                             yard_markings_color = '#ffffff',
-                                             try_marking_color = '#ffffff',
-                                             directional_arrows_color = '#ffffff',
-                                             yard_numbers_color = '#ffffff'
-){
+ncaa_football_features_set_colors = function(grass_color = "#196f0c",
+                                             sideline_1_color = "#ffffff",
+                                             sideline_2_color = "#ffffff",
+                                             endline_color = "#ffffff",
+                                             goal_line_color = "#ffffff",
+                                             yard_markings_color = "#ffffff",
+                                             try_marking_color = "#ffffff",
+                                             directional_arrows_color = "#ffffff",
+                                             yard_numbers_color = "#ffffff") {
 
   # Create the colors to use for the plot
   feature_colors = list(
@@ -963,13 +985,12 @@ ncaa_football_features_set_colors = function(grass_color = '#196f0c',
 #' @return A ggplot2 instance that represents a regulation NFL field
 geom_ncaa_football = function(full_surf = TRUE,
                               rotate = FALSE,
-                              rotation_dir = 'ccw',
-                              unit = 'yd',
+                              rotation_dir = "ccw",
+                              unit = "yd",
                               origin_bottom_left = TRUE,
-                              caption_color = '#707372',
+                              caption_color = "#707372",
                               background_color = NULL,
-                              ...
-){
+                              ...) {
   # Force the plot unit to be lower case
   unit = tolower(unit)
 
@@ -987,46 +1008,46 @@ geom_ncaa_football = function(full_surf = TRUE,
   yard_numbers = ncaa_football_feature_yard_numbers(full_surf, rotate, rotation_dir)
 
   # Translate the plot to the correct position on the axes as necessary
-  if(origin_bottom_left){
-    if(rotate){
-      grass = translate(grass, translate_x = 26 + (2/3), translate_y = 60)
-      sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 26 + (2/3), translate_y = 60)
-      sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 26 + (2/3), translate_y = 60)
-      endline = translate(endline, translate_x = 26 + (2/3), translate_y = 60)
-      goal_line = translate(goal_line, translate_x = 26 + (2/3), translate_y = 60)
-      yard_markings = translate(yard_markings, translate_x = 26 + (2/3), translate_y = 60)
-      try_marking = translate(try_marking, translate_x = 26 + (2/3), translate_y = 60)
-      directional_arrows$directional_arrows_1 = translate(directional_arrows$directional_arrows_1, translate_x = 26 + (2/3), translate_y = 60)
-      directional_arrows$directional_arrows_2 = translate(directional_arrows$directional_arrows_2, translate_x = 26 + (2/3), translate_y = 60)
-      yard_numbers = translate(yard_numbers, translate_x = 26 + (2/3), translate_y = 60)
+  if (origin_bottom_left) {
+    if (rotate) {
+      grass = translate(grass, translate_x = 26 + (2 / 3), translate_y = 60)
+      sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 26 + (2 / 3), translate_y = 60)
+      sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 26 + (2 / 3), translate_y = 60)
+      endline = translate(endline, translate_x = 26 + (2 / 3), translate_y = 60)
+      goal_line = translate(goal_line, translate_x = 26 + (2 / 3), translate_y = 60)
+      yard_markings = translate(yard_markings, translate_x = 26 + (2 / 3), translate_y = 60)
+      try_marking = translate(try_marking, translate_x = 26 + (2 / 3), translate_y = 60)
+      directional_arrows$directional_arrows_1 = translate(directional_arrows$directional_arrows_1, translate_x = 26 + (2 / 3), translate_y = 60)
+      directional_arrows$directional_arrows_2 = translate(directional_arrows$directional_arrows_2, translate_x = 26 + (2 / 3), translate_y = 60)
+      yard_numbers = translate(yard_numbers, translate_x = 26 + (2 / 3), translate_y = 60)
     }
 
     else {
-      grass = translate(grass, translate_x = 60, translate_y = 26 + (2/3))
-      sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 60, translate_y = 26 + (2/3))
-      sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 60, translate_y = 26 + (2/3))
-      endline = translate(endline, translate_x = 60, translate_y = 26 + (2/3))
-      goal_line = translate(goal_line, translate_x = 60, translate_y = 26 + (2/3))
-      yard_markings = translate(yard_markings, translate_x = 60, translate_y = 26 + (2/3))
-      try_marking = translate(try_marking, translate_x = 60, translate_y = 26 + (2/3))
-      directional_arrows$directional_arrows_1 = translate(directional_arrows$directional_arrows_1, translate_x = 60, translate_y = 26 + (2/3))
-      directional_arrows$directional_arrows_2 = translate(directional_arrows$directional_arrows_2, translate_x = 60, translate_y = 26 + (2/3))
-      yard_numbers = translate(yard_numbers, translate_x = 60, translate_y = 26 + (2/3))
+      grass = translate(grass, translate_x = 60, translate_y = 26 + (2 / 3))
+      sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 60, translate_y = 26 + (2 / 3))
+      sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 60, translate_y = 26 + (2 / 3))
+      endline = translate(endline, translate_x = 60, translate_y = 26 + (2 / 3))
+      goal_line = translate(goal_line, translate_x = 60, translate_y = 26 + (2 / 3))
+      yard_markings = translate(yard_markings, translate_x = 60, translate_y = 26 + (2 / 3))
+      try_marking = translate(try_marking, translate_x = 60, translate_y = 26 + (2 / 3))
+      directional_arrows$directional_arrows_1 = translate(directional_arrows$directional_arrows_1, translate_x = 60, translate_y = 26 + (2 / 3))
+      directional_arrows$directional_arrows_2 = translate(directional_arrows$directional_arrows_2, translate_x = 60, translate_y = 26 + (2 / 3))
+      yard_numbers = translate(yard_numbers, translate_x = 60, translate_y = 26 + (2 / 3))
     }
   }
 
   # Convert between units as necessary
-  if(!(unit %in% c('yd', 'yards'))){
-    grass = convert_units(grass, 'yd', unit, conversion_columns = c('x', 'y'))
-    sideline$sideline_1 = convert_units(sideline$sideline_1, 'yd', unit, conversion_columns = c('x', 'y'))
-    sideline$sideline_2 = convert_units(sideline$sideline_2, 'yd', unit, conversion_columns = c('x', 'y'))
-    endline = convert_units(endline, 'yd', unit, conversion_columns = c('x', 'y'))
-    goal_line = convert_units(goal_line, 'yd', unit, conversion_columns = c('x', 'y'))
-    yard_markings = convert_units(yard_markings, 'yd', unit, conversion_columns = c('x', 'y'))
-    try_marking = convert_units(try_marking, 'yd', unit, conversion_columns = c('x', 'y'))
-    directional_arrows$directional_arrows_1 = convert_units(directional_arrows$directional_arrows_1, 'yd', unit, conversion_columns = c('x', 'y'))
-    directional_arrows$directional_arrows_2 = convert_units(directional_arrows$directional_arrows_2, 'yd', unit, conversion_columns = c('x', 'y'))
-    yard_numbers = convert_units(yard_numbers, 'yd', unit, conversion_columns = c('x', 'y'))
+  if (!(unit %in% c("yd", "yards"))) {
+    grass = convert_units(grass, "yd", unit, conversion_columns = c("x", "y"))
+    sideline$sideline_1 = convert_units(sideline$sideline_1, "yd", unit, conversion_columns = c("x", "y"))
+    sideline$sideline_2 = convert_units(sideline$sideline_2, "yd", unit, conversion_columns = c("x", "y"))
+    endline = convert_units(endline, "yd", unit, conversion_columns = c("x", "y"))
+    goal_line = convert_units(goal_line, "yd", unit, conversion_columns = c("x", "y"))
+    yard_markings = convert_units(yard_markings, "yd", unit, conversion_columns = c("x", "y"))
+    try_marking = convert_units(try_marking, "yd", unit, conversion_columns = c("x", "y"))
+    directional_arrows$directional_arrows_1 = convert_units(directional_arrows$directional_arrows_1, "yd", unit, conversion_columns = c("x", "y"))
+    directional_arrows$directional_arrows_2 = convert_units(directional_arrows$directional_arrows_2, "yd", unit, conversion_columns = c("x", "y"))
+    yard_numbers = convert_units(yard_numbers, "yd", unit, conversion_columns = c("x", "y"))
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
@@ -1046,7 +1067,7 @@ geom_ncaa_football = function(full_surf = TRUE,
   # Add yardage numbers at 10-yard intervals
   g = g +
     ggplot2::annotate(
-      'text',
+      "text",
       x = yard_numbers$x,
       y = yard_numbers$y,
       label = yard_numbers$label,

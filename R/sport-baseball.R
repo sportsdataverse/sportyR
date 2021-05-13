@@ -13,16 +13,15 @@
 #'
 #' @examples
 #' geom_baseball(league = "MLB")
-geom_baseball = function(league, ...){
+geom_baseball = function(league, ...) {
   # Force the league to be all upper case
   league = toupper(league)
 
   # Call the appropriate plot-generating function
-  g = switch(
-    league,
-    'MLB' = geom_mlb(...),
+  g = switch(league,
+    "MLB" = geom_mlb(...),
 
-    stop(glue::glue('{league} is not a valid league at this time.'))
+    stop(glue::glue("{league} is not a valid league at this time."))
   )
 
   # Return the ggplot2 instance

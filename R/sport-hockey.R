@@ -24,24 +24,22 @@
 geom_hockey = function(league,
                        full_surf = TRUE,
                        rotate = FALSE,
-                       rotation_dir = 'ccw',
-                       ...
-){
+                       rotation_dir = "ccw",
+                       ...) {
   # Force the league to be all upper case
   league = toupper(league)
 
   # Call the appropriate plot-generating function
-  g = switch(
-    league,
-    'NCAA' = geom_ncaa_hockey(full_surf, rotate, rotation_dir, ...),
+  g = switch(league,
+    "NCAA" = geom_ncaa_hockey(full_surf, rotate, rotation_dir, ...),
 
-    'IIHF' = geom_iihf(full_surf, rotate, rotation_dir, ...),
+    "IIHF" = geom_iihf(full_surf, rotate, rotation_dir, ...),
 
-    'NHL' = geom_nhl(full_surf, rotate, rotation_dir, ...),
+    "NHL" = geom_nhl(full_surf, rotate, rotation_dir, ...),
 
-    'NWHL' = geom_nwhl(full_surf, rotate, rotation_dir, ...),
+    "NWHL" = geom_nwhl(full_surf, rotate, rotation_dir, ...),
 
-    stop(glue::glue('{league} is not a valid league at this time.'))
+    stop(glue::glue("{league} is not a valid league at this time."))
   )
 
   # Return the ggplot2 instance

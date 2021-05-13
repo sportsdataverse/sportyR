@@ -8,13 +8,15 @@
 #'   the plot's background. Default: \code{NULL}
 #'
 #' @return A ggplot2 instance onto which the features will be added
-create_plot_base = function(rotate = FALSE, caption_color = '#707372', background_color = NULL){
-  if(is.null(caption_color)){
+create_plot_base = function(rotate = FALSE,
+                            caption_color = "#707372",
+                            background_color = NULL) {
+  if (is.null(caption_color)) {
     # Ensure that the caption color is provided
-    stop('Caption color must not be NULL')
+    stop("Caption color must not be NULL")
   }
 
-  if(!is.null(background_color)){
+  if (!is.null(background_color)) {
     # If the plot has a specific background color, set the element correctly
     background = ggplot2::element_rect(fill = background_color)
   }
@@ -24,7 +26,7 @@ create_plot_base = function(rotate = FALSE, caption_color = '#707372', backgroun
     background = ggplot2::element_blank()
   }
 
-  if(rotate){
+  if (rotate) {
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
@@ -69,13 +71,13 @@ create_plot_base = function(rotate = FALSE, caption_color = '#707372', backgroun
 #'
 #' @return A boolean indicating whether the minimal features needed for plotting
 #'   (a column called \code{x} and a column called \code{y}) are present
-check_data_frame_for_plot = function(df){
-  if(nrow(df) == 0){
+check_data_frame_for_plot = function(df) {
+  if (nrow(df) == 0) {
     # If the data frame is empty, it's suitable for plotting since nothing will
     # actually be plotted
     return(TRUE)
   }
-  if(sum(c('x', 'y') %in% names(df)) == 2){
+  if (sum(c("x", "y") %in% names(df)) == 2) {
     # If the columns 'x' and 'y' are present, the data frame is suitable for
     # plotting
     return(TRUE)
@@ -97,14 +99,14 @@ check_data_frame_for_plot = function(df){
 #'   for speed in the NFL and NCAA Football plotting functions
 #'
 #' @return A ggplot2 instance with the feature added to it
-add_feature = function(g, feature_df, feature_color, group = NULL){
+add_feature = function(g, feature_df, feature_color, group = NULL) {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # First, check the data frame to ensure it has 'x' and 'y' columns
   data_frame_checked_and_passed = check_data_frame_for_plot(feature_df)
 
-  if(data_frame_checked_and_passed){
+  if (data_frame_checked_and_passed) {
     # So long as the input data frame has the correct features, add the feature
     # to the plot
     g = g +
@@ -112,6 +114,6 @@ add_feature = function(g, feature_df, feature_color, group = NULL){
   }
 
   else {
-    stop('Incorrect column names. Data frame must have columns \'x\' and \'y\' to be plotted')
+    stop("Incorrect column names. Data frame must have columns 'x' and 'y' to be plotted")
   }
 }

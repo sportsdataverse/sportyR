@@ -18,5 +18,5 @@ Check to see if a sport can be plotted, and alert the user as to which
 leagues are plottable for the sport
 }
 \examples{
-cani_plot_sport('basketball')
+cani_plot_sport("basketball")
 }

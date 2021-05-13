@@ -8,7 +8,9 @@
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the court background
-itf_feature_court_background = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_court_background = function(full_surf = TRUE,
+                                        rotate = FALSE,
+                                        rotation_dir = "ccw") {
   # The court is 78' long and 36' wide (doubles), with the net posts 3' outside
   # of the doubles line. The backstop should be at minimum 21' from the outer
   # edge of the baseline
@@ -19,7 +21,7 @@ itf_feature_court_background = function(full_surf = TRUE, rotate = FALSE, rotati
     y_max = 24
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     background = rbind(
@@ -31,7 +33,7 @@ itf_feature_court_background = function(full_surf = TRUE, rotate = FALSE, rotati
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     background = rotate_coords(
       background,
@@ -53,18 +55,20 @@ itf_feature_court_background = function(full_surf = TRUE, rotate = FALSE, rotati
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the baseline(s)
-itf_feature_baseline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_baseline = function(full_surf = TRUE,
+                                rotate = FALSE,
+                                rotation_dir = "ccw") {
   # The baseline spans the entire width of the court, which is 36' between the
   # outer edges of the doubles line, and is 39' from the center of the net to
   # the furthest edge of the baseline. It is 2" in width
   baseline = create_rectangle(
     x_min = -39,
-    x_max = -39 + convert_units(2, 'in', 'ft'),
+    x_max = -39 + convert_units(2, "in", "ft"),
     y_min = -18,
     y_max = 18
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     baseline = rbind(
@@ -76,7 +80,7 @@ itf_feature_baseline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     baseline = rotate_coords(
       baseline,
@@ -99,7 +103,9 @@ itf_feature_baseline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
 #'
 #' @return A data frame containing the points that comprise the doubles
 #'   sideline(s)
-itf_feature_doubles_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_doubles_sideline = function(full_surf = TRUE,
+                                        rotate = FALSE,
+                                        rotation_dir = "ccw") {
   # The doubles sideline spans the entire length of the court, which is 78'
   # between the outer edges of the baselines, and is 18' from the center of the
   # net to the furthest edge of the doubles line. It is 2" in width
@@ -107,17 +113,17 @@ itf_feature_doubles_sideline = function(full_surf = TRUE, rotate = FALSE, rotati
     x_min = -39,
     x_max = 0,
     y_min = -18,
-    y_max = -18 + convert_units(2, 'in', 'ft')
+    y_max = -18 + convert_units(2, "in", "ft")
   )
 
   sideline_2 = create_rectangle(
     x_min = -39,
     x_max = 0,
-    y_min = 18 - convert_units(2, 'in', 'ft'),
+    y_min = 18 - convert_units(2, "in", "ft"),
     y_max = 18
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     sideline_1 = rbind(
@@ -137,7 +143,7 @@ itf_feature_doubles_sideline = function(full_surf = TRUE, rotate = FALSE, rotati
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     sideline_1 = rotate_coords(
       sideline_1,
@@ -170,7 +176,9 @@ itf_feature_doubles_sideline = function(full_surf = TRUE, rotate = FALSE, rotati
 #'
 #' @return A data frame containing the points that comprise the doubles
 #'   sideline(s)
-itf_feature_singles_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_singles_sideline = function(full_surf = TRUE,
+                                        rotate = FALSE,
+                                        rotation_dir = "ccw") {
   # The singles sideline spans the entire length of the court, which is 78'
   # between the outer edges of the baselines, and is 13.5' from the center of the
   # net to the furthest edge of the singles line. It is 2" in width
@@ -178,17 +186,17 @@ itf_feature_singles_sideline = function(full_surf = TRUE, rotate = FALSE, rotati
     x_min = -39,
     x_max = 0,
     y_min = -13.5,
-    y_max = -13.5 + convert_units(2, 'in', 'ft')
+    y_max = -13.5 + convert_units(2, "in", "ft")
   )
 
   sideline_2 = create_rectangle(
     x_min = -39,
     x_max = 0,
-    y_min = 13.5 - convert_units(2, 'in', 'ft'),
+    y_min = 13.5 - convert_units(2, "in", "ft"),
     y_max = 13.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     sideline_1 = rbind(
@@ -208,7 +216,7 @@ itf_feature_singles_sideline = function(full_surf = TRUE, rotate = FALSE, rotati
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     sideline_1 = rotate_coords(
       sideline_1,
@@ -240,17 +248,19 @@ itf_feature_singles_sideline = function(full_surf = TRUE, rotate = FALSE, rotati
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the service line(s)
-itf_feature_service_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_service_line = function(full_surf = TRUE,
+                                    rotate = FALSE,
+                                    rotation_dir = "ccw") {
   # The service line is a 2" thick line that is 21' (outer edge) from the center
   # of the court. It extends the 27' within the singles sidelines
   service_line = create_rectangle(
     x_min = -21,
-    x_max = -21 + convert_units(2, 'in', 'ft'),
+    x_max = -21 + convert_units(2, "in", "ft"),
     y_min = -13.5,
     y_max = 13.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     service_line = rbind(
@@ -262,7 +272,7 @@ itf_feature_service_line = function(full_surf = TRUE, rotate = FALSE, rotation_d
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     service_line = rotate_coords(
       service_line,
@@ -286,17 +296,19 @@ itf_feature_service_line = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'
 #' @return A data frame containing the points that comprise the center service
 #'   line(s)
-itf_feature_center_service_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_center_service_line = function(full_surf = TRUE,
+                                           rotate = FALSE,
+                                           rotation_dir = "ccw") {
   # The center service line is a 2" thick line that extends 21' from the center
   # of the net
   center_service_line = create_rectangle(
     x_min = -21,
     x_max = 0,
-    y_min = convert_units(1, 'in', 'ft'),
-    y_max = -convert_units(1, 'in', 'ft')
+    y_min = convert_units(1, "in", "ft"),
+    y_max = -convert_units(1, "in", "ft")
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     center_service_line = rbind(
@@ -308,7 +320,7 @@ itf_feature_center_service_line = function(full_surf = TRUE, rotate = FALSE, rot
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     center_service_line = rotate_coords(
       center_service_line,
@@ -330,17 +342,19 @@ itf_feature_center_service_line = function(full_surf = TRUE, rotate = FALSE, rot
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the center mark(s)
-itf_feature_center_mark = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_center_mark = function(full_surf = TRUE,
+                                   rotate = FALSE,
+                                   rotation_dir = "ccw") {
   # The center mark line is a 2" thick line that extends 4" onto the court from
   # the inner edge of each baseline
   center_mark = create_rectangle(
-    x_min = -39 + convert_units(2, 'in', 'ft'),
-    x_max = -39 + convert_units(6, 'in', 'ft'),
-    y_min = convert_units(1, 'in', 'ft'),
-    y_max = -convert_units(1, 'in', 'ft')
+    x_min = -39 + convert_units(2, "in", "ft"),
+    x_max = -39 + convert_units(6, "in", "ft"),
+    y_min = convert_units(1, "in", "ft"),
+    y_max = -convert_units(1, "in", "ft")
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     center_mark = rbind(
@@ -352,7 +366,7 @@ itf_feature_center_mark = function(full_surf = TRUE, rotate = FALSE, rotation_di
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     center_mark = rotate_coords(
       center_mark,
@@ -374,20 +388,22 @@ itf_feature_center_mark = function(full_surf = TRUE, rotate = FALSE, rotation_di
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the center mark(s)
-itf_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+itf_feature_net = function(full_surf = TRUE,
+                           rotate = FALSE,
+                           rotation_dir = "ccw") {
   # The net splits the court in half, running along x = 0. It can vary in length
   # based on whether or not the match is a singles or doubles match, however
   # sportyR will always assume a doubles match (thus the net will be 42' in
   # length). Although no thickness is directly specified, sportyR will use a net
   # thickness of 4.5" total, as the net posts may range between 3" and 6"
   net = create_rectangle(
-    x_min = convert_units(-2.25, 'in', 'ft'),
+    x_min = convert_units(-2.25, "in", "ft"),
     x_max = 0,
     y_min = -21,
     y_max = 21
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the x axis
     net = rbind(
@@ -399,7 +415,7 @@ itf_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     net = rotate_coords(
       net,
@@ -438,17 +454,16 @@ itf_feature_net = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-itf_features_set_colors = function(court_background_color = '#196f0c',
-                                   baseline_color = '#ffffff',
-                                   doubles_sideline_1_color = '#ffffff',
-                                   doubles_sideline_2_color = '#ffffff',
-                                   singles_sideline_1_color = '#ffffff',
-                                   singles_sideline_2_color = '#ffffff',
-                                   service_line_color = '#ffffff',
-                                   center_service_line_color = '#ffffff',
-                                   center_mark_color = '#ffffff',
-                                   net_color = '#ffffff'
-){
+itf_features_set_colors = function(court_background_color = "#196f0c",
+                                    baseline_color = "#ffffff",
+                                    doubles_sideline_1_color = "#ffffff",
+                                    doubles_sideline_2_color = "#ffffff",
+                                    singles_sideline_1_color = "#ffffff",
+                                    singles_sideline_2_color = "#ffffff",
+                                    service_line_color = "#ffffff",
+                                    center_service_line_color = "#ffffff",
+                                    center_mark_color = "#ffffff",
+                                    net_color = "#ffffff") {
 
   # Create the colors to use for the plot
   feature_colors = list(
@@ -488,13 +503,12 @@ itf_features_set_colors = function(court_background_color = '#196f0c',
 #'
 #' @return A ggplot2 instance that represents a regulation NFL field
 geom_itf = function(full_surf = TRUE,
-                    rotate = FALSE,
-                    rotation_dir = 'ccw',
-                    unit = 'ft',
-                    caption_color = '#707372',
-                    background_color = NULL,
-                    ...
-){
+                     rotate = FALSE,
+                     rotation_dir = "ccw",
+                     unit = "ft",
+                     caption_color = "#707372",
+                     background_color = NULL,
+                     ...) {
   # Force the plot unit to be lower case
   unit = tolower(unit)
 
@@ -512,17 +526,17 @@ geom_itf = function(full_surf = TRUE,
   net = itf_feature_net(full_surf, rotate, rotation_dir)
 
   # Convert between units as necessary
-  if(!(unit %in% c('ft', 'feet'))){
-    court_background = convert_units(court_background, 'ft', unit, conversion_columns = c('x', 'y'))
-    baseline = convert_units(baseline, 'ft', unit, conversion_columns = c('x', 'y'))
-    doubles_sideline$sideline_1 = convert_units(doubles_sideline$sideline_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    doubles_sideline$sideline_2 = convert_units(doubles_sideline$sideline_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    singles_sideline$sideline_1 = convert_units(singles_sideline$sideline_1, 'ft', unit, conversion_columns = c('x', 'y'))
-    singles_sideline$sideline_2 = convert_units(singles_sideline$sideline_2, 'ft', unit, conversion_columns = c('x', 'y'))
-    service_line = convert_units(service_line, 'ft', unit, conversion_columns = c('x', 'y'))
-    center_service_line = convert_units(center_service_line, 'ft', unit, conversion_columns = c('x', 'y'))
-    center_mark = convert_units(center_mark, 'ft', unit, conversion_columns = c('x', 'y'))
-    net = convert_units(net, 'ft', unit, conversion_columns = c('x', 'y'))
+  if (!(unit %in% c("ft", "feet"))) {
+    court_background = convert_units(court_background, "ft", unit, conversion_columns = c("x", "y"))
+    baseline = convert_units(baseline, "ft", unit, conversion_columns = c("x", "y"))
+    doubles_sideline$sideline_1 = convert_units(doubles_sideline$sideline_1, "ft", unit, conversion_columns = c("x", "y"))
+    doubles_sideline$sideline_2 = convert_units(doubles_sideline$sideline_2, "ft", unit, conversion_columns = c("x", "y"))
+    singles_sideline$sideline_1 = convert_units(singles_sideline$sideline_1, "ft", unit, conversion_columns = c("x", "y"))
+    singles_sideline$sideline_2 = convert_units(singles_sideline$sideline_2, "ft", unit, conversion_columns = c("x", "y"))
+    service_line = convert_units(service_line, "ft", unit, conversion_columns = c("x", "y"))
+    center_service_line = convert_units(center_service_line, "ft", unit, conversion_columns = c("x", "y"))
+    center_mark = convert_units(center_mark, "ft", unit, conversion_columns = c("x", "y"))
+    net = convert_units(net, "ft", unit, conversion_columns = c("x", "y"))
   }
 
   # Create the initial ggplot2 instance onto which the features will be added

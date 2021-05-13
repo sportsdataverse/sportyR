@@ -34,5 +34,5 @@ Generate a ggplot2 instance containing a regulation tennis court for a
 specified league
 }
 \examples{
-geom_tennis(league = 'itf')
+geom_tennis(league = "itf")
 }

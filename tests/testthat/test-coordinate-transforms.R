@@ -23,7 +23,7 @@ test_that("Coordinate transformations should reflect, rotate, and translate the 
   )
 
   expect_equal(rotate_coords(rotation_square), rotated_ccw_result)
-  expect_equal(rotate_coords(rotation_square, rotation_dir = 'cw'), rotated_cw_result)
+  expect_equal(rotate_coords(rotation_square, rotation_dir = "cw"), rotated_cw_result)
 
   # Test reflection
   reflected_square = translate(unit_square, translate_x = .5, translate_y = .5)

@@ -18,5 +18,5 @@ Check to see if a league can be plotted, and alert the user as to which
 functions that league will work for
 }
 \examples{
-cani_plot_league('MLB')
+cani_plot_league("MLB")
 }

@@ -28,23 +28,20 @@
 geom_football = function(league,
                          full_surf = TRUE,
                          rotate = FALSE,
-                         rotation_dir = 'ccw',
-                         ...
-){
+                         rotation_dir = "ccw",
+                         ...) {
   # Force the league to be all upper case
   league = toupper(league)
 
   # Call the appropriate plot-generating function
-  g = switch(
-    league,
+  g = switch(league,
+    "CFL" = geom_cfl(full_surf, rotate, rotation_dir, ...),
 
-    'CFL' = geom_cfl(full_surf, rotate, rotation_dir, ...),
+    "NCAA" = geom_ncaa_football(full_surf, rotate, rotation_dir, ...),
 
-    'NCAA' = geom_ncaa_football(full_surf, rotate, rotation_dir, ...),
+    "NFL" = geom_nfl(full_surf, rotate, rotation_dir, ...),
 
-    'NFL' = geom_nfl(full_surf, rotate, rotation_dir, ...),
-
-    stop(glue::glue('{league} is not a valid league at this time.'))
+    stop(glue::glue("{league} is not a valid league at this time."))
   )
 
   # Return the ggplot2 instance

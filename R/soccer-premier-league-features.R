@@ -11,7 +11,11 @@
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the grass
-premier_league_feature_grass = function(touchline_length, goal_line_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_grass = function(touchline_length,
+                                        goal_line_length,
+                                        full_surf = TRUE,
+                                        rotate = FALSE,
+                                        rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -23,7 +27,7 @@ premier_league_feature_grass = function(touchline_length, goal_line_length, full
     y_max = (goal_line_length / 2) + 3
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     grass = rbind(
@@ -35,7 +39,7 @@ premier_league_feature_grass = function(touchline_length, goal_line_length, full
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     grass = rotate_coords(
       grass,
@@ -61,7 +65,11 @@ premier_league_feature_grass = function(touchline_length, goal_line_length, full
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   touchlines
-premier_league_feature_touchlines = function(touchline_length, goal_line_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_touchlines = function(touchline_length,
+                                             goal_line_length,
+                                             full_surf = TRUE,
+                                             rotate = FALSE,
+                                             rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -81,7 +89,7 @@ premier_league_feature_touchlines = function(touchline_length, goal_line_length,
     y_max = (goal_line_length / 2) - .12
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     touchline_1 = rbind(
@@ -101,7 +109,7 @@ premier_league_feature_touchlines = function(touchline_length, goal_line_length,
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     touchline_1 = rotate_coords(
       touchline_1,
@@ -136,7 +144,11 @@ premier_league_feature_touchlines = function(touchline_length, goal_line_length,
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the goal line(s)
-premier_league_feature_goal_line = function(touchline_length, goal_line_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_goal_line = function(touchline_length,
+                                            goal_line_length,
+                                            full_surf = TRUE,
+                                            rotate = FALSE,
+                                            rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -149,7 +161,7 @@ premier_league_feature_goal_line = function(touchline_length, goal_line_length, 
     y_max = goal_line_length / 2
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     goal_line = rbind(
@@ -161,7 +173,7 @@ premier_league_feature_goal_line = function(touchline_length, goal_line_length, 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     goal_line = rotate_coords(
       goal_line,
@@ -184,7 +196,10 @@ premier_league_feature_goal_line = function(touchline_length, goal_line_length, 
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the halfway line
-premier_league_feature_halfway_line = function(goal_line_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_halfway_line = function(goal_line_length,
+                                               full_surf = TRUE,
+                                               rotate = FALSE,
+                                               rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -197,7 +212,7 @@ premier_league_feature_halfway_line = function(goal_line_length, full_surf = TRU
     y_max = goal_line_length / 2
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     halfway_line = rbind(
@@ -209,7 +224,7 @@ premier_league_feature_halfway_line = function(goal_line_length, full_surf = TRU
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     halfway_line = rotate_coords(
       halfway_line,
@@ -231,7 +246,9 @@ premier_league_feature_halfway_line = function(goal_line_length, full_surf = TRU
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the center circle
-premier_league_feature_center_circle = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_center_circle = function(full_surf = TRUE,
+                                                rotate = FALSE,
+                                                rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -253,7 +270,7 @@ premier_league_feature_center_circle = function(full_surf = TRUE, rotate = FALSE
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     center_circle = rbind(
@@ -265,7 +282,7 @@ premier_league_feature_center_circle = function(full_surf = TRUE, rotate = FALSE
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     center_circle = rotate_coords(
       center_circle,
@@ -291,7 +308,11 @@ premier_league_feature_center_circle = function(full_surf = TRUE, rotate = FALSE
 #'
 #' @return A list of data frames containing the points that comprise the corner
 #'   quarter-circles
-premier_league_feature_corner_circle = function(touchline_length, goal_line_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_corner_circle = function(touchline_length,
+                                                goal_line_length,
+                                                full_surf = TRUE,
+                                                rotate = FALSE,
+                                                rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -306,6 +327,7 @@ premier_league_feature_corner_circle = function(touchline_length, goal_line_leng
       end = .5,
       d = 2
     ),
+
     create_circle(
       center = c((-touchline_length / 2) + .06, (-goal_line_length / 2) + .06),
       start = .5,
@@ -321,6 +343,7 @@ premier_league_feature_corner_circle = function(touchline_length, goal_line_leng
       end = 0,
       d = 2
     ),
+
     create_circle(
       center = c((-touchline_length / 2) + .06, (goal_line_length / 2) - .06),
       start = 0,
@@ -329,7 +352,7 @@ premier_league_feature_corner_circle = function(touchline_length, goal_line_leng
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     corner_circle_3 = reflect(
@@ -348,7 +371,7 @@ premier_league_feature_corner_circle = function(touchline_length, goal_line_leng
     corner_circle_4 = data.frame(x = c(), y = c())
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     corner_circle_1 = rotate_coords(
       corner_circle_1,
@@ -394,7 +417,10 @@ premier_league_feature_corner_circle = function(touchline_length, goal_line_leng
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 6-yard box
-premier_league_feature_box_5.5m = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_box_5.5m = function(touchline_length,
+                                           full_surf = TRUE,
+                                           rotate = FALSE,
+                                           rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -426,7 +452,7 @@ premier_league_feature_box_5.5m = function(touchline_length, full_surf = TRUE, r
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     box_5.5m = rbind(
@@ -438,7 +464,7 @@ premier_league_feature_box_5.5m = function(touchline_length, full_surf = TRUE, r
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     box_5.5m = rotate_coords(
       box_5.5m,
@@ -462,7 +488,10 @@ premier_league_feature_box_5.5m = function(touchline_length, full_surf = TRUE, r
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the 18-yard box
-premier_league_feature_box_9.15m = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_box_9.15m = function(touchline_length,
+                                            full_surf = TRUE,
+                                            rotate = FALSE,
+                                            rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -494,7 +523,7 @@ premier_league_feature_box_9.15m = function(touchline_length, full_surf = TRUE, 
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     box_9.15m = rbind(
@@ -506,7 +535,7 @@ premier_league_feature_box_9.15m = function(touchline_length, full_surf = TRUE, 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     box_9.15m = rotate_coords(
       box_9.15m,
@@ -530,7 +559,10 @@ premier_league_feature_box_9.15m = function(touchline_length, full_surf = TRUE, 
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the penalty arc
-premier_league_feature_penalty_arc = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_penalty_arc = function(touchline_length,
+                                              full_surf = TRUE,
+                                              rotate = FALSE,
+                                              rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -545,6 +577,7 @@ premier_league_feature_penalty_arc = function(touchline_length, full_surf = TRUE
       end = -.5,
       d = 18.3
     ),
+
     create_circle(
       center = c((-touchline_length / 2) + 11, 0),
       start = -.5,
@@ -563,7 +596,7 @@ premier_league_feature_penalty_arc = function(touchline_length, full_surf = TRUE
     penalty_arc[1, ]
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     penalty_arc = rbind(
@@ -575,7 +608,7 @@ premier_league_feature_penalty_arc = function(touchline_length, full_surf = TRUE
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     penalty_arc = rotate_coords(
       penalty_arc,
@@ -599,7 +632,10 @@ premier_league_feature_penalty_arc = function(touchline_length, full_surf = TRUE
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the penalty mark
-premier_league_feature_penalty_mark = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_penalty_mark = function(touchline_length,
+                                               full_surf = TRUE,
+                                               rotate = FALSE,
+                                               rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -612,7 +648,7 @@ premier_league_feature_penalty_mark = function(touchline_length, full_surf = TRU
     d = .3
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     penalty_mark = rbind(
@@ -624,7 +660,7 @@ premier_league_feature_penalty_mark = function(touchline_length, full_surf = TRU
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     penalty_mark = rotate_coords(
       penalty_mark,
@@ -648,7 +684,10 @@ premier_league_feature_penalty_mark = function(touchline_length, full_surf = TRU
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the center mark
-premier_league_feature_center_mark = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+premier_league_feature_center_mark = function(touchline_length,
+                                              full_surf = TRUE,
+                                              rotate = FALSE,
+                                              rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -661,7 +700,7 @@ premier_league_feature_center_mark = function(touchline_length, full_surf = TRUE
     d = .3
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     center_mark = rbind(
@@ -673,7 +712,7 @@ premier_league_feature_center_mark = function(touchline_length, full_surf = TRUE
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     center_mark = rotate_coords(
       center_mark,
@@ -697,7 +736,10 @@ premier_league_feature_center_mark = function(touchline_length, full_surf = TRUE
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the goal
-premier_league_feature_goal = function(touchline_length, full_surf = TRUE, rotate = FALSE, rotation_dir = TRUE){
+premier_league_feature_goal = function(touchline_length,
+                                       full_surf = TRUE,
+                                       rotate = FALSE,
+                                       rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -730,7 +772,7 @@ premier_league_feature_goal = function(touchline_length, full_surf = TRUE, rotat
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     goal = rbind(
@@ -742,7 +784,7 @@ premier_league_feature_goal = function(touchline_length, full_surf = TRUE, rotat
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     goal = rotate_coords(
       goal,
@@ -793,23 +835,22 @@ premier_league_feature_goal = function(touchline_length, full_surf = TRUE, rotat
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-premier_league_features_set_colors = function(grass_color = '#196f0c',
-                                              touchline_1_color = '#ffffff',
-                                              touchline_2_color = '#ffffff',
-                                              goal_line_color = '#ffffff',
-                                              halfway_line_color = '#ffffff',
-                                              center_circle_color = '#ffffff',
-                                              corner_circle_1_color = '#ffffff',
-                                              corner_circle_2_color = '#ffffff',
-                                              corner_circle_3_color = '#ffffff',
-                                              corner_circle_4_color = '#ffffff',
-                                              box_5.5m_color = '#ffffff',
-                                              box_9.15m_color = '#ffffff',
-                                              penalty_arc_color = '#ffffff',
-                                              penalty_mark_color = '#ffffff',
-                                              center_mark_color = '#ffffff',
-                                              goal_color = '#ffffff'
-){
+premier_league_features_set_colors = function(grass_color = "#196f0c",
+                                              touchline_1_color = "#ffffff",
+                                              touchline_2_color = "#ffffff",
+                                              goal_line_color = "#ffffff",
+                                              halfway_line_color = "#ffffff",
+                                              center_circle_color = "#ffffff",
+                                              corner_circle_1_color = "#ffffff",
+                                              corner_circle_2_color = "#ffffff",
+                                              corner_circle_3_color = "#ffffff",
+                                              corner_circle_4_color = "#ffffff",
+                                              box_5.5m_color = "#ffffff",
+                                              box_9.15m_color = "#ffffff",
+                                              penalty_arc_color = "#ffffff",
+                                              penalty_mark_color = "#ffffff",
+                                              center_mark_color = "#ffffff",
+                                              goal_color = "#ffffff") {
   # Create the colors to use for the plot
   feature_colors = list(
     grass_color = grass_color,
@@ -861,12 +902,11 @@ geom_premier_league = function(touchline_length = 120,
                                goal_line_length = 90,
                                full_surf = TRUE,
                                rotate = FALSE,
-                               rotation_dir = 'ccw',
-                               unit = 'm',
-                               caption_color = '#707372',
+                               rotation_dir = "ccw",
+                               unit = "m",
+                               caption_color = "#707372",
                                background_color = NULL,
-                               ...
-){
+                               ...) {
   # Create the colors to use for the plot
   color_list = premier_league_features_set_colors(...)
 
@@ -885,23 +925,23 @@ geom_premier_league = function(touchline_length = 120,
   goal = premier_league_feature_goal(touchline_length, full_surf, rotate, rotation_dir)
 
   # Convert units as necessary
-  if(!(unit %in% c('m', 'meters'))){
-    grass = convert_units(grass, 'm', unit, conversion_columns = c('x', 'y'))
-    touchlines$touchline_1 = convert_units(touchlines$touchline_1, 'm', unit, conversion_columns = c('x', 'y'))
-    touchlines$touchline_2 = convert_units(touchlines$touchline_2, 'm', unit, conversion_columns = c('x', 'y'))
-    goal_line = convert_units(goal_line, 'm', unit, conversion_columns = c('x', 'y'))
-    halfway_line = convert_units(halfway_line, 'm', unit, conversion_columns = c('x', 'y'))
-    center_circle = convert_units(center_circle, 'm', unit, conversion_columns = c('x', 'y'))
-    corner_circle$corner_circle_1 = convert_units(corner_circle$corner_circle_1, 'm', unit, conversion_columns = c('x', 'y'))
-    corner_circle$corner_circle_2 = convert_units(corner_circle$corner_circle_2, 'm', unit, conversion_columns = c('x', 'y'))
-    corner_circle$corner_circle_3 = convert_units(corner_circle$corner_circle_3, 'm', unit, conversion_columns = c('x', 'y'))
-    corner_circle$corner_circle_4 = convert_units(corner_circle$corner_circle_4, 'm', unit, conversion_columns = c('x', 'y'))
-    box_5.5m = convert_units(box_5.5m, 'm', unit, conversion_columns = c('x', 'y'))
-    box_9.15m = convert_units(box_9.15m, 'm', unit, conversion_columns = c('x', 'y'))
-    penalty_arc = convert_units(penalty_arc, 'm', unit, conversion_columns = c('x', 'y'))
-    penalty_mark = convert_units(penalty_mark, 'm', unit, conversion_columns = c('x', 'y'))
-    center_mark = convert_units(center_mark, 'm', unit, conversion_columns = c('x', 'y'))
-    goal = convert_units(goal, 'm', unit, conversion_columns = c('x', 'y'))
+  if (!(unit %in% c("m", "meters"))) {
+    grass = convert_units(grass, "m", unit, conversion_columns = c("x", "y"))
+    touchlines$touchline_1 = convert_units(touchlines$touchline_1, "m", unit, conversion_columns = c("x", "y"))
+    touchlines$touchline_2 = convert_units(touchlines$touchline_2, "m", unit, conversion_columns = c("x", "y"))
+    goal_line = convert_units(goal_line, "m", unit, conversion_columns = c("x", "y"))
+    halfway_line = convert_units(halfway_line, "m", unit, conversion_columns = c("x", "y"))
+    center_circle = convert_units(center_circle, "m", unit, conversion_columns = c("x", "y"))
+    corner_circle$corner_circle_1 = convert_units(corner_circle$corner_circle_1, "m", unit, conversion_columns = c("x", "y"))
+    corner_circle$corner_circle_2 = convert_units(corner_circle$corner_circle_2, "m", unit, conversion_columns = c("x", "y"))
+    corner_circle$corner_circle_3 = convert_units(corner_circle$corner_circle_3, "m", unit, conversion_columns = c("x", "y"))
+    corner_circle$corner_circle_4 = convert_units(corner_circle$corner_circle_4, "m", unit, conversion_columns = c("x", "y"))
+    box_5.5m = convert_units(box_5.5m, "m", unit, conversion_columns = c("x", "y"))
+    box_9.15m = convert_units(box_9.15m, "m", unit, conversion_columns = c("x", "y"))
+    penalty_arc = convert_units(penalty_arc, "m", unit, conversion_columns = c("x", "y"))
+    penalty_mark = convert_units(penalty_mark, "m", unit, conversion_columns = c("x", "y"))
+    center_mark = convert_units(center_mark, "m", unit, conversion_columns = c("x", "y"))
+    goal = convert_units(goal, "m", unit, conversion_columns = c("x", "y"))
   }
 
   # Create the initial ggplot2 instance onto which the features will be added

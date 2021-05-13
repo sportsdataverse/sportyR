@@ -8,7 +8,7 @@ ncaa_soccer_feature_goal(
   touchline_length,
   full_surf = TRUE,
   rotate = FALSE,
-  rotation_dir = TRUE
+  rotation_dir = "ccw"
 )
 }
 \arguments{

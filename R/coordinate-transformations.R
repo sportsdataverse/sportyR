@@ -13,13 +13,15 @@
 #'
 #' @examples
 #' reflect(data.frame(x = 1, y = 0))
-reflect = function(df, over_x = FALSE, over_y = TRUE){
-  if(over_y){
-    df['x'] = -1 * df['x']
+reflect = function(df,
+                   over_x = FALSE,
+                   over_y = TRUE) {
+  if (over_y) {
+    df["x"] = -1 * df["x"]
   }
 
-  if(over_x){
-    df['y'] = -1 * df['y']
+  if (over_x) {
+    df["y"] = -1 * df["y"]
   }
 
   return(df)
@@ -41,14 +43,16 @@ reflect = function(df, over_x = FALSE, over_y = TRUE){
 #'
 #' @examples
 #' rotate_coords(data.frame(x = 0, y = 1))
-rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
+rotate_coords = function(df,
+                         rotation_dir = "ccw",
+                         angle = .5) {
   # If the data frame is empty, just give back the data frame
-  if(nrow(df) == 0){
+  if (nrow(df) == 0) {
     return(df)
   }
 
   # If the rotation direction is clockwise, take the negative of the angle
-  if(!tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
+  if (!tolower(rotation_dir) %in% c("ccw", "pos", "positive", "counterclockwise", "anticlockwise")) {
     angle = angle * -1
   }
 
@@ -60,8 +64,8 @@ rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
   rotated_df = df
 
   # Perform the rotation
-  rotated_df['x'] = df['x'] * cos(theta) - df['y'] * sin(theta)
-  rotated_df['y'] = df['x'] * sin(theta) + df['y'] * cos(theta)
+  rotated_df["x"] = df["x"] * cos(theta) - df["y"] * sin(theta)
+  rotated_df["y"] = df["x"] * sin(theta) + df["y"] * cos(theta)
 
   return(rotated_df)
 }
@@ -82,9 +86,9 @@ rotate_coords = function(df, rotation_dir = 'ccw', angle = .5){
 #' @examples
 #' translate(data.frame(x = 0, y = 1), translate_x = 1)
 #' translate(data.frame(x = 0, y = 1), translate_y = 1)
-translate = function(df, translate_x = 0, translate_y = 0){
-  df['x'] = df['x'] + translate_x
-  df['y'] = df['y'] + translate_y
+translate = function(df, translate_x = 0, translate_y = 0) {
+  df["x"] = df["x"] + translate_x
+  df["y"] = df["y"] + translate_y
 
   return(df)
 }

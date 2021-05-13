@@ -8,7 +8,9 @@
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the grass
-cfl_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_grass = function(full_surf = TRUE,
+                             rotate = FALSE,
+                             rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -20,7 +22,7 @@ cfl_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'c
     y_max = 36.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     grass = rbind(
@@ -32,7 +34,7 @@ cfl_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'c
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     grass = rotate_coords(
       grass,
@@ -55,7 +57,9 @@ cfl_feature_grass = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'c
 #'
 #' @return A list of data frames containing the points that comprise the
 #'   sidelines
-cfl_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_sideline = function(full_surf = TRUE,
+                                rotate = FALSE,
+                                rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -75,7 +79,7 @@ cfl_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
     y_max = 34.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     sideline_1 = rbind(
@@ -95,7 +99,7 @@ cfl_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     sideline_1 = rotate_coords(
       sideline_1,
@@ -127,7 +131,9 @@ cfl_feature_sideline = function(full_surf = TRUE, rotate = FALSE, rotation_dir =
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the dead lines
-cfl_feature_dead_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_dead_line = function(full_surf = TRUE,
+                                 rotate = FALSE,
+                                 rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
@@ -140,7 +146,7 @@ cfl_feature_dead_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
     y_max = 34.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     dead_line = rbind(
@@ -152,13 +158,12 @@ cfl_feature_dead_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     dead_line = rotate_coords(
       dead_line,
       rotation_dir
     )
-
   }
 
   # Return the feature's data frame
@@ -175,20 +180,22 @@ cfl_feature_dead_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the goal lines
-cfl_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_goal_line = function(full_surf = TRUE,
+                                 rotate = FALSE,
+                                 rotation_dir = "ccw") {
   # Initialize x and y (to pass checks)
   x = y = NULL
 
   # The goal lines are solid white and 8" in width and span the entire width
   # of the field. Their interior edges form the boundary line of the field
   goal_line = create_rectangle(
-    x_min = -55 - convert_units(8, 'in', 'yd'),
+    x_min = -55 - convert_units(8, "in", "yd"),
     x_max = -55,
     y_min = -34.5,
     y_max = 34.5
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     goal_line = rbind(
@@ -200,7 +207,7 @@ cfl_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     goal_line = rotate_coords(
       goal_line,
@@ -226,7 +233,10 @@ cfl_feature_goal_line = function(full_surf = TRUE, rotate = FALSE, rotation_dir 
 #'
 #' @return A data frame (or list of data frames) that contain the coordinates for
 #'   the yard lines
-cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_yard_markings_df_maker = function(yardage,
+                                              full_surf = TRUE,
+                                              rotate = FALSE,
+                                              rotation_dir = "ccw") {
   # The lines are to be placed 8" from the interior of the sidelines, and be
   # 4" wide. At 5-yard intervals across the field, the lines should stretch
   # the width of the field, with a 2' long by 4" wide hash 24 yards from the
@@ -235,29 +245,29 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
   # 8" from the interior of the sideline as well as 24 yards from the interior
   # of the sideline (and extending back towards the sideline)
 
-  if(yardage %% 5 == 0){
-    if(yardage == 0){
+  if (yardage %% 5 == 0) {
+    if (yardage == 0) {
       # Only draw the left half of the 50 yard line. The rest can be created via
       # reflection
       yard_marking = data.frame(
         x = c(
           # Start 8" from the sideline
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Lower inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Upper inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Top
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Crossover
           0,
@@ -266,40 +276,40 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
           0,
 
           # Return to start
-          yardage - convert_units(2, 'in', 'yd')
+          yardage - convert_units(2, "in", "yd")
         ),
 
         y = c(
           # Start 8" from the sideline
-          -32.5 + convert_units(8, 'in', 'yd'),
+          -32.5 + convert_units(8, "in", "yd"),
 
           # Lower inbound line marker
-          -32.5 + 24 - convert_units(4, 'in', 'yd'),
-          -32.5 + 24 - convert_units(4, 'in', 'yd'),
+          -32.5 + 24 - convert_units(4, "in", "yd"),
+          -32.5 + 24 - convert_units(4, "in", "yd"),
           -32.5 + 24,
           -32.5 + 24,
 
           # Upper inbound line marker
           32.5 - 24,
           32.5 - 24,
-          32.5 - 24 + convert_units(4, 'in', 'yd'),
-          32.5 - 24 + convert_units(4, 'in', 'yd'),
+          32.5 - 24 + convert_units(4, "in", "yd"),
+          32.5 - 24 + convert_units(4, "in", "yd"),
 
           # Top
-          32.5 - convert_units(8, 'in', 'yd'),
+          32.5 - convert_units(8, "in", "yd"),
 
           # Crossover
-          32.5 - convert_units(8, 'in', 'yd'),
+          32.5 - convert_units(8, "in", "yd"),
 
           # Return to bottom
-          -32.5 + convert_units(8, 'in', 'yd'),
+          -32.5 + convert_units(8, "in", "yd"),
 
           # Return to start
-          -32.5 + convert_units(8, 'in', 'yd')
+          -32.5 + convert_units(8, "in", "yd")
         )
       )
 
-      if(full_surf){
+      if (full_surf) {
         # If the surface being drawn is a full-surface representation, reflect
         # over the y axis
         yard_marking = rbind(
@@ -311,7 +321,7 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
         )
       }
 
-      if(rotate){
+      if (rotate) {
         # If the desired output needs to be rotated, rotate the coordinates
         yard_marking = rotate_coords(
           yard_marking,
@@ -323,95 +333,95 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
       return(yard_marking)
     }
 
-    else{
+    else {
       # At 5-yard intervals, the line should stretch the width of the field,
       # with the inbound line marker 24 yards from the interior of the sideline
       # boundary
       yard_marking = data.frame(
         x = c(
           # Start 8" from the sideline
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Lower inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Upper inbound line marker
-          yardage - convert_units(2, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd') - convert_units(10, 'in', 'yd'),
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd") - convert_units(10, "in", "yd"),
+          yardage - convert_units(2, "in", "yd"),
 
           # Top
-          yardage - convert_units(2, 'in', 'yd'),
+          yardage - convert_units(2, "in", "yd"),
 
           # Crossover
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
 
           # Upper inbound line marker
-          yardage + convert_units(2, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd"),
 
           # Lower inbound line marker
-          yardage + convert_units(2, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd') + convert_units(10, 'in', 'yd'),
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd") + convert_units(10, "in", "yd"),
+          yardage + convert_units(2, "in", "yd"),
 
           # Return to bottom
-          yardage + convert_units(2, 'in', 'yd'),
+          yardage + convert_units(2, "in", "yd"),
 
           # Return to start
-          yardage - convert_units(2, 'in', 'yd')
+          yardage - convert_units(2, "in", "yd")
         ),
 
         y = c(
           # Start 8" from the sideline
-          -32.5 + convert_units(8, 'in', 'yd'),
+          -32.5 + convert_units(8, "in", "yd"),
 
           # Lower inbound line marker
-          -32.5 + 24 - convert_units(4, 'in', 'yd'),
-          -32.5 + 24 - convert_units(4, 'in', 'yd'),
+          -32.5 + 24 - convert_units(4, "in", "yd"),
+          -32.5 + 24 - convert_units(4, "in", "yd"),
           -32.5 + 24,
           -32.5 + 24,
 
           # Upper inbound line marker
           32.5 - 24,
           32.5 - 24,
-          32.5 - 24 + convert_units(4, 'in', 'yd'),
-          32.5 - 24 + convert_units(4, 'in', 'yd'),
+          32.5 - 24 + convert_units(4, "in", "yd"),
+          32.5 - 24 + convert_units(4, "in", "yd"),
 
           # Top
-          32.5 - convert_units(8, 'in', 'yd'),
+          32.5 - convert_units(8, "in", "yd"),
 
           # Crossover
-          32.5 - convert_units(8, 'in', 'yd'),
+          32.5 - convert_units(8, "in", "yd"),
 
           # Upper inbound line marker
-          32.5 - 24 + convert_units(4, 'in', 'yd'),
-          32.5 - 24 + convert_units(4, 'in', 'yd'),
+          32.5 - 24 + convert_units(4, "in", "yd"),
+          32.5 - 24 + convert_units(4, "in", "yd"),
           32.5 - 24,
           32.5 - 24,
 
           # Lower inbound line marker
           -32.5 + 24,
           -32.5 + 24,
-          -32.5 + 24 - convert_units(4, 'in', 'yd'),
-          -32.5 + 24 - convert_units(4, 'in', 'yd'),
+          -32.5 + 24 - convert_units(4, "in", "yd"),
+          -32.5 + 24 - convert_units(4, "in", "yd"),
 
           # Return to bottom
-          -32.5 + convert_units(8, 'in', 'yd'),
+          -32.5 + convert_units(8, "in", "yd"),
 
           # Return to start
-          -32.5 + convert_units(8, 'in', 'yd')
+          -32.5 + convert_units(8, "in", "yd")
         )
       )
 
-      if(full_surf){
+      if (full_surf) {
         # If the surface being drawn is a full-surface representation, reflect
         # over the y axis
         yard_marking = rbind(
@@ -423,7 +433,7 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
         )
       }
 
-      if(rotate){
+      if (rotate) {
         # If the desired output needs to be rotated, rotate the coordinates
         yard_marking = rotate_coords(
           yard_marking,
@@ -432,7 +442,8 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
       }
 
       # Return the yard marking
-      return(yard_marking)}
+      return(yard_marking)
+    }
   }
 
   else {
@@ -441,34 +452,34 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
     # boundary, and also appear at 24 yards from the nearest boundary and
     # extending from this point towards that boundary (l and u)
     yard_marking_b = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = -32.5 + convert_units(8, 'in', 'yd'),
-      y_max = -32.5 + convert_units(2, 'ft', 'yd') + convert_units(8, 'in', 'yd')
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = -32.5 + convert_units(8, "in", "yd"),
+      y_max = -32.5 + convert_units(2, "ft", "yd") + convert_units(8, "in", "yd")
     )
 
     yard_marking_l = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = -32.5 + 24 - convert_units(2, 'ft', 'yd'),
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = -32.5 + 24 - convert_units(2, "ft", "yd"),
       y_max = -32.5 + 24
     )
 
     yard_marking_u = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
       y_min = 32.5 - 24,
-      y_max = 32.5 - 24 + convert_units(2, 'ft', 'yd')
+      y_max = 32.5 - 24 + convert_units(2, "ft", "yd")
     )
 
     yard_marking_t = create_rectangle(
-      x_min = yardage - convert_units(2, 'in', 'yd'),
-      x_max = yardage + convert_units(2, 'in', 'yd'),
-      y_min = 32.5 - convert_units(2, 'ft', 'yd') - convert_units(8, 'in', 'yd'),
-      y_max = 32.5 - convert_units(8, 'in', 'yd')
+      x_min = yardage - convert_units(2, "in", "yd"),
+      x_max = yardage + convert_units(2, "in", "yd"),
+      y_min = 32.5 - convert_units(2, "ft", "yd") - convert_units(8, "in", "yd"),
+      y_max = 32.5 - convert_units(8, "in", "yd")
     )
 
-    if(full_surf){
+    if (full_surf) {
       # If the surface being drawn is a full-surface representation, reflect
       # over the y axis
       yard_marking_b = rbind(
@@ -504,7 +515,7 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
       )
     }
 
-    if(rotate){
+    if (rotate) {
       # If the desired output needs to be rotated, rotate the coordinates
       yard_marking_b = rotate_coords(
         yard_marking_b,
@@ -542,7 +553,9 @@ cfl_feature_yard_markings_df_maker = function(yardage, full_surf = TRUE, rotate 
 #'   feature. Default: \code{'ccw'}
 #'
 #' @return A data frame containing the points that comprise the yard lines
-cfl_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_yard_markings = function(full_surf = TRUE,
+                                     rotate = FALSE,
+                                     rotation_dir = "ccw") {
   # Initialize x, y, and yardage (to pass checks)
   x = y = NULL
   yardage = NULL
@@ -557,7 +570,7 @@ cfl_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE, rotation_
   yard_markings_list = lapply(yardages, cfl_feature_yard_markings_df_maker, full_surf, rotate, rotation_dir)
 
   # Reshape the list of data frames into a single data frame
-  yard_markings = dplyr::bind_rows(yard_markings_list, .id = 'yardage')
+  yard_markings = dplyr::bind_rows(yard_markings_list, .id = "yardage")
 
   # Return the feature's data frame
   return(yard_markings)
@@ -579,35 +592,38 @@ cfl_feature_yard_markings = function(full_surf = TRUE, rotate = FALSE, rotation_
 #'
 #' @return A data frame (or list of data frames) that contain the coordinates for
 #'   the directional arrows
-cfl_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw', lower = TRUE){
+cfl_feature_directional_arrows_df_maker = function(yardage,
+                                                   full_surf = TRUE,
+                                                   rotate = FALSE,
+                                                   rotation_dir = "ccw", lower = TRUE) {
   # The arrow has two sides of 36", and one side of 18". The Pythagorean Theorem
   # can be used to determine the height (using half the length of the base,
   # which in this case is 18")
-  arrow_width = sqrt((convert_units(36, 'in', 'yd') ** 2) - (convert_units(9, 'in', 'yd') ** 2))
+  arrow_width = sqrt((convert_units(36, "in", "yd")**2) - (convert_units(9, "in", "yd")**2))
 
   # The directional arrows should not be drawn at the 50-yard line. Other
   # than that, an arrow should be drawn every 10 yards
-  if(yardage < 0){
+  if (yardage < 0) {
     # Draw the directional arrow that's below the middle point of the field
     directional_arrow_1 = data.frame(
       x = c(
         # The numbers are 1' from the outer edge of the yard line, which is
         # 2" wide. The number itself is 4' wide, and the number is 6" off
         # the outside edge of the number
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd') - arrow_width,
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd')
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd") - arrow_width,
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd")
       ),
 
       y = c(
         # The bottom of the numbers must be 12 yards (36') off the interior
         # of the sideline. The number itself is then 6' tall, and the top
         # tip of the arrow is 15" below this line
-        -32.5 + 14 - convert_units(15, 'in', 'yd'),
-        -32.5 + 14 - convert_units(15, 'in', 'yd') - convert_units(18, 'in', 'yd'),
-        -32.5 + 14 - convert_units(15, 'in', 'yd') - convert_units(9, 'in', 'yd'),
-        -32.5 + 14 - convert_units(15, 'in', 'yd')
+        -32.5 + 14 - convert_units(15, "in", "yd"),
+        -32.5 + 14 - convert_units(15, "in", "yd") - convert_units(18, "in", "yd"),
+        -32.5 + 14 - convert_units(15, "in", "yd") - convert_units(9, "in", "yd"),
+        -32.5 + 14 - convert_units(15, "in", "yd")
       )
     )
 
@@ -617,25 +633,25 @@ cfl_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, ro
         # The numbers are 1' from the outer edge of the yard line, which is
         # 2" wide. The number itself is 4' wide, and the number is 6" off
         # the outside edge of the number
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd'),
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd') - arrow_width,
-        yardage - convert_units(2, 'in', 'yd') - convert_units(5.5, 'ft', 'yd')
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd"),
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd") - arrow_width,
+        yardage - convert_units(2, "in", "yd") - convert_units(5.5, "ft", "yd")
       ),
 
       y = c(
         # The bottom of the numbers must be 12 yards (36') off the interior
         # of the sideline. The number itself is then 6' tall, and the top
         # tip of the arrow is 15" below this line
-        32.5 - 14 + convert_units(15, 'in', 'yd'),
-        32.5 - 14 + convert_units(15, 'in', 'yd') + convert_units(18, 'in', 'yd'),
-        32.5 - 14 + convert_units(15, 'in', 'yd') + convert_units(9, 'in', 'yd'),
-        32.5 - 14 + convert_units(15, 'in', 'yd')
+        32.5 - 14 + convert_units(15, "in", "yd"),
+        32.5 - 14 + convert_units(15, "in", "yd") + convert_units(18, "in", "yd"),
+        32.5 - 14 + convert_units(15, "in", "yd") + convert_units(9, "in", "yd"),
+        32.5 - 14 + convert_units(15, "in", "yd")
       )
     )
   }
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     directional_arrow_1 = rbind(
@@ -655,7 +671,7 @@ cfl_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, ro
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     directional_arrow_1 = rotate_coords(
       directional_arrow_1,
@@ -675,11 +691,11 @@ cfl_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, ro
   )
 
   # Return the correct set of arrows
-  if(lower){
+  if (lower) {
     return(directional_arrows$directional_arrow_1)
   }
 
-  else{
+  else {
     return(directional_arrows$directional_arrow_2)
   }
 }
@@ -695,7 +711,9 @@ cfl_feature_directional_arrows_df_maker = function(yardage, full_surf = TRUE, ro
 #'
 #' @return A data frame that contains the points that comprise the directional
 #'   arrows
-cfl_feature_directional_arrows = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_directional_arrows = function(full_surf = TRUE,
+                                          rotate = FALSE,
+                                          rotation_dir = "ccw") {
   # Initialize x, y, and yardage (to pass checks)
   x = y = NULL
   yardage = NULL
@@ -711,8 +729,8 @@ cfl_feature_directional_arrows = function(full_surf = TRUE, rotate = FALSE, rota
   directional_arrows_2_list = lapply(yardages, cfl_feature_directional_arrows_df_maker, full_surf, rotate, rotation_dir, lower = FALSE)
 
   # Reshape the list of data frames into a single data frame
-  directional_arrows_1 = dplyr::bind_rows(directional_arrows_1_list, .id = 'yardage')
-  directional_arrows_2 = dplyr::bind_rows(directional_arrows_2_list, .id = 'yardage')
+  directional_arrows_1 = dplyr::bind_rows(directional_arrows_1_list, .id = "yardage")
+  directional_arrows_2 = dplyr::bind_rows(directional_arrows_2_list, .id = "yardage")
 
   # Return the feature's data frames as a list
   directional_arrows = list(
@@ -734,13 +752,15 @@ cfl_feature_directional_arrows = function(full_surf = TRUE, rotate = FALSE, rota
 #'
 #' @return a data frame that contains the information needed to add the yard
 #'   marking numbers
-cfl_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_dir = 'ccw'){
+cfl_feature_yard_numbers = function(full_surf = TRUE,
+                                    rotate = FALSE,
+                                    rotation_dir = "ccw") {
   # Set the initial rotation angle for the text
   angle_1 = 0
   angle_2 = 180
 
-  if(rotate){
-    if(tolower(rotation_dir) %in% c('ccw', 'pos', 'positive', 'counterclockwise', 'anticlockwise')){
+  if (rotate) {
+    if (tolower(rotation_dir) %in% c("ccw", "pos", "positive", "counterclockwise", "anticlockwise")) {
       # If the rotation is counter-clockwise, rotate the numbers 90 degrees
       # counter-clockwise
       angle_1 = angle_1 + 90
@@ -757,77 +777,77 @@ cfl_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_d
   # Create the yard marking numbers' data frame
   yard_marking_numbers = rbind(
     data.frame(
-      x = seq(-45, 0, 10) - convert_units(3, 'ft', 'yd'),
+      x = seq(-45, 0, 10) - convert_units(3, "ft", "yd"),
       y = rep(-32.5 + 13, 5),
-      label = c('1', '2', '3', '4', '5'),
+      label = c("1", "2", "3", "4", "5"),
       angle = angle_1
     ),
 
     data.frame(
-      x = seq(-45, 0, 10) + convert_units(3, 'ft', 'yd'),
+      x = seq(-45, 0, 10) + convert_units(3, "ft", "yd"),
       y = rep(-32.5 + 13, 5),
-      label = rep('0', 5),
+      label = rep("0", 5),
       angle = angle_1
     ),
 
     data.frame(
-      x = seq(-45, 0, 10) + convert_units(3, 'ft', 'yd'),
+      x = seq(-45, 0, 10) + convert_units(3, "ft", "yd"),
       y = rep(32.5 - 13, 5),
-      label = c('1', '2', '3', '4', '5'),
+      label = c("1", "2", "3", "4", "5"),
       angle = angle_2
     ),
 
     data.frame(
-      x = seq(-45, 0, 10) - convert_units(3, 'ft', 'yd'),
+      x = seq(-45, 0, 10) - convert_units(3, "ft", "yd"),
       y = rep(32.5 - 13, 5),
-      label = rep('0', 5),
+      label = rep("0", 5),
       angle = angle_2
     )
   )
 
-  if(full_surf){
+  if (full_surf) {
     # If the surface being drawn is a full-surface representation, reflect over
     # the y axis
     yard_marking_numbers = rbind(
       yard_marking_numbers,
       data.frame(
-        x = seq(5, 45, 10) - convert_units(3, 'ft', 'yd'),
+        x = seq(5, 45, 10) - convert_units(3, "ft", "yd"),
         y = rep(-32.5 + 13, 5),
-        label = c('5', '4', '3', '2', '1'),
+        label = c("5", "4", "3", "2", "1"),
         angle = angle_1
       ),
 
       data.frame(
-        x = seq(5, 45, 10) + convert_units(3, 'ft', 'yd'),
+        x = seq(5, 45, 10) + convert_units(3, "ft", "yd"),
         y = rep(-32.5 + 13, 5),
-        label = rep('0', 5),
+        label = rep("0", 5),
         angle = angle_1
       ),
 
       data.frame(
-        x = seq(5, 45, 10) + convert_units(3, 'ft', 'yd'),
+        x = seq(5, 45, 10) + convert_units(3, "ft", "yd"),
         y = rep(32.5 - 13, 5),
-        label = c('5', '4', '3', '2', '1'),
+        label = c("5", "4", "3", "2", "1"),
         angle = angle_2
       ),
 
       data.frame(
-        x = seq(5, 45, 10) - convert_units(3, 'ft', 'yd'),
+        x = seq(5, 45, 10) - convert_units(3, "ft", "yd"),
         y = rep(32.5 - 13, 5),
-        label = rep('0', 5),
+        label = rep("0", 5),
         angle = angle_2
       ),
 
       data.frame(
         x = c(0, 0),
         y = c(-32.5 + 13, 32.5 - 13),
-        label = rep('C', 2),
+        label = rep("C", 2),
         angle = c(angle_1, angle_2)
       )
     )
   }
 
-  if(rotate){
+  if (rotate) {
     # If the desired output needs to be rotated, rotate the coordinates
     yard_marking_numbers = rotate_coords(
       yard_marking_numbers,
@@ -862,15 +882,14 @@ cfl_feature_yard_numbers = function(full_surf = TRUE, rotate = FALSE, rotation_d
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
-cfl_features_set_colors = function(grass_color = '#196f0c',
-                                   sideline_1_color = '#ffffff',
-                                   sideline_2_color = '#ffffff',
-                                   dead_line_color = '#ffffff',
-                                   goal_line_color = '#ffffff',
-                                   yard_markings_color = '#ffffff',
-                                   directional_arrows_color = '#ffffff',
-                                   yard_numbers_color = '#ffffff'
-){
+cfl_features_set_colors = function(grass_color = "#196f0c",
+                                   sideline_1_color = "#ffffff",
+                                   sideline_2_color = "#ffffff",
+                                   dead_line_color = "#ffffff",
+                                   goal_line_color = "#ffffff",
+                                   yard_markings_color = "#ffffff",
+                                   directional_arrows_color = "#ffffff",
+                                   yard_numbers_color = "#ffffff") {
 
   # Create the colors to use for the plot
   feature_colors = list(
@@ -912,13 +931,12 @@ cfl_features_set_colors = function(grass_color = '#196f0c',
 #' @return A ggplot2 instance that represents a regulation CFL field
 geom_cfl = function(full_surf = TRUE,
                     rotate = FALSE,
-                    rotation_dir = 'ccw',
-                    unit = 'yd',
+                    rotation_dir = "ccw",
+                    unit = "yd",
                     origin_bottom_left = TRUE,
-                    caption_color = '#707372',
+                    caption_color = "#707372",
                     background_color = NULL,
-                    ...
-){
+                    ...) {
   # Force the plot unit to be lower case
   unit = tolower(unit)
 
@@ -936,8 +954,8 @@ geom_cfl = function(full_surf = TRUE,
 
   # Translate the plot to the correct position on the axes as necessary. NOTE:
   # All translations are in units of yards
-  if(origin_bottom_left){
-    if(rotate){
+  if (origin_bottom_left) {
+    if (rotate) {
       grass = translate(grass, translate_x = 32.5, translate_y = 75)
       sideline$sideline_1 = translate(sideline$sideline_1, translate_x = 32.5, translate_y = 75)
       sideline$sideline_2 = translate(sideline$sideline_2, translate_x = 32.5, translate_y = 75)
@@ -963,16 +981,16 @@ geom_cfl = function(full_surf = TRUE,
   }
 
   # Convert between units as necessary
-  if(!(unit %in% c('yd', 'yards'))){
-    grass = convert_units(grass, 'yd', unit, conversion_columns = c('x', 'y'))
-    sideline$sideline_1 = convert_units(sideline$sideline_1, 'yd', unit, conversion_columns = c('x', 'y'))
-    sideline$sideline_2 = convert_units(sideline$sideline_2, 'yd', unit, conversion_columns = c('x', 'y'))
-    dead_line = convert_units(dead_line, 'yd', unit, conversion_columns = c('x', 'y'))
-    goal_line = convert_units(goal_line, 'yd', unit, conversion_columns = c('x', 'y'))
-    yard_markings = convert_units(yard_markings, 'yd', unit, conversion_columns = c('x', 'y'))
-    directional_arrows$directional_arrows_1 = convert_units(directional_arrows$directional_arrows_1, 'yd', unit, conversion_columns = c('x', 'y'))
-    directional_arrows$directional_arrows_2 = convert_units(directional_arrows$directional_arrows_2, 'yd', unit, conversion_columns = c('x', 'y'))
-    yard_numbers = convert_units(yard_numbers, 'yd', unit, conversion_columns = c('x', 'y'))
+  if (!(unit %in% c("yd", "yards"))) {
+    grass = convert_units(grass, "yd", unit, conversion_columns = c("x", "y"))
+    sideline$sideline_1 = convert_units(sideline$sideline_1, "yd", unit, conversion_columns = c("x", "y"))
+    sideline$sideline_2 = convert_units(sideline$sideline_2, "yd", unit, conversion_columns = c("x", "y"))
+    dead_line = convert_units(dead_line, "yd", unit, conversion_columns = c("x", "y"))
+    goal_line = convert_units(goal_line, "yd", unit, conversion_columns = c("x", "y"))
+    yard_markings = convert_units(yard_markings, "yd", unit, conversion_columns = c("x", "y"))
+    directional_arrows$directional_arrows_1 = convert_units(directional_arrows$directional_arrows_1, "yd", unit, conversion_columns = c("x", "y"))
+    directional_arrows$directional_arrows_2 = convert_units(directional_arrows$directional_arrows_2, "yd", unit, conversion_columns = c("x", "y"))
+    yard_numbers = convert_units(yard_numbers, "yd", unit, conversion_columns = c("x", "y"))
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
@@ -991,7 +1009,7 @@ geom_cfl = function(full_surf = TRUE,
   # Add yardage numbers at 10-yard intervals
   g = g +
     ggplot2::annotate(
-      'text',
+      "text",
       x = yard_numbers$x,
       y = yard_numbers$y,
       label = yard_numbers$label,
