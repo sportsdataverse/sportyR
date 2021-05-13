@@ -26,9 +26,11 @@ test_that("cani_plot_() functions return correct messages for single leagues/spo
 test_that("cani_color_league_features() returns message on success", {
   # Test to make sure that cani_color_league_features() returns a message for
   # each league
+  expect_message(cani_color_league_features("CFL"))
   expect_message(cani_color_league_features("FIBA"))
   expect_message(cani_color_league_features("FIFA"))
   expect_message(cani_color_league_features("IIHF"))
+  expect_message(cani_color_league_features("ITF"))
   expect_message(cani_color_league_features("MLB"))
   expect_message(cani_color_league_features("MLS"))
   expect_message(cani_color_league_features("NBA"))
@@ -42,6 +44,7 @@ test_that("cani_color_league_features() returns message on success", {
   expect_message(cani_color_league_features("NCAA", "football"))
   expect_message(cani_color_league_features("NCAA", "hockey"))
   expect_message(cani_color_league_features("NCAA", "soccer"))
+  expect_message(cani_color_league_features("NCAA", "tennis"))
 })
 
 test_that("cani_color_league_features() returns error with league code NCAA and either NULL or unavailable sport", {
