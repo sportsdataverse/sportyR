@@ -1222,6 +1222,19 @@ geom_ncaa_hockey = function(full_surf = TRUE,
   referee_crease = ncaa_hockey_feature_referee_crease(full_surf, rotate, rotation_dir)
   goal = ncaa_hockey_feature_goal(full_surf, rotate, rotation_dir)
 
+  # Convert between units as necessary
+  if (!(unit %in% c("ft", "feet"))) {
+    boards = convert_units(boards, "ft", unit, conversion_columns = c("x", "y"))
+    center_line = convert_units(center_line, "ft", unit, conversion_columns = c("x", "y"))
+    blue_line = convert_units(blue_line, "ft", unit, conversion_columns = c("x", "y"))
+    goal$goal = convert_units(goal$goal, "ft", unit, conversion_columns = c("x", "y"))
+    goal$goal_fill = convert_units(goal$goal_fill, "ft", unit, conversion_columns = c("x", "y"))
+    goal_line = convert_units(goal_line, "ft", unit, conversion_columns = c("x", "y"))
+    goal_crease$goal_crease_outline = convert_units(goal_crease$goal_crease_outline, "ft", unit, conversion_columns = c("x", "y"))
+    goal_crease$goal_crease_fill = convert_units(goal_crease$goal_crease_fill, "ft", unit, conversion_columns = c("x", "y"))
+    referee_crease = convert_units(referee_crease, "ft", unit, conversion_columns = c("x", "y"))
+  }
+
   # Create the initial ggplot2 instance onto which the features will be added
   g = create_plot_base(rotate, caption_color, background_color)
 
@@ -1235,19 +1248,6 @@ geom_ncaa_hockey = function(full_surf = TRUE,
   g = add_feature(g, goal_crease$goal_crease_outline, color_list$goal_crease_outline_color)
   g = add_feature(g, goal_crease$goal_crease_fill, color_list$goal_crease_fill_color)
   g = add_feature(g, referee_crease, color_list$referee_crease_color)
-
-  # Convert between units as necessary
-  if (!(unit %in% c("ft", "feet"))) {
-    boards = convert_units(boards, "ft", unit, conversion_columns = c("x", "y"))
-    center_line = convert_units(center_line, "ft", unit, conversion_columns = c("x", "y"))
-    blue_line = convert_units(blue_line, "ft", unit, conversion_columns = c("x", "y"))
-    goal$goal = convert_units(goal$goal, "ft", unit, conversion_columns = c("x", "y"))
-    goal$goal_fill = convert_units(goal$goal_fill, "ft", unit, conversion_columns = c("x", "y"))
-    goal_line = convert_units(goal_line, "ft", unit, conversion_columns = c("x", "y"))
-    goal_crease$goal_crease_outline = convert_units(goal_crease$goal_crease_outline, "ft", unit, conversion_columns = c("x", "y"))
-    goal_crease$goal_crease_fill = convert_units(goal_crease$goal_crease_fill, "ft", unit, conversion_columns = c("x", "y"))
-    referee_crease = convert_units(referee_crease, "ft", unit, conversion_columns = c("x", "y"))
-  }
 
   # Handle the faceoff spots and circles
   for (spot in 1:length(faceoff_spots)) {

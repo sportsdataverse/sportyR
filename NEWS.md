@@ -3,6 +3,7 @@
 - Added tennis plotting capability
 - Fixed issue with NCAA football plot hash marks (initially typed as 6, should have been typed as 60)
 - Fixed minor bug with all soccer plots (changed `rotation_dir = TRUE` to `rotation_dir = "ccw"`)
+- Fixed minor bug in NCAA hockey plots when plotting in units other than `ft` (reordered `geom_ncaa_hockey()` code to adjust units before plotting)
 
 ## sportyR 1.0.2
 
