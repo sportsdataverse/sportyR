@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 720.00 576.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw3MjAuMDB8NDE5LjgwfDE1Ni4yMA=='>
+    <rect x='0.00' y='156.20' width='720.00' height='263.60' />
+  </clipPath>
+</defs>
+<rect x='0.00' y='156.20' width='720.00' height='263.60' style='stroke-width: 1.07; stroke: #FFFFFF; fill: #FFFFFF;' clip-path='url(#cpMC4wMHw3MjAuMDB8NDE5LjgwfDE1Ni4yMA==)' />
+<defs>
+  <clipPath id='cpMC4wMHw3MjAuMDB8NTc2LjAwfDAuMDA='>
+    <rect x='0.00' y='0.00' width='720.00' height='576.00' />
+  </clipPath>
+</defs>
+<defs>
+  <clipPath id='cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ=='>
+    <rect x='2.74' y='145.15' width='717.26' height='286.90' />
+  </clipPath>
+</defs>
+<polygon points='35.34,419.01 361.37,419.01 361.37,158.19 35.34,158.19 35.34,419.01 687.40,419.01 361.37,419.01 361.37,158.19 687.40,158.19 687.40,419.01 ' style='stroke-width: 1.07; stroke: none; fill: #196F0C;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='149.45,386.41 150.36,386.41 150.36,190.79 149.45,190.79 149.45,386.41 573.29,386.41 572.38,386.41 572.38,190.79 573.29,190.79 573.29,386.41 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='149.45,386.41 361.37,386.41 361.37,385.50 149.45,385.50 149.45,386.41 573.29,386.41 361.37,386.41 361.37,385.50 573.29,385.50 573.29,386.41 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='149.45,191.70 361.37,191.70 361.37,190.79 149.45,190.79 149.45,191.70 573.29,191.70 361.37,191.70 361.37,190.79 573.29,190.79 573.29,191.70 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='149.45,361.96 361.37,361.96 361.37,361.05 149.45,361.05 149.45,361.96 573.29,361.96 361.37,361.96 361.37,361.05 573.29,361.05 573.29,361.96 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='149.45,216.15 361.37,216.15 361.37,215.24 149.45,215.24 149.45,216.15 573.29,216.15 361.37,216.15 361.37,215.24 573.29,215.24 573.29,216.15 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='247.26,361.96 248.17,361.96 248.17,215.24 247.26,215.24 247.26,361.96 475.48,361.96 474.57,361.96 474.57,215.24 475.48,215.24 475.48,361.96 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='247.26,288.15 361.37,288.15 361.37,289.05 247.26,289.05 247.26,288.15 475.48,288.15 361.37,288.15 361.37,289.05 475.48,289.05 475.48,288.15 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='150.36,288.15 152.17,288.15 152.17,289.05 150.36,289.05 150.36,288.15 572.38,288.15 570.57,288.15 570.57,289.05 572.38,289.05 572.38,288.15 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<polygon points='360.35,402.71 361.37,402.71 361.37,174.49 360.35,174.49 360.35,402.71 362.39,402.71 361.37,402.71 361.37,174.49 362.39,174.49 362.39,402.71 ' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' clip-path='url(#cpMi43NHw3MjAuMDB8NDMyLjA1fDE0NS4xNQ==)' />
+<defs>
+  <clipPath id='cpMC4wMHw3MjAuMDB8NTc2LjAwfDAuMDA='>
+    <rect x='0.00' y='0.00' width='720.00' height='576.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw3MjAuMDB8NTc2LjAwfDAuMDA=)'><text x='2.74' y='136.93' style='font-size: 13.20px; font-family: Liberation Sans;' textLength='63.00px' lengthAdjust='spacingAndGlyphs'>itf inch plot</text></g>
+<g clip-path='url(#cpMC4wMHw3MjAuMDB8NTc2LjAwfDAuMDA=)'><text x='318.35' y='446.32' style='font-size: 8.80px; fill: #707372; font-family: Liberation Sans;' textLength='86.03px' lengthAdjust='spacingAndGlyphs'>Plot made via sportyR</text></g>
+</svg>
