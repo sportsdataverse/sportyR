@@ -41,7 +41,7 @@ convert_units = function(meas,
       "yd"
     ),
     conversion_factor = c(
-      3048,
+      304.8,
       30.48,
       0.3048,
       12,

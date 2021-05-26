@@ -5,6 +5,7 @@
 - Fixed minor bug with all soccer plots (changed `rotation_dir = TRUE` to `rotation_dir = "ccw"`)
 - Fixed minor bug in NCAA hockey plots when plotting in units other than `ft` (reordered `geom_ncaa_hockey()` code to adjust units before plotting)
 - Restructured code in `tests/testthat/test-plot-functions.R` to more closely resemble rest of repository structure. Plots now tested by sport rather than by plot-specific feature (e.g. units or rotation)
+- Fixed minor bug with converting between millimeters and feet (originally was specified as 3048mm per foot, corrected to 304.8mm per foot)
 
 ## sportyR 1.0.2
 
