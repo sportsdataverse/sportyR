@@ -14,7 +14,7 @@ Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.s
 [![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
-[![](https://cranlogs.r-pkg.org/badges/sportyR)](https://cran.r-project.org/package=sportyR)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/sportyR?color=blue)](https://cran.r-project.org/package=sportyR)
 <!-- badges: end -->
 
 As the field of sports analytics evolve, there’s a growing need for
