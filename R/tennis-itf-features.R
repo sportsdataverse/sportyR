@@ -494,8 +494,6 @@ itf_features_set_colors = function(court_background_color = "#196f0c",
 #'   representation. Default: \code{'ccw'}
 #' @param unit A string indicating the units with which to make the plot.
 #'   Default: \code{'yd'}
-#' @param caption_color A hexadecimal string representing the color to use for
-#'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
@@ -506,7 +504,6 @@ geom_itf = function(full_surf = TRUE,
                      rotate = FALSE,
                      rotation_dir = "ccw",
                      unit = "ft",
-                     caption_color = "#707372",
                      background_color = NULL,
                      ...) {
   # Force the plot unit to be lower case
@@ -540,7 +537,7 @@ geom_itf = function(full_surf = TRUE,
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
-  g = create_plot_base(rotate, caption_color, background_color)
+  g = create_plot_base(rotate, background_color)
 
   # Add the features to the ggplot2 instance
   g = add_feature(g, court_background, color_list$court_background_color)

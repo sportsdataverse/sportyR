@@ -1,3 +1,7 @@
+## sportyR 1.0.4
+
+- Removed requirement to include a plot caption color (fixes [#3](https://github.com/rossdrucker/sportyR/issues/3))
+
 ## sportyR 1.0.3
 
 - Added tennis plotting capability

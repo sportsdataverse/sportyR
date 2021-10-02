@@ -2,20 +2,12 @@
 #'
 #' @param rotate Whether or not the final output will be rotated (adjusts the
 #'   margins). Default: \code{FALSE}
-#' @param caption_color A hexadecimal string representing the color to use for
-#'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use for
 #'   the plot's background. Default: \code{NULL}
 #'
 #' @return A ggplot2 instance onto which the features will be added
 create_plot_base = function(rotate = FALSE,
-                            caption_color = "#707372",
                             background_color = NULL) {
-  if (is.null(caption_color)) {
-    # Ensure that the caption color is provided
-    stop("Caption color must not be NULL")
-  }
-
   if (!is.null(background_color)) {
     # If the plot has a specific background color, set the element correctly
     background = ggplot2::element_rect(fill = background_color)
@@ -30,7 +22,6 @@ create_plot_base = function(rotate = FALSE,
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
-        plot.caption = ggplot2::element_text(color = caption_color, hjust = 0.5),
         plot.margin = ggplot2::margin(0, -1, 0, -1, "cm"),
         panel.border = ggplot2::element_blank(),
         panel.background = background,
@@ -38,9 +29,6 @@ create_plot_base = function(rotate = FALSE,
         axis.text = ggplot2::element_blank(),
         axis.ticks = ggplot2::element_blank(),
         panel.grid = ggplot2::element_blank(),
-      ) +
-      ggplot2::labs(
-        caption = "Plot made via sportyR"
       )
   }
 
@@ -48,7 +36,6 @@ create_plot_base = function(rotate = FALSE,
     g = ggplot2::ggplot() +
       ggplot2::coord_fixed() +
       ggplot2::theme(
-        plot.caption = ggplot2::element_text(color = caption_color, hjust = 0.5),
         plot.margin = ggplot2::margin(-1, 0, -1, 0, "cm"),
         panel.border = ggplot2::element_blank(),
         panel.background = background,
@@ -56,9 +43,6 @@ create_plot_base = function(rotate = FALSE,
         axis.text = ggplot2::element_blank(),
         axis.ticks = ggplot2::element_blank(),
         panel.grid = ggplot2::element_blank(),
-      ) +
-      ggplot2::labs(
-        caption = "Plot made via sportyR"
       )
   }
 

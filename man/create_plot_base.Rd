@@ -4,18 +4,11 @@
 \alias{create_plot_base}
 \title{Create the base for the ggplot2 instance with the correct theme elements}
 \usage{
-create_plot_base(
-  rotate = FALSE,
-  caption_color = "#707372",
-  background_color = NULL
-)
+create_plot_base(rotate = FALSE, background_color = NULL)
 }
 \arguments{
 \item{rotate}{Whether or not the final output will be rotated (adjusts the
 margins). Default: \code{FALSE}}
-
-\item{caption_color}{A hexadecimal string representing the color to use for
-the plot's caption. Default: '#707372' (grey)}
 
 \item{background_color}{A hexadecimal string representing the color to use for
 the plot's background. Default: \code{NULL}}

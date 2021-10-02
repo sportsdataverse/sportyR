@@ -178,11 +178,6 @@ test_that("Tennis plots match expected outputs", {
   vdiffr::expect_doppelganger("ncaa tennis inch plot", ncaa_tennis_plot)
 })
 
-test_that("Plot must have non-null caption color", {
-  # This is done to ensure that the plot has correct attribution
-  expect_error(create_plot_base(caption_color = NULL))
-})
-
 test_that("A data frame without columns 'x' and 'y' should not be plottable", {
   # This is done to ensure that the column names passed to add_feature() will
   # pass

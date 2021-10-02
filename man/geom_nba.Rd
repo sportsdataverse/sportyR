@@ -12,7 +12,6 @@ geom_nba(
   unit = "ft",
   include_amateur_free_throw_lane = TRUE,
   include_amateur_free_throw_lane_lines = TRUE,
-  caption_color = "#707372",
   background_color = NULL,
   ...
 )
@@ -36,9 +35,6 @@ include the amateur (NCAA) free-throw lane in the final plot. Default: \code{TRU
 \item{include_amateur_free_throw_lane_lines}{A boolean indicating whether or
 not to include the amateur (NCAA) free-throw lane lines in the final plot.
 Default: \code{TRUE}}
-
-\item{caption_color}{A hexadecimal string representing the color to use for
-the plot's caption. Default: '#707372' (grey)}
 
 \item{background_color}{A hexadecimal string representing the color to use
 for the plot's background. Default: \code{NULL}}
