@@ -1864,8 +1864,6 @@ ncaa_bb_features_set_colors = function(court_background_color = "#d2ab6f",
 #' @param include_professional_free_throw_lane_lines A boolean indicating
 #'   whether or not to include the professional((W)NBA) free-throw lane lines in
 #'   the final plot. Default: \code{FALSE}
-#' @param caption_color A hexadecimal string representing the color to use for
-#'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
@@ -1880,7 +1878,6 @@ geom_ncaa_bb = function(full_surf = TRUE,
                         include_w_three_point_line = TRUE,
                         include_professional_free_throw_lane = FALSE,
                         include_professional_free_throw_lane_lines = FALSE,
-                        caption_color = "#707372",
                         background_color = NULL,
                         ...) {
   # Force the plot unit to be lower case
@@ -1963,7 +1960,7 @@ geom_ncaa_bb = function(full_surf = TRUE,
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
-  g = create_plot_base(rotate, caption_color, background_color)
+  g = create_plot_base(rotate, background_color)
 
   # Add the features to the ggplot2 instance
   g = add_feature(g, court_background, color_list$court_background_color)
