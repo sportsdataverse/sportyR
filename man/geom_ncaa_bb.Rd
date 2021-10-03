@@ -14,7 +14,6 @@ geom_ncaa_bb(
   include_w_three_point_line = TRUE,
   include_professional_free_throw_lane = FALSE,
   include_professional_free_throw_lane_lines = FALSE,
-  caption_color = "#707372",
   background_color = NULL,
   ...
 )
@@ -45,9 +44,6 @@ Default: \code{FALSE}}
 \item{include_professional_free_throw_lane_lines}{A boolean indicating
 whether or not to include the professional((W)NBA) free-throw lane lines in
 the final plot. Default: \code{FALSE}}
-
-\item{caption_color}{A hexadecimal string representing the color to use for
-the plot's caption. Default: '#707372' (grey)}
 
 \item{background_color}{A hexadecimal string representing the color to use
 for the plot's background. Default: \code{NULL}}

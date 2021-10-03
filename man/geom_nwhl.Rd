@@ -10,7 +10,6 @@ geom_nwhl(
   rotate = FALSE,
   rotation_dir = "ccw",
   unit = "ft",
-  caption_color = "#707372",
   background_color = NULL,
   ...
 )
@@ -27,9 +26,6 @@ representation. Default: \code{'ccw'}}
 
 \item{unit}{A string indicating the units with which to make the plot.
 Default: \code{'ft'}}
-
-\item{caption_color}{A hexadecimal string representing the color to use for
-the plot's caption. Default: '#707372' (grey)}
 
 \item{background_color}{A hexadecimal string representing the color to use
 for the plot's background. Default: \code{NULL}}

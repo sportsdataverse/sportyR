@@ -493,8 +493,6 @@ mlb_features_set_colors = function(infield_dirt_color = "#9b7653",
 #' Create a ggplot2 instance that represents a regulation NBA court, with the
 #' back tip of home plate corresponding to (0, 0)
 #'
-#' @param caption_color A hexadecimal string representing the color to use for
-#'   the plot's caption. Default: '#ffffff' (white)
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: '#395d33' (green)
 #' @param unit A string indicating the units with which to make the plot.
@@ -503,8 +501,7 @@ mlb_features_set_colors = function(infield_dirt_color = "#9b7653",
 #'   colors to pass to the \code{mlb_features_set_colors()} function
 #'
 #' @return A ggplot2 instance that represents a regulation NBA court
-geom_mlb = function(caption_color = "#707372",
-                    background_color = "#395d33",
+geom_mlb = function(background_color = "#395d33",
                     unit = "ft",
                     ...) {
   # Force the plot unit to be lower case
@@ -541,7 +538,7 @@ geom_mlb = function(caption_color = "#707372",
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
-  g = create_plot_base(rotate = FALSE, caption_color, background_color)
+  g = create_plot_base(rotate = FALSE, background_color)
 
   # Add the features to the ggplot2 instance
   g = add_feature(g, infield_dirt$infield_dirt, color_list$infield_dirt_color)

@@ -11,7 +11,6 @@ geom_nfl(
   rotation_dir = "ccw",
   unit = "yd",
   origin_bottom_left = TRUE,
-  caption_color = "#707372",
   background_color = NULL,
   ...
 )
@@ -32,9 +31,6 @@ Default: \code{'yd'}}
 \item{origin_bottom_left}{A boolean indicating whether or not to place the
 origin at the bottom-left corner of the plot (where the endline meets the
 sideline). Default: \code{TRUE}}
-
-\item{caption_color}{A hexadecimal string representing the color to use for
-the plot's caption. Default: '#707372' (grey)}
 
 \item{background_color}{A hexadecimal string representing the color to use
 for the plot's background. Default: \code{NULL}}

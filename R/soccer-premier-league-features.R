@@ -890,8 +890,6 @@ premier_league_features_set_colors = function(grass_color = "#196f0c",
 #'   Default: \code{'m'}
 #' @param rotation_dir A string indicating which direction to rotate the surface
 #'   representation. Default: \code{'ccw'}
-#' @param caption_color A hexadecimal string representing the color to use for
-#'   the plot's caption. Default: '#707372' (grey)
 #' @param background_color A hexadecimal string representing the color to use
 #'   for the plot's background. Default: \code{NULL}
 #' @param ... Additional arguments to pass to the function. These should be the
@@ -904,7 +902,6 @@ geom_premier_league = function(touchline_length = 120,
                                rotate = FALSE,
                                rotation_dir = "ccw",
                                unit = "m",
-                               caption_color = "#707372",
                                background_color = NULL,
                                ...) {
   # Create the colors to use for the plot
@@ -945,7 +942,7 @@ geom_premier_league = function(touchline_length = 120,
   }
 
   # Create the initial ggplot2 instance onto which the features will be added
-  g = create_plot_base(rotate, caption_color, background_color)
+  g = create_plot_base(rotate, background_color)
 
   # Add the features to the ggplot2 instance
   g = add_feature(g, grass, color_list$grass_color)
