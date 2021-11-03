@@ -38,6 +38,7 @@ test_that("cani_color_league_features() returns message on success", {
   expect_message(cani_color_league_features("NHL"))
   expect_message(cani_color_league_features("NWHL"))
   expect_message(cani_color_league_features("NWSL"))
+  expect_message(cani_color_league_features("PHF"))
   expect_message(cani_color_league_features("PREMIER"))
   expect_message(cani_color_league_features("WNBA"))
   expect_message(cani_color_league_features("NCAA", "basketball"))

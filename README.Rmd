@@ -76,9 +76,9 @@ Each plot function has a standardized unit of measure in which the plot is creat
 
 ```{r plot-units-table, echo = FALSE}
 units_df = data.frame(
-  sport = c('Baseball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Football', 'Football', 'Football', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Tennis', 'Tennis'),
-  league = c('MLB', 'FIBA', 'NBA', 'NCAA Basketball', 'WNBA', 'CFL', 'NCAA Football', 'NFL', 'IIHF', 'NCAA Hockey', 'NHL', 'NWHL', 'FIFA', 'MLS', 'NCAA Soccer', 'NWSL', 'Premier League', 'ITF', 'NCAA'),
-  primary_unit = c('`ft`', '`m`', '`ft`', '`ft`', '`ft`', '`yd`', '`yd`', '`yd`', '`m`', '`ft`', '`ft`', '`ft`', '`m`', '`m`', '`m`', '`m`', '`m`', '`ft`', '`ft`')
+  sport = c('Baseball', 'Basketball', 'Basketball', 'Basketball', 'Basketball', 'Football', 'Football', 'Football', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Hockey', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Soccer', 'Tennis', 'Tennis'),
+  league = c('MLB', 'FIBA', 'NBA', 'NCAA Basketball', 'WNBA', 'CFL', 'NCAA Football', 'NFL', 'IIHF', 'NCAA Hockey', 'NHL', 'NWHL', 'PHF', 'FIFA', 'MLS', 'NCAA Soccer', 'NWSL', 'Premier League', 'ITF', 'NCAA'),
+  primary_unit = c('`ft`', '`m`', '`ft`', '`ft`', '`ft`', '`yd`', '`yd`', '`yd`', '`m`', '`ft`', '`ft`', '`ft`', '`ft`', '`m`', '`m`', '`m`', '`m`', '`m`', '`ft`', '`ft`')
 )
 
 names(units_df) = c('Sport', 'League', 'Primary Plotting Unit')

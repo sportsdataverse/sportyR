@@ -7,7 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
-[![](https://img.shields.io/badge/devel%20version-1.0.3-blue.svg)](https://github.com/rossdrucker/sportyR)
+[![](https://img.shields.io/badge/devel%20version-1.0.4-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
 [![Test
 Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
@@ -96,6 +96,7 @@ respective rule books. They are as follows:
 |   Hockey   |   NCAA Hockey   |         `ft`          |
 |   Hockey   |       NHL       |         `ft`          |
 |   Hockey   |      NWHL       |         `ft`          |
+|   Hockey   |       PHF       |         `ft`          |
 |   Soccer   |      FIFA       |          `m`          |
 |   Soccer   |       MLS       |          `m`          |
 |   Soccer   |   NCAA Soccer   |          `m`          |

@@ -2,6 +2,8 @@
 
 - Removed requirement to include a plot caption color (fixes [#3](https://github.com/rossdrucker/sportyR/issues/3))
 
+- On September 7, 2021, the NWHL changed names to be the PHF. This name change is now reflected in the package, with NWHL still valid so as to be backwards compatible.
+
 ## sportyR 1.0.3
 
 - Added tennis plotting capability

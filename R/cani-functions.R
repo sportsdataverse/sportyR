@@ -200,6 +200,9 @@ cani_color_league_features = function(league_code, sport_name = NULL) {
     "NWSL" = {
       names(nwsl_features_set_colors())
     },
+    "PHF" = {
+      names(phf_features_set_colors())
+    },
     "PREMIER" = {
       names(premier_league_features_set_colors())
     },

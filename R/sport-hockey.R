@@ -39,6 +39,8 @@ geom_hockey = function(league,
 
     "NWHL" = geom_nwhl(full_surf, rotate, rotation_dir, ...),
 
+    "PHF" = geom_phf(full_surf, rotate, rotation_dir, ...),
+
     stop(glue::glue("{league} is not a valid league at this time."))
   )
 

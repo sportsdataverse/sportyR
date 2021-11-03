@@ -61,31 +61,37 @@ test_that("Hockey plots match expected outputs", {
   ncaa_hockey_plot = geom_hockey("ncaa")
   nhl_plot = geom_hockey("nhl")
   nwhl_plot = geom_hockey("nwhl")
+  phf_plot = geom_hockey("phf")
 
   vdiffr::expect_doppelganger("iihf plot", iihf_plot)
   vdiffr::expect_doppelganger("ncaa hockey plot", ncaa_hockey_plot)
   vdiffr::expect_doppelganger("nhl plot", nhl_plot)
   vdiffr::expect_doppelganger("nwhl plot", nwhl_plot)
+  vdiffr::expect_doppelganger("phf plot", phf_plot)
 
   iihf_plot = geom_hockey("iihf", rotate = TRUE)
   ncaa_hockey_plot = geom_hockey("ncaa", rotate = TRUE)
   nhl_plot = geom_hockey("nhl", rotate = TRUE)
   nwhl_plot = geom_hockey("nwhl", rotate = TRUE)
+  phf_plot = geom_hockey("phf", rotate = TRUE)
 
   vdiffr::expect_doppelganger("iihf rotated plot", iihf_plot)
   vdiffr::expect_doppelganger("ncaa hockey rotated plot", ncaa_hockey_plot)
   vdiffr::expect_doppelganger("nhl rotated plot", nhl_plot)
   vdiffr::expect_doppelganger("nwhl rotated plot", nwhl_plot)
+  vdiffr::expect_doppelganger("phf rotated plot", phf_plot)
 
   iihf_plot = geom_hockey("iihf", unit = "in")
   ncaa_hockey_plot = geom_hockey("ncaa", unit = "in")
   nhl_plot = geom_hockey("nhl", unit = "in")
   nwhl_plot = geom_hockey("nwhl", unit = "in")
+  phf_plot = geom_hockey("phf", unit = "in")
 
   vdiffr::expect_doppelganger("iihf inch plot", iihf_plot)
   vdiffr::expect_doppelganger("ncaa inch hockey plot", ncaa_hockey_plot)
   vdiffr::expect_doppelganger("nhl inch plot", nhl_plot)
   vdiffr::expect_doppelganger("nwhl inch plot", nwhl_plot)
+  vdiffr::expect_doppelganger("phf inch plot", phf_plot)
 })
 
 test_that("Football plots match expected outputs", {
