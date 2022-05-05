@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+  /* General body parameters */
+  font-family: "Roboto Condensed", sans-serif;
+  color: #1b1611;
+  font-size: 16px;
+}
+
+a {
+  /* Link colors */
+  color: #d45d07;
+}
+
+h1, h2, .h1, .h2 {
+  /* Headers */
+  font-family: "Roboto";
+  line-height: 2.2rem;
+  color: #1b1611;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link {
+  /* Active tab in navbar */
+  background: #1fb22e;
+}
+
+.text-muted {
+  /* Version number next to package name */
+  color: #1b1611 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  /* Link text in the navbar */
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-dark input[type='search'] {
+  /* Navbar search box */
+  background-color: #d45d07;
+  color: #ffffff;
+}
+
+.navbar-dark input[type='search']::placeholder {
+  /* Navbar placeholder text */
+  background-color: #d45d07;
+  color: #ffffff;
+}
+
+pre, code {
+  font-family: "Roboto Mono", Consolas, Inconsolata, monospace;
+}

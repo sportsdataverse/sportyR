@@ -58,3 +58,6 @@
 ^man/geom_ncaa_tennis.Rd$
 ^man/league_lookup.Rd$
 ^CRAN-RELEASE$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
