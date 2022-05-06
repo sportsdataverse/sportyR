@@ -1,0 +1,172 @@
+url: https://rossdrucker.github.io/sportyR/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo
+  bslib:
+    primary: "#1fb22e" # Navbar color
+    secondary: "#1fb22e" # Secondary navbar color
+    btn-btn-secondary-bg: "#1fb22e"
+    border-radius: 0.5rem
+    btn-border-radius: 0.25rem
+  opengraph:
+    image:
+      src: "https://raw.githubusercontent.com/rossdrucker/sportyR/main/logos/sportyr-logo-hex.png"
+      alt: "sportyR social preview hex"
+    twitter:
+      creator: "@rossdrucker"
+      site: "@sportsdataverse"
+      card: summary
+
+
+authors:
+  Ross Drucker:
+    href: https://twitter.com/rossdrucker9
+navbar:
+  structure:
+    left: [home, reference, articles, news, network, ]
+    right: [twitter, github]
+  components:
+    home:
+      title: sportyR • Drawing regulation playing surfaces
+      description: >
+        A set of functions for drawing regulation playing surfaces
+        with 'ggplot2'.
+      icon: fa-home
+      href: index.html
+    reference:
+      icon: "fas fa-code"
+      text: "Funcs"
+      href: reference/index.html
+    articles:
+      icon: "fas fa-book-reader"
+      text: " Articles"
+      href: articles/index.html
+    news:
+      icon: "fas fa-newspaper"
+      text: " Changelog"
+      href: news/index.html
+    network:
+      icon: "fas fa-project-diagram"
+      text: " SDV"
+      menu:
+      - text: SportsDataverse
+        href: https://sportsdataverse.org/
+      - text: --------------------------------
+      - text: R Packages
+      - text: sportsdataverse-R
+        href: https://r.sportsdataverse.org/
+      - text: cfbfastR
+        href: https://cfbfastR.sportsdataverse.org/
+      - text: hoopR
+        href: https://hoopR.sportsdataverse.org/
+      - text: wehoop
+        href: https://wehoop.sportsdataverse.org/
+      - text: toRvik
+        href: https://torvik.dev/
+      - text: fastRhockey
+        href: https://fastRhockey.sportsdataverse.org/
+      - text: baseballr
+        href: https://BillPetti.github.io/baseballr/
+      - text: worldfootballR
+        href: https://jaseziv.github.io/worldfootballR/
+      - text: chessR
+        href: https://jaseziv.github.io/chessR/
+      - text: sportyR
+        href: https://rossdrucker.github.io/sportyR/
+      - text: cfbplotR
+        href: https://kazink36.github.io/cfbplotR/
+      - text: cfb4th
+        href: https://kazink36.github.io/cfb4th/
+      - text: recruitR
+        href: https://recruitr.sportsdataverse.org/
+      - text: gamezoneR
+        href: https://jacklich10.github.io/gamezoneR/
+      - text: puntr
+        href: https://puntalytics.github.io/puntr/
+      - text: --------------------------------
+      - text: Python Packages
+      - text: sportsdataverse-py
+        href: https://py.sportsdataverse.org/
+      - text: --------------------------------
+      - text: Node.js Packages
+      - text: sportsdataverse.js
+        href: https://js.sportsdataverse.org/
+      - text: nfl-nerd
+        href: https://github.com/nntrn/nfl-nerd/
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: http://twitter.com/rossdrucker9
+    github:
+      icon: "fab fa-github fa-lg"
+      href: https://github.com/rossdrucker/sportyR
+reference:
+- title: "Surface Plotters"
+  desc: Functions that do the actual plotting of the surfaces
+  contents:
+    - "`geom_baseball`"
+    - "`geom_basketball`"
+    - "`geom_football`"
+    - "`geom_soccer`"
+    - "`geom_tennis`"
+- title: "cani_ Functions"
+  desc: >
+    Functions that help navigate the options of the package,
+    attempting to answer questions starting "Can I..."
+  contents:
+    - "`cani_color_league_features`"
+    - "`cani_plot_league`"
+    - "`cani_plot_sport`"
+- title: internal
+  desc: Internal functions to `sportyR`
+  contents:
+  # TODO: tag these with @keywords internal; eventually remove from here
+    - starts_with("mlb")
+    - starts_with("nba")
+    - starts_with("fiba")
+    - starts_with("ncaa")
+    - starts_with("wnba")
+    - starts_with("cfl")
+    - starts_with("nfl")
+    - starts_with("iihf")
+    - starts_with("nhl")
+    - starts_with("phf")
+    - starts_with("nwhl")
+    - starts_with("fifa")
+    - starts_with("mls")
+    - starts_with("nwsl")
+    - starts_with("premier")
+    - starts_with("itf")
+    - starts_with("create")
+    - "`add_feature`"
+    - "`check_data_frame_for_plot`"
+    - "`convert_units`"
+    - "`distance_formula`"
+    - "`geom_cfl`"
+    - "`geom_fiba`"
+    - "`geom_fifa`"
+    - "`geom_hockey`"
+    - "`geom_iihf`"
+    - "`geom_itf`"
+    - "`geom_mlb`"
+    - "`geom_mls`"
+    - "`geom_nba`"
+    - "`geom_ncaa_bb`"
+    - "`geom_ncaa_football`"
+    - "`geom_ncaa_hockey`"
+    - "`geom_ncaa_soccer`"
+    - "`geom_ncaa_tennis`"
+    - "`geom_nfl`"
+    - "`geom_nhl`"
+    - "`geom_nwhl`"
+    - "`geom_nwsl`"
+    - "`geom_phf`"
+    - "`geom_premier_league`"
+    - "`geom_wnba`"
+    - "`league_lookup`"
+    - "`quadratic_formula`"
+    - "`reflect`"
+    - "`rotate_coords`"
+    - "`sport_lookup`"
+    - "`translate`"
+
