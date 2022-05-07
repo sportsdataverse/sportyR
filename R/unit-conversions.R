@@ -60,7 +60,7 @@ convert_units = function(meas,
   }
 
   # This function should work over entire data frames as well as individual vectors
-  if (class(meas) == "data.frame") {
+  if (is.data.frame(meas)) {
 
     # If no columns are supplied, alert user of error
     if (is.null(conversion_columns)) {
