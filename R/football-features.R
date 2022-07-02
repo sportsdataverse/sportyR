@@ -10,7 +10,9 @@
 #' @return A data frame of the bounding box of half a football field
 #'
 #' @keywords internal
-half_field <- function(field_length = 0, field_width = 0, endzone_length = 0) {
+football_half_field <- function(field_length = 0,
+                                field_width = 0,
+                                endzone_length = 0) {
   half_field_df <- create_rectangle(
     # Using quarter-field lengths to account for feature positioning adjustment
     x_min = -((field_length / 4) + endzone_length),
@@ -34,7 +36,7 @@ half_field <- function(field_length = 0, field_width = 0, endzone_length = 0) {
 #' @return A data frame of the bounding box of the endzone
 #'
 #' @keywords internal
-endzone <- function(field_width = 0, endzone_length = 0) {
+football_endzone <- function(field_width = 0, endzone_length = 0) {
   endzone_df <- create_rectangle(
     x_min = -endzone_length / 2,
     x_max = endzone_length / 2,
@@ -60,7 +62,7 @@ endzone <- function(field_width = 0, endzone_length = 0) {
 #' @return A data frame of the bounding box of the end line
 #'
 #' @keywords internal
-end_line <- function(feature_thickness = 0, field_width = 0) {
+football_end_line <- function(feature_thickness = 0, field_width = 0) {
   end_line <- create_rectangle(
     x_min = 0,
     x_max = feature_thickness,
@@ -82,9 +84,9 @@ end_line <- function(feature_thickness = 0, field_width = 0) {
 #' @return A data frame of the bounding box of the sidelines
 #'
 #' @keywords internal
-sideline <- function(feature_thickness = 0,
-                     field_length = 0,
-                     endzone_length = 0) {
+football_sideline <- function(feature_thickness = 0,
+                              field_length = 0,
+                              endzone_length = 0) {
   sideline <- create_rectangle(
     x_min = -((field_length / 2) + endzone_length),
     x_max = (field_length / 2) + endzone_length,
@@ -123,21 +125,21 @@ sideline <- function(feature_thickness = 0,
 #' @return A data frame of the bounding box of the field border
 #'
 #' @keywords internal
-field_border <- function(field_length = 0,
-                         field_width = 0,
-                         feature_thickness = 0,
-                         endzone_length = 0,
-                         boundary_thickness = 0,
-                         restricted_area_length = 0,
-                         restricted_area_width = 0,
-                         coaching_box_length = 0,
-                         coaching_box_width = 0,
-                         team_bench_length_field_side = 0,
-                         team_bench_length_back_side = 0,
-                         team_bench_width = 0,
-                         team_bench_border_thickness = 0,
-                         surrounds_team_bench_area = FALSE,
-                         bench_shape = "") {
+football_field_border <- function(field_length = 0,
+                                  field_width = 0,
+                                  feature_thickness = 0,
+                                  endzone_length = 0,
+                                  boundary_thickness = 0,
+                                  restricted_area_length = 0,
+                                  restricted_area_width = 0,
+                                  coaching_box_length = 0,
+                                  coaching_box_width = 0,
+                                  team_bench_length_field_side = 0,
+                                  team_bench_length_back_side = 0,
+                                  team_bench_width = 0,
+                                  team_bench_border_thickness = 0,
+                                  surrounds_team_bench_area = FALSE,
+                                  bench_shape = "") {
   if (!surrounds_team_bench_area) {
     field_border_df <- data.frame(
       x = c(
@@ -350,22 +352,22 @@ field_border <- function(field_length = 0,
 #' @return A data frame of the bounding box of the field border
 #'
 #' @keywords internal
-field_border_outline <- function(field_length = 0,
-                                 field_width = 0,
-                                 feature_thickness = 0,
-                                 endzone_length = 0,
-                                 boundary_thickness = 0,
-                                 restricted_area_length = 0,
-                                 restricted_area_width = 0,
-                                 coaching_box_length = 0,
-                                 coaching_box_width = 0,
-                                 team_bench_length_field_side = 0,
-                                 team_bench_length_back_side = 0,
-                                 team_bench_width = 0,
-                                 team_bench_border_thickness = 0,
-                                 field_border_thickness = 0,
-                                 surrounds_team_bench_area = TRUE,
-                                 bench_shape = "") {
+football_field_border_outline <- function(field_length = 0,
+                                          field_width = 0,
+                                          feature_thickness = 0,
+                                          endzone_length = 0,
+                                          boundary_thickness = 0,
+                                          restricted_area_length = 0,
+                                          restricted_area_width = 0,
+                                          coaching_box_length = 0,
+                                          coaching_box_width = 0,
+                                          team_bench_length_field_side = 0,
+                                          team_bench_length_back_side = 0,
+                                          team_bench_width = 0,
+                                          team_bench_border_thickness = 0,
+                                          field_border_thickness = 0,
+                                          surrounds_team_bench_area = TRUE,
+                                          bench_shape = "") {
   if (!surrounds_team_bench_area) {
     field_border_outline_df <- data.frame(
       x = c(
@@ -792,7 +794,7 @@ field_border_outline <- function(field_length = 0,
 #' @return A data frame of the bounding box of the goal line
 #'
 #' @keywords internal
-goal_line <- function(field_width = 0, feature_thickness = 0) {
+football_goal_line <- function(field_width = 0, feature_thickness = 0) {
   goal_line_df <- create_rectangle(
     x_min = 0,
     x_max = feature_thickness,
@@ -818,11 +820,11 @@ goal_line <- function(field_width = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding box of the major yard lines
 #'
 #' @keywords internal
-major_yard_line <- function(field_width = 0,
-                            feature_thickness = 0,
-                            dist_to_sideline = 0,
-                            cross_hash_length = 0,
-                            cross_hash_separation = 0) {
+football_major_yard_line <- function(field_width = 0,
+                                     feature_thickness = 0,
+                                     dist_to_sideline = 0,
+                                     cross_hash_length = 0,
+                                     cross_hash_separation = 0) {
   major_yard_line_df <- data.frame(
     x = c(
       -feature_thickness / 2,
@@ -885,7 +887,8 @@ major_yard_line <- function(field_width = 0,
 #' @return A data frame of the bounding box of a minor yard line
 #'
 #' @keywords internal
-minor_yard_line <- function(yard_line_height = 0, feature_thickness = 0) {
+football_minor_yard_line <- function(yard_line_height = 0,
+                                     feature_thickness = 0) {
   minor_yard_line_df <- create_rectangle(
     x_min = -feature_thickness / 2,
     x_max = feature_thickness / 2,
@@ -906,7 +909,7 @@ minor_yard_line <- function(yard_line_height = 0, feature_thickness = 0) {
 #' @return A data frame of the bounding box of the try mark
 #'
 #' @keywords internal
-try_mark <- function(try_mark_width = 0, feature_thickness = 0) {
+football_try_mark <- function(try_mark_width = 0, feature_thickness = 0) {
   try_mark_df <- create_rectangle(
     x_min = -feature_thickness / 2,
     x_max = feature_thickness / 2,
@@ -928,8 +931,8 @@ try_mark <- function(try_mark_width = 0, feature_thickness = 0) {
 #' @return A data frame of the bounding box of the coaching box line
 #'
 #' @keywords internal
-coaching_box_line <- function(coaching_box_line_length = 0,
-                              feature_thickness = 0) {
+football_coaching_box_line <- function(coaching_box_line_length = 0,
+                                       feature_thickness = 0) {
   coaching_box_line_df <- create_rectangle(
     x_min = -coaching_box_line_length / 2,
     x_max = coaching_box_line_length / 2,
@@ -957,7 +960,7 @@ coaching_box_line <- function(coaching_box_line_length = 0,
 #' @return A data frame of the bounding coordinates of the directional arrow
 #'
 #' @keywords internal
-directional_arrow <- function(arrow_base = 0, arrow_length = 0) {
+football_directional_arrow <- function(arrow_base = 0, arrow_length = 0) {
   arrow_df <- data.frame(
     x = c(
       0,
@@ -987,7 +990,8 @@ directional_arrow <- function(arrow_base = 0, arrow_length = 0) {
 #' @return A data frame of the bounding coordinates of the restricted area
 #'
 #' @keywords internal
-restricted_area <- function(restricted_area_length = 0, feature_thickness = 0) {
+football_restricted_area <- function(restricted_area_length = 0,
+                                     feature_thickness = 0) {
   restricted_area_df <- create_rectangle(
     x_min = -restricted_area_length / 2,
     x_max = restricted_area_length / 2,
@@ -1000,8 +1004,9 @@ restricted_area <- function(restricted_area_length = 0, feature_thickness = 0) {
 
 #' The coaching box is the area between the restricted area and team bench area.
 #' It may or may not be distinct from either of these areas, but is typically
-#' separated by the coaching box line (see \code{\link{coaching_box_line}} for
-#' more information on the coaching box line)
+#' separated by the coaching box line (see
+#' \code{\link{football_coaching_box_line}} for more information on the coaching
+#' box line)
 #'
 #' @param coaching_box_length The length of the coaching box
 #' @param feature_thickness The depth beyond the exterior edge of the restricted
@@ -1010,7 +1015,8 @@ restricted_area <- function(restricted_area_length = 0, feature_thickness = 0) {
 #' @return A data frame of the bounding box of coaching box
 #'
 #' @keywords internal
-coaching_box <- function(coaching_box_length = 0, feature_thickness = 0) {
+football_coaching_box <- function(coaching_box_length = 0,
+                                  feature_thickness = 0) {
   coaching_box_df <- create_rectangle(
     x_min = -coaching_box_length / 2,
     x_max = coaching_box_length / 2,
@@ -1035,9 +1041,9 @@ coaching_box <- function(coaching_box_length = 0, feature_thickness = 0) {
 #' @return A data frame of the bounding coordinates of the team bench area
 #'
 #' @keywords internal
-team_bench_area <- function(team_bench_length_field_side = 0,
-                            team_bench_length_back_side = 0,
-                            team_bench_width = 0) {
+football_team_bench_area <- function(team_bench_length_field_side = 0,
+                                     team_bench_length_back_side = 0,
+                                     team_bench_width = 0) {
   team_bench_area_df <- data.frame(
     x = c(
       -team_bench_length_field_side / 2,
@@ -1059,8 +1065,8 @@ team_bench_area <- function(team_bench_length_field_side = 0,
 }
 
 #' The outline of the team bench area runs beyond the team bench, but is inside
-#' of any field border that may run behind the team bench area (see \code{\link{
-#' field_border}} for more information on this feature)
+#' of any field border that may run behind the team bench area (see
+#' \code{\link{football_ field_border}} for more information on this feature)
 #'
 #' @param restricted_area_length The length of the restricted area
 #' @param restricted_area_width The width of the restricted area
@@ -1077,14 +1083,14 @@ team_bench_area <- function(team_bench_length_field_side = 0,
 #'   area's outline
 #'
 #' @keywords internal
-team_bench_area_outline <- function(restricted_area_length = 0,
-                                    restricted_area_width = 0,
-                                    coaching_box_length = 0,
-                                    coaching_box_width = 0,
-                                    team_bench_length_field_side = 0,
-                                    team_bench_length_back_side = 0,
-                                    team_bench_width = 0,
-                                    feature_thickness = 0) {
+football_team_bench_area_outline <- function(restricted_area_length = 0,
+                                             restricted_area_width = 0,
+                                             coaching_box_length = 0,
+                                             coaching_box_width = 0,
+                                             team_bench_length_field_side = 0,
+                                             team_bench_length_back_side = 0,
+                                             team_bench_width = 0,
+                                             feature_thickness = 0) {
   team_bench_area_outline_df <- data.frame(
     x = c(
       -restricted_area_length / 2,
