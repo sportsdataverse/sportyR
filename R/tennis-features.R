@@ -1,9 +1,10 @@
 # Surface base features --------------------------------------------------------
 
-#' The front court is the area between the \code{\link{net}} and the
-#' \code{\link{serviceline}}. left-hand side of the court when facing the net
-#' from the nearest baseline is the ad court, and the right-hand side is the
-#' deuce court. This is constrained by the singles \code{\link{sideline}}.
+#' The front court is the area between the \code{\link{tennis_net}} and the
+#' \code{\link{tennis_serviceline}}. left-hand side of the court when facing the
+#' net from the nearest baseline is the ad court, and the right-hand side is the
+#' deuce court. This is constrained by the singles
+#' \code{\link{tennis_sideline}}.
 #'
 #' This is one half of the front court (either the ad or deuce court)
 #'
@@ -14,7 +15,8 @@
 #'   frontcourt
 #'
 #' @keywords internal
-frontcourt_half <- function(serviceline_distance = 0, singles_width = 0) {
+tennis_frontcourt_half <- function(serviceline_distance = 0,
+                                   singles_width = 0) {
   frontcourt_half_df <- create_rectangle(
     x_min = 0,
     x_max = serviceline_distance,
@@ -35,9 +37,9 @@ frontcourt_half <- function(serviceline_distance = 0, singles_width = 0) {
 #' @return A data frame containing the bounding coordinates of the backcourt
 #'
 #' @keywords internal
-backcourt <- function(court_length = 0,
-                      serviceline_distance = 0,
-                      singles_width = 0) {
+tennis_backcourt <- function(court_length = 0,
+                             serviceline_distance = 0,
+                             singles_width = 0) {
   backcourt_df <- create_rectangle(
     x_min = 0,
     x_max = (court_length / 2) - serviceline_distance,
@@ -58,7 +60,7 @@ backcourt <- function(court_length = 0,
 #' @return A data frame containing the bounding coordinates of the doubles alley
 #'
 #' @keywords internal
-doubles_alley <- function(court_length = 0, feature_thickness = 0) {
+tennis_doubles_alley <- function(court_length = 0, feature_thickness = 0) {
   doubles_alley_df <- create_rectangle(
     x_min = -court_length / 2,
     x_max = court_length / 2,
@@ -85,7 +87,7 @@ doubles_alley <- function(court_length = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the baseline
 #'
 #' @keywords internal
-baseline <- function(court_width = 0, feature_thickness = 0) {
+tennis_baseline <- function(court_width = 0, feature_thickness = 0) {
   baseline_df <- create_rectangle(
     x_min = -feature_thickness,
     x_max = 0,
@@ -107,7 +109,7 @@ baseline <- function(court_width = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the sideline
 #'
 #' @keywords internal
-sideline <- function(court_length = 0, feature_thickness = 0) {
+tennis_sideline <- function(court_length = 0, feature_thickness = 0) {
   sideline_df <- create_rectangle(
     x_min = -court_length / 2,
     x_max = court_length / 2,
@@ -126,17 +128,17 @@ sideline <- function(court_length = 0, feature_thickness = 0) {
 #' @param court_width The width of the court (usually the doubles width of the
 #'   court)
 #' @param backstop_distance The distance from the back edge of the
-#'   \code{\link{baseline}} to the back boundary
+#'   \code{\link{tennis_baseline}} to the back boundary
 #' @param sidestop_distance The distance from the outer edge of the
-#'   \code\link{sideline}} to the side boundary
+#'   \code\link{tennis_sideline}} to the side boundary
 #'
 #' @return A data frame containing the bounding coordinates of the court apron
 #'
 #' @keywords internal
-court_apron <- function(court_length = 0,
-                        court_width = 0,
-                        backstop_distance = 0,
-                        sidestop_distance = 0) {
+tennis_court_apron <- function(court_length = 0,
+                               court_width = 0,
+                               backstop_distance = 0,
+                               sidestop_distance = 0) {
   court_apron_df <- data.frame(
     x = c(
       0,
@@ -184,7 +186,7 @@ court_apron <- function(court_length = 0,
 #' @return A data frame containing the bounding coordinates of the serviceline
 #'
 #' @keywords internal
-serviceline <- function(singles_width = 0, feature_thickness = 0) {
+tennis_serviceline <- function(singles_width = 0, feature_thickness = 0) {
   serviceline_df <- create_rectangle(
     x_min = -feature_thickness,
     x_max = 0,
@@ -202,16 +204,16 @@ serviceline <- function(singles_width = 0, feature_thickness = 0) {
 #' centered on the line \code{x = 0}
 #'
 #' @param center_serviceline_length The length of the center serviceline from
-#'   the net to the back edge of the serviceline (see \code{\link{serviceline}}
-#'   for more information)
+#'   the net to the back edge of the serviceline (see
+#'   \code{\link{tennis_serviceline}} for more information)
 #' @param feature_thickness The thickness of the center serviceline
 #'
 #' @return A data frame containing the bounding coordinates of the center
 #'   serviceline
 #'
 #' @keywords internal
-center_serviceline <- function(center_serviceline_length = 0,
-                               feature_thickness = 0) {
+tennis_center_serviceline <- function(center_serviceline_length = 0,
+                                      feature_thickness = 0) {
   center_serviceline_df <- create_rectangle(
     x_min = 0,
     x_max = center_serviceline_length,
@@ -228,8 +230,8 @@ center_serviceline <- function(center_serviceline_length = 0,
 
 # Surface features -------------------------------------------------------------
 
-#' The center mark identifies the center point of the \code{\link{baseline}}.
-#' The line should extend towards the net
+#' The center mark identifies the center point of the
+#' \code{\link{tennis_baseline}}. The line should extend towards the net
 #'
 #' @param center_mark_length The length of the center mark as measured from the
 #'   back edge of the baseline
@@ -238,7 +240,7 @@ center_serviceline <- function(center_serviceline_length = 0,
 #' @return A data frame containing the bounding coordinates of the center mark
 #'
 #' @keywords internal
-center_mark <- function(center_mark_length = 0, feature_thickness = 0) {
+tennis_center_mark <- function(center_mark_length = 0, feature_thickness = 0) {
   center_mark_df <- create_rectangle(
     x_min = -center_mark_length,
     x_max = 0,
@@ -258,7 +260,7 @@ center_mark <- function(center_mark_length = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the net
 #'
 #' @keywords internal
-net <- function(feature_thickness = 0, net_length = 0) {
+tennis_net <- function(feature_thickness = 0, net_length = 0) {
   net_df <- create_rectangle(
     x_min = -feature_thickness / 2,
     x_max = feature_thickness / 2,

@@ -11,10 +11,10 @@
 #' @return A data frame of the bounding coordinates of the defensive zone
 #'
 #' @keywords internal
-defensive_zone <- function(rink_length = 0,
-                           rink_width = 0,
-                           feature_radius = 0,
-                           nzone_length = 0) {
+hockey_defensive_zone <- function(rink_length = 0,
+                                  rink_width = 0,
+                                  feature_radius = 0,
+                                  nzone_length = 0) {
   # Specify the dimensions of the rink
   half_length <- rink_length / 2
   half_width <- rink_width / 2
@@ -80,7 +80,7 @@ defensive_zone <- function(rink_length = 0,
 #' @return A data frame containing the bounding coordinates of the neutral zone
 #'
 #' @keywords internal
-neutral_zone <- function(rink_width = 0, feature_thickness = 0) {
+hockey_neutral_zone <- function(rink_width = 0, feature_thickness = 0) {
   # Generate the points of the neutral zone. This is a rectangular region with
   # known dimensions (from the passed parameters), so no reflection is required
   nzone_df <- create_rectangle(
@@ -105,10 +105,10 @@ neutral_zone <- function(rink_width = 0, feature_thickness = 0) {
 #' @return A data frame of the bounding coordinates of the offensive zone
 #'
 #' @keywords internal
-offensive_zone <- function(rink_length = 0,
-                           rink_width = 0,
-                           feature_radius = 0,
-                           nzone_length = 0) {
+hockey_offensive_zone <- function(rink_length = 0,
+                                  rink_width = 0,
+                                  feature_radius = 0,
+                                  nzone_length = 0) {
   # Specify the dimensions of the rink
   half_length <- rink_length / 2
   half_width <- rink_width / 2
@@ -181,10 +181,10 @@ offensive_zone <- function(rink_length = 0,
 #' @return A data frame of the bounding coordinates of the boards
 #'
 #' @keywords internal
-boards <- function(rink_length = 0,
-                   rink_width = 0,
-                   feature_radius = 0,
-                   feature_thickness = 0) {
+hockey_boards <- function(rink_length = 0,
+                          rink_width = 0,
+                          feature_radius = 0,
+                          feature_thickness = 0) {
   # Specify the half-dimensions of the rink
   half_length <- rink_length / 2
   half_width <- rink_width / 2
@@ -290,7 +290,7 @@ boards <- function(rink_length = 0,
 #' @return A data frame of the bounding coordinates of the center line
 #'
 #' @keywords internal
-center_line <- function(feature_thickness = 0, rink_width = 0) {
+hockey_center_line <- function(feature_thickness = 0, rink_width = 0) {
   center_line_df <- create_rectangle(
     x_min = -feature_thickness / 2,
     x_max = feature_thickness / 2,
@@ -311,7 +311,7 @@ center_line <- function(feature_thickness = 0, rink_width = 0) {
 #' @return A data frame of the bounding coordinates of the referee's crease
 #'
 #' @keywords internal
-referee_crease <- function(feature_radius = 0, feature_thickness = 0) {
+hockey_referee_crease <- function(feature_radius = 0, feature_thickness = 0) {
   referee_crease_df <- rbind(
     data.frame(
       x = c(feature_radius),
@@ -358,7 +358,7 @@ referee_crease <- function(feature_radius = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the zone line
 #'
 #' @keywords internal
-zone_line <- function(rink_width = 0, feature_thickness = 0) {
+hockey_zone_line <- function(rink_width = 0, feature_thickness = 0) {
   zone_line_df <- create_rectangle(
     x_min = 0,
     x_max = feature_thickness,
@@ -388,11 +388,11 @@ zone_line <- function(rink_width = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the goal line
 #'
 #' @keywords internal
-goal_line <- function(rink_length = 0,
-                      rink_width = 0,
-                      feature_radius = 0,
-                      feature_thickness = 0,
-                      x_anchor = 0) {
+hockey_goal_line <- function(rink_length = 0,
+                             rink_width = 0,
+                             feature_radius = 0,
+                             feature_thickness = 0,
+                             x_anchor = 0) {
   # Specify the half-dimension of the rink
   half_length <- rink_length / 2
   half_width <- rink_width / 2
@@ -485,11 +485,11 @@ goal_line <- function(rink_length = 0,
 #'   restricted area
 #'
 #' @keywords internal
-goaltenders_restricted_area <- function(rink_length = 0,
-                                        feature_thickness = 0,
-                                        short_base_width = 0,
-                                        long_base_width = 0,
-                                        x_anchor = 0) {
+hockey_goaltenders_restricted_area <- function(rink_length = 0,
+                                               feature_thickness = 0,
+                                               short_base_width = 0,
+                                               long_base_width = 0,
+                                               x_anchor = 0) {
   # Start by defining the half-widths of both the short and long bases of the
   # trapezoid
   half_short_base_width <- short_base_width / 2
@@ -552,11 +552,11 @@ goaltenders_restricted_area <- function(rink_length = 0,
 #'   offensive/defensive zone faceoff lines
 #'
 #' @keywords internal
-odzone_faceoff_lines <- function(feature_thickness = 0,
-                                 faceoff_line_dist_x = 0,
-                                 faceoff_line_dist_y = 0,
-                                 faceoff_line_length = 0,
-                                 faceoff_line_width = 0) {
+hockey_odzone_faceoff_lines <- function(feature_thickness = 0,
+                                        faceoff_line_dist_x = 0,
+                                        faceoff_line_dist_y = 0,
+                                        faceoff_line_length = 0,
+                                        faceoff_line_width = 0) {
   faceoff_line_df <- data.frame(
     x = c(
       faceoff_line_dist_x,
@@ -603,7 +603,7 @@ odzone_faceoff_lines <- function(feature_thickness = 0,
 #'   faceoff spot
 #'
 #' @keywords internal
-center_faceoff_spot <- function(feature_radius = 0) {
+hockey_center_faceoff_spot <- function(feature_radius = 0) {
   center_faceoff_spot_df <- create_circle(
     center = c(0, 0),
     start = 0,
@@ -616,8 +616,9 @@ center_faceoff_spot <- function(feature_radius = 0) {
 
 #' The goal crease is the area where a goaltender plays their position. It is
 #' comprised of two components: the outline of the crease, and the filling in
-#' its boundary (see documentation for \code{\link{goal_crease_fill}} function).
-#' The goal crease may have two notches (one on each side of the line y = 0)
+#' its boundary (see documentation for \code{\link{hockey_goal_crease_fill}}
+#' function). The goal crease may have two notches (one on each side of the line
+#' y = 0)
 #'
 #' The outline of the goal crease should have thickness given by
 #' 'minor_line_thickness', as this is a minor line on the ice surface, and the
@@ -637,13 +638,13 @@ center_faceoff_spot <- function(feature_radius = 0) {
 #'   outline
 #'
 #' @keywords internal
-goal_crease_outline <- function(feature_radius = 0,
-                                feature_thickness = 0,
-                                crease_style = "",
-                                crease_length = 0,
-                                crease_width = 0,
-                                notch_dist_x = 0,
-                                notch_width = 0) {
+hockey_goal_crease_outline <- function(feature_radius = 0,
+                                       feature_thickness = 0,
+                                       crease_style = "",
+                                       crease_length = 0,
+                                       crease_width = 0,
+                                       notch_dist_x = 0,
+                                       notch_width = 0) {
   # Convert the crease style to be lower case
   crease_style <- tolower(crease_style)
 
@@ -932,8 +933,9 @@ goal_crease_outline <- function(feature_radius = 0,
 
 #' The goal crease is the area where a goaltender plays their position. It is
 #' comprised of two components: the outline of the crease (see documentation for
-#' \code{\link{goal_crease_outline}} function), and the filling in its boundary.
-#' The goal crease may have two notches (one on each side of the line y = 0)
+#' \code{\link{hockey_goal_crease_outline}} function), and the filling in its
+#' boundary. The goal crease may have two notches (one on each side of the line
+#' y = 0)
 #'
 #' The filling of the goal crease should have thickness given by
 #' 'minor_line_thickness', as this refers to the crease's outline, which is a
@@ -954,13 +956,13 @@ goal_crease_outline <- function(feature_radius = 0,
 #'   inner filling
 #'
 #' @keywords internal
-goal_crease_fill <- function(feature_radius = 0,
-                             feature_thickness = 0,
-                             crease_style = "",
-                             crease_length = 0,
-                             crease_width = 0,
-                             notch_dist_x = 0,
-                             notch_width = 0) {
+hockey_goal_crease_fill <- function(feature_radius = 0,
+                                    feature_thickness = 0,
+                                    crease_style = "",
+                                    crease_length = 0,
+                                    crease_width = 0,
+                                    notch_dist_x = 0,
+                                    notch_width = 0) {
   # Convert the crease style to be lower case
   crease_style <- tolower(crease_style)
 
@@ -1043,7 +1045,8 @@ goal_crease_fill <- function(feature_radius = 0,
 #'   faceoff circle
 #'
 #' @keywords internal
-center_faceoff_circle <- function(feature_radius = 0, feature_thickness = 0) {
+hockey_center_faceoff_circle <- function(feature_radius = 0,
+                                         feature_thickness = 0) {
   center_faceoff_circle_df <- rbind(
     create_circle(
       center = c(0, 0),
@@ -1090,10 +1093,10 @@ center_faceoff_circle <- function(feature_radius = 0, feature_thickness = 0) {
 #'   faceoff circle
 #'
 #' @keywords internal
-odzone_faceoff_circle <- function(feature_radius = 0,
-                                  feature_thickness = 0,
-                                  hashmark_width = 0,
-                                  hashmark_ext_spacing = 0) {
+hockey_odzone_faceoff_circle <- function(feature_radius = 0,
+                                         feature_thickness = 0,
+                                         hashmark_width = 0,
+                                         hashmark_ext_spacing = 0) {
   # To create a faceoff circle, start by finding the angle needed to draw the
   # outer ring of the faceoff circle. This can be computed using some simple
   # trigonometry. The NHL is used to illustrate the trigonometry, however the
@@ -1179,7 +1182,8 @@ odzone_faceoff_circle <- function(feature_radius = 0,
 #'
 #' This function is responsible for creating the outer ring, not the colored
 #' stripe running through it. Please see the documentation for the
-#' \code{\link{nodzone_faceoff_spot_stripe}} function for more information on it
+#' \code{\link{hockey_nodzone_faceoff_spot_stripe}} function for more
+#' information on it
 #'
 #' The non-centered faceoff spots are where faceoffs are taken after an icing
 #' call or to start a powerplay. They differ from the center ice faceoff spot in
@@ -1193,8 +1197,8 @@ odzone_faceoff_circle <- function(feature_radius = 0,
 #'   faceoff spot ring
 #'
 #' @keywords internal
-nodzone_faceoff_spot_ring <- function(feature_radius = 0,
-                                      feature_thickness = 0) {
+hockey_nodzone_faceoff_spot_ring <- function(feature_radius = 0,
+                                             feature_thickness = 0) {
   # The non-centered faceoff spots are comprised of an outer and inner ring
   nodzone_faceoff_spot_ring_df <- rbind(
     create_circle(
@@ -1235,7 +1239,8 @@ nodzone_faceoff_spot_ring <- function(feature_radius = 0,
 #'
 #' This function is responsible for creating the inner stripe, not the colored
 #' outer ring around it. Please see the documentation for the
-#' \code{\link{nodzone_faceoff_spot_ring}} function for more information on it
+#' \code{\link{hockey_nodzone_faceoff_spot_ring}} function for more information
+#' on it
 #'
 #' The non-centered faceoff spots are where faceoffs are taken after an icing
 #' call or to start a powerplay. They differ from the center ice faceoff spot in
@@ -1252,13 +1257,13 @@ nodzone_faceoff_spot_ring <- function(feature_radius = 0,
 #'   faceoff spot's stripe
 #'
 #' @keywords internal
-nodzone_faceoff_spot_stripe <- function(feature_radius = 0,
-                                        feature_thickness = 0,
-                                        gap_width = 0) {
+hockey_nodzone_faceoff_spot_stripe <- function(feature_radius = 0,
+                                               feature_thickness = 0,
+                                               gap_width = 0) {
   # The non-center face-off spots are wider in diameter, with a gap between the
   # top and bottom of the spot and the strip in the center. First, find the
   # angle at which to start the trace for the interior of the spot. The
-  # following walkthrough uses NHL dimensions for the explanation, but the
+  # following walk-through uses NHL dimensions for the explanation, but the
   # process is equally applied through all leagues
 
   # The spot has a radius of 1', and a thickness of 2", so the inner radius is
@@ -1301,7 +1306,7 @@ nodzone_faceoff_spot_stripe <- function(feature_radius = 0,
 #' a legal goal. The front face of the goal is flush with the goal line, while
 #' the back edge features rounded corners and expands outside of the front
 #' posts. The goal frame is composed of two pieces: the frame (this method) and
-#' the fill (see \code{\link{goal_frame_fill}} documentation)
+#' the fill (see \code{\link{hockey_goal_frame_fill}} documentation)
 #'
 #' The goal frame has two thicknesses to be careful of: the outer diameter of
 #' the posts, and the outer diameter of the pipe in the back of the goal. The
@@ -1318,11 +1323,11 @@ nodzone_faceoff_spot_stripe <- function(feature_radius = 0,
 #'   goal
 #'
 #' @keywords internal
-goal_frame <- function(feature_radius = 0,
-                       goal_mouth_width = 0,
-                       goal_back_width = 0,
-                       goal_depth = 0,
-                       goal_post_diameter = 0) {
+hockey_goal_frame <- function(feature_radius = 0,
+                              goal_mouth_width = 0,
+                              goal_back_width = 0,
+                              goal_depth = 0,
+                              goal_post_diameter = 0) {
   # Start by getting the half-width of the goal mouth
   half_goal_mouth <- goal_mouth_width / 2
 
@@ -1378,7 +1383,7 @@ goal_frame <- function(feature_radius = 0,
 #' a legal goal. The front face of the goal is flush with the goal line, while
 #' the back edge features rounded corners and expands outside of the front
 #' posts. The goal frame is composed of two pieces: the frame (see
-#' \code{\link{goal_frame}} documentation) and the fill (this function)
+#' \code{\link{hockey_goal_frame}} documentation) and the fill (this function)
 #'
 #' The goal frame has two thicknesses to be careful of: the outer diameter of
 #' the posts, and the outer diameter of the pipe in the back of the goal. The
@@ -1393,11 +1398,11 @@ goal_frame <- function(feature_radius = 0,
 #'
 #' @return A data frame containing the bounding coordinates of the frame of the
 #'   goal
-goal_frame_fill <- function(feature_radius = 0,
-                            goal_mouth_width = 0,
-                            goal_back_width = 0,
-                            goal_depth = 0,
-                            goal_post_diameter = 0) {
+hockey_goal_frame_fill <- function(feature_radius = 0,
+                                   goal_mouth_width = 0,
+                                   goal_back_width = 0,
+                                   goal_depth = 0,
+                                   goal_post_diameter = 0) {
   # Start by getting the half-width of the goal mouth
   half_goal_mouth <- goal_mouth_width / 2
 
@@ -1449,9 +1454,9 @@ goal_frame_fill <- function(feature_radius = 0,
 #'   area
 #'
 #' @keywords internal
-player_bench_outline <- function(feature_thickness = 0,
-                                 bench_length = 0,
-                                 bench_depth = 0) {
+hockey_player_bench_outline <- function(feature_thickness = 0,
+                                        bench_length = 0,
+                                        bench_depth = 0) {
   bench_outline_df <- data.frame(
     x = c(
       -feature_thickness,
@@ -1496,9 +1501,9 @@ player_bench_outline <- function(feature_thickness = 0,
 #'   area's inner filling
 #'
 #' @keywords internal
-player_bench_area_fill <- function(feature_thickness = 0,
-                                   bench_length = 0,
-                                   bench_depth = 0) {
+hockey_player_bench_area_fill <- function(feature_thickness = 0,
+                                          bench_length = 0,
+                                          bench_depth = 0) {
   bench_fill_df <- create_rectangle(
     x_min = -bench_length / 2,
     x_max = bench_length / 2,
@@ -1527,11 +1532,11 @@ player_bench_area_fill <- function(feature_thickness = 0,
 #' @return A data frame containing the bounding coordinates of the penalty box
 #'
 #' @keywords internal
-penalty_box_outline <- function(feature_thickness = 0,
-                                penalty_box_length = 0,
-                                penalty_box_width = 0,
-                                penalty_box_separation = 0,
-                                penalty_box_depth = 0) {
+hockey_penalty_box_outline <- function(feature_thickness = 0,
+                                       penalty_box_length = 0,
+                                       penalty_box_width = 0,
+                                       penalty_box_separation = 0,
+                                       penalty_box_depth = 0) {
   penalty_box_outline_df <- data.frame(
     x = c(
       0,
@@ -1568,7 +1573,8 @@ penalty_box_outline <- function(feature_thickness = 0,
 #' players serve time for a penalty incurred. They are to be on the same side of
 #' the ice surface and separate, as close to center ice as possible, for each
 #' team. This will not include the off-ice officials' box; see the documentation
-#' for the \code{\link{off_ice_officials_box}} method for more information
+#' for the \code{\link{hockey_off_ice_officials_box}} method for more
+#' information
 #'
 #' This will have the same thickness as the boards, but will be located outside
 #' the ice surface
@@ -1582,9 +1588,9 @@ penalty_box_outline <- function(feature_thickness = 0,
 #'   inner filling
 #'
 #' @keywords internal
-penalty_box_fill <- function(feature_thickness = 0,
-                             penalty_box_length = 0,
-                             penalty_box_depth = 0) {
+hockey_penalty_box_fill <- function(feature_thickness = 0,
+                                    penalty_box_length = 0,
+                                    penalty_box_depth = 0) {
   penalty_box_fill_df <- create_rectangle(
     x_min = -penalty_box_length / 2,
     x_max = penalty_box_length / 2,
@@ -1611,9 +1617,9 @@ penalty_box_fill <- function(feature_thickness = 0,
 #'   officials' box's outline
 #'
 #' @keywords internal
-off_ice_officials_box <- function(feature_thickness = 0,
-                                  officials_box_length = 0,
-                                  officials_box_depth = 0) {
+hockey_off_ice_officials_box <- function(feature_thickness = 0,
+                                         officials_box_length = 0,
+                                         officials_box_depth = 0) {
   off_ice_officials_box_df <- create_rectangle(
     x_min = -officials_box_length / 2,
     x_max = officials_box_length / 2,

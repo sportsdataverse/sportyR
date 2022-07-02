@@ -9,7 +9,7 @@
 #' @return A data frame of the bounding box of half a basketball court
 #'
 #' @keywords internal
-half_court <- function(court_length = 0, court_width = 0) {
+basketball_half_court <- function(court_length = 0, court_width = 0) {
   half_court_df <- create_rectangle(
     # Using quarter-court lengths to account for feature positioning adjustment
     x_min = -court_length / 4,
@@ -24,11 +24,12 @@ half_court <- function(court_length = 0, court_width = 0) {
   return(half_court_df)
 }
 
-#' If a court has a three-point line (see \code{\link{three_point_line}}), then
-#' any made basket (not including free throws) made from inside of the arc are
-#' worth two points. The area inside of this arc is therefore referred to as two
-#' point range, which this feature draws. This feature is enclosed by the
-#' three-point line's outer edge and the baseline's inner edge
+#' If a court has a three-point line (see
+#' \code{\link{basketball_three_point_line}}), then any made basket (not
+#' including free throws) made from inside of the arc are worth two points. The
+#' area inside of this arc is therefore referred to as two point range, which
+#' this feature draws. This feature is enclosed by the three-point line's outer
+#' edge and the baseline's inner edge
 #'
 #' It should also be noted that as this corresponds strictly to the area
 #' contained by the three-point line, the interior angle is what's needed. While
@@ -65,10 +66,10 @@ half_court <- function(court_length = 0, court_width = 0) {
 #' @return A data frame of the bounding coordinates of two-point range
 #'
 #' @keywords internal
-two_point_range <- function(basket_center_to_baseline = 0,
-                            basket_center_to_corner_three = 0,
-                            line_thickness = 0,
-                            two_point_range_radius = 0) {
+basketball_two_point_range <- function(basket_center_to_baseline = 0,
+                                       basket_center_to_corner_three = 0,
+                                       line_thickness = 0,
+                                       two_point_range_radius = 0) {
   # Find start_y
   start_y <- basket_center_to_corner_three - line_thickness
 
@@ -103,8 +104,8 @@ two_point_range <- function(basket_center_to_baseline = 0,
 }
 
 #' The center circle is broken into two parts: the
-#' \code{\link{center_circle_outline}}, and the fill (this feature), which is
-#' the court coloring inside of the inner edge of this circle
+#' \code{\link{basketball_center_circle_outline}}, and the fill (this feature),
+#' which is the court coloring inside of the inner edge of this circle
 #'
 #' @param center_circle_radius The outer radius of the center circle
 #' @param linethickness The thickness of the line that comprises the center
@@ -114,8 +115,8 @@ two_point_range <- function(basket_center_to_baseline = 0,
 #'   these coordinates correspond to the filled section
 #'
 #' @keywords internal
-center_circle_fill <- function(center_circle_radius = 0,
-                               line_thickness = 0) {
+basketball_center_circle_fill <- function(center_circle_radius = 0,
+                                          line_thickness = 0) {
   center_circle_fill_df <- create_circle(
     center = c(0, 0),
     start = 0,
@@ -127,12 +128,12 @@ center_circle_fill <- function(center_circle_radius = 0,
 }
 
 #' The painted area is the area contained by the free throw lane (see the
-#' \code{\link{free_throw_lane_boundary}} documentation for more information on
-#' the free throw lane)
+#' \code{\link{basketball_free_throw_lane_boundary}} documentation for more
+#' information on the free throw lane)
 #'
 #' The painted area may be a different color than the rest of the two point
-#' range area (see the \code{\link{two_point_range}} documentation for more
-#' information on two-point range), but may also be the same color
+#' range area (see the \code{\link{basketball_two_point_range}} documentation
+#' for more information on two-point range), but may also be the same color
 #'
 #' @param lane_length The length of the free throw lane
 #' @param lane_width The width of the free throw
@@ -145,10 +146,10 @@ center_circle_fill <- function(center_circle_radius = 0,
 #'   painted area
 #'
 #' @keywords internal
-painted_area <- function(lane_length = 0,
-                         lane_width = 0,
-                         paint_margin = 0,
-                         line_thickness = 0) {
+basketball_painted_area <- function(lane_length = 0,
+                                    lane_width = 0,
+                                    paint_margin = 0,
+                                    line_thickness = 0) {
   painted_area_df <- create_rectangle(
     x_min = paint_margin,
     x_max = lane_length - line_thickness - paint_margin,
@@ -162,19 +163,19 @@ painted_area <- function(lane_length = 0,
 #' The filled-in section of the free throw circle. The circle is the area where
 #' a free throw shooter stands when attempting the free throw. The outline of
 #' this area will be created separately via the
-#' \code{\link{free_throw_circle_outline}} function; see its documentation for
-#' more information
+#' \code{\link{basketball_free_throw_circle_outline}} function; see its
+#' documentation for more information
 #'
 #' @param free_throw_circle_radius The outer radius of the free throw circle,
 #'   measured from the center of the free throw line
 #' @param line_thickness The thickness of the outline of the free throw circle
 #'
-#' @return A data frame containing the bounding corodinates of the free throw
+#' @return A data frame containing the bounding coordinates of the free throw
 #'   circle's semi-circular filling
 #'
 #' @keywords internal
-free_throw_circle_fill <- function(free_throw_circle_radius = 0,
-                                   line_thickness = 0) {
+basketball_free_throw_circle_fill <- function(free_throw_circle_radius = 0,
+                                              line_thickness = 0) {
   free_throw_circle_fill_df <- create_circle(
     center = c(0, 0),
     start = 0.5,
@@ -209,12 +210,12 @@ free_throw_circle_fill <- function(free_throw_circle_radius = 0,
 #' @return A data frame of the bounding coordinates of the court apron
 #'
 #' @keywords internal
-court_apron <- function(court_length = 0,
-                        court_width = 0,
-                        court_apron_endline = 0,
-                        court_apron_sideline = 0,
-                        court_apron_to_boundary = 0,
-                        line_thickness = 0) {
+basketball_court_apron <- function(court_length = 0,
+                                   court_width = 0,
+                                   court_apron_endline = 0,
+                                   court_apron_sideline = 0,
+                                   court_apron_to_boundary = 0,
+                                   line_thickness = 0) {
   court_apron_df <- data.frame(
     x = c(
       0,
@@ -246,8 +247,8 @@ court_apron <- function(court_length = 0,
 #' The endline on a basketball court, also called the baseline, is located
 #' beyond each basket. In cases where the endline is the court apron, the
 #' endline should still be generated and its color should be set equal to the
-#' court apron's color (see \code{\link{court_apron}} for more information on
-#' the court apron)
+#' court apron's color (see \code{\link{basketball_court_apron}} for more
+#' information on the court apron)
 #'
 #' @param court_width The width of the court
 #' @param line_thickness The thickness of the endline and sideline
@@ -255,7 +256,7 @@ court_apron <- function(court_length = 0,
 #' @return A data frame of the bounding coordinates of the endline
 #'
 #' @keywords internal
-endline <- function(court_width = 0, line_thickness = 0) {
+basketball_endline <- function(court_width = 0, line_thickness = 0) {
   endline_df <- create_rectangle(
     x_min = 0,
     x_max = line_thickness,
@@ -270,13 +271,13 @@ endline <- function(court_width = 0, line_thickness = 0) {
 #' typically with the team bench areas and substitution areas on their exterior.
 #' In cases where the sideline is the court apron, the sideline should still be
 #' generated and its color should be set equal to the court apron's color (see
-#' \code{\link{court_apron}} for more information on the court apron)
+#' \code{\link{basketball_court_apron}} for more information on the court apron)
 #'
 #' @param court_length The length of the court
 #' @param line_thickness The thickness of the endline and sideline
 #'
 #' @return A data frame of the bounding coordinates of the sideline
-sideline <- function(court_length = 0, line_thickness = 0) {
+basketball_sideline <- function(court_length = 0, line_thickness = 0) {
   sideline_df <- create_rectangle(
     x_min = (-court_length / 2) - line_thickness,
     x_max = (court_length / 2) + line_thickness,
@@ -297,14 +298,14 @@ sideline <- function(court_length = 0, line_thickness = 0) {
 #' the fill, which is the court coloring inside of the inner edge of this circle
 #'
 #' @param center_circle_radius The outer radius of the center circle
-#' @param linethickness The thickness of the line that comprises the center
+#' @param line_thickness The thickness of the line that comprises the center
 #'   circle
 #'
 #' @return A data frame of the boundary of the center circle
 #'
 #' @keywords internal
-center_circle_outline <- function(center_circle_radius = 0,
-                                  linethickness = 0) {
+basketball_center_circle_outline <- function(center_circle_radius = 0,
+                                             line_thickness = 0) {
   center_circle_outline_df <- rbind(
     # Outer edge of circle
     create_circle(
@@ -319,7 +320,7 @@ center_circle_outline <- function(center_circle_radius = 0,
       center = c(0, 0),
       start = 1.5,
       end = 0.5,
-      r = center_circle_radius - linethickness
+      r = center_circle_radius - line_thickness
     )
   )
 
@@ -339,10 +340,9 @@ center_circle_outline <- function(center_circle_radius = 0,
 #' @return A data frame of the bounding box for the division line of the court
 #'
 #' @keywords internal
-division_line <- function(court_width = 0,
-                          line_thickness = 0,
-                          division_line_extension = 0) {
-
+basketball_division_line <- function(court_width = 0,
+                                     line_thickness = 0,
+                                     division_line_extension = 0) {
   if (division_line_extension > 0) {
     division_line_df <- create_rectangle(
       x_min = -line_thickness / 2,
@@ -364,7 +364,7 @@ division_line <- function(court_width = 0,
 
 #' An arc on the court, behind which any made basket counts as three points and
 #' in front of which, any made basket will count as two points (see
-#' \code{\link{two_point_range}} for more information).
+#' \code{\link{basketball_two_point_range}} for more information).
 #'
 #' Start by getting the distance from the center of the basket to a corner
 #' three-point shot. This is referred to as \code{start_y}
@@ -393,10 +393,10 @@ division_line <- function(court_width = 0,
 #' @return A data frame of the bounding coordinates of the three-point line
 #'
 #' @keywords internal
-three_point_line <- function(basket_center_to_baseline = 0,
-                             basket_center_to_corner_three = 0,
-                             line_thickness = 0,
-                             three_point_line_radius = 0) {
+basketball_three_point_line <- function(basket_center_to_baseline = 0,
+                                        basket_center_to_corner_three = 0,
+                                        line_thickness = 0,
+                                        three_point_line_radius = 0) {
   # Get the y coordinate of the corner three-point line. These are where both
   # the inner and outer portions of the line start
   start_y_outer <- basket_center_to_corner_three
@@ -407,7 +407,7 @@ three_point_line <- function(basket_center_to_baseline = 0,
   radius_inner <- radius_outer - line_thickness
 
   # Compute the angles for the inner and outer curves of the three-point arc
-  if(is.na(asin(start_y_outer / radius_outer))) {
+  if (is.na(asin(start_y_outer / radius_outer))) {
     angle_outer <- 0
   } else {
     angle_outer <- asin(start_y_outer / radius_outer)
@@ -432,26 +432,22 @@ three_point_line <- function(basket_center_to_baseline = 0,
       x = basket_center_to_baseline,
       y = start_y_outer
     ),
-
     create_circle(
       center = c(0, 0),
       start = start_angle_outer,
       end = end_angle_outer,
       r = radius_outer
     ),
-
     data.frame(
       x = c(basket_center_to_baseline, basket_center_to_baseline),
       y = c(-start_y_outer, -start_y_inner)
     ),
-
     create_circle(
       center = c(0, 0),
       start = start_angle_inner,
       end = end_angle_inner,
       r = radius_inner
     ),
-
     data.frame(
       x = c(basket_center_to_baseline, basket_center_to_baseline),
       y = c(start_y_inner, start_y_outer)
@@ -466,7 +462,7 @@ three_point_line <- function(basket_center_to_baseline = 0,
 #' boundary
 #'
 #' NOTE: This does not include lane space markings (blocks), which will be
-#' created via the \code{\link{lane_space_mark}} function. Check the
+#' created via the \code{\link{basketball_lane_space_mark}} function. Check the
 #' documentaiton there for more information on lane space marks
 #'
 #' @param lane_length The length of the free throw lane
@@ -477,9 +473,9 @@ three_point_line <- function(basket_center_to_baseline = 0,
 #'   boundary
 #'
 #' @keywords internal
-free_throw_lane_boundary <- function(lane_length = 0,
-                                     lane_width = 0,
-                                     line_thickness = 0) {
+basketball_free_throw_lane_boundary <- function(lane_length = 0,
+                                                lane_width = 0,
+                                                line_thickness = 0) {
   free_throw_lane_boundary_df <- data.frame(
     x = c(
       0,
@@ -492,7 +488,6 @@ free_throw_lane_boundary <- function(lane_length = 0,
       0,
       0
     ),
-
     y = c(
       lane_width / 2,
       lane_width / 2,
@@ -506,23 +501,24 @@ free_throw_lane_boundary <- function(lane_length = 0,
     )
   )
 
-  return(free_throw_lane_boundary)
+  return(free_throw_lane_boundary_df)
 }
 
 #' The outline of the free throw circle. The interior filling area is created
-#' via \code{\link{free_throw_circle_fill}}; see its documentation for more
-#' information
+#' via \code{\link{basketball_free_throw_circle_fill}}; see its documentation
+#' for more information
 #'
-#' @param overhang The arc length of the free throw circle that hangs past the free throw line
+#' @param overhang The arc length of the free throw circle that hangs past the
+#'   free throw line
 #' @param free_throw_circle_radius The radius of the free throw circle
 #' @param line_thickness The thickness of the free throw line
 #'
 #' @return A data frame of the bounding coordinates of the free throw circle
 #'
 #' @keywords internal
-free_throw_circle <- function(overhang = 0,
-                              free_throw_circle_radius = 0,
-                              line_thickness = 0) {
+basketball_free_throw_circle <- function(overhang = 0,
+                                         free_throw_circle_radius = 0,
+                                         line_thickness = 0) {
   if (!is.na((overhang / free_throw_circle_radius) / pi)) {
     theta <- (overhang / free_throw_circle_radius) / pi
   } else {
@@ -539,7 +535,6 @@ free_throw_circle <- function(overhang = 0,
       end = end_angle,
       r = free_throw_circle_radius
     ),
-
     create_circle(
       center = c(0, 0),
       start = end_angle,
@@ -580,10 +575,10 @@ free_throw_circle <- function(overhang = 0,
 #' @return A data frame of the bounding box of a lower defensive box marking
 #'
 #' @keywords internal
-lower_defensive_box_mark <- function(drawn_direction = '',
-                                     extension = 0,
-                                     line_thickness = 0) {
-  if (tolower(drawn_direction) == 'left_to_right') {
+basketball_lower_defensive_boxmark <- function(drawn_direction = "",
+                                               extension = 0,
+                                               line_thickness = 0) {
+  if (tolower(drawn_direction) == "left_to_right") {
     lower_defensive_box_mark_df <- create_rectangle(
       x_min = -extension,
       x_max = 0,
@@ -592,7 +587,7 @@ lower_defensive_box_mark <- function(drawn_direction = '',
     )
   }
 
-  if (tolower(drawn_direction) == 'top_down') {
+  if (tolower(drawn_direction) == "top_down") {
     lower_defensive_box_mark_df <- create_rectangle(
       x_min = -line_thickness,
       x_max = 0,
@@ -605,8 +600,8 @@ lower_defensive_box_mark <- function(drawn_direction = '',
 }
 
 #' The backboard is the backing onto which the basket ring (created by
-#' \code{\link{basket_ring}}) is affixed. This will be drawn as a rectangle on
-#' the court as the court is drawn from an arial view
+#' \code{\link{basketball_basket_ring}}) is affixed. This will be drawn as a
+#' rectangle on the court as the court is drawn from an aerial view
 #'
 #' @param backboard_width The width of the backboard when viewed from above.
 #'   This is the x-direction dimension of the backboard when taking the point of
@@ -617,7 +612,7 @@ lower_defensive_box_mark <- function(drawn_direction = '',
 #' @return A data frame of the bounding box of the backboard
 #'
 #' @keywords internal
-backboard <- function(backboard_width = 0, backboard_thickness = 0) {
+basketball_backboard <- function(backboard_width = 0, backboard_thickness = 0) {
   backboard_df <- create_rectangle(
     x_min = 0,
     x_max = backboard_thickness,
@@ -639,10 +634,8 @@ backboard <- function(backboard_width = 0, backboard_thickness = 0) {
 #' ring has a radius of 9", so the arcsine of these measurements should give the
 #' angle at which point the ring and connector connect
 #'
-#' @param basket_ring_connector_extension The amount the basket ring extends
-#'   from the backboard towards center court
 #' @param basket_ring_connector_width The width of the basket ring connector
-#' @param backboard_face_to_basket_center How far off the face of the backboard
+#' @param backboard_face_to_ring_cent How far off the face of the backboard
 #'   the center of the basket ring's circle is located
 #' @param basket_ring_inner_radius The inner radius of the circular part of the
 #'   basket ring
@@ -651,50 +644,47 @@ backboard <- function(backboard_width = 0, backboard_thickness = 0) {
 #' @return A data frame of the boundary of the basket ring and connector
 #'
 #' @keywords internal
-basket_ring <- function(basket_ring_connector_extension = 0,
-                        basket_ring_connector_width = 0,
-                        backboard_face_to_basket_center = 0,
-                        basket_ring_inner_radius = 0,
-                        basket_ring_thickness = 0) {
+basketball_basket_ring <- function(basket_ring_connector_width = 0,
+                                   backboard_face_to_ring_cent = 0,
+                                   basket_ring_inner_radius = 0,
+                                   basket_ring_thickness = 0) {
   basket_ring_outer_radius <- basket_ring_inner_radius + basket_ring_thickness
-  if (is.na(asin((basket_ring_connector_width / 2) / basket_ring_outer_radius))) {
-    start_angle = 0
+  if (
+    is.na(asin((basket_ring_connector_width / 2) / basket_ring_outer_radius))
+  ) {
+    start_angle <- 0
   } else {
-    start_angle = asin(
+    start_angle <- asin(
       (basket_ring_connector_width / 2) / basket_ring_outer_radius
     ) / pi
   }
 
-  end_angle = 2 - start_angle
+  end_angle <- 2 - start_angle
 
   basket_ring_df <- rbind(
     data.frame(
       x = c(
         0,
-        -backboard_face_to_basket_center +
+        -backboard_face_to_ring_cent +
           (basket_ring_outer_radius * cos(start_angle * pi))
       ),
-
       y = c(
         basket_ring_connector_width / 2,
         basket_ring_connector_width / 2
       ),
-
       create_circle(
-        center = c(-backboard_face_to_basket_center, 0),
+        center = c(-backboard_face_to_ring_cent, 0),
         start = start_angle,
         end = end_angle,
         r = basket_ring_outer_radius
       ),
-
       data.frame(
         x = c(
-          -backboard_face_to_basket_center +
+          -backboard_face_to_ring_cent +
             (basket_ring_outer_radius * cos(start_angle * pi)),
           0,
           0
         ),
-
         y = c(
           -basket_ring_connector_width / 2,
           -basket_ring_connector_width / 2,
@@ -715,7 +705,7 @@ basket_ring <- function(basket_ring_connector_extension = 0,
 #' @return A data frame of the net's circular outline
 #'
 #' @keywords internal
-net <- function(basket_ring_inner_radius = 0) {
+basketball_net <- function(basket_ring_inner_radius = 0) {
   net_df <- create_circle(
     center = c(0, 0),
     start = 0,

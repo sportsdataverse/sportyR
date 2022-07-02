@@ -19,10 +19,10 @@
 #'   circles around home plate
 #'
 #' @keywords internal
-infield_dirt <- function(home_plate_circle_radius = 0,
-                         foul_line_to_foul_grass = 0,
-                         pitchers_plate_distance = 0,
-                         infield_arc_radius = 0) {
+baseball_infield_dirt <- function(home_plate_circle_radius = 0,
+                                  foul_line_to_foul_grass = 0,
+                                  pitchers_plate_distance = 0,
+                                  infield_arc_radius = 0) {
   # Start by finding the point where the home plate circle intersects the grass
   # on the third base side
   home_plate_x2 <- 2
@@ -114,14 +114,14 @@ infield_dirt <- function(home_plate_circle_radius = 0,
 #' @return A data frame that comprises the entirety of the infield grass
 #'
 #' @keywords internal
-infield_grass <- function(home_plate_circle_radius = 0,
-                          foul_line_to_infield_grass = 0,
-                          baseline_distance = 0,
-                          base_anchor_to_infield_grass = 0) {
+baseball_infield_grass <- function(home_plate_circle_radius = 0,
+                                   foul_line_to_infield_grass = 0,
+                                   baseline_distance = 0,
+                                   base_anchor_to_infield_grass = 0) {
   # Find the intersection point on the first base line of where the home plate
   # circle will intersect the infield grass
   home_plate_1b_x2 <- 2
-  home_plate_1b_x1 <- 2 * foul_line_to_foul_grass
+  home_plate_1b_x1 <- 2 * foul_line_to_infield_grass
   home_plate_1b_x0 <- (foul_line_to_infield_grass^2) -
     (home_plate_circle_radius^2)
 
@@ -129,7 +129,7 @@ infield_grass <- function(home_plate_circle_radius = 0,
   home_plate_1b_roots <- quadratic_formula(
     home_plate_1b_x2,
     home_plate_1b_x1,
-    home_plate_1b_x0,
+    home_plate_1b_x0
   )
 
   # First base side, so need x > 0. If none exist, use the radius (pi = 0)
@@ -157,7 +157,7 @@ infield_grass <- function(home_plate_circle_radius = 0,
   home_plate_3b_roots <- quadratic_formula(
     home_plate_3b_x2,
     home_plate_3b_x1,
-    home_plate_3b_x0,
+    home_plate_3b_x0
   )
 
   if (length(which(home_plate_3b_roots > 0)) == 0) {
@@ -267,7 +267,7 @@ infield_grass <- function(home_plate_circle_radius = 0,
 #' @return A data frame that contains the boundary of home plate
 #'
 #' @keywords internal
-home_plate <- function(home_plate_edge_length = 0) {
+baseball_home_plate <- function(home_plate_edge_length = 0) {
   home_plate_df <- data.frame(
     x = c(
       0,
@@ -301,9 +301,9 @@ home_plate <- function(home_plate_edge_length = 0) {
 #' @return A data frame that comprises the boundary of the base
 #'
 #' @keywords internal
-base <- function(base_side_length = 0,
-                 adjust_x_left = FALSE,
-                 adjust_x_right = FALSE) {
+baseball_base <- function(base_side_length = 0,
+                          adjust_x_left = FALSE,
+                          adjust_x_right = FALSE) {
   # Start with a center adjustment of x to be 0
   center_x_adj <- 0
 
@@ -342,7 +342,7 @@ base <- function(base_side_length = 0,
 #' @return A data frame of the pitcher's mound's bounding coordinates
 #'
 #' @keywords internal
-pitchers_mound <- function(pitchers_mound_radius = 0) {
+baseball_pitchers_mound <- function(pitchers_mound_radius = 0) {
   # The pitcher's mound is a circle
   pitchers_mound_df <- create_circle(
     center = c(0, 0),
@@ -363,8 +363,8 @@ pitchers_mound <- function(pitchers_mound_radius = 0) {
 #' @return A data frame of the pitcher's plate's bounding coordinates
 #'
 #' @keywords internal
-pitchers_plate <- function(pitchers_plate_length = 0,
-                           pitchers_plate_width = 0) {
+baseball_pitchers_plate <- function(pitchers_plate_length = 0,
+                                    pitchers_plate_width = 0) {
   # This feature is a rectangle
   pitchers_plate_df <- create_rectangle(
     x_min = -pitchers_plate_length / 2,
@@ -397,10 +397,10 @@ pitchers_plate <- function(pitchers_plate_length = 0,
 #' @return A data frame of the batter's box
 #'
 #' @keywords internal
-batters_box <- function(batters_box_length = 0,
-                        batters_box_width = 0,
-                        batters_box_y_adj = 0,
-                        batters_box_thickness = 0) {
+baseball_batters_box <- function(batters_box_length = 0,
+                                 batters_box_width = 0,
+                                 batters_box_y_adj = 0,
+                                 batters_box_thickness = 0) {
   # This is a rectangular feature, but because the feature has a thickness, it
   # will be drawn and reflected over the y axis
   batters_box_df <- data.frame(
@@ -430,8 +430,8 @@ batters_box <- function(batters_box_length = 0,
 
   # Reflect the half-box over the y axis to get the full box
   batters_box_df <- rbind(
-    batters_box,
-    reflect(batters_box, over_x = FALSE, over_y = TRUE)
+    batters_box_df,
+    reflect(batters_box_df, over_x = FALSE, over_y = TRUE)
   )
 
   # Add in the y-adjustment for proper alignment
@@ -461,13 +461,13 @@ batters_box <- function(batters_box_length = 0,
 #' @return A data frame containing the bounding box of the catcher's box
 #'
 #' @keywords internal
-catchers_box <- function(catchers_box_depth = 0,
-                         catchers_box_width = 0,
-                         batters_box_length = 0,
-                         batters_box_y_adj = 0,
-                         catchers_box_shape = "rectangle",
-                         catchers_box_thickness = 0,
-                         home_plate_circle_radius = 0) {
+baseball_catchers_box <- function(catchers_box_depth = 0,
+                                  catchers_box_width = 0,
+                                  batters_box_length = 0,
+                                  batters_box_y_adj = 0,
+                                  catchers_box_shape = "rectangle",
+                                  catchers_box_thickness = 0,
+                                  home_plate_circle_radius = 0) {
   # The catcher's box is shape-dependent in the following way. This is a
   # switch() statement for ease of future implementation of new styles
 
@@ -490,8 +490,8 @@ catchers_box <- function(catchers_box_depth = 0,
       -catchers_box_depth,
       -batters_box_length / 2,
       -batters_box_length / 2,
-      -catchers_box_length + catchers_box_thickness,
-      -catchers_box_length + catchers_box_thickness,
+      -catchers_box_depth + catchers_box_thickness,
+      -catchers_box_depth + catchers_box_thickness,
       -batters_box_length / 2,
       -batters_box_length / 2
     )
@@ -514,7 +514,7 @@ catchers_box <- function(catchers_box_depth = 0,
   catchers_box_b2_r_outer <- home_plate_circle_radius
   catchers_box_b2_inner <-
     2 * (abs(catchers_box_b2_r_inner) * sin(pi / 4))
-  catchers_box_b2_inner <-
+  catchers_box_b2_outer <-
     2 * (abs(catchers_box_b2_r_outer) * sin(pi / 4))
   catchers_box_trapezoid_df <- data.frame(
     x = c(
@@ -542,7 +542,7 @@ catchers_box <- function(catchers_box_depth = 0,
   )
 
   # Cases ----------------------------------------------------------------------
-  catchers_box_df <- switch(lower(catchers_box_shape),
+  catchers_box_df <- switch(tolower(catchers_box_shape),
     # Rectangle cases
     "rect" = catchers_box_full_rectangle_df,
     "rectangle" = catchers_box_full_rectangle_df,
@@ -586,13 +586,13 @@ catchers_box <- function(catchers_box_depth = 0,
 #' @return A data frame containing the foul line's bounding coordinates
 #'
 #' @keywords internal
-foul_line <- function(is_line_1b = FALSE,
-                      line_distance = 0,
-                      batters_box_length = 0,
-                      batters_box_width = 0,
-                      batters_box_y_adj = 0,
-                      home_plate_side_to_batters_box = 0,
-                      foul_line_thickness = 0) {
+baseball_foul_line <- function(is_line_1b = FALSE,
+                               line_distance = 0,
+                               batters_box_length = 0,
+                               batters_box_width = 0,
+                               batters_box_y_adj = 0,
+                               home_plate_side_to_batters_box = 0,
+                               foul_line_thickness = 0) {
   # Check where the foul line intersects the batter's box
   batters_box_corner_coord_x <- batters_box_width +
     home_plate_side_to_batters_box
@@ -668,10 +668,10 @@ foul_line <- function(is_line_1b = FALSE,
 #' @return A data frame containing the running lane's bounding coordinates
 #'
 #' @keywords internal
-running_lane <- function(running_lane_depth = 0,
-                         running_lane_length = 0,
-                         running_lane_start_distance = 0,
-                         running_lane_thickness = 0) {
+baseball_running_lane <- function(running_lane_depth = 0,
+                                  running_lane_length = 0,
+                                  running_lane_start_distance = 0,
+                                  running_lane_thickness = 0) {
   running_lane_df <- data.frame(
     x = c(
       running_lane_start_distance / sqrt(2),
@@ -692,32 +692,32 @@ running_lane <- function(running_lane_depth = 0,
       running_lane_start_distance / sqrt(2)
     ),
     y = c(
-      running_lane_starting_distance / sqrt(2),
+      running_lane_start_distance / sqrt(2),
       (
-        running_lane_starting_distance -
+        running_lane_start_distance -
           running_lane_depth
       ) / sqrt(2),
       (
-        running_lane_starting_distance -
+        running_lane_start_distance -
           running_lane_depth +
           running_lane_length
       ) / sqrt(2),
       (
-        running_lane_starting_distance -
+        running_lane_start_distance -
           running_lane_depth +
           running_lane_length +
           running_lane_thickness
       ) / sqrt(2),
       (
-        running_lane_starting_distance -
+        running_lane_start_distance -
           running_lane_depth +
           (2 * running_lane_thickness)
       ) / sqrt(2),
       (
-        running_lane_starting_distance +
+        running_lane_start_distance +
           running_lane_thickness
       ) / sqrt(2),
-      running_lane_starting_distance / sqrt(2)
+      running_lane_start_distance / sqrt(2)
     )
   )
 

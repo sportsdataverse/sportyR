@@ -1,7 +1,7 @@
 # Surface base features --------------------------------------------------------
 
 #' Half of the pitch is located on each side of the halfway line (see
-#' \code{\link{halfway_line}} for more information)
+#' \code{\link{soccer_halfway_line}} for more information)
 #'
 #' @param pitch_length The length of the pitch
 #' @param pitch_width The width of the pitch
@@ -10,7 +10,7 @@
 #'   pitch
 #'
 #' @keywords internal
-half_pitch <- function(pitch_length = 0, pitch_width = 0) {
+soccer_half_pitch <- function(pitch_length = 0, pitch_width = 0) {
   half_pitch_df <- create_rectangle(
     x_min = 0,
     x_max = pitch_length / 2,
@@ -39,7 +39,7 @@ half_pitch <- function(pitch_length = 0, pitch_width = 0) {
 #' @return A data frame containing the bounding coordinates of the touchline
 #'
 #' @keywords internal
-touchline <- function(pitch_length = 0, feature_thickness = 0) {
+soccer_touchline <- function(pitch_length = 0, feature_thickness = 0) {
   touchline_df <- create_rectangle(
     x_min = -pitch_length / 2,
     x_max = pitch_length / 2,
@@ -61,7 +61,7 @@ touchline <- function(pitch_length = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the goal line
 #'
 #' @keywords internal
-goal_line <- function(pitch_width = 0, feature_thickness = 0) {
+soccer_goal_line <- function(pitch_width = 0, feature_thickness = 0) {
   goal_line_df <- create_rectangle(
     x_min = -feature_thickness,
     x_max = 0,
@@ -90,7 +90,7 @@ goal_line <- function(pitch_width = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the halfway line
 #'
 #' @keywords internal
-halfway_line <- function(pitch_width = 0, feature_thickness = 0) {
+soccer_halfway_line <- function(pitch_width = 0, feature_thickness = 0) {
   halfway_line_df <- create_rectangle(
     x_min = -feature_thickness / 2,
     x_max = feature_thickness / 2,
@@ -122,12 +122,12 @@ halfway_line <- function(pitch_width = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the penalty box
 #'
 #' @keywords internal
-penalty_box <- function(feature_radius = 0,
-                        feature_thickness = 0,
-                        box_length = 0,
-                        penalty_mark_dist = 0,
-                        goal_width = 0,
-                        goal_post_to_box_edge = 0) {
+soccer_penalty_box <- function(feature_radius = 0,
+                               feature_thickness = 0,
+                               box_length = 0,
+                               penalty_mark_dist = 0,
+                               goal_width = 0,
+                               goal_post_to_box_edge = 0) {
   # Compute the half-box width
   half_box_width <- (goal_width / 2) + goal_post_to_box_edge
 
@@ -198,10 +198,10 @@ penalty_box <- function(feature_radius = 0,
 #' @return A data frame containing the bounding coordinates of the goal box
 #'
 #' @keywords internal
-goal_box <- function(feature_thickness = 0,
-                     box_length = 0,
-                     goal_width = 0,
-                     goal_post_to_box_edge = 0) {
+soccer_goal_box <- function(feature_thickness = 0,
+                            box_length = 0,
+                            goal_width = 0,
+                            goal_post_to_box_edge = 0) {
   # Compute the half-box width
   half_box_width <- (goal_width / 2) + goal_post_to_box_edge
 
@@ -250,7 +250,7 @@ goal_box <- function(feature_thickness = 0,
 #' @return A data frame containing the bounding coordinates of the corner arc
 #'
 #' @keywords internal
-corner_arc <- function(feature_radius = 0, feature_thickness = 0) {
+soccer_corner_arc <- function(feature_radius = 0, feature_thickness = 0) {
   corner_arc_df <- rbind(
     create_circle(
       center = c(0, 0),
@@ -281,7 +281,7 @@ corner_arc <- function(feature_radius = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the center circle
 #'
 #' @keywords internal
-center_circle <- function(feature_radius = 0, feature_thickness = 0) {
+soccer_center_circle <- function(feature_radius = 0, feature_thickness = 0) {
   center_circle_df <- rbind(
     create_circle(
       center = c(0, 0),
@@ -309,7 +309,7 @@ center_circle <- function(feature_radius = 0, feature_thickness = 0) {
 #' @return A data frame containing the bounding coordinates of the center mark
 #'
 #' @keywords internal
-center_mark <- function(feature_radius = 0) {
+soccer_center_mark <- function(feature_radius = 0) {
   center_mark_df <- create_circle(
     center = c(0, 0),
     start = 0,
@@ -328,7 +328,7 @@ center_mark <- function(feature_radius = 0) {
 #' @return A data frame containing the bounding coordinates of the penalty mark
 #'
 #' @keywords internal
-penalty_mark <- function(feature_radius = 0) {
+soccer_penalty_mark <- function(feature_radius = 0) {
   penalty_mark_df <- create_circle(
     center = c(0, 0),
     start = 0,
@@ -361,11 +361,11 @@ penalty_mark <- function(feature_radius = 0) {
 #'   defensive marks
 #'
 #' @keywords internal
-corner_defensive_marks <- function(feature_thickness = 0,
-                                   is_touchline = FALSE,
-                                   is_goal_line = FALSE,
-                                   depth = 0,
-                                   separation_from_line = 0) {
+soccer_corner_defensive_marks <- function(feature_thickness = 0,
+                                          is_touchline = FALSE,
+                                          is_goal_line = FALSE,
+                                          depth = 0,
+                                          separation_from_line = 0) {
   if (is_touchline) {
     corner_defensive_mark_df <- create_rectangle(
       x_min = -feature_thickness / 2,
@@ -401,7 +401,7 @@ corner_defensive_marks <- function(feature_thickness = 0,
 #' @return A data frame containing the bounding coordinates of the goal
 #'
 #' @keywords internal
-goal <- function(feature_thickness = 0, goal_width = 0, goal_depth = 0) {
+soccer_goal <- function(feature_thickness = 0, goal_width = 0, goal_depth = 0) {
   goal_df <- data.frame(
     x = c(
       0,
