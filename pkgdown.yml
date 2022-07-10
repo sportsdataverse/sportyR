@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 2.0.3
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-05-08T08:04Z
+last_built: 2022-07-10T01:04Z
 urls:
   reference: https://rossdrucker.github.io/sportyR/reference
   article: https://rossdrucker.github.io/sportyR/articles
