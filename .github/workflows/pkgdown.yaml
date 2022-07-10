@@ -34,12 +34,14 @@ jobs:
             gt
             hoopR
             knitr
+            oddsapiR
             pacman
             ragg
             rsconnect
             tictoc
             toRvik
             wehoop
+            worldfootballR
             zoo
           needs: website
       - name: Deploy package
