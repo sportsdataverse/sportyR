@@ -325,7 +325,7 @@ baseball_base <- function(base_side_length = 0,
 
   base_df <- rotate_coords(
     df = base_df,
-    angle = 0.25
+    angle = 45
   )
 
   # Adjust the base's x-positioning by the calculated adjustment
