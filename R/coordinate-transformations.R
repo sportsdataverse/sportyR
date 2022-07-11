@@ -14,8 +14,8 @@
 #' @examples
 #' reflect(data.frame(x = 1, y = 0))
 reflect <- function(df,
-                   over_x = FALSE,
-                   over_y = TRUE) {
+                    over_x = FALSE,
+                    over_y = TRUE) {
   if (over_y) {
     df["x"] <- -1 * df["x"]
   }
@@ -44,8 +44,8 @@ reflect <- function(df,
 #' @examples
 #' rotate_coords(data.frame(x = 0, y = 1))
 rotate_coords <- function(df,
-                         rotation_dir = "ccw",
-                         angle = 90) {
+                          rotation_dir = "ccw",
+                          angle = 90) {
   # If the data frame is empty, just give back the data frame
   if (nrow(df) == 0) {
     return(df)
