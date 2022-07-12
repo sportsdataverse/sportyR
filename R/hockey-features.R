@@ -683,7 +683,8 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
           -notch_dist_x,
           -notch_dist_x,
           -(notch_dist_x + feature_thickness),
-          -(notch_dist_x + feature_thickness)
+          -(notch_dist_x + feature_thickness),
+          -crease_length
         ),
         y = c(
           -half_crease_width,
@@ -700,6 +701,7 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
               feature_thickness +
               notch_width
           ),
+          -half_crease_width + feature_thickness,
           -half_crease_width + feature_thickness
         )
       ),
@@ -711,6 +713,7 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
       ),
       data.frame(
         x = c(
+          -crease_length,
           -(notch_dist_x + feature_thickness),
           -(notch_dist_x + feature_thickness),
           -notch_dist_x,
@@ -719,6 +722,7 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
           0
         ),
         y = c(
+          half_crease_width - feature_thickness,
           half_crease_width - feature_thickness,
           (
             half_crease_width -
@@ -754,29 +758,21 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
       ),
       data.frame(
         x = c(
-          -notch_dist_x,
+          -notch_dist_x - feature_thickness,
           0,
           0,
-          -(notch_dist_x + feature_thickness),
-          -(notch_dist_x + feature_thickness),
           -notch_dist_x,
-          -notch_dist_x
+          -notch_dist_x,
+          -notch_dist_x - feature_thickness,
+          -notch_dist_x - feature_thickness
         ),
         y = c(
           -half_crease_width,
           -half_crease_width,
           -half_crease_width + feature_thickness,
           -half_crease_width + feature_thickness,
-          (
-            -half_crease_width +
-              feature_thickness +
-              notch_width
-          ),
-          (
-            -half_crease_width +
-              feature_thickness +
-              notch_width
-          ),
+          -half_crease_width + feature_thickness + notch_width,
+          -half_crease_width + feature_thickness + notch_width,
           -half_crease_width
         )
       ),
@@ -788,26 +784,18 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
       ),
       data.frame(
         x = c(
+          -notch_dist_x - feature_thickness,
+          -notch_dist_x - feature_thickness,
           -notch_dist_x,
           -notch_dist_x,
-          -(notch_dist_x + feature_thickness),
-          -(notch_dist_x + feature_thickness),
           0,
           0,
-          -notch_dist_x
+          -notch_dist_x - feature_thickness
         ),
         y = c(
           half_crease_width,
-          (
-            half_crease_width -
-              notch_width -
-              feature_thickness
-          ),
-          (
-            half_crease_width -
-              notch_width -
-              feature_thickness
-          ),
+          half_crease_width - feature_thickness - notch_width,
+          half_crease_width - feature_thickness - notch_width,
           half_crease_width - feature_thickness,
           half_crease_width - feature_thickness,
           half_crease_width,
@@ -852,9 +840,10 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
           -notch_dist_x,
           -notch_dist_x + notch_width,
           -notch_dist_x + notch_width,
-          -(notch_dist_x + feature_thickness),
-          -(notch_dist_x + feature_thickness),
           -notch_dist_x,
+          -notch_dist_x,
+          -notch_dist_x - feature_thickness,
+          -notch_dist_x - feature_thickness,
           -notch_dist_x
         ),
         y = c(
@@ -862,16 +851,9 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
           -half_crease_width,
           -half_crease_width + feature_thickness,
           -half_crease_width + feature_thickness,
-          (
-            -half_crease_width +
-              feature_thickness +
-              notch_width
-          ),
-          (
-            -half_crease_width +
-              feature_thickness +
-              notch_width
-          ),
+          -half_crease_width + feature_thickness + notch_width,
+          -half_crease_width + feature_thickness + notch_width,
+          -half_crease_width,
           -half_crease_width
         )
       ),
@@ -884,27 +866,21 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
       data.frame(
         x = c(
           -notch_dist_x,
+          -notch_dist_x + notch_width,
+          -notch_dist_x + notch_width,
           -notch_dist_x,
-          -(notch_dist_x + feature_thickness),
-          -(notch_dist_x + feature_thickness),
-          -notch_dist_x + notch_width,
-          -notch_dist_x + notch_width,
+          -notch_dist_x,
+          -notch_dist_x - feature_thickness,
+          -notch_dist_x - feature_thickness,
           -notch_dist_x
         ),
         y = c(
           half_crease_width,
-          (
-            half_crease_width -
-              notch_width -
-              feature_thickness
-          ),
-          (
-            half_crease_width -
-              notch_width -
-              feature_thickness
-          ),
+          half_crease_width,
           half_crease_width - feature_thickness,
           half_crease_width - feature_thickness,
+          half_crease_width - feature_thickness - notch_width,
+          half_crease_width - feature_thickness - notch_width,
           half_crease_width,
           half_crease_width
         )
@@ -981,8 +957,20 @@ hockey_goal_crease_fill <- function(feature_radius = 0,
   goal_crease_fill_df <- switch(crease_style,
     "nhl98" = rbind(
       data.frame(
-        x = c(0),
-        y = c(half_crease_width - feature_thickness)
+        x = c(
+          0,
+          -notch_dist_x,
+          -notch_dist_x,
+          -(notch_dist_x + feature_thickness),
+          -(notch_dist_x + feature_thickness)
+        ),
+        y = c(
+          half_crease_width - feature_thickness,
+          half_crease_width - feature_thickness,
+          half_crease_width - feature_thickness - notch_width,
+          half_crease_width - feature_thickness - notch_width,
+          half_crease_width - feature_thickness
+        )
       ),
       create_circle(
         center = c(0, 0),
@@ -991,14 +979,34 @@ hockey_goal_crease_fill <- function(feature_radius = 0,
         r = feature_radius - feature_thickness
       ),
       data.frame(
-        x = c(0),
-        y = c(-half_crease_width + feature_thickness)
+        x = c(
+          -(notch_dist_x + feature_thickness),
+          -(notch_dist_x + feature_thickness),
+          -notch_dist_x,
+          -notch_dist_x,
+          0,
+          0
+        ),
+        y = c(
+          -half_crease_width + feature_thickness,
+          -half_crease_width + feature_thickness + notch_width,
+          -half_crease_width + feature_thickness + notch_width,
+          -half_crease_width + feature_thickness,
+          -half_crease_width + feature_thickness,
+          half_crease_width - feature_thickness
+        )
       )
     ),
     "ushl1" = rbind(
       data.frame(
-        x = c(0),
-        y = c(half_crease_width - feature_thickness)
+        x = c(
+          0,
+          -crease_length
+        ),
+        y = c(
+          half_crease_width,
+          half_crease_width
+        )
       ),
       create_circle(
         center = c(0, 0),
@@ -1007,8 +1015,14 @@ hockey_goal_crease_fill <- function(feature_radius = 0,
         r = feature_radius - feature_thickness
       ),
       data.frame(
-        x = c(0),
-        y = c(-half_crease_width + feature_thickness)
+        x = c(
+          -crease_length,
+          0
+        ),
+        y = c(
+          -half_crease_width,
+          -half_crease_width
+        )
       )
     ),
     "nhl92" = create_circle(
