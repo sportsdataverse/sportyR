@@ -33,8 +33,6 @@ reflect <- function(df,
 #'
 #' @param df The data frame to rotate. It must have \code{x} and \code{y}
 #'   columns
-#' @param rotation_dir The direction in which to rotate the coordinates.
-#'   \code{ccw} corresponds to counterclockwise
 #' @param angle the angle (in degrees) through which to rotate the coordinates
 #'
 #' @return The rotated data frame
@@ -44,7 +42,6 @@ reflect <- function(df,
 #' @examples
 #' rotate_coords(data.frame(x = 0, y = 1))
 rotate_coords <- function(df,
-                          rotation_dir = "ccw",
                           angle = 90) {
   # If the data frame is empty, just give back the data frame
   if (nrow(df) == 0) {
