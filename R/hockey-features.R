@@ -290,11 +290,13 @@ hockey_boards <- function(rink_length = 0,
 #' @return A data frame of the bounding coordinates of the center line
 #'
 #' @keywords internal
-hockey_center_line <- function(feature_thickness = 0, rink_width = 0) {
+hockey_center_line <- function(feature_thickness = 0,
+                               rink_width = 0,
+                               center_faceoff_spot_gap = 0) {
   center_line_df <- create_rectangle(
     x_min = -feature_thickness / 2,
     x_max = feature_thickness / 2,
-    y_min = -rink_width / 2,
+    y_min = center_faceoff_spot_gap / 2,
     y_max = rink_width / 2
   )
 
