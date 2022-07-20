@@ -12,10 +12,10 @@
 #' @keywords internal
 soccer_half_pitch <- function(pitch_length = 0, pitch_width = 0) {
   half_pitch_df <- create_rectangle(
-    x_min = 0,
-    x_max = pitch_length / 2,
-    y_min = -pitch_width / 2,
-    y_max = pitch_width / 2
+    x_min = -pitch_length / 4,
+    x_max = pitch_length / 4,
+    y_min = -pitch_width / 4,
+    y_max = pitch_width / 4
   )
 
   return(half_pitch_df)
