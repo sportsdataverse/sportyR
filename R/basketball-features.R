@@ -17,7 +17,7 @@ basketball_half_court <- function(court_length = 0, court_width = 0) {
 
     # No adjustment needed in y direction since the half court will take up the
     # entire width of the court
-    y_min = court_width / 2,
+    y_min = -court_width / 2,
     y_max = court_width / 2
   )
 
@@ -154,7 +154,7 @@ basketball_painted_area <- function(lane_length = 0,
     x_min = paint_margin,
     x_max = lane_length - line_thickness - paint_margin,
     y_min = (-lane_width / 2) + line_thickness + paint_margin,
-    y_max = (lane_width / 2) + line_thickness + paint_margin
+    y_max = (lane_width / 2) - line_thickness - paint_margin
   )
 
   return(painted_area_df)
@@ -410,13 +410,13 @@ basketball_three_point_line <- function(basket_center_to_baseline = 0,
   if (is.na(asin(start_y_outer / radius_outer))) {
     angle_outer <- 0
   } else {
-    angle_outer <- asin(start_y_outer / radius_outer)
+    angle_outer <- asin(start_y_outer / radius_outer) / pi
   }
 
   if (is.na(asin(start_y_inner / radius_inner))) {
     angle_inner <- 0
   } else {
-    angle_inner <- asin(start_y_inner / radius_inner)
+    angle_inner <- asin(start_y_inner / radius_inner) / pi
   }
 
   # Set the starting and ending angles for the outer and inner tracings, as
@@ -546,12 +546,222 @@ basketball_free_throw_circle <- function(overhang = 0,
   return(free_throw_circle_outline_df)
 }
 
-#' Free Throw Circle Dashes
-#' Lane Space Mark
-#' Inbounding Line
-#' Substitution Line
-#' Team Bench Line
-#' Restricted Arc
+#' On some courts, there are a series of dashes that comprise the bottom half of
+#' the free throw circle (e.g. the half closer to the basket). This function
+#' generates a single dash
+#'
+#' @param feature_radius The radius of the free throw circle
+#' @param line_thickness The thickness of the dash
+#' @param start_angle The angle, in \code{radians / pi}, at which the dash
+#'   should start
+#' @param end_angleThe angle, in \code{radians / pi}, at which the dash should
+#'   end
+#'
+#' @returns A data frame containing the bounding coordinates of a dash on the
+#'   free throw circle
+#'
+#' @keywords internal
+basketball_free_throw_circle_dash <- function(feature_radius = 0,
+                                              line_thickness = 0,
+                                              start_angle = 0,
+                                              end_angle = 0) {
+  free_throw_circle_dash_df <- rbind(
+    create_circle(
+      center = c(0, 0),
+      start = start_angle,
+      end = end_angle,
+      r = feature_radius
+    ),
+
+    create_circle(
+      center = c(0, 0),
+      start = end_angle,
+      end = start_angle,
+      r = feature_radius - line_thickness
+    )
+  )
+
+  return(free_throw_circle_dash_df)
+}
+
+#' The lane space marks, also known as the blocks, denote where non-shooting
+#' players stand during free throws. Players may not cross these lines before
+#' the ball touches the rim on the shot attempt
+#'
+#' @param feature_thickness The thickness of the lane space mark (this is the
+#'   distance in the \code{x} direction in "TV View")
+#' @param mark_depth The distance from the exterior edge of the free throw lane
+#'   boundary that the lane space mark extends towards the sideline
+#'
+#' @returns A data frame containing the bounding box of the lane space mark
+#'
+#' @keywords internal
+basketball_lane_space_mark <- function(feature_thickness = 0, mark_depth = 0) {
+  lane_space_mark_df <- create_rectangle(
+    x_min = -feature_thickness,
+    x_max = 0,
+    y_min = 0,
+    y_max = mark_depth
+  )
+
+  return(lane_space_mark_df)
+}
+
+#' The inbounding line is where the ball is inbounded on the sideline when
+#' necessary. Lines drawn on the top of the court should be drawn in a top-down
+#' direction, and lines on the bottom of the court should be drawn in the
+#' bottom-up direction
+#'
+#' @param line_thickness The thickness of the inbounding line
+#' @param in_play_ext The extension of the inbounding line into the court
+#' @param out_of_bounds_ext The extension of the inbounding line away from the
+#'   court
+#' @drawn_direction A string indicating which way, in an un-rotated plot, the
+#'   line should be drawn when looking at the plot in TV View
+#'
+#' @returns A data frame containing the bounding box of the inbounding line
+#'
+#' @keywords internal
+basketball_inbounding_line <- function(line_thickness = 0,
+                                       in_play_ext = 0,
+                                       out_of_bounds_ext = 0,
+                                       drawn_direction = "") {
+  if (tolower(drawn_direction) == "top_down") {
+    inbounding_line_df <- create_rectangle(
+      x_min = -line_thickness,
+      x_max = 0,
+      y_min = -in_play_ext,
+      y_max = out_of_bounds_ext + line_thickness
+    )
+  } else {
+    inbounding_line_df <- create_rectangle(
+      x_min = -line_thickness,
+      x_max = 0,
+      y_min = -(out_of_bounds_ext + line_thickness),
+      y_max = in_play_ext
+    )
+  }
+
+  return(inbounding_line_df)
+}
+
+#' The substitution line is where players checking into the game wait for a
+#' stoppage. Lines drawn on the top of the court should be drawn in a top-down
+#' direction, and lines on the bottom of the court should be drawn in the
+#' bottom-up direction
+#'
+#' @param line_thickness The thickness of the substitution line
+#' @param substitution_line_width The width of the substitution line, from top
+#'   to bottom when viewing the plot in TV view
+#' @param drawn_direction A string indicating which way, in an un-rotated plot,
+#'   the line should be drawn when looking at the plot in TV View
+#'
+#' @returns A data frame containing the bounding coordinates of the substitution
+#'   line
+#'
+#' @keywords internal
+basketball_substitution_line <- function(line_thickness = 0,
+                                         substitution_line_width = 0,
+                                         drawn_direction = "") {
+  if (tolower(drawn_direction) == "bottom_up") {
+    substitution_line_df <- create_rectangle(
+      x_min = 0,
+      x_max = -line_thickness,
+      y_min = 0,
+      y_max = substitution_line_width + line_thickness
+    )
+  } else {
+    substitution_line_df <- create_rectangle(
+      x_min = 0,
+      x_max = -line_thickness,
+      y_min = -(substitution_line_width + line_thickness),
+      y_max = 0
+    )
+  }
+
+  return(substitution_line_df)
+}
+
+#' Players not in the game must stay within the team bench lines unless moving
+#' to the substitution area (see \link{\code{substitution_line}} class)
+#'
+#' @param line_thickness The thickness of the team bench line
+#' @param extension The extension of the team bench line out of the court
+#' @param drawn_direction A string indicating which way, in an un-rotated plot,
+#'   the line should be drawn when looking at the plot in TV View
+#'
+#' @returns A data frame containing the bounding coordinates of the team bench
+#'   line
+#'
+#' @keywords internal
+basketball_team_bench_line <- function(line_thickness = 0,
+                                       extension = 0,
+                                       drawn_direction = "") {
+  if (tolower(drawn_direction) == "bottom_up") {
+    team_bench_line_df <- create_rectangle(
+      x_min = 0,
+      x_max = line_thickness,
+      y_min = 0,
+      y_max = extension
+    )
+  } else {
+    team_bench_line_df <- create_rectangle(
+      x_min = 0,
+      x_max = -line_thickness,
+      y_min = -extension,
+      y_max = 0
+    )
+  }
+
+  return(team_bench_line_df)
+}
+
+#' The arc located in the free-throw lane is called the restricted arc. The
+#' interior radius should be specified for this feature.
+#'
+#' @param feature_radius The interior radius of the restricted arc
+#' @param line_thickness The thickness of the restricted arc line
+#' @param backboard_to_center_of_basket The distance from the backboard to the center of the basket
+#'
+#' @returns A data frame containing the bounding coordinates of the restricted arc
+#'
+#' @keywords internal
+basketball_restricted_arc <- function(feature_radius = 0,
+                                      line_thickness = 0,
+                                      backboard_to_center_of_basket = 0) {
+  restricted_arc_df <- rbind(
+    data.frame(
+      x = 0,
+      y = feature_radius
+    ),
+
+    create_circle(
+      center = c(-backboard_to_center_of_basket, 0),
+      start = 0.5,
+      end = 1.5,
+      r = feature_radius
+    ),
+
+    data.frame(
+      x = c(0, 0),
+      y = c(-feature_radius, -(feature_radius + line_thickness))
+    ),
+
+    create_circle(
+      center = c(-backboard_to_center_of_basket, 0),
+      start = 1.5,
+      end = 0.5,
+      r = feature_radius + line_thickness
+    ),
+
+    data.frame(
+      x = c(0, 0),
+      y = c(feature_radius + line_thickness, feature_radius)
+    )
+  )
+
+  return(restricted_arc_df)
+}
 
 
 
@@ -575,9 +785,9 @@ basketball_free_throw_circle <- function(overhang = 0,
 #' @return A data frame of the bounding box of a lower defensive box marking
 #'
 #' @keywords internal
-basketball_lower_defensive_boxmark <- function(drawn_direction = "",
-                                               extension = 0,
-                                               line_thickness = 0) {
+basketball_lower_defensive_box_mark <- function(drawn_direction = "",
+                                                extension = 0,
+                                                line_thickness = 0) {
   if (tolower(drawn_direction) == "left_to_right") {
     lower_defensive_box_mark_df <- create_rectangle(
       x_min = -extension,
@@ -671,25 +881,25 @@ basketball_basket_ring <- function(basket_ring_connector_width = 0,
       y = c(
         basket_ring_connector_width / 2,
         basket_ring_connector_width / 2
+      )
+    ),
+    create_circle(
+      center = c(-backboard_face_to_ring_cent, 0),
+      start = start_angle,
+      end = end_angle,
+      r = basket_ring_outer_radius
+    ),
+    data.frame(
+      x = c(
+        -backboard_face_to_ring_cent +
+          (basket_ring_outer_radius * cos(start_angle * pi)),
+        0,
+        0
       ),
-      create_circle(
-        center = c(-backboard_face_to_ring_cent, 0),
-        start = start_angle,
-        end = end_angle,
-        r = basket_ring_outer_radius
-      ),
-      data.frame(
-        x = c(
-          -backboard_face_to_ring_cent +
-            (basket_ring_outer_radius * cos(start_angle * pi)),
-          0,
-          0
-        ),
-        y = c(
-          -basket_ring_connector_width / 2,
-          -basket_ring_connector_width / 2,
-          basket_ring_connector_width / 2
-        )
+      y = c(
+        -basket_ring_connector_width / 2,
+        -basket_ring_connector_width / 2,
+        basket_ring_connector_width / 2
       )
     )
   )
