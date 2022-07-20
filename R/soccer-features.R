@@ -14,8 +14,8 @@ soccer_half_pitch <- function(pitch_length = 0, pitch_width = 0) {
   half_pitch_df <- create_rectangle(
     x_min = -pitch_length / 4,
     x_max = pitch_length / 4,
-    y_min = -pitch_width / 4,
-    y_max = pitch_width / 4
+    y_min = -pitch_width / 2,
+    y_max = pitch_width / 2
   )
 
   return(half_pitch_df)
@@ -26,6 +26,63 @@ soccer_half_pitch <- function(pitch_length = 0, pitch_width = 0) {
 
 
 # Surface boundaries -----------------------------------------------------------
+
+#' The pitch should have an apron around it to do two things:
+#'
+#' 1) Replicate the spacing between the goal line/touchline and the nearest ad
+#' boards
+#'
+#' 2) Allow the goal line and touchline to be more clearly visible
+#'
+#' This makes practical sense, as there is grass outside of the in-play area of
+#' the pitch
+#'
+#' @param pitch_length The length of the pitch
+#' @param pitch_width The width of the pitch
+#' @param pitch_apron_touchline The distance beyond the outer edge of the
+#'   touchline that the pitch's apron should extend
+#' @param pitch_apron_goal_line The distance beyond the outer edge of the back
+#'   of the goal that the pitch's apron should extend
+#' @param goal_depth The depth to which the goal protrudes away from the back
+#'   edge of the goal line
+#'
+#' @return A data frame containing the bounding coordinates of the pitch's apron
+#'
+#' @keywords internal
+soccer_pitch_apron <- function(pitch_length = 0,
+                               pitch_width = 0,
+                               pitch_apron_touchline = 0,
+                               pitch_apron_goal_line = 0,
+                               goal_depth = 0) {
+  pitch_apron_df <- data.frame(
+    x = c(
+      0,
+      pitch_length / 2,
+      pitch_length / 2,
+      0,
+      0,
+      (pitch_length / 2) + pitch_apron_goal_line + goal_depth,
+      (pitch_length / 2) + pitch_apron_goal_line + goal_depth,
+      0,
+      0
+    ),
+
+    y = c(
+      pitch_width / 2,
+      pitch_width / 2,
+      -pitch_width / 2,
+      -pitch_width / 2,
+      # Adding/subtracting goal_depth here for symmetry
+      (-pitch_width / 2) - pitch_apron_touchline - goal_depth,
+      (-pitch_width / 2) - pitch_apron_touchline - goal_depth,
+      (pitch_width / 2) + pitch_apron_touchline + goal_depth,
+      (pitch_width / 2) + pitch_apron_touchline + goal_depth,
+      pitch_width / 2
+    )
+  )
+
+  return(pitch_apron_df)
+}
 
 #' The lines that run the full length of the pitch are called the touchlines. In
 #' some cases, they may also be referred to as the sidelines, as they comprise
