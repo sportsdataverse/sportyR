@@ -47,6 +47,70 @@ football_endzone <- function(field_width = 0, endzone_length = 0) {
   return(endzone_df)
 }
 
+#' The field should have an apron to appropriately see all out-of-bounds
+#' features. This is typically the same color as the field itself, but will be
+#' created separately so as to allow for more customized plotting
+#'
+#' @param field_length The length of the field
+#' @param field_width The width of the field
+#' @param endzone_length The length of the endzone
+#' @param boundary_thickness The thickness of the field boundary
+#' @param field_border_thickness The thickness of the field border
+#' @param restricted_area_length The length of the restricted area
+#' @param restricted_area_width The width of the restricted area
+#' @param coaching_box_length The length of the coaching box
+#' @param coaching_box_width The width of the coaching box
+#' @param team_bench_length_field_side The length of the team bench area nearest
+#'   the field
+#' @param team_bench_length_back_side The length of the team bench area furthest
+#'   from the field
+#' @param team_bench_width The width of the team bench area
+#' @param team_bench_area_border_thickness The thickness of the border around
+#'   the team bench area
+#' @param extra_apron_padding Any additional distance to add to the apron of the
+#'   field
+#'
+#' @return A data frame of the bounding coordinates of the field apron
+#'
+#' @keywords internal
+football_field_apron <- function(field_length = 0,
+                                 field_width = 0,
+                                 endzone_length = 0,
+                                 boundary_thickness = 0,
+                                 field_border_thickness = 0,
+                                 restricted_area_length = 0,
+                                 restricted_area_width = 0,
+                                 coaching_box_length = 0,
+                                 coaching_box_width = 0,
+                                 team_bench_length_field_side = 0,
+                                 team_bench_length_back_side = 0,
+                                 team_bench_width = 0,
+                                 team_bench_area_border_thickness = 0,
+                                 extra_apron_padding = 0) {
+  # Define the extreme values of x and y
+  ext_x <- (field_length / 2) +
+    endzone_length +
+    boundary_thickness +
+    field_border_thickness +
+    extra_apron_padding
+
+  ext_y <- (field_width / 2) +
+    boundary_thickness +
+    field_border_thickness +
+    restricted_area_width +
+    coaching_box_width +
+    team_bench_width +
+    extra_apron_padding
+
+  field_apron_df <- create_rectangle(
+    x_min = -ext_x,
+    x_max = ext_x,
+    y_min = -ext_y,
+    y_max = ext_y
+  )
+
+  return(field_apron_df)
+}
 
 
 
@@ -115,12 +179,12 @@ football_sideline <- function(feature_thickness = 0,
 #' @param team_bench_length_back_side The length of the side of the team bench
 #'   furthest from the field
 #' @param team_bench_width The width of the team bench
-#' @param team_bench_border_thickness The thickness of the border around the
-#'   team bench
+#' @param team_bench_area_border_thickness The thickness of the border around
+#'   the team bench
 #' @param surrounds_team_bench_area A boolean of whether or not the field border
 #'   should surround the team bench
 #' @param bench_shape A string of the shape of the bench. Currently, this checks
-#'   for \code{"rectangle}
+#'   for \code{"rectangle"}
 #'
 #' @return A data frame of the bounding box of the field border
 #'
@@ -129,7 +193,7 @@ football_field_border <- function(field_length = 0,
                                   field_width = 0,
                                   feature_thickness = 0,
                                   endzone_length = 0,
-                                  boundary_thickness = 0,
+                                  boundary_line_thickness = 0,
                                   restricted_area_length = 0,
                                   restricted_area_width = 0,
                                   coaching_box_length = 0,
@@ -137,51 +201,51 @@ football_field_border <- function(field_length = 0,
                                   team_bench_length_field_side = 0,
                                   team_bench_length_back_side = 0,
                                   team_bench_width = 0,
-                                  team_bench_border_thickness = 0,
+                                  team_bench_area_border_thickness = 0,
                                   surrounds_team_bench_area = FALSE,
                                   bench_shape = "") {
   if (!surrounds_team_bench_area) {
     field_border_df <- data.frame(
       x = c(
-        (restricted_area_length / 2) + team_bench_border_thickness,
-        (field_length / 2) + endzone_length + boundary_thickness,
-        (field_length / 2) + endzone_length + boundary_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (field_length / 2) + endzone_length + boundary_line_thickness,
+        (field_length / 2) + endzone_length + boundary_line_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
         (
           (field_length / 2) +
             endzone_length +
-            boundary_thickness +
-            team_bench_border_thickness
+            boundary_line_thickness +
+            team_bench_area_border_thickness
         ),
         (
           (field_length / 2) +
             endzone_length +
-            boundary_thickness +
-            team_bench_border_thickness
+            boundary_line_thickness +
+            team_bench_area_border_thickness
         ),
-        (restricted_area_length / 2) + team_bench_border_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness
       ),
       y = c(
-        (field_width / 2) + boundary_thickness,
-        (field_width / 2) + boundary_thickness,
-        -((field_width / 2) + boundary_thickness),
-        -((field_width / 2) + boundary_thickness),
-        -((field_width / 2) + boundary_thickness + feature_thickness),
-        -((field_width / 2) + boundary_thickness + feature_thickness),
-        (field_width / 2) + boundary_thickness + feature_thickness,
-        (field_width / 2) + boundary_thickness + feature_thickness,
-        (field_width / 2) + boundary_thickness
+        (field_width / 2) + boundary_line_thickness,
+        (field_width / 2) + boundary_line_thickness,
+        -((field_width / 2) + boundary_line_thickness),
+        -((field_width / 2) + boundary_line_thickness),
+        -((field_width / 2) + boundary_line_thickness + feature_thickness),
+        -((field_width / 2) + boundary_line_thickness + feature_thickness),
+        (field_width / 2) + boundary_line_thickness + feature_thickness,
+        (field_width / 2) + boundary_line_thickness + feature_thickness,
+        (field_width / 2) + boundary_line_thickness
       )
     )
   } else {
     starting_depth <- (field_width / 2) +
-      boundary_thickness +
+      boundary_line_thickness +
       restricted_area_width +
       coaching_box_width +
       team_bench_width +
-      team_bench_border_thickness
+      team_bench_area_border_thickness
 
     if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
       m <- team_bench_width / (
@@ -189,60 +253,60 @@ football_field_border <- function(field_length = 0,
       )
 
       y2 <- starting_depth + feature_thickness
-      y1 <- starting_depth - team_bench_width - team_bench_border_thickness
+      y1 <- starting_depth - team_bench_width - team_bench_area_border_thickness
 
       x1 <- (team_bench_length_field_side / 2) +
-        team_bench_border_thickness +
+        team_bench_area_border_thickness +
         feature_thickness
 
       outer_corner_x_dist <- (((y2 - y1) / m) + x1)
     } else {
       outer_corner_x_dist <- (team_bench_length_back_side / 2) +
-        team_bench_border_thickness +
-        feature_thickness
+        team_bench_area_border_thickness +
+        (feature_thickness / 2)
     }
 
     field_border_df <- data.frame(
       x = c(
         0,
-        (team_bench_length_back_side / 2) + team_bench_border_thickness,
-        (team_bench_length_field_side / 2) + team_bench_border_thickness,
-        (coaching_box_length) + team_bench_border_thickness,
-        (restricted_area_length) + team_bench_border_thickness,
-        (field_length / 2) + endzone_length + boundary_thickness,
-        (field_length / 2) + endzone_length + boundary_thickness,
-        (restricted_area_length) + team_bench_border_thickness,
-        (coaching_box_length) + team_bench_border_thickness,
-        (team_bench_length_field_side / 2) + team_bench_border_thickness,
-        (team_bench_length_back_side / 2) + team_bench_border_thickness,
+        (team_bench_length_back_side / 2) + team_bench_area_border_thickness,
+        (team_bench_length_field_side / 2) + team_bench_area_border_thickness,
+        (coaching_box_length / 2) + team_bench_area_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (field_length / 2) + endzone_length + boundary_line_thickness,
+        (field_length / 2) + endzone_length + boundary_line_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (coaching_box_length / 2) + team_bench_area_border_thickness,
+        (team_bench_length_field_side / 2) + team_bench_area_border_thickness,
+        (team_bench_length_back_side / 2) + team_bench_area_border_thickness,
         0,
         0,
         outer_corner_x_dist,
         (team_bench_length_field_side / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           feature_thickness,
         (coaching_box_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           feature_thickness,
         (restricted_area_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           feature_thickness,
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           feature_thickness,
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           feature_thickness,
         (restricted_area_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           feature_thickness,
         (coaching_box_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           feature_thickness,
         (team_bench_length_field_side / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           feature_thickness,
         outer_corner_x_dist,
         0,
@@ -251,68 +315,42 @@ football_field_border <- function(field_length = 0,
       y = c(
         starting_depth,
         starting_depth,
-        starting_depth - team_bench_width - team_bench_border_thickness,
+        starting_depth - team_bench_width - team_bench_area_border_thickness,
+        starting_depth - team_bench_width - team_bench_area_border_thickness,
+        (field_width / 2) + boundary_line_thickness,
+        (field_width / 2) + boundary_line_thickness,
+        -(field_width / 2) - boundary_line_thickness,
+        -(field_width / 2) - boundary_line_thickness,
+        -starting_depth + team_bench_width + team_bench_area_border_thickness,
+        -starting_depth + team_bench_width + team_bench_area_border_thickness,
+        -starting_depth,
+        -starting_depth,
+        -starting_depth - feature_thickness,
+        -starting_depth - feature_thickness,
+        -starting_depth + team_bench_width + team_bench_area_border_thickness,
+        -starting_depth +
+          team_bench_width +
+          team_bench_area_border_thickness +
+          coaching_box_width,
+        -(field_width / 2) -
+          boundary_line_thickness -
+          feature_thickness,
+        -(field_width / 2) -
+          boundary_line_thickness -
+          feature_thickness,
+        (field_width / 2) +
+          boundary_line_thickness +
+          feature_thickness,
+        (field_width / 2) +
+          boundary_line_thickness +
+          feature_thickness,
         starting_depth -
           team_bench_width -
-          coaching_box_width -
-          team_bench_border_thickness,
-        (field_width / 2) + boundary_thickness,
-        (field_width / 2) + boundary_thickness,
-        -((field_width / 2) + boundary_thickness),
-        -((field_width / 2) + boundary_thickness),
-        -(
-          starting_depth -
-            team_bench_width -
-            coaching_box_width -
-            team_bench_border_thickness
-        ),
-        -(starting_depth - team_bench_width - team_bench_border_thickness),
-        -starting_depth,
-        -starting_depth,
-        -starting_depth - feature_thickness,
-        -starting_depth - feature_thickness,
-        -(
-          starting_depth -
-            team_bench_width -
-            team_bench_border_thickness
-        ),
-        -(
-          starting_depth -
-            team_bench_width -
-            coaching_box_width -
-            team_bench_border_thickness
-        ),
-        -(
-          (field_width / 2) +
-            boundary_thickness +
-            feature_thickness
-        ),
-        -(
-          (field_width / 2) +
-            boundary_thickness +
-            feature_thickness
-        ),
-        (
-          (field_width / 2) +
-            boundary_thickness +
-            feature_thickness
-        ),
-        (
-          (field_width / 2) +
-            boundary_thickness +
-            feature_thickness
-        ),
-        (
-          starting_depth -
-            team_bench_width -
-            coaching_box_width -
-            team_bench_border_thickness
-        ),
-        (
-          starting_depth -
-            team_bench_width -
-            team_bench_border_thickness
-        ),
+          team_bench_area_border_thickness -
+          coaching_box_width,
+        starting_depth -
+          team_bench_width -
+          team_bench_area_border_thickness,
         starting_depth + feature_thickness,
         starting_depth + feature_thickness,
         starting_depth
@@ -341,13 +379,13 @@ football_field_border <- function(field_length = 0,
 #' @param team_bench_length_back_side The length of the side of the team bench
 #'   furthest from the field
 #' @param team_bench_width The width of the team bench
-#' @param team_bench_border_thickness The thickness of the border around the
-#'   team bench
+#' @param team_bench_area_border_thickness The thickness of the border around
+#'   the team bench
 #' @param field_border_thickness The thickness of the field border
 #' @param surrounds_team_bench_area A boolean of whether or not the field border
 #'   should surround the team bench
 #' @param bench_shape A string of the shape of the bench. Currently, this checks
-#'   for \code{"rectangle}
+#'   for \code{"rectangle"}
 #'
 #' @return A data frame of the bounding box of the field border
 #'
@@ -364,14 +402,14 @@ football_field_border_outline <- function(field_length = 0,
                                           team_bench_length_field_side = 0,
                                           team_bench_length_back_side = 0,
                                           team_bench_width = 0,
-                                          team_bench_border_thickness = 0,
+                                          team_bench_area_border_thickness = 0,
                                           field_border_thickness = 0,
                                           surrounds_team_bench_area = TRUE,
                                           bench_shape = "") {
   if (!surrounds_team_bench_area) {
     field_border_outline_df <- data.frame(
       x = c(
-        (restricted_area_length / 2) + team_bench_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
         (field_length / 2) +
           endzone_length +
           boundary_thickness +
@@ -380,8 +418,8 @@ football_field_border_outline <- function(field_length = 0,
           endzone_length +
           boundary_thickness +
           field_border_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
         (field_length / 2) +
           endzone_length +
           boundary_thickness +
@@ -392,8 +430,8 @@ football_field_border_outline <- function(field_length = 0,
           boundary_thickness +
           field_border_thickness +
           feature_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness,
-        (restricted_area_length / 2) + team_bench_border_thickness
+        (restricted_area_length / 2) + team_bench_area_border_thickness,
+        (restricted_area_length / 2) + team_bench_area_border_thickness
       ),
       y = c(
         (field_width / 2) + boundary_thickness + field_border_thickness,
@@ -431,7 +469,7 @@ football_field_border_outline <- function(field_length = 0,
       restricted_area_width +
       coaching_box_width +
       team_bench_width +
-      team_bench_border_thickness
+      team_bench_area_border_thickness
 
     if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
       m <- team_bench_width / (
@@ -439,16 +477,16 @@ football_field_border_outline <- function(field_length = 0,
       )
 
       y2 <- starting_depth + field_border_thickness
-      y1 <- starting_depth - team_bench_width - team_bench_border_thickness
+      y1 <- starting_depth - team_bench_width - team_bench_area_border_thickness
       x1 <- (team_bench_length_field_side / 2) +
-        team_bench_border_thickness +
+        team_bench_area_border_thickness +
         field_border_thickness
 
       outer_corner_x_dist <- (((y2 - y1) / m) + x1)
     } else {
       outer_corner_x_dist <- (team_bench_length_back_side / 2) +
-        team_bench_border_thickness +
-        field_border_thickness
+        team_bench_area_border_thickness +
+        (field_border_thickness / 2)
     }
 
     field_border_outline_df <- data.frame(
@@ -461,17 +499,17 @@ football_field_border_outline <- function(field_length = 0,
 
         # Long edge of bench (top)
         (team_bench_length_field_side / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness,
 
         # Coaching box (top)
         (coaching_box_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness,
 
         # Restricted area (top)
         (restricted_area_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness,
 
         # Edge of field (top)
@@ -488,17 +526,17 @@ football_field_border_outline <- function(field_length = 0,
 
         # Restricted area (bottom)
         (restricted_area_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness,
 
         # Coaching box (bottom)
         (coaching_box_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness,
 
         # Long edge of bench (bottom)
         (team_bench_length_field_side / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness,
 
         # Short edge of bench (bottom)
@@ -515,19 +553,19 @@ football_field_border_outline <- function(field_length = 0,
 
         # Long edge of bench (bottom)
         (team_bench_length_field_side / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness +
           feature_thickness,
 
         # Coaching box (bottom)
         (coaching_box_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness +
           feature_thickness,
 
         # Restricted area (bottom)
         (restricted_area_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness +
           feature_thickness,
 
@@ -547,19 +585,19 @@ football_field_border_outline <- function(field_length = 0,
 
         # Restricted area (top)
         (restricted_area_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness +
           feature_thickness,
 
         # Coaching box (top)
         (coaching_box_length / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness +
           feature_thickness,
 
         # Long edge of bench (top)
         (team_bench_length_field_side / 2) +
-          team_bench_border_thickness +
+          team_bench_area_border_thickness +
           field_border_thickness +
           feature_thickness,
 
@@ -580,7 +618,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness
         ),
         # Short edge of bench (top)
@@ -590,7 +628,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness
         ),
         # Long edge of bench (top)
@@ -650,7 +688,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness
         ),
         # Zero
@@ -660,7 +698,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness
         ),
         # Outward
@@ -670,7 +708,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness +
             feature_thickness
         ),
@@ -681,7 +719,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness +
             feature_thickness
         ),
@@ -746,7 +784,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness +
             feature_thickness
         ),
@@ -757,7 +795,7 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness +
             feature_thickness
         ),
@@ -768,12 +806,14 @@ football_field_border_outline <- function(field_length = 0,
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
-            team_bench_border_thickness +
+            team_bench_area_border_thickness +
             field_border_thickness
         )
       )
     )
   }
+
+  return(field_border_outline_df)
 }
 
 
