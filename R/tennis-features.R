@@ -130,7 +130,7 @@ tennis_sideline <- function(court_length = 0, feature_thickness = 0) {
 #' @param backstop_distance The distance from the back edge of the
 #'   \code{\link{tennis_baseline}} to the back boundary
 #' @param sidestop_distance The distance from the outer edge of the
-#'   \code\link{tennis_sideline}} to the side boundary
+#'   \code{\link{tennis_sideline}} to the side boundary
 #'
 #' @return A data frame containing the bounding coordinates of the court apron
 #'
