@@ -618,9 +618,8 @@ hockey_center_faceoff_spot <- function(feature_radius = 0) {
 
 #' The goal crease is the area where a goaltender plays their position. It is
 #' comprised of two components: the outline of the crease, and the filling in
-#' its boundary (see documentation for \code{\link{hockey_goal_crease_fill}}
-#' function). The goal crease may have two notches (one on each side of the line
-#' y = 0)
+#' its boundary (see [hockey_goal_crease_fill()]). The goal crease may have two
+#' notches (one on each side of the line y = 0)
 #'
 #' The outline of the goal crease should have thickness given by
 #' 'minor_line_thickness', as this is a minor line on the ice surface, and the
@@ -910,10 +909,9 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
 }
 
 #' The goal crease is the area where a goaltender plays their position. It is
-#' comprised of two components: the outline of the crease (see documentation for
-#' \code{\link{hockey_goal_crease_outline}} function), and the filling in its
-#' boundary. The goal crease may have two notches (one on each side of the line
-#' y = 0)
+#' comprised of two components: the outline of the crease (see
+#' [hockey_goal_crease_outline()]), and the filling in its boundary. The goal
+#' crease may have two notches (one on each side of the line y = 0)
 #'
 #' The filling of the goal crease should have thickness given by
 #' 'minor_line_thickness', as this refers to the crease's outline, which is a
@@ -1197,9 +1195,8 @@ hockey_odzone_faceoff_circle <- function(feature_radius = 0,
 #' runs through its center.
 #'
 #' This function is responsible for creating the outer ring, not the colored
-#' stripe running through it. Please see the documentation for the
-#' \code{\link{hockey_nodzone_faceoff_spot_stripe}} function for more
-#' information on it
+#' stripe running through it. Please see [hockey_nodzone_faceoff_spot_stripe()]
+#' for more information on it
 #'
 #' The non-centered faceoff spots are where faceoffs are taken after an icing
 #' call or to start a powerplay. They differ from the center ice faceoff spot in
@@ -1254,9 +1251,8 @@ hockey_nodzone_faceoff_spot_ring <- function(feature_radius = 0,
 #' runs through its center.
 #'
 #' This function is responsible for creating the inner stripe, not the colored
-#' outer ring around it. Please see the documentation for the
-#' \code{\link{hockey_nodzone_faceoff_spot_ring}} function for more information
-#' on it
+#' outer ring around it. Please see [hockey_nodzone_faceoff_spot_ring()] for
+#' more information on it
 #'
 #' The non-centered faceoff spots are where faceoffs are taken after an icing
 #' call or to start a powerplay. They differ from the center ice faceoff spot in
@@ -1322,7 +1318,7 @@ hockey_nodzone_faceoff_spot_stripe <- function(feature_radius = 0,
 #' a legal goal. The front face of the goal is flush with the goal line, while
 #' the back edge features rounded corners and expands outside of the front
 #' posts. The goal frame is composed of two pieces: the frame (this method) and
-#' the fill (see \code{\link{hockey_goal_frame_fill}} documentation)
+#' the fill (see [hockey_goal_frame_fill()])
 #'
 #' The goal frame has two thicknesses to be careful of: the outer diameter of
 #' the posts, and the outer diameter of the pipe in the back of the goal. The
@@ -1399,7 +1395,7 @@ hockey_goal_frame <- function(feature_radius = 0,
 #' a legal goal. The front face of the goal is flush with the goal line, while
 #' the back edge features rounded corners and expands outside of the front
 #' posts. The goal frame is composed of two pieces: the frame (see
-#' \code{\link{hockey_goal_frame}} documentation) and the fill (this function)
+#' [hockey_goal_frame()]) and the fill (this function)
 #'
 #' The goal frame has two thicknesses to be careful of: the outer diameter of
 #' the posts, and the outer diameter of the pipe in the back of the goal. The
@@ -1588,9 +1584,8 @@ hockey_penalty_box_outline <- function(feature_thickness = 0,
 #' The penalty boxes are the areas outside the confines of the rink where
 #' players serve time for a penalty incurred. They are to be on the same side of
 #' the ice surface and separate, as close to center ice as possible, for each
-#' team. This will not include the off-ice officials' box; see the documentation
-#' for the \code{\link{hockey_off_ice_officials_box}} method for more
-#' information
+#' team. This will not include the off-ice officials' box; see
+#' [hockey_off_ice_officials_box()] for more information
 #'
 #' This will have the same thickness as the boards, but will be located outside
 #' the ice surface

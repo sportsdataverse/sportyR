@@ -1,7 +1,7 @@
 # Surface base features --------------------------------------------------------
 
 #' Half of the pitch is located on each side of the halfway line (see
-#' \code{\link{soccer_halfway_line}} for more information)
+#' [soccer_halfway_line()] for more information)
 #'
 #' @param pitch_length The length of the pitch
 #' @param pitch_width The width of the pitch

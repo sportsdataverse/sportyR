@@ -1,10 +1,9 @@
 # Surface base features --------------------------------------------------------
 
-#' The front court is the area between the \code{\link{tennis_net}} and the
-#' \code{\link{tennis_serviceline}}. left-hand side of the court when facing the
-#' net from the nearest baseline is the ad court, and the right-hand side is the
-#' deuce court. This is constrained by the singles
-#' \code{\link{tennis_sideline}}.
+#' The front court is the area between the [tennis_net()] and the
+#' [tennis_serviceline()]. left-hand side of the court when facing the net from
+#' the nearest baseline is the ad court, and the right-hand side is the deuce
+#' court. This is constrained by the singles [tennis_sideline()].
 #'
 #' This is one half of the front court (either the ad or deuce court)
 #'
@@ -128,9 +127,9 @@ tennis_sideline <- function(court_length = 0, feature_thickness = 0) {
 #' @param court_width The width of the court (usually the doubles width of the
 #'   court)
 #' @param backstop_distance The distance from the back edge of the
-#'   \code{\link{tennis_baseline}} to the back boundary
+#'   [tennis_baseline()] to the back boundary
 #' @param sidestop_distance The distance from the outer edge of the
-#'   \code{\link{tennis_sideline}} to the side boundary
+#'   [tennis_sideline()] to the side boundary
 #'
 #' @return A data frame containing the bounding coordinates of the court apron
 #'
@@ -204,8 +203,8 @@ tennis_serviceline <- function(singles_width = 0, feature_thickness = 0) {
 #' centered on the line \code{x = 0}
 #'
 #' @param center_serviceline_length The length of the center serviceline from
-#'   the net to the back edge of the serviceline (see
-#'   \code{\link{tennis_serviceline}} for more information)
+#'   the net to the back edge of the serviceline (see [tennis_serviceline()] for
+#'   more information)
 #' @param feature_thickness The thickness of the center serviceline
 #'
 #' @return A data frame containing the bounding coordinates of the center
@@ -231,7 +230,7 @@ tennis_center_serviceline <- function(center_serviceline_length = 0,
 # Surface features -------------------------------------------------------------
 
 #' The center mark identifies the center point of the
-#' \code{\link{tennis_baseline}}. The line should extend towards the net
+#' [tennis_baseline()]. The line should extend towards the net
 #'
 #' @param center_mark_length The length of the center mark as measured from the
 #'   back edge of the baseline

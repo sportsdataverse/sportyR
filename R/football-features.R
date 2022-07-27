@@ -1044,9 +1044,8 @@ football_restricted_area <- function(restricted_area_length = 0,
 
 #' The coaching box is the area between the restricted area and team bench area.
 #' It may or may not be distinct from either of these areas, but is typically
-#' separated by the coaching box line (see
-#' \code{\link{football_coaching_box_line}} for more information on the coaching
-#' box line)
+#' separated by the coaching box line (see [football_coaching_box_line()] for
+#' more information on the coaching box line)
 #'
 #' @param coaching_box_length The length of the coaching box
 #' @param feature_thickness The depth beyond the exterior edge of the restricted
@@ -1106,7 +1105,7 @@ football_team_bench_area <- function(team_bench_length_field_side = 0,
 
 #' The outline of the team bench area runs beyond the team bench, but is inside
 #' of any field border that may run behind the team bench area (see
-#' \code{\link{football_ field_border}} for more information on this feature)
+#' [football_field_border()] for more information on this feature)
 #'
 #' @param restricted_area_length The length of the restricted area
 #' @param restricted_area_width The width of the restricted area

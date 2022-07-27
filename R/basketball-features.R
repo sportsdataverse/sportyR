@@ -24,12 +24,11 @@ basketball_half_court <- function(court_length = 0, court_width = 0) {
   return(half_court_df)
 }
 
-#' If a court has a three-point line (see
-#' \code{\link{basketball_three_point_line}}), then any made basket (not
-#' including free throws) made from inside of the arc are worth two points. The
-#' area inside of this arc is therefore referred to as two point range, which
-#' this feature draws. This feature is enclosed by the three-point line's outer
-#' edge and the baseline's inner edge
+#' If a court has a three-point line (see [basketball_three_point_line()]), then
+#' any made basket (not including free throws) made from inside of the arc are
+#' worth two points. The area inside of this arc is therefore referred to as two
+#' point range, which this feature draws. This feature is enclosed by the
+#' three-point line's outer edge and the baseline's inner edge
 #'
 #' It should also be noted that as this corresponds strictly to the area
 #' contained by the three-point line, the interior angle is what's needed. While
@@ -104,8 +103,8 @@ basketball_two_point_range <- function(basket_center_to_baseline = 0,
 }
 
 #' The center circle is broken into two parts: the
-#' \code{\link{basketball_center_circle_outline}}, and the fill (this feature),
-#' which is the court coloring inside of the inner edge of this circle
+#' [basketball_center_circle_outline()], and the fill (this feature), which is
+#' the court coloring inside of the inner edge of this circle
 #'
 #' @param center_circle_radius The outer radius of the center circle
 #' @param linethickness The thickness of the line that comprises the center
@@ -127,13 +126,13 @@ basketball_center_circle_fill <- function(center_circle_radius = 0,
   return(center_circle_fill_df)
 }
 
-#' The painted area is the area contained by the free throw lane (see the
-#' \code{\link{basketball_free_throw_lane_boundary}} documentation for more
-#' information on the free throw lane)
+#' The painted area is the area contained by the free throw lane (see
+#' [basketball_free_throw_lane_boundary()] for more information on the free
+#' throw lane)
 #'
 #' The painted area may be a different color than the rest of the two point
-#' range area (see the \code{\link{basketball_two_point_range}} documentation
-#' for more information on two-point range), but may also be the same color
+#' range area (see [basketball_two_point_range()] for more information on
+#' two-point range), but may also be the same color
 #'
 #' @param lane_length The length of the free throw lane
 #' @param lane_width The width of the free throw
@@ -162,9 +161,8 @@ basketball_painted_area <- function(lane_length = 0,
 
 #' The filled-in section of the free throw circle. The circle is the area where
 #' a free throw shooter stands when attempting the free throw. The outline of
-#' this area will be created separately via the
-#' \code{\link{basketball_free_throw_circle_outline}} function; see its
-#' documentation for more information
+#' this area will be created separately via
+#' [basketball_free_throw_circle_outline()]
 #'
 #' @param free_throw_circle_radius The outer radius of the free throw circle,
 #'   measured from the center of the free throw line
@@ -247,8 +245,8 @@ basketball_court_apron <- function(court_length = 0,
 #' The endline on a basketball court, also called the baseline, is located
 #' beyond each basket. In cases where the endline is the court apron, the
 #' endline should still be generated and its color should be set equal to the
-#' court apron's color (see \code{\link{basketball_court_apron}} for more
-#' information on the court apron)
+#' court apron's color (see [basketball_court_apron()] for more information on
+#' the court apron)
 #'
 #' @param court_width The width of the court
 #' @param line_thickness The thickness of the endline and sideline
@@ -271,7 +269,7 @@ basketball_endline <- function(court_width = 0, line_thickness = 0) {
 #' typically with the team bench areas and substitution areas on their exterior.
 #' In cases where the sideline is the court apron, the sideline should still be
 #' generated and its color should be set equal to the court apron's color (see
-#' \code{\link{basketball_court_apron}} for more information on the court apron)
+#' [basketball_court_apron()] for more information on the court apron)
 #'
 #' @param court_length The length of the court
 #' @param line_thickness The thickness of the endline and sideline
@@ -364,7 +362,7 @@ basketball_division_line <- function(court_width = 0,
 
 #' An arc on the court, behind which any made basket counts as three points and
 #' in front of which, any made basket will count as two points (see
-#' \code{\link{basketball_two_point_range}} for more information).
+#' [basketball_two_point_range()] for more information).
 #'
 #' Start by getting the distance from the center of the basket to a corner
 #' three-point shot. This is referred to as \code{start_y}
@@ -462,8 +460,7 @@ basketball_three_point_line <- function(basket_center_to_baseline = 0,
 #' boundary
 #'
 #' NOTE: This does not include lane space markings (blocks), which will be
-#' created via the \code{\link{basketball_lane_space_mark}} function. Check the
-#' documentaiton there for more information on lane space marks
+#' created via [basketball_lane_space_mark()].
 #'
 #' @param lane_length The length of the free throw lane
 #' @param lane_width The width of the free throw
@@ -505,8 +502,7 @@ basketball_free_throw_lane_boundary <- function(lane_length = 0,
 }
 
 #' The outline of the free throw circle. The interior filling area is created
-#' via \code{\link{basketball_free_throw_circle_fill}}; see its documentation
-#' for more information
+#' via [basketball_free_throw_circle_fill()]
 #'
 #' @param overhang The arc length of the free throw circle that hangs past the
 #'   free throw line
@@ -616,8 +612,8 @@ basketball_lane_space_mark <- function(feature_thickness = 0, mark_depth = 0) {
 #' @param in_play_ext The extension of the inbounding line into the court
 #' @param out_of_bounds_ext The extension of the inbounding line away from the
 #'   court
-#' @drawn_direction A string indicating which way, in an un-rotated plot, the
-#'   line should be drawn when looking at the plot in TV View
+#' @param drawn_direction A string indicating which way, in an un-rotated plot,
+#'   the line should be drawn when looking at the plot in TV View
 #'
 #' @returns A data frame containing the bounding box of the inbounding line
 #'
@@ -683,7 +679,7 @@ basketball_substitution_line <- function(line_thickness = 0,
 }
 
 #' Players not in the game must stay within the team bench lines unless moving
-#' to the substitution area (see \link{\code{substitution_line}} class)
+#' to the substitution area (see [substitution_line()] class)
 #'
 #' @param line_thickness The thickness of the team bench line
 #' @param extension The extension of the team bench line out of the court
@@ -721,9 +717,11 @@ basketball_team_bench_line <- function(line_thickness = 0,
 #'
 #' @param feature_radius The interior radius of the restricted arc
 #' @param line_thickness The thickness of the restricted arc line
-#' @param backboard_to_center_of_basket The distance from the backboard to the center of the basket
+#' @param backboard_to_center_of_basket The distance from the backboard to the
+#'   center of the basket
 #'
-#' @returns A data frame containing the bounding coordinates of the restricted arc
+#' @returns A data frame containing the bounding coordinates of the restricted
+#'   arc
 #'
 #' @keywords internal
 basketball_restricted_arc <- function(feature_radius = 0,
@@ -810,7 +808,7 @@ basketball_lower_defensive_box_mark <- function(drawn_direction = "",
 }
 
 #' The backboard is the backing onto which the basket ring (created by
-#' \code{\link{basketball_basket_ring}}) is affixed. This will be drawn as a
+#' [basketball_basket_ring()]) is affixed. This will be drawn as a
 #' rectangle on the court as the court is drawn from an aerial view
 #'
 #' @param backboard_width The width of the backboard when viewed from above.
