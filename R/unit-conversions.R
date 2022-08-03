@@ -1,4 +1,4 @@
-#' Function to convert all units, regardless of starting and ending units
+#' Convert all units, regardless of starting and ending units
 #'
 #' @param meas A measurement in any unit of length
 #' @param from_unit A string containing the original unit of measure to be

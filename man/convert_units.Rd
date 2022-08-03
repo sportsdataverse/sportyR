@@ -2,7 +2,7 @@
 % Please edit documentation in R/unit-conversions.R
 \name{convert_units}
 \alias{convert_units}
-\title{Function to convert all units, regardless of starting and ending units}
+\title{Convert all units, regardless of starting and ending units}
 \usage{
 convert_units(meas, from_unit, to_unit, conversion_columns = NULL)
 }
@@ -21,7 +21,7 @@ converted}
 The measurement in converted units
 }
 \description{
-Function to convert all units, regardless of starting and ending units
+Convert all units, regardless of starting and ending units
 }
 \examples{
 convert_units(1, "in", "cm")
