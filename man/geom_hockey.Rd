@@ -2,42 +2,95 @@
 % Please edit documentation in R/sport-hockey.R
 \name{geom_hockey}
 \alias{geom_hockey}
-\title{Generate a ggplot2 instance containing an ice rink for a specified league}
+\title{Generate a \code{ggplot2} instance containing an ice rink for a specified
+league}
 \usage{
 geom_hockey(
   league,
-  full_surf = TRUE,
-  rotate = FALSE,
-  rotation_dir = "ccw",
-  ...
+  display_range = "full",
+  rink_updates = list(),
+  color_updates = list(),
+  rotation = 0,
+  x_trans = 0,
+  y_trans = 0,
+  rink_units = NULL,
+  xlims = NULL,
+  ylims = NULL
 )
 }
 \arguments{
-\item{league}{The league for which to draw the surface}
+\item{league}{The league for which to draw the surface. This is
+case-insensitive}
 
-\item{full_surf}{A boolean indicating whether or not to plot a full surface
-represenation of the surface. Default: \code{TRUE}}
+\item{display_range}{A case-insensitive string indicating the display range
+to use for the plot. The default is \code{"full"}, which will be returned
+when either an invalid or no value is passed to the function.
 
-\item{rotate}{A boolean indicating whether or not the final rink plot needs
-to be rotated. Default: \code{FALSE}}
+The possible display ranges are:
+\describe{
+\item{\code{"full"}}{The full ice surface. This is the default}
+\item{\code{"offense"}}{The TV-right half of the ice surface}
+\item{\code{"offence"}}{The TV-right half of the ice surface}
+\item{\code{"defense"}}{The TV-left half of the ice surface}
+\item{\code{"defence"}}{The TV-left half of the ice surface}
+\item{\code{"ozone"}}{The TV-right zone of the ice surface}
+\item{\code{"offensive_zone"}}{The TV-right zone of the ice surface}
+\item{\code{"offensive zone"}}{The TV-right zone of the ice surface}
+\item{\code{"attacking_zone"}}{The TV-right zone of the ice surface}
+\item{\code{"attacking zone"}}{The TV-right zone of the ice surface}
+\item{\code{"dzone"}}{The TV-left zone of the ice surface}
+\item{\code{"defensive_zone"}}{The TV-left zone of the ice surface}
+\item{\code{"defensive zone"}}{The TV-left zone of the ice surface}
+\item{\code{"defending_zone"}}{The TV-left zone of the ice surface}
+\item{\code{"defending zone"}}{The TV-left zone of the ice surface}
+\item{\code{"nzone"}}{The middle zone of the ice surface}
+\item{\code{"neutral"}}{The middle zone of the ice surface}
+\item{\code{"neutral_zone"}}{The middle zone of the ice surface}
+\item{\code{"neutral zone"}}{The middle zone of the ice surface}
+}}
 
-\item{rotation_dir}{A string indicating which direction to rotate the final
-rink plot Default: \code{'ccw'}}
+\item{rink_updates}{A list of updates to the rink's parameters. These will
+overwrite the parameters of the league}
+
+\item{color_updates}{A list of updates to the courts' default colors, which
+are set by \code{\link[=hockey_features_set_colors]{hockey_features_set_colors()}}}
+
+\item{rotation}{An angle, given in degrees, through which the plot should be
+rotated}
+
+\item{x_trans}{The amount that the \code{x} coordinates are to be shifted. By
+convention, the +\code{x} axis extends from the center of the ice surface
+towards the right-hand goal when viewing the rink in TV View}
+
+\item{y_trans}{The amount that the \code{y} coordinates are to be shifted. By
+convention, the +\code{y} axis extends from the center of the ice surface
+towards the top of the rink when viewing the rink in TV view}
+
+\item{rink_units}{The units with which to draw the rink. The default is
+\code{NULL}, which will apply the rule-book specified units}
+
+\item{xlims}{The limits on the final display in the \code{x} direction. The
+default is \code{NULL}, which will utilize the \code{xlims} specified by
+the \code{display_range} parameter}
+
+\item{ylims}{The limits on the final display in the \code{y} direction. The
+default is \code{NULL}, which will utilize the \code{ylims} specified by
+the \code{display_range} parameter}
 
 \item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{{league}_features_set_colors()} function,
+colors to pass to the \code{hockey_features_set_colors()} function,
 (although the colors are defined in the rule book) or units with which to
 draw the plot}
 }
 \value{
-A ggplot2 instance with a full-surface representation of an ice
-hockey rink
+A \code{ggplot2} instance with a full-surface representation of an
+ice hockey rink
 }
 \description{
-Generate a ggplot2 instance containing an ice rink for a specified league
+Generate a \code{ggplot2} instance containing an ice rink for a specified
+league
 }
 \examples{
-geom_hockey(league = "NHL")
-geom_hockey(league = "IIHF", full_surf = FALSE)
-geom_hockey(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
+geom_hockey(league = "NHL", rotation = 270, display_range = "ozone")
+geom_hockey(league = "iihf", rink_units = "ft")
 }

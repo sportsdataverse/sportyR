@@ -2,37 +2,88 @@
 % Please edit documentation in R/sport-tennis.R
 \name{geom_tennis}
 \alias{geom_tennis}
-\title{Generate a ggplot2 instance containing a regulation tennis court for a
-specified league}
+\title{Generate a \code{ggplot2} instance containing a tennis court for a specified
+league}
 \usage{
 geom_tennis(
   league,
-  full_surf = TRUE,
-  rotate = FALSE,
-  rotation_dir = "ccw",
-  ...
+  display_range = "full",
+  court_updates = list(),
+  color_updates = list(),
+  rotation = 0,
+  x_trans = 0,
+  y_trans = 0,
+  court_units = NULL,
+  xlims = NULL,
+  ylims = NULL
 )
 }
 \arguments{
-\item{league}{The league for which to draw the surface}
+\item{league}{The league for which to draw the surface. This is
+case-insensitive}
 
-\item{full_surf}{A boolean indicating whether or not to plot a full surface
-representation of the surface. Default: \code{TRUE}}
+\item{display_range}{A case-insensitive string indicating the display range
+to use for the plot. The default is \code{"full"}, which will be returned
+when either an invalid or no value is passed to the function.
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be
-rotated. Default: \code{FALSE}}
+The possible display ranges are:
+\describe{
+\item{\code{"full"}}{The full court. This is the default}
+\item{\code{"serve"}}{The serving half of the court}
+\item{\code{"serving"}}{The serving half of the court}
+\item{\code{"servicehalf"}}{The serving half of the court}
+\item{\code{"service_half"}}{The serving half of the court}
+\item{\code{"service half"}}{The serving half of the court}
+\item{\code{"servinghalf"}}{The serving half of the court}
+\item{\code{"serving_half"}}{The serving half of the court}
+\item{\code{"serving half"}}{The serving half of the court}
+\item{\code{"receive"}}{The receiving half of the court}
+\item{\code{"receiving"}}{The receiving half of the court}
+\item{\code{"receivicehalf"}}{The receiving half of the court}
+\item{\code{"receivice_half"}}{The receiving half of the court}
+\item{\code{"receivice half"}}{The receiving half of the court}
+\item{\code{"receivinghalf"}}{The receiving half of the court}
+\item{\code{"receiving_half"}}{The receiving half of the court}
+\item{\code{"receiving half"}}{The receiving half of the court}
+}}
 
-\item{rotation_dir}{A string indicating which direction to rotate the
-feature. Default: \code{'ccw'}}
+\item{court_updates}{A list of updates to the courts' parameters. These will
+overwrite the parameters of the league}
 
-\item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{{league}_features_set_colors()} function, or
-units with which to draw the plot}
+\item{color_updates}{A list of updates to the courts' default colors, which
+are set by \code{\link[=tennis_features_set_colors]{tennis_features_set_colors()}}}
+
+\item{rotation}{An angle, given in degrees, through which the plot should be
+rotated}
+
+\item{x_trans}{The amount that the \code{x} coordinates are to be shifted. By
+convention, the +\code{x} axis extends from the center of the court towards
+the right-hand serviceline when viewing the court in TV View}
+
+\item{y_trans}{The amount that the \code{y} coordinates are to be shifted. By
+convention, the +\code{y} axis extends from the center of the court towards
+the sideline when viewing the court in TV view}
+
+\item{court_units}{The units with which to draw the court. The default is
+\code{NULL}, which will apply the rule-book specified units}
+
+\item{xlims}{The limits on the final display in the \code{x} direction. The
+default is \code{NULL}, which will utilize the \code{xlims} specified by
+the \code{display_range} parameter}
+
+\item{ylims}{The limits on the final display in the \code{y} direction. The
+default is \code{NULL}, which will utilize the \code{ylims} specified by
+the \code{display_range} parameter}
+}
+\value{
+A \code{ggplot2} instance with a full-surface representation of a
+tennis court
 }
 \description{
-Generate a ggplot2 instance containing a regulation tennis court for a
-specified league
+Generate a \code{ggplot2} instance containing a tennis court for a specified
+league
 }
 \examples{
-geom_tennis(league = "itf")
+geom_tennis(league = "USTA", rotation = 270, display_range = "serving")
+geom_tennis(league = "itf", court_units = "m")
 }

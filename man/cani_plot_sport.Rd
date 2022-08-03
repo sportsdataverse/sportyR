@@ -2,20 +2,20 @@
 % Please edit documentation in R/cani-functions.R
 \name{cani_plot_sport}
 \alias{cani_plot_sport}
-\title{Check to see if a sport can be plotted, and alert the user as to which
-leagues are plottable for the sport}
+\title{Check to see if a sport can be plotted, and alert as to which league(s) are
+plottable for the sport}
 \usage{
-cani_plot_sport(sport)
+cani_plot_sport(sport_code)
 }
 \arguments{
-\item{sport}{The case-insensitive sport name}
+\item{sport_code}{The case-insensitive sport name}
 }
 \value{
-Nothing, but a message is sent to the console for the user
+Nothing, but a message is sent to the console
 }
 \description{
-Check to see if a sport can be plotted, and alert the user as to which
-leagues are plottable for the sport
+Check to see if a sport can be plotted, and alert as to which league(s) are
+plottable for the sport
 }
 \examples{
 cani_plot_sport("basketball")

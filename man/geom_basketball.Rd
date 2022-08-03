@@ -2,41 +2,222 @@
 % Please edit documentation in R/sport-basketball.R
 \name{geom_basketball}
 \alias{geom_basketball}
-\title{Create a ggplot2 instance of a scale model of a basketball court}
+\title{Generate a \code{ggplot2} instance containing a basketball court for a
+specified league}
 \usage{
 geom_basketball(
   league,
-  full_surf = TRUE,
-  rotate = FALSE,
-  rotation_dir = "ccw",
-  ...
+  display_range = "full",
+  court_updates = list(),
+  color_updates = list(),
+  rotation = 0,
+  x_trans = 0,
+  y_trans = 0,
+  court_units = NULL,
+  xlims = NULL,
+  ylims = NULL
 )
 }
 \arguments{
-\item{league}{The league for which to draw the surface}
+\item{league}{The league for which to draw the surface. This is
+case-insensitive}
 
-\item{full_surf}{A boolean indicating whether or not to plot a full surface
-representation of the surface. Default: \code{TRUE}}
+\item{display_range}{A case-insensitive string indicating the display range
+to use for the plot. The default is \code{"full"}, which will be returned
+when either an invalid or no value is passed to the function.
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be
-rotated. Default: \code{FALSE}}
+The possible display ranges are:
+\describe{
+\item{\code{"full"}}{
+The full court. This is the default
+}
+\item{\code{"offense"}}{
+The TV-right half of the court half-court. This is considered the
+offensive half of the court
+}
+\item{\code{"offence"}}{
+The TV-right half of the court half-court. This is considered the
+offensive half of the court
+}
+\item{\code{"offensivehalfcourt"}}{
+The TV-right half of the court half-court. This is considered the
+offensive half of the court
+}
+\item{\code{"offensive_half_court"}}{
+The TV-right half of the court half-court. This is considered the
+offensive half of the court
+}
+\item{\code{"offensive half court"}}{
+The TV-right half of the court half-court. This is considered the
+offensive half of the court
+}
+\item{\code{"defense"}}{
+The TV-left half of the court half-court. This is considered the
+defensive half of the court
+}
+\item{\code{"defence"}}{
+The TV-left half of the court half-court. This is considered the
+defensive half of the court
+}
+\item{\code{"defensivehalfcourt"}}{
+The TV-left half of the court half-court. This is considered the
+defensive half of the court
+}
+\item{\code{"defensive_half_court"}}{
+The TV-left half of the court half-court. This is considered the
+defensive half of the court
+}
+\item{\code{"defensive half court"}}{
+The TV-left half of the court half-court. This is considered the
+defensive half of the court
+}
+\item{\code{"offensivekey"}}{
+The TV-right offensive key (three-point line and two-point range)
+}
+\item{\code{"offensive_key"}}{
+The TV-right offensive key (three-point line and two-point range)
+}
+\item{\code{"offensive key"}}{
+The TV-right offensive key (three-point line and two-point range)
+}
+\item{\code{"attackingkey"}}{
+The TV-right offensive key (three-point line and two-point range)
+}
+\item{\code{"attacking_key"}}{
+The TV-right offensive key (three-point line and two-point range)
+}
+\item{\code{"attacking key"}}{
+The TV-right offensive key (three-point line and two-point range)
+}
+\item{\code{"defensivekey"}}{
+The TV-left defensive key (three-point line and two-point range)
+}
+\item{\code{"defensive_key"}}{
+The TV-left defensive key (three-point line and two-point range)
+}
+\item{\code{"defensive key"}}{
+The TV-left defensive key (three-point line and two-point range)
+}
+\item{\code{"defendingkey"}}{
+The TV-left defensive key (three-point line and two-point range)
+}
+\item{\code{"defending_key"}}{
+The TV-left defensive key (three-point line and two-point range)
+}
+\item{\code{"defending key"}}{
+The TV-left defensive key (three-point line and two-point range)
+}
+\item{\code{"offensivepaint"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"offensive_paint"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"offensive paint"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"attackingpaint"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"attacking_paint"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"attacking paint"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"offensivelane"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"offensive_lane"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"offensive lane"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"attackinglane"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"attacking_lane"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"attacking lane"}}{
+The TV-right offensive free-throw lane
+}
+\item{\code{"defensivepaint"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defensive_paint"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defensive paint"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defendingpaint"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defending_paint"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defending paint"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defensivelane"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defensive_lane"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defensive lane"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defendinglane"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defending_lane"}}{
+The TV-left defensive free-throw lane
+}
+\item{\code{"defending lane"}}{
+The TV-left defensive free-throw lane
+}
+}}
 
-\item{rotation_dir}{A string indicating which direction to rotate the
-feature. Default: \code{'ccw'}}
+\item{court_updates}{A list of updates to the courts' parameters. These will
+overwrite the parameters of the league}
 
-\item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{{league}_features_set_colors()} function, or
-units with which to draw the plot}
+\item{color_updates}{A list of updates to the courts' default colors, which
+are set by \code{\link[=basketball_features_set_colors]{basketball_features_set_colors()}}}
+
+\item{rotation}{An angle, given in degrees, through which the plot should be
+rotated}
+
+\item{x_trans}{The amount that the \code{x} coordinates are to be shifted. By
+convention, the +\code{x} axis extends from the center of the court towards
+the right-hand basket when viewing the court in TV View}
+
+\item{y_trans}{The amount that the \code{y} coordinates are to be shifted. By
+convention, the +\code{y} axis extends from the center of the court towards
+the top of the court when viewing the court in TV view}
+
+\item{court_units}{The units with which to draw the court. The default is
+\code{NULL}, which will apply the rule-book specified units}
+
+\item{xlims}{The limits on the final display in the \code{x} direction. The
+default is \code{NULL}, which will utilize the \code{xlims} specified by
+the \code{display_range} parameter}
+
+\item{ylims}{The limits on the final display in the \code{y} direction. The
+default is \code{NULL}, which will utilize the \code{ylims} specified by
+the \code{display_range} parameter}
 }
 \value{
-A ggplot2 instance with a full-surface representation of a basketball
-court
+A \code{ggplot2} instance with a full-surface representation of a
+basketball court
 }
 \description{
-Create a ggplot2 instance of a scale model of a basketball court
+Generate a \code{ggplot2} instance containing a basketball court for a
+specified league
 }
 \examples{
-geom_basketball(league = "NBA")
-geom_basketball(league = "NCAA", full_surf = FALSE)
-geom_basketball(league = "FIBA", rotate = TRUE, rotation_dir = "ccw")
+geom_basketball(league = "NBA", rotation = 270, display_range = "offense")
+geom_basketball(league = "fiba", court_units = "ft")
 }

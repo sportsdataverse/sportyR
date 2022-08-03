@@ -2,26 +2,74 @@
 % Please edit documentation in R/sport-baseball.R
 \name{geom_baseball}
 \alias{geom_baseball}
-\title{Generate a ggplot2 instance containing a regulation baseball field for a
+\title{Generate a \code{ggplot2} instance containing a baseball field for a
 specified league}
 \usage{
-geom_baseball(league, ...)
+geom_baseball(
+  league,
+  display_range = "full",
+  field_updates = list(),
+  color_updates = list(),
+  rotation = 0,
+  x_trans = 0,
+  y_trans = 0,
+  field_units = NULL,
+  xlims = NULL,
+  ylims = NULL
+)
 }
 \arguments{
-\item{league}{The league for which to draw the surface}
+\item{league}{The league for which to draw the surface. This is
+case-insensitive}
 
-\item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{mlb_features_set_colors()} function, or units
-with which to draw the plot}
+\item{display_range}{A case-insensitive string indicating the display range
+to use for the plot. The default is \code{"full"}, which will be returned
+when either an invalid or no value is passed to the function.
+
+The possible display ranges are:
+
+\describe{
+\item{\code{"full"}}{The full field. This is the default}
+\item{\code{"infield"}}{The infield on the baseball field}
+}}
+
+\item{field_updates}{A list of updates to the field's parameters. These will
+overwrite the parameters of the league}
+
+\item{color_updates}{A list of updates to the field's default colors, which
+are set by \code{\link[=baseball_features_set_colors]{baseball_features_set_colors()}}}
+
+\item{rotation}{An angle, given in degrees, through which the plot should be
+rotated}
+
+\item{x_trans}{The amount that the \code{x} coordinates are to be shifted. By
+convention, the +\code{x} axis extends from the back tip of home plate
+towards the left-handed batter's box (the first base side of the field)}
+
+\item{y_trans}{The amount that the \code{y} coordinates are to be shifted. By
+convention, the +\code{y} axis extends from the back tip of home plate
+towards straight-away center field}
+
+\item{field_units}{The units with which to draw the field. The default is
+\code{NULL}, which will apply the rule-book specified units}
+
+\item{xlims}{The limits on the final display in the \code{x} direction. The
+default is \code{NULL}, which will utilize the \code{xlims} specified by
+the \code{display_range} parameter}
+
+\item{ylims}{The limits on the final display in the \code{y} direction. The
+default is \code{NULL}, which will utilize the \code{ylims} specified by
+the \code{display_range} parameter}
 }
 \value{
-A ggplot2 instance with a full-surface representation of a baseball
-field
+A \code{ggplot2} instance with a full-surface representation of a
+baseball field
 }
 \description{
-Generate a ggplot2 instance containing a regulation baseball field for a
+Generate a \code{ggplot2} instance containing a baseball field for a
 specified league
 }
 \examples{
-geom_baseball(league = "MLB")
+geom_baseball(league = "MLB", rotation = 270, display_range = "infield")
+geom_baseball(league = "little_league", field_units = "m")
 }

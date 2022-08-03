@@ -2,49 +2,119 @@
 % Please edit documentation in R/sport-football.R
 \name{geom_football}
 \alias{geom_football}
-\title{This draws a football field in its standard coordinate system, with (0, 0)
-being the bottom left corner of the left-most endzone. Each unit on the
-coordinate system corresponds to 1 yard
-Generate a ggplot2 instance containing a regulation football field for a
+\title{Generate a \code{ggplot2} instance containing a football field for a
 specified league}
 \usage{
 geom_football(
   league,
-  full_surf = TRUE,
-  rotate = FALSE,
-  rotation_dir = "ccw",
-  ...
+  display_range = "full",
+  field_updates = list(),
+  color_updates = list(),
+  rotation = 0,
+  x_trans = 0,
+  y_trans = 0,
+  field_units = NULL,
+  xlims = NULL,
+  ylims = NULL
 )
 }
 \arguments{
-\item{league}{The league for which to draw the surface}
+\item{league}{The league for which to draw the surface. This is
+case-insensitive}
 
-\item{full_surf}{A boolean indicating whether or not to draw a full-surface
-representation of the playing surface. Default: \code{TRUE}}
+\item{display_range}{A case-insensitive string indicating the display range
+to use for the plot. The default is \code{"full"}, which will be returned
+when either an invalid or no value is passed to the function.
 
-\item{rotate}{A boolean indicating whether or not this feature needs to be
-rotated. Default: \code{FALSE}}
+The possible display ranges are:
 
-\item{rotation_dir}{A string indicating which direction to rotate the
-feature. Default: \code{'ccw'}}
+\describe{
+\item{\code{"full"}}{The full field. This is the default}
+\item{\code{"offense"}}{The TV-right half of the field}
+\item{\code{"offence"}}{The TV-right half of the field}
+\item{\code{"offensivehalffield"}}{The TV-right half of the field}
+\item{\code{"offensive_half_field"}}{The TV-right half of the field}
+\item{\code{"offensive half field"}}{The TV-right half of the field}
+\item{\code{"defense"}}{The TV-left half of the field}
+\item{\code{"defence"}}{The TV-left half of the field}
+\item{\code{"defensivehalffield"}}{The TV-left half of the field}
+\item{\code{"defensive_half_field"}}{The TV-left half of the field}
+\item{\code{"defensive half field"}}{The TV-left half of the field}
+\item{\code{"redzone"}}{
+The offensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"red_zone"}}{
+The offensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"red zone"}}{
+The offensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"oredzone"}}{
+The offensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"offensive_red_zone"}}{
+The offensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"offensive red zone"}}{
+The offensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"dredzone"}}{
+The defensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"defensive_red_zone"}}{
+The defensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+\item{\code{"defensive red zone"}}{
+The defensive red zone of the field. This is by definition 20 yards
+from the goal line
+}
+}}
 
-\item{...}{Additional arguments to pass to the function. These should be the
-colors to pass to the \code{{league}_features_set_colors()} function,
-(although the colors are defined in the rule book) or units with which to
-draw the plot}
+\item{field_updates}{A list of updates to the field's parameters. These will
+overwrite the parameters of the league}
+
+\item{color_updates}{A list of updates to the field's default colors, which
+are set by \code{\link[=football_features_set_colors]{football_features_set_colors()}}}
+
+\item{rotation}{An angle, given in degrees, through which the plot should be
+rotated}
+
+\item{x_trans}{The amount that the \code{x} coordinates are to be shifted. By
+convention, the +\code{x} axis extends from the center of the field towards
+the right-hand endzone when viewing the field in TV View}
+
+\item{y_trans}{The amount that the \code{y} coordinates are to be shifted. By
+convention, the +\code{y} axis extends from the center of the field towards
+the sideline when viewing the field in TV view}
+
+\item{field_units}{The units with which to draw the field. The default is
+\code{NULL}, which will apply the rule-book specified units}
+
+\item{xlims}{The limits on the final display in the \code{x} direction. The
+default is \code{NULL}, which will utilize the \code{xlims} specified by
+the \code{display_range} parameter}
+
+\item{ylims}{The limits on the final display in the \code{y} direction. The
+default is \code{NULL}, which will utilize the \code{ylims} specified by
+the \code{display_range} parameter}
 }
 \value{
-A ggplot2 instance with a full-surface representation of a football
-field
+A \code{ggplot2} instance with a full-surface representation of a
+football field
 }
 \description{
-This draws a football field in its standard coordinate system, with (0, 0)
-being the bottom left corner of the left-most endzone. Each unit on the
-coordinate system corresponds to 1 yard
-Generate a ggplot2 instance containing a regulation football field for a
+Generate a \code{ggplot2} instance containing a football field for a
 specified league
 }
 \examples{
-geom_football(league = "NFL")
-geom_football(league = "NCAA", rotate = TRUE, rotation_dir = "ccw")
+geom_football(league = "NFL", rotation = 270, display_range = "red_zone")
+geom_football(league = "cfl", field_units = "ft")
 }
