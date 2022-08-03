@@ -36,7 +36,7 @@ create_plot_base <- function(plot_background = NULL) {
   return(g)
 }
 
-#' Add a surface's feature to a ggplot2 instance
+#' Add a surface's feature to a \code{ggplot2} instance
 #'
 #' @param g The \code{ggplot2} instance onto which the feature will be added
 #' @param x_anchor The anchor point along the \code{x} axis for the feature
@@ -44,9 +44,14 @@ create_plot_base <- function(plot_background = NULL) {
 #' @param feature_df The data frame containing the points to add to the feature
 #' @param feature_color A hexadecimal string with which to color the feature
 #'   once added to the plot
+#' @param feature_outline_color A hexadecimal string with which to color the
+#'   outline of the feature added to the plot. The default value is
+#'   \code{"#ffffff00"}, which is white with a 0% alpha value. This results in
+#'   no outline being added, which is usually desirable, but may be overwritten
+#'   to prevent "seams" from appearing in the resulting plot
 #' @param reflect_x Whether or not to reflect the feature over the \code{x} axis
 #' @param reflect_y Whether or not to reflect the feature over the \code{y} axis
-#' @param group A grouping to pass along to \code{ggplot2::aes()}. This is used
+#' @param group A grouping to pass along to [ggplot2::aes()]. This is used
 #'   for speed in the NFL and NCAA Football plotting functions
 #'
 #' @return A \code{ggplot2} instance with the feature added to it
@@ -57,6 +62,7 @@ add_feature <- function(g,
                         y_anchor,
                         feature_df,
                         feature_color,
+                        feature_outline_color = "#ffffff00",
                         reflect_x = FALSE,
                         reflect_y = FALSE,
                         x_trans = 0,
@@ -96,7 +102,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
         ggplot2::aes(
@@ -105,7 +111,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
         ggplot2::aes(
@@ -114,7 +120,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
         ggplot2::aes(
@@ -123,7 +129,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       )
   } else if (reflect_x && !reflect_y) {
     g <- g +
@@ -134,7 +140,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
         ggplot2::aes(
@@ -143,7 +149,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       )
   } else if (!reflect_x && reflect_y) {
     g <- g +
@@ -154,7 +160,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
         ggplot2::aes(
@@ -163,7 +169,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       )
   } else {
     g <- g +
@@ -174,7 +180,7 @@ add_feature <- function(g,
           group = group
         ),
         fill = feature_color,
-        color = feature_color
+        color = feature_outline_color
       )
   }
 
