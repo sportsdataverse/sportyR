@@ -394,7 +394,7 @@ football_field_border_outline <- function(field_length = 0,
                                           field_width = 0,
                                           feature_thickness = 0,
                                           endzone_length = 0,
-                                          boundary_thickness = 0,
+                                          boundary_line_thickness = 0,
                                           restricted_area_length = 0,
                                           restricted_area_width = 0,
                                           coaching_box_length = 0,
@@ -412,64 +412,65 @@ football_field_border_outline <- function(field_length = 0,
         (restricted_area_length / 2) + team_bench_area_border_thickness,
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness,
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness,
         (restricted_area_length / 2) + team_bench_area_border_thickness,
         (restricted_area_length / 2) + team_bench_area_border_thickness,
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness +
           feature_thickness,
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness +
           feature_thickness,
         (restricted_area_length / 2) + team_bench_area_border_thickness,
         (restricted_area_length / 2) + team_bench_area_border_thickness
       ),
       y = c(
-        (field_width / 2) + boundary_thickness + field_border_thickness,
-        (field_width / 2) + boundary_thickness + field_border_thickness,
-        -((field_width / 2) + boundary_thickness + field_border_thickness),
-        -((field_width / 2) + boundary_thickness + field_border_thickness),
+        (field_width / 2) + boundary_line_thickness + field_border_thickness,
+        (field_width / 2) + boundary_line_thickness + field_border_thickness,
+        -((field_width / 2) + boundary_line_thickness + field_border_thickness),
+        -((field_width / 2) + boundary_line_thickness + field_border_thickness),
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness +
             feature_thickness
         ),
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness +
             feature_thickness
         ),
         (field_width / 2) +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness +
           feature_thickness,
         (field_width / 2) +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness +
           feature_thickness,
-        (field_width / 2) + boundary_thickness + field_border_thickness
+        (field_width / 2) + boundary_line_thickness + field_border_thickness
       )
     )
 
     return(field_border_outline_df)
   } else {
     starting_depth <- (field_width / 2) +
-      boundary_thickness +
+      boundary_line_thickness +
       restricted_area_width +
       coaching_box_width +
       team_bench_width +
-      team_bench_area_border_thickness
+      team_bench_area_border_thickness +
+      field_border_thickness
 
     if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
       m <- team_bench_width / (
@@ -515,13 +516,13 @@ football_field_border_outline <- function(field_length = 0,
         # Edge of field (top)
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness,
 
         # Edge of field (bottom)
         (field_length / 2) +
           endzone_length +
-          boundary_thickness +
+          boundary_line_thickness +
           field_border_thickness,
 
         # Restricted area (bottom)
@@ -571,14 +572,14 @@ football_field_border_outline <- function(field_length = 0,
 
         # Edge of field (bottom)
         (field_length / 2) +
-          boundary_thickness +
+          boundary_line_thickness +
           endzone_length +
           field_border_thickness +
           feature_thickness,
 
         # Edge of field (top)
         (field_length / 2) +
-          boundary_thickness +
+          boundary_line_thickness +
           endzone_length +
           field_border_thickness +
           feature_thickness,
@@ -614,7 +615,7 @@ football_field_border_outline <- function(field_length = 0,
         # Start
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -624,7 +625,7 @@ football_field_border_outline <- function(field_length = 0,
         # Short edge of bench (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -634,57 +635,57 @@ football_field_border_outline <- function(field_length = 0,
         # Long edge of bench (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width
         ),
         # Coaching box (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width
         ),
         # Restricted area (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness
         ),
         # Edge of field (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness
         ),
         # Edge of field (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness
         ),
         # Restricted area (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness
         ),
         # Coaching box (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width
         ),
         # Long edge of bench (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width
         ),
         # Short edge of bench (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -694,7 +695,7 @@ football_field_border_outline <- function(field_length = 0,
         # Zero
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -704,7 +705,7 @@ football_field_border_outline <- function(field_length = 0,
         # Outward
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -715,7 +716,7 @@ football_field_border_outline <- function(field_length = 0,
         # Short edge of bench (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -726,61 +727,61 @@ football_field_border_outline <- function(field_length = 0,
         # Long edge of bench (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width
         ),
         # Coaching box (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width
         ),
         # Restricted area (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness +
             feature_thickness
         ),
         # Edge of field (bottom)
         -(
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness +
             feature_thickness
         ),
         # Edge of field (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness +
             feature_thickness
         ),
         # Restricted area (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             field_border_thickness +
             feature_thickness
         ),
         # Coaching box (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width
         ),
         # Long edge of bench (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width
         ),
         # Short edge of bench (top)
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -791,7 +792,7 @@ football_field_border_outline <- function(field_length = 0,
         # Zero
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
@@ -802,7 +803,7 @@ football_field_border_outline <- function(field_length = 0,
         # End
         (
           (field_width / 2) +
-            boundary_thickness +
+            boundary_line_thickness +
             restricted_area_width +
             coaching_box_width +
             team_bench_width +
