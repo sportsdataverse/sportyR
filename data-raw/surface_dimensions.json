@@ -1,0 +1,2163 @@
+{
+    "baseball": {
+        "custom": {
+            "field_units": "",
+
+            "left_field_distance": 0.0,
+            "right_field_distance": 0.0,
+            "center_field_distance": 0.0,
+
+            "baseline_distance": 0.0,
+
+            "running_lane_start_distance": 0.0,
+            "running_lane_depth": 0.0,
+            "running_lane_length": 0.0,
+
+            "pitchers_mound_center_to_home_plate": 0.0,
+            "pitchers_mound_radius": 0.0,
+            "pitchers_plate_front_to_home_plate": 0.0,
+            "pitchers_plate_width": 0.0,
+            "pitchers_plate_length": 0.0,
+
+            "base_side_length": 0.0,
+            "home_plate_edge_length": 0.0,
+
+            "infield_arc_radius": 0.0,
+            "base_anchor_to_infield_grass_radius": 0.0,
+
+            "line_width": 0.0,
+            "foul_line_to_infield_grass": 0.0,
+            "foul_line_to_foul_grass": 0.0,
+
+            "batters_box_length": 0.0,
+            "batters_box_width": 0.0,
+            "batters_box_y_adj": 0.0,
+            "home_plate_side_to_batters_box": 0.0,
+            "catchers_box_depth": 0.0,
+            "catchers_box_width": 0.0,
+
+            "backstop_radius": 0.0,
+            "home_plate_circle_radius": 0.0
+        },
+
+        "little league": {
+            "field_units": "ft",
+
+            "left_field_distance": 200.0,
+            "right_field_distance": 200.0,
+            "center_field_distance": 200.0,
+
+            "baseline_distance": 60.0,
+
+            "running_lane_start_distance": 30.0,
+            "running_lane_depth": 2.5,
+            "running_lane_length": 30.0,
+
+            "pitchers_mound_center_to_home_plate": 46.0,
+            "pitchers_mound_radius": 5.0,
+            "pitchers_plate_front_to_home_plate": 47.0,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 50.0,
+            "base_anchor_to_infield_grass_radius": 9.0,
+
+            "line_width": 0.1667,
+            "foul_line_to_infield_grass": 1.5,
+            "foul_line_to_foul_grass": 2.5,
+
+            "batters_box_length": 7.0,
+            "batters_box_width": 3.0,
+            "batters_box_y_adj": 1.1792,
+            "home_plate_side_to_batters_box": 0.3333,
+            "catchers_box_shape": "trapezoid",
+            "catchers_box_depth": 6.3640,
+
+            "backstop_radius": 30.0,
+            "home_plate_circle_radius": 9.0
+        },
+
+        "milb": {
+            "field_units": "ft",
+
+            "left_field_distance": 355.0,
+            "right_field_distance": 355.0,
+            "center_field_distance": 400.0,
+
+            "baseline_distance": 90.0,
+
+            "running_lane_start_distance": 45.0,
+            "running_lane_depth": 3.0,
+            "running_lane_length": 48.0,
+
+            "pitchers_mound_center_to_home_plate": 59.0,
+            "pitchers_mound_radius": 9.0,
+            "pitchers_plate_front_to_home_plate": 60.5,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 95.0,
+            "base_anchor_to_infield_grass_radius": 13.0,
+
+            "line_width": 0.1667,
+            "foul_line_to_infield_grass": 3.0,
+            "foul_line_to_foul_grass": 3.0,
+
+            "batters_box_length": 6.0,
+            "batters_box_width": 4.0,
+            "batters_box_y_adj": 0.7083,
+            "home_plate_side_to_batters_box": 0.5,
+            "catchers_box_shape": "rectangle",
+            "catchers_box_depth": 8.0,
+            "catchers_box_width": 3.5833,
+
+            "backstop_radius": 60.0,
+            "home_plate_circle_radius": 13.0
+        },
+
+        "mlb": {
+            "field_units": "ft",
+
+            "left_field_distance": 355.0,
+            "right_field_distance": 355.0,
+            "center_field_distance": 400.0,
+
+            "baseline_distance": 90.0,
+
+            "running_lane_start_distance": 45.0,
+            "running_lane_depth": 3.0,
+            "running_lane_length": 48.0,
+
+            "pitchers_mound_center_to_home_plate": 59.0,
+            "pitchers_mound_radius": 9.0,
+            "pitchers_plate_front_to_home_plate": 60.5,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 95.0,
+            "base_anchor_to_infield_grass_radius": 13.0,
+
+            "line_width": 0.25,
+            "foul_line_to_infield_grass": 3.0,
+            "foul_line_to_foul_grass": 3.0,
+
+            "batters_box_length": 6.0,
+            "batters_box_width": 4.0,
+            "batters_box_y_adj": 0.7083,
+            "home_plate_side_to_batters_box": 0.5,
+            "catchers_box_shape": "rectangle",
+            "catchers_box_depth": 8.0,
+            "catchers_box_width": 3.5833,
+
+            "backstop_radius": 60.0,
+            "home_plate_circle_radius": 13.0
+        },
+
+        "ncaa": {
+            "field_units": "ft",
+
+            "left_field_distance": 355.0,
+            "right_field_distance": 355.0,
+            "center_field_distance": 400.0,
+
+            "baseline_distance": 90.0,
+
+            "running_lane_start_distance": 45.0,
+            "running_lane_depth": 3.0,
+            "running_lane_length": 48.0,
+
+            "pitchers_mound_center_to_home_plate": 59.0,
+            "pitchers_mound_radius": 9.0,
+            "pitchers_plate_front_to_home_plate": 60.5,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 95.0,
+            "base_anchor_to_infield_grass_radius": 13.0,
+
+            "line_width": 0.25,
+            "foul_line_to_infield_grass": 3.0,
+            "foul_line_to_foul_grass": 3.0,
+
+            "batters_box_length": 6.0,
+            "batters_box_width": 4.0,
+            "batters_box_y_adj": 0.7083,
+            "home_plate_side_to_batters_box": 0.5,
+            "catchers_box_shape": "rectangle",
+            "catchers_box_depth": 8.0,
+            "catchers_box_width": 3.5833,
+
+            "backstop_radius": 60.0,
+            "home_plate_circle_radius": 13.0
+        },
+
+        "nfhs": {
+            "field_units": "ft",
+
+            "left_field_distance": 355.0,
+            "right_field_distance": 355.0,
+            "center_field_distance": 400.0,
+
+            "baseline_distance": 90.0,
+
+            "running_lane_start_distance": 45.0,
+            "running_lane_depth": 3.0,
+            "running_lane_length": 45.0,
+
+            "pitchers_mound_center_to_home_plate": 59.0,
+            "pitchers_mound_radius": 9.0,
+            "pitchers_plate_front_to_home_plate": 60.5,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 90.0,
+            "base_anchor_to_infield_grass_radius": 13.0,
+
+            "line_width": 0.2083,
+            "foul_line_to_infield_grass": 3.0,
+            "foul_line_to_foul_grass": 3.0,
+
+            "batters_box_length": 6.0,
+            "batters_box_width": 4.0,
+            "batters_box_y_adj": 0.7083,
+            "home_plate_side_to_batters_box": 0.5,
+            "catchers_box_shape": "rectangle",
+            "catchers_box_depth": 8.0,
+            "catchers_box_width": 3.5833,
+
+            "backstop_radius": 60.0,
+            "home_plate_circle_radius": 13.0
+        },
+
+        "pony": {
+            "field_units": "ft",
+
+            "left_field_distance": 265.0,
+            "right_field_distance": 265.0,
+            "center_field_distance": 315.0,
+
+            "baseline_distance": 80.0,
+
+            "pitchers_mound_center_to_home_plate": 53.0,
+            "pitchers_mound_radius": 7.5,
+            "pitchers_plate_front_to_home_plate": 54.0,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 80.0,
+            "base_anchor_to_infield_grass_radius": 12.0,
+
+            "line_width": 0.1667,
+            "foul_line_to_infield_grass": 3.0,
+            "foul_line_to_foul_grass": 3.0,
+
+            "batters_box_length": 6.0,
+            "batters_box_width": 4.0,
+            "batters_box_y_adj": 0.7083,
+            "home_plate_side_to_batters_box": 0.5,
+            "catchers_box_shape": "rectangle",
+            "catchers_box_depth": 8.0,
+            "catchers_box_width": 3.5833,
+
+            "backstop_radius": 60.0,
+            "home_plate_circle_radius": 13.0
+        }
+    },
+
+    "basketball": {
+        "custom": {
+            "court_length": 0.0,
+            "court_width": 0.0,
+            "court_units": "",
+            "line_thickness": 0.1667,
+            "bench_side": "",
+
+            "court_apron_endline": 0.0,
+            "court_apron_sideline": 0.0,
+            "court_apron_to_boundary": 0.0,
+
+            "center_circle_radius": [],
+
+            "basket_center_to_baseline": 0.0,
+            "basket_center_to_three_point_arc": 0.0,
+            "basket_center_to_corner_three": 0.0,
+            "backboard_face_to_baseline": 0.0,
+
+            "lane_length": [],
+            "lane_width": [],
+            "paint_margin": [],
+
+            "free_throw_circle_radius": 0.0,
+            "free_throw_line_to_backboard": 0.0,
+            "free_throw_circle_overhang": 0.0,
+            "n_free_throw_circle_dashes": 0.0,
+            "free_throw_dash_length": 0.0,
+            "free_throw_dash_spacing": 0.0,
+
+            "lane_space_mark_lengths": [],
+            "lane_space_mark_widths": [],
+            "lane_space_mark_separations": [],
+
+            "painted_area_visibility": [],
+            "lane_boundary_visibility": [],
+            "lane_space_mark_visibility": [],
+            "lane_lower_defensive_box_marks_visibility": true,
+
+            "baseline_lower_defensive_box_marks_int_sep": 0.0,
+            "baseline_to_lane_lower_defensive_box_marks": 0.0,
+            "lane_lower_defensive_box_marks_int_sep": 0.0,
+            "lower_defensive_box_mark_extension": 0.0,
+
+            "inbounding_line_to_baseline": 0.0,
+            "inbounding_line_anchor_side": 0.0,
+            "inbounding_line_in_play_ext": 0.0,
+            "inbounding_line_out_of_bounds_ext": 0.0,
+            "symmetric_inbounding_line": true,
+
+            "substitution_line_ext_sep": 0.0,
+            "substitution_line_width": 0.0,
+
+            "restricted_arc_radius": 0.0,
+
+            "backboard_width": 0.0,
+            "backboard_thickness": 0.0,
+
+            "basket_ring_inner_radius": 0.0,
+            "basket_ring_connector_width": 0.0,
+            "basket_ring_connector_extension": 0.0,
+            "basket_ring_thickness": 0
+        },
+
+        "fiba": {
+            "court_length": 28.0,
+            "court_width": 15.0,
+            "court_units": "m",
+            "line_thickness": 0.05,
+            "bench_side": "bottom",
+
+            "court_apron_endline": 2.5,
+            "court_apron_sideline": 2.5,
+            "court_apron_to_boundary": 0.0,
+
+            "center_circle_radius": 1.8,
+            "division_line_extension": 0.15,
+
+            "basket_center_to_baseline": 1.575,
+            "basket_center_to_three_point_arc": 6.75,
+            "basket_center_to_corner_three": 6.6,
+            "backboard_face_to_baseline": 1.2,
+
+            "lane_length": 5.8,
+            "lane_width": 4.9,
+            "paint_margin": 0.0,
+
+            "free_throw_circle_radius": 1.8,
+            "free_throw_line_to_backboard": 4.6,
+
+            "lane_space_mark_lengths": [
+                [0.05, 0.4, 0.05, 0.05]
+            ],
+            "lane_space_mark_widths": 0.1,
+            "lane_space_mark_separations": [
+                [0.55, 0.85, 0.85, 0.85]
+            ],
+
+            "lane_space_mark_visibility": true,
+
+            "lane_lower_defensive_box_marks_visibility": false,
+
+            "inbounding_line_to_baseline": 8.275,
+            "inbounding_line_anchor_side": -1.0,
+            "inbounding_line_in_play_ext": 0.0,
+            "inbounding_line_out_of_bounds_ext": 0.15,
+            "symmetric_inbounding_line": false,
+
+            "substitution_line_ext_sep": 10.1,
+            "substitution_line_width": 2.0,
+
+            "team_bench_line_ext": 2.0,
+
+            "restricted_arc_radius": 1.25,
+
+            "backboard_width": 1.8,
+            "backboard_thickness": 0.0524,
+
+            "basket_ring_inner_radius": 0.225,
+            "basket_ring_connector_width": 0.1778,
+            "basket_ring_connector_extension": 0.0151,
+            "basket_ring_thickness": 0.02
+        },
+
+        "nba": {
+            "court_length": 94.0,
+            "court_width": 50.0,
+            "court_units": "ft",
+            "line_thickness": 0.1667,
+            "bench_side": "top",
+
+            "court_apron_endline": 8.0,
+            "court_apron_sideline": 5.0,
+            "court_apron_to_boundary": 0.0,
+
+            "center_circle_radius": [6.0, 2.1667],
+
+            "basket_center_to_baseline": 5.25,
+            "basket_center_to_three_point_arc": 23.75,
+            "basket_center_to_corner_three": 22.0,
+            "backboard_face_to_baseline": 4.0,
+
+            "lane_length": [19.0, 19.0],
+            "lane_width": [16.0, 12.0],
+            "paint_margin": [0.0, 0.0],
+
+            "free_throw_circle_radius": 6.0,
+            "free_throw_line_to_backboard": 15.0,
+            "free_throw_circle_overhang": 1.024,
+            "n_free_throw_circle_dashes": 6.0,
+            "free_throw_dash_length": 1.292,
+            "free_throw_dash_spacing": 1.292,
+
+            "lane_space_mark_lengths": [
+                [0.1667, 0.1667, 0.1667, 0.1667],
+                [1.0, 0.1667, 0.1667, 0.1667]
+            ],
+            "lane_space_mark_widths": [0.5, 0.75],
+            "lane_space_mark_separations": [
+                [3.0, 0.8333, 3.0, 3.0],
+                [3.0, 3.0, 3.0, 3.0]
+            ],
+
+            "painted_area_visibility": [true, false],
+            "lane_boundary_visibility": [true, false],
+            "lane_space_mark_visibility": [true, false],
+            "lane_lower_defensive_box_marks_visibility": true,
+
+            "baseline_lower_defensive_box_marks_int_sep": 19.0,
+            "baseline_to_lane_lower_defensive_box_marks": 13.0,
+            "lane_lower_defensive_box_marks_int_sep": 10.0,
+            "lower_defensive_box_mark_extension": 0.5,
+
+            "inbounding_line_to_baseline": 28.0,
+            "inbounding_line_anchor_side": 1.0,
+            "inbounding_line_in_play_ext": 3.0,
+            "inbounding_line_out_of_bounds_ext": 0.0,
+            "symmetric_inbounding_line": true,
+
+            "substitution_line_ext_sep": 8.5,
+            "substitution_line_width": 4.0,
+
+            "restricted_arc_radius": 4.0,
+
+            "backboard_width": 6.0,
+            "backboard_thickness": 0.171875,
+
+            "basket_ring_inner_radius": 0.75,
+            "basket_ring_connector_width": 0.5833,
+            "basket_ring_connector_extension": 0.5,
+            "basket_ring_thickness": 0.0656
+        },
+
+        "nba g league": {
+            "court_length": 94.0,
+            "court_width": 50.0,
+            "court_units": "ft",
+            "line_thickness": 0.1667,
+            "bench_side": "top",
+
+            "court_apron_endline": 8.0,
+            "court_apron_sideline": 5.0,
+            "court_apron_to_boundary": 0.0,
+
+            "center_circle_radius": [6.0, 2.1667],
+
+            "basket_center_to_baseline": 5.25,
+            "basket_center_to_three_point_arc": 23.75,
+            "basket_center_to_corner_three": 22.0,
+            "backboard_face_to_baseline": 4.0,
+
+            "lane_length": [19.0, 19.0],
+            "lane_width": [16.0, 12.0],
+            "paint_margin": [0.0, 0.0],
+
+            "free_throw_circle_radius": 6.0,
+            "free_throw_line_to_backboard": 15.0,
+            "free_throw_circle_overhang": 1.024,
+            "n_free_throw_circle_dashes": 6.0,
+            "free_throw_dash_length": 1.292,
+            "free_throw_dash_spacing": 1.292,
+
+            "lane_space_mark_lengths": [
+                [0.1667, 0.1667, 0.1667, 0.1667],
+                [1.0, 0.1667, 0.1667, 0.1667]
+            ],
+            "lane_space_mark_widths": [0.5, 0.75],
+            "lane_space_mark_separations": [
+                [3.0, 0.8333, 3.0, 3.0],
+                [3.0, 3.0, 3.0, 3.0]
+            ],
+
+            "painted_area_visibility": [true, false],
+            "lane_boundary_visibility": [true, false],
+            "lane_space_mark_visibility": [true, false],
+            "lane_lower_defensive_box_marks_visibility": true,
+
+            "baseline_lower_defensive_box_marks_int_sep": 19.0,
+            "baseline_to_lane_lower_defensive_box_marks": 13.0,
+            "lane_lower_defensive_box_marks_int_sep": 10.0,
+            "lower_defensive_box_mark_extension": 0.5,
+
+            "inbounding_line_to_baseline": 28.0,
+            "inbounding_line_anchor_side": 1.0,
+            "inbounding_line_in_play_ext": 3.0,
+            "inbounding_line_out_of_bounds_ext": 0.0,
+            "symmetric_inbounding_line": true,
+
+            "substitution_line_ext_sep": 8.5,
+            "substitution_line_width": 4.0,
+
+            "restricted_arc_radius": 4.0,
+
+            "backboard_width": 6.0,
+            "backboard_thickness": 0.171875,
+
+            "basket_ring_inner_radius": 0.75,
+            "basket_ring_connector_width": 0.5833,
+            "basket_ring_connector_extension": 0.5,
+            "basket_ring_thickness": 0.0656
+        },
+
+        "ncaa": {
+            "court_length": 94.0,
+            "court_width": 50.0,
+            "court_units": "ft",
+            "line_thickness": 0.1667,
+            "bench_side": "top",
+
+            "court_apron_endline": 6.0,
+            "court_apron_sideline": 5.0,
+            "court_apron_to_boundary": 0.0,
+            "center_circle_radius": 6.0,
+
+            "basket_center_to_baseline": 5.25,
+            "basket_center_to_three_point_arc": [22.1458, 20.75],
+            "basket_center_to_corner_three": [21.6563, 20.75],
+            "backboard_face_to_baseline": 4.0,
+
+            "lane_length": [19.0, 19.0],
+            "lane_width": [12.0, 16.0],
+            "paint_margin": [0.0833, 0.0],
+
+            "free_throw_circle_radius": 6.0,
+            "free_throw_line_to_backboard": 15.0,
+            "free_throw_circle_overhang": 0.0,
+
+            "lane_space_mark_lengths": [
+                [1.0, 0.1667, 0.1667, 0.1667],
+                [0.1667, 0.1667, 0.1667, 0.1667]
+            ],
+            "lane_space_mark_widths": [0.75, 0.5],
+            "lane_space_mark_separations": [
+                [3.0, 3.0, 3.0, 3.0],
+                [3.0, 0.8333, 3.0, 3.0]
+            ],
+
+            "painted_area_visibility": [true, false],
+            "lane_boundary_visibility": [true, false],
+            "lane_space_mark_visibility": [true, false],
+
+            "baseline_lower_defensive_box_marks_int_sep": 18.0,
+            "lower_defensive_box_mark_extension": 1.0,
+
+            "inbounding_line_to_baseline": [28.0, 28.0],
+            "inbounding_line_anchor_side": [1.0, -1.0],
+            "inbounding_line_in_play_ext": [3.0, 0.0],
+            "inbounding_line_out_of_bounds_ext": [3.0, 0.1667],
+            "symmetric_inbounding_line": [false, false],
+
+            "substitution_line_ext_sep": 18.0,
+            "substitution_line_width": 2.0,
+
+            "team_bench_line_ext": 3.0,
+
+            "restricted_arc_radius": 4.0,
+
+            "backboard_width": 6.0,
+            "backboard_thickness": 0.171875,
+
+            "basket_ring_inner_radius": 0.75,
+            "basket_ring_connector_width": 0.5833,
+            "basket_ring_connector_extension": 0.5,
+            "basket_ring_thickness": 0.0656
+        },
+
+        "nfhs": {
+            "court_length": 84.0,
+            "court_width": 50.0,
+            "court_units": "ft",
+            "line_thickness": 0.1667,
+            "bench_side": "top",
+
+            "court_apron_endline": 5.0,
+            "court_apron_sideline": 5.0,
+            "court_apron_to_boundary": 0.0,
+
+            "center_circle_radius": 6.0,
+
+            "basket_center_to_baseline": 5.25,
+            "basket_center_to_three_point_arc": 19.75,
+            "basket_center_to_corner_three": 19.75,
+            "backboard_face_to_baseline": 4.0,
+
+            "lane_length": [19.0, 0.0],
+            "lane_width": [12.0, 0.0],
+            "paint_margin": [0.0, 0.0],
+
+            "free_throw_circle_radius": 6.0,
+            "free_throw_line_to_backboard": 15.0,
+            "free_throw_circle_overhang": 0.0,
+
+            "lane_space_mark_lengths": [
+                [0.1667, 0.1667, 0.1667, 0.1667],
+                [0.0, 0.0, 0.0, 0.0]
+            ],
+            "lane_space_mark_widths": [0.6667, 0.0],
+            "lane_space_mark_separations": [
+                [3.8333, 3.0, 3.0, 3.0],
+                [0.0, 0.0, 0.0, 0.0]
+            ],
+
+            "painted_area_visibility": [true, true],
+            "lane_boundary_visibility": [true, true],
+            "lane_space_mark_visibility": [true, true],
+            "lane_lower_defensive_box_marks_visibility": false,
+
+            "backboard_width": 6.0,
+            "backboard_thickness": 0.171875,
+
+            "basket_ring_inner_radius": 0.75,
+            "basket_ring_connector_width": 0.5833,
+            "basket_ring_connector_extension": 0.5,
+            "basket_ring_thickness": 0.0656
+        },
+
+        "wnba": {
+            "court_length": 94.0,
+            "court_width": 50.0,
+            "court_units": "ft",
+            "line_thickness": 0.1667,
+            "bench_side": "top",
+
+            "court_apron_endline": 8.0,
+            "court_apron_sideline": 5.0,
+            "court_apron_to_boundary": 0.0,
+
+            "center_circle_radius": [6.0, 2.1667],
+
+            "basket_center_to_baseline": 5.25,
+            "basket_center_to_three_point_arc": 22.1458,
+            "basket_center_to_corner_three": 22.0,
+            "backboard_face_to_baseline": 4.0,
+
+            "lane_length": [19.0, 19.0],
+            "lane_width": [16.0, 12.0],
+            "paint_margin": [0.0, 0.0],
+
+            "free_throw_circle_radius": 6.0,
+            "free_throw_line_to_backboard": 15.0,
+            "free_throw_circle_overhang": 1.024,
+            "n_free_throw_circle_dashes": 6.0,
+            "free_throw_dash_length": 1.292,
+            "free_throw_dash_spacing": 1.292,
+
+            "lane_space_mark_lengths": [
+                [0.1667, 0.1667, 0.1667, 0.1667],
+                [1.0, 0.1667, 0.1667, 0.1667]
+            ],
+            "lane_space_mark_widths": [0.5, 0.75],
+            "lane_space_mark_separations": [
+                [3.0, 0.8333, 3.0, 3.0],
+                [3.0, 3.0, 3.0, 3.0]
+            ],
+
+            "painted_area_visibility": [true, false],
+            "lane_boundary_visibility": [true, false],
+            "lane_space_mark_visibility": [true, false],
+            "lane_lower_defensive_box_marks_visibility": true,
+
+            "baseline_lower_defensive_box_marks_int_sep": 19.0,
+            "baseline_to_lane_lower_defensive_box_marks": 13.0,
+            "lane_lower_defensive_box_marks_int_sep": 10.0,
+            "lower_defensive_box_mark_extension": 0.5,
+
+            "inbounding_line_to_baseline": 28.0,
+            "inbounding_line_anchor_side": 1.0,
+            "inbounding_line_in_play_ext": 3.0,
+            "inbounding_line_out_of_bounds_ext": 0.0,
+            "symmetric_inbounding_line": true,
+
+            "substitution_line_ext_sep": 8.5,
+            "substitution_line_width": 4.0,
+
+            "restricted_arc_radius": 4.0,
+
+            "backboard_width": 6.0,
+            "backboard_thickness": 0.171875,
+
+            "basket_ring_inner_radius": 0.75,
+            "basket_ring_connector_width": 0.5833,
+            "basket_ring_connector_extension": 0.5,
+            "basket_ring_thickness": 0.0656
+        }
+    },
+
+    "football": {
+        "custom": {
+          "field_units": "",
+            "field_length": 0.0,
+            "field_width": 0.0,
+            "endzone_length": 0.0,
+            "extra_apron_padding": 0.0,
+
+            "minor_line_thickness": 0.0,
+            "goal_line_thickness": 0.0,
+            "boundary_line_thickness": 0.0,
+            "minor_yard_line_height": 0.0,
+            "field_border_thickness": 0.0,
+            "field_border_behind_bench": false,
+
+            "major_yard_line_distance": 1.0,
+
+            "sideline_to_major_yard_line": 0.0,
+            "inbound_cross_hashmark_length": 0.0,
+            "inbound_hashmark_separation": 0.0,
+            "inbound_cross_hashmark_separation": 0.0,
+
+            "sideline_to_outer_yard_line": 0.0,
+
+            "sideline_to_bottom_of_numbers": 0.0,
+            "number_height": 0.0,
+
+            "try_mark_distance": 0.0,
+            "try_mark_width": 0.0,
+
+            "arrow_line_dist": 0.0,
+            "yard_line_to_arrow": 0.0,
+            "top_number_to_arrow": 0.0,
+            "arrow_base": 0.0,
+            "arrow_length": 0.0,
+            "number_to_yard_line": 0.0,
+            "number_width": 0.0,
+
+            "numbers_bottom": [],
+
+            "numbers_top": [],
+
+            "number_font": "",
+
+            "restricted_area_width": 0.0,
+            "coaching_box_width": 0.0,
+            "team_bench_width": 0.0,
+            "team_bench_length_field_side": 0.0,
+            "team_bench_length_back_side": 0.0,
+            "team_bench_area_border_thickness": 0.0,
+            "bench_shape": "",
+            "field_bordered": false
+        },
+
+        "cfl": {
+            "field_units": "yd",
+            "field_length": 110.0,
+            "field_width": 65.0,
+            "endzone_length": 20.0,
+            "extra_apron_padding": 2.0,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.1111,
+            "boundary_line_thickness": 1.3333,
+            "minor_yard_line_height": 0.6667,
+            "field_border_thickness": 0.0,
+            "field_border_behind_bench": false,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.1111,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 15.6667,
+            "inbound_cross_hashmark_separation": 17.0,
+
+            "sideline_to_outer_yard_line": 0.1111,
+
+            "sideline_to_bottom_of_numbers": 7.0,
+            "number_height": 2.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "5", "0",
+                "C",
+                "5", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "5",
+                "C",
+                "0", "5",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "additional_minor_yard_lines": [-5.0, -10.0, -15.0],
+
+            "restricted_area_width": 0.0,
+            "coaching_box_width": 0.0,
+            "team_bench_width": 0.0,
+            "team_bench_length_field_side": 30.0,
+            "team_bench_length_back_side": 30.0,
+            "team_bench_area_border_thickness": 0.0,
+            "bench_shape": "",
+            "field_bordered": false
+        },
+
+        "ncaa": {
+            "field_units": "yd",
+            "field_length": 100.0,
+            "field_width": 53.3333,
+            "endzone_length": 10.0,
+            "extra_apron_padding": 2.0,
+            "field_border_thickness": 1.3333,
+            "field_border_behind_bench": true,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.1111,
+            "boundary_line_thickness": 0.1111,
+            "minor_yard_line_height": 0.6667,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.1111,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 13.3333,
+            "inbound_cross_hashmark_separation": 13.3333,
+
+            "sideline_to_outer_yard_line": 0.1111,
+
+            "sideline_to_bottom_of_numbers": 7.0,
+            "number_height": 2.0,
+
+            "try_mark_distance": 3.0,
+            "try_mark_width": 1.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "5", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "5",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "restricted_area_width": 2.0,
+            "coaching_box_width": 2.0,
+            "team_bench_width": 4.0,
+            "team_bench_length_field_side": 50.0,
+            "team_bench_length_back_side": 50.0,
+            "team_bench_area_border_thickness": 0.1111,
+            "bench_shape": "rectangular",
+            "field_bordered": false
+        },
+
+        "nfhs11": {
+            "field_units": "yd",
+            "field_length": 100.0,
+            "field_width": 53.3333,
+            "endzone_length": 10.0,
+            "extra_apron_padding": 5.0,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.2222,
+            "boundary_line_thickness": 2.0,
+            "minor_yard_line_height": 0.6667,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.2222,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 17.7778,
+            "inbound_cross_hashmark_separation": 17.7778,
+
+            "sideline_to_outer_yard_line": 0.2222,
+
+            "sideline_to_bottom_of_numbers": 7.0,
+            "number_height": 2.0,
+
+            "try_mark_distance": 3.0,
+            "try_mark_width": 1.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "5", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "5",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "restricted_area_width": 2.0,
+            "coaching_box_width": 2.0,
+            "team_bench_width": 4.0,
+            "team_bench_length_field_side": 50.0,
+            "team_bench_length_back_side": 50.0,
+            "team_bench_area_border_thickness": 0.1111,
+            "bench_shape": "rectangular",
+            "field_bordered": false
+        },
+
+        "nfhs9": {
+            "field_units": "yd",
+            "field_length": 80.0,
+            "field_width": 40.0,
+            "endzone_length": 10.0,
+            "extra_apron_padding": 5.0,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.2222,
+            "boundary_line_thickness": 2.0,
+            "minor_yard_line_height": 0.6667,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.2222,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 7.7778,
+            "inbound_cross_hashmark_separation": 7.7778,
+
+            "sideline_to_outer_yard_line": 0.2222,
+
+            "sideline_to_bottom_of_numbers": 5.0,
+            "number_height": 2.0,
+
+            "try_mark_distance": 3.0,
+            "try_mark_width": 1.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "restricted_area_width": 2.0,
+            "coaching_box_width": 2.0,
+            "team_bench_width": 4.0,
+            "team_bench_length_field_side": 30.0,
+            "team_bench_length_back_side": 30.0,
+            "team_bench_area_border_thickness": 0.1111,
+            "bench_shape": "rectangular",
+            "field_bordered": false
+        },
+
+        "nfhs8": {
+            "field_units": "yd",
+            "field_length": 80.0,
+            "field_width": 40.0,
+            "endzone_length": 10.0,
+            "extra_apron_padding": 5.0,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.2222,
+            "boundary_line_thickness": 2.0,
+            "minor_yard_line_height": 0.6667,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.2222,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 10.0,
+            "inbound_cross_hashmark_separation": 10.0,
+
+            "sideline_to_outer_yard_line": 0.2222,
+
+            "sideline_to_bottom_of_numbers": 5.0,
+            "number_height": 2.0,
+
+            "try_mark_distance": 2.0,
+            "try_mark_width": 1.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "restricted_area_width": 2.0,
+            "coaching_box_width": 2.0,
+            "team_bench_width": 4.0,
+            "team_bench_length_field_side": 30.0,
+            "team_bench_length_back_side": 30.0,
+            "team_bench_area_border_thickness": 0.1111,
+            "bench_shape": "rectangular",
+            "field_bordered": false
+        },
+
+        "nfhs6": {
+            "field_units": "yd",
+            "field_length": 80.0,
+            "field_width": 40.0,
+            "endzone_length": 10.0,
+            "extra_apron_padding": 5.0,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.2222,
+            "boundary_line_thickness": 2.0,
+            "minor_yard_line_height": 0.6667,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.2222,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 10.0,
+            "inbound_cross_hashmark_separation": 10.0,
+
+            "sideline_to_outer_yard_line": 0.2222,
+
+            "sideline_to_bottom_of_numbers": 5.0,
+            "number_height": 2.0,
+
+            "try_mark_distance": 2.0,
+            "try_mark_width": 1.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "restricted_area_width": 2.0,
+            "coaching_box_width": 2.0,
+            "team_bench_width": 4.0,
+            "team_bench_length_field_side": 30.0,
+            "team_bench_length_back_side": 30.0,
+            "team_bench_area_border_thickness": 0.1111,
+            "bench_shape": "rectangular",
+            "field_bordered": false
+        },
+
+        "nfl": {
+            "field_units": "yd",
+            "field_length": 100.0,
+            "field_width": 53.3333,
+            "endzone_length": 10.0,
+            "extra_apron_padding": 2.0,
+
+            "minor_line_thickness": 0.1111,
+            "goal_line_thickness": 0.2222,
+            "boundary_line_thickness": 2.0,
+            "minor_yard_line_height": 0.6667,
+            "field_border_thickness": 1.3333,
+            "field_border_behind_bench": true,
+
+            "major_yard_line_distance": 5.0,
+
+            "sideline_to_major_yard_line": 0.2222,
+            "inbound_cross_hashmark_length": 0.2778,
+            "inbound_hashmark_separation": 6.1667,
+            "inbound_cross_hashmark_separation": 6.1667,
+
+            "sideline_to_outer_yard_line": 0.2222,
+
+            "sideline_to_bottom_of_numbers": 12.0,
+            "number_height": 2.0,
+
+            "try_mark_distance": 2.0,
+            "try_mark_width": 1.0,
+
+            "arrow_line_dist": 10.0,
+            "yard_line_to_arrow": 1.8333,
+            "top_number_to_arrow": 0.4167,
+            "arrow_base": 0.5,
+            "arrow_length": 0.9682,
+            "number_to_yard_line": 0.3333,
+            "number_width": 1.3333,
+
+            "numbers_bottom": [
+                "1", "0",
+                "2", "0",
+                "3", "0",
+                "4", "0",
+                "5", "0",
+                "4", "0",
+                "3", "0",
+                "2", "0",
+                "1", "0"
+            ],
+
+            "numbers_top": [
+                "0", "1",
+                "0", "2",
+                "0", "3",
+                "0", "4",
+                "0", "5",
+                "0", "4",
+                "0", "3",
+                "0", "2",
+                "0", "1"
+            ],
+
+            "number_font": "Clarendon-Regular",
+
+            "restricted_area_width": 2.0,
+            "coaching_box_width": 2.0,
+            "team_bench_width": 6.0,
+            "team_bench_length_field_side": 44.9861,
+            "team_bench_length_back_side": 37.2639,
+            "team_bench_area_border_thickness": 0.1111,
+            "bench_shape": "trapezoid",
+            "field_bordered": false
+        }
+    },
+
+    "hockey": {
+        "custom": {
+            "rink_length": 0.0,
+            "rink_width": 0.0,
+            "rink_units": "",
+            "corner_radius": 0.0,
+            "board_thickness": 0.0,
+            "referee_crease_radius": 0.0,
+
+            "nzone_length": 0.0,
+            "goal_line_to_boards": 0.0,
+
+            "minor_line_thickness": 0.0,
+            "major_line_thickness": 0.0,
+
+            "faceoff_circle_radius": 0.0,
+            "center_faceoff_spot_radius": 0.0,
+            "noncenter_faceoff_spot_radius": 0.0,
+            "nzone_faceoff_spot_to_zone_line": 0.0,
+            "odzone_faceoff_spot_to_boards": 0.0,
+            "noncenter_faceoff_spot_y": 0.0,
+            "noncenter_faceoff_spot_gap_width": 0.0,
+            "hashmark_width": 0.0,
+            "hashmark_ext_spacing": 0.0,
+
+            "faceoff_line_dist_x": 0.0,
+            "faceoff_line_dist_y": 0.0,
+            "faceoff_line_length": 0.0,
+            "faceoff_line_width": 0.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 0.0,
+            "long_base_width": 0.0,
+
+            "goal_crease_style": "",
+            "goal_crease_radius": 0.0,
+            "goal_crease_length": 0.0,
+            "goal_crease_width": 0.0,
+            "goal_crease_notch_dist_x": 0.0,
+            "goal_crease_notch_width": 0.0,
+
+            "goal_mouth_width": 0.0,
+            "goal_back_width": 0.0,
+            "goal_depth": 0.0,
+            "goal_post_diameter": 0.0,
+            "goal_radius": 0.0,
+
+            "bench_length": 0.0,
+            "bench_depth": 0.0,
+            "bench_separation": 0.0,
+
+            "penalty_box_length": 0.0,
+            "penalty_box_depth": 0.0,
+            "penalty_box_separation": 0
+        },
+
+        "ahl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "echl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "iihf": {
+            "rink_length": 60.0,
+            "rink_width": 30.0,
+            "rink_units": "m",
+            "corner_radius": 8.5,
+            "board_thickness": 0.1524,
+            "referee_crease_radius": 3.0,
+
+            "nzone_length": 15.0,
+            "goal_line_to_boards": 4.0,
+
+            "minor_line_thickness": 0.05,
+            "major_line_thickness": 0.3,
+            "center_faceoff_spot_gap": 0.5,
+
+            "faceoff_circle_radius": 4.5,
+            "center_faceoff_spot_radius": 0.15,
+            "noncenter_faceoff_spot_radius": 0.3,
+            "nzone_faceoff_spot_to_zone_line": 1.5,
+            "odzone_faceoff_spot_to_boards": 10.0,
+            "noncenter_faceoff_spot_y": 7.0,
+            "noncenter_faceoff_spot_gap_width": 0.075,
+            "hashmark_width": 0.6,
+            "hashmark_ext_spacing": 1.8,
+
+            "faceoff_line_dist_x": 0.6,
+            "faceoff_line_dist_y": 0.225,
+            "faceoff_line_length": 1.2,
+            "faceoff_line_width": 0.9,
+
+            "has_trapezoid": true,
+            "short_base_width": 6.8,
+            "long_base_width": 8.6,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 1.83,
+            "goal_crease_length": 1.22,
+            "goal_crease_width": 2.45,
+            "goal_crease_notch_dist_x": 1.22,
+            "goal_crease_notch_width": 0.2,
+
+            "goal_mouth_width": 1.83,
+            "goal_back_width": 2.235,
+            "goal_depth": 1.0,
+            "goal_post_diameter": 0.05,
+            "goal_radius": 0.508,
+
+            "bench_length": 10.0,
+            "bench_depth": 1.5,
+            "bench_separation": 4.0,
+
+            "penalty_box_length": 4.0,
+            "penalty_box_depth": 1.5,
+            "penalty_box_separation": 10.0
+        },
+
+        "phf": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "ncaa": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 20.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "nhl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "ohl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl92",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "qmjhl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "nwhl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "nhl98",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        },
+
+        "ushl": {
+            "rink_length": 200.0,
+            "rink_width": 85.0,
+            "rink_units": "ft",
+            "corner_radius": 28.0,
+            "board_thickness": 0.4167,
+            "referee_crease_radius": 10.0,
+
+            "nzone_length": 50.0,
+            "goal_line_to_boards": 11.0,
+
+            "minor_line_thickness": 0.1666,
+            "major_line_thickness": 1.0,
+
+            "faceoff_circle_radius": 15.0,
+            "center_faceoff_spot_radius": 0.5,
+            "noncenter_faceoff_spot_radius": 1.0,
+            "nzone_faceoff_spot_to_zone_line": 5.0,
+            "odzone_faceoff_spot_to_boards": 31.0,
+            "noncenter_faceoff_spot_y": 22.0,
+            "noncenter_faceoff_spot_gap_width": 0.25,
+            "hashmark_width": 2.0,
+            "hashmark_ext_spacing": 5.9166,
+
+            "faceoff_line_dist_x": 2.0,
+            "faceoff_line_dist_y": 0.75,
+            "faceoff_line_length": 4.0,
+            "faceoff_line_width": 3.0,
+
+            "has_trapezoid": true,
+            "short_base_width": 22.0,
+            "long_base_width": 28.0,
+
+            "goal_crease_style": "ushl1",
+            "goal_crease_radius": 6.0,
+            "goal_crease_length": 4.5,
+            "goal_crease_width": 8.0,
+            "goal_crease_notch_dist_x": 4.0,
+            "goal_crease_notch_width": 0.4167,
+
+            "goal_mouth_width": 6.0,
+            "goal_back_width": 7.3333,
+            "goal_depth": 3.3333,
+            "goal_post_diameter": 0.1979,
+            "goal_radius": 1.6666,
+
+            "bench_length": 30.0,
+            "bench_depth": 5.5,
+            "bench_separation": 3.3333,
+
+            "penalty_box_length": 8.0,
+            "penalty_box_depth": 5.0,
+            "penalty_box_separation": 8.0
+        }
+    },
+
+    "soccer": {
+        "custom": {
+            "pitch_units": "",
+            "pitch_length": 0.0,
+            "pitch_width": 0.0,
+            "line_thickness": 0.0,
+
+            "pitch_apron_touchline": 0.0,
+            "pitch_apron_goal_line": 0.0,
+
+            "center_circle_radius": 0.0,
+            "center_mark_radius": 0.0,
+
+            "corner_arc_radius": 0.0,
+            "goal_line_defensive_mark_visible": true,
+            "touchline_defensive_mark_visible": true,
+            "defensive_mark_depth": 0.0,
+            "defensive_mark_distance": 0.0,
+
+            "penalty_box_length": 0.0,
+            "penalty_circle_radius": 0.0,
+            "penalty_mark_dist": 0.0,
+            "interior_of_goal_post_to_penalty_box": 0.0,
+            "interior_of_goal_post_to_goal_box": 0.0,
+            "goal_box_length": 0.0,
+            "penalty_mark_radius": 0.0,
+
+            "goal_width": 0.0,
+            "goal_depth": 0
+        },
+
+        "epl": {
+            "pitch_units": "m",
+            "pitch_length": 120.0,
+            "pitch_width": 90.0,
+            "line_thickness": 0.12,
+
+            "pitch_apron_touchline": 1.0,
+            "pitch_apron_goal_line": 1.0,
+
+            "center_circle_radius": 9.15,
+            "center_mark_radius": 0.3048,
+
+            "corner_arc_radius": 1.0,
+            "goal_line_defensive_mark_visible": true,
+            "touchline_defensive_mark_visible": true,
+            "defensive_mark_depth": 0.5,
+            "defensive_mark_distance": 9.15,
+
+            "penalty_box_length": 16.5,
+            "penalty_circle_radius": 9.15,
+            "penalty_mark_dist": 11.0,
+            "interior_of_goal_post_to_penalty_box": 16.5,
+            "interior_of_goal_post_to_goal_box": 5.5,
+            "goal_box_length": 5.5,
+            "penalty_mark_radius": 0.1524,
+
+            "goal_width": 7.32,
+            "goal_depth": 1.7
+        },
+
+        "fifa": {
+            "pitch_units": "m",
+            "pitch_length": 120.0,
+            "pitch_width": 90.0,
+            "line_thickness": 0.12,
+
+            "pitch_apron_touchline": 1.0,
+            "pitch_apron_goal_line": 1.0,
+
+            "center_circle_radius": 9.15,
+            "center_mark_radius": 0.3048,
+
+            "corner_arc_radius": 1.0,
+            "goal_line_defensive_mark_visible": true,
+            "touchline_defensive_mark_visible": true,
+            "defensive_mark_depth": 0.5,
+            "defensive_mark_distance": 9.15,
+
+            "penalty_box_length": 16.5,
+            "penalty_circle_radius": 9.15,
+            "penalty_mark_dist": 11.0,
+            "interior_of_goal_post_to_penalty_box": 16.5,
+            "interior_of_goal_post_to_goal_box": 5.5,
+            "goal_box_length": 5.5,
+            "penalty_mark_radius": 0.1524,
+
+            "goal_width": 7.32,
+            "goal_depth": 1.7
+        },
+
+        "mls": {
+            "pitch_units": "yd",
+            "pitch_length": 110.0,
+            "pitch_width": 70.0,
+            "line_thickness": 0.139,
+
+            "pitch_apron_touchline": 1.0936,
+            "pitch_apron_goal_line": 1.0936,
+
+            "center_circle_radius": 10.0,
+            "center_mark_radius": 0.333,
+
+            "corner_arc_radius": 1.0,
+            "goal_line_defensive_mark_visible": true,
+            "touchline_defensive_mark_visible": true,
+            "defensive_mark_depth": 0.5,
+            "defensive_mark_distance": 10.0,
+
+            "penalty_box_length": 18.0,
+            "penalty_circle_radius": 10.0,
+            "penalty_mark_dist": 12.0,
+            "interior_of_goal_post_to_penalty_box": 18.0,
+            "interior_of_goal_post_to_goal_box": 6.0,
+            "goal_box_length": 6.0,
+            "penalty_mark_radius": 0.1667,
+
+            "goal_width": 8.0,
+            "goal_depth": 1.86
+        },
+
+        "ncaa": {
+            "pitch_units": "yd",
+            "pitch_length": 120.0,
+            "pitch_width": 75.0,
+            "line_thickness": 0.139,
+
+            "pitch_apron_touchline": 1.0936,
+            "pitch_apron_goal_line": 1.0936,
+
+            "center_circle_radius": 10.0,
+            "center_mark_radius": 0.333,
+
+            "corner_arc_radius": 1.0,
+            "goal_line_defensive_mark_visible": true,
+            "touchline_defensive_mark_visible": false,
+            "defensive_mark_depth": 1.0,
+            "defensive_mark_distance": 11.0,
+            "defensive_mark_separation_from_line": 0.1667,
+
+            "penalty_box_length": 18.0,
+            "penalty_circle_radius": 10.0,
+            "penalty_mark_dist": 12.0,
+            "interior_of_goal_post_to_penalty_box": 18.0,
+            "interior_of_goal_post_to_goal_box": 6.0,
+            "goal_box_length": 6.0,
+            "penalty_mark_radius": 0.125,
+
+            "goal_width": 8.0,
+            "goal_depth": 1.86
+        },
+
+        "nwsl": {
+            "pitch_units": "yd",
+            "pitch_length": 110.0,
+            "pitch_width": 70.0,
+            "line_thickness": 0.139,
+
+            "pitch_apron_touchline": 1.0936,
+            "pitch_apron_goal_line": 1.0936,
+
+            "center_circle_radius": 10.0,
+            "center_mark_radius": 0.333,
+
+            "corner_arc_radius": 1.0,
+            "goal_line_defensive_mark_visible": true,
+            "touchline_defensive_mark_visible": true,
+            "defensive_mark_depth": 0.5,
+            "defensive_mark_distance": 10.0,
+
+            "penalty_box_length": 18.0,
+            "penalty_circle_radius": 10.0,
+            "penalty_mark_dist": 12.0,
+            "interior_of_goal_post_to_penalty_box": 18.0,
+            "interior_of_goal_post_to_goal_box": 6.0,
+            "goal_box_length": 6.0,
+            "penalty_mark_radius": 0.1667,
+
+            "goal_width": 8.0,
+            "goal_depth": 1.86
+        }
+    },
+
+    "tennis": {
+        "custom": {
+            "court_length": 0.0,
+            "singles_width": 0.0,
+            "court_units": "",
+            "doubles_width": 0.0,
+            "serviceline_distance": 0.0,
+            "center_mark_length": 0.0,
+            "net_length": 0.0,
+            "line_thickness": 0.0,
+            "backstop_distance": 0.0,
+            "sidestop_distance": 0
+        },
+
+        "atp": {
+            "court_length": 78.0,
+            "singles_width": 27.0,
+            "court_units": "ft",
+            "doubles_width": 36.0,
+            "serviceline_distance": 21.0,
+            "center_mark_length": 0.3333,
+            "net_length": 42.0,
+            "line_thickness": 0.1667,
+            "backstop_distance": 21.0,
+            "sidestop_distance": 12.0
+        },
+
+        "ita": {
+            "court_length": 78.0,
+            "singles_width": 27.0,
+            "court_units": "ft",
+            "doubles_width": 36.0,
+            "serviceline_distance": 21.0,
+            "center_mark_length": 0.3333,
+            "net_length": 42.0,
+            "line_thickness": 0.1667,
+            "backstop_distance": 21.0,
+            "sidestop_distance": 12.0
+        },
+
+        "itf": {
+            "court_length": 78.0,
+            "singles_width": 27.0,
+            "court_units": "ft",
+            "doubles_width": 36.0,
+            "serviceline_distance": 21.0,
+            "center_mark_length": 0.3333,
+            "net_length": 42.0,
+            "line_thickness": 0.1667,
+            "backstop_distance": 21.0,
+            "sidestop_distance": 12.0
+        },
+
+        "ncaa": {
+            "court_length": 78.0,
+            "singles_width": 27.0,
+            "court_units": "ft",
+            "doubles_width": 36.0,
+            "serviceline_distance": 21.0,
+            "center_mark_length": 0.3333,
+            "net_length": 42.0,
+            "line_thickness": 0.1667,
+            "backstop_distance": 21.0,
+            "sidestop_distance": 12.0
+        },
+
+        "usta": {
+            "court_length": 78.0,
+            "singles_width": 27.0,
+            "court_units": "ft",
+            "doubles_width": 36.0,
+            "serviceline_distance": 21.0,
+            "center_mark_length": 0.3333,
+            "net_length": 42.0,
+            "line_thickness": 0.1667,
+            "backstop_distance": 21.0,
+            "sidestop_distance": 12.0
+        },
+
+        "wta": {
+            "court_length": 78.0,
+            "singles_width": 27.0,
+            "court_units": "ft",
+            "doubles_width": 36.0,
+            "serviceline_distance": 21.0,
+            "center_mark_length": 0.3333,
+            "net_length": 42.0,
+            "line_thickness": 0.1667,
+            "backstop_distance": 21.0,
+            "sidestop_distance": 12.0
+        }
+    }
+}
