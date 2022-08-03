@@ -634,6 +634,7 @@ baseball_home_plate <- function(home_plate_edge_length = 0) {
     ),
     y = c(
       0,
+      home_plate_edge_length / 2,
       home_plate_edge_length,
       home_plate_edge_length,
       home_plate_edge_length / 2,
