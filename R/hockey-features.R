@@ -1,4 +1,4 @@
-# Surface base features --------------------------------------------------------
+# Surface Base Features --------------------------------------------------------
 
 #' The defensive zone is the left "third" of the rink in TV view. This is the
 #' area that a team defends when attacking from left to right
@@ -168,7 +168,7 @@ hockey_offensive_zone <- function(rink_length = 0,
 
 
 
-# Surface boundaries -----------------------------------------------------------
+# Surface Boundaries -----------------------------------------------------------
 
 #' The boards are the wall around the outside of the rink that constrain the
 #' playing surface. The boards are typically ovular in shape
@@ -277,7 +277,7 @@ hockey_boards <- function(rink_length = 0,
 
 
 
-# Surface lines ----------------------------------------------------------------
+# Surface Lines ----------------------------------------------------------------
 
 #' The center line is the line that divides the ice surface in half. Its center
 #' should lie directly in the center of the ice surface. Its line thickness
@@ -593,7 +593,7 @@ hockey_odzone_faceoff_lines <- function(feature_thickness = 0,
 
 
 
-# Surface features -------------------------------------------------------------
+# Surface Features -------------------------------------------------------------
 
 #' The center faceoff spot is the spot at which the game begins. Its center
 #' should lie directly in the center of the ice surface. Its radius is passed as

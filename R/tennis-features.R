@@ -1,4 +1,4 @@
-# Surface base features --------------------------------------------------------
+# Surface Base Features --------------------------------------------------------
 
 #' The front court is the area between the [tennis_net()] and the
 #' [tennis_serviceline()]. left-hand side of the court when facing the net from
@@ -74,7 +74,7 @@ tennis_doubles_alley <- function(court_length = 0, feature_thickness = 0) {
 
 
 
-# Surface boundaries -----------------------------------------------------------
+# Surface Boundaries -----------------------------------------------------------
 
 #' The baseline is the line behind which a player will serve the ball. It spans
 #' the entire width of the court, and its back edge denotes the furthest
@@ -170,7 +170,7 @@ tennis_court_apron <- function(court_length = 0,
 
 
 
-# Surface lines ----------------------------------------------------------------
+# Surface Lines ----------------------------------------------------------------
 
 #' The serviceline is the line in front of which (nearest the net) a serve must
 #' land, and be on the proper side of the court to be considered legal and in
@@ -227,7 +227,7 @@ tennis_center_serviceline <- function(center_serviceline_length = 0,
 
 
 
-# Surface features -------------------------------------------------------------
+# Surface Features -------------------------------------------------------------
 
 #' The center mark identifies the center point of the
 #' [tennis_baseline()]. The line should extend towards the net

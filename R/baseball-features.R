@@ -1,4 +1,4 @@
-# Surface base features --------------------------------------------------------
+# Surface Base Features --------------------------------------------------------
 
 #' The dirt that comprises the infield. This includes the base paths, infield
 #' arc, and home plate circle.
@@ -256,131 +256,14 @@ baseball_infield_grass <- function(home_plate_circle_radius = 0,
 
 
 
-# Surface features -------------------------------------------------------------
-
-#' Home plate. This is a pentagonal shape with its back tip located at the
-#' origin of the coordinate system. The angled sides of home plate intersect the
-#' baselines
-#'
-#' @param home_plate_edge_length The length of a single edge of home plate
-#'
-#' @return A data frame that contains the boundary of home plate
-#'
-#' @keywords internal
-baseball_home_plate <- function(home_plate_edge_length = 0) {
-  home_plate_df <- data.frame(
-    x = c(
-      0,
-      home_plate_edge_length / 2,
-      home_plate_edge_length / 2,
-      -home_plate_edge_length / 2,
-      -home_plate_edge_length / 2,
-      0
-    ),
-    y = c(
-      0,
-      home_plate_edge_length,
-      home_plate_edge_length,
-      home_plate_edge_length / 2,
-      0
-    )
-  )
-
-  return(home_plate_df)
-}
-
-#' One of the bases on the diamond, or really any base on the field. These are
-#' squares that are rotated 45 degrees
-#'
-#' @param base_side_length The length of each side of the base
-#' @param adjust_x_left Whether or not the base should be adjusted in the -x
-#'   direction (e.g. third base)
-#' @param adjust_x_right Whether or not the base should be adjusted in the +x
-#'   direction (e.g. first base)
-#'
-#' @return A data frame that comprises the boundary of the base
-#'
-#' @keywords internal
-baseball_base <- function(base_side_length = 0,
-                          adjust_x_left = FALSE,
-                          adjust_x_right = FALSE) {
-  # Start with a center adjustment of x to be 0
-  center_x_adj <- 0
-
-  # If the base's center needs to be adjusted, calculate the adjustment
-  if (adjust_x_left) {
-    adjustment_amount <- base_side_length * sqrt(2) / 2
-    center_x_adj <- center_x_adj - adjustment_amount
-  }
-  if (adjust_x_right) {
-    adjustment_amount <- base_side_length * sqrt(2) / 2
-    center_x_adj <- center_x_adj + adjustment_amount
-  }
-
-  # Create the base
-  base_df <- create_square(
-    side_length = base_side_length,
-    center = c(0, 0)
-  )
-
-  base_df <- rotate_coords(
-    df = base_df,
-    angle = 45
-  )
-
-  # Adjust the base's x-positioning by the calculated adjustment
-  base_df["x"] <- base_df["x"] + center_x_adj
-
-  return(base_df)
-}
-
-#' The pitcher's mound. This is where the pitcher's plate is located, but the
-#' pitcher's plate is not necessarily centered on the pitcher's mound
-#'
-#' @param pitchers_mound_radius The radius of the pitcher's mound
-#'
-#' @return A data frame of the pitcher's mound's bounding coordinates
-#'
-#' @keywords internal
-baseball_pitchers_mound <- function(pitchers_mound_radius = 0) {
-  # The pitcher's mound is a circle
-  pitchers_mound_df <- create_circle(
-    center = c(0, 0),
-    start = 0,
-    end = 2,
-    r = pitchers_mound_radius
-  )
-
-  return(pitchers_mound_df)
-}
-
-#' The pitcher's plate. This is where the pitcher must throw the ball from. It's
-#' usually a long rectangle with its front edge as its anchor point
-#'
-#' @param pitchers_plate_length the length (x-direction) of the pitcher's plate
-#' @param pitchers_plate_width the width (y-direction) of the pitcher's plate
-#'
-#' @return A data frame of the pitcher's plate's bounding coordinates
-#'
-#' @keywords internal
-baseball_pitchers_plate <- function(pitchers_plate_length = 0,
-                                    pitchers_plate_width = 0) {
-  # This feature is a rectangle
-  pitchers_plate_df <- create_rectangle(
-    x_min = -pitchers_plate_length / 2,
-    x_max = pitchers_plate_length / 2,
-    y_min = 0,
-    y_max = pitchers_plate_width
-  )
-
-  return(pitchers_plate_df)
-}
+# Surface Boundaries -----------------------------------------------------------
+# TODO: add wall functionality, warning track, dugouts
 
 
 
 
 
-# Surface lines ----------------------------------------------------------------
+# Surface Lines ----------------------------------------------------------------
 
 #' The batter's boxes on the field. This is where a batter must stand to legally
 #' hit the ball
@@ -724,5 +607,126 @@ baseball_running_lane <- function(running_lane_depth = 0,
   return(running_lane_df)
 }
 
-# Surface Boundaries -----------------------------------------------------------
-# TODO: add wall functionality, warning track, dugouts
+
+
+
+
+# Surface Features -------------------------------------------------------------
+
+#' Home plate. This is a pentagonal shape with its back tip located at the
+#' origin of the coordinate system. The angled sides of home plate intersect the
+#' baselines
+#'
+#' @param home_plate_edge_length The length of a single edge of home plate
+#'
+#' @return A data frame that contains the boundary of home plate
+#'
+#' @keywords internal
+baseball_home_plate <- function(home_plate_edge_length = 0) {
+  home_plate_df <- data.frame(
+    x = c(
+      0,
+      home_plate_edge_length / 2,
+      home_plate_edge_length / 2,
+      -home_plate_edge_length / 2,
+      -home_plate_edge_length / 2,
+      0
+    ),
+    y = c(
+      0,
+      home_plate_edge_length,
+      home_plate_edge_length,
+      home_plate_edge_length / 2,
+      0
+    )
+  )
+
+  return(home_plate_df)
+}
+
+#' One of the bases on the diamond, or really any base on the field. These are
+#' squares that are rotated 45 degrees
+#'
+#' @param base_side_length The length of each side of the base
+#' @param adjust_x_left Whether or not the base should be adjusted in the -x
+#'   direction (e.g. third base)
+#' @param adjust_x_right Whether or not the base should be adjusted in the +x
+#'   direction (e.g. first base)
+#'
+#' @return A data frame that comprises the boundary of the base
+#'
+#' @keywords internal
+baseball_base <- function(base_side_length = 0,
+                          adjust_x_left = FALSE,
+                          adjust_x_right = FALSE) {
+  # Start with a center adjustment of x to be 0
+  center_x_adj <- 0
+
+  # If the base's center needs to be adjusted, calculate the adjustment
+  if (adjust_x_left) {
+    adjustment_amount <- base_side_length * sqrt(2) / 2
+    center_x_adj <- center_x_adj - adjustment_amount
+  }
+  if (adjust_x_right) {
+    adjustment_amount <- base_side_length * sqrt(2) / 2
+    center_x_adj <- center_x_adj + adjustment_amount
+  }
+
+  # Create the base
+  base_df <- create_square(
+    side_length = base_side_length,
+    center = c(0, 0)
+  )
+
+  base_df <- rotate_coords(
+    df = base_df,
+    angle = 45
+  )
+
+  # Adjust the base's x-positioning by the calculated adjustment
+  base_df["x"] <- base_df["x"] + center_x_adj
+
+  return(base_df)
+}
+
+#' The pitcher's mound. This is where the pitcher's plate is located, but the
+#' pitcher's plate is not necessarily centered on the pitcher's mound
+#'
+#' @param pitchers_mound_radius The radius of the pitcher's mound
+#'
+#' @return A data frame of the pitcher's mound's bounding coordinates
+#'
+#' @keywords internal
+baseball_pitchers_mound <- function(pitchers_mound_radius = 0) {
+  # The pitcher's mound is a circle
+  pitchers_mound_df <- create_circle(
+    center = c(0, 0),
+    start = 0,
+    end = 2,
+    r = pitchers_mound_radius
+  )
+
+  return(pitchers_mound_df)
+}
+
+#' The pitcher's plate. This is where the pitcher must throw the ball from. It's
+#' usually a long rectangle with its front edge as its anchor point
+#'
+#' @param pitchers_plate_length the length (x-direction) of the pitcher's plate
+#' @param pitchers_plate_width the width (y-direction) of the pitcher's plate
+#'
+#' @return A data frame of the pitcher's plate's bounding coordinates
+#'
+#' @keywords internal
+baseball_pitchers_plate <- function(pitchers_plate_length = 0,
+                                    pitchers_plate_width = 0) {
+  # This feature is a rectangle
+  pitchers_plate_df <- create_rectangle(
+    x_min = -pitchers_plate_length / 2,
+    x_max = pitchers_plate_length / 2,
+    y_min = 0,
+    y_max = pitchers_plate_width
+  )
+
+  return(pitchers_plate_df)
+}

@@ -1,4 +1,4 @@
-# Surface base features --------------------------------------------------------
+# Surface Base Features --------------------------------------------------------
 
 #' Half of the pitch is located on each side of the halfway line (see
 #' [soccer_halfway_line()] for more information)
@@ -25,7 +25,7 @@ soccer_half_pitch <- function(pitch_length = 0, pitch_width = 0) {
 
 
 
-# Surface boundaries -----------------------------------------------------------
+# Surface Boundaries -----------------------------------------------------------
 
 #' The pitch should have an apron around it to do two things:
 #'
@@ -133,7 +133,7 @@ soccer_goal_line <- function(pitch_width = 0, feature_thickness = 0) {
 
 
 
-# Surface lines ----------------------------------------------------------------
+# Surface Lines ----------------------------------------------------------------
 
 #' The halfway line, aka the midfield line or center line, runs the width of the
 #' pitch, dividing it into two equal halves. The left half (in TV view) will be
@@ -294,7 +294,7 @@ soccer_goal_box <- function(feature_thickness = 0,
 
 
 
-# Surface features -------------------------------------------------------------
+# Surface Features -------------------------------------------------------------
 
 #' The corner arcs are the quarter-circles located where the touchline meets the
 #' goal line

@@ -1,4 +1,4 @@
-# Surface base features --------------------------------------------------------
+# Surface Base Features --------------------------------------------------------
 
 #' Each half court spans from the inner edge of the baseline to the center of
 #' the division line, and serves as the base layer of the court plot
@@ -188,7 +188,7 @@ basketball_free_throw_circle_fill <- function(free_throw_circle_radius = 0,
 
 
 
-# Surface boundaries -----------------------------------------------------------
+# Surface Boundaries -----------------------------------------------------------
 
 #' The apron of the court is the colored boundary around the exterior of some
 #' courts. If no such colored boundary exists, this should take the same color
@@ -290,7 +290,7 @@ basketball_sideline <- function(court_length = 0, line_thickness = 0) {
 
 
 
-# Surface lines ----------------------------------------------------------------
+# Surface Lines ----------------------------------------------------------------
 
 #' The center circle is broken into two parts: the outline (this feature) and
 #' the fill, which is the court coloring inside of the inner edge of this circle
@@ -765,7 +765,7 @@ basketball_restricted_arc <- function(feature_radius = 0,
 
 
 
-# Surface features -------------------------------------------------------------
+# Surface Features -------------------------------------------------------------
 
 #' The lower defensive box is an imaginary box on the court extending from the
 #' lines on the baseline to the lines inside the painted area. This box helps

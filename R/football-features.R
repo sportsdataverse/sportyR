@@ -1,4 +1,4 @@
-# Surface base features --------------------------------------------------------
+# Surface Base Features --------------------------------------------------------
 
 #' Each half of the football field spans from the back edge of the endzone to
 #' the center of the major yard line at midfield
