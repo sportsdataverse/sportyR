@@ -90,8 +90,8 @@ tennis_baseline <- function(court_width = 0, feature_thickness = 0) {
   baseline_df <- create_rectangle(
     x_min = -feature_thickness,
     x_max = 0,
-    y_min = -court_width,
-    y_max = court_width
+    y_min = -court_width / 2,
+    y_max = court_width / 2
   )
 
   return(baseline_df)
