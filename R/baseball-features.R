@@ -72,7 +72,7 @@ baseball_infield_dirt <- function(home_plate_circle_radius = 0,
 
   # Infield drawn from first base to third base side, so need positive
   # intersection with y = x - {foul_line_to_foul_grass}
-  infield_x <- infield_roots[which(infield_roots < 0)]
+  infield_x <- infield_roots[which(infield_roots > 0)]
 
   # Get the starting and ending theta. If acos(infield_x / infield_arc_radius)
   # is undefined, use theta = pi / 4
@@ -163,7 +163,7 @@ baseball_infield_grass <- function(home_plate_circle_radius = 0,
   if (length(which(home_plate_3b_roots > 0)) == 0) {
     home_plate_3b_x <- home_plate_circle_radius
   } else {
-    home_plate_3b_roots <-
+    home_plate_3b_x <-
       home_plate_3b_roots[which(home_plate_3b_roots < 0)]
   }
 
