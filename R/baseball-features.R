@@ -386,7 +386,7 @@ baseball_catchers_box <- function(catchers_box_depth = 0,
   # Trapezoid ------------------------------------------------------------------
   # Calculate the base, where base 1 (b1) corresponds to the smaller of the
   # two bases and base 2 (b2) is the longer
-  catchers_box_b1_y <- (batters_box_length / 2) + batters_box_y_adj
+  catchers_box_b1_y <- (-batters_box_length / 2) + batters_box_y_adj
   catchers_box_b1_r <- catchers_box_b1_y / cos(pi / 4)
   catchers_box_b1 <- 2 * (abs(catchers_box_b1_r) * sin(pi / 4))
   catchers_box_b2_y_outer <-
@@ -406,8 +406,8 @@ baseball_catchers_box <- function(catchers_box_depth = 0,
       (-catchers_box_b2_outer / 2) + catchers_box_thickness,
       -catchers_box_b1 / 2,
       (-catchers_box_b1 / 2) - catchers_box_thickness,
-      (catchers_box_b2_inner / 2) - (2 * catchers_box_thickness),
-      (catchers_box_b2_inner / 2) - (2 * catchers_box_thickness),
+      (-catchers_box_b2_inner / 2) - (2 * catchers_box_thickness),
+      (catchers_box_b2_inner / 2) + (2 * catchers_box_thickness),
       (catchers_box_b1 / 2) + catchers_box_thickness,
       catchers_box_b1 / 2
     ),
@@ -503,8 +503,8 @@ baseball_foul_line <- function(is_line_1b = FALSE,
       ),
       y = c(
         starting_coord,
-        line_distance * cos(3 * pi / 4),
-        line_distance * cos(3 * pi / 4),
+        line_distance * sin(3 * pi / 4),
+        line_distance * sin(3 * pi / 4),
         starting_coord,
         starting_coord
       )
