@@ -145,7 +145,7 @@ baseball_infield_grass <- function(home_plate_circle_radius = 0,
     home_plate_1b_theta <- 0
   } else {
     home_plate_1b_theta <-
-      acos(home_plate_1b_x / home_plate_circle_radius)
+      acos(home_plate_1b_x / home_plate_circle_radius) / pi
   }
 
   # Repeat for third base
@@ -171,7 +171,7 @@ baseball_infield_grass <- function(home_plate_circle_radius = 0,
     home_plate_3b_theta <- 1
   } else {
     home_plate_3b_theta <-
-      acos(home_plate_3b_x / home_plate_circle_radius)
+      acos(home_plate_3b_x / home_plate_circle_radius) / pi
   }
 
   # Find the start and end angle at first base in the same manner
