@@ -39,7 +39,7 @@ Welcome to `sportyR`! I'm Ross Drucker, the author of the [`sportyR`](https://sp
 
 ```{r install-package-cran, eval = FALSE}
 # Install released version from CRAN
-install.packages('sportyR')
+install.packages("sportyR")
 ```
 
 If you're more into the development version of the package, try this:
