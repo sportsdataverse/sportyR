@@ -1,0 +1,57 @@
+---
+title: "customize-plot"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{customize-plot}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo = FALSE}
+library(sportyR)
+```
+
+Customizing a plot is easy as can be with `sportyR`. Say we want to customize a college basketball court to look like Lou Henson Court at the University of Illinois at Urbana-Champaign. You can see what it looks like [here](https://hoopdirt.com/wp-content/uploads/2015/08/louhensoncourt-rendering-690x340.jpg)
+
+We won't get an exact match with logos, floorboard color differentiation, or some markings, but we'll get pretty close. Let's start by finding out what colors we can change, and how we can change them:
+
+```{r get-colors}
+# Find the colors for a college basketball court
+cani_color_league_features("NCAA", "basketball")
+```
+Great, all set. It looks like the following should work:
+
+```{r illinois-court}
+geom_basketball(
+  league = "ncaa",
+  color_updates = list(
+    offensive_half_court = "#e8e0d7",
+    defensive_half_court = "#e8e0d7",
+    court_apron = "#e84a27",
+    two_point_range = c("#e8e0d7", "#ffffff66"),
+    center_circle_fill = "#e8e0d7",
+    painted_area = c("#e84a27", "#ffffff00"),
+    free_throw_circle_fill = "#e8e0d7",
+    sideline = "#13294b",
+    endline = "#13294b",
+    division_line = "#13294b",
+    center_circle_outline = "#13294b",
+    lane_boundary = c("#ffffff", "#ffffff00"),
+    three_point_line = c("#13294b", "#ffffff"),
+    free_throw_circle_outline = "#ffffff",
+    lane_space_mark = "#ffffff",
+    restricted_arc = "#13294b",
+    backboard = "#13294b"
+  )
+)
+```
+
+Pretty good! You can do this for any of the surfaces offered by `sportyR`.
+
