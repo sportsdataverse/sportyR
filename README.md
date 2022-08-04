@@ -7,8 +7,8 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
-[![](https://img.shields.io/badge/devel%20version-1.0.4-blue.svg)](https://github.com/rossdrucker/sportyR)
-[![R-CMD-check](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg)](https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml)
+[![R-CMD-check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
+[![](https://img.shields.io/badge/devel%20version-2.0.0-blue.svg)](https://github.com/rossdrucker/sportyR)
 [![Test
 Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
 [![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
@@ -29,7 +29,7 @@ it can be installed directly via:
 
 ``` r
 # Install released version from CRAN
-install.packages('sportyR')
+install.packages("sportyR")
 ```
 
 The development version of `sportyR` can be installed from
@@ -65,45 +65,91 @@ and take the following arguments:
     (e.g. `league = 'National Basketball Associaton'` instead of
     `league = 'NBA'`), but this feature is not currently available.
 
--   `full_surf`: a boolean indicating whether or not to plot the full
-    surface. This defaults to `TRUE`. <br> ***NOTE**: this argument is
-    not taken in `geom_baseball()` as this surfaces is always shown in
-    full (there’d be no reason to only draw half the diamond).*
+-   `display_range`: This automatically “zooms” in on the area of the
+    plot you’re interested in. Valid ranges here vary by sport, but can
+    be found by calling `?geom_{sport}` and reading about the display
+    ranges
 
--   `rotate`: a boolean indicating whether or not to rotate the surface.
-    All surfaces will be horizontal by nature. This defaults to `FALSE`
+-   `x_trans` and `y_trans`: By default, the origin of the coordinate
+    system *always* lies at the center of the plot. For example,
+    `(0, 0)` on a basketball court lies along the division line and on
+    the line that connects the center of each basket. If you want to
+    shift the origin (and therefore the entire plot), use `x_trans` and
+    `y_trans` to do so
 
--   `rotation_dir`: the direction in which to rotate the plot (if
-    `rotate == TRUE`). This defaults to `'ccw'` for counterclockwise.
+-   `{surface_type}_updates`: A list of updates to the parameters that
+    define the surface. I’ll demo how to use this to change a hockey
+    rink in a different vignette, but I’ll call this out here
+
+-   `color_updates`: A list that contains updates to the features’
+    colors on the plot. These are named by what the feature is, using
+    `snake_case` to specify the names. To get the list of color names
+    you can change, try running `cani_color_league_features()` with your
+    desired league
+
+-   `rotation`: An angle (in degrees) that you’d like to rotate the plot
+    by, where +is counterclockwise
+
+-   `xlims` and `ylims`: Any limits you’d like to put on the plot in the
+    x and y direction. These will overwrite anything set by the
+    `display_range` parameter
+
+-   `{surface}_units`: If your data is in units that are different than
+    how the rule book of the league specifies the units (e.g. you’ve got
+    NHL data in inches, but the rule book describes the rink in feet),
+    change this parameter to match the units you’ve got your data in.
+    You’re welcome to change the units of the data as well, but this is
+    provided for convenience
 
 ## Plot Units
 
 Each plot function has a standardized unit of measure in which the plot
 is created, and is standardized by the primary units specified in their
-respective rule books. They are as follows:
+respective rule books. They are as follows (and any explanation is in
+parentheses):
 
-|   Sport    |     League      | Primary Plotting Unit |
-|:----------:|:---------------:|:---------------------:|
-|  Baseball  |       MLB       |         `ft`          |
-| Basketball |      FIBA       |          `m`          |
-| Basketball |       NBA       |         `ft`          |
-| Basketball | NCAA Basketball |         `ft`          |
-| Basketball |      WNBA       |         `ft`          |
-|  Football  |       CFL       |         `yd`          |
-|  Football  |  NCAA Football  |         `yd`          |
-|  Football  |       NFL       |         `yd`          |
-|   Hockey   |      IIHF       |          `m`          |
-|   Hockey   |   NCAA Hockey   |         `ft`          |
-|   Hockey   |       NHL       |         `ft`          |
-|   Hockey   |      NWHL       |         `ft`          |
-|   Hockey   |       PHF       |         `ft`          |
-|   Soccer   |      FIFA       |          `m`          |
-|   Soccer   |       MLS       |          `m`          |
-|   Soccer   |   NCAA Soccer   |          `m`          |
-|   Soccer   |      NWSL       |          `m`          |
-|   Soccer   | Premier League  |          `m`          |
-|   Tennis   |       ITF       |         `ft`          |
-|   Tennis   |      NCAA       |         `ft`          |
+|   Sport    |              League              | Primary Plotting Unit |
+|:----------:|:--------------------------------:|:---------------------:|
+|  Baseball  |          Little League           |         `ft`          |
+|  Baseball  |               MiLB               |         `ft`          |
+|  Baseball  |               MLB                |         `ft`          |
+|  Baseball  |               NCAA               |         `ft`          |
+|  Baseball  |        NFHS (High School)        |         `ft`          |
+|  Baseball  |               Pony               |         `ft`          |
+| Basketball |               FIBA               |          `m`          |
+| Basketball |               NBA                |         `ft`          |
+| Basketball |           NBA G League           |         `ft`          |
+| Basketball |               NCAA               |         `ft`          |
+| Basketball |               NFHS               |         `ft`          |
+| Basketball |               WNBA               |         `ft`          |
+|  Football  |               CFL                |         `yd`          |
+|  Football  |               NCAA               |         `yd`          |
+|  Football  | NFHS11 (High School, 11 players) |         `yd`          |
+|  Football  |  NFHS6 (High School, 6 players)  |         `yd`          |
+|  Football  |  NFHS8 (High School, 8 players)  |         `yd`          |
+|  Football  |  NFHS9 (High School, 9 players)  |         `yd`          |
+|  Football  |               NFL                |         `yd`          |
+|   Hockey   |               AHL                |         `ft`          |
+|   Hockey   |               ECHL               |         `ft`          |
+|   Hockey   |               IIHF               |          `m`          |
+|   Hockey   |               NCAA               |         `ft`          |
+|   Hockey   |               NHL                |         `ft`          |
+|   Hockey   |               NWHL               |         `ft`          |
+|   Hockey   |               OHL                |         `ft`          |
+|   Hockey   |               PHF                |         `ft`          |
+|   Hockey   |              QMJHL               |         `ft`          |
+|   Hockey   |               USHL               |         `ft`          |
+|   Soccer   |               EPL                |          `m`          |
+|   Soccer   |               FIFA               |          `m`          |
+|   Soccer   |               MLS                |         `yd`          |
+|   Soccer   |               NCAA               |         `yd`          |
+|   Soccer   |               NWSL               |         `yd`          |
+|   Tennis   |               ATP                |         `ft`          |
+|   Tennis   |               ITA                |         `ft`          |
+|   Tennis   |               ITF                |         `ft`          |
+|   Tennis   |               NCAA               |         `ft`          |
+|   Tennis   |               USTA               |         `ft`          |
+|   Tennis   |               WTA                |         `ft`          |
 
 However, since the data that is supplied may come in various units of
 measure, the plots are able to be generated in the data’s units. This is
@@ -133,31 +179,32 @@ a call to the proper `geom_{sport}()` function like so:
 
 ``` r
 # Draw a basic MLB field plot
-geom_baseball('mlb')
+geom_baseball("mlb")
 ```
 
 <img src="man/figures/README-mlb-example-1.png" width="100%" />
 
-Certain functions are able to take additional parameters. As an example,
-soccer pitches are not always a standard size. For this reason, users
-can specify in the call to `geom_soccer()` what the touchline and goal
-line lengths should be.
-
 ``` r
 # Create a 100m by 75m FIFA pitch
-geom_soccer('fifa', touchline_length = 100, goal_line_length = 75)
+geom_soccer(
+  "fifa",
+  pitch_updates = list(
+    pitch_length = 100,
+    pitch_width = 75
+  )
+)
 ```
 
 <img src="man/figures/README-fifa-example-1.png" width="100%" />
 
-It’s also possible to plot half-surfaces and rotated surfaces:
+It’s also possible to plot parital surfaces and rotated surfaces:
 
 ``` r
 # Draw half of a rotated NBA court
-geom_basketball('nba', full_surf = FALSE, rotate = TRUE)
+geom_basketball("nba", display_range = "offense", rotation = 270)
 ```
 
-<img src="man/figures/README-nba-example-1.png" width="100%" />
+<img src="man/figures/README-nhl-example-1.png" width="100%" />
 
 Creating a realistic, customized output plot is also possible by
 supplying the proper arguments to recolor. More information on how to
@@ -168,42 +215,46 @@ flexibility with which the plots can be customized.*
 ``` r
 # Create a totally customized NCAA basketball court
 geom_basketball(
-  'ncaa',
-  court_background_color = '#e8e0d7',
-  center_circle_color = '#13294b',
-  division_line_color = '#13294b',
-  endline_color = '#13294b',
-  sideline_color = '#13294b',
-  team_bench_color = '#13294b',
-  substitution_area_color = '#13294b',
-  court_apron_color = '#e84a27',
-  m_three_point_line_color = '#13294b',
-  w_three_point_line_color = '#ffffff',
-  m_two_point_range_color = '#e8e0d7',
-  w_two_point_range_color = '#ffffff66',
-  amateur_free_throw_lane_color = '#ffffff',
-  amateur_painted_area_color = '#e84a27',
-  amateur_free_throw_lane_lines_color = '#ffffff',
-  free_throw_semi_circle_line_color = '#ffffff',
-  free_throw_semi_circle_fill_color = '#e8e0d7',
-  lower_defensive_box_color = '#13294b',
-  restricted_area_arc_color = '#13294b',
-  backboard_color = '#13294b',
-  basket_ring_color = '#13294b',
-  net_color = '#ffffff'
+  league = "ncaa",
+  color_updates = list(
+    offensive_half_court = "#e8e0d7",
+    defensive_half_court = "#e8e0d7",
+    court_apron = "#e84a27",
+    two_point_range = c("#e8e0d7", "#ffffff66"),
+    center_circle_fill = "#e8e0d7",
+    painted_area = c("#e84a27", "#ffffff00"),
+    free_throw_circle_fill = "#e8e0d7",
+    sideline = "#13294b",
+    endline = "#13294b",
+    division_line = "#13294b",
+    center_circle_outline = "#13294b",
+    lane_boundary = c("#ffffff", "#ffffff00"),
+    three_point_line = c("#13294b", "#ffffff"),
+    free_throw_circle_outline = "#ffffff",
+    lane_space_mark = "#ffffff",
+    restricted_arc = "#13294b",
+    backboard = "#13294b"
+  )
 )
 ```
 
 <img src="man/figures/README-custom-ncaa-bb-example-1.png" width="100%" />
 
-Another quick example with a football field, but this time only changing
-one of the coloring elements:
+Want a blue college football field? Here’s how:
 
 ``` r
 # Create a blue football field
 geom_football(
-  'ncaa',
-  grass_color = '#2e4597'
+  "ncaa",
+  color_updates = list(
+    field_apron = "#2e4597",
+    field_border = "#2e4597",
+    offensive_endzone = "#2e4597",
+    defensive_endzone = "#2e4597",
+    offensive_half = "#2e4597",
+    defensive_half = "#2e4597",
+    team_bench_area = "#2e4597"
+  )
 )
 ```
 
@@ -226,39 +277,40 @@ or
 and message back the answer. Here’s how they work:
 
 ``` r
-cani_plot_league('mlb')
+cani_plot_league("mlb")
 #> A plot for MLB can be created via the geom_baseball() function
 ```
 
 ``` r
-cani_color_league_features('nba')
-#> Here are the viable plotting features to color for NBA:
+cani_color_league_features("nba")
+#> Here are the viable plotting features to color for NBA basketball:
 #> 
-#> court_background_color
-#> inner_center_circle_color
-#> outer_center_circle_color
-#> division_line_color
-#> endline_color
-#> sideline_color
-#> team_bench_color
-#> substitution_area_color
-#> court_apron_color
-#> three_point_line_color
-#> two_point_range_color
-#> professional_free_throw_lane_color
-#> professional_painted_area_color
-#> amateur_free_throw_lane_color
-#> amateur_painted_area_color
-#> professional_free_throw_lane_lines_color
-#> amateur_free_throw_lane_lines_color
-#> free_throw_semi_circle_line_color
-#> free_throw_semi_circle_fill_color
-#> free_throw_dashed_semi_circle_color
-#> lower_defensive_box_color
-#> restricted_area_arc_color
-#> backboard_color
-#> basket_ring_color
-#> net_color
+#> plot_background
+#> defensive_half_court
+#> offensive_half_court
+#> court_apron
+#> center_circle_outline
+#> center_circle_fill
+#> division_line
+#> endline
+#> sideline
+#> two_point_range
+#> three_point_line
+#> painted_area
+#> lane_boundary
+#> free_throw_circle_outline
+#> free_throw_circle_fill
+#> free_throw_circle_dash
+#> lane_space_mark
+#> inbounding_line
+#> substitution_line
+#> baseline_lower_defensive_box
+#> lane_lower_defensive_box
+#> team_bench_line
+#> restricted_arc
+#> backboard
+#> basket_ring
+#> net
 ```
 
 For more information, call `?cani_plot_league`, `?cani_plot_sport`, or
@@ -279,35 +331,37 @@ and the Boston Pride (data provided for the [Big Data Cup -
 
 ``` r
 # Read data from the Big Data Cup
-bdc_data = read.csv('https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021/main/hackathon_nwhl.csv')
+bdc_data <- read.csv(
+  glue::glue(
+    "https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021",
+    "/main/hackathon_nwhl.csv"
+  )
+)
 
 # Change names of X.Coordinate and Y.coordinate to x and y respectively
-names(bdc_data)[13:14] = c('x', 'y')
-
-# Shift coordinates to fit on the rink
-bdc_data = translate(bdc_data, translate_x = -100, translate_y = -42.5)
+names(bdc_data)[13:14] <- c("x", "y")
 
 # Subset to only be shots from the game on 2021-01-23 between the Minnesota
 # White Caps and Boston Pride
-bdc_shots = bdc_data[(bdc_data$Event == 'Shot') &
-                     (bdc_data$Home.Team == 'Minnesota Whitecaps') &
-                     (bdc_data$game_date == '2021-01-23'), ]
+bdc_shots <- bdc_data[(bdc_data$Event == "Shot") &
+                        (bdc_data$Home.Team == "Minnesota Whitecaps") &
+                        (bdc_data$game_date == "2021-01-23"), ]
 
 # Separate shots by team
-whitecaps_shots = bdc_shots[bdc_shots$Team == 'Minnesota Whitecaps', ]
-pride_shots = bdc_shots[bdc_shots$Team == 'Boston Pride', ]
+whitecaps_shots <- bdc_shots[bdc_shots$Team == "Minnesota Whitecaps", ]
+pride_shots <- bdc_shots[bdc_shots$Team == "Boston Pride", ]
 
-# Reflect the Boston Pride shots to make them appear on the other side of the
-# ice
-pride_shots = reflect(pride_shots, over_y = TRUE)
+# Correct the shot location
+whitecaps_shots["x"] <- 200 - whitecaps_shots["x"]
+whitecaps_shots["y"] <- 85 - whitecaps_shots["y"]
 
 # Draw the rink
-nwhl_rink = geom_hockey('nwhl')
+phf_rink <- geom_hockey("phf", x_trans = 100, y_trans = 42.5)
 
 # Add the shot locations
-nwhl_rink +
-  geom_point(data = whitecaps_shots, aes(x, y), color = '#2251b8') +
-  geom_point(data = pride_shots, aes(x, y), color = '#fec52e')
+phf_rink +
+  geom_point(data = whitecaps_shots, aes(x, y), color = "#2251b8") +
+  geom_point(data = pride_shots, aes(x, y), color = "#fec52e")
 ```
 
 <img src="man/figures/README-bdc-example-1.png" width="100%" />
@@ -321,19 +375,22 @@ competition.
 
 ``` r
 # Load the play data
-example_nfl_play = read.csv('data-raw/example-pbp-data.csv')
+example_nfl_play <- read.csv("data-raw/example-pbp-data.csv")
 
 # Prep data for plotting
-example_nfl_play[example_nfl_play['team'] == 'home', 'color'] = '#c83803'
-example_nfl_play[example_nfl_play['team'] == 'away', 'color'] = '#ffb612'
-example_nfl_play[example_nfl_play['team'] == 'football', 'color'] = '#624a2e'
+example_nfl_play[example_nfl_play["team"] == "home", "color"] <- "#c83803"
+example_nfl_play[example_nfl_play["team"] == "away", "color"] <- "#ffb612"
+example_nfl_play[example_nfl_play["team"] == "football", "color"] <- "#624a2e"
 
 # Create the field
-nfl_field = geom_football('nfl')
+nfl_field <- geom_football("nfl", x_trans = 50, y_trans = 26.6667)
 
 # Add the points on the field
-play_anim = nfl_field +
-  geom_point(data = example_nfl_play, aes(x, y), color = example_nfl_play$color) +
+play_anim <- nfl_field +
+  geom_point(
+    data = example_nfl_play, aes(x, y),
+    color = example_nfl_play$color
+  ) +
   transition_time(example_nfl_play$frameId)
 
 # Show the animation
@@ -366,6 +423,7 @@ general managers (and their sports) are:
 -   [Ross Drucker](https://github.com/rossdrucker) - Football
 -   [Ross Drucker](https://github.com/rossdrucker) - Hockey
 -   [Ross Drucker](https://github.com/rossdrucker) - Soccer
+-   [Ross Drucker](https://github.com/rossdrucker) - Tennis
 
 ### Coaching Staffs
 
