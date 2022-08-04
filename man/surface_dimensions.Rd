@@ -3,18 +3,8 @@
 \docType{data}
 \name{surface_dimensions}
 \alias{surface_dimensions}
-\title{Datasets available in this package
-A list of lists (JSON) that associates a league with the appropriate
-dimensions to draw its surface. This data follows the current dimensions
-specified in the rule books, which can be found in the rule book directory}
-\format{
-An object of class \code{list} of length 6.
-}
-\usage{
-surface_dimensions
-}
+\title{surface_dimensions}
 \description{
-Datasets available in this package
 A list of lists (JSON) that associates a league with the appropriate
 dimensions to draw its surface. This data follows the current dimensions
 specified in the rule books, which can be found in the rule book directory
@@ -22,4 +12,3 @@ specified in the rule books, which can be found in the rule book directory
 \details{
 A set of dimensions by sport and by league
 }
-\keyword{datasets}
