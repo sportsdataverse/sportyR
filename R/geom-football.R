@@ -965,8 +965,7 @@ geom_football <- function(league,
         y = field_features$marked_yardages$y,
         hjust = "center",
         label = field_features$marked_yardages$marking,
-        angle = field_features$marked_yardages$marker_rotation + rotation,
-        family = field_params$number_font %or% ""
+        angle = field_features$marked_yardages$marker_rotation + rotation
       ),
       color = feature_colors$yardage_marker,
       inherit.aes = FALSE
