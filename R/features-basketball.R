@@ -162,7 +162,7 @@ basketball_painted_area <- function(lane_length = 0,
 #' The filled-in section of the free throw circle. The circle is the area where
 #' a free throw shooter stands when attempting the free throw. The outline of
 #' this area will be created separately via
-#' [basketball_free_throw_circle_outline()]
+#' [basketball_free_throw_circle()]
 #'
 #' @param free_throw_circle_radius The outer radius of the free throw circle,
 #'   measured from the center of the free throw line
@@ -679,7 +679,7 @@ basketball_substitution_line <- function(line_thickness = 0,
 }
 
 #' Players not in the game must stay within the team bench lines unless moving
-#' to the substitution area (see [substitution_line()] class)
+#' to the substitution area (see [basketball_substitution_line()] class)
 #'
 #' @param line_thickness The thickness of the team bench line
 #' @param extension The extension of the team bench line out of the court
