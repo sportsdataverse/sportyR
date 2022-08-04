@@ -382,15 +382,6 @@ cani_color_league_features <- function(league_code, sport_name = NULL) {
 
         # Get the names of the features
         feature_names <- names(feature_names)
-      } else {
-        stop(
-          glue::glue(
-            "Sorry, {toupper(league_code)} does not support ",
-            "{tolower(sport_name)} at this time. Please create an issue on ",
-            "GitHub with the league's playing surface specifications for the ",
-            "sport-league combination to be added to the package"
-          )
-        )
       }
     }
   }
