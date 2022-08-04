@@ -22,11 +22,11 @@ If you're using `sportyR` in an academic context, please do your best to cite th
 
 ### Scouting Reports - Bugs and Feature Suggestions
 
-Like any good sports organization, `sportyR` does its best to scout for itself and solve problems before they become problems. Given a tough test, problems are sure to arise. They can be overcome in their next match, however, by making use of good scouting (bug) reports. Please create an [Issue](https://github.com/rossdrucker/sportyR/issues) when you find something that needs to be fixed. Here's a good general guide to follow for creating one:
+Like any good sports organization, `sportyR` does its best to scout for itself and solve problems before they become problems. Given a tough test, problems are sure to arise. They can be overcome in their next match, however, by making use of good scouting (bug) reports. Please create an [Issue](https://github.com/sportsdataverse/sportyR/issues) when you find something that needs to be fixed. Here's a good general guide to follow for creating one:
 
-1) Please double check the [README](https://www.github.com/rossdrucker/sportyR) and the [Issues](https://github.com/rossdrucker/sportyR/issues) pages to be sure that your problem hasn't already been solved. This isn't meant to stop you from reporting your problem, but rather to be sure that it's a new one so it can be properly addressed.
+1) Please double check the [README](https://www.github.com/sportsdataverse/sportyR) and the [Issues](https://github.com/sportsdataverse/sportyR/issues) pages to be sure that your problem hasn't already been solved. This isn't meant to stop you from reporting your problem, but rather to be sure that it's a new one so it can be properly addressed.
 
-2) Title your issue with a clear description of what you're looking for. Titling your Issue "This is weird..." doesn't give as good of an idea of what you're after as titling your Issue "NCAA Football hashmarks are out of place." Even better if you can prefix your Issue with `bug` or `feature-request`
+2) Title your issue with a clear description of what you're looking for. Titling your Issue "This is weird..." doesn't give as good of an idea of what you're after as titling your Issue "NCAA Football hashmarks are out of place." Even better if you can prefix/tag your Issue with `bug` or `feature-request`
 
 3) Spend some time creating a detailed explanation, with a reproducible example, of the problem you're having. Without being able to understand the issue, it's even harder to find what's causing it to occur. Do your best to make sure your code is well-formatted and easy for others to read:
 
@@ -44,23 +44,23 @@ Want to join `sportyR`'s team and help shape the package? Great! We're always re
 
     In order to join the League Office, you must be invited by a current member and get approved by a majority of the other members of the League Office
 
-    When you become a League Officer, you should list yourself in the [README](https://github.com/rossdrucker/sportyR), and also list yourself in the [DESCRIPTION](https://github.com/rossdrucker/sportyR/blob/master/DESCRIPTION) file with the role of `"aut"`
+    When you become a League Officer, you should list yourself in the [README](https://github.com/sportsdataverse/sportyR), and also list yourself in the [DESCRIPTION](https://github.com/sportsdataverse/sportyR/blob/master/DESCRIPTION) file with the role of `"aut"`
 
-- **General Managers** &mdash; Writing the code that extends `sportyR`'s sport-plotting reach by developing for new sports will earn you a spot as a **General Manager**. Please list yourself (in alphabetical-by-sport order) in the [README](https://github.com/rossdrucker/sportyR) with what sport you've added.
+- **General Managers** &mdash; Writing the code that extends `sportyR`'s sport-plotting reach by developing for new sports will earn you a spot as a **General Manager**. Please list yourself (in alphabetical-by-sport order) in the [README](https://github.com/sportsdataverse/sportyR) with what sport you've added.
     
     Note that by contributing a new sport, you'll be considered the General Manager of that sport. You may be asked to assist in sport-specific issues if the League Office is unable to provide a clear answer
 
 - **Coaching Staffs** &mdash; Patching a bug in an already-existing sport means you're eligible to be on that sport's **coaching staff**. You've got your eye on the game, and it's much appreciated! Coaches can list themselves in the README as well, similar to how General Managers are listed
 
-- **Scout Team** &mdash; By fixing a typo, making a slight modification to something that already exists in `sportyR`, or regularly reporting issues with the package that you encounter (or even helping others solve theirs), you can join the **Scout Team**. Thanks for being on the front lines of the package's operation! Feel free to list yourself in the [README](https://github.com/rossdrucker/sportyR) under **Scout Team** with a brief description of your role ("Typo Fixer" or "Question Answerer" work great, but be as creative with it as you'd like)
+- **Scout Team** &mdash; By fixing a typo, making a slight modification to something that already exists in `sportyR`, or regularly reporting issues with the package that you encounter (or even helping others solve theirs), you can join the **Scout Team**. Thanks for being on the front lines of the package's operation! Feel free to list yourself in the [README](https://github.com/sportsdataverse/sportyR) under **Scout Team** with a brief description of your role ("Typo Fixer" or "Question Answerer" work great, but be as creative with it as you'd like)
 
 ## Becoming a Coach/General Manager - Pull Request Process
 
-To become a Cocah or General Manager, submit a [Pull Request](https://github.com/rossdrucker/sportyR/pulls) (PR) on GitHub using this process:
+To become a Cocah or General Manager, submit a [Pull Request](https://github.com/sportsdataverse/sportyR/pulls) (PR) on GitHub using this process:
 
 1) Create a branch in git and make the changes you wish to see implemented
 
-2) Push your branch to GitHub and issue your PR. Your PR should be titled in a way that it's obvious what it's overarching goal is
+2) Push your branch to GitHub and open your PR. Your PR should be titled in a way that it's obvious what it's overarching goal is
 
 3) Discuss the PR in as much detail as possible. Provide links to your sources, and clearly explain why the PR is necessary and how it can be used. Any deviations from the conventions of the rest of the package should be clearly explained, but only if the deviation is necessary
 
@@ -72,23 +72,23 @@ Your request will be checked against the following points:
 
 - **Only Related Changes** &mdash; Before you submit your PR, make sure your PR only addresses *one* issue. If you want to fix multiple issues, please address them in separate PRs so that it's clear what change is being made in each PR. Please also be sure that your PR doesn't introduce any new bugs or break any existing code
 
-- **Code Style and File Naming** &mdash; Please follow [the tidyverse styleguide](https://style.tidyverse.org/), with the only deviations being that assignment should be done through the `=` operator instead of the `<-` operator, and explicit `return()` calls to return what's needed from each function. Maintaining consistent styling facilitates easier current maintenance and future development.
+- **Code Style and File Naming** &mdash; Please follow [the tidyverse styleguide](https://style.tidyverse.org/), with the only deviation being explicit calls to `return()` in order to return what's needed from each function. Maintaining consistent styling facilitates easier current maintenance and future development.
 
-    Additionally, please keep consistent with the naming of new files, especially when adding a new sport. Files that contain a new league should be named as `{sport}-{league}-features.R`, and if this is a new sport entirely, be sure to add the corresponding `sport-{new sport here}.R` file as well. Although leagues in the same sport may share different features (and therefore could potentially share feature functions), this more granular and stratified approach allows for easier maintenance and control should any given league change up their surface's dimensions
+    Additionally, please keep consistent with the naming of new files, especially when adding a new sport. Files that contain a new league should be named as `features-{sport}.R`, and if this is a new sport entirely, be sure to add the corresponding `geom-{new sport here}.R` file as well. Dimensions should be maintained in the `data-raw/surface_dimensions.json` file, and `data-raw/internal_datasets.R` should be sourced to incorporate new changes. Please parameterize the surface to the best of your abilities, and ask with any questions!
 
 - **Documentation** &mdash; When introducing new code, please make sure you document it appropriately. Documentation comes in two main forms: `roxygen2` documentation for the functions you write, and comments throughout the code that explain what your code is trying to achieve. Both types of documentation are very important! Be sure to run `devtools::document()` to be sure your documentation files are properly created before submitting, and be sure to check for spelling and grammar.
     
-    A quick note on internal/helper function documentation: please make sure that you omit these files from the package build by listing them in [`.Rbuildignore`](.Rbuildignore). This reduces the overall size of the package when being submitted to CRAN, which only allows a maximum package size of 5MB. Reach out if you need help doing this
+    A quick note on internal/helper function documentation: please make sure that you omit these files from the package build by using `@keywords internal` in your `roxygen2` documentation. This reduces the overall size of the package when being submitted to CRAN, which only allows a maximum package size of 5MB
 
 - **Testing** &mdash; `sportyR` relies upon extensive testing to ensure that the package runs smoothly. It currently has 100% code coverage, and your PR should ensure that this remains the case.
 
     To test your coverage, be sure to have the `covr` package installed and run the following commands:
 
     ```
-    cov = covr::package_coverage()
+    cov <- covr::package_coverage()
     covr::zero_coverage(cov)
     ```
 
-    This will show you where your new code lacks sufficient coverage, so please be sure to add tests in the `tests/` repository to make sure you're covered! For help on creating tests (especially of the visual variety), please reach out to the League Office
+    This will show you where your new code lacks sufficient coverage, so please be sure to add tests in the `tests/` repository to make sure you're covered! For help on creating tests, please reach out to the League Office
 
 Although this seems like a lot of work and a big hassle, the League Office doesn't expect perfection and is on hand to help out as needed.
