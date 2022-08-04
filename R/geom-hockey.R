@@ -151,10 +151,6 @@ hockey_features_set_colors <- function(plot_background = NULL,
 #' @param ylims The limits on the final display in the \code{y} direction. The
 #'   default is \code{NULL}, which will utilize the \code{ylims} specified by
 #'   the \code{display_range} parameter
-#' @param ... Additional arguments to pass to the function. These should be the
-#'   colors to pass to the \code{hockey_features_set_colors()} function,
-#'   (although the colors are defined in the rule book) or units with which to
-#'   draw the plot
 #'
 #' @return A \code{ggplot2} instance with a full-surface representation of an
 #'   ice hockey rink
