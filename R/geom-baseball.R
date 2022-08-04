@@ -99,7 +99,7 @@ baseball_features_set_colors <- function(plot_background = "#395d33",
 #'
 #' @examples
 #' geom_baseball(league = "MLB", rotation = 270, display_range = "infield")
-#' geom_baseball(league = "little_league", field_units = "m")
+#' geom_baseball(league = "little league", field_units = "m")
 geom_baseball <- function(league,
                           display_range = "full",
                           field_updates = list(),
