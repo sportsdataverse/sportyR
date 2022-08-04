@@ -29,7 +29,7 @@ create_plot_base <- function(plot_background = NULL) {
       axis.title = ggplot2::element_blank(),
       axis.text = ggplot2::element_blank(),
       axis.ticks = ggplot2::element_blank(),
-      panel.grid = ggplot2::element_blank(),
+      panel.grid = ggplot2::element_blank()
     )
 
   # Return the ggplot2 instance
