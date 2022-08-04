@@ -9,8 +9,7 @@
 #' @keywords internal
 `%or%` <- function(spec_val, default_val) {
   cmp <- function(spec_val, default_val) {
-      if (identical(spec_val, FALSE) ||
-          is.null(spec_val) ||
+      if (is.null(spec_val) ||
           is.na(spec_val) ||
           is.nan(spec_val) ||
           length(spec_val) == 0) {
