@@ -43,7 +43,8 @@ baseball_infield_dirt <- function(home_plate_circle_radius = 0,
 
   # Get the starting and ending theta. If acos(home_plate_x /
   # home_plate_circle_radius) is undefined use theta = pi
-  if (is.na(acos(home_plate_x / home_plate_circle_radius))) {
+  if ((home_plate_circle_radius == 0) ||
+      is.na(acos(home_plate_x / home_plate_circle_radius))) {
     home_plate_start_theta <- 1
   } else {
     home_plate_start_theta <-
@@ -76,7 +77,8 @@ baseball_infield_dirt <- function(home_plate_circle_radius = 0,
 
   # Get the starting and ending theta. If acos(infield_x / infield_arc_radius)
   # is undefined, use theta = pi / 4
-  if (is.na(acos(infield_x / infield_arc_radius))) {
+  if ((infield_arc_radius == 0) ||
+      (is.na(acos(infield_x / infield_arc_radius)))) {
     infield_start_theta <- 0.25
   } else {
     infield_start_theta <- acos(infield_x / infield_arc_radius) / pi
