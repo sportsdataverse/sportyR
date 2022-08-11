@@ -2,7 +2,7 @@
 % Please edit documentation in R/cani-functions.R
 \name{cani_color_league_features}
 \alias{cani_color_league_features}
-\title{Check to see what features of a surface can be colored by a user}
+\title{Check to see what features of a surface can be colored}
 \usage{
 cani_color_league_features(league_code, sport_name = NULL)
 }
@@ -14,10 +14,10 @@ cani_color_league_features(league_code, sport_name = NULL)
 Default: \code{NULL}}
 }
 \value{
-Nothing, but a message is sent to the console for the user
+Nothing, but a message is sent to the console
 }
 \description{
-Check to see what features of a surface can be colored by a user
+Check to see what features of a surface can be colored
 }
 \examples{
 cani_color_league_features("NCAA", "basketball")

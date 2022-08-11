@@ -14,4 +14,7 @@ test_that("Error when league is not supplied", {
 
   # Soccer
   expect_error(geom_soccer())
+
+  # Tennis
+  expect_error(geom_tennis())
 })

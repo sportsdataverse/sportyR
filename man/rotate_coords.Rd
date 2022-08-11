@@ -6,16 +6,13 @@
 given as x' = x \* cos(theta) - y \* sin(theta) y' = x \* sin(theta) + y \*
 cos(theta)}
 \usage{
-rotate_coords(df, rotation_dir = "ccw", angle = 0.5)
+rotate_coords(df, angle = 90)
 }
 \arguments{
-\item{df}{The data frame to rotate. It must have \code{x} and \code{y} columns}
+\item{df}{The data frame to rotate. It must have \code{x} and \code{y}
+columns}
 
-\item{rotation_dir}{The direction in which to rotate the coordinates.
-\code{ccw} corresponds to counterclockwise}
-
-\item{angle}{the angle (in radians, divided by pi) through which to rotate
-the coordinates}
+\item{angle}{the angle (in degrees) through which to rotate the coordinates}
 }
 \value{
 The rotated data frame

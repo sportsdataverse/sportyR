@@ -4,4 +4,7 @@
 .httr-oauth
 .DS_Store
 README_cache/
-^docs*
+docs
+inst/doc
+/doc/
+/Meta/

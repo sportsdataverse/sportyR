@@ -13,7 +13,8 @@ create_square(side_length, center = c(0, 0))
 \item{center}{The center coordinates of the square}
 }
 \value{
-A data frame containing the points needed to draw the specified square
+A data frame containing the points needed to draw the specified
+square
 }
 \description{
 Create a set of \code{x} and \code{y} coordinates that form a square. This

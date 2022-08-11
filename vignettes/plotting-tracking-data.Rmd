@@ -1,0 +1,145 @@
+---
+title: "Plotting Tracking Data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{plotting-tracking-data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r vignette-options, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/plotting-tracking-data-",
+  out.width = "100%",
+  dpi = 600
+)
+options(rmarkdown.html_vignette.check_title = FALSE)
+```
+
+In order to run the following vignettes, you'll need the `sportyR` and `ggplot2` libraries loaded into your workspace.
+
+```{r setup, eval = FALSE}
+library(sportyR)
+library(ggplot2)
+```
+
+```{r setup-ran, echo = FALSE}
+library(sportyR)
+suppressPackageStartupMessages(library(ggplot2))
+```
+
+## Introduction
+
+`sportyR` seeks to make plotting geospatial tracking data as straight-forward as possible, allowing you to focus more on the analysis than on the visuals. I'll demonstrate a few examples here on how to use the package to display "static" data, or data that shows a snapshot in time
+
+## The Data
+
+For this example, I'll be using the data provided for the [Big Data Cup](https://www.stathletes.com/big-data-cup/), which is publicly available. Specifically, the data I'll use to demonstrate how to plot comes from the data provided for the [Big Data Cup - 2021](https://github.com/bigdatacup/Big-Data-Cup-2021).
+
+Start by reading in the data from the CSV file provided:
+
+```{r download-data}
+# Read data from the Big Data Cup
+bdc_data <- data.table::fread(
+  glue::glue(
+    "https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021",
+    "/main/hackathon_nwhl.csv"
+  )
+)
+
+# Convert to data frame
+bdc_data <- as.data.frame(bdc_data)
+```
+
+Let's explore the dataset a bit to see what (if any) changes would be helpful
+```{r bdc-data-column-names}
+names(bdc_data)
+```
+
+It'd be helpful to change the names of the columns to be easier to work with, so I'll change `X Coordinate` and `Y Coordinate` to be `x` and `y`, and `X Coordinate 2` and `Y Coordinate 2` to be `x2` and `y2`.
+
+```{r clean-bdc-data}
+# Change names of X Coordinate and Y Coordinate to x and y respectively
+names(bdc_data)[13:14] <- c("x", "y")
+names(bdc_data)[20:21] <- c("x2", "y2")
+
+# Preview what the data looks like
+knitr::kable(head(bdc_data))
+```
+
+I'll use the first game in the data here, which is between the Minnesota Whitecaps and the Boston Pride. To keep things easy I'll focus first on single-point data: shots.
+
+```{r subset-bdc-shot-data}
+# Subset to only be shots from the game on 2021-01-23 between the Minnesota
+# White Caps and Boston Pride
+bdc_shots <- bdc_data[(bdc_data$Event == "Shot") &
+                        (bdc_data$`Home Team` == "Minnesota Whitecaps") &
+                        (bdc_data$game_date == "2021-01-23"), ]
+
+# Separate shots by team
+whitecaps_shots <- bdc_shots[bdc_shots$Team == "Minnesota Whitecaps", ]
+pride_shots <- bdc_shots[bdc_shots$Team == "Boston Pride", ]
+```
+
+To keep all shots for a team on the same side of the ice, we need to adjust the coordinates of the shot. We've got to keep the shooter's perspective towards the net constant as well, so the following is an appropriate transformation.
+
+```{r transform-bdc-shot-data}
+# Correct the shot location
+whitecaps_shots["x"] <- 200 - whitecaps_shots["x"]
+whitecaps_shots["y"] <- 85 - whitecaps_shots["y"]
+```
+
+This positions the data correctly, so let's move on to plotting
+
+## Drawing the Plot
+
+Since this data pertains to the Premier Hockey Federation (PHF), we'll start the plotting by drawing a PHF-sized rink. We'll use `x_trans` and `y_trans` to align the data and plot coordinates. I encourage you to experiment with the data to see how this works in practice
+
+```{r draw-rink, dev = "png"}
+# Draw the rink
+phf_rink <- geom_hockey("phf", x_trans = 100, y_trans = 42.5)
+
+# Display the rink here
+phf_rink
+```
+
+Now all that's left to do is to add the data points to the plot! Because of how `ggplot2` is designed, this is very straightforward.
+
+## Adding the Data
+
+```{r add-bdc-shot-data-to-plot, dev = "png"}
+# Add the shots to the plot
+phf_rink +
+  geom_point(data = whitecaps_shots, aes(x, y), color = "#2251b8") +
+  geom_point(data = pride_shots, aes(x, y), color = "#fec52e")
+```
+
+## Two-Coordinate Data
+
+Pretend instead that we want to look at where a team's passes were executed during the game. This is also very easy to do. Let's take the same dataset we had before, `bdc_data`, and this time subset it to look at Boston's passes in the game. We've already got our rink plot from before, so let's just subset to the passing data, and add it to the plot:
+
+```{r passing-data-example, dev = "png"}
+# Subset the data to be Boston's passes
+boston_passes <- bdc_data[(bdc_data$Event == "Play") &
+                            (bdc_data$Team == "Boston Pride") &
+                            (bdc_data$game_date == "2021-01-23"), ]
+
+# Plot passes with geom_segment()
+phf_rink +
+  geom_segment(
+    data = boston_passes,
+    aes(
+      x = x,
+      y = y,
+      xend = x2,
+      yend = y2
+    ),
+    lineend = "round",
+    linejoin = "round",
+    color = "#ffcb05"
+  )
+```
+
+And there you have it! This works for any geospatial data, for any sport (supported by `sportyR`), and for any league (supported by `sportyR`). Give it a try, and please reach out if you have ideas for improvements!

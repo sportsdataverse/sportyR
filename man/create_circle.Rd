@@ -5,7 +5,7 @@
 \title{Create a set of \code{x} and \code{y} coordinates that form a circle (or the
 arc of a circle)}
 \usage{
-create_circle(center = c(0, 0), npoints = 1000, d = 2, start = 0, end = 2)
+create_circle(center = c(0, 0), npoints = 1000, r = 1, start = 0, end = 2)
 }
 \arguments{
 \item{center}{The (\code{x}, \code{y}) coordinates of the center of the
@@ -14,8 +14,8 @@ circle. Default: \code{(0, 0)}}
 \item{npoints}{The number of points with which to create the circle. This
 will also be the length of the resulting data frame. Default: 1000}
 
-\item{d}{The diameter of the circle IN THE UNITS OF THE PLOT. This default
-unit will be feet. Default: \code{2} (unit circle)}
+\item{r}{The radius of the circle IN THE UNITS OF THE PLOT. This default
+unit will be feet. Default: \code{1} (unit circle)}
 
 \item{start}{The angle (in radians, divided by pi) at which to start drawing
 the circle, where zero runs along the +\code{x} axis. Default: \code{0}}

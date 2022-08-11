@@ -2,20 +2,19 @@
 % Please edit documentation in R/plot-helpers.R
 \name{create_plot_base}
 \alias{create_plot_base}
-\title{Create the base for the ggplot2 instance with the correct theme elements}
+\title{Create the base for the \code{ggplot2} instance with the correct theme
+elements}
 \usage{
-create_plot_base(rotate = FALSE, background_color = NULL)
+create_plot_base(plot_background = NULL)
 }
 \arguments{
-\item{rotate}{Whether or not the final output will be rotated (adjusts the
-margins). Default: \code{FALSE}}
-
-\item{background_color}{A hexadecimal string representing the color to use for
-the plot's background. Default: \code{NULL}}
+\item{plot_background}{A hexadecimal string representing the color to use
+for the plot's background. Default: \code{NULL}}
 }
 \value{
-A ggplot2 instance onto which the features will be added
+A \code{ggplot2} instance onto which the features will be added
 }
 \description{
-Create the base for the ggplot2 instance with the correct theme elements
+Create the base for the \code{ggplot2} instance with the correct theme
+elements
 }

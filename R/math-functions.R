@@ -6,18 +6,21 @@
 #' @param c The coefficient of the constant term
 #'
 #' @return The solutions to the equation
-quadratic_formula = function(a, b, c) {
+quadratic_formula <- function(a, b, c) {
+  if (a == 0) {
+    stop("The coefficient of the squared term must be greater than 0")
+  }
   # The quadratic formula yields two solutions described by the formula:
   # x = (-b +/- sqrt((b ^2) - (4 * a * c))) / (2 * a)
 
   # First, find the solution using addition in the numerator
-  x_plus = (-b + sqrt((b**2) - (4 * a * c))) / (2 * a)
+  x_plus <- (-b + sqrt((b**2) - (4 * a * c))) / (2 * a)
 
   # Then, repeat using subtraction
-  x_minus = (-b - sqrt((b**2) - (4 * a * c))) / (2 * a)
+  x_minus <- (-b - sqrt((b**2) - (4 * a * c))) / (2 * a)
 
   # Combine the solutions into a single vector
-  solutions = c(x_plus, x_minus)
+  solutions <- c(x_plus, x_minus)
 
   # Return the solution
   return(solutions)
@@ -25,15 +28,18 @@ quadratic_formula = function(a, b, c) {
 
 #' Get the Euclidean distance between two points
 #'
-#' @param point_1_x A point's (or vector of points') x coordinate
-#' @param point_1_y A point's (or vector of points') y coordinate
-#' @param point_2_x A point's (or vector of points') x coordinate
-#' @param point_2_y A point's (or vector of points') y coordinate
+#' @param point_1_x A point's (or vector of points') \code{x} coordinate
+#' @param point_1_y A point's (or vector of points') \code{y} coordinate
+#' @param point_2_x A point's (or vector of points') \code{x} coordinate
+#' @param point_2_y A point's (or vector of points') \code{y} coordinate
 #'
 #' @return The distance between the two supplied points
-distance_formula = function(point_1_x, point_1_y, point_2_x = 0, point_2_y = 0) {
+distance_formula <- function(point_1_x,
+                             point_1_y,
+                             point_2_x = 0,
+                             point_2_y = 0) {
   # Calculate the distance between the points
-  dist = sqrt(
+  dist <- sqrt(
     (
       ((point_2_x - point_1_x)^2) +
         ((point_2_y - point_1_y)^2)

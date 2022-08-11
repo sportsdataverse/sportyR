@@ -2,8 +2,8 @@
 % Please edit documentation in R/cani-functions.R
 \name{cani_plot_league}
 \alias{cani_plot_league}
-\title{Check to see if a league can be plotted, and alert the user as to which
-functions that league will work for}
+\title{Check to see if a league can be plotted, and alert as to which function(s)
+that league will work for}
 \usage{
 cani_plot_league(league_code)
 }
@@ -11,11 +11,11 @@ cani_plot_league(league_code)
 \item{league_code}{The case-insensitive league code to be plotted}
 }
 \value{
-Nothing, but a message is sent to the console for the user
+Nothing, but a message is sent to the console
 }
 \description{
-Check to see if a league can be plotted, and alert the user as to which
-functions that league will work for
+Check to see if a league can be plotted, and alert as to which function(s)
+that league will work for
 }
 \examples{
 cani_plot_league("MLB")

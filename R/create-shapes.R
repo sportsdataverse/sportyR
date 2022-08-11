@@ -5,8 +5,8 @@
 #'   circle. Default: \code{(0, 0)}
 #' @param npoints The number of points with which to create the circle. This
 #'   will also be the length of the resulting data frame. Default: 1000
-#' @param d The diameter of the circle IN THE UNITS OF THE PLOT. This default
-#'   unit will be feet. Default: \code{2} (unit circle)
+#' @param r The radius of the circle IN THE UNITS OF THE PLOT. This default
+#'   unit will be feet. Default: \code{1} (unit circle)
 #' @param start The angle (in radians, divided by pi) at which to start drawing
 #'   the circle, where zero runs along the +\code{x} axis. Default: \code{0}
 #' @param end The angle (in radians, divided by pi) at which to stop drawing the
@@ -14,15 +14,15 @@
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   circle
-create_circle = function(center = c(0, 0),
-                         npoints = 1000,
-                         d = 2,
-                         start = 0,
-                         end = 2) {
-  pts = seq(start * pi, end * pi, length.out = npoints)
-  circle_coords = data.frame(
-    x = center[1] + ((d / 2) * cos(pts)),
-    y = center[2] + ((d / 2) * sin(pts))
+create_circle <- function(center = c(0, 0),
+                          npoints = 1000,
+                          r = 1,
+                          start = 0,
+                          end = 2) {
+  pts <- seq(start * pi, end * pi, length.out = npoints)
+  circle_coords <- data.frame(
+    x = center[1] + (r * cos(pts)),
+    y = center[2] + (r * sin(pts))
   )
 
   return(circle_coords)
@@ -37,8 +37,8 @@ create_circle = function(center = c(0, 0),
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   rectangle
-create_rectangle = function(x_min, x_max, y_min, y_max) {
-  rectangle_coords = data.frame(
+create_rectangle <- function(x_min, x_max, y_min, y_max) {
+  rectangle_coords <- data.frame(
     x = c(x_min, x_max, x_max, x_min, x_min),
     y = c(y_min, y_min, y_max, y_max, y_min)
   )
@@ -52,9 +52,10 @@ create_rectangle = function(x_min, x_max, y_min, y_max) {
 #' @param side_length The length of the side of the square
 #' @param center The center coordinates of the square
 #'
-#' @return A data frame containing the points needed to draw the specified square
-create_square = function(side_length, center = c(0, 0)) {
-  square_coords = create_rectangle(
+#' @return A data frame containing the points needed to draw the specified
+#'   square
+create_square <- function(side_length, center = c(0, 0)) {
+  square_coords <- create_rectangle(
     x_min = center[1] - (side_length / 2),
     x_max = center[1] + (side_length / 2),
     y_min = center[2] - (side_length / 2),
@@ -73,8 +74,8 @@ create_square = function(side_length, center = c(0, 0)) {
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   diamond
-create_diamond = function(height, width, center = c(0, 0)) {
-  diamond_coords = data.frame(
+create_diamond <- function(height, width, center = c(0, 0)) {
+  diamond_coords <- data.frame(
     x = c(
       center[1] - (width / 2),
       center[1],
@@ -82,7 +83,6 @@ create_diamond = function(height, width, center = c(0, 0)) {
       center[1],
       center[1] - (width / 2)
     ),
-
     y = c(
       center[2],
       center[2] - (height / 2),
