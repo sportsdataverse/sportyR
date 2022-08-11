@@ -911,8 +911,6 @@ geom_basketball <- function(league,
     rotation = rotation
   )
 
-
-
   #### Free Throw Lanes ####
   for(lane_no in seq_len(nrow(lanes))) {
     court_plot <- add_feature(
