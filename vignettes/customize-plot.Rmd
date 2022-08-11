@@ -1,5 +1,5 @@
 ---
-title: "customize-plot"
+title: "Customizing Plots"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{customize-plot}
@@ -10,11 +10,17 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  cache = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/customize-plot-",
+  out.width = "100%",
+  dpi = 600
 )
 ```
 
-```{r setup, echo = FALSE}
+To run the following vignette, you'll need the `sportyR` package loaded into your workspace.
+
+```{r setup}
 library(sportyR)
 ```
 
@@ -22,13 +28,16 @@ Customizing a plot is easy as can be with `sportyR`. Say we want to customize a 
 
 We won't get an exact match with logos, floorboard color differentiation, or some markings, but we'll get pretty close. Let's start by finding out what colors we can change, and how we can change them:
 
-```{r get-colors}
+```{r customize-plot-get-colors}
 # Find the colors for a college basketball court
 cani_color_league_features("NCAA", "basketball")
 ```
+
 Great, all set. It looks like the following should work:
 
-```{r illinois-court}
+***NOTE**: not all of the arguments below are needed, however all are shown to display the flexibility with which the plots can be customized.*
+
+```{r customizing-plots-illinois-court, dev = "png"}
 geom_basketball(
   league = "ncaa",
   color_updates = list(
@@ -53,5 +62,20 @@ geom_basketball(
 )
 ```
 
-Pretty good! You can do this for any of the surfaces offered by `sportyR`.
+Pretty good! You can do this for any of the surfaces offered by `sportyR`. Here's another example, this time drawing a blue college football field:
 
+```{r customizing-plots-blue-ncaaf-field, dev = "png"}
+# Create a blue football field
+geom_football(
+  "ncaa",
+  color_updates = list(
+    field_apron = "#2e4597",
+    field_border = "#2e4597",
+    offensive_endzone = "#2e4597",
+    defensive_endzone = "#2e4597",
+    offensive_half = "#2e4597",
+    defensive_half = "#2e4597",
+    team_bench_area = "#2e4597"
+  )
+)
+```
