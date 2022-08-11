@@ -380,6 +380,9 @@
                 [0.55, 0.85, 0.85, 0.85]
             ],
 
+
+            "painted_area_visibility": [true],
+            "lane_boundary_visibility": [true],
             "lane_space_mark_visibility": true,
 
             "lane_lower_defensive_box_marks_visibility": false,
