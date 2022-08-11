@@ -392,12 +392,6 @@ geom_football <- function(league,
   marked_yardages["y"] <-
     (marked_yardages["y_min"] + marked_yardages["y_max"]) / 2
 
-  # # Subset to only the necessary columns
-  marked_yardages <- marked_yardages[
-    ,
-    c("marking", "marker_rotation", "x", "y")
-  ]
-
   # Feature initialization -----------------------------------------------------
   field_features <- list(
 
@@ -596,7 +590,15 @@ geom_football <- function(league,
   }
 
   #### Yardage Markers ####
-  field_features[["marked_yardages"]] <- marked_yardages
+  for(i in seq_len(nrow(marked_yardages))) {
+    field_features[[glue::glue("marked_yardages_{i}")]] <-
+      create_rectangle(
+        x_min = marked_yardages[i, "x_min"],
+        x_max = marked_yardages[i, "x_max"],
+        y_min = marked_yardages[i, "y_min"],
+        y_max = marked_yardages[i, "y_max"]
+      )
+  }
 
 
   # Coordinate Transformations -------------------------------------------------
@@ -926,6 +928,54 @@ geom_football <- function(league,
     rotation = rotation
   )
 
+  #### Marked Yardages ####
+  for(i in seq_len(nrow(marked_yardages))) {
+    yardage_marker <- field_features[[glue::glue("marked_yardages_{i}")]]
+    yardage_marker_rot <- rotate_coords(
+      yardage_marker,
+      angle = rotation
+    )
+    yardage_marker_df <- data.frame(
+      x_min = min(yardage_marker_rot["x"]),
+      x_max = max(yardage_marker_rot["x"]),
+      y_min = min(yardage_marker_rot["y"]),
+      y_max = max(yardage_marker_rot["y"]),
+      marking = marked_yardages[i, "marking"],
+      marker_rotation = marked_yardages[i, "marker_rotation"]
+    )
+    bb_polygon <- create_rectangle(
+      x_min = min(yardage_marker_rot["x"]),
+      x_max = max(yardage_marker_rot["x"]),
+      y_min = min(yardage_marker_rot["y"]),
+      y_max = max(yardage_marker_rot["y"])
+    )
+    field_plot <- field_plot +
+      ggplot2::geom_polygon(
+        data = bb_polygon,
+        ggplot2::aes_string(
+          x = "x",
+          y = "y"
+        ),
+        fill = "#ffffff00"
+      ) +
+      ggfittext::geom_fit_text(
+        data = yardage_marker_df,
+        ggplot2::aes_string(
+          xmin = "x_min",
+          xmax = "x_max",
+          ymin = "y_min",
+          ymax = "y_max"
+        ),
+        label = yardage_marker_df$marking,
+        angle = rotation + yardage_marker_df$marker_rotation,
+        color = feature_colors$yardage_marker,
+        grow = TRUE,
+        fullheight = TRUE,
+        padding.x = grid::unit(0, "mm"),
+        padding.y = grid::unit(0, "mm")
+      )
+  }
+
   #### Directional Arrows ####
   for (arrow_line in arrow_lines) {
     field_plot <- add_feature(
@@ -946,30 +996,6 @@ geom_football <- function(league,
       rotation = rotation
     )
   }
-
-  #### Marked Yardages ####
-  field_features$marked_yardages["x"] <- field_features$marked_yardages["x"] +
-    x_trans
-  field_features$marked_yardages["y"] <- field_features$marked_yardages["y"] +
-    y_trans
-  field_features[["marked_yardages"]] <- rotate_coords(
-    field_features$marked_yardages,
-    angle = rotation
-  )
-
-  field_plot <- field_plot +
-    ggplot2::geom_text(
-      data = field_features$marked_yardages,
-      ggplot2::aes(
-        x = field_features$marked_yardages$x,
-        y = field_features$marked_yardages$y,
-        hjust = "center",
-        label = field_features$marked_yardages$marking,
-        angle = field_features$marked_yardages$marker_rotation + rotation
-      ),
-      color = feature_colors$yardage_marker,
-      inherit.aes = FALSE
-    )
 
   # Set Display Range-----------------------------------------------------------
   half_field_length <- ((field_params$field_length %or% 0) / 2) +

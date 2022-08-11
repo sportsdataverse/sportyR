@@ -2,7 +2,8 @@ Package: sportyR
 Title: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
 Version: 1.0.4
 Authors@R: 
-    c(person(
+    c(
+      person(
         given = "Ross",
         family = "Drucker",
         role = c("aut", "cre"),
@@ -20,11 +21,15 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Imports: 
+    ggfittext,
     ggplot2,
-    glue
+    glue,
+    grid
 Depends: 
     R (>= 3.3)
 Suggests: 
+    data.table,
+    gganimate,
     testthat (>= 3.0.0),
     roxygen2,
     knitr,
