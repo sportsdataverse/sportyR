@@ -1251,37 +1251,43 @@ geom_basketball <- function(league,
                     "offensivekey" = c(
                       ((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3),
+                        three_point_arc_distance -
+                        3,
                       half_court_length
                     ),
                     "offensive_key" = c(
                       ((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3),
+                        three_point_arc_distance -
+                        3,
                       half_court_length
                     ),
                     "offensive key" = c(
                       ((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3),
+                        three_point_arc_distance -
+                        3,
                       half_court_length
                     ),
                     "attackingkey" = c(
                       ((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3),
+                        three_point_arc_distance -
+                        3,
                       half_court_length
                     ),
                     "attacking_key" = c(
                       ((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3),
+                        three_point_arc_distance -
+                        3,
                       half_court_length
                     ),
                     "attacking key" = c(
                       ((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3),
+                        three_point_arc_distance -
+                        3,
                       half_court_length
                     ),
 
@@ -1290,37 +1296,43 @@ geom_basketball <- function(league,
                       -half_court_length,
                       -(((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3))
+                        three_point_arc_distance -
+                        3)
                     ),
                     "defensive_key" = c(
                       -half_court_length,
                       -(((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3))
+                        three_point_arc_distance -
+                        3)
                     ),
                     "defensive key" = c(
                       -half_court_length,
                       -(((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3))
+                        three_point_arc_distance -
+                        3)
                     ),
                     "defendingkey" = c(
                       -half_court_length,
                       -(((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3))
+                        three_point_arc_distance -
+                        3)
                     ),
                     "defending_key" = c(
                       -half_court_length,
                       -(((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3))
+                        three_point_arc_distance -
+                        3)
                     ),
                     "defending key" = c(
                       -half_court_length,
                       -(((court_params$court_length %or% 0) / 2) -
                         (court_params$basket_center_to_baseline %or% 0) -
-                        (three_point_arc_distance - 3))
+                        three_point_arc_distance -
+                        3)
                     ),
 
                     # Offensive Painted Area
