@@ -1,3 +1,64 @@
+## sportyR 2.0.0
+
+### Internal Changes
+- Re-defined all surfaces to be parameterized by the size of their features, rather than being defined individually in a file
+
+- New internal data set (`data-raw/surface_dimensions.json`) to maintain all league dimensions
+
+- Removal of `data-raw/sport_lookup.json` and `data-raw/league_lookup.json` files (replaced by `data-raw/surface_dimensions.json`)
+
+- Updated styling conventions to match [tidyverse style guide](https://style.tidyverse.org/) with the sole exception being the use of explicit `return()` statements
+
+- Updated file naming convention to be easier to group feature files and `geom_{sport}()` files
+
+- Updated documentation
+
+### Additional Capabilities
+- Introduction of the `display_range` parameter to allow customized views of plots (e.g. only seeing the red zone of a football field, rather than the entire field)
+
+- Introduction of the `{surface}_updates` parameter to allow customization of a surface starting at a base surface (e.g. `geom_hockey("NHL", surface_updates = list(rink_length = 400)))` will create a regulation NHL ice rink that is twice as long as it should be. This allows the package to better handle edge cases and support more users off the bat with less internal maintenance
+
+- Introduction of the `color_updates` parameter to allow colors of features to change more easily and explicitly internally in the code
+
+- Introduction of `x_trans` and `y_trans` argument for every surface to adjust positioning of origin
+
+### New Leagues Supported
+
+#### Baseball
+- MiLB
+- Little League
+- NCAA
+- NFHS (high school)
+- Pony
+
+#### Basketball
+- NBA G League
+- NFHS (high school)
+
+#### Hockey
+- AHL
+- ECHL
+- OHL
+- QMJHL
+- USHL
+
+#### Football
+- NFHS 11-player
+- NFHS 9-player
+- NFHS 8-player
+- NFHS 6-player
+
+#### Tennis
+- ATP
+- ITA
+- USTA
+- WTA
+
+### Breaking Changes (and justifications for breaks)
+- Removed `full_surf` and `rotation_dir` arguments to allow for `display_range` and more flexible `rotation` arguments to be introduced. The improved argument structure will allow for more granular "zoom" on plots to regions of interest, as well as adjusting coordinates appropriately to match data sets
+
+- Removed `vdiffr` tests as these were becoming unmanageable and didn't scale well to new leagues. Additionally, should a league change its dimension requirements, the case itself is no longer valid despite the league's plot _requiring_ the change. Instead, the individual plotting functions are checked as well as the classes of the resulting plots
+
 ## sportyR 1.0.4
 
 - Removed requirement to include a plot caption color (fixes [#3](https://github.com/rossdrucker/sportyR/issues/3))
