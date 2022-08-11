@@ -158,8 +158,10 @@ hockey_features_set_colors <- function(plot_background = NULL,
 #' @export
 #'
 #' @examples
-#' geom_hockey(league = "NHL", rotation = 270, display_range = "ozone")
-#' geom_hockey(league = "iihf", rink_units = "ft")
+#' \dontrun{
+#'   geom_hockey(league = "NHL", rotation = 270, display_range = "ozone")
+#'   geom_hockey(league = "iihf", rink_units = "ft")
+#' }
 geom_hockey <- function(league,
                         display_range = "full",
                         rink_updates = list(),

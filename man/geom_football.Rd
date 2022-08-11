@@ -115,6 +115,8 @@ Generate a \code{ggplot2} instance containing a football field for a
 specified league
 }
 \examples{
-geom_football(league = "NFL", rotation = 270, display_range = "red_zone")
-geom_football(league = "cfl", field_units = "ft")
+\dontrun{
+  geom_football(league = "NFL", rotation = 270, display_range = "red_zone")
+  geom_football(league = "cfl", field_units = "ft")
+}
 }

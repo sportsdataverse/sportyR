@@ -70,6 +70,8 @@ Generate a \code{ggplot2} instance containing a baseball field for a
 specified league
 }
 \examples{
-geom_baseball(league = "MLB", rotation = 270, display_range = "infield")
-geom_baseball(league = "little league", field_units = "m")
+\dontrun{
+  geom_baseball(league = "MLB", rotation = 270, display_range = "infield")
+  geom_baseball(league = "little league", field_units = "m")
+}
 }

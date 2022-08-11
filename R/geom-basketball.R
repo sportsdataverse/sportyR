@@ -312,8 +312,10 @@ basketball_features_set_colors <- function(plot_background = NULL,
 #' @export
 #'
 #' @examples
-#' geom_basketball(league = "NBA", rotation = 270, display_range = "offense")
-#' geom_basketball(league = "fiba", court_units = "ft")
+#' \dontrun{
+#'   geom_basketball(league = "NBA", rotation = 270, display_range = "offense")
+#'   geom_basketball(league = "fiba", court_units = "ft")
+#' }
 geom_basketball <- function(league,
                             display_range = "full",
                             court_updates = list(),

@@ -86,6 +86,8 @@ Generate a \code{ggplot2} instance containing an ice rink for a specified
 league
 }
 \examples{
-geom_hockey(league = "NHL", rotation = 270, display_range = "ozone")
-geom_hockey(league = "iihf", rink_units = "ft")
+\dontrun{
+  geom_hockey(league = "NHL", rotation = 270, display_range = "ozone")
+  geom_hockey(league = "iihf", rink_units = "ft")
+}
 }

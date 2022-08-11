@@ -79,6 +79,8 @@ Generate a \code{ggplot2} instance containing a soccer pitch for a specified
 league
 }
 \examples{
-geom_soccer(league = "EPL", rotation = 270, display_range = "offense")
-geom_soccer(league = "fifa", pitch_units = "ft")
+\dontrun{
+  geom_soccer(league = "EPL", rotation = 270, display_range = "offense")
+  geom_soccer(league = "fifa", pitch_units = "ft")
+}
 }

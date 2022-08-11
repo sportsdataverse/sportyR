@@ -119,8 +119,10 @@ soccer_features_set_colors <- function(plot_background = NULL,
 #' @export
 #'
 #' @examples
-#' geom_soccer(league = "EPL", rotation = 270, display_range = "offense")
-#' geom_soccer(league = "fifa", pitch_units = "ft")
+#' \dontrun{
+#'   geom_soccer(league = "EPL", rotation = 270, display_range = "offense")
+#'   geom_soccer(league = "fifa", pitch_units = "ft")
+#' }
 geom_soccer <- function(league,
                         display_range = "full",
                         pitch_updates = list(),

@@ -218,6 +218,8 @@ Generate a \code{ggplot2} instance containing a basketball court for a
 specified league
 }
 \examples{
-geom_basketball(league = "NBA", rotation = 270, display_range = "offense")
-geom_basketball(league = "fiba", court_units = "ft")
+\dontrun{
+  geom_basketball(league = "NBA", rotation = 270, display_range = "offense")
+  geom_basketball(league = "fiba", court_units = "ft")
+}
 }

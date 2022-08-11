@@ -124,8 +124,10 @@ tennis_features_set_colors <- function(plot_background = NULL,
 #' @export
 #'
 #' @examples
-#' geom_tennis(league = "USTA", rotation = 270, display_range = "serving")
-#' geom_tennis(league = "itf", court_units = "m")
+#' \dontrun{
+#'   geom_tennis(league = "USTA", rotation = 270, display_range = "serving")
+#'   geom_tennis(league = "itf", court_units = "m")
+#' }
 geom_tennis <- function(league,
                         display_range = "full",
                         court_updates = list(),
