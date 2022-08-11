@@ -356,8 +356,10 @@ geom_football <- function(league,
 
       line_side <- "right"
     } else if (line_side == "center") {
-      marked_yardages[row, "x_min"] <- marked_yardages$marked_line[row]
-      marked_yardages[row, "x_max"] <- marked_yardages$marked_line[row]
+      marked_yardages[row, "x_min"] <- marked_yardages$marked_line[row] -
+        ((field_params$number_width %or% 0) / 2)
+      marked_yardages[row, "x_max"] <- marked_yardages$marked_line[row] +
+        ((field_params$number_width %or% 0) / 2)
 
       line_side <- "left"
     } else {
