@@ -1,21 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sportyR <img src="https://raw.githubusercontent.com/rossdrucker/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"/>
-
-<!-- badges: start -->
+# sportyR <img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"/>
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/sportyR)](https://CRAN.R-project.org/package=sportyR)
-[![R-CMD-check](https://github.com/rossdrucker/sportyR/workflows/R-CMD-check/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
-[![](https://img.shields.io/badge/devel%20version-2.0.0-blue.svg)](https://github.com/rossdrucker/sportyR)
-[![Test
-Coverage](https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg)](https://github.com/rossdrucker/sportyR/actions)
-[![codecov](https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg)](https://codecov.io/gh/rossdrucker/sportyR)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/sportyR?color=blue)](https://cran.r-project.org/package=sportyR)
-<!-- badges: end -->
+version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=CRAN%20version&prefix=v&query=%2524.Version&url=https%253A%252F%252Fcrandb.r-pkg.org%252FsportyR)](https://CRAN.R-project.org/package=sportyR)
+[![CRAN
+downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=Downloads&query=%2524%5B0%5D.downloads&url=https%253A%252F%252Fcranlogs.r-pkg.org%252Fdownloads%252Ftotal%252F2021-10-26%253Alast-day%252FsportyR)](https://CRAN.R-project.org/package=sportyR)
+[![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&logo=R&style=flat&color=ff552e&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/)
+[![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/sportyR/R-CMD-check?label=R-CMD-Check&logo=R&&style=flat&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&logo=github&color=ff552e)](https://github.com/sportsdataverse/sportyR/)
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/sportyR?&label=%2540sportyR&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR)
+[![Twitter
+Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%2540sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
 
 As the field of sports analytics evolve, there’s a growing need for
 methods to both track and visualize players throughout the game. This
@@ -33,11 +31,11 @@ install.packages("sportyR")
 ```
 
 The development version of `sportyR` can be installed from
-[GitHub](https://github.com/rossdrucker/sportyR) with:
+[GitHub](https://github.com/sportsdataverse/sportyR) with:
 
 ``` r
 # Install development version from GitHub
-devtools::install_github("rossdrucker/sportyR")
+devtools::install_github("sportsdataverse/sportyR")
 ```
 
 Once the library is installed, be sure to load it into the working
@@ -46,11 +44,6 @@ environment.
 ``` r
 # Required to use package
 library(sportyR)
-
-# Not required directly for utilization of sportyR, but useful to add more data
-# to plots and create animations
-library(ggplot2)
-library(gganimate)
 ```
 
 ## Plotting Functions
@@ -61,8 +54,8 @@ and take the following arguments:
 -   `league`: the league code for the sport. In all functions, this will
     ***NOT*** have a default value. The supplied league is
     **case-insensitive**. Future iterations of this package may allow
-    the full league name to be supplied if desired
-    (e.g. `league = 'National Basketball Associaton'` instead of
+    the full league name to be supplied if desired (e.g.
+    `league = 'National Basketball Associaton'` instead of
     `league = 'NBA'`), but this feature is not currently available.
 
 -   `display_range`: This automatically “zooms” in on the area of the
@@ -100,6 +93,44 @@ and take the following arguments:
     change this parameter to match the units you’ve got your data in.
     You’re welcome to change the units of the data as well, but this is
     provided for convenience
+
+## TV View and Display Ranges
+
+### TV View
+
+All of the `geom_{sport}()` functions, by default, will draw the surface
+in what can be considered “TV view”, or the way that the surface would
+typically be displayed on a television broadcast. This typically means
+the action moves from left to right across the screen (a basketball game
+that has the baskets on the left and right end of the court). As
+mentioned above, it is possible to change this to be in any orientation
+through the `rotation` parameter to each `geom_{sport}()` function.
+
+There are a few exceptions to this:
+
+-   `geom_baseball()` is displayed from the high-home view by default,
+    as baseball coordinates typically have the `+y` axis extending from
+    the back tip of home plate towards center field
+
+-   `geom_tennis()` is displayed with the court diagrammed from the
+    perspective of the chair umpire
+
+### Display Ranges
+
+Related to the idea of custom displays of the plot is the concept of the
+`display_range` parameter in the `geom_{sport}()` function. This is
+unique to each sport, but globally supported across the package. This
+parameter allows the specification of a designated region of the surface
+to display. As an example, if you’re trying to limit the analysis of NFL
+data to being inside of the red zone, you may want to do something
+similar to the following:
+
+``` r
+# Display only the red zone of the football field
+geom_football("nfl", display_range = "red zone")
+```
+
+<img src="man/figures/README-readme-display-range-demo-1.png" width="100%" />
 
 ## Plot Units
 
@@ -165,12 +196,11 @@ meters, calling
 will convert the x and y coordinates from yards to meters.
 
 As mentioned [above](#plotting-functions), the `geom_{sport}()` family
-of functions allow for rotations of surfaces via the `rotate` argument.
-To make this easy, `sportyR` also allows for the rotation of data
-frames’ coordinates ***so long as they contain an*** `x` ***and*** `y`
-***column*** via the `rotate_coords()` function. Translation and
-reflection of coordinates are also possible through `translate()` and
-`reflect()` functions respectively.
+of functions allow for rotations of surfaces via the `rotation`
+argument. To make this easy, `sportyR` also allows for the rotation of
+data frames’ coordinates ***so long as they contain an*** `x` ***and***
+`y` ***column*** via the `rotate_coords()` function. Reflection is also
+possible through `reflect()`.
 
 ## Surface Examples
 
@@ -178,11 +208,11 @@ Most playing surfaces are standard in size, so they can be rendered via
 a call to the proper `geom_{sport}()` function like so:
 
 ``` r
-# Draw a basic MLB field plot
-geom_baseball("mlb")
+# Draw a basic MLB infield plot
+geom_baseball("mlb", display_range = "infield")
 ```
 
-<img src="man/figures/README-mlb-example-1.png" width="100%" />
+<img src="man/figures/README-readme-mlb-example-1.png" width="100%" />
 
 ``` r
 # Create a 100m by 75m FIFA pitch
@@ -195,214 +225,21 @@ geom_soccer(
 )
 ```
 
-<img src="man/figures/README-fifa-example-1.png" width="100%" />
+<img src="man/figures/README-readme-fifa-example-1.png" width="100%" />
 
-It’s also possible to plot parital surfaces and rotated surfaces:
+It’s also possible to plot partial surfaces and rotated surfaces:
 
 ``` r
 # Draw half of a rotated NBA court
 geom_basketball("nba", display_range = "offense", rotation = 270)
 ```
 
-<img src="man/figures/README-nhl-example-1.png" width="100%" />
-
-Creating a realistic, customized output plot is also possible by
-supplying the proper arguments to recolor. More information on how to
-customize is in the [next section](#cani-Functions). ***NOTE**: not all
-of the arguments below are needed, however all are shown to display the
-flexibility with which the plots can be customized.*
-
-``` r
-# Create a totally customized NCAA basketball court
-geom_basketball(
-  league = "ncaa",
-  color_updates = list(
-    offensive_half_court = "#e8e0d7",
-    defensive_half_court = "#e8e0d7",
-    court_apron = "#e84a27",
-    two_point_range = c("#e8e0d7", "#ffffff66"),
-    center_circle_fill = "#e8e0d7",
-    painted_area = c("#e84a27", "#ffffff00"),
-    free_throw_circle_fill = "#e8e0d7",
-    sideline = "#13294b",
-    endline = "#13294b",
-    division_line = "#13294b",
-    center_circle_outline = "#13294b",
-    lane_boundary = c("#ffffff", "#ffffff00"),
-    three_point_line = c("#13294b", "#ffffff"),
-    free_throw_circle_outline = "#ffffff",
-    lane_space_mark = "#ffffff",
-    restricted_arc = "#13294b",
-    backboard = "#13294b"
-  )
-)
-```
-
-<img src="man/figures/README-custom-ncaa-bb-example-1.png" width="100%" />
-
-Want a blue college football field? Here’s how:
-
-``` r
-# Create a blue football field
-geom_football(
-  "ncaa",
-  color_updates = list(
-    field_apron = "#2e4597",
-    field_border = "#2e4597",
-    offensive_endzone = "#2e4597",
-    defensive_endzone = "#2e4597",
-    offensive_half = "#2e4597",
-    defensive_half = "#2e4597",
-    team_bench_area = "#2e4597"
-  )
-)
-```
-
-<img src="man/figures/README-custom-ncaa-football-plot-1.png" width="100%" />
-
-## `cani` Functions
-
-The main functionality of plotting is intended to be straightforward and
-easy to use, but questions are sure to arise about what can and can’t be
-plotted and customized in the current version of the package. The
-`cani_` family of functions are here to help answer those questions
-directly. Their syntax is meant to resemble a question like
-
-> Can I plot a football field?
-
-or
-
-> Can `sportyR` make a baseball plot?
-
-and message back the answer. Here’s how they work:
-
-``` r
-cani_plot_league("mlb")
-#> A plot for MLB can be created via the geom_baseball() function
-```
-
-``` r
-cani_color_league_features("nba")
-#> Here are the viable plotting features to color for NBA basketball:
-#> 
-#> plot_background
-#> defensive_half_court
-#> offensive_half_court
-#> court_apron
-#> center_circle_outline
-#> center_circle_fill
-#> division_line
-#> endline
-#> sideline
-#> two_point_range
-#> three_point_line
-#> painted_area
-#> lane_boundary
-#> free_throw_circle_outline
-#> free_throw_circle_fill
-#> free_throw_circle_dash
-#> lane_space_mark
-#> inbounding_line
-#> substitution_line
-#> baseline_lower_defensive_box
-#> lane_lower_defensive_box
-#> team_bench_line
-#> restricted_arc
-#> backboard
-#> basket_ring
-#> net
-```
-
-For more information, call `?cani_plot_league`, `?cani_plot_sport`, or
-`?cani_color_league_features`.
-
-## Adding Tracking Data
-
-Because this package is an extension of the `ggplot2` package, data can
-be added much the same way on top of the surface plot that
-`geom_{sport}()` creates. Although tracking data isn’t widely publicly
-available yet, there are a few examples to use. The data sources for the
-following examples are below.
-
-`sportyR` makes shot charts in all sports significantly easier. Here’s a
-look at a shot chart from an NWHL game between the Minnesota Whitecaps
-and the Boston Pride (data provided for the [Big Data Cup -
-2021](https://github.com/bigdatacup/Big-Data-Cup-2021)):
-
-``` r
-# Read data from the Big Data Cup
-bdc_data <- read.csv(
-  glue::glue(
-    "https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021",
-    "/main/hackathon_nwhl.csv"
-  )
-)
-
-# Change names of X.Coordinate and Y.coordinate to x and y respectively
-names(bdc_data)[13:14] <- c("x", "y")
-
-# Subset to only be shots from the game on 2021-01-23 between the Minnesota
-# White Caps and Boston Pride
-bdc_shots <- bdc_data[(bdc_data$Event == "Shot") &
-                        (bdc_data$Home.Team == "Minnesota Whitecaps") &
-                        (bdc_data$game_date == "2021-01-23"), ]
-
-# Separate shots by team
-whitecaps_shots <- bdc_shots[bdc_shots$Team == "Minnesota Whitecaps", ]
-pride_shots <- bdc_shots[bdc_shots$Team == "Boston Pride", ]
-
-# Correct the shot location
-whitecaps_shots["x"] <- 200 - whitecaps_shots["x"]
-whitecaps_shots["y"] <- 85 - whitecaps_shots["y"]
-
-# Draw the rink
-phf_rink <- geom_hockey("phf", x_trans = 100, y_trans = 42.5)
-
-# Add the shot locations
-phf_rink +
-  geom_point(data = whitecaps_shots, aes(x, y), color = "#2251b8") +
-  geom_point(data = pride_shots, aes(x, y), color = "#fec52e")
-```
-
-<img src="man/figures/README-bdc-example-1.png" width="100%" />
-
-The functionality of `sportyR` also makes gif-making via `gganimate`
-much easier as well. This is a play from Week 15 of the 2018 NFL season
-between the Chicago Bears and Green Bay Packers. Data made available for
-the [Big Data Bowl
-2021](https://www.kaggle.com/c/nfl-big-data-bowl-2021) Kaggle
-competition.
-
-``` r
-# Load the play data
-example_nfl_play <- read.csv("data-raw/example-pbp-data.csv")
-
-# Prep data for plotting
-example_nfl_play[example_nfl_play["team"] == "home", "color"] <- "#c83803"
-example_nfl_play[example_nfl_play["team"] == "away", "color"] <- "#ffb612"
-example_nfl_play[example_nfl_play["team"] == "football", "color"] <- "#624a2e"
-
-# Create the field
-nfl_field <- geom_football("nfl", x_trans = 50, y_trans = 26.6667)
-
-# Add the points on the field
-play_anim <- nfl_field +
-  geom_point(
-    data = example_nfl_play, aes(x, y),
-    color = example_nfl_play$color
-  ) +
-  transition_time(example_nfl_play$frameId)
-
-# Show the animation
-play_anim
-```
-
-<img src="man/figures/README-bdb-example-1.gif" width="100%" />
+<img src="man/figures/README-readme-nhl-example-1.png" width="100%" />
 
 ## License
 
 This package is released under the [MIT
-License](https://github.com/rossdrucker/sportyR/blob/master/LICENSE.md).
+License](https://github.com/sportsdataverse/sportyR/blob/master/LICENSE.md).
 
 ## Contributions
 
