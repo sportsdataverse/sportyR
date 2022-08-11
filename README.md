@@ -4,16 +4,16 @@
 # sportyR <img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"/>
 
 [![CRAN
-version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=CRAN%20version&prefix=v&query=%2524.Version&url=https%253A%252F%252Fcrandb.r-pkg.org%252FsportyR)](https://CRAN.R-project.org/package=sportyR)
+version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
 [![CRAN
-downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=Downloads&query=%2524%5B0%5D.downloads&url=https%253A%252F%252Fcranlogs.r-pkg.org%252Fdownloads%252Ftotal%252F2021-10-26%253Alast-day%252FsportyR)](https://CRAN.R-project.org/package=sportyR)
+downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=Downloads&query=%24%5B0%5D.downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&logo=R&style=flat&color=ff552e&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/)
 [![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/sportyR/R-CMD-check?label=R-CMD-Check&logo=R&&style=flat&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&logo=github&color=ff552e)](https://github.com/sportsdataverse/sportyR/)
 [![Twitter
-Follow](https://img.shields.io/twitter/follow/sportyR?&label=%2540sportyR&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR)
+Follow](https://img.shields.io/twitter/follow/sportyR?&label=%40sportyR&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR)
 [![Twitter
-Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%2540sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
+Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
 
 As the field of sports analytics evolve, there’s a growing need for
 methods to both track and visualize players throughout the game. This
