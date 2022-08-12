@@ -107,6 +107,7 @@ reference:
     - "`geom_baseball`"
     - "`geom_basketball`"
     - "`geom_football`"
+    - "`geom_hockey`"
     - "`geom_soccer`"
     - "`geom_tennis`"
 - title: "cani_ Functions"
@@ -120,53 +121,11 @@ reference:
 - title: internal
   desc: Internal functions to `sportyR`
   contents:
-  # TODO: tag these with @keywords internal; eventually remove from here
-    - starts_with("mlb")
-    - starts_with("nba")
-    - starts_with("fiba")
-    - starts_with("ncaa")
-    - starts_with("wnba")
-    - starts_with("cfl")
-    - starts_with("nfl")
-    - starts_with("iihf")
-    - starts_with("nhl")
-    - starts_with("phf")
-    - starts_with("nwhl")
-    - starts_with("fifa")
-    - starts_with("mls")
-    - starts_with("nwsl")
-    - starts_with("premier")
-    - starts_with("itf")
-    - starts_with("create")
-    - "`add_feature`"
-    - "`check_data_frame_for_plot`"
+    - "`surface_dimensions`"
     - "`convert_units`"
     - "`distance_formula`"
-    - "`geom_cfl`"
-    - "`geom_fiba`"
-    - "`geom_fifa`"
-    - "`geom_hockey`"
-    - "`geom_iihf`"
-    - "`geom_itf`"
-    - "`geom_mlb`"
-    - "`geom_mls`"
-    - "`geom_nba`"
-    - "`geom_ncaa_bb`"
-    - "`geom_ncaa_football`"
-    - "`geom_ncaa_hockey`"
-    - "`geom_ncaa_soccer`"
-    - "`geom_ncaa_tennis`"
-    - "`geom_nfl`"
-    - "`geom_nhl`"
-    - "`geom_nwhl`"
-    - "`geom_nwsl`"
-    - "`geom_phf`"
-    - "`geom_premier_league`"
-    - "`geom_wnba`"
-    - "`league_lookup`"
     - "`quadratic_formula`"
     - "`reflect`"
     - "`rotate_coords`"
-    - "`sport_lookup`"
-    - "`translate`"
+    - "`%or%`"
 
