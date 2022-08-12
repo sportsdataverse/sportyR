@@ -18,3 +18,4 @@ A \code{ggplot2} instance onto which the features will be added
 Create the base for the \code{ggplot2} instance with the correct theme
 elements
 }
+\keyword{internal}

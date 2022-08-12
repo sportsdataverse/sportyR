@@ -25,3 +25,4 @@ In cases where the sideline is the court apron, the sideline should still be
 generated and its color should be set equal to the court apron's color (see
 \code{\link[=basketball_court_apron]{basketball_court_apron()}} for more information on the court apron)
 }
+\keyword{internal}

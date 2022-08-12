@@ -5,6 +5,8 @@
 #'   for the plot's background. Default: \code{NULL}
 #'
 #' @return A \code{ggplot2} instance onto which the features will be added
+#'
+#' @keywords internal
 create_plot_base <- function(plot_background = NULL) {
   if (!is.null(plot_background)) {
     # If the plot has a specific background color, set the element correctly

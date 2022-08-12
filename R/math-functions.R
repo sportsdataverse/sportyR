@@ -6,6 +6,8 @@
 #' @param c The coefficient of the constant term
 #'
 #' @return The solutions to the equation
+#'
+#' @keywords internal
 quadratic_formula <- function(a, b, c) {
   if (a == 0) {
     stop("The coefficient of the squared term must be greater than 0")
@@ -34,6 +36,8 @@ quadratic_formula <- function(a, b, c) {
 #' @param point_2_y A point's (or vector of points') \code{y} coordinate
 #'
 #' @return The distance between the two supplied points
+#'
+#' @keywords internal
 distance_formula <- function(point_1_x,
                              point_1_y,
                              point_2_x = 0,

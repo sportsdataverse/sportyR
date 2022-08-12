@@ -22,3 +22,4 @@ rectangle
 \description{
 Create a set of \code{x} and \code{y} coordinates that form a rectangle
 }
+\keyword{internal}

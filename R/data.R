@@ -7,4 +7,5 @@
 #' @docType data
 #' @name surface_dimensions
 #' @details A set of dimensions by sport and by league
+#' @keywords internal
 NULL

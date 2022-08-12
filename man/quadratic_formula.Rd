@@ -21,3 +21,4 @@ The solutions to the equation
 Deploy the quadratic formula given inputs \code{a}, \code{b}, and \code{c}
 such that they satisfy the equation \code{(a * (x ^ 2)) + bx + c = 0}
 }
+\keyword{internal}

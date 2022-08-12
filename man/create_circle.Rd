@@ -31,3 +31,4 @@ circle
 Create a set of \code{x} and \code{y} coordinates that form a circle (or the
 arc of a circle)
 }
+\keyword{internal}

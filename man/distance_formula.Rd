@@ -21,3 +21,4 @@ The distance between the two supplied points
 \description{
 Get the Euclidean distance between two points
 }
+\keyword{internal}

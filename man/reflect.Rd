@@ -24,4 +24,6 @@ Perform a mathematical reflection of coordinates over a specified axis
 }
 \examples{
 reflect(data.frame(x = 1, y = 0))
+
 }
+\keyword{internal}

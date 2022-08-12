@@ -22,3 +22,4 @@ diamond
 Create a set of \code{x} and \code{y} coordinates that form a diamond This
 function is a wrapper on \code{create_rectangle()} above
 }
+\keyword{internal}

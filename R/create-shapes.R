@@ -14,6 +14,8 @@
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   circle
+#'
+#' @keywords internal
 create_circle <- function(center = c(0, 0),
                           npoints = 1000,
                           r = 1,
@@ -37,6 +39,8 @@ create_circle <- function(center = c(0, 0),
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   rectangle
+#'
+#' @keywords internal
 create_rectangle <- function(x_min, x_max, y_min, y_max) {
   rectangle_coords <- data.frame(
     x = c(x_min, x_max, x_max, x_min, x_min),
@@ -54,6 +58,8 @@ create_rectangle <- function(x_min, x_max, y_min, y_max) {
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   square
+#'
+#' @keywords internal
 create_square <- function(side_length, center = c(0, 0)) {
   square_coords <- create_rectangle(
     x_min = center[1] - (side_length / 2),
@@ -74,6 +80,8 @@ create_square <- function(side_length, center = c(0, 0)) {
 #'
 #' @return A data frame containing the points needed to draw the specified
 #'   diamond
+#'
+#' @keywords internal
 create_diamond <- function(height, width, center = c(0, 0)) {
   diamond_coords <- data.frame(
     x = c(

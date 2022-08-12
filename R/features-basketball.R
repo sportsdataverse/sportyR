@@ -275,6 +275,8 @@ basketball_endline <- function(court_width = 0, line_thickness = 0) {
 #' @param line_thickness The thickness of the endline and sideline
 #'
 #' @return A data frame of the bounding coordinates of the sideline
+#'
+#' @keywords internal
 basketball_sideline <- function(court_length = 0, line_thickness = 0) {
   sideline_df <- create_rectangle(
     x_min = (-court_length / 2) - line_thickness,

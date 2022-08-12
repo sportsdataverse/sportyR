@@ -37,3 +37,4 @@ The goal frame has two thicknesses to be careful of: the outer diameter of
 the posts, and the outer diameter of the pipe in the back of the goal. The
 frame of the goal is usually red in color
 }
+\keyword{internal}

@@ -24,4 +24,6 @@ cos(theta)
 }
 \examples{
 rotate_coords(data.frame(x = 0, y = 1))
+
 }
+\keyword{internal}

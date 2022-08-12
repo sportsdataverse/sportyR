@@ -13,6 +13,8 @@
 #'
 #' @examples
 #' reflect(data.frame(x = 1, y = 0))
+#'
+#' @keywords internal
 reflect <- function(df,
                     over_x = FALSE,
                     over_y = TRUE) {
@@ -41,6 +43,8 @@ reflect <- function(df,
 #'
 #' @examples
 #' rotate_coords(data.frame(x = 0, y = 1))
+#'
+#' @keywords internal
 rotate_coords <- function(df,
                           angle = 90) {
   # If the data frame is empty, just give back the data frame

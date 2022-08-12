@@ -12,3 +12,4 @@ specified in the rule books, which can be found in the rule book directory
 \details{
 A set of dimensions by sport and by league
 }
+\keyword{internal}

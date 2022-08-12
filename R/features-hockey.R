@@ -1410,6 +1410,8 @@ hockey_goal_frame <- function(feature_radius = 0,
 #'
 #' @return A data frame containing the bounding coordinates of the frame of the
 #'   goal
+#'
+#' @keywords internal
 hockey_goal_frame_fill <- function(feature_radius = 0,
                                    goal_mouth_width = 0,
                                    goal_back_width = 0,
