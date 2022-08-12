@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/getting-started-",
+  fig.path = "getting-started-",
   out.width = "100%",
   dpi = 600
 )
@@ -61,7 +61,7 @@ Once the library is installed, be sure to load it into the working environment.
 library(sportyR)
 ```
 
-### **Understanding and Exploring the Package** 
+### **Understanding and Exploring the Package**
 
 The package itself is really an extension of [`ggplot2`](https://ggplot2.tidyverse.org/), but the aim is to focus specifically on a sports playing surface. So that begs the question: what sports can we plot using `sportyR`?
 

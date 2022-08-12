@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figures/animating-tracking-data-",
+  fig.path = "animating-tracking-data-",
   out.width = "100%",
   dpi = 600
 )

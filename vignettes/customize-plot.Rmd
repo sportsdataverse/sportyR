@@ -10,9 +10,8 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  cache = TRUE,
   comment = "#>",
-  fig.path = "man/figures/customize-plot-",
+  fig.path = "customize-plot-",
   out.width = "100%",
   dpi = 600
 )
