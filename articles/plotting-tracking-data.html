@@ -429,7 +429,7 @@ works in practice</p>
 <span></span>
 <span><span class="co"># Display the rink here</span></span>
 <span><span class="va">phf_rink</span></span></code></pre></div>
-<p><img src="reference/figures/plotting-tracking-data-draw-rink-1.png" width="100%"></p>
+<p><img src="plotting-tracking-data-draw-rink-1.png" width="100%"></p>
 <p>Now all that’s left to do is to add the data points to the plot!
 Because of how <code>ggplot2</code> is designed, this is very
 straightforward.</p>
@@ -442,7 +442,7 @@ straightforward.</p>
 <span><span class="va">phf_rink</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">whitecaps_shots</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#2251b8"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">pride_shots</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#fec52e"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/plotting-tracking-data-add-bdc-shot-data-to-plot-1.png" width="100%"></p>
+<p><img src="plotting-tracking-data-add-bdc-shot-data-to-plot-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="two-coordinate-data">Two-Coordinate Data<a class="anchor" aria-label="anchor" href="#two-coordinate-data"></a>
@@ -473,7 +473,7 @@ to the plot:</p>
 <span>    linejoin <span class="op">=</span> <span class="st">"round"</span>,</span>
 <span>    color <span class="op">=</span> <span class="st">"#ffcb05"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/plotting-tracking-data-passing-data-example-1.png" width="100%"></p>
+<p><img src="plotting-tracking-data-passing-data-example-1.png" width="100%"></p>
 <p>And there you have it! This works for any geospatial data, for any
 sport (supported by <code>sportyR</code>), and for any league (supported
 by <code>sportyR</code>). Give it a try, and please reach out if you
