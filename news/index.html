@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">sportyR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,6 +106,68 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="2.0.0" id="sportyr-200">sportyR 2.0.0<a class="anchor" aria-label="anchor" href="#sportyr-200"></a></h2>
+<div class="section level3">
+<h3 id="internal-changes-2-0-0">Internal Changes<a class="anchor" aria-label="anchor" href="#internal-changes-2-0-0"></a></h3>
+<ul><li><p>Re-defined all surfaces to be parameterized by the size of their features, rather than being defined individually in a file</p></li>
+<li><p>New internal data set (<code>data-raw/surface_dimensions.json</code>) to maintain all league dimensions</p></li>
+<li><p>Removal of <code>data-raw/sport_lookup.json</code> and <code>data-raw/league_lookup.json</code> files (replaced by <code>data-raw/surface_dimensions.json</code>)</p></li>
+<li><p>Updated styling conventions to match <a href="https://style.tidyverse.org/" class="external-link">tidyverse style guide</a> with the sole exception being the use of explicit <code><a href="https://rdrr.io/r/base/function.html" class="external-link">return()</a></code> statements</p></li>
+<li><p>Updated file naming convention to be easier to group feature files and <code>geom_{sport}()</code> files</p></li>
+<li><p>Updated documentation</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="additional-capabilities-2-0-0">Additional Capabilities<a class="anchor" aria-label="anchor" href="#additional-capabilities-2-0-0"></a></h3>
+<ul><li><p>Introduction of the <code>display_range</code> parameter to allow customized views of plots (e.g. only seeing the red zone of a football field, rather than the entire field)</p></li>
+<li><p>Introduction of the <code>{surface}_updates</code> parameter to allow customization of a surface starting at a base surface (e.g. <code>geom_hockey("NHL", surface_updates = list(rink_length = 400)))</code> will create a regulation NHL ice rink that is twice as long as it should be. This allows the package to better handle edge cases and support more users off the bat with less internal maintenance</p></li>
+<li><p>Introduction of the <code>color_updates</code> parameter to allow colors of features to change more easily and explicitly internally in the code</p></li>
+<li><p>Introduction of <code>x_trans</code> and <code>y_trans</code> argument for every surface to adjust positioning of origin</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-leagues-supported-2-0-0">New Leagues Supported<a class="anchor" aria-label="anchor" href="#new-leagues-supported-2-0-0"></a></h3>
+<div class="section level4">
+<h4 id="baseball-2-0-0">Baseball<a class="anchor" aria-label="anchor" href="#baseball-2-0-0"></a></h4>
+<ul><li>MiLB</li>
+<li>Little League</li>
+<li>NCAA</li>
+<li>NFHS (high school)</li>
+<li>Pony</li>
+</ul></div>
+<div class="section level4">
+<h4 id="basketball-2-0-0">Basketball<a class="anchor" aria-label="anchor" href="#basketball-2-0-0"></a></h4>
+<ul><li>NBA G League</li>
+<li>NFHS (high school)</li>
+</ul></div>
+<div class="section level4">
+<h4 id="hockey-2-0-0">Hockey<a class="anchor" aria-label="anchor" href="#hockey-2-0-0"></a></h4>
+<ul><li>AHL</li>
+<li>ECHL</li>
+<li>OHL</li>
+<li>QMJHL</li>
+<li>USHL</li>
+</ul></div>
+<div class="section level4">
+<h4 id="football-2-0-0">Football<a class="anchor" aria-label="anchor" href="#football-2-0-0"></a></h4>
+<ul><li>NFHS 11-player</li>
+<li>NFHS 9-player</li>
+<li>NFHS 8-player</li>
+<li>NFHS 6-player</li>
+</ul></div>
+<div class="section level4">
+<h4 id="tennis-2-0-0">Tennis<a class="anchor" aria-label="anchor" href="#tennis-2-0-0"></a></h4>
+<ul><li>ATP</li>
+<li>ITA</li>
+<li>USTA</li>
+<li>WTA</li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="breaking-changes-and-justifications-for-breaks-2-0-0">Breaking Changes (and justifications for breaks)<a class="anchor" aria-label="anchor" href="#breaking-changes-and-justifications-for-breaks-2-0-0"></a></h3>
+<ul><li><p>Removed <code>full_surf</code> and <code>rotation_dir</code> arguments to allow for <code>display_range</code> and more flexible <code>rotation</code> arguments to be introduced. The improved argument structure will allow for more granular “zoom” on plots to regions of interest, as well as adjusting coordinates appropriately to match data sets</p></li>
+<li><p>Removed <code>vdiffr</code> tests as these were becoming unmanageable and didn’t scale well to new leagues. Additionally, should a league change its dimension requirements, the case itself is no longer valid despite the league’s plot <em>requiring</em> the change. Instead, the individual plotting functions are checked as well as the classes of the resulting plots</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.4" id="sportyr-104">sportyR 1.0.4<a class="anchor" aria-label="anchor" href="#sportyr-104"></a></h2>
 <ul><li><p>Removed requirement to include a plot caption color (fixes <a href="https://github.com/rossdrucker/sportyR/issues/3" class="external-link">#3</a>)</p></li>
 <li><p>On September 7, 2021, the NWHL changed names to be the PHF. This name change is now reflected in the package, with NWHL still valid so as to be backwards compatible.</p></li>
@@ -115,16 +177,18 @@
 <ul><li>Added tennis plotting capability</li>
 <li>Fixed issue with NCAA football plot hash marks (initially typed as 6, should have been typed as 60)</li>
 <li>Fixed minor bug with all soccer plots (changed <code>rotation_dir = TRUE</code> to <code>rotation_dir = "ccw"</code>)</li>
-<li>Fixed minor bug in NCAA hockey plots when plotting in units other than <code>ft</code> (reordered <code><a href="../reference/geom_ncaa_hockey.html">geom_ncaa_hockey()</a></code> code to adjust units before plotting)</li>
+<li>Fixed minor bug in NCAA hockey plots when plotting in units other than <code>ft</code> (reordered <code>geom_ncaa_hockey()</code> code to adjust units before plotting)</li>
 <li>Restructured code in <code>tests/testthat/test-plot-functions.R</code> to more closely resemble rest of repository structure. Plots now tested by sport rather than by plot-specific feature (e.g. units or rotation)</li>
 <li>Fixed minor bug with converting between millimeters and feet (originally was specified as 3048mm per foot, corrected to 304.8mm per foot)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.2" id="sportyr-102">sportyR 1.0.2<a class="anchor" aria-label="anchor" href="#sportyr-102"></a></h2>
-<ul><li>Added CFL plotting capability</li></ul></div>
+<ul><li>Added CFL plotting capability</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="sportyr-101">sportyR 1.0.1<a class="anchor" aria-label="anchor" href="#sportyr-101"></a></h2><p class="text-muted">CRAN release: 2021-04-20</p>
-<ul><li>Introduced new testing infrastructure</li></ul></div>
+<ul><li>Introduced new testing infrastructure</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="sportyr-100">sportyR 1.0.0<a class="anchor" aria-label="anchor" href="#sportyr-100"></a></h2><p class="text-muted">CRAN release: 2021-04-19</p>
 <p>Initial release! Ability to plot baseball, basketball ((W)NBA, NCAA, and FIBA), football (NFL and NCAA), hockey ((W)NHL, IIHF, NCAA), and soccer (FIFA, MLS, NCAA, NWSL, and Premier League) is included, with the capability to customize outputs in specific colors.</p>
@@ -138,7 +202,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer></div>

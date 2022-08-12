@@ -44,7 +44,7 @@
     
     <a class="navbar-brand me-2" href="index.html">sportyR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,9 +140,9 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="sportyr-">sportyR <img src="https://raw.githubusercontent.com/rossdrucker/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"><a class="anchor" aria-label="anchor" href="#sportyr-"></a>
+<div class="page-header"><h1 id="sportyr-">sportyR <img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"><a class="anchor" aria-label="anchor" href="#sportyr-"></a>
 </h1></div>
-<!-- badges: start -->
+
 <p>As the field of sports analytics evolve, there’s a growing need for methods to both track and visualize players throughout the game. This package aims to make this easy regardless of sport needed to be plotted.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -150,37 +150,64 @@
 <p>The most recent release of <code>sportyR</code> is available on <a href="https://cran.r-project.org/web/packages/sportyR/index.html" class="external-link">CRAN</a>, and it can be installed directly via:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install released version from CRAN</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">'sportyR'</span><span class="op">)</span></span></code></pre></div>
-<p>The development version of <code>sportyR</code> can be installed from <a href="https://github.com/rossdrucker/sportyR" class="external-link">GitHub</a> with:</p>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sportyR"</span><span class="op">)</span></span></code></pre></div>
+<p>The development version of <code>sportyR</code> can be installed from <a href="https://github.com/sportsdataverse/sportyR" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install development version from GitHub</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rossdrucker/sportyR"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"sportsdataverse/sportyR"</span><span class="op">)</span></span></code></pre></div>
 <p>Once the library is installed, be sure to load it into the working environment.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Required to use package</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rossdrucker/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Not required directly for utilization of sportyR, but useful to add more data</span></span>
-<span><span class="co"># to plots and create animations</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rossdrucker/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plotting-functions">Plotting Functions<a class="anchor" aria-label="anchor" href="#plotting-functions"></a>
 </h2>
 <p>All plotting functions in this library are named as <code>geom_{sport}()</code>, and take the following arguments:</p>
 <ul>
-<li><p><code>league</code>: the league code for the sport. In all functions, this will <strong><em>NOT</em></strong> have a default value. The supplied league is <strong>case-insensitive</strong>. Future iterations of this package may allow the full league name to be supplied if desired (e.g. <code>league = 'National Basketball Associaton'</code> instead of <code>league = 'NBA'</code>), but this feature is not currently available.</p></li>
-<li><p><code>full_surf</code>: a boolean indicating whether or not to plot the full surface. This defaults to <code>TRUE</code>. <br><em><strong>NOTE</strong>: this argument is not taken in <code><a href="reference/geom_baseball.html">geom_baseball()</a></code> as this surfaces is always shown in full (there’d be no reason to only draw half the diamond).</em></p></li>
-<li><p><code>rotate</code>: a boolean indicating whether or not to rotate the surface. All surfaces will be horizontal by nature. This defaults to <code>FALSE</code></p></li>
-<li><p><code>rotation_dir</code>: the direction in which to rotate the plot (if <code>rotate == TRUE</code>). This defaults to <code>'ccw'</code> for counterclockwise.</p></li>
+<li><p><code>league</code>: the league code for the sport. In all functions, this will <strong><em>NOT</em></strong> have a default value. The supplied league is <strong>case-insensitive</strong>. Future iterations of this package may allow the full league name to be supplied if desired (e.g. <code>league = 'National Basketball Associaton'</code> instead of <code>league = 'NBA'</code>), but this feature is not currently available.</p></li>
+<li><p><code>display_range</code>: This automatically “zooms” in on the area of the plot you’re interested in. Valid ranges here vary by sport, but can be found by calling <code>?geom_{sport}</code> and reading about the display ranges</p></li>
+<li><p><code>x_trans</code> and <code>y_trans</code>: By default, the origin of the coordinate system <em>always</em> lies at the center of the plot. For example, <code>(0, 0)</code> on a basketball court lies along the division line and on the line that connects the center of each basket. If you want to shift the origin (and therefore the entire plot), use <code>x_trans</code> and <code>y_trans</code> to do so</p></li>
+<li><p><code>{surface_type}_updates</code>: A list of updates to the parameters that define the surface. I’ll demo how to use this to change a hockey rink in a different vignette, but I’ll call this out here</p></li>
+<li><p><code>color_updates</code>: A list that contains updates to the features’ colors on the plot. These are named by what the feature is, using <code>snake_case</code> to specify the names. To get the list of color names you can change, try running <code><a href="reference/cani_color_league_features.html">cani_color_league_features()</a></code> with your desired league</p></li>
+<li><p><code>rotation</code>: An angle (in degrees) that you’d like to rotate the plot by, where +is counterclockwise</p></li>
+<li><p><code>xlims</code> and <code>ylims</code>: Any limits you’d like to put on the plot in the x and y direction. These will overwrite anything set by the <code>display_range</code> parameter</p></li>
+<li><p><code>{surface}_units</code>: If your data is in units that are different than how the rule book of the league specifies the units (e.g. you’ve got NHL data in inches, but the rule book describes the rink in feet), change this parameter to match the units you’ve got your data in. You’re welcome to change the units of the data as well, but this is provided for convenience</p></li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="tv-view-and-display-ranges">TV View and Display Ranges<a class="anchor" aria-label="anchor" href="#tv-view-and-display-ranges"></a>
+</h2>
+<div class="section level3">
+<h3 id="tv-view">TV View<a class="anchor" aria-label="anchor" href="#tv-view"></a>
+</h3>
+<p>All of the <code>geom_{sport}()</code> functions, by default, will draw the surface in what can be considered “TV view”, or the way that the surface would typically be displayed on a television broadcast. This typically means the action moves from left to right across the screen (a basketball game that has the baskets on the left and right end of the court). As mentioned above, it is possible to change this to be in any orientation through the <code>rotation</code> parameter to each <code>geom_{sport}()</code> function.</p>
+<p>There are a few exceptions to this:</p>
+<ul>
+<li><p><code><a href="reference/geom_baseball.html">geom_baseball()</a></code> is displayed from the high-home view by default, as baseball coordinates typically have the <code>+y</code> axis extending from the back tip of home plate towards center field</p></li>
+<li><p><code><a href="reference/geom_tennis.html">geom_tennis()</a></code> is displayed with the court diagrammed from the perspective of the chair umpire</p></li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="display-ranges">Display Ranges<a class="anchor" aria-label="anchor" href="#display-ranges"></a>
+</h3>
+<p>Related to the idea of custom displays of the plot is the concept of the <code>display_range</code> parameter in the <code>geom_{sport}()</code> function. This is unique to each sport, but globally supported across the package. This parameter allows the specification of a designated region of the surface to display. As an example, if you’re trying to limit the analysis of NFL data to being inside of the red zone, you may want to do something similar to the following:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Display only the red zone of the football field</span></span>
+<span><span class="fu"><a href="reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, display_range <span class="op">=</span> <span class="st">"red zone"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-readme-display-range-demo-1.png" width="100%"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="plot-units">Plot Units<a class="anchor" aria-label="anchor" href="#plot-units"></a>
 </h2>
-<p>Each plot function has a standardized unit of measure in which the plot is created, and is standardized by the primary units specified in their respective rule books. They are as follows:</p>
+<p>Each plot function has a standardized unit of measure in which the plot is created, and is standardized by the primary units specified in their respective rule books. They are as follows (and any explanation is in parentheses):</p>
 <table class="table">
+<colgroup>
+<col width="17%">
+<col width="49%">
+<col width="33%">
+</colgroup>
 <thead><tr class="header">
 <th align="center">Sport</th>
 <th align="center">League</th>
@@ -189,62 +216,132 @@
 <tbody>
 <tr class="odd">
 <td align="center">Baseball</td>
+<td align="center">Little League</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
+<td align="center">Baseball</td>
+<td align="center">MiLB</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Baseball</td>
 <td align="center">MLB</td>
 <td align="center"><code>ft</code></td>
 </tr>
 <tr class="even">
+<td align="center">Baseball</td>
+<td align="center">NCAA</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Baseball</td>
+<td align="center">NFHS (High School)</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
+<td align="center">Baseball</td>
+<td align="center">Pony</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="odd">
 <td align="center">Basketball</td>
 <td align="center">FIBA</td>
 <td align="center"><code>m</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Basketball</td>
 <td align="center">NBA</td>
 <td align="center"><code>ft</code></td>
 </tr>
+<tr class="odd">
+<td align="center">Basketball</td>
+<td align="center">NBA G League</td>
+<td align="center"><code>ft</code></td>
+</tr>
 <tr class="even">
 <td align="center">Basketball</td>
-<td align="center">NCAA Basketball</td>
+<td align="center">NCAA</td>
 <td align="center"><code>ft</code></td>
 </tr>
 <tr class="odd">
+<td align="center">Basketball</td>
+<td align="center">NFHS</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
 <td align="center">Basketball</td>
 <td align="center">WNBA</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Football</td>
 <td align="center">CFL</td>
 <td align="center"><code>yd</code></td>
 </tr>
+<tr class="even">
+<td align="center">Football</td>
+<td align="center">NCAA</td>
+<td align="center"><code>yd</code></td>
+</tr>
 <tr class="odd">
 <td align="center">Football</td>
-<td align="center">NCAA Football</td>
+<td align="center">NFHS11 (High School, 11 players)</td>
 <td align="center"><code>yd</code></td>
 </tr>
 <tr class="even">
+<td align="center">Football</td>
+<td align="center">NFHS6 (High School, 6 players)</td>
+<td align="center"><code>yd</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Football</td>
+<td align="center">NFHS8 (High School, 8 players)</td>
+<td align="center"><code>yd</code></td>
+</tr>
+<tr class="even">
+<td align="center">Football</td>
+<td align="center">NFHS9 (High School, 9 players)</td>
+<td align="center"><code>yd</code></td>
+</tr>
+<tr class="odd">
 <td align="center">Football</td>
 <td align="center">NFL</td>
 <td align="center"><code>yd</code></td>
 </tr>
+<tr class="even">
+<td align="center">Hockey</td>
+<td align="center">AHL</td>
+<td align="center"><code>ft</code></td>
+</tr>
 <tr class="odd">
+<td align="center">Hockey</td>
+<td align="center">ECHL</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">IIHF</td>
 <td align="center"><code>m</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
-<td align="center">NCAA Hockey</td>
+<td align="center">NCAA</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">NHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
 <td align="center">NWHL</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
+<td align="center">Hockey</td>
+<td align="center">OHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
 <tr class="odd">
@@ -253,29 +350,49 @@
 <td align="center"><code>ft</code></td>
 </tr>
 <tr class="even">
+<td align="center">Hockey</td>
+<td align="center">QMJHL</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Hockey</td>
+<td align="center">USHL</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
+<td align="center">Soccer</td>
+<td align="center">EPL</td>
+<td align="center"><code>m</code></td>
+</tr>
+<tr class="odd">
 <td align="center">Soccer</td>
 <td align="center">FIFA</td>
 <td align="center"><code>m</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Soccer</td>
 <td align="center">MLS</td>
-<td align="center"><code>m</code></td>
-</tr>
-<tr class="even">
-<td align="center">Soccer</td>
-<td align="center">NCAA Soccer</td>
-<td align="center"><code>m</code></td>
+<td align="center"><code>yd</code></td>
 </tr>
 <tr class="odd">
 <td align="center">Soccer</td>
-<td align="center">NWSL</td>
-<td align="center"><code>m</code></td>
+<td align="center">NCAA</td>
+<td align="center"><code>yd</code></td>
 </tr>
 <tr class="even">
 <td align="center">Soccer</td>
-<td align="center">Premier League</td>
-<td align="center"><code>m</code></td>
+<td align="center">NWSL</td>
+<td align="center"><code>yd</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Tennis</td>
+<td align="center">ATP</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
+<td align="center">Tennis</td>
+<td align="center">ITA</td>
+<td align="center"><code>ft</code></td>
 </tr>
 <tr class="odd">
 <td align="center">Tennis</td>
@@ -287,174 +404,50 @@
 <td align="center">NCAA</td>
 <td align="center"><code>ft</code></td>
 </tr>
+<tr class="odd">
+<td align="center">Tennis</td>
+<td align="center">USTA</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
+<td align="center">Tennis</td>
+<td align="center">WTA</td>
+<td align="center"><code>ft</code></td>
+</tr>
 </tbody>
 </table>
 <p>However, since the data that is supplied may come in various units of measure, the plots are able to be generated in the data’s units. This is done via the <code>unit</code> argument in <code>geom_{sport}()</code>. The features themselves will look visually identical, but the underlying coordinate grid will change.</p>
 <p>Additionally, the <code><a href="reference/convert_units.html">convert_units()</a></code> function can be called on a data frame to convert from the data’s arguments to the plot’s. For example, if soccer data is given in yards, but is desirable to be plotted in meters, calling <code>convert_units(tracking_data, 'yd', 'm', conversion_columns = c('x', 'y'))</code> will convert the x and y coordinates from yards to meters.</p>
-<p>As mentioned <a href="#plotting-functions">above</a>, the <code>geom_{sport}()</code> family of functions allow for rotations of surfaces via the <code>rotate</code> argument. To make this easy, <code>sportyR</code> also allows for the rotation of data frames’ coordinates <strong><em>so long as they contain an</em></strong> <code>x</code> <strong><em>and</em></strong> <code>y</code> <strong><em>column</em></strong> via the <code><a href="reference/rotate_coords.html">rotate_coords()</a></code> function. Translation and reflection of coordinates are also possible through <code><a href="reference/translate.html">translate()</a></code> and <code><a href="reference/reflect.html">reflect()</a></code> functions respectively.</p>
+<p>As mentioned <a href="#plotting-functions">above</a>, the <code>geom_{sport}()</code> family of functions allow for rotations of surfaces via the <code>rotation</code> argument. To make this easy, <code>sportyR</code> also allows for the rotation of data frames’ coordinates <strong><em>so long as they contain an</em></strong> <code>x</code> <strong><em>and</em></strong> <code>y</code> <strong><em>column</em></strong> via the <code><a href="reference/rotate_coords.html">rotate_coords()</a></code> function. Reflection is also possible through <code><a href="reference/reflect.html">reflect()</a></code>.</p>
 </div>
 <div class="section level2">
 <h2 id="surface-examples">Surface Examples<a class="anchor" aria-label="anchor" href="#surface-examples"></a>
 </h2>
 <p>Most playing surfaces are standard in size, so they can be rendered via a call to the proper <code>geom_{sport}()</code> function like so:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Draw a basic MLB field plot</span></span>
-<span><span class="fu"><a href="reference/geom_baseball.html">geom_baseball</a></span><span class="op">(</span><span class="st">'mlb'</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-mlb-example-1.png" width="100%"></p>
-<p>Certain functions are able to take additional parameters. As an example, soccer pitches are not always a standard size. For this reason, users can specify in the call to <code><a href="reference/geom_soccer.html">geom_soccer()</a></code> what the touchline and goal line lengths should be.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a 100m by 75m FIFA pitch</span></span>
-<span><span class="fu"><a href="reference/geom_soccer.html">geom_soccer</a></span><span class="op">(</span><span class="st">'fifa'</span>, touchline_length <span class="op">=</span> <span class="fl">100</span>, goal_line_length <span class="op">=</span> <span class="fl">75</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-fifa-example-1.png" width="100%"></p>
-<p>It’s also possible to plot half-surfaces and rotated surfaces:</p>
+<code class="sourceCode R"><span><span class="co"># Draw a basic MLB infield plot</span></span>
+<span><span class="fu"><a href="reference/geom_baseball.html">geom_baseball</a></span><span class="op">(</span><span class="st">"mlb"</span>, display_range <span class="op">=</span> <span class="st">"infield"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-readme-mlb-example-1.png" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Draw half of a rotated NBA court</span></span>
-<span><span class="fu"><a href="reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span><span class="st">'nba'</span>, full_surf <span class="op">=</span> <span class="cn">FALSE</span>, rotate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-nba-example-1.png" width="100%"></p>
-<p>Creating a realistic, customized output plot is also possible by supplying the proper arguments to recolor. More information on how to customize is in the <a href="#cani-Functions">next section</a>. <em><strong>NOTE</strong>: not all of the arguments below are needed, however all are shown to display the flexibility with which the plots can be customized.</em></p>
+<code class="sourceCode R"><span><span class="co"># Create a 100m by 75m FIFA pitch</span></span>
+<span><span class="fu"><a href="reference/geom_soccer.html">geom_soccer</a></span><span class="op">(</span></span>
+<span>  <span class="st">"fifa"</span>,</span>
+<span>  pitch_updates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    pitch_length <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>    pitch_width <span class="op">=</span> <span class="fl">75</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-readme-fifa-example-1.png" width="100%"></p>
+<p>It’s also possible to plot partial surfaces and rotated surfaces:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a totally customized NCAA basketball court</span></span>
-<span><span class="fu"><a href="reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span></span>
-<span>  <span class="st">'ncaa'</span>,</span>
-<span>  court_background_color <span class="op">=</span> <span class="st">'#e8e0d7'</span>,</span>
-<span>  center_circle_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  division_line_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  endline_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  sideline_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  team_bench_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  substitution_area_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  court_apron_color <span class="op">=</span> <span class="st">'#e84a27'</span>,</span>
-<span>  m_three_point_line_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  w_three_point_line_color <span class="op">=</span> <span class="st">'#ffffff'</span>,</span>
-<span>  m_two_point_range_color <span class="op">=</span> <span class="st">'#e8e0d7'</span>,</span>
-<span>  w_two_point_range_color <span class="op">=</span> <span class="st">'#ffffff66'</span>,</span>
-<span>  amateur_free_throw_lane_color <span class="op">=</span> <span class="st">'#ffffff'</span>,</span>
-<span>  amateur_painted_area_color <span class="op">=</span> <span class="st">'#e84a27'</span>,</span>
-<span>  amateur_free_throw_lane_lines_color <span class="op">=</span> <span class="st">'#ffffff'</span>,</span>
-<span>  free_throw_semi_circle_line_color <span class="op">=</span> <span class="st">'#ffffff'</span>,</span>
-<span>  free_throw_semi_circle_fill_color <span class="op">=</span> <span class="st">'#e8e0d7'</span>,</span>
-<span>  lower_defensive_box_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  restricted_area_arc_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  backboard_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  basket_ring_color <span class="op">=</span> <span class="st">'#13294b'</span>,</span>
-<span>  net_color <span class="op">=</span> <span class="st">'#ffffff'</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-custom-ncaa-bb-example-1.png" width="100%"></p>
-<p>Another quick example with a football field, but this time only changing one of the coloring elements:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a blue football field</span></span>
-<span><span class="fu"><a href="reference/geom_football.html">geom_football</a></span><span class="op">(</span></span>
-<span>  <span class="st">'ncaa'</span>,</span>
-<span>  grass_color <span class="op">=</span> <span class="st">'#2e4597'</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-custom-ncaa-football-plot-1.png" width="100%"></p>
-</div>
-<div class="section level2">
-<h2 id="cani-functions">
-<code>cani</code> Functions<a class="anchor" aria-label="anchor" href="#cani-functions"></a>
-</h2>
-<p>The main functionality of plotting is intended to be straightforward and easy to use, but questions are sure to arise about what can and can’t be plotted and customized in the current version of the package. The <code>cani_</code> family of functions are here to help answer those questions directly. Their syntax is meant to resemble a question like</p>
-<blockquote><p>Can I plot a football field?</p></blockquote>
-<p>or</p>
-<blockquote><p>Can <code>sportyR</code> make a baseball plot?</p></blockquote>
-<p>and message back the answer. Here’s how they work:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/cani_plot_league.html">cani_plot_league</a></span><span class="op">(</span><span class="st">'mlb'</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A plot for MLB can be created via the geom_baseball() function</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/cani_color_league_features.html">cani_color_league_features</a></span><span class="op">(</span><span class="st">'nba'</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Here are the viable plotting features to color for NBA:</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; court_background_color</span></span>
-<span><span class="co">#&gt; inner_center_circle_color</span></span>
-<span><span class="co">#&gt; outer_center_circle_color</span></span>
-<span><span class="co">#&gt; division_line_color</span></span>
-<span><span class="co">#&gt; endline_color</span></span>
-<span><span class="co">#&gt; sideline_color</span></span>
-<span><span class="co">#&gt; team_bench_color</span></span>
-<span><span class="co">#&gt; substitution_area_color</span></span>
-<span><span class="co">#&gt; court_apron_color</span></span>
-<span><span class="co">#&gt; three_point_line_color</span></span>
-<span><span class="co">#&gt; two_point_range_color</span></span>
-<span><span class="co">#&gt; professional_free_throw_lane_color</span></span>
-<span><span class="co">#&gt; professional_painted_area_color</span></span>
-<span><span class="co">#&gt; amateur_free_throw_lane_color</span></span>
-<span><span class="co">#&gt; amateur_painted_area_color</span></span>
-<span><span class="co">#&gt; professional_free_throw_lane_lines_color</span></span>
-<span><span class="co">#&gt; amateur_free_throw_lane_lines_color</span></span>
-<span><span class="co">#&gt; free_throw_semi_circle_line_color</span></span>
-<span><span class="co">#&gt; free_throw_semi_circle_fill_color</span></span>
-<span><span class="co">#&gt; free_throw_dashed_semi_circle_color</span></span>
-<span><span class="co">#&gt; lower_defensive_box_color</span></span>
-<span><span class="co">#&gt; restricted_area_arc_color</span></span>
-<span><span class="co">#&gt; backboard_color</span></span>
-<span><span class="co">#&gt; basket_ring_color</span></span>
-<span><span class="co">#&gt; net_color</span></span></code></pre></div>
-<p>For more information, call <code><a href="reference/cani_plot_league.html">?cani_plot_league</a></code>, <code><a href="reference/cani_plot_sport.html">?cani_plot_sport</a></code>, or <code><a href="reference/cani_color_league_features.html">?cani_color_league_features</a></code>.</p>
-</div>
-<div class="section level2">
-<h2 id="adding-tracking-data">Adding Tracking Data<a class="anchor" aria-label="anchor" href="#adding-tracking-data"></a>
-</h2>
-<p>Because this package is an extension of the <code>ggplot2</code> package, data can be added much the same way on top of the surface plot that <code>geom_{sport}()</code> creates. Although tracking data isn’t widely publicly available yet, there are a few examples to use. The data sources for the following examples are below.</p>
-<p><code>sportyR</code> makes shot charts in all sports significantly easier. Here’s a look at a shot chart from an NWHL game between the Minnesota Whitecaps and the Boston Pride (data provided for the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">Big Data Cup - 2021</a>):</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Read data from the Big Data Cup</span></span>
-<span><span class="va">bdc_data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">'https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021/main/hackathon_nwhl.csv'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Change names of X.Coordinate and Y.coordinate to x and y respectively</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bdc_data</span><span class="op">)</span><span class="op">[</span><span class="fl">13</span><span class="op">:</span><span class="fl">14</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'x'</span>, <span class="st">'y'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Shift coordinates to fit on the rink</span></span>
-<span><span class="va">bdc_data</span> <span class="op">=</span> <span class="fu"><a href="reference/translate.html">translate</a></span><span class="op">(</span><span class="va">bdc_data</span>, translate_x <span class="op">=</span> <span class="op">-</span><span class="fl">100</span>, translate_y <span class="op">=</span> <span class="op">-</span><span class="fl">42.5</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Subset to only be shots from the game on 2021-01-23 between the Minnesota</span></span>
-<span><span class="co"># White Caps and Boston Pride</span></span>
-<span><span class="va">bdc_shots</span> <span class="op">=</span> <span class="va">bdc_data</span><span class="op">[</span><span class="op">(</span><span class="va">bdc_data</span><span class="op">$</span><span class="va">Event</span> <span class="op">==</span> <span class="st">'Shot'</span><span class="op">)</span> <span class="op">&amp;</span></span>
-<span>                     <span class="op">(</span><span class="va">bdc_data</span><span class="op">$</span><span class="va">Home.Team</span> <span class="op">==</span> <span class="st">'Minnesota Whitecaps'</span><span class="op">)</span> <span class="op">&amp;</span></span>
-<span>                     <span class="op">(</span><span class="va">bdc_data</span><span class="op">$</span><span class="va">game_date</span> <span class="op">==</span> <span class="st">'2021-01-23'</span><span class="op">)</span>, <span class="op">]</span></span>
-<span></span>
-<span><span class="co"># Separate shots by team</span></span>
-<span><span class="va">whitecaps_shots</span> <span class="op">=</span> <span class="va">bdc_shots</span><span class="op">[</span><span class="va">bdc_shots</span><span class="op">$</span><span class="va">Team</span> <span class="op">==</span> <span class="st">'Minnesota Whitecaps'</span>, <span class="op">]</span></span>
-<span><span class="va">pride_shots</span> <span class="op">=</span> <span class="va">bdc_shots</span><span class="op">[</span><span class="va">bdc_shots</span><span class="op">$</span><span class="va">Team</span> <span class="op">==</span> <span class="st">'Boston Pride'</span>, <span class="op">]</span></span>
-<span></span>
-<span><span class="co"># Reflect the Boston Pride shots to make them appear on the other side of the</span></span>
-<span><span class="co"># ice</span></span>
-<span><span class="va">pride_shots</span> <span class="op">=</span> <span class="fu"><a href="reference/reflect.html">reflect</a></span><span class="op">(</span><span class="va">pride_shots</span>, over_y <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Draw the rink</span></span>
-<span><span class="va">nwhl_rink</span> <span class="op">=</span> <span class="fu"><a href="reference/geom_hockey.html">geom_hockey</a></span><span class="op">(</span><span class="st">'nwhl'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Add the shot locations</span></span>
-<span><span class="va">nwhl_rink</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">whitecaps_shots</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">'#2251b8'</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">pride_shots</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">'#fec52e'</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-bdc-example-1.png" width="100%"></p>
-<p>The functionality of <code>sportyR</code> also makes gif-making via <code>gganimate</code> much easier as well. This is a play from Week 15 of the 2018 NFL season between the Chicago Bears and Green Bay Packers. Data made available for the <a href="https://www.kaggle.com/c/nfl-big-data-bowl-2021" class="external-link">Big Data Bowl 2021</a> Kaggle competition.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load the play data</span></span>
-<span><span class="va">example_nfl_play</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">'data-raw/example-pbp-data.csv'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Prep data for plotting</span></span>
-<span><span class="va">example_nfl_play</span><span class="op">[</span><span class="va">example_nfl_play</span><span class="op">[</span><span class="st">'team'</span><span class="op">]</span> <span class="op">==</span> <span class="st">'home'</span>, <span class="st">'color'</span><span class="op">]</span> <span class="op">=</span> <span class="st">'#c83803'</span></span>
-<span><span class="va">example_nfl_play</span><span class="op">[</span><span class="va">example_nfl_play</span><span class="op">[</span><span class="st">'team'</span><span class="op">]</span> <span class="op">==</span> <span class="st">'away'</span>, <span class="st">'color'</span><span class="op">]</span> <span class="op">=</span> <span class="st">'#ffb612'</span></span>
-<span><span class="va">example_nfl_play</span><span class="op">[</span><span class="va">example_nfl_play</span><span class="op">[</span><span class="st">'team'</span><span class="op">]</span> <span class="op">==</span> <span class="st">'football'</span>, <span class="st">'color'</span><span class="op">]</span> <span class="op">=</span> <span class="st">'#624a2e'</span></span>
-<span></span>
-<span><span class="co"># Create the field</span></span>
-<span><span class="va">nfl_field</span> <span class="op">=</span> <span class="fu"><a href="reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">'nfl'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Add the points on the field</span></span>
-<span><span class="va">play_anim</span> <span class="op">=</span> <span class="va">nfl_field</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">example_nfl_play</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, color <span class="op">=</span> <span class="va">example_nfl_play</span><span class="op">$</span><span class="va">color</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">transition_time</span><span class="op">(</span><span class="va">example_nfl_play</span><span class="op">$</span><span class="va">frameId</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Show the animation</span></span>
-<span><span class="va">play_anim</span></span></code></pre></div>
-<p><img src="reference/figures/README-bdb-example-1.gif" width="100%"></p>
+<code class="sourceCode R"><span><span class="co"># Draw half of a rotated NBA court</span></span>
+<span><span class="fu"><a href="reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span><span class="st">"nba"</span>, display_range <span class="op">=</span> <span class="st">"offense"</span>, rotation <span class="op">=</span> <span class="fl">270</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-readme-nhl-example-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>This package is released under the <a href="https://github.com/rossdrucker/sportyR/blob/master/LICENSE.md" class="external-link">MIT License</a>.</p>
+<p>This package is released under the <a href="https://github.com/sportsdataverse/sportyR/blob/master/LICENSE.md" class="external-link">MIT License</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
@@ -463,8 +456,10 @@
 <h3 id="league-office">League Office<a class="anchor" aria-label="anchor" href="#league-office"></a>
 </h3>
 <p>The package maintainers and functional engineers</p>
-<ul><li>
-<a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - <code>sportyR</code> Commissioner</li></ul>
+<ul>
+<li>
+<a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - <code>sportyR</code> Commissioner</li>
+</ul>
 </div>
 <div class="section level3">
 <h3 id="general-managers">General Managers<a class="anchor" aria-label="anchor" href="#general-managers"></a>
@@ -481,6 +476,8 @@
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Hockey</li>
 <li>
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Soccer</li>
+<li>
+<a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Tennis</li>
 </ul>
 </div>
 <div class="section level3">
@@ -543,13 +540,13 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://www.r-pkg.org/badges/version/sportyR" alt="CRAN status"></a></li>
-<li><a href="https://github.com/rossdrucker/sportyR" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.4-blue.svg"></a></li>
-<li><a href="https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml" class="external-link"><img src="https://github.com/rossdrucker/sportyR/actions/workflows/check-full.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/rossdrucker/sportyR/actions" class="external-link"><img src="https://github.com/rossdrucker/sportyR/workflows/test-coverage/badge.svg" alt="Test Coverage"></a></li>
-<li><a href="https://codecov.io/gh/rossdrucker/sportyR" class="external-link"><img src="https://codecov.io/gh/rossdrucker/sportyR/branch/master/graph/badge.svg" alt="codecov"></a></li>
-<li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-orange.svg" alt="License: MIT"></a></li>
-<li><a href="https://cran.r-project.org/package=sportyR" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/sportyR?color=blue"></a></li>
+<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=flat&amp;color=ff552e&amp;label=CRAN%20version&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR" alt="CRAN version"></a></li>
+<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=flat&amp;color=ff552e&amp;label=Downloads&amp;query=%24%5B0%5D.downloads&amp;url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FsportyR" alt="CRAN downloads"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/" class="external-link"><img src="https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&amp;logo=R&amp;style=flat&amp;color=ff552e&amp;logoColor=1d9bf0" alt="Version-Number"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://img.shields.io/github/workflow/status/sportsdataverse/sportyR/R-CMD-check?label=R-CMD-Check&amp;logo=R&amp;&amp;style=flat&amp;logoColor=1d9bf0" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&amp;logo=github&amp;color=ff552e" alt="Lifecycle:maturing"></a></li>
+<li><a href="https://twitter.com/sportyR" class="external-link"><img src="https://img.shields.io/twitter/follow/sportyR?&amp;label=%40sportyR&amp;logo=twitter&amp;style=flat&amp;color=ff552e" alt="Twitter Follow"></a></li>
+<li><a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=flat&amp;color=ff552e" alt="Twitter Follow"></a></li>
 </ul>
 </div>
 
@@ -564,7 +561,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>

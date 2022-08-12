@@ -16,6 +16,21 @@
     <loc>https://rossdrucker.github.io/sportyR/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://rossdrucker.github.io/sportyR/articles/animating-tracking-data.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/articles/customize-plot.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/articles/plotting-tracking-data.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/articles/sportyR.html</loc>
+  </url>
+  <url>
     <loc>https://rossdrucker.github.io/sportyR/authors.html</loc>
   </url>
   <url>
@@ -28,6 +43,111 @@
     <loc>https://rossdrucker.github.io/sportyR/reference/add_feature.html</loc>
   </url>
   <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_base.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_batters_box.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_catchers_box.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_features_set_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_foul_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_home_plate.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_infield_dirt.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_infield_grass.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_pitchers_mound.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_pitchers_plate.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/baseball_running_lane.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_backboard.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_basket_ring.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_center_circle_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_center_circle_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_court_apron.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_division_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_endline.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_features_set_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_free_throw_circle.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_free_throw_circle_dash.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_free_throw_circle_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_free_throw_lane_boundary.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_half_court.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_inbounding_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_lane_space_mark.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_lower_defensive_box_mark.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_net.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_painted_area.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_restricted_arc.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_sideline.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_substitution_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_team_bench_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_three_point_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/basketball_two_point_range.html</loc>
+  </url>
+  <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/cani_color_league_features.html</loc>
   </url>
   <url>
@@ -35,39 +155,6 @@
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/cani_plot_sport.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_dead_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_directional_arrows.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_directional_arrows_df_maker.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_yard_markings.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_yard_markings_df_maker.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_feature_yard_numbers.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/cfl_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/check_data_frame_for_plot.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/convert_units.html</loc>
@@ -91,91 +178,58 @@
     <loc>https://rossdrucker.github.io/sportyR/reference/distance_formula.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_backboard.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_coaching_box.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_basket_ring.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_coaching_box_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_center_circle.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_directional_arrow.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_court_apron.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_end_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_court_bground.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_endzone.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_division_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_features_set_colors.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_endline.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_field_apron.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_free_throw_lane.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_field_border.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_free_throw_lane_lines.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_field_border_outline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_free_throw_semi_circle.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_goal_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_net.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_half_field.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_restricted_area_arc.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_major_yard_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_sideline.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_minor_yard_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_team_bench.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_restricted_area.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_feature_three_point_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_sideline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fiba_features_set_colors.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_team_bench_area.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_box_5.5m.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_team_bench_area_outline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_box_9.15m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_corner_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_halfway_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_penalty_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_penalty_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_feature_touchlines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/fifa_features_set_colors.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/football_try_mark.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_baseball.html</loc>
@@ -184,67 +238,10 @@
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_basketball.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_cfl.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_fiba.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_fifa.html</loc>
-  </url>
-  <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_football.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_hockey.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_iihf.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_itf.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_mlb.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_mls.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_nba.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_ncaa_bb.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_ncaa_football.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_ncaa_hockey.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_ncaa_soccer.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_ncaa_tennis.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_nfl.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_nhl.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_nwhl.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_nwsl.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_phf.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_premier_league.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_soccer.html</loc>
@@ -253,595 +250,85 @@
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_tennis.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/geom_wnba.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/grapes-or-grapes.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_blue_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_boards.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_boards.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_center_faceoff_circle.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_center_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_center_faceoff_spot.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_faceoff_circle.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_center_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_faceoff_lines.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_defensive_zone.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_faceoff_spot.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_features_set_colors.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_goal.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_goal_crease_fill.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_goal_crease.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_goal_crease_outline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_goal_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_goal_frame.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_feature_referee_crease.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_goal_frame_fill.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/iihf_features_set_colors.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_goal_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_goaltenders_restricted_area.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_neutral_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_nodzone_faceoff_spot_ring.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_nodzone_faceoff_spot_stripe.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_odzone_faceoff_circle.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_odzone_faceoff_lines.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_off_ice_officials_box.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_offensive_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_penalty_box_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_penalty_box_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_player_bench_area_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_player_bench_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_referee_crease.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/hockey_zone_line.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_baseline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_center_service_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_court_background.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_doubles_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_net.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_service_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_feature_singles_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/itf_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/league_lookup.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_feature_baselines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_feature_bases.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_feature_batters_boxes.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_feature_infield_dirt.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_feature_infield_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_feature_mound.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mlb_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_box_5.5m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_box_9.15m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_corner_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_halfway_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_penalty_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_penalty_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_feature_touchlines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/mls_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_backboard.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_basket_ring.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_center_circles.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_court_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_court_bground.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_division_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_endline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_free_throw_dashed_semi_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_free_throw_lane.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_free_throw_lane_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_free_throw_semi_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_lower_defensive_box.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_net.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_restricted_area_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_substitution_area.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_team_bench.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_feature_three_point_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nba_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_backboard.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_basket_ring.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_court_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_court_bground.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_division_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_endline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_free_throw_lane.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_free_throw_lane_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_free_throw_semi_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_lower_defensive_box.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_net.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_restricted_area_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_substitution_area.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_team_bench.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_feature_three_point_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_bb_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_directional_arrows.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_directional_arrows_df_maker.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_endline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_try_markings.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_yard_markings.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_yard_markings_df_maker.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_feature_yard_numbers.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_football_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_blue_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_boards.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_faceoff_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_faceoff_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_faceoff_spot.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_goal_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_feature_referee_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_hockey_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_box_5.5m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_box_9.15m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_corner_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_halfway_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_penalty_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_penalty_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_feature_touchlines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_soccer_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_baseline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_center_service_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_court_background.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_doubles_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_net.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_service_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_feature_singles_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/ncaa_tennis_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_directional_arrows.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_directional_arrows_df_maker.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_endline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_try_markings.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_yard_markings.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_yard_markings_df_maker.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_feature_yard_numbers.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nfl_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_blue_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_boards.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_faceoff_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_faceoff_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_faceoff_spot.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_goal_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_goalkeepers_restricted_area.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_feature_referee_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nhl_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_blue_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_boards.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_faceoff_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_faceoff_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_faceoff_spot.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_goal_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_goalkeepers_restricted_area.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_feature_referee_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwhl_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_box_5.5m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_box_9.15m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_corner_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_halfway_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_penalty_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_penalty_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_feature_touchlines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/nwsl_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_blue_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_boards.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_faceoff_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_faceoff_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_faceoff_spot.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_goal_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_goalkeepers_restricted_area.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_feature_referee_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/phf_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_box_5.5m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_box_9.15m.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_corner_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_halfway_line.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_penalty_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_penalty_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_feature_touchlines.html</loc>
-  </url>
-  <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/premier_league_features_set_colors.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/quadratic_formula.html</loc>
@@ -853,66 +340,81 @@
     <loc>https://rossdrucker.github.io/sportyR/reference/rotate_coords.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/sport_lookup.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_center_circle.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/translate.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_center_mark.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_backboard.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_corner_arc.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_basket_ring.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_corner_defensive_marks.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_center_circles.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_features_set_colors.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_court_apron.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_goal.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_court_bground.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_goal_box.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_division_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_goal_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_endline.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_half_pitch.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_free_throw_dashed_semi_circle.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_halfway_line.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_free_throw_lane.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_penalty_box.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_free_throw_lane_lines.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_penalty_mark.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_free_throw_semi_circle.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_pitch_apron.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_lower_defensive_box.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/soccer_touchline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_net.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/surface_dimensions.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_restricted_area_arc.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_backcourt.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_sideline.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_baseline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_substitution_area.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_center_mark.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_team_bench.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_center_serviceline.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_feature_three_point_line.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_court_apron.html</loc>
   </url>
   <url>
-    <loc>https://rossdrucker.github.io/sportyR/reference/wnba_features_set_colors.html</loc>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_doubles_alley.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_features_set_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_frontcourt_half.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_net.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_serviceline.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/tennis_sideline.html</loc>
   </url>
 </urlset>
