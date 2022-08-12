@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Getting Started">
@@ -147,64 +147,42 @@
 
     
     
-<p>Welcome to <code>sportyR</code>! I’m Ross Drucker, the author of the
-<a href="https://sportyr.sportsdataverse.org/" class="external-link"><code>sportyR</code></a>
-package. My aim with this package is to provide high-quality, reliable,
-baseline plots to use for geospatial analysis of sports data. I’m
-excited to showcase some of the main functionalities of the package
-here, as well as continue to develop the package to meet the needs of
-the sports analytics community.</p>
+<p>Welcome to <code>sportyR</code>! I’m Ross Drucker, the author of the <a href="https://sportyr.sportsdataverse.org/" class="external-link"><code>sportyR</code></a> package. My aim with this package is to provide high-quality, reliable, baseline plots to use for geospatial analysis of sports data. I’m excited to showcase some of the main functionalities of the package here, as well as continue to develop the package to meet the needs of the sports analytics community.</p>
 <div class="section level3">
 <h3 id="installing-r-rstudio-and-sportyr">
 <strong>Installing R, RStudio, and <a href="https://sportyr.sportsdataverse.org" class="external-link"><code>sportyR</code></a></strong><a class="anchor" aria-label="anchor" href="#installing-r-rstudio-and-sportyr"></a>
 </h3>
-<p>(This section courtesy of <a href="https://www.twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>. Give him a
-follow!)</p>
+<p>(This section courtesy of <a href="https://www.twitter.com/saiemgilani" class="external-link">Saiem Gilani</a>. Give him a follow!)</p>
 <ol style="list-style-type: decimal">
 <li>Head to <a href="https://cran.r-project.org" class="external-link uri">https://cran.r-project.org</a>
 </li>
-<li>Select the appropriate link for your operating system (Windows, Mac
-OS X, or Linux)</li>
+<li>Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)</li>
 </ol>
 <ul>
 <li>
-<strong>Windows</strong> - Select base and download the most recent
-version</li>
+<strong>Windows</strong> - Select base and download the most recent version</li>
 <li>
-<strong>Mac OS X</strong> - Select Latest Release, but check to make
-sure your OS is the correct version. Look through Binaries for Legacy OS
-X Systems if you are on an older release</li>
+<strong>Mac OS X</strong> - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release</li>
 <li>
-<strong>Linux</strong> - Select the appropriate distro and follow
-the installation instructions</li>
+<strong>Linux</strong> - Select the appropriate distro and follow the installation instructions</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li>Head to <a href="https://www.rstudio.com/products/rstudio/download/#download" title="Download the appropriate version of RStudio (Free) for your operating system to use with R" class="external-link">RStudio.com</a>
 </li>
-<li>Follow the associated download and installation instructions for
-RStudio.</li>
-<li>Start peering over the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf" class="external-link">RStudio
-IDE Cheatsheet</a>. <em>An IDE is an integrated development
-environment.</em>
+<li>Follow the associated download and installation instructions for RStudio.</li>
+<li>Start peering over the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf" class="external-link">RStudio IDE Cheatsheet</a>. <em>An IDE is an integrated development environment.</em>
 </li>
-<li>For <strong>Windows</strong> users: I recommend you install <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">Rtools</a>. This
-is not an R package! It is “a collection of resources for building
-packages for R under Microsoft Windows, or for building R itself”. Go to
-<a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link uri">https://cran.r-project.org/bin/windows/Rtools/</a> and
-follow the directions for installation.</li>
+<li>For <strong>Windows</strong> users: I recommend you install <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link">Rtools</a>. This is not an R package! It is “a collection of resources for building packages for R under Microsoft Windows, or for building R itself”. Go to <a href="https://cran.r-project.org/bin/windows/Rtools/" class="external-link uri">https://cran.r-project.org/bin/windows/Rtools/</a> and follow the directions for installation.</li>
 </ol>
-<p><code>sportyR</code> is live on CRAN, and the most recent release can
-be installed by running:</p>
+<p><code>sportyR</code> is live on CRAN, and the most recent release can be installed by running:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install released version from CRAN</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sportyR"</span><span class="op">)</span></span></code></pre></div>
-<p>If you’re more into the development version of the package, try
-this:</p>
+<p>If you’re more into the development version of the package, try this:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install development version from GitHub</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"sportsdataverse/sportyR"</span><span class="op">)</span></span></code></pre></div>
-<p>Once the library is installed, be sure to load it into the working
-environment.</p>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"sportsdataverse/sportyR"</span><span class="op">)</span></span></code></pre></div>
+<p>Once the library is installed, be sure to load it into the working environment.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Required to use package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rossdrucker/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span></code></pre></div>
@@ -213,12 +191,8 @@ environment.</p>
 <h3 id="understanding-and-exploring-the-package">
 <strong>Understanding and Exploring the Package</strong><a class="anchor" aria-label="anchor" href="#understanding-and-exploring-the-package"></a>
 </h3>
-<p>The package itself is really an extension of <a href="https://ggplot2.tidyverse.org/" class="external-link"><code>ggplot2</code></a>, but the
-aim is to focus specifically on a sports playing surface. So that begs
-the question: what sports can we plot using <code>sportyR</code>?</p>
-<p>You’re in luck: these kinds of questions are natively answered by
-what I’ve called the <code>cani_{question}()</code> family of functions.
-They’re designed to answer questions like</p>
+<p>The package itself is really an extension of <a href="https://ggplot2.tidyverse.org/" class="external-link"><code>ggplot2</code></a>, but the aim is to focus specifically on a sports playing surface. So that begs the question: what sports can we plot using <code>sportyR</code>?</p>
+<p>You’re in luck: these kinds of questions are natively answered by what I’ve called the <code>cani_{question}()</code> family of functions. They’re designed to answer questions like</p>
 <blockquote>
 <p>Can I plot a soccer pitch?</p>
 </blockquote>
@@ -226,8 +200,7 @@ They’re designed to answer questions like</p>
 <blockquote>
 <p>Can I plot a PHF ice rink?</p>
 </blockquote>
-<p>and that’s the exact syntax you can follow to have the package answer
-those questions. Here’s an example:</p>
+<p>and that’s the exact syntax you can follow to have the package answer those questions. Here’s an example:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Find out if you can plot a soccer pitch</span></span>
 <span><span class="fu"><a href="../reference/cani_plot_sport.html">cani_plot_sport</a></span><span class="op">(</span><span class="st">"soccer"</span><span class="op">)</span></span>
@@ -237,71 +210,32 @@ those questions. Here’s an example:</p>
 <code class="sourceCode R"><span><span class="co"># See if a league comes pre-packaged with sportyR</span></span>
 <span><span class="fu"><a href="../reference/cani_plot_league.html">cani_plot_league</a></span><span class="op">(</span><span class="st">"PHF"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; A plot for PHF can be created via the geom_hockey() function</span></span></code></pre></div>
-<p>I’ll highlight the fact that these are
-<strong>case-insensitive</strong> searches. Ask away to your heart’s
-content!</p>
-<p>There’s one other <code>cani_{question}()</code> function I’ll
-highlight more in a bit, but first let’s start acting on the answers to
-these kinds of questions.</p>
+<p>I’ll highlight the fact that these are <strong>case-insensitive</strong> searches. Ask away to your heart’s content!</p>
+<p>There’s one other <code>cani_{question}()</code> function I’ll highlight more in a bit, but first let’s start acting on the answers to these kinds of questions.</p>
 </div>
 <div class="section level3">
 <h3 id="the-geom_sport-functions">
 <strong>The <code>geom_{sport}()</code> Functions</strong><a class="anchor" aria-label="anchor" href="#the-geom_sport-functions"></a>
 </h3>
-<p>Now that we can ask questions to the package and get answers, let’s
-start using this information to make plots. Say for example we’re
-interested in drawing a regulation <a href="https://www.nba.com" class="external-link">NBA</a>
-basketball court. <code>sportyR</code> seeks to make this as easy as
-possible:</p>
+<p>Now that we can ask questions to the package and get answers, let’s start using this information to make plots. Say for example we’re interested in drawing a regulation <a href="https://www.nba.com" class="external-link">NBA</a> basketball court. <code>sportyR</code> seeks to make this as easy as possible:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw a regulation NBA basketball court</span></span>
 <span><span class="fu"><a href="../reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span><span class="st">"nba"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="getting-started-example-basketball-court-1.png" width="100%"></p>
-<p>Easy as that to get started. Here’s a quick overview of the arguments
-(which are included for all of the <code>geom_{sport}()</code>
-functions):</p>
+<p>Easy as that to get started. Here’s a quick overview of the arguments (which are included for all of the <code>geom_{sport}()</code> functions):</p>
 <ul>
-<li><p><code>league</code>: This is a required parameter, but
-<code>custom</code> is a viable value for any sport. As a quick note,
-using this <code>custom</code> option will require you to specify all
-parameters of the surface you’re looking to create. This is
-case-insensitive</p></li>
-<li><p><code>display_range</code>: This automatically “zooms” in on the
-area of the plot you’re interested in. Valid ranges here vary by sport,
-but can be found by calling <code>?geom_{sport}</code> and reading about
-the display ranges</p></li>
-<li><p><code>x_trans</code> and <code>y_trans</code>: By default, the
-origin of the coordinate system <em>always</em> lies at the center of
-the plot. For example, <code>(0, 0)</code> on a basketball court lies
-along the division line and on the line that connects the center of each
-basket. If you want to shift the origin (and therefore the entire plot),
-use <code>x_trans</code> and <code>y_trans</code> to do so</p></li>
-<li><p><code>{surface_type}_updates</code>: A list of updates to the
-parameters that define the surface. I’ll demo how to use this to change
-a hockey rink in a different vignette, but I’ll call this out
-here</p></li>
-<li><p><code>color_updates</code>: A list that contains updates to the
-features’ colors on the plot. These are named by what the feature is,
-using <code>snake_case</code> to specify the names. To get the list of
-color names you can change, try running
-<code><a href="../reference/cani_color_league_features.html">cani_color_league_features()</a></code> with your desired
-league</p></li>
-<li><p><code>rotation</code>: An angle (in degrees) that you’d like to
-rotate the plot by, where +is counterclockwise</p></li>
-<li><p><code>xlims</code> and <code>ylims</code>: Any limits you’d like
-to put on the plot in the x and y direction. These will overwrite
-anything set by the <code>display_range</code> parameter</p></li>
-<li><p><code>{surface}_units</code>: If your data is in units that are
-different than how the rule book of the league specifies the units
-(e.g. you’ve got NHL data in inches, but the rule book describes the
-rink in feet), change this parameter to match the units you’ve got your
-data in. You’re welcome to change the units of the data as well, but
-this is provided for convenience</p></li>
+<li><p><code>league</code>: This is a required parameter, but <code>custom</code> is a viable value for any sport. As a quick note, using this <code>custom</code> option will require you to specify all parameters of the surface you’re looking to create. This is case-insensitive</p></li>
+<li><p><code>display_range</code>: This automatically “zooms” in on the area of the plot you’re interested in. Valid ranges here vary by sport, but can be found by calling <code>?geom_{sport}</code> and reading about the display ranges</p></li>
+<li><p><code>x_trans</code> and <code>y_trans</code>: By default, the origin of the coordinate system <em>always</em> lies at the center of the plot. For example, <code>(0, 0)</code> on a basketball court lies along the division line and on the line that connects the center of each basket. If you want to shift the origin (and therefore the entire plot), use <code>x_trans</code> and <code>y_trans</code> to do so</p></li>
+<li><p><code>{surface_type}_updates</code>: A list of updates to the parameters that define the surface. I’ll demo how to use this to change a hockey rink in a different vignette, but I’ll call this out here</p></li>
+<li><p><code>color_updates</code>: A list that contains updates to the features’ colors on the plot. These are named by what the feature is, using <code>snake_case</code> to specify the names. To get the list of color names you can change, try running <code><a href="../reference/cani_color_league_features.html">cani_color_league_features()</a></code> with your desired league</p></li>
+<li><p><code>rotation</code>: An angle (in degrees) that you’d like to rotate the plot by, where +is counterclockwise</p></li>
+<li><p><code>xlims</code> and <code>ylims</code>: Any limits you’d like to put on the plot in the x and y direction. These will overwrite anything set by the <code>display_range</code> parameter</p></li>
+<li><p><code>{surface}_units</code>: If your data is in units that are different than how the rule book of the league specifies the units (e.g. you’ve got NHL data in inches, but the rule book describes the rink in feet), change this parameter to match the units you’ve got your data in. You’re welcome to change the units of the data as well, but this is provided for convenience</p></li>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="follow-the-sportsdataverse-on-twitter-and-star-this-repo">Follow the <a href="https://twitter.com/sportsdataverse" class="external-link">sportsdataverse</a> on
-Twitter and Star This Repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo"></a>
+<h2 id="follow-the-sportsdataverse-on-twitter-and-star-this-repo">Follow the <a href="https://twitter.com/sportsdataverse" class="external-link">sportsdataverse</a> on Twitter and Star This Repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-twitter-and-star-this-repo"></a>
 </h2>
 <p><a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?&amp;label=%2540sportsdataverse&amp;logo=twitter&amp;style=flat&amp;color=ff552e" alt="Twitter Follow"></a></p>
 <p><a href="https://twitter.com/sportyR_pkg" class="external-link"><img src="https://img.shields.io/twitter/follow/sportyR_pkg?&amp;label=%2540sportyR_pkg&amp;logo=twitter&amp;style=flat&amp;color=ff552e" alt="Twitter Follow"></a></p>
@@ -313,9 +247,7 @@ Twitter and Star This Repo<a class="anchor" aria-label="anchor" href="#follow-th
 </h2>
 <ul>
 <li>
-<a href="https://twitter.com/rossdrucker9" class="external-link">Ross Drucker</a>
-<a href="https://twitter.com/rossdrucker9" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=ff552e&amp;label=%40rossdrucker9&amp;logo=twitter&amp;style=flat" alt="@rossdrucker9"></a>
-<a href="https://github.com/rossdrucker" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=ff552e&amp;logo=Github&amp;style=flat" alt="@rossdrucker"></a>
+<a href="https://twitter.com/rossdrucker9" class="external-link">Ross Drucker</a> <a href="https://twitter.com/rossdrucker9" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=ff552e&amp;label=%40rossdrucker9&amp;logo=twitter&amp;style=flat" alt="@rossdrucker9"></a> <a href="https://github.com/rossdrucker" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=ff552e&amp;logo=Github&amp;style=flat" alt="@rossdrucker"></a>
 </li>
 </ul>
 </div>

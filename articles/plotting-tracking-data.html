@@ -14,8 +14,8 @@
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Plotting Tracking Data">
@@ -147,28 +147,19 @@
 
     
     
-<p>In order to run the following vignettes, you’ll need the
-<code>sportyR</code> and <code>ggplot2</code> libraries loaded into your
-workspace.</p>
+<p>In order to run the following vignettes, you’ll need the <code>sportyR</code> and <code>ggplot2</code> libraries loaded into your workspace.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rossdrucker/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p><code>sportyR</code> seeks to make plotting geospatial tracking data
-as straight-forward as possible, allowing you to focus more on the
-analysis than on the visuals. I’ll demonstrate a few examples here on
-how to use the package to display “static” data, or data that shows a
-snapshot in time</p>
+<p><code>sportyR</code> seeks to make plotting geospatial tracking data as straight-forward as possible, allowing you to focus more on the analysis than on the visuals. I’ll demonstrate a few examples here on how to use the package to display “static” data, or data that shows a snapshot in time</p>
 </div>
 <div class="section level2">
 <h2 id="the-data">The Data<a class="anchor" aria-label="anchor" href="#the-data"></a>
 </h2>
-<p>For this example, I’ll be using the data provided for the <a href="https://www.stathletes.com/big-data-cup/" class="external-link">Big Data Cup</a>, which
-is publicly available. Specifically, the data I’ll use to demonstrate
-how to plot comes from the data provided for the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">Big Data Cup -
-2021</a>.</p>
+<p>For this example, I’ll be using the data provided for the <a href="https://www.stathletes.com/big-data-cup/" class="external-link">Big Data Cup</a>, which is publicly available. Specifically, the data I’ll use to demonstrate how to plot comes from the data provided for the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">Big Data Cup - 2021</a>.</p>
 <p>Start by reading in the data from the CSV file provided:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read data from the Big Data Cup</span></span>
@@ -181,8 +172,7 @@ how to plot comes from the data provided for the <a href="https://github.com/big
 <span></span>
 <span><span class="co"># Convert to data frame</span></span>
 <span><span class="va">bdc_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">bdc_data</span><span class="op">)</span></span></code></pre></div>
-<p>Let’s explore the dataset a bit to see what (if any) changes would be
-helpful</p>
+<p>Let’s explore the dataset a bit to see what (if any) changes would be helpful</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bdc_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "game_date"         "Home Team"         "Away Team"        </span></span>
@@ -192,11 +182,7 @@ helpful</p>
 <span><span class="co">#&gt; [13] "X Coordinate"      "Y Coordinate"      "Detail 1"         </span></span>
 <span><span class="co">#&gt; [16] "Detail 2"          "Detail 3"          "Detail 4"         </span></span>
 <span><span class="co">#&gt; [19] "Player 2"          "X Coordinate 2"    "Y Coordinate 2"</span></span></code></pre></div>
-<p>It’d be helpful to change the names of the columns to be easier to
-work with, so I’ll change <code>X Coordinate</code> and
-<code>Y Coordinate</code> to be <code>x</code> and <code>y</code>, and
-<code>X Coordinate 2</code> and <code>Y Coordinate 2</code> to be
-<code>x2</code> and <code>y2</code>.</p>
+<p>It’d be helpful to change the names of the columns to be easier to work with, so I’ll change <code>X Coordinate</code> and <code>Y Coordinate</code> to be <code>x</code> and <code>y</code>, and <code>X Coordinate 2</code> and <code>Y Coordinate 2</code> to be <code>x2</code> and <code>y2</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change names of X Coordinate and Y Coordinate to x and y respectively</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bdc_data</span><span class="op">)</span><span class="op">[</span><span class="fl">13</span><span class="op">:</span><span class="fl">14</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span></span>
@@ -392,9 +378,7 @@ work with, so I’ll change <code>X Coordinate</code> and
 </tr>
 </tbody>
 </table>
-<p>I’ll use the first game in the data here, which is between the
-Minnesota Whitecaps and the Boston Pride. To keep things easy I’ll focus
-first on single-point data: shots.</p>
+<p>I’ll use the first game in the data here, which is between the Minnesota Whitecaps and the Boston Pride. To keep things easy I’ll focus first on single-point data: shots.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Subset to only be shots from the game on 2021-01-23 between the Minnesota</span></span>
 <span><span class="co"># White Caps and Boston Pride</span></span>
@@ -405,10 +389,7 @@ first on single-point data: shots.</p>
 <span><span class="co"># Separate shots by team</span></span>
 <span><span class="va">whitecaps_shots</span> <span class="op">&lt;-</span> <span class="va">bdc_shots</span><span class="op">[</span><span class="va">bdc_shots</span><span class="op">$</span><span class="va">Team</span> <span class="op">==</span> <span class="st">"Minnesota Whitecaps"</span>, <span class="op">]</span></span>
 <span><span class="va">pride_shots</span> <span class="op">&lt;-</span> <span class="va">bdc_shots</span><span class="op">[</span><span class="va">bdc_shots</span><span class="op">$</span><span class="va">Team</span> <span class="op">==</span> <span class="st">"Boston Pride"</span>, <span class="op">]</span></span></code></pre></div>
-<p>To keep all shots for a team on the same side of the ice, we need to
-adjust the coordinates of the shot. We’ve got to keep the shooter’s
-perspective towards the net constant as well, so the following is an
-appropriate transformation.</p>
+<p>To keep all shots for a team on the same side of the ice, we need to adjust the coordinates of the shot. We’ve got to keep the shooter’s perspective towards the net constant as well, so the following is an appropriate transformation.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Correct the shot location</span></span>
 <span><span class="va">whitecaps_shots</span><span class="op">[</span><span class="st">"x"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">200</span> <span class="op">-</span> <span class="va">whitecaps_shots</span><span class="op">[</span><span class="st">"x"</span><span class="op">]</span></span>
@@ -418,11 +399,7 @@ appropriate transformation.</p>
 <div class="section level2">
 <h2 id="drawing-the-plot">Drawing the Plot<a class="anchor" aria-label="anchor" href="#drawing-the-plot"></a>
 </h2>
-<p>Since this data pertains to the Premier Hockey Federation (PHF),
-we’ll start the plotting by drawing a PHF-sized rink. We’ll use
-<code>x_trans</code> and <code>y_trans</code> to align the data and plot
-coordinates. I encourage you to experiment with the data to see how this
-works in practice</p>
+<p>Since this data pertains to the Premier Hockey Federation (PHF), we’ll start the plotting by drawing a PHF-sized rink. We’ll use <code>x_trans</code> and <code>y_trans</code> to align the data and plot coordinates. I encourage you to experiment with the data to see how this works in practice</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw the rink</span></span>
 <span><span class="va">phf_rink</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/geom_hockey.html">geom_hockey</a></span><span class="op">(</span><span class="st">"phf"</span>, x_trans <span class="op">=</span> <span class="fl">100</span>, y_trans <span class="op">=</span> <span class="fl">42.5</span><span class="op">)</span></span>
@@ -430,9 +407,7 @@ works in practice</p>
 <span><span class="co"># Display the rink here</span></span>
 <span><span class="va">phf_rink</span></span></code></pre></div>
 <p><img src="plotting-tracking-data-draw-rink-1.png" width="100%"></p>
-<p>Now all that’s left to do is to add the data points to the plot!
-Because of how <code>ggplot2</code> is designed, this is very
-straightforward.</p>
+<p>Now all that’s left to do is to add the data points to the plot! Because of how <code>ggplot2</code> is designed, this is very straightforward.</p>
 </div>
 <div class="section level2">
 <h2 id="adding-the-data">Adding the Data<a class="anchor" aria-label="anchor" href="#adding-the-data"></a>
@@ -447,12 +422,7 @@ straightforward.</p>
 <div class="section level2">
 <h2 id="two-coordinate-data">Two-Coordinate Data<a class="anchor" aria-label="anchor" href="#two-coordinate-data"></a>
 </h2>
-<p>Pretend instead that we want to look at where a team’s passes were
-executed during the game. This is also very easy to do. Let’s take the
-same dataset we had before, <code>bdc_data</code>, and this time subset
-it to look at Boston’s passes in the game. We’ve already got our rink
-plot from before, so let’s just subset to the passing data, and add it
-to the plot:</p>
+<p>Pretend instead that we want to look at where a team’s passes were executed during the game. This is also very easy to do. Let’s take the same dataset we had before, <code>bdc_data</code>, and this time subset it to look at Boston’s passes in the game. We’ve already got our rink plot from before, so let’s just subset to the passing data, and add it to the plot:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Subset the data to be Boston's passes</span></span>
 <span><span class="va">boston_passes</span> <span class="op">&lt;-</span> <span class="va">bdc_data</span><span class="op">[</span><span class="op">(</span><span class="va">bdc_data</span><span class="op">$</span><span class="va">Event</span> <span class="op">==</span> <span class="st">"Play"</span><span class="op">)</span> <span class="op">&amp;</span></span>
@@ -474,10 +444,7 @@ to the plot:</p>
 <span>    color <span class="op">=</span> <span class="st">"#ffcb05"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="plotting-tracking-data-passing-data-example-1.png" width="100%"></p>
-<p>And there you have it! This works for any geospatial data, for any
-sport (supported by <code>sportyR</code>), and for any league (supported
-by <code>sportyR</code>). Give it a try, and please reach out if you
-have ideas for improvements!</p>
+<p>And there you have it! This works for any geospatial data, for any sport (supported by <code>sportyR</code>), and for any league (supported by <code>sportyR</code>). Give it a try, and please reach out if you have ideas for improvements!</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
