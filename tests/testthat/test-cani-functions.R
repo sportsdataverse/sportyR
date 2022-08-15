@@ -58,6 +58,15 @@ test_that(
     fixed = TRUE,
     regexp = "A plot for NFL can be created via the geom_football() function"
   )
+
+  expect_message(
+    cani_plot_sport("curling"),
+    fixed = TRUE,
+    regexp = glue::glue(
+      "A plot for curling can be created via the geom_curling() function ",
+      "for the following league: WCF"
+    )
+  )
 })
 
 test_that("cani_color_league_features() returns message on success", {

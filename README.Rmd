@@ -148,6 +148,14 @@ similar to the following:
 geom_football("nfl", display_range = "red zone")
 ```
 
+
+Another use case would be to make the data you're viewing easier to see. Say you wanted to look at curling data, but only cared about stone positions in the house (and not the path as to how the stones got there). You might do this:
+
+```{r readme-display-range-curling-demo, dev = "png"}
+# Display only the house on a curling sheet
+geom_curling("wcf", display_range = "house")
+```
+
 ## Plot Units
 
 Each plot function has a standardized unit of measure in which the plot
@@ -160,6 +168,7 @@ units_df <- data.frame(
   sport = c(
     rep("Baseball", 6),
     rep("Basketball", 6),
+    rep("Curling", 1),
     rep("Football", 7),
     rep("Hockey", 10),
     rep("Soccer", 5),
@@ -180,6 +189,8 @@ units_df <- data.frame(
     "NCAA",
     "NFHS",
     "WNBA",
+    # Curling
+    "WCF (World Curling Federation)",
     # Football
     "CFL",
     "NCAA",
@@ -217,6 +228,7 @@ units_df <- data.frame(
     rep("`ft`", 6),
     rep("`m`", 1),
     rep("`ft`", 5),
+    rep("`ft`", 1),
     rep("`yd`", 7),
     rep("`ft`", 2),
     rep("`m`", 1),
@@ -301,6 +313,7 @@ general managers (and their sports) are:
 
 -   [Ross Drucker](https://github.com/rossdrucker) - Baseball
 -   [Ross Drucker](https://github.com/rossdrucker) - Basketball
+-   [Ross Drucker](https://github.com/rossdrucker) - Curling
 -   [Ross Drucker](https://github.com/rossdrucker) - Football
 -   [Ross Drucker](https://github.com/rossdrucker) - Hockey
 -   [Ross Drucker](https://github.com/rossdrucker) - Soccer

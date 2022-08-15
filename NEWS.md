@@ -22,7 +22,7 @@
 
 - Introduction of `x_trans` and `y_trans` argument for every surface to adjust positioning of origin
 
-### New Leagues Supported
+### New Sports and Leagues Supported
 
 #### Baseball
 - MiLB
@@ -34,6 +34,9 @@
 #### Basketball
 - NBA G League
 - NFHS (high school)
+
+#### Curling (New Supported Sport)
+- WCF (World Curling Federation)
 
 #### Hockey
 - AHL

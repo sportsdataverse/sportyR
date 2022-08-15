@@ -133,6 +133,18 @@ geom_football("nfl", display_range = "red zone")
 
 <img src="man/figures/README-readme-display-range-demo-1.png" width="100%" />
 
+Another use case would be to make the data you’re viewing easier to see.
+Say you wanted to look at curling data, but only cared about stone
+positions in the house (and not the path as to how the stones got
+there). You might do this:
+
+``` r
+# Display only the house on a curling sheet
+geom_curling("wcf", display_range = "house")
+```
+
+<img src="man/figures/README-readme-display-range-curling-demo-1.png" width="100%" />
+
 ## Plot Units
 
 Each plot function has a standardized unit of measure in which the plot
@@ -154,6 +166,7 @@ parentheses):
 | Basketball |               NCAA               |         `ft`          |
 | Basketball |               NFHS               |         `ft`          |
 | Basketball |               WNBA               |         `ft`          |
+|  Curling   |  WCF (World Curling Federation)  |         `ft`          |
 |  Football  |               CFL                |         `yd`          |
 |  Football  |               NCAA               |         `yd`          |
 |  Football  | NFHS11 (High School, 11 players) |         `yd`          |
@@ -258,6 +271,7 @@ general managers (and their sports) are:
 
 -   [Ross Drucker](https://github.com/rossdrucker) - Baseball
 -   [Ross Drucker](https://github.com/rossdrucker) - Basketball
+-   [Ross Drucker](https://github.com/rossdrucker) - Curling
 -   [Ross Drucker](https://github.com/rossdrucker) - Football
 -   [Ross Drucker](https://github.com/rossdrucker) - Hockey
 -   [Ross Drucker](https://github.com/rossdrucker) - Soccer
