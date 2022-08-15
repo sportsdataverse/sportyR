@@ -175,6 +175,45 @@
     <loc>https://rossdrucker.github.io/sportyR/reference/create_square.html</loc>
   </url>
   <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_back_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_button.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_centre_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_centre_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_courtesy_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_end.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_features_set_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_hack_foothold.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_hack_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_hog_line.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_house_ring.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_sheet_apron.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/curling_tee_line.html</loc>
+  </url>
+  <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/distance_formula.html</loc>
   </url>
   <url>
@@ -236,6 +275,9 @@
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_basketball.html</loc>
+  </url>
+  <url>
+    <loc>https://rossdrucker.github.io/sportyR/reference/geom_curling.html</loc>
   </url>
   <url>
     <loc>https://rossdrucker.github.io/sportyR/reference/geom_football.html</loc>

@@ -196,6 +196,11 @@
 <code class="sourceCode R"><span><span class="co"># Display only the red zone of the football field</span></span>
 <span><span class="fu"><a href="reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, display_range <span class="op">=</span> <span class="st">"red zone"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-display-range-demo-1.png" width="100%"></p>
+<p>Another use case would be to make the data you’re viewing easier to see. Say you wanted to look at curling data, but only cared about stone positions in the house (and not the path as to how the stones got there). You might do this:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Display only the house on a curling sheet</span></span>
+<span><span class="fu"><a href="reference/geom_curling.html">geom_curling</a></span><span class="op">(</span><span class="st">"wcf"</span>, display_range <span class="op">=</span> <span class="st">"house"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-readme-display-range-curling-demo-1.png" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
@@ -270,141 +275,146 @@
 <td align="center"><code>ft</code></td>
 </tr>
 <tr class="odd">
+<td align="center">Curling</td>
+<td align="center">WCF (World Curling Federation)</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr class="even">
 <td align="center">Football</td>
 <td align="center">CFL</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Football</td>
 <td align="center">NCAA</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Football</td>
 <td align="center">NFHS11 (High School, 11 players)</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Football</td>
 <td align="center">NFHS6 (High School, 6 players)</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Football</td>
 <td align="center">NFHS8 (High School, 8 players)</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Football</td>
 <td align="center">NFHS9 (High School, 9 players)</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Football</td>
 <td align="center">NFL</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
 <td align="center">AHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">ECHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
 <td align="center">IIHF</td>
 <td align="center"><code>m</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">NCAA</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
 <td align="center">NHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">NWHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
 <td align="center">OHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">PHF</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Hockey</td>
 <td align="center">QMJHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Hockey</td>
 <td align="center">USHL</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Soccer</td>
 <td align="center">EPL</td>
 <td align="center"><code>m</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Soccer</td>
 <td align="center">FIFA</td>
 <td align="center"><code>m</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Soccer</td>
 <td align="center">MLS</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Soccer</td>
 <td align="center">NCAA</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Soccer</td>
 <td align="center">NWSL</td>
 <td align="center"><code>yd</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Tennis</td>
 <td align="center">ATP</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Tennis</td>
 <td align="center">ITA</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Tennis</td>
 <td align="center">ITF</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Tennis</td>
 <td align="center">NCAA</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="center">Tennis</td>
 <td align="center">USTA</td>
 <td align="center"><code>ft</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="center">Tennis</td>
 <td align="center">WTA</td>
 <td align="center"><code>ft</code></td>
@@ -419,11 +429,11 @@
 <h2 id="surface-examples">Surface Examples<a class="anchor" aria-label="anchor" href="#surface-examples"></a>
 </h2>
 <p>Most playing surfaces are standard in size, so they can be rendered via a call to the proper <code>geom_{sport}()</code> function like so:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw a basic MLB infield plot</span></span>
 <span><span class="fu"><a href="reference/geom_baseball.html">geom_baseball</a></span><span class="op">(</span><span class="st">"mlb"</span>, display_range <span class="op">=</span> <span class="st">"infield"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-mlb-example-1.png" width="100%"></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a 100m by 75m FIFA pitch</span></span>
 <span><span class="fu"><a href="reference/geom_soccer.html">geom_soccer</a></span><span class="op">(</span></span>
 <span>  <span class="st">"fifa"</span>,</span>
@@ -434,7 +444,7 @@
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-fifa-example-1.png" width="100%"></p>
 <p>It’s also possible to plot partial surfaces and rotated surfaces:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw half of a rotated NBA court</span></span>
 <span><span class="fu"><a href="reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span><span class="st">"nba"</span>, display_range <span class="op">=</span> <span class="st">"offense"</span>, rotation <span class="op">=</span> <span class="fl">270</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-nhl-example-1.png" width="100%"></p>
@@ -463,6 +473,8 @@
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Baseball</li>
 <li>
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Basketball</li>
+<li>
+<a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Curling</li>
 <li>
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Football</li>
 <li>
