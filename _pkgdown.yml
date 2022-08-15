@@ -11,7 +11,7 @@ template:
     btn-border-radius: 0.25rem
   opengraph:
     image:
-      src: "https://raw.githubusercontent.com/rossdrucker/sportyR/main/logos/sportyr-logo-hex.png"
+      src: "https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png"
       alt: "sportyR social preview hex"
     twitter:
       creator: "@rossdrucker"
@@ -99,7 +99,7 @@ navbar:
       href: http://twitter.com/rossdrucker9
     github:
       icon: "fab fa-github fa-lg"
-      href: https://github.com/rossdrucker/sportyR
+      href: https://github.com/sportsdataverse/sportyR
 reference:
 - title: "Surface Plotters"
   desc: Functions that do the actual plotting of the surfaces

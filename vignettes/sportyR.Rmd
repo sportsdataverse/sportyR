@@ -26,7 +26,7 @@ Welcome to `sportyR`! I'm Ross Drucker, the author of the [`sportyR`](https://sp
 
 ### **Installing R, RStudio, and [`sportyR`](https://sportyr.sportsdataverse.org)**
 
-(This section courtesy of [Saiem Gilani](https://www.twitter.com/saiemgilani). Give him a follow!)
+(This section courtesy of [Saiem Gilani](https://twitter.com/saiemgilani). Give him a follow!)
 
 1.  Head to <https://cran.r-project.org>
 2.  Select the appropriate link for your operating system (Windows, Mac OS X, or Linux)
