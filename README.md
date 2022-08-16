@@ -288,6 +288,14 @@ By regularly reporting issues, making very slight modifications, fixing
 typos, or just helping others navigate their own issues, you’re able to
 join the Scout Team!
 
+### Acknowledgements
+
+Much of the underling code structure in `sportyR`, beginning with
+`v2.0.0`, was influenced by [The
+Bucketless](https://github.com/the-bucketless)’s work on the
+[hockey_rink](https://github.com/the-bucketless/hockey_rink) package for
+Python.
+
 ### `sportyR`tist
 
 The `sportyR` logo was created by Lindsey Kelso. Check her out on
