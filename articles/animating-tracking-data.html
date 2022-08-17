@@ -158,12 +158,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sportsdataverse/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; No renderer backend detected. gganimate will default to writing frames to separate files</span></span>
-<span><span class="co">#&gt; Consider installing:</span></span>
-<span><span class="co">#&gt; - the `gifski` package for gif output</span></span>
-<span><span class="co">#&gt; - the `av` package for video output</span></span>
-<span><span class="co">#&gt; and restarting the R session</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span></code></pre></div>
 <p>If this is your first experience with plotting tracking data, please check out the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette. Otherwise, let’s see how to make GIFs with <code>sportyR</code> and <code>gganimate</code>.</p>
 <div class="section level2">
 <h2 id="the-data">The Data<a class="anchor" aria-label="anchor" href="#the-data"></a>
@@ -206,10 +201,8 @@
 <span>  <span class="fu"><a href="https://gganimate.com/reference/transition_time.html" class="external-link">transition_time</a></span><span class="op">(</span><span class="va">example_nfl_play</span><span class="op">$</span><span class="va">frameId</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Show the animation</span></span>
-<span><span class="va">play_anim</span></span>
-<span><span class="co">#&gt; Warning: No renderer available. Please install the gifski, av, or magick package</span></span>
-<span><span class="co">#&gt; to create animated output</span></span>
-<span><span class="co">#&gt; NULL</span></span></code></pre></div>
+<span><span class="va">play_anim</span></span></code></pre></div>
+<p><img src="animating-tracking-data-bdb-example-animate-play-1.gif" width="100%"></p>
 <p>Easy peasy. As noted on the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette, this too works so long as the geospatial data is provided and contains a way to identify and order the frames of the resulting GIF.</p>
 </div>
   </main>
