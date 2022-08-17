@@ -935,6 +935,8 @@ geom_football <- function(league,
   #### Marked Yardages ####
   for(i in seq_len(nrow(marked_yardages))) {
     yardage_marker <- field_features[[glue::glue("marked_yardages_{i}")]]
+    yardage_marker["x"] <- yardage_marker["x"] + x_trans
+    yardage_marker["y"] <- yardage_marker["y"] + y_trans
     yardage_marker_rot <- rotate_coords(
       yardage_marker,
       angle = rotation
@@ -953,6 +955,8 @@ geom_football <- function(league,
       y_min = min(yardage_marker_rot["y"]),
       y_max = max(yardage_marker_rot["y"])
     )
+    bb_polygon["x"] <- bb_polygon["x"] + x_trans
+    bb_polygon["y"] <- bb_polygon["y"] + y_trans
     field_plot <- field_plot +
       ggplot2::geom_polygon(
         data = bb_polygon,
