@@ -252,7 +252,7 @@ geom_basketball("nba", display_range = "offense", rotation = 270)
 
 ## License
 
-This package is released under the [MIT
+This package is released under the [GPL 3.0
 License](https://github.com/sportsdataverse/sportyR/blob/master/LICENSE.md).
 
 ## Contributions
