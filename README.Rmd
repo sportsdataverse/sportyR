@@ -29,7 +29,7 @@ downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&lab
 [![codecov](https://img.shields.io/codecov/c/github/sportsdataverse/sportyR?color=ff552e&label=codecov&logo=codecov)](https://codecov.io/gh/sportsdataverse/sportyR)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&logo=github&color=ff552e)](https://github.com/sportsdataverse/sportyR/)
 [![Twitter
-Follow](https://img.shields.io/twitter/follow/sportyR?&label=%40sportyR&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR)
+Follow](https://img.shields.io/twitter/follow/sportyR?&label=%40sportyR_pkg&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR_pkg)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
 

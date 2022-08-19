@@ -121,7 +121,7 @@ Easy as that to get started. Here's a quick overview of the arguments (which are
 ## Follow the [sportsdataverse](https://twitter.com/sportsdataverse) on Twitter and Star This Repo
 
 [![Twitter
-Follow](https://img.shields.io/twitter/follow/sportyR?&label=%40sportyR&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR)
+Follow](https://img.shields.io/twitter/follow/sportyR?&label=%40sportyR_pkg&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR_pkg)
 
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
