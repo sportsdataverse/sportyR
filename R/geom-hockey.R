@@ -893,31 +893,31 @@ geom_hockey <- function(league,
       "ozone" = c(
         half_nzone_length -
           (rink_params$major_line_thickness %or% 0) -
-          5,
+          10,
         half_rink_length
       ),
       "offensive_zone" = c(
         half_nzone_length -
           (rink_params$major_line_thickness %or% 0) -
-          5,
+          10,
         half_rink_length
       ),
       "offensive zone" = c(
         half_nzone_length -
           (rink_params$major_line_thickness %or% 0) -
-          5,
+          10,
         half_rink_length
       ),
       "attacking_zone" = c(
         half_nzone_length -
           (rink_params$major_line_thickness %or% 0) -
-          5,
+          10,
         half_rink_length
       ),
       "attacking zone" = c(
         half_nzone_length -
           (rink_params$major_line_thickness %or% 0) -
-          5,
+          10,
         half_rink_length
       ),
 
@@ -926,31 +926,31 @@ geom_hockey <- function(league,
         -half_rink_length,
         -half_nzone_length +
           (rink_params$major_line_thickness %or% 0) +
-          5
+          10
       ),
       "defensive_zone" = c(
         -half_rink_length,
         -half_nzone_length +
           (rink_params$major_line_thickness %or% 0) +
-          5
+          10
       ),
       "defensive zone" = c(
         -half_rink_length,
         -half_nzone_length +
           (rink_params$major_line_thickness %or% 0) +
-          5
+          10
       ),
       "defending_zone" = c(
         -half_rink_length,
         -half_nzone_length +
           (rink_params$major_line_thickness %or% 0) +
-          5
+          10
       ),
       "defending zone" = c(
         -half_rink_length,
         -half_nzone_length +
           (rink_params$major_line_thickness %or% 0) +
-          5
+          10
       ),
 
       # Default case
