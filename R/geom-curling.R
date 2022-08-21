@@ -170,12 +170,21 @@ geom_curling <- function(league,
 
     ## Surface Base Features ---------------------------------------------------
 
-    #### End ####
-    end = curling_end(
+    #### Ends ####
+    end_1 = curling_end(
       sheet_length = sheet_params$sheet_length %or% 0,
       sheet_width = sheet_params$sheet_width %or% 0,
       tee_line_to_center = sheet_params$tee_line_to_center %or% 0,
-      hog_line_to_tee_line = sheet_params$hog_line_to_tee_line %or% 0
+      hog_line_to_tee_line = sheet_params$hog_line_to_tee_line %or% 0,
+      drawn_direction = "downward"
+    ),
+
+    end_2 = curling_end(
+      sheet_length = sheet_params$sheet_length %or% 0,
+      sheet_width = sheet_params$sheet_width %or% 0,
+      tee_line_to_center = sheet_params$tee_line_to_center %or% 0,
+      hog_line_to_tee_line = sheet_params$hog_line_to_tee_line %or% 0,
+      drawn_direction = "upward"
     ),
 
     #### Centre Zone ####
@@ -306,11 +315,7 @@ geom_curling <- function(league,
     x_anchor = 0,
     y_anchor = -(sheet_params$tee_line_to_center %or% 0) +
       (sheet_params$hog_line_to_tee_line %or% 0),
-    feature_df = reflect(
-      sheet_features$end,
-      over_x = TRUE,
-      over_y = FALSE
-    ),
+    feature_df = sheet_features$end_1,
     feature_color = feature_colors$end_1,
     reflect_x = FALSE,
     reflect_y = FALSE,
@@ -339,7 +344,7 @@ geom_curling <- function(league,
     x_anchor = 0,
     y_anchor = (sheet_params$tee_line_to_center %or% 0) -
       (sheet_params$hog_line_to_tee_line %or% 0),
-    feature_df = sheet_features$end,
+    feature_df = sheet_features$end_2,
     feature_color = feature_colors$end_2,
     reflect_x = FALSE,
     reflect_y = FALSE,

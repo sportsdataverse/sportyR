@@ -18,16 +18,27 @@
 curling_end <- function(sheet_length = 0,
                         sheet_width = 0,
                         tee_line_to_center = 0,
-                        hog_line_to_tee_line = 0) {
+                        hog_line_to_tee_line = 0,
+                        drawn_direction = "") {
   # Calculate the length of the end, from back board to interior edge of the hog
   # line
   end_length <- (sheet_length / 2) - tee_line_to_center + hog_line_to_tee_line
-  end_df <- create_rectangle(
-    x_min = -sheet_width / 2,
-    x_max = sheet_width / 2,
-    y_min = 0,
-    y_max = end_length
-  )
+
+  if (tolower(drawn_direction) == "upward") {
+    end_df <- create_rectangle(
+      x_min = -sheet_width / 2,
+      x_max = sheet_width / 2,
+      y_min = 0,
+      y_max = end_length
+    )
+  } else {
+    end_df <- create_rectangle(
+      x_min = -sheet_width / 2,
+      x_max = sheet_width / 2,
+      y_min = -end_length,
+      y_max = 0
+    )
+  }
 
   return(end_df)
 }
