@@ -10,7 +10,8 @@ curling_end(
   sheet_length = 0,
   sheet_width = 0,
   tee_line_to_center = 0,
-  hog_line_to_tee_line = 0
+  hog_line_to_tee_line = 0,
+  drawn_direction = ""
 )
 }
 \arguments{
