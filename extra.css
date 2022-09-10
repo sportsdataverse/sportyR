@@ -13,7 +13,7 @@ body {
 
 a {
   /* Link colors */
-  color: #d45d07;
+  color: #ff552e;
 }
 
 h1, h2, .h1, .h2 {
@@ -44,13 +44,13 @@ h1, h2, .h1, .h2 {
 
 .navbar-dark input[type='search'] {
   /* Navbar search box */
-  background-color: #d45d07;
+  background-color: #ff552e;
   color: #ffffff;
 }
 
 .navbar-dark input[type='search']::placeholder {
   /* Navbar placeholder text */
-  background-color: #d45d07;
+  background-color: #ff552e;
   color: #ffffff;
 }
 
