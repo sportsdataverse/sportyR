@@ -1,3 +1,21 @@
+## sportyR 2.0.1
+
+### Patches/Bug Fixes
+- Fixed [#8](https://github.com/sportsdataverse/sportyR/issues/8). All display ranges for hockey rinks work as expected
+
+- Fixed [#9](https://github.com/sportsdataverse/sportyR/issues/9). Yardage markers now move responsive to `x_trans` and `y_trans`
+
+- Added `gifski` package as `Suggests`-level dependency so gifs in vignettes may render properly
+
+### Intenal Changes
+- Changed logic into how curling ends are drawn/placed on a curling sheet
+
+- Adjusted `xlims` for `geom_hockey()` to include slightly more of the neutral zone when using `display_range %in% c("ozone", "dzone")`
+
+- Updated licensing to GPL >= 3
+
+- Changed website colors
+
 ## sportyR 2.0.0
 
 ### Internal Changes
