@@ -37,6 +37,9 @@ As the field of sports analytics evolve, there's a growing need for
 methods to both track and visualize players throughout the game. This
 package aims to make this easy regardless of sport needed to be plotted.
 
+This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, soccer, and tennis in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy).
+
+
 ## Installation
 
 The most recent release of `sportyR` is available on
