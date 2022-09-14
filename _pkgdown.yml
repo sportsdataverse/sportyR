@@ -124,6 +124,7 @@ reference:
     - "`geom_hockey`"
     - "`geom_soccer`"
     - "`geom_tennis`"
+    - "`geom_volleyball`"
 - title: "cani_ Functions"
   desc: >
     Functions that help navigate the options of the package,

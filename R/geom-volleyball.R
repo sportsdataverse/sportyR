@@ -149,7 +149,7 @@ volleyball_features_set_colors <- function(plot_background = NULL,
 #' @examples
 #' \dontrun{
 #'   geom_volleyball(league = "NCAA", rotation = 270, display_range = "offense")
-#'   geom_volleyball(league = "", court_units = "ft")
+#'   geom_volleyball(league = "FIVB", court_units = "ft")
 #' }
 geom_volleyball <- function(league,
                             display_range = "full",
