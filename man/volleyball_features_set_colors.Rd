@@ -11,13 +11,13 @@ volleyball_features_set_colors(
   front_zone = "#d2ab6f",
   defensive_backcourt = "#d2ab6f",
   offensive_backcourt = "#d2ab6f",
-  court_apron = "#13294b",
-  end_line = "#ffffff",
-  sideline = "#ffffff",
-  attack_line = "#ffffff",
-  center_line = "#ffffff",
-  service_zone_mark = "#ffffff",
-  substitution_zone = "#ffffff"
+  court_apron = "#d2ab6f",
+  end_line = "#000000",
+  sideline = "#000000",
+  attack_line = "#000000",
+  center_line = "#000000",
+  service_zone_mark = "#000000",
+  substitution_zone = "#000000"
 )
 }
 \arguments{
