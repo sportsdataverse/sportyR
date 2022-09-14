@@ -2230,5 +2230,95 @@
             "backstop_distance": 21.0,
             "sidestop_distance": 12.0
         }
+    },
+
+    "volleyball": {
+      "custom": {
+        "court_length": 0.0,
+        "court_width": 0.0,
+        "court_units": "m",
+
+        "free_zone_end_line": 0.0,
+        "free_zone_sideline": 0.0,
+
+        "court_apron_end_line": 0.0,
+        "court_apron_sideline": 0.5,
+
+        "line_thickness": 0.0,
+        "attack_line_edge_to_center_line": 0.0,
+
+        "substitution_zone_dash_length": 0.0,
+        "substitution_zone_dash_breaks": 0.0,
+        "substitution_zone_rep_pattern": 0,
+
+        "service_zone_mark_length": 0.0,
+        "service_zone_mark_to_baseline": 0.0
+      },
+
+      "fivb": {
+        "court_length": 18.0,
+        "court_width": 9.0,
+        "court_units": "m",
+
+        "free_zone_end_line": 6.5,
+        "free_zone_sideline": 5.0,
+
+        "court_apron_end_line": 2.0,
+        "court_apron_sideline": 1.5,
+
+        "line_thickness": 0.05,
+        "attack_line_edge_to_center_line": 3.0,
+
+        "substitution_zone_dash_length": 0.15,
+        "substitution_zone_dash_breaks": 0.20,
+        "substitution_zone_rep_pattern": 5,
+
+        "service_zone_mark_length": 0.15,
+        "service_zone_mark_to_baseline": 0.20
+      },
+
+      "ncaa": {
+        "court_length": 18.0,
+        "court_width": 9.0,
+        "court_units": "m",
+
+        "free_zone_end_line": 4.5,
+        "free_zone_sideline": 3.0,
+
+        "court_apron_end_line": 2.0,
+        "court_apron_sideline": 1.5,
+
+        "line_thickness": 0.05,
+        "attack_line_edge_to_center_line": 3.0,
+
+        "substitution_zone_dash_length": 0.15,
+        "substitution_zone_dash_breaks": 0.20,
+        "substitution_zone_rep_pattern": 5,
+
+        "service_zone_mark_length": 0.15,
+        "service_zone_mark_to_baseline": 0.20
+      },
+
+      "usa volleyball": {
+        "court_length": 18.0,
+        "court_width": 9.0,
+        "court_units": "m",
+
+        "free_zone_end_line": 4.5,
+        "free_zone_sideline": 3.0,
+
+        "court_apron_end_line": 2.0,
+        "court_apron_sideline": 1.5,
+
+        "line_thickness": 0.05,
+        "attack_line_edge_to_center_line": 3.0,
+
+        "substitution_zone_dash_length": 0.15,
+        "substitution_zone_dash_breaks": 0.20,
+        "substitution_zone_rep_pattern": 5,
+
+        "service_zone_mark_length": 0.15,
+        "service_zone_mark_to_baseline": 0.20
+      }
     }
 }
