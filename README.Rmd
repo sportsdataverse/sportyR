@@ -175,7 +175,8 @@ units_df <- data.frame(
     rep("Football", 7),
     rep("Hockey", 10),
     rep("Soccer", 5),
-    rep("Tennis", 6)
+    rep("Tennis", 6),
+    rep("Volleyball", 3)
   ),
   league = c(
     # Baseball
@@ -225,7 +226,11 @@ units_df <- data.frame(
     "ITF",
     "NCAA",
     "USTA",
-    "WTA"
+    "WTA",
+    # Volleyball
+    "FIVB",
+    "NCAA",
+    "USA Volleyball"
   ),
   primary_unit = c(
     rep("`ft`", 6),
@@ -238,7 +243,8 @@ units_df <- data.frame(
     rep("`ft`", 7),
     rep("`m`", 2),
     rep("`yd`", 3),
-    rep("`ft`", 6)
+    rep("`ft`", 6),
+    rep("`m`", 3)
   )
 )
 

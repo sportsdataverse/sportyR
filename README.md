@@ -20,6 +20,12 @@ As the field of sports analytics evolve, there’s a growing need for
 methods to both track and visualize players throughout the game. This
 package aims to make this easy regardless of sport needed to be plotted.
 
+This repository contains code necessary to draw scale versions of
+playing surfaces to visualize play-by-play data for baseball,
+basketball, curling, football, hockey, soccer, and tennis in **R**. For
+the **Python** version of this package, click
+[here](https://github.com/sportsdataverse/sportypy).
+
 ## Installation
 
 The most recent release of `sportyR` is available on
@@ -52,48 +58,47 @@ library(sportyR)
 All plotting functions in this library are named as `geom_{sport}()`,
 and take the following arguments:
 
--   `league`: the league code for the sport. In all functions, this will
-    ***NOT*** have a default value. The supplied league is
-    **case-insensitive**. Future iterations of this package may allow
-    the full league name to be supplied if desired (e.g.
-    `league = 'National Basketball Associaton'` instead of
-    `league = 'NBA'`), but this feature is not currently available.
+- `league`: the league code for the sport. In all functions, this will
+  ***NOT*** have a default value. The supplied league is
+  **case-insensitive**. Future iterations of this package may allow the
+  full league name to be supplied if desired (e.g.
+  `league = 'National Basketball Associaton'` instead of
+  `league = 'NBA'`), but this feature is not currently available.
 
--   `display_range`: This automatically “zooms” in on the area of the
-    plot you’re interested in. Valid ranges here vary by sport, but can
-    be found by calling `?geom_{sport}` and reading about the display
-    ranges
+- `display_range`: This automatically “zooms” in on the area of the plot
+  you’re interested in. Valid ranges here vary by sport, but can be
+  found by calling `?geom_{sport}` and reading about the display ranges
 
--   `x_trans` and `y_trans`: By default, the origin of the coordinate
-    system *always* lies at the center of the plot. For example,
-    `(0, 0)` on a basketball court lies along the division line and on
-    the line that connects the center of each basket. If you want to
-    shift the origin (and therefore the entire plot), use `x_trans` and
-    `y_trans` to do so
+- `x_trans` and `y_trans`: By default, the origin of the coordinate
+  system *always* lies at the center of the plot. For example, `(0, 0)`
+  on a basketball court lies along the division line and on the line
+  that connects the center of each basket. If you want to shift the
+  origin (and therefore the entire plot), use `x_trans` and `y_trans` to
+  do so
 
--   `{surface_type}_updates`: A list of updates to the parameters that
-    define the surface. I’ll demo how to use this to change a hockey
-    rink in a different vignette, but I’ll call this out here
+- `{surface_type}_updates`: A list of updates to the parameters that
+  define the surface. I’ll demo how to use this to change a hockey rink
+  in a different vignette, but I’ll call this out here
 
--   `color_updates`: A list that contains updates to the features’
-    colors on the plot. These are named by what the feature is, using
-    `snake_case` to specify the names. To get the list of color names
-    you can change, try running `cani_color_league_features()` with your
-    desired league
+- `color_updates`: A list that contains updates to the features’ colors
+  on the plot. These are named by what the feature is, using
+  `snake_case` to specify the names. To get the list of color names you
+  can change, try running `cani_color_league_features()` with your
+  desired league
 
--   `rotation`: An angle (in degrees) that you’d like to rotate the plot
-    by, where +is counterclockwise
+- `rotation`: An angle (in degrees) that you’d like to rotate the plot
+  by, where +is counterclockwise
 
--   `xlims` and `ylims`: Any limits you’d like to put on the plot in the
-    x and y direction. These will overwrite anything set by the
-    `display_range` parameter
+- `xlims` and `ylims`: Any limits you’d like to put on the plot in the x
+  and y direction. These will overwrite anything set by the
+  `display_range` parameter
 
--   `{surface}_units`: If your data is in units that are different than
-    how the rule book of the league specifies the units (e.g. you’ve got
-    NHL data in inches, but the rule book describes the rink in feet),
-    change this parameter to match the units you’ve got your data in.
-    You’re welcome to change the units of the data as well, but this is
-    provided for convenience
+- `{surface}_units`: If your data is in units that are different than
+  how the rule book of the league specifies the units (e.g. you’ve got
+  NHL data in inches, but the rule book describes the rink in feet),
+  change this parameter to match the units you’ve got your data in.
+  You’re welcome to change the units of the data as well, but this is
+  provided for convenience
 
 ## TV View and Display Ranges
 
@@ -109,12 +114,12 @@ through the `rotation` parameter to each `geom_{sport}()` function.
 
 There are a few exceptions to this:
 
--   `geom_baseball()` is displayed from the high-home view by default,
-    as baseball coordinates typically have the `+y` axis extending from
-    the back tip of home plate towards center field
+- `geom_baseball()` is displayed from the high-home view by default, as
+  baseball coordinates typically have the `+y` axis extending from the
+  back tip of home plate towards center field
 
--   `geom_tennis()` is displayed with the court diagrammed from the
-    perspective of the chair umpire
+- `geom_tennis()` is displayed with the court diagrammed from the
+  perspective of the chair umpire
 
 ### Display Ranges
 
@@ -195,6 +200,9 @@ parentheses):
 |   Tennis   |               NCAA               |         `ft`          |
 |   Tennis   |               USTA               |         `ft`          |
 |   Tennis   |               WTA                |         `ft`          |
+| Volleyball |               FIVB               |          `m`          |
+| Volleyball |               NCAA               |          `m`          |
+| Volleyball |          USA Volleyball          |          `m`          |
 
 However, since the data that is supplied may come in various units of
 measure, the plots are able to be generated in the data’s units. This is
@@ -261,21 +269,21 @@ License](https://github.com/sportsdataverse/sportyR/blob/master/LICENSE.md).
 
 The package maintainers and functional engineers
 
--   [Ross Drucker](https://github.com/rossdrucker) - `sportyR`
-    Commissioner
+- [Ross Drucker](https://github.com/rossdrucker) - `sportyR`
+  Commissioner
 
 ### General Managers
 
 Contribute by adding a new sport and become its general manager. Current
 general managers (and their sports) are:
 
--   [Ross Drucker](https://github.com/rossdrucker) - Baseball
--   [Ross Drucker](https://github.com/rossdrucker) - Basketball
--   [Ross Drucker](https://github.com/rossdrucker) - Curling
--   [Ross Drucker](https://github.com/rossdrucker) - Football
--   [Ross Drucker](https://github.com/rossdrucker) - Hockey
--   [Ross Drucker](https://github.com/rossdrucker) - Soccer
--   [Ross Drucker](https://github.com/rossdrucker) - Tennis
+- [Ross Drucker](https://github.com/rossdrucker) - Baseball
+- [Ross Drucker](https://github.com/rossdrucker) - Basketball
+- [Ross Drucker](https://github.com/rossdrucker) - Curling
+- [Ross Drucker](https://github.com/rossdrucker) - Football
+- [Ross Drucker](https://github.com/rossdrucker) - Hockey
+- [Ross Drucker](https://github.com/rossdrucker) - Soccer
+- [Ross Drucker](https://github.com/rossdrucker) - Tennis
 
 ### Coaching Staffs
 
