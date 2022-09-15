@@ -96,8 +96,8 @@ add_feature <- function(g,
 
   # Clean the border color as necessary to correct edge color
   feature_outline_color <- tolower(feature_outline_color)
-  if ((is_hex(feature_outline_color)) &
-      (nchar(feature_outline_color) == 9) &
+  if ((is_hex(feature_outline_color)) &&
+      (nchar(feature_outline_color) == 9) &&
       (!(substr(feature_outline_color, 8, 9) %in% c("00", "ff")))) {
     feature_outline_color <- NA
   }
