@@ -16,7 +16,7 @@ Description: Create scaled 'ggplot' representations of playing surfaces.
     Playing surfaces are drawn pursuant to rule-book specifications.
     This package should be used as a baseline plot for displaying any type of
     tracking data.
-License: GPL (>= 3) + file LICENSE
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
