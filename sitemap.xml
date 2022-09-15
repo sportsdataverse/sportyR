@@ -292,6 +292,9 @@
     <loc>https://sportyR.sportsdataverse.org/reference/geom_tennis.html</loc>
   </url>
   <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/geom_volleyball.html</loc>
+  </url>
+  <url>
     <loc>https://sportyR.sportsdataverse.org/reference/grapes-or-grapes.html</loc>
   </url>
   <url>
@@ -458,5 +461,38 @@
   </url>
   <url>
     <loc>https://sportyR.sportsdataverse.org/reference/tennis_sideline.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_attack_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_backcourt.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_center_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_court_apron.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_end_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_features_set_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_free_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_front_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_service_zone_mark.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_sideline.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_substitution_zone_dash.html</loc>
   </url>
 </urlset>
