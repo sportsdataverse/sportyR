@@ -94,6 +94,14 @@ add_feature <- function(g,
   df_3 <- rotate_coords(df_3, angle = rotation)
   df_4 <- rotate_coords(df_4, angle = rotation)
 
+  # Clean the border color as necessary to correct edge color
+  feature_outline_color <- tolower(feature_outline_color)
+  if ((is_hex(feature_outline_color)) &
+      (nchar(feature_outline_color) == 9) &
+      (!(substr(feature_outline_color, 8, 9) %in% c("00", "ff")))) {
+    feature_outline_color <- NA
+  }
+
   # Add the feature based on the reflections
   if (reflect_x && reflect_y) {
     g <- g +

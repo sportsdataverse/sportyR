@@ -25,3 +25,35 @@
     cmp(spec_val, default_val)
   }
 }
+
+#' Identify if a passed color is a hexadecimal string
+#'
+#' @param col_str The potentially-hexadecimal string to check
+#'
+#' @return A boolean indicating if the string is in fact hexadecimal
+#'
+#' @keywords internal
+is_hex <- function(col_str = "") {
+  col_str <- tolower(col_str)
+  # Empty string isn't hex
+  if (col_str == "") {
+    return(FALSE)
+  }
+
+  # Valid hex must be the "#" character plus 3, 6, or 8 characters (alpha value)
+  if (!(nchar(col_str) %in% c(4, 7, 9))) {
+      return(FALSE)
+  }
+
+  # Valid hex must be prefixed with the "#" character
+  if (substr(col_str, 1, 1) != "#") {
+    return(FALSE)
+  }
+
+  # Valid hex must use digits 0-9 and a-f
+  if (sum(grepl(col_str, letters[7:length(letters)])) != 0) {
+    return(FALSE)
+  }
+
+  return(TRUE)
+}
