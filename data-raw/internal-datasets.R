@@ -6,7 +6,7 @@
 #' NOTE: When adding datasets, be sure the working directory is set to sportyR/
 #' and that this file is sourced on saving.
 surface_dimensions <- jsonlite::fromJSON(
-  txt = "data-raw/surface_dimensions.json"
+  txt = "data-raw/surface-dimensions.json"
 )
 
 usethis::use_data(
