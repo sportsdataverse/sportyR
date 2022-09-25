@@ -2,14 +2,12 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_court_apron}
 \alias{volleyball_court_apron}
-\title{The free zone is similar to the \code{\link[=basketball_court_apron]{basketball_court_apron()}} in that it is the
+\title{The court apron is similar to the \code{\link[=basketball_court_apron]{basketball_court_apron()}} in that it is the
 area outside the court. It may be the same color as the interior of the
 court, but isn't necessarily. Unlike \code{\link[=basketball_court_apron]{basketball_court_apron()}} however, the
 boundary line thickness doesn't matter since the lines are considered in-play
-and therefore are included in the court's length and width. This is not the
-same as the \code{\link[=volleyball_court_apron]{volleyball_court_apron()}}, as this is the entire area outside of
-the court's lines, while the court apron corresponds to a colored apron
-inside the free zone}
+and therefore are included in the court's length and width. This is a colored
+area inside of the free zone (see \code{\link[=volleyball_free_zone]{volleyball_free_zone()}}).}
 \usage{
 volleyball_court_apron(
   court_length = 0,
@@ -35,13 +33,11 @@ outer edge of the sideline}
 A data frame containing the bounding coordinates of the court apron
 }
 \description{
-The free zone is similar to the \code{\link[=basketball_court_apron]{basketball_court_apron()}} in that it is the
+The court apron is similar to the \code{\link[=basketball_court_apron]{basketball_court_apron()}} in that it is the
 area outside the court. It may be the same color as the interior of the
 court, but isn't necessarily. Unlike \code{\link[=basketball_court_apron]{basketball_court_apron()}} however, the
 boundary line thickness doesn't matter since the lines are considered in-play
-and therefore are included in the court's length and width. This is not the
-same as the \code{\link[=volleyball_court_apron]{volleyball_court_apron()}}, as this is the entire area outside of
-the court's lines, while the court apron corresponds to a colored apron
-inside the free zone
+and therefore are included in the court's length and width. This is a colored
+area inside of the free zone (see \code{\link[=volleyball_free_zone]{volleyball_free_zone()}}).
 }
 \keyword{internal}
