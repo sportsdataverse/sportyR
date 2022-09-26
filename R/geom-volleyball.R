@@ -382,7 +382,7 @@ geom_volleyball <- function(league,
   court_plot <- add_feature(
     court_plot,
     x_anchor = ((court_params$court_length %or% 0) / 2) +
-      ((court_params$service_zone_mark_to_baseline %or% 0)),
+      ((court_params$service_zone_mark_to_end_line %or% 0)),
     y_anchor = (court_params$court_width %or% 0) / 2,
     feature_df = court_features$service_zone_mark,
     feature_color = feature_colors$service_zone_mark,

@@ -2252,7 +2252,7 @@
         "substitution_zone_rep_pattern": 0,
 
         "service_zone_mark_length": 0.0,
-        "service_zone_mark_to_baseline": 0.0
+        "service_zone_mark_to_end_line": 0.0
       },
 
       "fivb": {
@@ -2274,7 +2274,7 @@
         "substitution_zone_rep_pattern": 5,
 
         "service_zone_mark_length": 0.15,
-        "service_zone_mark_to_baseline": 0.20
+        "service_zone_mark_to_end_line": 0.20
       },
 
       "ncaa": {
@@ -2296,7 +2296,7 @@
         "substitution_zone_rep_pattern": 5,
 
         "service_zone_mark_length": 0.15,
-        "service_zone_mark_to_baseline": 0.20
+        "service_zone_mark_to_end_line": 0.20
       },
 
       "usa volleyball": {
@@ -2318,7 +2318,7 @@
         "substitution_zone_rep_pattern": 5,
 
         "service_zone_mark_length": 0.15,
-        "service_zone_mark_to_baseline": 0.20
+        "service_zone_mark_to_end_line": 0.20
       }
-    }
+  }
 }
