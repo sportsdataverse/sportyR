@@ -1,3 +1,25 @@
+# sportyR 2.1.0
+
+## Patches/Bug Fixes
+- Fixed [#14](https://github.com/sportsdataverse/sportyR/issues/14). Issue with volleyball documentation
+
+- Fixed [#15](https://github.com/sportsdataverse/sportyR/issues/15). All outline colors are respected
+
+## Internal Changes
+- Renamed files to use `-` (hyphen) instead of `_` (underscore) across package
+
+- New function, `is_hex()`, checks if a value is valid hexadecimal (relates to [#15](https://github.com/sportsdataverse/sportyR/issues/15))
+
+## New Sports and Leagues Supported
+
+### Volleyball
+- FIVB
+- NCAA
+- USA Volleyball
+
+### Curling
+- Curling Canada
+
 # sportyR 2.0.1
 
 ## Patches/Bug Fixes
@@ -42,34 +64,34 @@
 
 ## New Sports and Leagues Supported
 
-#### Baseball
+### Baseball
 - MiLB
 - Little League
 - NCAA
 - NFHS (high school)
 - Pony
 
-#### Basketball
+### Basketball
 - NBA G League
 - NFHS (high school)
 
-#### Curling (New Supported Sport)
+### Curling (New Supported Sport)
 - WCF (World Curling Federation)
 
-#### Hockey
+### Hockey
 - AHL
 - ECHL
 - OHL
 - QMJHL
 - USHL
 
-#### Football
+### Football
 - NFHS 11-player
 - NFHS 9-player
 - NFHS 8-player
 - NFHS 6-player
 
-#### Tennis
+### Tennis
 - ATP
 - ITA
 - USTA
