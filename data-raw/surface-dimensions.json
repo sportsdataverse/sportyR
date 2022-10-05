@@ -796,6 +796,39 @@
         "courtesy_line_thickness": 0.0417,
         "courtesy_line_length": 0.5,
         "courtesy_line_to_hog_line": 4.0
+      },
+
+      "curling canada": {
+        "sheet_units": "ft",
+        "sheet_length": 150.0,
+        "sheet_width": 15.5833,
+
+        "apron_behind_back": 1.5,
+        "apron_along_side": 1.5,
+
+        "tee_line_to_center": 57.0,
+        "tee_line_thickness": 0.0417,
+
+        "back_line_thickness": 0.0417,
+        "back_line_to_tee_line": 6.0,
+
+        "hack_line_thickness": 0.0417,
+        "hack_foothold_width": 0.5,
+        "hack_foothold_gap": 0.5,
+        "hack_foothold_depth": 0.6667,
+
+        "hog_line_to_tee_line": 21.0,
+        "hog_line_thickness": 0.3333,
+
+        "centre_line_extension": 12.0,
+        "centre_line_thickness": 0.0417,
+
+        "house_ring_radii": [6.0, 4.0, 2.0],
+        "button_radius": 0.5,
+
+        "courtesy_line_thickness": 0.0417,
+        "courtesy_line_length": 0.5,
+        "courtesy_line_to_hog_line": 4.0
       }
     },
 
