@@ -2,7 +2,12 @@ test_that(
   "geom_basketball() returns a plot when called with a league", {
     # Create a basketball court plot
     nba_court <- geom_basketball("nba")
-    ncaa_court <- geom_basketball("ncaa")
+    ncaa_court <- geom_basketball(
+      "ncaa",
+      color_updates = list(
+        court_apron = "#0088ceab"
+      )
+    )
 
     # Check the class of the resulting plot. This should be "gg" and "ggplot"
     expect_equal(class(nba_court)[1], "gg")
