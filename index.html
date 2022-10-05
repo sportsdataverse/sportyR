@@ -151,6 +151,7 @@
 </h1></div>
 
 <p>As the field of sports analytics evolve, there’s a growing need for methods to both track and visualize players throughout the game. This package aims to make this easy regardless of sport needed to be plotted.</p>
+<p>This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, soccer, and tennis in <strong>R</strong>. For the <strong>Python</strong> version of this package, click <a href="https://github.com/sportsdataverse/sportypy" class="external-link">here</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -426,6 +427,21 @@
 <td align="center">WTA</td>
 <td align="center"><code>ft</code></td>
 </tr>
+<tr class="even">
+<td align="center">Volleyball</td>
+<td align="center">FIVB</td>
+<td align="center"><code>m</code></td>
+</tr>
+<tr class="odd">
+<td align="center">Volleyball</td>
+<td align="center">NCAA</td>
+<td align="center"><code>m</code></td>
+</tr>
+<tr class="even">
+<td align="center">Volleyball</td>
+<td align="center">USA Volleyball</td>
+<td align="center"><code>m</code></td>
+</tr>
 </tbody>
 </table>
 <p>However, since the data that is supplied may come in various units of measure, the plots are able to be generated in the data’s units. This is done via the <code>unit</code> argument in <code>geom_{sport}()</code>. The features themselves will look visually identical, but the underlying coordinate grid will change.</p>
@@ -490,6 +506,8 @@
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Soccer</li>
 <li>
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Tennis</li>
+<li>
+<a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Volleyball</li>
 </ul>
 </div>
 <div class="section level3">
@@ -527,8 +545,7 @@
 <div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small>GPL (&gt;= 3) + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li>GPL (&gt;= 3)</li>
 </ul>
 </div>
 
