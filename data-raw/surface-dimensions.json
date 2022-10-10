@@ -1025,11 +1025,11 @@
 
             "number_font": "Clarendon-Regular",
 
-            "restricted_area_width": 2.0,
+            "restricted_area_width": 1.3333,
             "coaching_box_width": 2.0,
             "team_bench_width": 4.0,
-            "team_bench_length_field_side": 50.0,
-            "team_bench_length_back_side": 50.0,
+            "team_bench_length_field_side": 60.0,
+            "team_bench_length_back_side": 60.0,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "rectangular",
             "field_bordered": false
