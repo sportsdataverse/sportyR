@@ -65,9 +65,9 @@ football_features_set_colors <- function(plot_background = NULL,
                                          end_line = "#ffffff",
                                          sideline = "#ffffff",
                                          field_border = "#196f0c",
-                                         field_border_outline = "#ffffff",
-                                         red_zone_border = "#196f0c",
-                                         red_zone_border_outline = "#ffffff",
+                                         field_border_outline = "#ffffff00",
+                                         red_zone_border = "#196f0c00",
+                                         red_zone_border_outline = "#ffffff00",
                                          major_yard_line = "#ffffff",
                                          goal_line = "#ffffff",
                                          minor_yard_line = "#ffffff",
@@ -724,67 +724,6 @@ geom_football <- function(league,
     rotation = rotation
   )
 
-  #### Sideline ####
-  field_plot <- add_feature(
-    field_plot,
-    x_anchor = 0,
-    y_anchor = (field_params$field_width %or% 0) / 2,
-    feature_df = field_features$sideline,
-    feature_color = feature_colors$sideline,
-    feature_outline_color = feature_colors$sideline,
-    reflect_x = FALSE,
-    reflect_y = TRUE,
-    x_trans = x_trans,
-    y_trans = y_trans,
-    rotation = rotation
-  )
-
-  #### End Line ####
-  field_plot <- add_feature(
-    field_plot,
-    x_anchor = ((field_params$field_length %or% 0) / 2) +
-      (field_params$endzone_length %or% 0),
-    y_anchor = 0,
-    feature_df = field_features$end_line,
-    feature_color = feature_colors$end_line,
-    feature_outline_color = feature_colors$end_line,
-    reflect_x = TRUE,
-    reflect_y = FALSE,
-    x_trans = x_trans,
-    y_trans = y_trans,
-    rotation = rotation
-  )
-
-  #### Defensive Endzone ####
-  field_plot <- add_feature(
-    field_plot,
-    x_anchor = -((field_params$field_length %or% 0) / 2) -
-      ((field_params$endzone_length %or% 0) / 2),
-    y_anchor = 0,
-    feature_df = field_features$endzone,
-    feature_color = feature_colors$defensive_endzone,
-    reflect_x = FALSE,
-    reflect_y = FALSE,
-    x_trans = x_trans,
-    y_trans = y_trans,
-    rotation = rotation
-  )
-
-  #### Offensive Endzone ####
-  field_plot <- add_feature(
-    field_plot,
-    x_anchor = ((field_params$field_length %or% 0) / 2) +
-      ((field_params$endzone_length %or% 0) / 2),
-    y_anchor = 0,
-    feature_df = field_features$endzone,
-    feature_color = feature_colors$offensive_endzone,
-    reflect_x = FALSE,
-    reflect_y = FALSE,
-    x_trans = x_trans,
-    y_trans = y_trans,
-    rotation = rotation
-  )
-
   #### Restricted Area ####
   field_plot <- add_feature(
     field_plot,
@@ -899,6 +838,67 @@ geom_football <- function(league,
     feature_outline_color = feature_colors$red_zone_border_outline,
     reflect_x = TRUE,
     reflect_y = TRUE,
+    x_trans = x_trans,
+    y_trans = y_trans,
+    rotation = rotation
+  )
+
+  #### Sideline ####
+  field_plot <- add_feature(
+    field_plot,
+    x_anchor = 0,
+    y_anchor = (field_params$field_width %or% 0) / 2,
+    feature_df = field_features$sideline,
+    feature_color = feature_colors$sideline,
+    feature_outline_color = feature_colors$sideline,
+    reflect_x = FALSE,
+    reflect_y = TRUE,
+    x_trans = x_trans,
+    y_trans = y_trans,
+    rotation = rotation
+  )
+
+  #### End Line ####
+  field_plot <- add_feature(
+    field_plot,
+    x_anchor = ((field_params$field_length %or% 0) / 2) +
+      (field_params$endzone_length %or% 0),
+    y_anchor = 0,
+    feature_df = field_features$end_line,
+    feature_color = feature_colors$end_line,
+    feature_outline_color = feature_colors$end_line,
+    reflect_x = TRUE,
+    reflect_y = FALSE,
+    x_trans = x_trans,
+    y_trans = y_trans,
+    rotation = rotation
+  )
+
+  #### Defensive Endzone ####
+  field_plot <- add_feature(
+    field_plot,
+    x_anchor = -((field_params$field_length %or% 0) / 2) -
+      ((field_params$endzone_length %or% 0) / 2),
+    y_anchor = 0,
+    feature_df = field_features$endzone,
+    feature_color = feature_colors$defensive_endzone,
+    reflect_x = FALSE,
+    reflect_y = FALSE,
+    x_trans = x_trans,
+    y_trans = y_trans,
+    rotation = rotation
+  )
+
+  #### Offensive Endzone ####
+  field_plot <- add_feature(
+    field_plot,
+    x_anchor = ((field_params$field_length %or% 0) / 2) +
+      ((field_params$endzone_length %or% 0) / 2),
+    y_anchor = 0,
+    feature_df = field_features$endzone,
+    feature_color = feature_colors$offensive_endzone,
+    reflect_x = FALSE,
+    reflect_y = FALSE,
     x_trans = x_trans,
     y_trans = y_trans,
     rotation = rotation
