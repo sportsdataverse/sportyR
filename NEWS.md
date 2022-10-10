@@ -5,6 +5,10 @@
 
 - Fixed [#15](https://github.com/sportsdataverse/sportyR/issues/15). All outline colors are respected
 
+- Added red zone border and border outline to football fields
+
+- Changed default coloring of football field border outline
+
 ## Internal Changes
 - Renamed files to use `-` (hyphen) instead of `_` (underscore) across package
 
