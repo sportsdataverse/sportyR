@@ -64,7 +64,7 @@ for \code{"rectangle"}}
 \item{boundary_thickness}{The thickness of the boundary lines}
 }
 \value{
-A data frame of the bounding box of the field border
+A data frame of the bounding box of the field border's outline
 }
 \description{
 The field border's outline is the outline around the outer edge of the field
