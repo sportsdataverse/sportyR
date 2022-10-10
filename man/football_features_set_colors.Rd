@@ -16,6 +16,8 @@ football_features_set_colors(
   sideline = "#ffffff",
   field_border = "#196f0c",
   field_border_outline = "#ffffff",
+  red_zone_border = "#196f0c",
+  red_zone_border_outline = "#ffffff",
   major_yard_line = "#ffffff",
   goal_line = "#ffffff",
   minor_yard_line = "#ffffff",
@@ -58,6 +60,12 @@ feature}
 this feature}
 
 \item{field_border_outline}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{red_zone_border}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{red_zone_border_outline}{A hexadecimal string representing the color to
 use for this feature}
 
 \item{major_yard_line}{A hexadecimal string representing the color to use for

@@ -387,7 +387,7 @@ football_field_border <- function(field_length = 0,
 #' @param bench_shape A string of the shape of the bench. Currently, this checks
 #'   for \code{"rectangle"}
 #'
-#' @return A data frame of the bounding box of the field border
+#' @return A data frame of the bounding box of the field border's outline
 #'
 #' @keywords internal
 football_field_border_outline <- function(field_length = 0,
@@ -815,6 +815,46 @@ football_field_border_outline <- function(field_length = 0,
   }
 
   return(field_border_outline_df)
+}
+
+#' The field border (see [football_field_border()]) may have a different color
+#' along the red zone than it does along the rest of the field. This is not
+#' always the case, but the feature is provided for convenience
+#'
+#' @param feature_thickness The thickness of the field border
+#'
+#' @return A data frame of the bounding box of the red zone border
+#'
+#' @keywords internal
+football_red_zone_border <- function(feature_thickness = 0) {
+  red_zone_border_df <- create_rectangle(
+    x_min = 0,
+    x_max = 20,
+    y_min = 0,
+    y_max = feature_thickness
+  )
+
+  return(red_zone_border_df)
+}
+
+#' The outline of the [football_red_zone_border()] may be a different color than
+#' the rest of the field border. This is not always the case, but the feature is
+#' provided for convenience
+#'
+#' @param feature_thickness The thickness of the field border's outline
+#'
+#' @return A data frame of the bounding box of the red zone border's outline
+#'
+#' @keywords internal
+football_red_zone_border_outline <- function(feature_thickness = 0) {
+  red_zone_border_outline_df <- create_rectangle(
+    x_min = 0,
+    x_max = 20,
+    y_min = 0,
+    y_max = feature_thickness
+  )
+
+  return(red_zone_border_outline_df)
 }
 
 
