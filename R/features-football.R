@@ -216,13 +216,13 @@ football_field_border <- function(field_length = 0,
           (field_length / 2) +
             endzone_length +
             boundary_line_thickness +
-            team_bench_area_border_thickness
+            feature_thickness
         ),
         (
           (field_length / 2) +
             endzone_length +
             boundary_line_thickness +
-            team_bench_area_border_thickness
+            feature_thickness
         ),
         (restricted_area_length / 2) + team_bench_area_border_thickness,
         (restricted_area_length / 2) + team_bench_area_border_thickness
