@@ -184,11 +184,13 @@
 <p>First, let’s draw an NFL field via <code>geom_football("nfl")</code>. We’ll adjust the origin to be in the lower left corner of the field, as per the notes on the coordinate system on the Kaggle page describing the data.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create the field</span></span>
-<span><span class="va">nfl_field</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, x_trans <span class="op">=</span> <span class="fl">50</span>, y_trans <span class="op">=</span> <span class="fl">26.6667</span><span class="op">)</span></span>
+<span><span class="va">nfl_field</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, x_trans <span class="op">=</span> <span class="fl">60</span>, y_trans <span class="op">=</span> <span class="fl">26.6667</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Display the field</span></span>
 <span><span class="va">nfl_field</span></span></code></pre></div>
-<p><img src="animating-tracking-data-bdb-example-draw-field-1.png" width="100%"></p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/vignettes/img/animating-tracking-data-bdb-example-draw-field.png" style="width:75.0%" alt=""><p class="caption">Image of NFL field rendered from sportyR</p>
+</div>
 <p>Looks good! Now, let’s animate using <code>gganimate</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add the points on the field</span></span>
@@ -202,7 +204,9 @@
 <span></span>
 <span><span class="co"># Show the animation</span></span>
 <span><span class="va">play_anim</span></span></code></pre></div>
-<p><img src="animating-tracking-data-bdb-example-animate-play-1.gif" width="100%"></p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/vignettes/img/animating-tracking-data-bdb-example-animate-play.gif" style="width:75.0%" alt=""><p class="caption">Gif of tracking data</p>
+</div>
 <p>Easy peasy. As noted on the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette, this too works so long as the geospatial data is provided and contains a way to identify and order the frames of the resulting GIF.</p>
 </div>
   </main>
