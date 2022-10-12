@@ -1081,18 +1081,22 @@ geom_football <- function(league,
       "in_bounds_only" = c(
         -(
           ((field_params$field_length %or% 0) / 2) +
-            (field_params$endzone_length %or% 0)
+            (field_params$endzone_length %or% 0) +
+            (field_params$boundary_line_thickness %or% 0)
         ),
         ((field_params$field_length %or% 0) / 2) +
-          (field_params$endzone_length %or% 0)
+          (field_params$endzone_length %or% 0) +
+          (field_params$boundary_line_thickness %or% 0)
       ),
       "in bounds only" = c(
         -(
           ((field_params$field_length %or% 0) / 2) +
-            (field_params$endzone_length %or% 0)
+            (field_params$endzone_length %or% 0) +
+            (field_params$boundary_line_thickness %or% 0)
         ),
         ((field_params$field_length %or% 0) / 2) +
-          (field_params$endzone_length %or% 0)
+          (field_params$endzone_length %or% 0) +
+          (field_params$boundary_line_thickness %or% 0)
       ),
 
       # Half-field plots
