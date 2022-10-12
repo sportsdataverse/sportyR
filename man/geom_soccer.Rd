@@ -30,6 +30,8 @@ The possible display ranges are:
 
 \describe{
 \item{\code{"full"}}{The full pitch. This is the default}
+\item{\code{"in_bounds_only"}}{The full in-bounds area of the pitch}
+\item{\code{"in bounds only"}}{The full in-bounds area of the pitch}
 \item{\code{"offense"}}{The TV-right half of the pitch}
 \item{\code{"offence"}}{The TV-right half of the pitch}
 \item{\code{"offensivehalfpitch"}}{The TV-right half of the pitch}

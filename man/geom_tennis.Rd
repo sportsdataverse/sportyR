@@ -29,6 +29,8 @@ when either an invalid or no value is passed to the function.
 The possible display ranges are:
 \describe{
 \item{\code{"full"}}{The full court. This is the default}
+\item{\code{"in_bounds_only"}}{The full in-bounds area of the court}
+\item{\code{"in bounds only"}}{The full in-bounds area of the court}
 \item{\code{"serve"}}{The serving half of the court}
 \item{\code{"serving"}}{The serving half of the court}
 \item{\code{"servicehalf"}}{The serving half of the court}
