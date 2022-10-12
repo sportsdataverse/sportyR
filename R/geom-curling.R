@@ -89,6 +89,8 @@ curling_features_set_colors <- function(plot_background = NULL,
 #'
 #'   \describe{
 #'     \item{\code{"full"}}{The full sheet. This is the default}
+#'     \item{\code{"in_bounds_only"}}{The full in-bounds area of the sheet}
+#'     \item{\code{"in bounds only"}}{The full in-bounds area of the sheet}
 #'     \item{\code{"house"}}{
 #'       A single house, which defaults to the top house in TV view
 #'     }
@@ -500,6 +502,22 @@ geom_curling <- function(league,
     xlims <- switch(tolower(display_range),
                     # Full surface
                     "full" = c(-half_sheet_width, half_sheet_width),
+                    "in_bounds_only" = c(
+                      -(
+                        ((sheet_params$sheet_width %or% 0) / 2) +
+                          0.5
+                      ),
+                      ((sheet_params$sheet_width %or% 0) / 2) +
+                        0.5
+                    ),
+                    "in bounds only" = c(
+                      -(
+                        ((sheet_params$sheet_width %or% 0) / 2) +
+                          0.5
+                      ),
+                      ((sheet_params$sheet_width %or% 0) / 2) +
+                        0.5
+                    ),
 
                     # House
                     "house" = c(-half_sheet_width, half_sheet_width),
@@ -519,6 +537,22 @@ geom_curling <- function(league,
     ylims <- switch(tolower(display_range),
                     # Full surface
                     "full" = c(-half_sheet_length, half_sheet_length),
+                    "in_bounds_only" = c(
+                      -(
+                        ((sheet_params$sheet_length %or% 0) / 2) +
+                          0.5
+                      ),
+                      ((sheet_params$sheet_length %or% 0) / 2) +
+                        0.5
+                    ),
+                    "in bounds only" = c(
+                      -(
+                        ((sheet_params$sheet_length %or% 0) / 2) +
+                          0.5
+                      ),
+                      ((sheet_params$sheet_length %or% 0) / 2) +
+                        0.5
+                    ),
 
                     # House
                     "house" = c(end_length, half_sheet_length),
@@ -552,7 +586,8 @@ geom_curling <- function(league,
   sheet_plot <- sheet_plot +
     ggplot2::coord_fixed(
       xlim = xlims,
-      ylim = ylims
+      ylim = ylims,
+      expand = FALSE
     )
 
   # Return the ggplot2 instance
