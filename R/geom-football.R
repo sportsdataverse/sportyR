@@ -121,6 +121,8 @@ football_features_set_colors <- function(plot_background = NULL,
 #'
 #'   \describe{
 #'     \item{\code{"full"}}{The full field. This is the default}
+#'     \item{\code{"in_bounds_only"}}{The full in-bounds area of the field}
+#'     \item{\code{"in bounds only"}}{The full in-bounds area of the field}
 #'     \item{\code{"offense"}}{The TV-right half of the field}
 #'     \item{\code{"offence"}}{The TV-right half of the field}
 #'     \item{\code{"offensivehalffield"}}{The TV-right half of the field}
@@ -1076,6 +1078,26 @@ geom_football <- function(league,
     xlims <- switch(tolower(display_range),
       # Full surface
       "full" = c(-half_field_length, half_field_length),
+      "in_bounds_only" = c(
+        -(
+          ((field_params$field_length %or% 0) / 2) +
+            (field_params$endzone_length %or% 0) +
+            (field_params$boundary_line_thickness %or% 0)
+        ),
+        ((field_params$field_length %or% 0) / 2) +
+          (field_params$endzone_length %or% 0) +
+          (field_params$boundary_line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((field_params$field_length %or% 0) / 2) +
+            (field_params$endzone_length %or% 0) +
+            (field_params$boundary_line_thickness %or% 0)
+        ),
+        ((field_params$field_length %or% 0) / 2) +
+          (field_params$endzone_length %or% 0) +
+          (field_params$boundary_line_thickness %or% 0)
+      ),
 
       # Half-field plots
       "offense" = c(0, half_field_length),
@@ -1150,6 +1172,23 @@ geom_football <- function(league,
     ylims <- switch(tolower(display_range),
       # Full surface
       "full" = c(-half_field_width, half_field_width),
+      "in_bounds_only" = c(
+        -(
+          ((field_params$field_width %or% 0) / 2) +
+            (field_params$boundary_line_thickness %or% 0)
+        ),
+        ((field_params$field_width %or% 0) / 2) +
+          (field_params$boundary_line_thickness %or% 0)
+      ),
+
+      "in bounds only" = c(
+        -(
+          ((field_params$field_width %or% 0) / 2) +
+            (field_params$boundary_line_thickness %or% 0)
+        ),
+        ((field_params$field_width %or% 0) / 2) +
+          (field_params$boundary_line_thickness %or% 0)
+      ),
 
       # Half-field plots
       "offense" = c(-half_field_width, half_field_width),
@@ -1235,7 +1274,8 @@ geom_football <- function(league,
   field_plot <- field_plot +
     ggplot2::coord_fixed(
       xlim = xlims,
-      ylim = ylims
+      ylim = ylims,
+      expand = FALSE
     )
 
   # Return the ggplot2 instance
