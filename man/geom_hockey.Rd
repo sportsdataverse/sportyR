@@ -29,24 +29,26 @@ when either an invalid or no value is passed to the function.
 The possible display ranges are:
 \describe{
 \item{\code{"full"}}{The full ice surface. This is the default}
-\item{\code{"offense"}}{The TV-right half of the ice surface}
-\item{\code{"offence"}}{The TV-right half of the ice surface}
-\item{\code{"defense"}}{The TV-left half of the ice surface}
-\item{\code{"defence"}}{The TV-left half of the ice surface}
-\item{\code{"ozone"}}{The TV-right zone of the ice surface}
-\item{\code{"offensive_zone"}}{The TV-right zone of the ice surface}
-\item{\code{"offensive zone"}}{The TV-right zone of the ice surface}
-\item{\code{"attacking_zone"}}{The TV-right zone of the ice surface}
-\item{\code{"attacking zone"}}{The TV-right zone of the ice surface}
-\item{\code{"dzone"}}{The TV-left zone of the ice surface}
-\item{\code{"defensive_zone"}}{The TV-left zone of the ice surface}
-\item{\code{"defensive zone"}}{The TV-left zone of the ice surface}
-\item{\code{"defending_zone"}}{The TV-left zone of the ice surface}
-\item{\code{"defending zone"}}{The TV-left zone of the ice surface}
-\item{\code{"nzone"}}{The middle zone of the ice surface}
-\item{\code{"neutral"}}{The middle zone of the ice surface}
-\item{\code{"neutral_zone"}}{The middle zone of the ice surface}
-\item{\code{"neutral zone"}}{The middle zone of the ice surface}
+\item{\code{"in_bounds_only"}}{The full in-bounds area of the rink}
+\item{\code{"in bounds only"}}{The full in-bounds area of the rink}
+\item{\code{"offense"}}{The TV-right half of the rink}
+\item{\code{"offence"}}{The TV-right half of the rink}
+\item{\code{"defense"}}{The TV-left half of the rink}
+\item{\code{"defence"}}{The TV-left half of the rink}
+\item{\code{"ozone"}}{The TV-right zone of the rink}
+\item{\code{"offensive_zone"}}{The TV-right zone of the rink}
+\item{\code{"offensive zone"}}{The TV-right zone of the rink}
+\item{\code{"attacking_zone"}}{The TV-right zone of the rink}
+\item{\code{"attacking zone"}}{The TV-right zone of the rink}
+\item{\code{"dzone"}}{The TV-left zone of the rink}
+\item{\code{"defensive_zone"}}{The TV-left zone of the rink}
+\item{\code{"defensive zone"}}{The TV-left zone of the rink}
+\item{\code{"defending_zone"}}{The TV-left zone of the rink}
+\item{\code{"defending zone"}}{The TV-left zone of the rink}
+\item{\code{"nzone"}}{The middle zone of the rink}
+\item{\code{"neutral"}}{The middle zone of the rink}
+\item{\code{"neutral_zone"}}{The middle zone of the rink}
+\item{\code{"neutral zone"}}{The middle zone of the rink}
 }}
 
 \item{rink_updates}{A list of updates to the rink's parameters. These will

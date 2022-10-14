@@ -136,6 +136,8 @@ basketball_features_set_colors <- function(plot_background = NULL,
 #'     \item{\code{"full"}}{
 #'       The full court. This is the default
 #'     }
+#'     \item{\code{"in_bounds_only"}}{The full in-bounds area of the court}
+#'     \item{\code{"in bounds only"}}{The full in-bounds area of the court}
 #'     \item{\code{"offense"}}{
 #'       The TV-right half of the court half-court. This is considered the
 #'       offensive half of the court
@@ -1234,6 +1236,22 @@ geom_basketball <- function(league,
     xlims <- switch(tolower(display_range),
                     # Full surface
                     "full" = c(-half_court_length, half_court_length),
+                    "in_bounds_only" = c(
+                      -(
+                        ((court_params$court_length %or% 0) / 2) +
+                          (court_params$line_thickness %or% 0)
+                      ),
+                      ((court_params$court_length %or% 0) / 2) +
+                        (court_params$line_thickness %or% 0)
+                    ),
+                    "in bounds only" = c(
+                      -(
+                        ((court_params$court_length %or% 0) / 2) +
+                          (court_params$line_thickness %or% 0)
+                      ),
+                      ((court_params$court_length %or% 0) / 2) +
+                        (court_params$line_thickness %or% 0)
+                    ),
 
                     # Half-court plots
                     "offense" = c(0, half_court_length),
@@ -1497,6 +1515,22 @@ geom_basketball <- function(league,
     ylims <- switch(tolower(display_range),
                     # Full surface
                     "full" = c(-half_court_width, half_court_width),
+                    "in_bounds_only" = c(
+                      -(
+                        ((court_params$court_width %or% 0) / 2) +
+                          (court_params$line_thickness %or% 0)
+                      ),
+                      ((court_params$court_width %or% 0) / 2) +
+                        (court_params$line_thickness %or% 0)
+                    ),
+                    "in bounds only" = c(
+                      -(
+                        ((court_params$court_width %or% 0) / 2) +
+                          (court_params$line_thickness %or% 0)
+                      ),
+                      ((court_params$court_width %or% 0) / 2) +
+                        (court_params$line_thickness %or% 0)
+                    ),
 
                     # Half-court plots
                     "offense" = c(-half_court_width, half_court_width),
@@ -1601,7 +1635,8 @@ geom_basketball <- function(league,
   court_plot <- court_plot +
     ggplot2::coord_fixed(
       xlim = xlims,
-      ylim = ylims
+      ylim = ylims,
+      expand = FALSE
     )
 
   # Return the ggplot2 instance
