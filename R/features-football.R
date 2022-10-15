@@ -15,8 +15,8 @@ football_half_field <- function(field_length = 0,
                                 endzone_length = 0) {
   half_field_df <- create_rectangle(
     # Using quarter-field lengths to account for feature positioning adjustment
-    x_min = -((field_length / 4) + endzone_length),
-    x_max = (field_length / 4) + endzone_length,
+    x_min = -((field_length / 4) + (endzone_length / 2)),
+    x_max = (field_length / 4) + (endzone_length / 2),
     y_min = -field_width / 2,
     y_max = field_width / 2
   )

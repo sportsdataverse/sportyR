@@ -701,7 +701,10 @@ geom_football <- function(league,
   #### Defensive Half Field ####
   field_plot <- add_feature(
     field_plot,
-    x_anchor = -0.25 * (field_params$field_length %or% 0),
+    x_anchor = -0.5 * (
+      ((field_params$field_length %or% 0) / 2) +
+        (field_params$endzone_length %or% 0)
+    ),
     y_anchor = 0,
     feature_df = field_features$defensive_half,
     feature_color = feature_colors$defensive_half,
@@ -715,7 +718,10 @@ geom_football <- function(league,
   #### Offensive Half Field ####
   field_plot <- add_feature(
     field_plot,
-    x_anchor = 0.25 * (field_params$field_length %or% 0),
+    x_anchor = 0.5 * (
+      ((field_params$field_length %or% 0) / 2) +
+        (field_params$endzone_length %or% 0)
+    ),
     y_anchor = 0,
     feature_df = field_features$offensive_half,
     feature_color = feature_colors$offensive_half,

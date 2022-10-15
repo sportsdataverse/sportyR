@@ -11,6 +11,8 @@
 
 - Fixed issue with field border thickness when plotting behind the bench
 
+- Fixed [#18](https://github.com/sportsdataverse/sportyR/issues/18). Can now constrain all plots to only display in-bound playing area (plus sidelines)
+
 ## Internal Changes
 - Renamed files to use `-` (hyphen) instead of `_` (underscore) across package
 
