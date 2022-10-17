@@ -2,23 +2,21 @@
 % Please edit documentation in R/features-football.R
 \name{football_half_field}
 \alias{football_half_field}
-\title{Each half of the football field spans from the back edge of the endzone to
-the center of the major yard line at midfield}
+\title{Each half of the football field spans from the edge of the goal line nearest
+to midfield to the center of the major yard line at midfield}
 \usage{
-football_half_field(field_length = 0, field_width = 0, endzone_length = 0)
+football_half_field(field_length = 0, field_width = 0)
 }
 \arguments{
 \item{field_length}{The length of the field}
 
 \item{field_width}{The width of the field}
-
-\item{endzone_length}{The length of the endzone}
 }
 \value{
 A data frame of the bounding box of half a football field
 }
 \description{
-Each half of the football field spans from the back edge of the endzone to
-the center of the major yard line at midfield
+Each half of the football field spans from the edge of the goal line nearest
+to midfield to the center of the major yard line at midfield
 }
 \keyword{internal}

@@ -1,22 +1,20 @@
 # Surface Base Features --------------------------------------------------------
 
-#' Each half of the football field spans from the back edge of the endzone to
-#' the center of the major yard line at midfield
+#' Each half of the football field spans from the edge of the goal line nearest
+#' to midfield to the center of the major yard line at midfield
 #'
 #' @param field_length The length of the field
 #' @param field_width The width of the field
-#' @param endzone_length The length of the endzone
 #'
 #' @return A data frame of the bounding box of half a football field
 #'
 #' @keywords internal
 football_half_field <- function(field_length = 0,
-                                field_width = 0,
-                                endzone_length = 0) {
+                                field_width = 0) {
   half_field_df <- create_rectangle(
     # Using quarter-field lengths to account for feature positioning adjustment
-    x_min = -((field_length / 4) + (endzone_length / 2)),
-    x_max = (field_length / 4) + (endzone_length / 2),
+    x_min = -field_length / 4,
+    x_max = field_length / 4,
     y_min = -field_width / 2,
     y_max = field_width / 2
   )
