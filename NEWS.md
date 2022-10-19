@@ -13,6 +13,8 @@
 
 - Fixed [#18](https://github.com/sportsdataverse/sportyR/issues/18). Can now constrain all plots to only display in-bound playing area (plus sidelines)
 
+- Corrected football field layering to work better with hex-alpha color specifications (layering of colors previously caused issues)
+
 ## Internal Changes
 - Renamed files to use `-` (hyphen) instead of `_` (underscore) across package
 
