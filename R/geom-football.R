@@ -470,7 +470,8 @@ geom_football <- function(league,
       team_bench_width = field_params$team_bench_width %or% 0,
       team_bench_area_border_thickness =
         field_params$team_bench_area_border_thickness %or% 0,
-      extra_apron_padding = field_params$extra_apron_padding %or% 0
+      extra_apron_padding = field_params$extra_apron_padding %or% 0,
+      bench_shape = field_params$bench_shape %or% "rectangle"
     ),
 
     ## Surface Boundaries ------------------------------------------------------
@@ -659,7 +660,7 @@ geom_football <- function(league,
     y_anchor = 0,
     feature_df = field_features$field_apron,
     feature_color = feature_colors$field_apron,
-    reflect_x = FALSE,
+    reflect_x = TRUE,
     reflect_y = FALSE,
     x_trans = x_trans,
     y_trans = y_trans,
@@ -1062,15 +1063,16 @@ geom_football <- function(league,
     (field_params$boundary_line_thickness %or% 0) +
     (field_params$field_border_thickness %or% 0) +
     (field_params$minor_line_thickness %or% 0) +
-    5
+    (field_params$extra_apron_padding %or% 5)
   half_field_width <- ((field_params$field_width %or% 0) / 2) +
     (field_params$boundary_line_thickness %or% 0) +
     (field_params$restricted_area_width %or% 0) +
     (field_params$coaching_box_width %or% 0) +
     (field_params$team_bench_width %or% 0) +
     (field_params$field_border_thickness %or% 0) +
+    (field_params$team_bench_area_border_thickness %or% 0) +
     (field_params$minor_line_thickness %or% 0) +
-    5
+    (field_params$extra_apron_padding %or% 5)
 
   if (is.null(xlims)) {
     xlims <- switch(tolower(display_range),
