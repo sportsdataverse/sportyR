@@ -103,7 +103,7 @@ football_field_apron <- function(field_length = 0,
     team_bench_area_border_thickness +
     field_border_thickness
 
-  ext_y = starting_depth + extra_apron_padding
+  ext_y <- starting_depth + extra_apron_padding
 
   if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
     m <- team_bench_width / (
@@ -309,13 +309,6 @@ football_field_apron <- function(field_length = 0,
       )
     )
   )
-
-  # field_apron_df <- create_rectangle(
-  #   x_min = -ext_x,
-  #   x_max = ext_x,
-  #   y_min = -ext_y,
-  #   y_max = ext_y
-  # )
 
   return(field_apron_df)
 }
