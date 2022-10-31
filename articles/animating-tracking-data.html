@@ -154,16 +154,29 @@
 
     
     
-<p>For the following vignette, you’ll need the <code>sportyR</code>, <code>ggplot2</code>, and <code>gganimate</code> packages loaded into your workspace.</p>
+<p>For the following vignette, you’ll need the <code>sportyR</code>,
+<code>ggplot2</code>, and <code>gganimate</code> packages loaded into
+your workspace.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sportsdataverse/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span></code></pre></div>
-<p>If this is your first experience with plotting tracking data, please check out the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette. Otherwise, let’s see how to make GIFs with <code>sportyR</code> and <code>gganimate</code>.</p>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; No renderer backend detected. gganimate will default to writing frames to separate files</span></span>
+<span><span class="co">#&gt; Consider installing:</span></span>
+<span><span class="co">#&gt; - the `gifski` package for gif output</span></span>
+<span><span class="co">#&gt; - the `av` package for video output</span></span>
+<span><span class="co">#&gt; and restarting the R session</span></span></code></pre></div>
+<p>If this is your first experience with plotting tracking data, please
+check out the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette.
+Otherwise, let’s see how to make GIFs with <code>sportyR</code> and
+<code>gganimate</code>.</p>
 <div class="section level2">
 <h2 id="the-data">The Data<a class="anchor" aria-label="anchor" href="#the-data"></a>
 </h2>
-<p>For this example, we’ll use a play from Week 15 of the 2018 NFL season between the Chicago Bears and Green Bay Packers. Data made available for the <a href="https://www.kaggle.com/c/nfl-big-data-bowl-2021" class="external-link">Big Data Bowl 2021</a> Kaggle competition.</p>
+<p>For this example, we’ll use a play from Week 15 of the 2018 NFL
+season between the Chicago Bears and Green Bay Packers. Data made
+available for the <a href="https://www.kaggle.com/c/nfl-big-data-bowl-2021" class="external-link">Big Data Bowl
+2021</a> Kaggle competition.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load the play data</span></span>
 <span><span class="va">example_nfl_play</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/fread.html" class="external-link">fread</a></span><span class="op">(</span></span>
@@ -175,13 +188,18 @@
 <span></span>
 <span><span class="co"># Convert to data frame</span></span>
 <span><span class="va">example_nfl_play</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">example_nfl_play</span><span class="op">)</span></span></code></pre></div>
-<p>To keep things easy, let’s specify the colors for each team’s dots on the resulting GIF. We’ll make the Bears <span style="color: #c83803">orange</span> and the Packers <span style="color: #ffb612">yellow</span>. The football will also need a dot to be seen; let’s make it <span style="color: #624a2e">brown</span>.</p>
+<p>To keep things easy, let’s specify the colors for each team’s dots on
+the resulting GIF. We’ll make the Bears <span style="color: #c83803">orange</span> and the Packers <span style="color: #ffb612">yellow</span>. The football will also need a dot
+to be seen; let’s make it <span style="color: #624a2e">brown</span>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Prep data for plotting</span></span>
 <span><span class="va">example_nfl_play</span><span class="op">[</span><span class="va">example_nfl_play</span><span class="op">[</span><span class="st">"team"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"home"</span>, <span class="st">"color"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"#c83803"</span></span>
 <span><span class="va">example_nfl_play</span><span class="op">[</span><span class="va">example_nfl_play</span><span class="op">[</span><span class="st">"team"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"away"</span>, <span class="st">"color"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"#ffb612"</span></span>
 <span><span class="va">example_nfl_play</span><span class="op">[</span><span class="va">example_nfl_play</span><span class="op">[</span><span class="st">"team"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"football"</span>, <span class="st">"color"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"#624a2e"</span></span></code></pre></div>
-<p>First, let’s draw an NFL field via <code>geom_football("nfl")</code>. We’ll adjust the origin to be in the lower left corner of the field, as per the notes on the coordinate system on the Kaggle page describing the data.</p>
+<p>First, let’s draw an NFL field via <code>geom_football("nfl")</code>.
+We’ll adjust the origin to be in the lower left corner of the field, as
+per the notes on the coordinate system on the Kaggle page describing the
+data.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create the field</span></span>
 <span><span class="va">nfl_field</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, x_trans <span class="op">=</span> <span class="fl">60</span>, y_trans <span class="op">=</span> <span class="fl">26.6667</span><span class="op">)</span></span>
@@ -207,7 +225,9 @@
 <div class="figure">
 <img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/vignettes/img/animating-tracking-data-bdb-example-animate-play.gif" style="width:75.0%" alt=""><p class="caption">Gif of tracking data</p>
 </div>
-<p>Easy peasy. As noted on the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette, this too works so long as the geospatial data is provided and contains a way to identify and order the frames of the resulting GIF.</p>
+<p>Easy peasy. As noted on the <a href="plotting-tracking-data.html">plotting-tracking-data</a> vignette,
+this too works so long as the geospatial data is provided and contains a
+way to identify and order the frames of the resulting GIF.</p>
 </div>
   </main>
 </div>

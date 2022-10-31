@@ -154,11 +154,18 @@
 
     
     
-<p>To run the following vignette, you’ll need the <code>sportyR</code> package loaded into your workspace.</p>
+<p>To run the following vignette, you’ll need the <code>sportyR</code>
+package loaded into your workspace.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sportsdataverse/sportyR" class="external-link">sportyR</a></span><span class="op">)</span></span></code></pre></div>
-<p>Customizing a plot is easy as can be with <code>sportyR</code>. Say we want to customize a college basketball court to look like Lou Henson Court at the University of Illinois at Urbana-Champaign. You can see what it looks like <a href="https://hoopdirt.com/wp-content/uploads/2015/08/louhensoncourt-rendering-690x340.jpg" class="external-link">here</a></p>
-<p>We won’t get an exact match with logos, floorboard color differentiation, or some markings, but we’ll get pretty close. Let’s start by finding out what colors we can change, and how we can change them:</p>
+<p>Customizing a plot is easy as can be with <code>sportyR</code>. Say
+we want to customize a college basketball court to look like Lou Henson
+Court at the University of Illinois at Urbana-Champaign. You can see
+what it looks like <a href="https://hoopdirt.com/wp-content/uploads/2015/08/louhensoncourt-rendering-690x340.jpg" class="external-link">here</a></p>
+<p>We won’t get an exact match with logos, floorboard color
+differentiation, or some markings, but we’ll get pretty close. Let’s
+start by finding out what colors we can change, and how we can change
+them:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Find the colors for a college basketball court</span></span>
 <span><span class="fu"><a href="../reference/cani_color_league_features.html">cani_color_league_features</a></span><span class="op">(</span><span class="st">"NCAA"</span>, <span class="st">"basketball"</span><span class="op">)</span></span>
@@ -191,7 +198,9 @@
 <span><span class="co">#&gt; basket_ring</span></span>
 <span><span class="co">#&gt; net</span></span></code></pre></div>
 <p>Great, all set. It looks like the following should work:</p>
-<p><em><strong>NOTE</strong>: not all of the arguments below are needed, however all are shown to display the flexibility with which the plots can be customized.</em></p>
+<p><em><strong>NOTE</strong>: not all of the arguments below are needed,
+however all are shown to display the flexibility with which the plots
+can be customized.</em></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span></span>
 <span>  league <span class="op">=</span> <span class="st">"ncaa"</span>,</span>
@@ -216,7 +225,9 @@
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="customize-plot-customizing-plots-illinois-court-1.png" width="100%"></p>
-<p>Pretty good! You can do this for any of the surfaces offered by <code>sportyR</code>. Here’s another example, this time drawing a blue college football field:</p>
+<p>Pretty good! You can do this for any of the surfaces offered by
+<code>sportyR</code>. Here’s another example, this time drawing a blue
+college football field:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a blue football field</span></span>
 <span><span class="fu"><a href="../reference/geom_football.html">geom_football</a></span><span class="op">(</span></span>
