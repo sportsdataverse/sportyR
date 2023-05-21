@@ -71,7 +71,7 @@ create_square <- function(side_length, center = c(0, 0)) {
   return(square_coords)
 }
 
-#' Create a set of \code{x} and \code{y} coordinates that form a diamond This
+#' Create a set of \code{x} and \code{y} coordinates that form a diamond. This
 #' function is a wrapper on \code{create_rectangle()} above
 #'
 #' @param height The vertical height of the diamond

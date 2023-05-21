@@ -2,7 +2,7 @@
 % Please edit documentation in R/create-shapes.R
 \name{create_diamond}
 \alias{create_diamond}
-\title{Create a set of \code{x} and \code{y} coordinates that form a diamond This
+\title{Create a set of \code{x} and \code{y} coordinates that form a diamond. This
 function is a wrapper on \code{create_rectangle()} above}
 \usage{
 create_diamond(height, width, center = c(0, 0))
@@ -19,7 +19,7 @@ A data frame containing the points needed to draw the specified
 diamond
 }
 \description{
-Create a set of \code{x} and \code{y} coordinates that form a diamond This
+Create a set of \code{x} and \code{y} coordinates that form a diamond. This
 function is a wrapper on \code{create_rectangle()} above
 }
 \keyword{internal}
