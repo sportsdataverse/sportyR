@@ -1,7 +1,18 @@
 # sportyR 2.2.0
-- Updated syntax in `geom_football()` to avoid tidy syntax deprecation warning
+
+## New Sports and Leagues Supported
+
+### Lacrosse
+- National Lacrosse League
+- NCAA Men's Lacrosse
+- NCAA Women's Lacrosse
+- Premier Lacrosse League
+- USA Men's Lacrosse
+- USA Women's Lacrosse
+- World Lacrosse
 
 ## Internal Changes
+- Updated syntax in `geom_football()` to avoid tidy syntax deprecation warning
 - Added `load_default_parameters()` function for faster debugging internally. This function allows all defaults of a particular `geom_{sport}()` function to be loaded and set as environment variables rather than having to set each one individually
 
 - Updated [`data-raw/internal-datasets.R`](https://github.com/sportsdataverse/sportyR/blob/main/data-raw/internal-datasets.R) to clear environment and reload current version of package upon sourcing for debugging
