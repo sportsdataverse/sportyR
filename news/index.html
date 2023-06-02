@@ -114,10 +114,23 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.2.0" id="sportyr-220">sportyR 2.2.0<a class="anchor" aria-label="anchor" href="#sportyr-220"></a></h2>
-<ul><li>Updated syntax in <code><a href="../reference/geom_football.html">geom_football()</a></code> to avoid tidy syntax deprecation warning</li>
-</ul><div class="section level3">
+<div class="section level3">
+<h3 id="new-sports-and-leagues-supported-2-2-0">New Sports and Leagues Supported<a class="anchor" aria-label="anchor" href="#new-sports-and-leagues-supported-2-2-0"></a></h3>
+<div class="section level4">
+<h4 id="lacrosse-2-2-0">Lacrosse<a class="anchor" aria-label="anchor" href="#lacrosse-2-2-0"></a></h4>
+<ul><li>National Lacrosse League</li>
+<li>NCAA Men’s Lacrosse</li>
+<li>NCAA Women’s Lacrosse</li>
+<li>Premier Lacrosse League</li>
+<li>USA Men’s Lacrosse</li>
+<li>USA Women’s Lacrosse</li>
+<li>World Lacrosse</li>
+</ul></div>
+</div>
+<div class="section level3">
 <h3 id="internal-changes-2-2-0">Internal Changes<a class="anchor" aria-label="anchor" href="#internal-changes-2-2-0"></a></h3>
-<ul><li><p>Added <code>load_default_parameters()</code> function for faster debugging internally. This function allows all defaults of a particular <code>geom_{sport}()</code> function to be loaded and set as environment variables rather than having to set each one individually</p></li>
+<ul><li><p>Updated syntax in <code><a href="../reference/geom_football.html">geom_football()</a></code> to avoid tidy syntax deprecation warning</p></li>
+<li><p>Added <code><a href="../reference/load_default_parameters.html">load_default_parameters()</a></code> function for faster debugging internally. This function allows all defaults of a particular <code>geom_{sport}()</code> function to be loaded and set as environment variables rather than having to set each one individually</p></li>
 <li><p>Updated <a href="https://github.com/sportsdataverse/sportyR/blob/main/data-raw/internal-datasets.R" class="external-link"><code>data-raw/internal-datasets.R</code></a> to clear environment and reload current version of package upon sourcing for debugging</p></li>
 </ul></div>
 </div>

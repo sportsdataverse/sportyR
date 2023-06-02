@@ -169,6 +169,9 @@
     <loc>https://sportyR.sportsdataverse.org/reference/create_square.html</loc>
   </url>
   <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/create_x_shape.html</loc>
+  </url>
+  <url>
     <loc>https://sportyR.sportsdataverse.org/reference/curling_back_line.html</loc>
   </url>
   <url>
@@ -286,6 +289,9 @@
     <loc>https://sportyR.sportsdataverse.org/reference/geom_hockey.html</loc>
   </url>
   <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/geom_lacrosse.html</loc>
+  </url>
+  <url>
     <loc>https://sportyR.sportsdataverse.org/reference/geom_soccer.html</loc>
   </url>
   <url>
@@ -377,6 +383,111 @@
   </url>
   <url>
     <loc>https://sportyR.sportsdataverse.org/reference/is_hex.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_below_goal_marking.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_boards.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_center_circle.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_center_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_change_area_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_change_area_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_defensive_area_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_defensive_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_end_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_face_off_marker.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_features_set_colors.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_field_apron.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_arc.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_circle.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_circle_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_fan.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_fan_hash_mark.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_frame.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_mouth.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_mouth_hash_mark.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_net.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_neutral_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_off_field_officials_box.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_offensive_zone.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_penalty_box_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_penalty_box_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_player_bench_area_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_player_bench_outline.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_referee_crease.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_referee_crease_fill.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_restraining_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_sideline.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_wing_line.html</loc>
+  </url>
+  <url>
+    <loc>https://sportyR.sportsdataverse.org/reference/load_default_parameters.html</loc>
   </url>
   <url>
     <loc>https://sportyR.sportsdataverse.org/reference/quadratic_formula.html</loc>
