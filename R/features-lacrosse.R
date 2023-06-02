@@ -123,7 +123,7 @@ lacrosse_offensive_zone <- function(field_length = 0,
                                     corner_radius = 0,
                                     nzone_length = 0,
                                     field_shape = "rectangle") {
-  if (tolower(field_shape) == "oval"){
+  if (tolower(field_shape) == "oval") {
     # Specify the dimensions of the field
     half_length <- field_length / 2
     half_width <- field_width / 2
@@ -396,8 +396,9 @@ lacrosse_boards <- function(field_length = 0,
 # Surface Lines ----------------------------------------------------------------
 
 #' The center line divides the field of play into two equal halves, which are
-#' generated via [lacrosse_half_field()]. This line may not stretch the entire
-#' width of the field, so a parameter is created instead
+#' generated via [lacrosse_offensive_zone()], [lacrosse_defensive_zone()], and
+#' [lacrosse_neutral_zone()]. This line may not stretch the entire width of the
+#' field, so a parameter is created instead
 #'
 #' @param center_line_width The width of the center line (distance in \code{y})
 #' @param line_thickness The thickness of the center line
@@ -805,52 +806,6 @@ lacrosse_goal_fan <- function(goal_fan_radius = 0,
                               goal_circle_radius = 0,
                               line_thickness = 0) {
   # Create the goal fan
-  # goal_fan_df <- rbind(
-  #   data.frame(
-  #     x = c(
-  #       goal_circle_radius * cos(0.5 * pi),
-  #       goal_fan_radius * cos(0.75 * pi)
-  #     ),
-  #     y = c(
-  #       goal_circle_radius * sin(0.5 * pi),
-  #       goal_fan_radius * sin(0.75 * pi)
-  #     )
-  #   ),
-  #   create_circle(
-  #     center = c(0, 0),
-  #     start = 0.75,
-  #     end = 1.25,
-  #     r = goal_fan_radius
-  #   ),
-  #   data.frame(
-  #     x = c(
-  #       goal_fan_radius * cos(1.25 * pi),
-  #       goal_circle_radius * cos(1.5 * pi),
-  #       (goal_circle_radius * cos(1.5 * pi)) - (line_thickness * cos(0.25 * pi))
-  #     ),
-  #     y = c(
-  #       goal_fan_radius * sin(1.25 * pi),
-  #       goal_circle_radius * sin(1.5 * pi),
-  #       (goal_circle_radius * sin(1.5 * pi)) + (line_thickness * sin(0.25 * pi))
-  #     )
-  #   ),
-  #   create_circle(
-  #     center = c(0, 0),
-  #     start = 1.25 - ((line_thickness / goal_fan_radius) / pi),
-  #     end = 0.75 + ((line_thickness / goal_fan_radius) / pi),
-  #     r = goal_fan_radius - line_thickness
-  #   ),
-  #   data.frame(
-  #     x = c(
-  #       (goal_circle_radius * cos(0.5 * pi)) + (line_thickness * cos(0.5 * pi)),
-  #       goal_circle_radius * cos(0.5 * pi)
-  #     ),
-  #     y = c(
-  #       (goal_circle_radius * sin(0.5 * pi)) - (line_thickness * sin(0.5 * pi)),
-  #       goal_circle_radius * sin(0.5 * pi)
-  #     )
-  #   )
-  # )
   goal_fan_df <- rbind(
     data.frame(
       x = c(
@@ -896,11 +851,13 @@ lacrosse_goal_fan <- function(goal_fan_radius = 0,
     ),
     data.frame(
       x = c(
-        (goal_circle_radius * cos(0.5 * pi)) + (line_thickness * cos(0.75 * pi)),
+        (goal_circle_radius * cos(0.5 * pi)) +
+          (line_thickness * cos(0.75 * pi)),
         goal_circle_radius * cos(0.5 * pi)
       ),
       y = c(
-        (goal_circle_radius * sin(0.5 * pi)) - (line_thickness * sin(0.75 * pi)),
+        (goal_circle_radius * sin(0.5 * pi)) -
+          (line_thickness * sin(0.75 * pi)),
         goal_circle_radius * sin(0.5 * pi)
       )
     )
@@ -1319,12 +1276,12 @@ lacrosse_player_bench_area_fill <- function(bench_area_outline_thickness = 0,
 
 #' The penalty boxes are the areas outside the confines of the field where
 #' players serve time for a penalty incurred. They are to be on the same side of
-#' the field surface and separate, as close to center field as possible, for each
-#' team. This will also include the off-field officials' box
+#' the field surface and separate, as close to center field as possible, for
+#' each team. This will also include the off-field officials' box
 #'
 #' This will have the same thickness as the boards, but will be located outside
-#' the field surface. Each penalty box's outline will share the same color as the
-#' boards
+#' the field surface. Each penalty box's outline will share the same color as
+#' the boards
 #'
 #' @param feature_thickness The thickness of the outline of the penalty box
 #' @param penalty_box_length The length of the penalty box

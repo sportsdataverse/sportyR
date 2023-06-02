@@ -211,13 +211,13 @@ geom_lacrosse <- function(league,
 
   # If the center color needs to be a different color, it will by default be
   # given #ffcb05
-  center_face_off_marker_color_contrasting = (
+  center_face_off_marker_color_contrasting <- (
     field_params$center_face_off_marker_color_contrasting %or% FALSE
   )
 
   if (center_face_off_marker_color_contrasting == TRUE) {
     if (feature_colors$center_face_off_marker == feature_colors$center_line) {
-      color_updates[["center_face_off_marker"]] = "#ffcb05"
+      color_updates[["center_face_off_marker"]] <- "#ffcb05"
     }
   }
 
@@ -484,7 +484,8 @@ geom_lacrosse <- function(league,
     (length(field_params$goal_fan_hash_mark_separation_from_center) > 0) %or%
     FALSE
   ) {
-    for (i in 1:length(field_params$goal_fan_hash_mark_separation_from_center)){
+    separations <- field_params$goal_fan_hash_mark_separation_from_center
+    for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
       theta <- separation / (
         (field_params$goal_fan_radius %or% 1) +
@@ -949,7 +950,8 @@ geom_lacrosse <- function(league,
     (length(field_params$goal_fan_hash_mark_separation_from_center) > 0) %or%
     FALSE
   ) {
-    for (i in 1:length(field_params$goal_fan_hash_mark_separation_from_center)){
+    separations <- field_params$goal_fan_hash_mark_separation_from_center
+    for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
       theta <- (separation / (field_params$goal_fan_radius %or% 1)) / pi
       field_plot <- add_feature(
@@ -979,7 +981,7 @@ geom_lacrosse <- function(league,
         x_trans = x_trans,
         y_trans = y_trans,
         rotation = rotation
-      ) # + coord_fixed()
+      )
     }
   }
 
