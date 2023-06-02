@@ -99,7 +99,7 @@
             "pitchers_plate_width": 0.5,
             "pitchers_plate_length": 2.0,
 
-            "base_side_length": 1.25,
+            "base_side_length": 1.5,
             "home_plate_edge_length": 1.4167,
 
             "infield_arc_radius": 95.0,
@@ -140,7 +140,7 @@
             "pitchers_plate_width": 0.5,
             "pitchers_plate_length": 2.0,
 
-            "base_side_length": 1.25,
+            "base_side_length": 1.5,
             "home_plate_edge_length": 1.4167,
 
             "infield_arc_radius": 95.0,

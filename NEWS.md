@@ -1,5 +1,9 @@
 # sportyR 2.2.0
 
+## Changes to Existing Sports
+
+- MLB and MiLB bases are now 18" by default per the 2023 rules change
+
 ## New Sports and Leagues Supported
 
 ### Lacrosse
