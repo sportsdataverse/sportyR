@@ -189,6 +189,13 @@ parentheses):
 |   Hockey   |               PHF                |         `ft`          |
 |   Hockey   |              QMJHL               |         `ft`          |
 |   Hockey   |               USHL               |         `ft`          |
+|  Lacrosse  |              NCAAM               |         `yd`          |
+|  Lacrosse  |              NCAAW               |          `m`          |
+|  Lacrosse  |               NLL                |         `ft`          |
+|  Lacrosse  |               PLL                |         `yd`          |
+|  Lacrosse  |            USA Men’s             |         `yd`          |
+|  Lacrosse  |           USA Women’s            |          `m`          |
+|  Lacrosse  |          World Lacrosse          |         `ft`          |
 |   Soccer   |               EPL                |          `m`          |
 |   Soccer   |               FIFA               |          `m`          |
 |   Soccer   |               MLS                |         `yd`          |
