@@ -1,3 +1,8 @@
+# sportyR 2.2.0
+
+- Updated syntax in `geom_football()` to avoid tidy syntax deprecation warning
+
+
 # sportyR 2.1.0
 
 ## Patches/Bug Fixes

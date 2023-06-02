@@ -1013,19 +1013,19 @@ geom_football <- function(league,
     field_plot <- field_plot +
       ggplot2::geom_polygon(
         data = bb_polygon,
-        ggplot2::aes_string(
-          x = "x",
-          y = "y"
+        ggplot2::aes(
+          x = .data$x,
+          y = .data$y
         ),
         fill = "#ffffff00"
       ) +
       ggfittext::geom_fit_text(
         data = yardage_marker_df,
-        ggplot2::aes_string(
-          xmin = "x_min",
-          xmax = "x_max",
-          ymin = "y_min",
-          ymax = "y_max"
+        ggplot2::aes(
+          xmin = .data$x_min,
+          xmax = .data$x_max,
+          ymin = .data$y_min,
+          ymax = .data$y_max
         ),
         label = yardage_marker_df$marking,
         angle = rotation + yardage_marker_df$marker_rotation,
