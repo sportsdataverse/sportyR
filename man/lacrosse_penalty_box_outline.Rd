@@ -4,8 +4,8 @@
 \alias{lacrosse_penalty_box_outline}
 \title{The penalty boxes are the areas outside the confines of the field where
 players serve time for a penalty incurred. They are to be on the same side of
-the field surface and separate, as close to center field as possible, for each
-team. This will also include the off-field officials' box}
+the field surface and separate, as close to center field as possible, for
+each team. This will also include the off-field officials' box}
 \usage{
 lacrosse_penalty_box_outline(
   penalty_box_outline_thickness = 0,
@@ -30,7 +30,7 @@ A data frame containing the bounding coordinates of the penalty box
 }
 \description{
 This will have the same thickness as the boards, but will be located outside
-the field surface. Each penalty box's outline will share the same color as the
-boards
+the field surface. Each penalty box's outline will share the same color as
+the boards
 }
 \keyword{internal}

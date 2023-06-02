@@ -3,8 +3,9 @@
 \name{lacrosse_center_line}
 \alias{lacrosse_center_line}
 \title{The center line divides the field of play into two equal halves, which are
-generated via \code{\link[=lacrosse_half_field]{lacrosse_half_field()}}. This line may not stretch the entire
-width of the field, so a parameter is created instead}
+generated via \code{\link[=lacrosse_offensive_zone]{lacrosse_offensive_zone()}}, \code{\link[=lacrosse_defensive_zone]{lacrosse_defensive_zone()}}, and
+\code{\link[=lacrosse_neutral_zone]{lacrosse_neutral_zone()}}. This line may not stretch the entire width of the
+field, so a parameter is created instead}
 \usage{
 lacrosse_center_line(center_line_width = 0, line_thickness = 0)
 }
@@ -18,7 +19,8 @@ A data frame containing the bounding coordinates of the center line
 }
 \description{
 The center line divides the field of play into two equal halves, which are
-generated via \code{\link[=lacrosse_half_field]{lacrosse_half_field()}}. This line may not stretch the entire
-width of the field, so a parameter is created instead
+generated via \code{\link[=lacrosse_offensive_zone]{lacrosse_offensive_zone()}}, \code{\link[=lacrosse_defensive_zone]{lacrosse_defensive_zone()}}, and
+\code{\link[=lacrosse_neutral_zone]{lacrosse_neutral_zone()}}. This line may not stretch the entire width of the
+field, so a parameter is created instead
 }
 \keyword{internal}

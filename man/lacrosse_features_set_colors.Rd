@@ -11,10 +11,10 @@ lacrosse_features_set_colors(
   defensive_zone = "#195f0c",
   neutral_zone = "#195f0c",
   offensive_zone = "#195f0c",
-  team_a_bench = "#ffffff",
-  team_b_bench = "#ffffff",
-  team_a_penalty_box = "#ffffff",
-  team_b_penalty_box = "#ffffff",
+  team_a_bench = "#a5acaf4d",
+  team_b_bench = "#a5acaf4d",
+  team_a_penalty_box = "#a5acaf4d",
+  team_b_penalty_box = "#a5acaf4d",
   off_field_officials_box = "#a5acaf",
   boards = "#ffa500",
   end_line = "#ffffff",
@@ -31,11 +31,16 @@ lacrosse_features_set_colors(
   goal_arc = "#ffffff",
   goal_fan = "#ffffff",
   goal_fan_hash_mark = "#ffffff",
+  goal_mouth_hash_mark = "#ffffff",
   goal_mouth = "#ffffff",
   below_goal_marking = "#ffffff",
   goal_frame = "#ffa500",
   goal_net = "#a5acaf4d",
-  center_circle = "#ffffff"
+  center_circle = "#ffffff",
+  center_face_off_marker = "#ffffff",
+  corner_face_off_marker = "#ffffff",
+  change_area_outline = "#ffffff",
+  change_area_fill = "#195f0c"
 )
 }
 \arguments{
