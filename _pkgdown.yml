@@ -122,6 +122,7 @@ reference:
     - "`geom_curling`"
     - "`geom_football`"
     - "`geom_hockey`"
+    - "`geom_lacrosse`"
     - "`geom_soccer`"
     - "`geom_tennis`"
     - "`geom_volleyball`"

@@ -62,19 +62,77 @@ is_hex <- function(col_str = "") {
 #' debugging the package
 #'
 #' @param league The league to load into the global environment
+#' @param display_range The display range to load into the global environment
+#' @param court_updates The default \code{court_updates} to load into the global
+#'   environment. This will default to an empty list
+#' @param field_updates The default \code{field_updates} to load into the global
+#'   environment. This will default to an empty list
+#' @param pitch_updates The default \code{pitch_updates} to load into the global
+#'   environment. This will default to an empty list
+#' @param rink_updates The default \code{rink_updates} to load into the global
+#'   environment. This will default to an empty list
+#' @param sheet_updates The default \code{sheet_updates} to load into the global
+#'   environment. This will default to an empty list
+#' @param color_updates The default \code{color_updates} to load into the global
+#'   environment. This will default to an empty list
+#' @param rotation The default rotation to load into the global environment.
+#'   This will default to \code{0}
+#' @param x_trans The default translation in the \code{x} direction to load into
+#'   the global environment. This will default to \code{0}
+#' @param y_trans The default translation in the \code{y} direction to load into
+#'   the global environment. This will default to \code{0}
+#' @param court_units The default units for a court-like surface. The default
+#'   will be \code{NULL}
+#' @param field_units The default units for a field-like surface. The default
+#'   will be \code{NULL}
+#' @param pitch_units The default units for a pitch-like surface. The default
+#'   will be \code{NULL}
+#' @param rink_units The default units for a rink-like surface. The default will
+#'   be \code{NULL}
+#' @param sheet_units The default units for a sheet-like surface. The default
+#'   will be \code{NULL}
+#' @param xlims The default limits on the plot to use in the \code{x} direction.
+#'   The default will be \code{NULL}
+#' @param ylims The default limits on the plot to use in the \code{y} direction.
+#'   The default will be \code{NULL}
 #'
 #' @return Nothing, but environment variables should be set
 #'
 #' @keywords internal
-load_default_parameters <- function(league = "") {
+load_default_parameters <- function(league = "",
+                                    display_range = "full",
+                                    court_updates = list(),
+                                    field_updates = list(),
+                                    pitch_updates = list(),
+                                    rink_updates = list(),
+                                    sheet_updates = list(),
+                                    color_updates = list(),
+                                    rotation = 0,
+                                    x_trans = 0,
+                                    y_trans = 0,
+                                    court_units = NULL,
+                                    field_units = NULL,
+                                    pitch_units = NULL,
+                                    rink_units = NULL,
+                                    sheet_units = NULL,
+                                    xlims = NULL,
+                                    ylims = NULL) {
   league <<- league
-  display_range <<- "full"
-  field_updates <<- list()
-  color_updates <<- list()
-  rotation <<- 0
-  x_trans <<- 0
-  y_trans <<- 0
-  field_units <<- NULL
-  xlims <<- NULL
-  ylims <<- NULL
+  display_range <<- display_range
+  court_updates <<- court_updates
+  field_updates <<- field_updates
+  pitch_updates <<- pitch_updates
+  rink_updates <<- rink_updates
+  sheet_updates <<- sheet_updates
+  color_updates <<- color_updates
+  rotation <<- rotation
+  x_trans <<- x_trans
+  y_trans <<- y_trans
+  court_units <<- court_units
+  field_units <<- field_units
+  pitch_units <<- pitch_units
+  rink_units <<- rink_units
+  sheet_units <<- sheet_units
+  xlims <<- xlims
+  ylims <<- ylims
 }

@@ -71,7 +71,7 @@ create_square <- function(side_length, center = c(0, 0)) {
   return(square_coords)
 }
 
-#' Create a set of \code{x} and \code{y} coordinates that form a diamond This
+#' Create a set of \code{x} and \code{y} coordinates that form a diamond. This
 #' function is a wrapper on \code{create_rectangle()} above
 #'
 #' @param height The vertical height of the diamond
@@ -101,4 +101,59 @@ create_diamond <- function(height, width, center = c(0, 0)) {
   )
 
   return(diamond_coords)
+}
+
+#' Create a set of \code{x} and \code{y} coordinates that form an "X"-like shape
+#'
+#' @param bar_length The length of one of the bars that forms the "X" shape,
+#'  from outer edge to outer edge
+#' @param bar_width The width of one of the bars that forms the "X" shape, from
+#'  outer edge to outer edge
+#' @param rotation The angle of rotation (in degrees) that the resulting
+#'  "X"-like shape should be rotated
+#'
+#' @return A data frame containing the points needed to draw the specified "X"
+#'
+#' @keywords internal
+create_x_shape <- function(bar_length, bar_width, rotation = 45) {
+  cross_df <- data.frame(
+    x = c(
+      0,
+      bar_width / 2,
+      bar_width / 2,
+      bar_length / 2,
+      bar_length / 2,
+      bar_width / 2,
+      bar_width / 2,
+      -bar_width / 2,
+      -bar_width / 2,
+      -bar_length / 2,
+      -bar_length / 2,
+      -bar_width / 2,
+      -bar_width / 2,
+      0
+    ),
+    y = c(
+      bar_length / 2,
+      bar_length / 2,
+      bar_width / 2,
+      bar_width / 2,
+      -bar_width / 2,
+      -bar_width / 2,
+      -bar_length / 2,
+      -bar_length / 2,
+      -bar_width / 2,
+      -bar_width / 2,
+      bar_width / 2,
+      bar_width / 2,
+      bar_length / 2,
+      bar_length / 2
+    )
+  )
+
+  x_shape_df <- rotate_coords(
+    cross_df, angle = rotation
+  )
+
+  return(x_shape_df)
 }

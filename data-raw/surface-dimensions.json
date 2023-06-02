@@ -1989,6 +1989,362 @@
         }
     },
 
+    "lacrosse": {
+      "custom": {
+        "field_units": "",
+        "field_length": 0.0,
+        "field_width": 0.0
+      },
+
+      "ncaam": {
+        "field_units": "yd",
+        "field_length": 110.0,
+        "field_width": 60.0,
+        "field_shape": "rectangle",
+        "boundary_thickness": 0.1111,
+        "field_apron_thickness": 5.0,
+
+        "center_line_width": 60.0,
+        "center_line_thickness": 0.1111,
+
+        "wing_line_length": 20.0,
+        "wing_line_thickness": 0.1111,
+
+        "restraining_line_thickness": 0.1111,
+        "restraining_line_outer_edge_to_center": 20.0,
+
+        "defensive_area_line_length": 35.0,
+        "defensive_area_line_thickness": 0.1111,
+
+        "goal_line_thickness": 0.1667,
+        "goal_line_full_diameter": false,
+        "goal_frame_width": 2.0,
+
+        "goal_circle_radius": 3.0,
+        "goal_circle_thickness": 0.1111,
+        "goal_circle_full_360": true,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+        "goal_depth": 1.3333,
+
+        "goal_mouth_radius": 2.0,
+        "goal_mouth_line_thickness": 0.1111,
+
+        "goal_line_center_to_end_line": 15.0,
+        "wing_line_center_to_sideline": 10.0,
+        "defensive_area_line_center_to_sideline": 10.0,
+
+        "center_face_off_marker_shape": "square",
+        "center_face_off_marker_side_length": 0.1111,
+        "center_face_off_marker_color_contrasting": true
+      },
+
+      "ncaaw": {
+        "field_units": "m",
+        "field_length": 110.0,
+        "field_width": 60.0,
+        "field_shape": "rectangle",
+        "boundary_thickness": 0.101,
+        "field_apron_thickness": 4.0,
+
+        "center_line_width": 3.0,
+        "center_line_thickness": 0.101,
+
+        "center_circle_radius": 9.0,
+        "center_circle_thickness": 0.101,
+
+        "restraining_line_thickness": 0.101,
+        "restraining_line_outer_edge_to_center": 24.0,
+
+        "goal_mouth_hash_mark_length": 0.4058,
+        "goal_mouth_hash_mark_line_thickness": 0.101,
+
+        "goal_fan_hash_mark_length": 0.3048,
+        "goal_fan_hash_mark_line_thickness": 0.101,
+        "goal_fan_hash_mark_separation_from_center": [0, 4, 8, 12],
+
+        "goal_line_thickness": 0.05,
+        "goal_line_full_diameter": false,
+        "goal_frame_width": 2.0,
+
+        "goal_circle_radius": 2.6,
+        "goal_circle_thickness": 0.101,
+        "goal_circle_full_360": true,
+
+        "goal_fan_radius": 10.6,
+        "goal_fan_line_thickness": 0.101,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+        "goal_depth": 1.3333,
+
+        "goal_mouth_radius": 14.6,
+        "goal_mouth_line_thickness": 0.101,
+        "goal_mouth_semi_circle_separation": 2.6,
+
+        "below_goal_marking_radius": 0.1524,
+
+        "goal_line_center_to_end_line": 8.899,
+        "below_goal_marking_to_goal_line": 4.572
+      },
+
+      "nll": {
+        "field_units": "ft",
+        "field_length": 200.0,
+        "field_width": 85.0,
+        "field_shape": "oval",
+        "boards_thickness": 0.25,
+        "field_apron_thickness": 5.0,
+        "corner_radius": 28.0,
+        "has_boards": true,
+        "has_sidelines": false,
+        "has_endlines": false,
+
+        "center_line_width": 85.0,
+        "center_line_thickness": 1.0,
+
+        "restraining_line_thickness": 1.0,
+        "restraining_line_outer_edge_to_center": 42.5,
+
+        "goal_line_center_to_end_line": 12.0,
+        "goal_line_thickness": 0.1667,
+
+        "neutral_zone_length": 85.0,
+
+        "goal_circle_radius": 9.25,
+        "goal_circle_thickness": 0.1667,
+        "goal_circle_full_360": false,
+        "goal_depth": 4.0,
+        "goal_depth_to_circle": 1.0,
+
+        "goal_frame_width": 2.0,
+        "goal_line_full_diameter": true,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+
+        "referee_crease_radius": 10.0,
+        "referee_crease_thickness": 0.1667,
+
+        "center_circle_radius": 11.0,
+        "center_circle_thickness": 0.1667,
+
+        "bench_length": 24.0,
+        "bench_depth": 5.0,
+        "bench_separation": 9.25,
+
+        "penalty_box_length": 8.0,
+        "penalty_box_depth": 5.0,
+        "penalty_box_separation": 8.0,
+
+        "center_face_off_marker_shape": "X",
+        "center_face_off_marker_side_length": 2.5,
+        "center_face_off_marker_side_width": 0.1667,
+
+        "corner_face_off_marker_shape": "O",
+        "corner_face_off_marker_radius": 1.0,
+        "corner_face_off_marker_to_attack_line_outer": 15.0,
+        "corner_face_off_marker_to_boards": 15.0,
+
+        "change_area_extension": 6.0,
+        "change_area_width": 3.0,
+        "change_area_outline_thickness": 0.1667
+      },
+
+      "pll": {
+        "field_units": "yd",
+        "field_length": 100.0,
+        "field_width": 60.0,
+        "field_shape": "rectangle",
+        "boundary_thickness": 0.1111,
+        "field_apron_thickness": 6.0,
+
+        "center_line_width": 60.0,
+        "center_line_thickness": 0.1111,
+
+        "wing_line_length": 20.0,
+        "wing_line_thickness": 0.1111,
+
+        "goal_line_thickness": 0.1667,
+        "goal_line_full_diameter": false,
+        "goal_frame_width": 2.0,
+
+        "goal_circle_radius": 3.0,
+        "goal_circle_thickness": 0.1111,
+        "goal_circle_full_360": true,
+
+        "goal_arc_extension": 15.0,
+        "goal_arc_radius": 15.0,
+        "goal_arc_line_thickness": 0.1111,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+        "goal_depth": 1.3333,
+
+        "goal_line_center_to_end_line": 15.0,
+        "wing_line_center_to_sideline": 11.0,
+
+        "center_face_off_marker_shape": "X",
+        "center_face_off_marker_side_length": 2.0,
+        "center_face_off_marker_side_width": 0.3333
+      },
+
+      "usam": {
+        "field_units": "yd",
+        "field_length": 110.0,
+        "field_width": 60.0,
+        "field_shape": "rectangle",
+        "boundary_thickness": 0.1111,
+        "field_apron_thickness": 5.0,
+
+        "center_line_width": 60.0,
+        "center_line_thickness": 0.1111,
+
+        "wing_line_length": 20.0,
+        "wing_line_thickness": 0.1111,
+
+        "restraining_line_thickness": 0.1111,
+        "restraining_line_outer_edge_to_center": 20.0,
+
+        "defensive_area_line_length": 35.0,
+        "defensive_area_line_thickness": 0.1111,
+
+        "goal_line_thickness": 0.0556,
+        "goal_line_full_diameter": false,
+        "goal_frame_width": 2.0,
+
+        "goal_circle_radius": 3.0,
+        "goal_circle_thickness": 0.1111,
+        "goal_circle_full_360": true,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+        "goal_depth": 1.3333,
+
+        "goal_line_center_to_end_line": 15.0,
+        "wing_line_center_to_sideline": 10.0,
+        "defensive_area_line_center_to_sideline": 10.0,
+
+        "center_face_off_marker_shape": "X",
+        "center_face_off_marker_side_length": 2.5,
+        "center_face_off_marker_side_width": 0.1667,
+        "center_face_off_marker_color_contrasting": false
+      },
+
+      "usaw": {
+        "field_units": "m",
+        "field_length": 110.0,
+        "field_width": 60.0,
+        "field_shape": "rectangle",
+        "boundary_thickness": 0.101,
+        "field_apron_thickness": 4.0,
+
+        "center_line_width": 3.0,
+        "center_line_thickness": 0.101,
+
+        "center_circle_radius": 9.0,
+        "center_circle_thickness": 0.101,
+
+        "restraining_line_thickness": 0.101,
+        "restraining_line_outer_edge_to_center": 24.0,
+
+        "goal_mouth_hash_mark_length": 0.4058,
+        "goal_mouth_hash_mark_line_thickness": 0.101,
+
+        "goal_fan_hash_mark_length": 0.3048,
+        "goal_fan_hash_mark_line_thickness": 0.101,
+        "goal_fan_hash_mark_separation_from_center": [0, 4, 8, 12],
+
+        "goal_line_thickness": 0.05,
+        "goal_line_full_diameter": false,
+        "goal_frame_width": 2.0,
+
+        "goal_circle_radius": 2.6,
+        "goal_circle_thickness": 0.101,
+        "goal_circle_full_360": true,
+
+        "goal_fan_radius": 10.6,
+        "goal_fan_line_thickness": 0.101,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+        "goal_depth": 1.3333,
+
+        "goal_mouth_radius": 14.6,
+        "goal_mouth_line_thickness": 0.101,
+        "goal_mouth_semi_circle_separation": 2.6,
+
+        "below_goal_marking_radius": 0.1524,
+
+        "goal_line_center_to_end_line": 8.899,
+        "below_goal_marking_to_goal_line": 4.572
+      },
+
+      "world lacrosse": {
+        "field_units": "ft",
+        "field_length": 200.0,
+        "field_width": 85.0,
+        "field_shape": "oval",
+        "boards_thickness": 0.25,
+        "field_apron_thickness": 5.0,
+        "corner_radius": 28.0,
+        "has_boards": true,
+        "has_sidelines": false,
+        "has_endlines": false,
+
+        "center_line_width": 85.0,
+        "center_line_thickness": 0.1667,
+
+        "restraining_line_thickness": 0.1667,
+        "restraining_line_outer_edge_to_center": 42.5,
+
+        "goal_line_center_to_end_line": 12.0,
+        "goal_line_thickness": 0.1667,
+
+        "neutral_zone_length": 85.0,
+
+        "goal_circle_radius": 9.25,
+        "goal_circle_thickness": 0.1667,
+        "goal_circle_full_360": false,
+        "goal_depth": 4.0,
+        "goal_depth_to_circle": 1.0,
+
+        "goal_frame_width": 2.0,
+        "goal_line_full_diameter": true,
+
+        "goal_frame_opening_interior": 2.0,
+        "goal_post_thickness": 0.0417,
+
+        "referee_crease_radius": 10.0,
+        "referee_crease_thickness": 0.1667,
+
+        "center_circle_radius": 11.0,
+        "center_circle_thickness": 0.1667,
+
+        "bench_length": 24.0,
+        "bench_depth": 5.0,
+        "bench_separation": 9.25,
+
+        "penalty_box_length": 8.0,
+        "penalty_box_depth": 5.0,
+        "penalty_box_separation": 8.0,
+
+        "center_face_off_marker_shape": "X",
+        "center_face_off_marker_side_length": 2.5,
+        "center_face_off_marker_side_width": 0.1667,
+
+        "corner_face_off_marker_shape": "O",
+        "corner_face_off_marker_radius": 1.0,
+        "corner_face_off_marker_to_attack_line_outer": 15.0,
+        "corner_face_off_marker_to_boards": 15.0,
+
+        "change_area_extension": 6.0,
+        "change_area_width": 3.0,
+        "change_area_outline_thickness": 0.1667
+      }
+    },
+
     "soccer": {
         "custom": {
             "pitch_units": "",
