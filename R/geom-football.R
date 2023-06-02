@@ -196,6 +196,8 @@ football_features_set_colors <- function(plot_background = NULL,
 #'
 #' @export
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' \dontrun{
 #'   geom_football(league = "NFL", rotation = 270, display_range = "red_zone")
