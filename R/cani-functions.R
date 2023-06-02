@@ -331,6 +331,7 @@ cani_color_league_features <- function(league_code, sport_name = NULL) {
       "basketball" = basketball_features_set_colors(),
       "football" = football_features_set_colors(),
       "hockey" = hockey_features_set_colors(),
+      "lacrosse" = lacrosse_features_set_colors(),
       "soccer" = soccer_features_set_colors(),
       "tennis" = tennis_features_set_colors(),
       stop(
@@ -367,6 +368,7 @@ cani_color_league_features <- function(league_code, sport_name = NULL) {
           "basketball" = basketball_features_set_colors(),
           "football" = football_features_set_colors(),
           "hockey" = hockey_features_set_colors(),
+          "lacrosse" = lacrosse_features_set_colors(),
           "soccer" = soccer_features_set_colors(),
           "tennis" = tennis_features_set_colors(),
           stop(
