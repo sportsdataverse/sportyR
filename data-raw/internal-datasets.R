@@ -14,3 +14,7 @@ usethis::use_data(
   overwrite = TRUE,
   internal = TRUE
 )
+
+rm(list = ls())
+
+devtools::load_all()

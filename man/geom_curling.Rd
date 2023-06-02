@@ -30,6 +30,8 @@ The possible display ranges are:
 
 \describe{
 \item{\code{"full"}}{The full sheet. This is the default}
+\item{\code{"in_bounds_only"}}{The full in-bounds area of the sheet}
+\item{\code{"in bounds only"}}{The full in-bounds area of the sheet}
 \item{\code{"house"}}{
 A single house, which defaults to the top house in TV view
 }

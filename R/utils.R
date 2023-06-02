@@ -57,3 +57,24 @@ is_hex <- function(col_str = "") {
 
   return(TRUE)
 }
+
+#' Load default parameters for a specified league. This should only be used when
+#' debugging the package
+#'
+#' @param league The league to load into the global environment
+#'
+#' @return Nothing, but environment variables should be set
+#'
+#' @keywords internal
+load_default_parameters <- function(league = "") {
+  league <<- league
+  display_range <<- "full"
+  field_updates <<- list()
+  color_updates <<- list()
+  rotation <<- 0
+  x_trans <<- 0
+  y_trans <<- 0
+  field_units <<- NULL
+  xlims <<- NULL
+  ylims <<- NULL
+}

@@ -31,6 +31,8 @@ The possible display ranges are:
 \item{\code{"full"}}{
 The full court. This is the default
 }
+\item{\code{"in_bounds_only"}}{The full in-bounds area of the court}
+\item{\code{"in bounds only"}}{The full in-bounds area of the court}
 \item{\code{"offense"}}{
 The TV-right half of the court half-court. This is considered the
 offensive half of the court

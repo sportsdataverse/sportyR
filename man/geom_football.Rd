@@ -30,6 +30,8 @@ The possible display ranges are:
 
 \describe{
 \item{\code{"full"}}{The full field. This is the default}
+\item{\code{"in_bounds_only"}}{The full in-bounds area of the field}
+\item{\code{"in bounds only"}}{The full in-bounds area of the field}
 \item{\code{"offense"}}{The TV-right half of the field}
 \item{\code{"offence"}}{The TV-right half of the field}
 \item{\code{"offensivehalffield"}}{The TV-right half of the field}

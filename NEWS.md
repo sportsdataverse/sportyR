@@ -1,3 +1,12 @@
+# sportyR 2.2.0
+- Updated syntax in `geom_football()` to avoid tidy syntax deprecation warning
+
+## Internal Changes
+- Added `load_default_parameters()` function for faster debugging internally. This function allows all defaults of a particular `geom_{sport}()` function to be loaded and set as environment variables rather than having to set each one individually
+
+- Updated [`data-raw/internal-datasets.R`](https://github.com/sportsdataverse/sportyR/blob/main/data-raw/internal-datasets.R) to clear environment and reload current version of package upon sourcing for debugging
+
+
 # sportyR 2.1.0
 
 ## Patches/Bug Fixes
@@ -10,6 +19,10 @@
 - Changed default coloring of football field border outline
 
 - Fixed issue with field border thickness when plotting behind the bench
+
+- Fixed [#18](https://github.com/sportsdataverse/sportyR/issues/18). Can now constrain all plots to only display in-bound playing area (plus sidelines)
+
+- Corrected football field layering to work better with hex-alpha color specifications (layering of colors previously caused issues)
 
 ## Internal Changes
 - Renamed files to use `-` (hyphen) instead of `_` (underscore) across package

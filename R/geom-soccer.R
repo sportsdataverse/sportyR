@@ -81,6 +81,8 @@ soccer_features_set_colors <- function(plot_background = NULL,
 #'
 #'   \describe{
 #'     \item{\code{"full"}}{The full pitch. This is the default}
+#'     \item{\code{"in_bounds_only"}}{The full in-bounds area of the pitch}
+#'     \item{\code{"in bounds only"}}{The full in-bounds area of the pitch}
 #'     \item{\code{"offense"}}{The TV-right half of the pitch}
 #'     \item{\code{"offence"}}{The TV-right half of the pitch}
 #'     \item{\code{"offensivehalfpitch"}}{The TV-right half of the pitch}
@@ -533,6 +535,26 @@ geom_soccer <- function(league,
     xlims <- switch(tolower(display_range),
                     # Full surface
                     "full" = c(-half_pitch_length, half_pitch_length),
+                    "in_bounds_only" = c(
+                      -(
+                        ((pitch_params$pitch_length %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      ),
+                      (
+                        ((pitch_params$pitch_length %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      )
+                    ),
+                    "in bounds only" = c(
+                      -(
+                        ((pitch_params$pitch_length %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      ),
+                      (
+                        ((pitch_params$pitch_length %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      )
+                    ),
 
                     # Half-pitch plots
                     "offense" = c(0, half_pitch_length),
@@ -558,6 +580,26 @@ geom_soccer <- function(league,
     ylims <- switch(tolower(display_range),
                     # Full surface
                     "full" = c(-half_pitch_width, half_pitch_width),
+                    "in_bounds_only" = c(
+                      -(
+                        ((pitch_params$pitch_width %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      ),
+                      (
+                        ((pitch_params$pitch_width %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      )
+                    ),
+                    "in bounds only" = c(
+                      -(
+                        ((pitch_params$pitch_width %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      ),
+                      (
+                        ((pitch_params$pitch_width %or% 0) / 2) +
+                          (pitch_params$line_thickness %or% 0)
+                      )
+                    ),
 
                     # Half-pitch plots
                     "offense" = c(-half_pitch_width, half_pitch_width),
@@ -618,7 +660,8 @@ geom_soccer <- function(league,
   pitch_plot <- pitch_plot +
     ggplot2::coord_fixed(
       xlim = xlims,
-      ylim = ylims
+      ylim = ylims,
+      expand = FALSE
     )
 
   # Return the ggplot2 instance

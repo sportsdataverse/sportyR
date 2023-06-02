@@ -20,7 +20,8 @@ football_field_apron(
   team_bench_length_back_side = 0,
   team_bench_width = 0,
   team_bench_area_border_thickness = 0,
-  extra_apron_padding = 0
+  extra_apron_padding = 0,
+  bench_shape = ""
 )
 }
 \arguments{
@@ -55,6 +56,9 @@ the team bench area}
 
 \item{extra_apron_padding}{Any additional distance to add to the apron of the
 field}
+
+\item{bench_shape}{A string of the shape of the bench. Currently, this checks
+for \code{"rectangle"}}
 }
 \value{
 A data frame of the bounding coordinates of the field apron
