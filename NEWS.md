@@ -1,6 +1,8 @@
 # sportyR 2.2.0
-
 - Updated syntax in `geom_football()` to avoid tidy syntax deprecation warning
+
+## Internal Changes
+- Added `load_default_parameters()` function for faster debugging internally. This function allows all defaults of a particular `geom_{sport}()` function to be loaded and set as environment variables rather than having to set each one individually
 
 
 # sportyR 2.1.0
