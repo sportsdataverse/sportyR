@@ -1993,7 +1993,45 @@
       "custom": {
         "field_units": "",
         "field_length": 0.0,
-        "field_width": 0.0
+        "field_width": 0.0,
+        "field_shape": "rectangle",
+        "boundary_thickness": 0.0,
+        "field_apron_thickness": 0.0,
+
+        "center_line_width": 0.0,
+        "center_line_thickness": 0.0,
+
+        "wing_line_length": 0.0,
+        "wing_line_thickness": 0.0,
+
+        "restraining_line_thickness": 0.0,
+        "restraining_line_outer_edge_to_center": 0.0,
+
+        "defensive_area_line_length": 0.0,
+        "defensive_area_line_thickness": 0.0,
+
+        "goal_line_thickness": 0.0,
+        "goal_line_full_diameter": false,
+        "goal_frame_width": 0.0,
+
+        "goal_circle_radius": 0.0,
+        "goal_circle_thickness": 0.0,
+        "goal_circle_full_360": true,
+
+        "goal_frame_opening_interior": 0.0,
+        "goal_post_thickness": 0.0,
+        "goal_depth": 0.0,
+
+        "goal_mouth_radius": 0.0,
+        "goal_mouth_line_thickness": 0.0,
+
+        "goal_line_center_to_end_line": 0.0,
+        "wing_line_center_to_sideline": 0.0,
+        "defensive_area_line_center_to_sideline": 0.0,
+
+        "center_face_off_marker_shape": "square",
+        "center_face_off_marker_side_length": 0.0,
+        "center_face_off_marker_color_contrasting": true
       },
 
       "ncaam": {
