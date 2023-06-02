@@ -1421,26 +1421,25 @@ lacrosse_face_off_marker <- function(shape = "O",
                                      feature_thickness = 0,
                                      side_length = 0,
                                      feature_radius = 0) {
-  if (tolower(shape) == "o") {
-    face_off_marker <- create_circle(
+  # Create the face-off marker
+  face_off_marker <- switch(
+    tolower(shape),
+    "o" = create_circle(
       center = c(0, 0),
       start = 0,
       end = 2,
       r = feature_radius
-    )
-  } else if (tolower(shape) == "x") {
-    face_off_marker <- create_x_shape(
+    ),
+    "x" = create_x_shape(
       bar_length = side_length,
       bar_width = feature_thickness,
       rotation = 45
-    )
-  } else if (tolower(shape) == "square") {
-    face_off_marker <- create_square(
+    ),
+    "square" = create_square(
       side_length = side_length
-    )
-  } else {
-    face_off_marker <- data.frame(x = c(), y = c())
-  }
+    ),
+    data.frame(x = c(), y = c())
+  )
 
   return(face_off_marker)
 }
