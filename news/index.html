@@ -115,6 +115,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.2.0" id="sportyr-220">sportyR 2.2.0<a class="anchor" aria-label="anchor" href="#sportyr-220"></a></h2>
 <div class="section level3">
+<h3 id="patchesbug-fixes-2-2-0">Patches/Bug Fixes<a class="anchor" aria-label="anchor" href="#patchesbug-fixes-2-2-0"></a></h3>
+<ul><li>Fixed <a href="https://github.com/sportsdataverse/sportyR/issues/24" class="external-link">#24</a>. Invalid league errors should now be more explicit</li>
+</ul></div>
+<div class="section level3">
 <h3 id="changes-to-existing-sports-2-2-0">Changes to Existing Sports<a class="anchor" aria-label="anchor" href="#changes-to-existing-sports-2-2-0"></a></h3>
 <ul><li>MLB and MiLB bases are now 18” by default per the 2023 rules change</li>
 </ul></div>
@@ -133,7 +137,8 @@
 </div>
 <div class="section level3">
 <h3 id="internal-changes-2-2-0">Internal Changes<a class="anchor" aria-label="anchor" href="#internal-changes-2-2-0"></a></h3>
-<ul><li><p>Updated syntax in <code><a href="../reference/geom_football.html">geom_football()</a></code> to avoid tidy syntax deprecation warning</p></li>
+<ul><li><p>Re-aligned <code><a href="https://rdrr.io/r/base/switch.html" class="external-link">switch()</a></code> statements to have condition and cases with matching indentation to improve readability</p></li>
+<li><p>Updated syntax in <code><a href="../reference/geom_football.html">geom_football()</a></code> to avoid tidy syntax deprecation warning</p></li>
 <li><p>Added <code><a href="../reference/load_default_parameters.html">load_default_parameters()</a></code> function for faster debugging internally. This function allows all defaults of a particular <code>geom_{sport}()</code> function to be loaded and set as environment variables rather than having to set each one individually</p></li>
 <li><p>Updated <a href="https://github.com/sportsdataverse/sportyR/blob/main/data-raw/internal-datasets.R" class="external-link"><code>data-raw/internal-datasets.R</code></a> to clear environment and reload current version of package upon sourcing for debugging</p></li>
 </ul></div>
