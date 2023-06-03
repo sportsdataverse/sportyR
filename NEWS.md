@@ -1,5 +1,8 @@
 # sportyR 2.2.0
 
+## Patches/Bug Fixes
+- Fixed [#24](https://github.com/sportsdataverse/sportyR/issues/24). Invalid league errors should now be more explicit
+
 ## Changes to Existing Sports
 
 - MLB and MiLB bases are now 18" by default per the 2023 rules change
