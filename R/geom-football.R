@@ -1078,7 +1078,9 @@ geom_football <- function(league,
     (field_params$extra_apron_padding %or% 5)
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
+    xlims <- switch(
+      tolower(display_range),
+
       # Full surface
       "full" = c(-half_field_length, half_field_length),
       "in_bounds_only" = c(
@@ -1172,7 +1174,9 @@ geom_football <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
+    ylims <- switch(
+      tolower(display_range),
+
       # Full surface
       "full" = c(-half_field_width, half_field_width),
       "in_bounds_only" = c(

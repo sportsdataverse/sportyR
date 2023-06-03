@@ -16,7 +16,10 @@
 - World Lacrosse
 
 ## Internal Changes
+- Re-aligned `switch()` statements to have condition and cases with matching indentation to improve readability
+
 - Updated syntax in `geom_football()` to avoid tidy syntax deprecation warning
+
 - Added `load_default_parameters()` function for faster debugging internally. This function allows all defaults of a particular `geom_{sport}()` function to be loaded and set as environment variables rather than having to set each one individually
 
 - Updated [`data-raw/internal-datasets.R`](https://github.com/sportsdataverse/sportyR/blob/main/data-raw/internal-datasets.R) to clear environment and reload current version of package upon sourcing for debugging

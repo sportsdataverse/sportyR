@@ -661,7 +661,8 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
     theta <- acos(half_crease_width / feature_radius) / pi
   }
 
-  goal_crease_outline_df <- switch(crease_style,
+  goal_crease_outline_df <- switch(
+    crease_style,
 
     # nhl98 crease style: cut-off semi-circle (utilized in most North American
     # leagues, e.g. NHL, AHL)
@@ -954,7 +955,8 @@ hockey_goal_crease_fill <- function(feature_radius = 0,
     theta <- acos(half_crease_width / feature_radius) / pi
   }
 
-  goal_crease_fill_df <- switch(crease_style,
+  goal_crease_fill_df <- switch(
+    crease_style,
     "nhl98" = rbind(
       data.frame(
         x = c(

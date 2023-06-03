@@ -1121,24 +1121,26 @@ geom_lacrosse <- function(league,
     (field_params$field_apron_thickness %or% 0)
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_field_length, half_field_length),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Half-field plots
-                    "offense" = c(0, half_field_length),
-                    "offence" = c(0, half_field_length),
-                    "offensivehalffield" = c(0, half_field_length),
-                    "offensive_half_field" = c(0, half_field_length),
-                    "offensive half field" = c(0, half_field_length),
-                    "defense" = c(-half_field_length, 0),
-                    "defence" = c(-half_field_length, 0),
-                    "defensivehalffield" = c(-half_field_length, 0),
-                    "defensive_half_field" = c(-half_field_length, 0),
-                    "defensive half field" = c(-half_field_length, 0),
+      # Full surface
+      "full" = c(-half_field_length, half_field_length),
 
-                    # Default case
-                    c(-half_field_length, half_field_length)
+      # Half-field plots
+      "offense" = c(0, half_field_length),
+      "offence" = c(0, half_field_length),
+      "offensivehalffield" = c(0, half_field_length),
+      "offensive_half_field" = c(0, half_field_length),
+      "offensive half field" = c(0, half_field_length),
+      "defense" = c(-half_field_length, 0),
+      "defence" = c(-half_field_length, 0),
+      "defensivehalffield" = c(-half_field_length, 0),
+      "defensive_half_field" = c(-half_field_length, 0),
+      "defensive half field" = c(-half_field_length, 0),
+
+      # Default case
+      c(-half_field_length, half_field_length)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -1146,42 +1148,44 @@ geom_lacrosse <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_field_width, half_field_width),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Half-field plots
-                    "offense" = c(-half_field_width, half_field_width),
-                    "offence" = c(-half_field_width, half_field_width),
-                    "offensivehalffield" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "offensive_half_field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "offensive half field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "defense" = c(-half_field_width, half_field_width),
-                    "defence" = c(-half_field_width, half_field_width),
-                    "defensivehalffield" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "defensive_half_field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "defensive half field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
+      # Full surface
+      "full" = c(-half_field_width, half_field_width),
 
-                    # Default case
-                    c(-half_field_width, half_field_width)
+      # Half-field plots
+      "offense" = c(-half_field_width, half_field_width),
+      "offence" = c(-half_field_width, half_field_width),
+      "offensivehalffield" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "offensive_half_field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "offensive half field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "defense" = c(-half_field_width, half_field_width),
+      "defence" = c(-half_field_width, half_field_width),
+      "defensivehalffield" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "defensive_half_field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "defensive half field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+
+      # Default case
+      c(-half_field_width, half_field_width)
     )
 
     # Adjust the y limits of the plot per the specified y translation

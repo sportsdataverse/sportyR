@@ -875,7 +875,9 @@ geom_hockey <- function(league,
     5
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
+    xlims <- switch(
+      tolower(display_range),
+
       # Full surface
       "full" = c(-half_rink_length, half_rink_length),
       "in_bounds_only" = c(
@@ -980,7 +982,9 @@ geom_hockey <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
+    ylims <- switch(
+      tolower(display_range),
+
       # Full surface
       "full" = c(-(half_rink_width), half_rink_width),
       "in_bounds_only" = c(

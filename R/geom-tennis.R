@@ -476,48 +476,50 @@ geom_tennis <- function(league,
     5
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_court_length, half_court_length),
-                    "in_bounds_only" = c(
-                      -(
-                        ((court_params$court_length %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_length %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((court_params$court_length %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_length %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Service half
-                    "serve" = c(-half_court_length, 1.5),
-                    "serving" = c(-half_court_length, 1.5),
-                    "servicehalf" = c(-half_court_length, 1.5),
-                    "service_half" = c(-half_court_length, 1.5),
-                    "service half" = c(-half_court_length, 1.5),
-                    "servinghalf" = c(-half_court_length, 1.5),
-                    "serving_half" = c(-half_court_length, 1.5),
-                    "serving half" = c(-half_court_length, 1.5),
+      # Full surface
+      "full" = c(-half_court_length, half_court_length),
+      "in_bounds_only" = c(
+        -(
+          ((court_params$court_length %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_length %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((court_params$court_length %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_length %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
 
-                    # Receiving half
-                    "receive" = c(-1.5, half_court_length),
-                    "receiving" = c(-1.5, half_court_length),
-                    "receivicehalf" = c(-1.5, half_court_length),
-                    "receivice_half" = c(-1.5, half_court_length),
-                    "receivice half" = c(-1.5, half_court_length),
-                    "receivinghalf" = c(-1.5, half_court_length),
-                    "receiving_half" = c(-1.5, half_court_length),
-                    "receiving half" = c(-1.5, half_court_length),
+      # Service half
+      "serve" = c(-half_court_length, 1.5),
+      "serving" = c(-half_court_length, 1.5),
+      "servicehalf" = c(-half_court_length, 1.5),
+      "service_half" = c(-half_court_length, 1.5),
+      "service half" = c(-half_court_length, 1.5),
+      "servinghalf" = c(-half_court_length, 1.5),
+      "serving_half" = c(-half_court_length, 1.5),
+      "serving half" = c(-half_court_length, 1.5),
 
-                    # Default case
-                    c(-half_court_length, half_court_length)
+      # Receiving half
+      "receive" = c(-1.5, half_court_length),
+      "receiving" = c(-1.5, half_court_length),
+      "receivicehalf" = c(-1.5, half_court_length),
+      "receivice_half" = c(-1.5, half_court_length),
+      "receivice half" = c(-1.5, half_court_length),
+      "receivinghalf" = c(-1.5, half_court_length),
+      "receiving_half" = c(-1.5, half_court_length),
+      "receiving half" = c(-1.5, half_court_length),
+
+      # Default case
+      c(-half_court_length, half_court_length)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -525,48 +527,50 @@ geom_tennis <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_court_width, half_court_width),
-                    "in_bounds_only" = c(
-                      -(
-                        ((court_params$doubles_width %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$doubles_width %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((court_params$doubles_width %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$doubles_width %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Service half
-                    "serve" = c(-half_court_width, half_court_width),
-                    "serving" = c(-half_court_width, half_court_width),
-                    "servicehalf" = c(-half_court_width, half_court_width),
-                    "service_half" = c(-half_court_width, half_court_width),
-                    "service half" = c(-half_court_width, half_court_width),
-                    "servinghalf" = c(-half_court_width, half_court_width),
-                    "serving_half" = c(-half_court_width, half_court_width),
-                    "serving half" = c(-half_court_width, half_court_width),
+      # Full surface
+      "full" = c(-half_court_width, half_court_width),
+      "in_bounds_only" = c(
+        -(
+          ((court_params$doubles_width %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$doubles_width %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((court_params$doubles_width %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$doubles_width %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
 
-                    # Receiving half
-                    "receive" = c(-half_court_width, half_court_width),
-                    "receiving" = c(-half_court_width, half_court_width),
-                    "receivicehalf" = c(-half_court_width, half_court_width),
-                    "receivice_half" = c(-half_court_width, half_court_width),
-                    "receivice half" = c(-half_court_width, half_court_width),
-                    "receivinghalf" = c(-half_court_width, half_court_width),
-                    "receiving_half" = c(-half_court_width, half_court_width),
-                    "receiving half" = c(-half_court_width, half_court_width),
+      # Service half
+      "serve" = c(-half_court_width, half_court_width),
+      "serving" = c(-half_court_width, half_court_width),
+      "servicehalf" = c(-half_court_width, half_court_width),
+      "service_half" = c(-half_court_width, half_court_width),
+      "service half" = c(-half_court_width, half_court_width),
+      "servinghalf" = c(-half_court_width, half_court_width),
+      "serving_half" = c(-half_court_width, half_court_width),
+      "serving half" = c(-half_court_width, half_court_width),
 
-                    # Default case
-                    c(-half_court_width, half_court_width)
+      # Receiving half
+      "receive" = c(-half_court_width, half_court_width),
+      "receiving" = c(-half_court_width, half_court_width),
+      "receivicehalf" = c(-half_court_width, half_court_width),
+      "receivice_half" = c(-half_court_width, half_court_width),
+      "receivice half" = c(-half_court_width, half_court_width),
+      "receivinghalf" = c(-half_court_width, half_court_width),
+      "receiving_half" = c(-half_court_width, half_court_width),
+      "receiving half" = c(-half_court_width, half_court_width),
+
+      # Default case
+      c(-half_court_width, half_court_width)
     )
 
     # Adjust the y limits of the plot per the specified y translation

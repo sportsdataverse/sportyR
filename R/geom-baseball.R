@@ -487,18 +487,20 @@ geom_baseball <- function(league,
 
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(left_field_distance_x, right_field_distance_x),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Infield
-                    "infield" = c(
-                      left_infield_distance_x,
-                      right_infield_distance_x
-                    ),
+      # Full surface
+      "full" = c(left_field_distance_x, right_field_distance_x),
 
-                    # Default case
-                    c(left_field_distance_x, right_field_distance_x)
+      # Infield
+      "infield" = c(
+        left_infield_distance_x,
+        right_infield_distance_x
+      ),
+
+      # Default case
+      c(left_field_distance_x, right_field_distance_x)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -506,15 +508,17 @@ geom_baseball <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(backstop_radius_y, center_field_distance_y),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Infield
-                    "infield" = c(home_plate_circle_y, infield_arc_y),
+      # Full surface
+      "full" = c(backstop_radius_y, center_field_distance_y),
 
-                    # Default case
-                    c(backstop_radius_y, center_field_distance_y)
+      # Infield
+      "infield" = c(home_plate_circle_y, infield_arc_y),
+
+      # Default case
+      c(backstop_radius_y, center_field_distance_y)
     )
 
     # Adjust the y limits of the plot per the specified y translation

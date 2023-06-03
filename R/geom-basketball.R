@@ -1233,276 +1233,278 @@ geom_basketball <- function(league,
 
     lane_length <- max(court_params$lane_length) %or% 0
 
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_court_length, half_court_length),
-                    "in_bounds_only" = c(
-                      -(
-                        ((court_params$court_length %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_length %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((court_params$court_length %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_length %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Half-court plots
-                    "offense" = c(0, half_court_length),
-                    "offence" = c(0, half_court_length),
-                    "offensivehalfcourt" = c(0, half_court_length),
-                    "offensive_half_court" = c(0, half_court_length),
-                    "offensive half court" = c(0, half_court_length),
-                    "defense" = c(-half_court_length, 0),
-                    "defence" = c(-half_court_length, 0),
-                    "defensivehalfcourt" = c(-half_court_length, 0),
-                    "defensive_half_court" = c(-half_court_length, 0),
-                    "defensive half court" = c(-half_court_length, 0),
+      # Full surface
+      "full" = c(-half_court_length, half_court_length),
+      "in_bounds_only" = c(
+        -(
+          ((court_params$court_length %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_length %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((court_params$court_length %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_length %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
 
-                    # Offensive Key
-                    "offensivekey" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3,
-                      half_court_length
-                    ),
-                    "offensive_key" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3,
-                      half_court_length
-                    ),
-                    "offensive key" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3,
-                      half_court_length
-                    ),
-                    "attackingkey" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3,
-                      half_court_length
-                    ),
-                    "attacking_key" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3,
-                      half_court_length
-                    ),
-                    "attacking key" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3,
-                      half_court_length
-                    ),
+      # Half-court plots
+      "offense" = c(0, half_court_length),
+      "offence" = c(0, half_court_length),
+      "offensivehalfcourt" = c(0, half_court_length),
+      "offensive_half_court" = c(0, half_court_length),
+      "offensive half court" = c(0, half_court_length),
+      "defense" = c(-half_court_length, 0),
+      "defence" = c(-half_court_length, 0),
+      "defensivehalfcourt" = c(-half_court_length, 0),
+      "defensive_half_court" = c(-half_court_length, 0),
+      "defensive half court" = c(-half_court_length, 0),
 
-                    # Defensive Key
-                    "defensivekey" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3)
-                    ),
-                    "defensive_key" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3)
-                    ),
-                    "defensive key" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3)
-                    ),
-                    "defendingkey" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3)
-                    ),
-                    "defending_key" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3)
-                    ),
-                    "defending key" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        (court_params$basket_center_to_baseline %or% 0) -
-                        three_point_arc_distance -
-                        3)
-                    ),
+      # Offensive Key
+      "offensivekey" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3,
+        half_court_length
+      ),
+      "offensive_key" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3,
+        half_court_length
+      ),
+      "offensive key" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3,
+        half_court_length
+      ),
+      "attackingkey" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3,
+        half_court_length
+      ),
+      "attacking_key" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3,
+        half_court_length
+      ),
+      "attacking key" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3,
+        half_court_length
+      ),
 
-                    # Offensive Painted Area
-                    "offensivepaint" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "offensive_paint" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "offensive paint" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "attackingpaint" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "attacking_paint" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "attacking paint" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "offensivelane" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "offensive_lane" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "offensive lane" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "attackinglane" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "attacking_lane" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
-                    "attacking lane" = c(
-                      ((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius,
-                      half_court_length
-                    ),
+      # Defensive Key
+      "defensivekey" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3)
+      ),
+      "defensive_key" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3)
+      ),
+      "defensive key" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3)
+      ),
+      "defendingkey" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3)
+      ),
+      "defending_key" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3)
+      ),
+      "defending key" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          (court_params$basket_center_to_baseline %or% 0) -
+          three_point_arc_distance -
+          3)
+      ),
 
-                    # Defensive Painted Area
-                    "defensivepaint" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defensive_paint" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defensive paint" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defendingpaint" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defending_paint" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defending paint" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defensivelane" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defensive_lane" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defensive lane" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defendinglane" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defending_lane" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
-                    "defending lane" = c(
-                      -half_court_length,
-                      -(((court_params$court_length %or% 0) / 2) -
-                        lane_length -
-                        court_params$free_throw_circle_radius)
-                    ),
+      # Offensive Painted Area
+      "offensivepaint" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "offensive_paint" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "offensive paint" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "attackingpaint" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "attacking_paint" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "attacking paint" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "offensivelane" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "offensive_lane" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "offensive lane" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "attackinglane" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "attacking_lane" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
+      "attacking lane" = c(
+        ((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius,
+        half_court_length
+      ),
 
-                    # Default case
-                    c(-half_court_length, half_court_length)
+      # Defensive Painted Area
+      "defensivepaint" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defensive_paint" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defensive paint" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defendingpaint" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defending_paint" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defending paint" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defensivelane" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defensive_lane" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defensive lane" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defendinglane" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defending_lane" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+      "defending lane" = c(
+        -half_court_length,
+        -(((court_params$court_length %or% 0) / 2) -
+          lane_length -
+          court_params$free_throw_circle_radius)
+      ),
+
+      # Default case
+      c(-half_court_length, half_court_length)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -1512,102 +1514,104 @@ geom_basketball <- function(league,
   if (is.null(ylims)) {
     lane_width <- (max(court_params$lane_width) %or% 0) / 2
 
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_court_width, half_court_width),
-                    "in_bounds_only" = c(
-                      -(
-                        ((court_params$court_width %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_width %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((court_params$court_width %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_width %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Half-court plots
-                    "offense" = c(-half_court_width, half_court_width),
-                    "offence" = c(-half_court_width, half_court_width),
-                    "offensivehalfcourt" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "offensive_half_court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "offensive half court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "defense" = c(-half_court_width, half_court_width),
-                    "defence" = c(-half_court_width, half_court_width),
-                    "defensivehalfcourt" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "defensive_half_court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "defensive half court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
+      # Full surface
+      "full" = c(-half_court_width, half_court_width),
+      "in_bounds_only" = c(
+        -(
+          ((court_params$court_width %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_width %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((court_params$court_width %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_width %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
 
-                    # Offensive Key
-                    "offensivekey" = c(-half_court_width, half_court_width),
-                    "offensive_key" = c(-half_court_width, half_court_width),
-                    "offensive key" = c(-half_court_width, half_court_width),
-                    "attackingkey" = c(-half_court_width, half_court_width),
-                    "attacking_key" = c(-half_court_width, half_court_width),
-                    "attacking key" = c(-half_court_width, half_court_width),
+      # Half-court plots
+      "offense" = c(-half_court_width, half_court_width),
+      "offence" = c(-half_court_width, half_court_width),
+      "offensivehalfcourt" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "offensive_half_court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "offensive half court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "defense" = c(-half_court_width, half_court_width),
+      "defence" = c(-half_court_width, half_court_width),
+      "defensivehalfcourt" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "defensive_half_court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "defensive half court" = c(
+        -half_court_width,
+        half_court_width
+      ),
 
-                    # Defensive Key
-                    "defensivekey" = c(-half_court_width, half_court_width),
-                    "defensive_key" = c(-half_court_width, half_court_width),
-                    "defensive key" = c(-half_court_width, half_court_width),
-                    "defendingkey" = c(-half_court_width, half_court_width),
-                    "defending_key" = c(-half_court_width, half_court_width),
-                    "defending key" = c(-half_court_width, half_court_width),
+      # Offensive Key
+      "offensivekey" = c(-half_court_width, half_court_width),
+      "offensive_key" = c(-half_court_width, half_court_width),
+      "offensive key" = c(-half_court_width, half_court_width),
+      "attackingkey" = c(-half_court_width, half_court_width),
+      "attacking_key" = c(-half_court_width, half_court_width),
+      "attacking key" = c(-half_court_width, half_court_width),
 
-                    # Offensive Painted Area
-                    "offensivepaint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "offensive_paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "offensive paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "attackingpaint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "attacking_paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "attacking paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "offensivelane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "offensive_lane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "offensive lane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "attackinglane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "attacking_lane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "attacking lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      # Defensive Key
+      "defensivekey" = c(-half_court_width, half_court_width),
+      "defensive_key" = c(-half_court_width, half_court_width),
+      "defensive key" = c(-half_court_width, half_court_width),
+      "defendingkey" = c(-half_court_width, half_court_width),
+      "defending_key" = c(-half_court_width, half_court_width),
+      "defending key" = c(-half_court_width, half_court_width),
 
-                    # Defensive Painted Area
-                    "defensivepaint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defensive_paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defensive paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defendingpaint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defending_paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defending paint" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defensivelane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defensive_lane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defensive lane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defendinglane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defending_lane" = c(-lane_width - 1.5, lane_width + 1.5),
-                    "defending lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      # Offensive Painted Area
+      "offensivepaint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "offensive_paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "offensive paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "attackingpaint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "attacking_paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "attacking paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "offensivelane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "offensive_lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "offensive lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "attackinglane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "attacking_lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "attacking lane" = c(-lane_width - 1.5, lane_width + 1.5),
 
-                    # Default case
-                    c(-half_court_width, half_court_width)
+      # Defensive Painted Area
+      "defensivepaint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defensive_paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defensive paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defendingpaint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defending_paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defending paint" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defensivelane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defensive_lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defensive lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defendinglane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defending_lane" = c(-lane_width - 1.5, lane_width + 1.5),
+      "defending lane" = c(-lane_width - 1.5, lane_width + 1.5),
+
+      # Default case
+      c(-half_court_width, half_court_width)
     )
 
     # Adjust the y limits of the plot per the specified y translation
