@@ -347,6 +347,19 @@ geom_basketball <- function(league,
   # Get the dimensions for the specified league
   court_params <- surface_dimensions[["basketball"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(court_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the court parameters as necessary
   court_params <- utils::modifyList(court_params, court_updates)
 

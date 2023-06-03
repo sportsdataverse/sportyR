@@ -155,6 +155,19 @@ geom_curling <- function(league,
   # Get the dimensions for the specified league
   sheet_params <- surface_dimensions[["curling"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(sheet_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the sheet parameters as necessary
   sheet_params <- utils::modifyList(sheet_params, sheet_updates)
 

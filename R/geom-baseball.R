@@ -131,6 +131,19 @@ geom_baseball <- function(league,
   # Get the dimensions for the specified league
   field_params <- surface_dimensions[["baseball"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(field_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the field parameters as necessary
   field_params <- utils::modifyList(field_params, field_updates)
 

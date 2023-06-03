@@ -154,6 +154,19 @@ geom_soccer <- function(league,
   # Get the dimensions for the specified league
   pitch_params <- surface_dimensions[["soccer"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(pitch_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the pitch parameters as necessary
   pitch_params <- utils::modifyList(pitch_params, pitch_updates)
 
