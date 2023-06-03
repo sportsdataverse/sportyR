@@ -7,6 +7,75 @@
 #'
 #' @param plot_background A hexadecimal string representing the color to use for
 #'   this feature
+#' @param field_apron A hexadecimal string representing the color to use for
+#'   this feature
+#' @param defensive_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param neutral_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param offensive_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_a_bench A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_b_bench A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_a_penalty_box A hexadecimal string representing the color to use
+#'   for this feature
+#' @param team_b_penalty_box A hexadecimal string representing the color to use
+#'   for this feature
+#' @param off_field_officials_box A hexadecimal string representing the color to
+#'   use for this feature
+#' @param boards A hexadecimal string representing the color to use for this
+#'   feature
+#' @param end_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param sideline A hexadecimal string representing the color to use for this
+#'   feature
+#' @param center_line A hexadecimal string representing the color to use for
+#'   this feature
+#' @param wing_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param restraining_line A hexadecimal string representing the color to use
+#'   for this feature
+#' @param defensive_area_line A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param referee_crease A hexadecimal string representing the color to use for
+#'   this feature
+#' @param referee_crease_fill A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_circle A hexadecimal string representing the color to use for
+#'   this feature
+#' @param goal_circle_fill A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_arc A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_fan A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_fan_hash_mark A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_mouth_hash_mark A hexadecimal string representing the color to
+#'   use for this feature
+#' @param goal_mouth A hexadecimal string representing the color to use for this
+#'   feature
+#' @param below_goal_marking A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_frame A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_net A hexadecimal string representing the color to use for this
+#'   feature
+#' @param center_circle A hexadecimal string representing the color to use for
+#'   this feature
+#' @param center_face_off_marker A hexadecimal string representing the color to
+#'   use for this feature
+#' @param corner_face_off_marker A hexadecimal string representing the color to
+#'   use for this feature
+#' @param change_area_outline A hexadecimal string representing the color to use
+#'   for this feature
+#' @param change_area_fill A hexadecimal string representing the color to use
+#'   for this feature
+#'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
 #'

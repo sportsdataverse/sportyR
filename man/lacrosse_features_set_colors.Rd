@@ -46,6 +46,108 @@ lacrosse_features_set_colors(
 \arguments{
 \item{plot_background}{A hexadecimal string representing the color to use for
 this feature}
+
+\item{field_apron}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{defensive_zone}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{neutral_zone}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{offensive_zone}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{team_a_bench}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{team_b_bench}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{team_a_penalty_box}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{team_b_penalty_box}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{off_field_officials_box}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{boards}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{end_line}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{sideline}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{center_line}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{wing_line}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{restraining_line}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{defensive_area_line}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{goal_line}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{referee_crease}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{referee_crease_fill}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{goal_circle}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{goal_circle_fill}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{goal_arc}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{goal_fan}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{goal_fan_hash_mark}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{goal_mouth_hash_mark}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{goal_mouth}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{below_goal_marking}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{goal_frame}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{goal_net}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{center_circle}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{center_face_off_marker}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{corner_face_off_marker}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{change_area_outline}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{change_area_fill}{A hexadecimal string representing the color to use
+for this feature}
 }
 \value{
 A list of hexadecimal colors to use to color the features on the
