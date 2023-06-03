@@ -1208,6 +1208,22 @@ geom_lacrosse <- function(league,
 
       # Full surface
       "full" = c(-half_field_length, half_field_length),
+      "in_bounds_only" = c(
+        -(
+          ((field_params$field_length %or% 0) / 2) +
+            (field_params$boards_thickness %or% 0)
+        ),
+        ((field_params$field_length %or% 0) / 2) +
+          (field_params$boards_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((field_params$field_length %or% 0) / 2) +
+            (field_params$boards_thickness %or% 0)
+        ),
+        ((field_params$field_length %or% 0) / 2) +
+          (field_params$boards_thickness %or% 0)
+      ),
 
       # Half-field plots
       "offense" = c(0, half_field_length),
@@ -1235,6 +1251,22 @@ geom_lacrosse <- function(league,
 
       # Full surface
       "full" = c(-half_field_width, half_field_width),
+      "in_bounds_only" = c(
+        -(
+          ((field_params$field_width %or% 0) / 2) +
+            (field_params$boards_thickness %or% 0)
+        ),
+        ((field_params$field_width %or% 0) / 2) +
+          (field_params$boards_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((field_params$field_width %or% 0) / 2) +
+            (field_params$boards_thickness %or% 0)
+        ),
+        ((field_params$field_width %or% 0) / 2) +
+          (field_params$boards_thickness %or% 0)
+      ),
 
       # Half-field plots
       "offense" = c(-half_field_width, half_field_width),
@@ -1295,7 +1327,8 @@ geom_lacrosse <- function(league,
   field_plot <- field_plot +
     ggplot2::coord_fixed(
       xlim = xlims,
-      ylim = ylims
+      ylim = ylims,
+      expand = FALSE
     )
 
   # Return the ggplot2 instance
