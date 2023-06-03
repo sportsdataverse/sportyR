@@ -193,6 +193,19 @@ geom_hockey <- function(league,
   # Get the dimensions for the specified league
   rink_params <- surface_dimensions[["hockey"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(rink_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the rink parameters as necessary
   rink_params <- utils::modifyList(rink_params, rink_updates)
 
@@ -875,7 +888,9 @@ geom_hockey <- function(league,
     5
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
+    xlims <- switch(
+      tolower(display_range),
+
       # Full surface
       "full" = c(-half_rink_length, half_rink_length),
       "in_bounds_only" = c(
@@ -980,7 +995,9 @@ geom_hockey <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
+    ylims <- switch(
+      tolower(display_range),
+
       # Full surface
       "full" = c(-(half_rink_width), half_rink_width),
       "in_bounds_only" = c(

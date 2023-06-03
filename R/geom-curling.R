@@ -155,6 +155,19 @@ geom_curling <- function(league,
   # Get the dimensions for the specified league
   sheet_params <- surface_dimensions[["curling"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(sheet_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the sheet parameters as necessary
   sheet_params <- utils::modifyList(sheet_params, sheet_updates)
 
@@ -499,31 +512,33 @@ geom_curling <- function(league,
     5
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_sheet_width, half_sheet_width),
-                    "in_bounds_only" = c(
-                      -(
-                        ((sheet_params$sheet_width %or% 0) / 2) +
-                          0.5
-                      ),
-                      ((sheet_params$sheet_width %or% 0) / 2) +
-                        0.5
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((sheet_params$sheet_width %or% 0) / 2) +
-                          0.5
-                      ),
-                      ((sheet_params$sheet_width %or% 0) / 2) +
-                        0.5
-                    ),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # House
-                    "house" = c(-half_sheet_width, half_sheet_width),
+      # Full surface
+      "full" = c(-half_sheet_width, half_sheet_width),
+      "in_bounds_only" = c(
+        -(
+          ((sheet_params$sheet_width %or% 0) / 2) +
+            0.5
+        ),
+        ((sheet_params$sheet_width %or% 0) / 2) +
+          0.5
+      ),
+      "in bounds only" = c(
+        -(
+          ((sheet_params$sheet_width %or% 0) / 2) +
+            0.5
+        ),
+        ((sheet_params$sheet_width %or% 0) / 2) +
+          0.5
+      ),
 
-                    # Default case
-                    c(-half_sheet_width, half_sheet_width)
+      # House
+      "house" = c(-half_sheet_width, half_sheet_width),
+
+      # Default case
+      c(-half_sheet_width, half_sheet_width)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -534,31 +549,33 @@ geom_curling <- function(league,
     end_length <- (sheet_params$tee_line_to_center %or% 0) -
       (sheet_params$hog_line_to_tee_line %or% 0) -
       (sheet_params$courtesy_line_to_hog_line %or% 0)
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_sheet_length, half_sheet_length),
-                    "in_bounds_only" = c(
-                      -(
-                        ((sheet_params$sheet_length %or% 0) / 2) +
-                          0.5
-                      ),
-                      ((sheet_params$sheet_length %or% 0) / 2) +
-                        0.5
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((sheet_params$sheet_length %or% 0) / 2) +
-                          0.5
-                      ),
-                      ((sheet_params$sheet_length %or% 0) / 2) +
-                        0.5
-                    ),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # House
-                    "house" = c(end_length, half_sheet_length),
+      # Full surface
+      "full" = c(-half_sheet_length, half_sheet_length),
+      "in_bounds_only" = c(
+        -(
+          ((sheet_params$sheet_length %or% 0) / 2) +
+            0.5
+        ),
+        ((sheet_params$sheet_length %or% 0) / 2) +
+          0.5
+      ),
+      "in bounds only" = c(
+        -(
+          ((sheet_params$sheet_length %or% 0) / 2) +
+            0.5
+        ),
+        ((sheet_params$sheet_length %or% 0) / 2) +
+          0.5
+      ),
 
-                    # Default case
-                    c(-half_sheet_length, half_sheet_length)
+      # House
+      "house" = c(end_length, half_sheet_length),
+
+      # Default case
+      c(-half_sheet_length, half_sheet_length)
     )
 
     # Adjust the y limits of the plot per the specified y translation

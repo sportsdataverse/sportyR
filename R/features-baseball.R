@@ -427,7 +427,9 @@ baseball_catchers_box <- function(catchers_box_depth = 0,
   )
 
   # Cases ----------------------------------------------------------------------
-  catchers_box_df <- switch(tolower(catchers_box_shape),
+  catchers_box_df <- switch(
+    tolower(catchers_box_shape),
+
     # Rectangle cases
     "rect" = catchers_box_full_rectangle_df,
     "rectangle" = catchers_box_full_rectangle_df,
@@ -437,6 +439,8 @@ baseball_catchers_box <- function(catchers_box_depth = 0,
     "trap" = catchers_box_trapezoid_df,
     "trapezoid" = catchers_box_trapezoid_df,
     "trapezoidal" = catchers_box_trapezoid_df,
+
+    # Error if not a valid shape
     stop(message(
       glue::glue(
         "{catchers_box_shape} is not a valid shape for the catcher's box. ",

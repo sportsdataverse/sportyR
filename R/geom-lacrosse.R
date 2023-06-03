@@ -7,6 +7,75 @@
 #'
 #' @param plot_background A hexadecimal string representing the color to use for
 #'   this feature
+#' @param field_apron A hexadecimal string representing the color to use for
+#'   this feature
+#' @param defensive_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param neutral_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param offensive_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_a_bench A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_b_bench A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_a_penalty_box A hexadecimal string representing the color to use
+#'   for this feature
+#' @param team_b_penalty_box A hexadecimal string representing the color to use
+#'   for this feature
+#' @param off_field_officials_box A hexadecimal string representing the color to
+#'   use for this feature
+#' @param boards A hexadecimal string representing the color to use for this
+#'   feature
+#' @param end_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param sideline A hexadecimal string representing the color to use for this
+#'   feature
+#' @param center_line A hexadecimal string representing the color to use for
+#'   this feature
+#' @param wing_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param restraining_line A hexadecimal string representing the color to use
+#'   for this feature
+#' @param defensive_area_line A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param referee_crease A hexadecimal string representing the color to use for
+#'   this feature
+#' @param referee_crease_fill A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_circle A hexadecimal string representing the color to use for
+#'   this feature
+#' @param goal_circle_fill A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_arc A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_fan A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_fan_hash_mark A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_mouth_hash_mark A hexadecimal string representing the color to
+#'   use for this feature
+#' @param goal_mouth A hexadecimal string representing the color to use for this
+#'   feature
+#' @param below_goal_marking A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_frame A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_net A hexadecimal string representing the color to use for this
+#'   feature
+#' @param center_circle A hexadecimal string representing the color to use for
+#'   this feature
+#' @param center_face_off_marker A hexadecimal string representing the color to
+#'   use for this feature
+#' @param corner_face_off_marker A hexadecimal string representing the color to
+#'   use for this feature
+#' @param change_area_outline A hexadecimal string representing the color to use
+#'   for this feature
+#' @param change_area_fill A hexadecimal string representing the color to use
+#'   for this feature
+#'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot
 #'
@@ -202,6 +271,19 @@ geom_lacrosse <- function(league,
 
   # Get the dimensions for the specified league
   field_params <- surface_dimensions[["lacrosse"]][[league]]
+
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(field_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
 
   # Update the field parameters as necessary
   field_params <- utils::modifyList(field_params, field_updates)
@@ -1121,24 +1203,26 @@ geom_lacrosse <- function(league,
     (field_params$field_apron_thickness %or% 0)
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_field_length, half_field_length),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Half-field plots
-                    "offense" = c(0, half_field_length),
-                    "offence" = c(0, half_field_length),
-                    "offensivehalffield" = c(0, half_field_length),
-                    "offensive_half_field" = c(0, half_field_length),
-                    "offensive half field" = c(0, half_field_length),
-                    "defense" = c(-half_field_length, 0),
-                    "defence" = c(-half_field_length, 0),
-                    "defensivehalffield" = c(-half_field_length, 0),
-                    "defensive_half_field" = c(-half_field_length, 0),
-                    "defensive half field" = c(-half_field_length, 0),
+      # Full surface
+      "full" = c(-half_field_length, half_field_length),
 
-                    # Default case
-                    c(-half_field_length, half_field_length)
+      # Half-field plots
+      "offense" = c(0, half_field_length),
+      "offence" = c(0, half_field_length),
+      "offensivehalffield" = c(0, half_field_length),
+      "offensive_half_field" = c(0, half_field_length),
+      "offensive half field" = c(0, half_field_length),
+      "defense" = c(-half_field_length, 0),
+      "defence" = c(-half_field_length, 0),
+      "defensivehalffield" = c(-half_field_length, 0),
+      "defensive_half_field" = c(-half_field_length, 0),
+      "defensive half field" = c(-half_field_length, 0),
+
+      # Default case
+      c(-half_field_length, half_field_length)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -1146,42 +1230,44 @@ geom_lacrosse <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_field_width, half_field_width),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Half-field plots
-                    "offense" = c(-half_field_width, half_field_width),
-                    "offence" = c(-half_field_width, half_field_width),
-                    "offensivehalffield" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "offensive_half_field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "offensive half field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "defense" = c(-half_field_width, half_field_width),
-                    "defence" = c(-half_field_width, half_field_width),
-                    "defensivehalffield" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "defensive_half_field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
-                    "defensive half field" = c(
-                      -half_field_width,
-                      half_field_width
-                    ),
+      # Full surface
+      "full" = c(-half_field_width, half_field_width),
 
-                    # Default case
-                    c(-half_field_width, half_field_width)
+      # Half-field plots
+      "offense" = c(-half_field_width, half_field_width),
+      "offence" = c(-half_field_width, half_field_width),
+      "offensivehalffield" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "offensive_half_field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "offensive half field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "defense" = c(-half_field_width, half_field_width),
+      "defence" = c(-half_field_width, half_field_width),
+      "defensivehalffield" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "defensive_half_field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+      "defensive half field" = c(
+        -half_field_width,
+        half_field_width
+      ),
+
+      # Default case
+      c(-half_field_width, half_field_width)
     )
 
     # Adjust the y limits of the plot per the specified y translation

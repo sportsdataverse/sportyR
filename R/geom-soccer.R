@@ -154,6 +154,19 @@ geom_soccer <- function(league,
   # Get the dimensions for the specified league
   pitch_params <- surface_dimensions[["soccer"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(pitch_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the pitch parameters as necessary
   pitch_params <- utils::modifyList(pitch_params, pitch_updates)
 
@@ -532,44 +545,46 @@ geom_soccer <- function(league,
   half_pitch_width <- ((pitch_params$pitch_width %or% 0) / 2) + 5
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_pitch_length, half_pitch_length),
-                    "in_bounds_only" = c(
-                      -(
-                        ((pitch_params$pitch_length %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      ),
-                      (
-                        ((pitch_params$pitch_length %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      )
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((pitch_params$pitch_length %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      ),
-                      (
-                        ((pitch_params$pitch_length %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      )
-                    ),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Half-pitch plots
-                    "offense" = c(0, half_pitch_length),
-                    "offence" = c(0, half_pitch_length),
-                    "offensivehalfpitch" = c(0, half_pitch_length),
-                    "offensive_half_pitch" = c(0, half_pitch_length),
-                    "offensive half pitch" = c(0, half_pitch_length),
-                    "defense" = c(-half_pitch_length, 0),
-                    "defence" = c(-half_pitch_length, 0),
-                    "defensivehalfpitch" = c(-half_pitch_length, 0),
-                    "defensive_half_pitch" = c(-half_pitch_length, 0),
-                    "defensive half pitch" = c(-half_pitch_length, 0),
+      # Full surface
+      "full" = c(-half_pitch_length, half_pitch_length),
+      "in_bounds_only" = c(
+        -(
+          ((pitch_params$pitch_length %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        ),
+        (
+          ((pitch_params$pitch_length %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        )
+      ),
+      "in bounds only" = c(
+        -(
+          ((pitch_params$pitch_length %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        ),
+        (
+          ((pitch_params$pitch_length %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        )
+      ),
 
-                    # Default case
-                    c(-half_pitch_length, half_pitch_length)
+      # Half-pitch plots
+      "offense" = c(0, half_pitch_length),
+      "offence" = c(0, half_pitch_length),
+      "offensivehalfpitch" = c(0, half_pitch_length),
+      "offensive_half_pitch" = c(0, half_pitch_length),
+      "offensive half pitch" = c(0, half_pitch_length),
+      "defense" = c(-half_pitch_length, 0),
+      "defence" = c(-half_pitch_length, 0),
+      "defensivehalfpitch" = c(-half_pitch_length, 0),
+      "defensive_half_pitch" = c(-half_pitch_length, 0),
+      "defensive half pitch" = c(-half_pitch_length, 0),
+
+      # Default case
+      c(-half_pitch_length, half_pitch_length)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -577,62 +592,64 @@ geom_soccer <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_pitch_width, half_pitch_width),
-                    "in_bounds_only" = c(
-                      -(
-                        ((pitch_params$pitch_width %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      ),
-                      (
-                        ((pitch_params$pitch_width %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      )
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((pitch_params$pitch_width %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      ),
-                      (
-                        ((pitch_params$pitch_width %or% 0) / 2) +
-                          (pitch_params$line_thickness %or% 0)
-                      )
-                    ),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Half-pitch plots
-                    "offense" = c(-half_pitch_width, half_pitch_width),
-                    "offence" = c(-half_pitch_width, half_pitch_width),
-                    "offensivehalfpitch" = c(
-                      -half_pitch_width,
-                      half_pitch_width
-                    ),
-                    "offensive_half_pitch" = c(
-                      -half_pitch_width,
-                      half_pitch_width
-                    ),
-                    "offensive half pitch" = c(
-                      -half_pitch_width,
-                      half_pitch_width
-                    ),
-                    "defense" = c(-half_pitch_width, half_pitch_width),
-                    "defence" = c(-half_pitch_width, half_pitch_width),
-                    "defensivehalfpitch" = c(
-                      -half_pitch_width,
-                      half_pitch_width
-                    ),
-                    "defensive_half_pitch" = c(
-                      -half_pitch_width,
-                      half_pitch_width
-                    ),
-                    "defensive half pitch" = c(
-                      -half_pitch_width,
-                      half_pitch_width
-                    ),
+      # Full surface
+      "full" = c(-half_pitch_width, half_pitch_width),
+      "in_bounds_only" = c(
+        -(
+          ((pitch_params$pitch_width %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        ),
+        (
+          ((pitch_params$pitch_width %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        )
+      ),
+      "in bounds only" = c(
+        -(
+          ((pitch_params$pitch_width %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        ),
+        (
+          ((pitch_params$pitch_width %or% 0) / 2) +
+            (pitch_params$line_thickness %or% 0)
+        )
+      ),
 
-                    # Default case
-                    c(-half_pitch_width, half_pitch_width)
+      # Half-pitch plots
+      "offense" = c(-half_pitch_width, half_pitch_width),
+      "offence" = c(-half_pitch_width, half_pitch_width),
+      "offensivehalfpitch" = c(
+        -half_pitch_width,
+        half_pitch_width
+      ),
+      "offensive_half_pitch" = c(
+        -half_pitch_width,
+        half_pitch_width
+      ),
+      "offensive half pitch" = c(
+        -half_pitch_width,
+        half_pitch_width
+      ),
+      "defense" = c(-half_pitch_width, half_pitch_width),
+      "defence" = c(-half_pitch_width, half_pitch_width),
+      "defensivehalfpitch" = c(
+        -half_pitch_width,
+        half_pitch_width
+      ),
+      "defensive_half_pitch" = c(
+        -half_pitch_width,
+        half_pitch_width
+      ),
+      "defensive half pitch" = c(
+        -half_pitch_width,
+        half_pitch_width
+      ),
+
+      # Default case
+      c(-half_pitch_width, half_pitch_width)
     )
 
     # Adjust the y limits of the plot per the specified y translation

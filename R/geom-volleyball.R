@@ -182,6 +182,19 @@ geom_volleyball <- function(league,
   # Get the dimensions for the specified league
   court_params <- surface_dimensions[["volleyball"]][[league]]
 
+  # If the provided league is not currently supported, alert the user. This will
+  # manifest by having the parameters list be NULL
+  if (is.null(court_params)) {
+    stop(
+      glue::glue(
+        "Sorry, {toupper(league)} is not a viable league to plot ",
+        "at this time. Please create an issue on GitHub with the league's ",
+        "playing surface specifications for the league to be added to the ",
+        "package"
+      )
+    )
+  }
+
   # Update the court parameters as necessary
   court_params <- utils::modifyList(court_params, court_updates)
 
@@ -481,40 +494,42 @@ geom_volleyball <- function(league,
     (court_params$free_zone_sideline %or% 0)
 
   if (is.null(xlims)) {
-    xlims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_court_length, half_court_length),
-                    "in_bounds_only" = c(
-                      -(
-                        ((court_params$court_length %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_length %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((court_params$court_length %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_length %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
+    xlims <- switch(
+      tolower(display_range),
 
-                    # Half-court plots
-                    "offense" = c(0, half_court_length),
-                    "offence" = c(0, half_court_length),
-                    "offensivehalfcourt" = c(0, half_court_length),
-                    "offensive_half_court" = c(0, half_court_length),
-                    "offensive half court" = c(0, half_court_length),
-                    "defense" = c(-half_court_length, 0),
-                    "defence" = c(-half_court_length, 0),
-                    "defensivehalfcourt" = c(-half_court_length, 0),
-                    "defensive_half_court" = c(-half_court_length, 0),
-                    "defensive half court" = c(-half_court_length, 0),
+      # Full surface
+      "full" = c(-half_court_length, half_court_length),
+      "in_bounds_only" = c(
+        -(
+          ((court_params$court_length %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_length %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((court_params$court_length %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_length %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
 
-                    # Default case
-                    c(-half_court_length, half_court_length)
+      # Half-court plots
+      "offense" = c(0, half_court_length),
+      "offence" = c(0, half_court_length),
+      "offensivehalfcourt" = c(0, half_court_length),
+      "offensive_half_court" = c(0, half_court_length),
+      "offensive half court" = c(0, half_court_length),
+      "defense" = c(-half_court_length, 0),
+      "defence" = c(-half_court_length, 0),
+      "defensivehalfcourt" = c(-half_court_length, 0),
+      "defensive_half_court" = c(-half_court_length, 0),
+      "defensive half court" = c(-half_court_length, 0),
+
+      # Default case
+      c(-half_court_length, half_court_length)
     )
 
     # Adjust the x limits of the plot per the specified x translation
@@ -522,58 +537,60 @@ geom_volleyball <- function(league,
   }
 
   if (is.null(ylims)) {
-    ylims <- switch(tolower(display_range),
-                    # Full surface
-                    "full" = c(-half_court_width, half_court_width),
-                    "in_bounds_only" = c(
-                      -(
-                        ((court_params$court_width %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_width %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
-                    "in bounds only" = c(
-                      -(
-                        ((court_params$court_width %or% 0) / 2) +
-                          (court_params$line_thickness %or% 0)
-                      ),
-                      ((court_params$court_width %or% 0) / 2) +
-                        (court_params$line_thickness %or% 0)
-                    ),
+    ylims <- switch(
+      tolower(display_range),
 
-                    # Half-court plots
-                    "offense" = c(-half_court_width, half_court_width),
-                    "offence" = c(-half_court_width, half_court_width),
-                    "offensivehalfcourt" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "offensive_half_court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "offensive half court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "defense" = c(-half_court_width, half_court_width),
-                    "defence" = c(-half_court_width, half_court_width),
-                    "defensivehalfcourt" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "defensive_half_court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
-                    "defensive half court" = c(
-                      -half_court_width,
-                      half_court_width
-                    ),
+      # Full surface
+      "full" = c(-half_court_width, half_court_width),
+      "in_bounds_only" = c(
+        -(
+          ((court_params$court_width %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_width %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
+      "in bounds only" = c(
+        -(
+          ((court_params$court_width %or% 0) / 2) +
+            (court_params$line_thickness %or% 0)
+        ),
+        ((court_params$court_width %or% 0) / 2) +
+          (court_params$line_thickness %or% 0)
+      ),
 
-                    # Default case
-                    c(-half_court_width, half_court_width)
+      # Half-court plots
+      "offense" = c(-half_court_width, half_court_width),
+      "offence" = c(-half_court_width, half_court_width),
+      "offensivehalfcourt" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "offensive_half_court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "offensive half court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "defense" = c(-half_court_width, half_court_width),
+      "defence" = c(-half_court_width, half_court_width),
+      "defensivehalfcourt" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "defensive_half_court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+      "defensive half court" = c(
+        -half_court_width,
+        half_court_width
+      ),
+
+      # Default case
+      c(-half_court_width, half_court_width)
     )
 
     # Adjust the y limits of the plot per the specified y translation
