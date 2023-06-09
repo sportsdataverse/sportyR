@@ -1,3 +1,7 @@
+# sportyR 2.2.1
+
+- facetting in ggplot2 now works as expected (#27, @mrcaseb)
+
 # sportyR 2.2.0
 
 ## Patches/Bug Fixes
