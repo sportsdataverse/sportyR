@@ -59,6 +59,7 @@ create_plot_base <- function(plot_background = NULL) {
 #' @return A \code{ggplot2} instance with the feature added to it
 #'
 #' @keywords internal
+#' @importFrom rlang .data
 add_feature <- function(g,
                         x_anchor,
                         y_anchor,
@@ -106,36 +107,40 @@ add_feature <- function(g,
   if (reflect_x && reflect_y) {
     g <- g +
       ggplot2::geom_polygon(
+        data = df_1,
         ggplot2::aes(
-          x = df_1$x,
-          y = df_1$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
         color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
+        data = df_2,
         ggplot2::aes(
-          x = df_2$x,
-          y = df_2$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
         color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
+        data = df_3,
         ggplot2::aes(
-          x = df_3$x,
-          y = df_3$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
         color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
+        data = df_4,
         ggplot2::aes(
-          x = df_4$x,
-          y = df_4$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
@@ -144,18 +149,20 @@ add_feature <- function(g,
   } else if (reflect_x && !reflect_y) {
     g <- g +
       ggplot2::geom_polygon(
+        data = df_1,
         ggplot2::aes(
-          x = df_1$x,
-          y = df_1$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
         color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
+        data = df_2,
         ggplot2::aes(
-          x = df_2$x,
-          y = df_2$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
@@ -164,18 +171,20 @@ add_feature <- function(g,
   } else if (!reflect_x && reflect_y) {
     g <- g +
       ggplot2::geom_polygon(
+        data = df_1,
         ggplot2::aes(
-          x = df_1$x,
-          y = df_1$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
         color = feature_outline_color
       ) +
       ggplot2::geom_polygon(
+        data = df_4,
         ggplot2::aes(
-          x = df_4$x,
-          y = df_4$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
@@ -184,9 +193,10 @@ add_feature <- function(g,
   } else {
     g <- g +
       ggplot2::geom_polygon(
+        data = df_1,
         ggplot2::aes(
-          x = df_1$x,
-          y = df_1$y,
+          x = .data$x,
+          y = .data$y,
           group = group
         ),
         fill = feature_color,
