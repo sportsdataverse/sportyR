@@ -11,7 +11,6 @@ Authors@R:
         comment = c(ORCID = "0000-0002-0688-0235")
       )
     )
-Maintainer: Ross Drucker <ross.a.drucker@gmail.com>
 Description: Create scaled 'ggplot' representations of playing surfaces.
     Playing surfaces are drawn pursuant to rule-book specifications.
     This package should be used as a baseline plot for displaying any type of
@@ -32,7 +31,6 @@ Suggests:
     data.table,
     gganimate,
     testthat (>= 3.0.0),
-    roxygen2,
     knitr,
     rmarkdown,
     curl
