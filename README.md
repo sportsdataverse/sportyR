@@ -3,6 +3,7 @@
 
 # sportyR <img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"/>
 
+<!-- badges: start -->
 [![CRAN
 version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
 [![CRAN
@@ -15,6 +16,8 @@ downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&lab
 Follow](https://img.shields.io/twitter/follow/sportyR_pkg?&label=%40sportyR_pkg&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR_pkg)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
+<!-- badges: end -->
+
 
 As the field of sports analytics evolve, there’s a growing need for
 methods to both track and visualize players throughout the game. This
