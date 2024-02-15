@@ -1283,11 +1283,12 @@ lacrosse_player_bench_area_fill <- function(bench_area_outline_thickness = 0,
 #' the field surface. Each penalty box's outline will share the same color as
 #' the boards
 #'
-#' @param feature_thickness The thickness of the outline of the penalty box
+#' @param penalty_box_outline_thickness The thickness of the outline of the penalty box
 #' @param penalty_box_length The length of the penalty box
+#' @param penalty_box_width The width of the penalty box
+#' @param penalty_box_separation The separation between the two penalty boxes
 #' @param penalty_box_depth The depth at which the penalty box extends from the
 #'   outer edge of the boards
-#' @param penalty_box_separation The separation between the two penalty boxes
 #'
 #' @return A data frame containing the bounding coordinates of the penalty box
 #'
@@ -1369,7 +1370,7 @@ lacrosse_penalty_box_fill <- function(penalty_box_outline_thickness = 0,
 #' This will have the same thickness as the boards, but will be located outside
 #' the field surface
 #'
-#' @param feature_thickness The thickness of the outline of the off-field
+#' @param officials_box_thickness The thickness of the outline of the off-field
 #'   officials' box
 #' @param officials_box_length The length of the off-field officials' box
 #' @param officials_box_depth The depth at which the off-field officials' box

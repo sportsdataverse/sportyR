@@ -37,53 +37,77 @@ hockey_features_set_colors(
 \item{plot_background}{A hexadecimal string representing the color to use for
 this feature}
 
-\item{boards_color}{A hexadecimal string representing the color to use for
-this feature}
-
-\item{center_line_color}{A hexadecimal string representing the color to use
-for this feature}
-
-\item{blue_line_color}{A hexadecimal string representing the color to use for
-this feature}
-
-\item{goal_line_color}{A hexadecimal string representing the color to use for
-this feature}
-
-\item{goalkeepers_restricted_area_color}{A hexadecimal string representing
-the color to use for this feature}
-
-\item{goal_crease_outline_color}{A hexadecimal string representing the color
-to use for this feature}
-
-\item{goal_crease_fill_color}{A hexadecimal string representing the color to
-use for this feature}
-
-\item{referee_crease_color}{A hexadecimal string representing the color to
-use for this feature}
-
-\item{center_faceoff_spot_color}{A hexadecimal string representing the color
-to use for this feature}
-
-\item{faceoff_spot_outer_ring_color}{A hexadecimal string representing the
-color to use for this feature}
-
-\item{faceoff_spot_fill_color}{A hexadecimal string representing the color to
-use for this feature}
-
-\item{center_faceoff_circle_color}{A hexadecimal string representing the
-color to use for this feature}
-
-\item{non_center_faceoff_circle_color}{A hexadecimal string representing the
-color to use for this feature}
-
-\item{faceoff_line_color}{A hexadecimal string representing the color to use
-for this feature}
-
-\item{goal_color}{A hexadecimal string representing the color to use for this
+\item{boards}{A hexadecimal string representing the color to use for this
 feature}
 
-\item{goal_fill_color}{A hexadecimal string representing the color to use for
+\item{ozone_ice}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{nzone_ice}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{dzone_ice}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{center_line}{A hexadecimal string representing the color to use for
 this feature}
+
+\item{zone_line}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{goal_line}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{restricted_trapezoid}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{goal_crease_outline}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{goal_crease_fill}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{referee_crease}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{center_faceoff_spot}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{faceoff_spot_ring}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{faceoff_spot_stripe}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{center_faceoff_circle}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{odzone_faceoff_circle}{A hexadecimal string representing the color to
+use for this feature}
+
+\item{faceoff_line}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{goal_frame}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{goal_fill}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{team_a_bench}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{team_b_bench}{A hexadecimal string representing the color to use for
+this feature}
+
+\item{team_a_penalty_box}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{team_b_penalty_box}{A hexadecimal string representing the color to use
+for this feature}
+
+\item{off_ice_officials_box}{A hexadecimal string representing the color to
+use for this feature}
 }
 \value{
 A list of hexadecimal colors to use to color the features on the

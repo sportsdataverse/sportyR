@@ -35,7 +35,7 @@ restricted area
 }
 \description{
 NOTE: This is not a requirement in all leagues, and may be omitted via the
-"has_trapezoid" key in the \code{rink_params} passed to geom_{league}
+"has_trapezoid" key in the \code{rink_params} passed to \code{geom_{league}}
 }
 \details{
 This draws the goaltender's restricted area on the right side (in TV view) of

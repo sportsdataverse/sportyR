@@ -468,7 +468,7 @@ hockey_goal_line <- function(rink_length = 0,
 #' by 'minor_line_thickness' as this is a minor line on the ice surface
 #'
 #' NOTE: This is not a requirement in all leagues, and may be omitted via the
-#' "has_trapezoid" key in the \code{rink_params} passed to geom_{league}
+#' "has_trapezoid" key in the \code{rink_params} passed to \code{geom_{league}}
 #'
 #' This draws the goaltender's restricted area on the right side (in TV view) of
 #' the ice surface. The figure is composed of lines that outline a trapezoid in

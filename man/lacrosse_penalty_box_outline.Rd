@@ -16,14 +16,16 @@ lacrosse_penalty_box_outline(
 )
 }
 \arguments{
+\item{penalty_box_outline_thickness}{The thickness of the outline of the penalty box}
+
 \item{penalty_box_length}{The length of the penalty box}
+
+\item{penalty_box_width}{The width of the penalty box}
 
 \item{penalty_box_separation}{The separation between the two penalty boxes}
 
 \item{penalty_box_depth}{The depth at which the penalty box extends from the
 outer edge of the boards}
-
-\item{feature_thickness}{The thickness of the outline of the penalty box}
 }
 \value{
 A data frame containing the bounding coordinates of the penalty box

@@ -21,7 +21,7 @@ basketball_free_throw_circle_dash(
 \item{start_angle}{The angle, in \code{radians / pi}, at which the dash
 should start}
 
-\item{end_angleThe}{angle, in \code{radians / pi}, at which the dash should
+\item{end_angle}{The angle, in \code{radians / pi}, at which the dash should
 end}
 }
 \value{

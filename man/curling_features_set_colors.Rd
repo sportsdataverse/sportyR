@@ -26,6 +26,12 @@ curling_features_set_colors(
 \item{plot_background}{A hexadecimal string representing the color to use for
 this feature}
 
+\item{end_1}{A hexadecimal string representing the color to use for this
+feature}
+
+\item{end_2}{A hexadecimal string representing the color to use for this
+feature}
+
 \item{sheet_apron}{A hexadecimal string representing the color to use for
 this feature}
 
@@ -53,17 +59,11 @@ feature}
 \item{button}{A hexadecimal string representing the color to use for this
 feature}
 
-\item{sheet}{A hexadecimal string representing the color to use for this
-feature}
+\item{house_rings}{A vector of hexadecimal strings representing the color(s)
+to use for this feature}
 
-\item{ring_1}{A hexadecimal string representing the color to use for this
-feature}
-
-\item{ring_2}{A hexadecimal string representing the color to use for this
-feature}
-
-\item{ring_3}{A hexadecimal string representing the color to use for this
-feature}
+\item{center_zone}{A hexadecimal string representing the color to use for
+this feature}
 }
 \value{
 A list of hexadecimal colors to use to color the features on the

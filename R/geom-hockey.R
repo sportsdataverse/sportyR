@@ -7,38 +7,54 @@
 #'
 #' @param plot_background A hexadecimal string representing the color to use for
 #'   this feature
-#' @param boards_color A hexadecimal string representing the color to use for
-#'   this feature
-#' @param center_line_color A hexadecimal string representing the color to use
-#'   for this feature
-#' @param blue_line_color A hexadecimal string representing the color to use for
-#'   this feature
-#' @param goal_line_color A hexadecimal string representing the color to use for
-#'   this feature
-#' @param goalkeepers_restricted_area_color A hexadecimal string representing
-#'   the color to use for this feature
-#' @param goal_crease_outline_color A hexadecimal string representing the color
-#'   to use for this feature
-#' @param goal_crease_fill_color A hexadecimal string representing the color to
-#'   use for this feature
-#' @param referee_crease_color A hexadecimal string representing the color to
-#'   use for this feature
-#' @param center_faceoff_spot_color A hexadecimal string representing the color
-#'   to use for this feature
-#' @param faceoff_spot_outer_ring_color A hexadecimal string representing the
-#'   color to use for this feature
-#' @param faceoff_spot_fill_color A hexadecimal string representing the color to
-#'   use for this feature
-#' @param center_faceoff_circle_color A hexadecimal string representing the
-#'   color to use for this feature
-#' @param non_center_faceoff_circle_color A hexadecimal string representing the
-#'   color to use for this feature
-#' @param faceoff_line_color A hexadecimal string representing the color to use
-#'   for this feature
-#' @param goal_color A hexadecimal string representing the color to use for this
+#' @param boards A hexadecimal string representing the color to use for this
 #'   feature
-#' @param goal_fill_color A hexadecimal string representing the color to use for
+#' @param ozone_ice A hexadecimal string representing the color to use for this
+#'   feature
+#' @param nzone_ice A hexadecimal string representing the color to use for this
+#'   feature
+#' @param dzone_ice A hexadecimal string representing the color to use for this
+#'   feature
+#' @param center_line A hexadecimal string representing the color to use for
 #'   this feature
+#' @param zone_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_line A hexadecimal string representing the color to use for this
+#'   feature
+#' @param restricted_trapezoid A hexadecimal string representing the color to
+#'   use for this feature
+#' @param goal_crease_outline A hexadecimal string representing the color to use
+#'   for this feature
+#' @param goal_crease_fill A hexadecimal string representing the color to use
+#'   for this feature
+#' @param referee_crease A hexadecimal string representing the color to use for
+#'   this feature
+#' @param center_faceoff_spot A hexadecimal string representing the color to use
+#'   for this feature
+#' @param faceoff_spot_ring A hexadecimal string representing the color to use
+#'   for this feature
+#' @param faceoff_spot_stripe A hexadecimal string representing the color to use
+#'   for this feature
+#' @param center_faceoff_circle A hexadecimal string representing the color to
+#'   use for this feature
+#' @param odzone_faceoff_circle A hexadecimal string representing the color to
+#'   use for this feature
+#' @param faceoff_line A hexadecimal string representing the color to use for
+#'   this feature
+#' @param goal_frame A hexadecimal string representing the color to use for this
+#'   feature
+#' @param goal_fill A hexadecimal string representing the color to use for this
+#'   feature
+#' @param team_a_bench A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_b_bench A hexadecimal string representing the color to use for
+#'   this feature
+#' @param team_a_penalty_box A hexadecimal string representing the color to use
+#'   for this feature
+#' @param team_b_penalty_box A hexadecimal string representing the color to use
+#'   for this feature
+#' @param off_ice_officials_box A hexadecimal string representing the color to
+#'   use for this feature
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot

@@ -370,7 +370,7 @@ football_sideline <- function(feature_thickness = 0,
 #' @param field_width The width of the field
 #' @param feature_thickness The thickness of the field border
 #' @param endzone_length The length of the endzone
-#' @param boundary_thickness The thickness of the boundary lines
+#' @param boundary_line_thickness The thickness of the boundary lines
 #' @param restricted_area_length The length of the restricted area
 #' @param restricted_area_width The width of the restricted area
 #' @param coaching_box_length The length of the coaching box
@@ -570,7 +570,7 @@ football_field_border <- function(field_length = 0,
 #' @param field_width The width of the field
 #' @param feature_thickness The thickness of the field border's outline
 #' @param endzone_length The length of the endzone
-#' @param boundary_thickness The thickness of the boundary lines
+#' @param boundary_line_thickness The thickness of the boundary lines
 #' @param restricted_area_length The length of the restricted area
 #' @param restricted_area_width The width of the restricted area
 #' @param coaching_box_length The length of the coaching box

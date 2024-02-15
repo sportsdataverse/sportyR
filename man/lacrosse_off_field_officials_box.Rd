@@ -12,13 +12,13 @@ lacrosse_off_field_officials_box(
 )
 }
 \arguments{
+\item{officials_box_thickness}{The thickness of the outline of the off-field
+officials' box}
+
 \item{officials_box_length}{The length of the off-field officials' box}
 
 \item{officials_box_depth}{The depth at which the off-field officials' box
 extends from the outer edge of the boards}
-
-\item{feature_thickness}{The thickness of the outline of the off-field
-officials' box}
 }
 \value{
 A data frame containing the bounding coordinates of the off-field

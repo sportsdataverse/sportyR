@@ -34,6 +34,8 @@ football_field_border_outline(
 
 \item{endzone_length}{The length of the endzone}
 
+\item{boundary_line_thickness}{The thickness of the boundary lines}
+
 \item{restricted_area_length}{The length of the restricted area}
 
 \item{restricted_area_width}{The width of the restricted area}
@@ -60,8 +62,6 @@ should surround the team bench}
 
 \item{bench_shape}{A string of the shape of the bench. Currently, this checks
 for \code{"rectangle"}}
-
-\item{boundary_thickness}{The thickness of the boundary lines}
 }
 \value{
 A data frame of the bounding box of the field border's outline

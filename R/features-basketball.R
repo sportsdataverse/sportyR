@@ -107,7 +107,7 @@ basketball_two_point_range <- function(basket_center_to_baseline = 0,
 #' the court coloring inside of the inner edge of this circle
 #'
 #' @param center_circle_radius The outer radius of the center circle
-#' @param linethickness The thickness of the line that comprises the center
+#' @param line_thickness The thickness of the line that comprises the center
 #'   circle
 #'
 #' @return A data frame of the boundary of the center circle. The interior of
@@ -138,8 +138,8 @@ basketball_center_circle_fill <- function(center_circle_radius = 0,
 #' @param lane_width The width of the free throw
 #' @param paint_margin The distance from the painted area of the lane to the
 #'   free throw lane boundary lines
-#' @param free_throw_lane_boundary_line_thickness The thickness of the line of
-#'   the free throw lane
+#' @param line_thickness The thickness of the line of the free throw lane
+#'   boundary line
 #'
 #' @return A data frame of the bounding coordinates of the free throw lane's
 #'   painted area
@@ -552,7 +552,7 @@ basketball_free_throw_circle <- function(overhang = 0,
 #' @param line_thickness The thickness of the dash
 #' @param start_angle The angle, in \code{radians / pi}, at which the dash
 #'   should start
-#' @param end_angleThe angle, in \code{radians / pi}, at which the dash should
+#' @param end_angle The angle, in \code{radians / pi}, at which the dash should
 #'   end
 #'
 #' @returns A data frame containing the bounding coordinates of a dash on the

@@ -7,7 +7,11 @@
 #'
 #' @param plot_background A hexadecimal string representing the color to use for
 #'   this feature
-#' @param sheet A hexadecimal string representing the color to use for this
+#' @param end_1 A hexadecimal string representing the color to use for this
+#'   feature
+#' @param center_zone A hexadecimal string representing the color to use for
+#'   this feature
+#' @param end_2 A hexadecimal string representing the color to use for this
 #'   feature
 #' @param sheet_apron A hexadecimal string representing the color to use for
 #'   this feature
@@ -27,12 +31,8 @@
 #'   feature
 #' @param button A hexadecimal string representing the color to use for this
 #'   feature
-#' @param ring_1 A hexadecimal string representing the color to use for this
-#'   feature
-#' @param ring_2 A hexadecimal string representing the color to use for this
-#'   feature
-#' @param ring_3 A hexadecimal string representing the color to use for this
-#'   feature
+#' @param house_rings A vector of hexadecimal strings representing the color(s)
+#'   to use for this feature
 #'
 #' @return A list of hexadecimal colors to use to color the features on the
 #'   resulting plot

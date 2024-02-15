@@ -21,8 +21,8 @@ basketball_painted_area(
 \item{paint_margin}{The distance from the painted area of the lane to the
 free throw lane boundary lines}
 
-\item{free_throw_lane_boundary_line_thickness}{The thickness of the line of
-the free throw lane}
+\item{line_thickness}{The thickness of the line of the free throw lane
+boundary line}
 }
 \value{
 A data frame of the bounding coordinates of the free throw lane's

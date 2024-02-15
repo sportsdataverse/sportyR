@@ -11,7 +11,7 @@ basketball_center_circle_fill(center_circle_radius = 0, line_thickness = 0)
 \arguments{
 \item{center_circle_radius}{The outer radius of the center circle}
 
-\item{linethickness}{The thickness of the line that comprises the center
+\item{line_thickness}{The thickness of the line that comprises the center
 circle}
 }
 \value{
