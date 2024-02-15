@@ -9,7 +9,7 @@
 #'   this feature
 #' @param end_1 A hexadecimal string representing the color to use for this
 #'   feature
-#' @param center_zone A hexadecimal string representing the color to use for
+#' @param centre_zone A hexadecimal string representing the color to use for
 #'   this feature
 #' @param end_2 A hexadecimal string representing the color to use for this
 #'   feature
