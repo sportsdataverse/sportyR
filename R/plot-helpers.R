@@ -19,9 +19,9 @@ create_plot_base <- function(plot_background = NULL) {
   g <- ggplot2::ggplot() +
     ggplot2::theme(
       plot.margin = ggplot2::margin(
-        t = -1,
+        t = 0,
         r = 0,
-        b = -1,
+        b = 0,
         l = 0,
         unit = "cm"
       ),
