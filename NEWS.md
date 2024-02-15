@@ -1,7 +1,10 @@
+# sportyR 
+
 # sportyR 2.2.1
 
 - Faceting in `{ggplot2}` now works as expected (#27, @mrcaseb)
 - Fixed link in vignette to point to POSIT, not RStudio
+- Fixed [#32](https://github.com/sportsdataverse/sportyR/issues32) with plot titles not displaying correctly
 
 # sportyR 2.2.0
 
