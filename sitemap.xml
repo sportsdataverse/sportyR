@@ -1,612 +1,206 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/404.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/CODE-OF-CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/articles/animating-tracking-data.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/articles/customize-plot.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/articles/plotting-tracking-data.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/articles/sportyR.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/index.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/add_feature.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_base.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_batters_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_catchers_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_foul_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_home_plate.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_infield_dirt.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_infield_grass.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_pitchers_mound.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_pitchers_plate.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/baseball_running_lane.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_backboard.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_basket_ring.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_center_circle_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_center_circle_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_court_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_division_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_endline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_circle_dash.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_circle_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_lane_boundary.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_half_court.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_inbounding_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_lane_space_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_lower_defensive_box_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_net.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_painted_area.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_restricted_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_substitution_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_team_bench_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_three_point_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/basketball_two_point_range.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/cani_color_league_features.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/cani_plot_league.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/cani_plot_sport.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/convert_units.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/create_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/create_diamond.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/create_plot_base.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/create_rectangle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/create_square.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/create_x_shape.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_back_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_button.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_centre_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_centre_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_courtesy_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_end.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_hack_foothold.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_hack_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_hog_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_house_ring.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_sheet_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/curling_tee_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/distance_formula.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_coaching_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_coaching_box_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_directional_arrow.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_end_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_endzone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_field_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_field_border.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_field_border_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_half_field.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_major_yard_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_minor_yard_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_red_zone_border.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_red_zone_border_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_restricted_area.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_team_bench_area.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_team_bench_area_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/football_try_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_baseball.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_basketball.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_curling.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_football.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_hockey.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_lacrosse.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_soccer.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_tennis.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/geom_volleyball.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/grapes-or-grapes.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_boards.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_center_faceoff_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_center_faceoff_spot.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_defensive_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_crease_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_crease_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_frame.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_frame_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_goaltenders_restricted_area.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_neutral_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_nodzone_faceoff_spot_ring.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_nodzone_faceoff_spot_stripe.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_odzone_faceoff_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_odzone_faceoff_lines.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_off_ice_officials_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_offensive_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_penalty_box_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_penalty_box_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_player_bench_area_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_player_bench_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_referee_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/hockey_zone_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/is_hex.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_below_goal_marking.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_boards.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_change_area_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_change_area_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_defensive_area_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_defensive_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_end_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_face_off_marker.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_field_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_circle_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_fan.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_fan_hash_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_frame.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_mouth.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_mouth_hash_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_net.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_neutral_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_off_field_officials_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_offensive_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_penalty_box_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_penalty_box_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_player_bench_area_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_player_bench_outline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_referee_crease.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_referee_crease_fill.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_restraining_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/lacrosse_wing_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/load_default_parameters.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/quadratic_formula.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/reflect.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/rotate_coords.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_center_circle.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_corner_arc.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_corner_defensive_marks.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_goal.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_goal_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_goal_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_half_pitch.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_halfway_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_penalty_box.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_penalty_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_pitch_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/soccer_touchline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/surface_dimensions.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_backcourt.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_baseline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_center_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_center_serviceline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_court_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_doubles_alley.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_frontcourt_half.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_net.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_serviceline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/tennis_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_attack_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_backcourt.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_center_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_court_apron.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_end_line.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_features_set_colors.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_free_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_front_zone.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_service_zone_mark.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_sideline.html</loc>
-  </url>
-  <url>
-    <loc>https://sportyR.sportsdataverse.org/reference/volleyball_substitution_zone_dash.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://sportyR.sportsdataverse.org/404.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/CODE-OF-CONDUCT.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/CONTRIBUTING.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/articles/animating-tracking-data.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/articles/customize-plot.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/articles/index.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/articles/plotting-tracking-data.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/articles/sportyR.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/authors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/index.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/news/index.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/add_feature.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_base.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_batters_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_catchers_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_foul_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_home_plate.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_infield_dirt.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_infield_grass.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_pitchers_mound.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_pitchers_plate.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/baseball_running_lane.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_backboard.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_basket_ring.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_center_circle_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_center_circle_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_court_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_division_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_endline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_circle_dash.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_circle_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_free_throw_lane_boundary.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_half_court.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_inbounding_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_lane_space_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_lower_defensive_box_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_net.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_painted_area.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_restricted_arc.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_sideline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_substitution_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_team_bench_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_three_point_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/basketball_two_point_range.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/cani_color_league_features.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/cani_plot_league.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/cani_plot_sport.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/convert_units.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/create_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/create_diamond.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/create_plot_base.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/create_rectangle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/create_square.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/create_x_shape.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_back_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_button.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_centre_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_centre_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_courtesy_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_end.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_hack_foothold.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_hack_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_hog_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_house_ring.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_sheet_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/curling_tee_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/distance_formula.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_coaching_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_coaching_box_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_directional_arrow.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_end_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_endzone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_field_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_field_border.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_field_border_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_goal_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_half_field.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_major_yard_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_minor_yard_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_red_zone_border.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_red_zone_border_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_restricted_area.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_sideline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_team_bench_area.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_team_bench_area_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/football_try_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_baseball.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_basketball.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_curling.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_football.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_hockey.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_lacrosse.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_soccer.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_tennis.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/geom_volleyball.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/grapes-or-grapes.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_boards.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_center_faceoff_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_center_faceoff_spot.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_center_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_defensive_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_crease_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_crease_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_frame.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_frame_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_goal_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_goaltenders_restricted_area.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_neutral_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_nodzone_faceoff_spot_ring.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_nodzone_faceoff_spot_stripe.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_odzone_faceoff_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_odzone_faceoff_lines.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_off_ice_officials_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_offensive_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_penalty_box_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_penalty_box_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_player_bench_area_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_player_bench_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_referee_crease.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/hockey_zone_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/index.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/is_hex.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_below_goal_marking.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_boards.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_center_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_center_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_change_area_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_change_area_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_defensive_area_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_defensive_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_end_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_face_off_marker.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_field_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_arc.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_circle_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_fan.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_fan_hash_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_frame.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_mouth.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_mouth_hash_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_goal_net.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_neutral_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_off_field_officials_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_offensive_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_penalty_box_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_penalty_box_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_player_bench_area_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_player_bench_outline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_referee_crease.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_referee_crease_fill.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_restraining_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_sideline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/lacrosse_wing_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/load_default_parameters.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/quadratic_formula.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/reflect.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/rotate_coords.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_center_circle.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_center_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_corner_arc.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_corner_defensive_marks.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_goal.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_goal_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_goal_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_half_pitch.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_halfway_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_penalty_box.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_penalty_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_pitch_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/soccer_touchline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/surface_dimensions.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_backcourt.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_baseline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_center_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_center_serviceline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_court_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_doubles_alley.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_frontcourt_half.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_net.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_serviceline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/tennis_sideline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_attack_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_backcourt.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_center_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_court_apron.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_end_line.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_features_set_colors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_free_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_front_zone.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_service_zone_mark.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_sideline.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/reference/volleyball_substitution_zone_dash.html</loc></url>
 </urlset>
+

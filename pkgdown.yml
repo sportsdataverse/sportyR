@@ -1,13 +1,12 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   animating-tracking-data: animating-tracking-data.html
   customize-plot: customize-plot.html
   plotting-tracking-data: plotting-tracking-data.html
   sportyR: sportyR.html
-last_built: 2024-02-15T09:41Z
+last_built: 2024-12-29T22:59Z
 urls:
   reference: https://sportyR.sportsdataverse.org/reference
   article: https://sportyR.sportsdataverse.org/articles
-
