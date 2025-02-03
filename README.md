@@ -6,7 +6,7 @@
 
 <!-- badges: start -->
 [![CRAN
-version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=CRAN version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
+version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=CRAN%20version&prefix=v&query=%24.Version&url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
 [![CRAN
 downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=Downloads&query=%24[0].downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&logo=R&style=flat&color=ff552e&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/)
