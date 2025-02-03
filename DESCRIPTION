@@ -1,6 +1,6 @@
 Package: sportyR
 Title: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces
-Version: 2.2.2
+Version: 2.2.3
 Authors@R: 
     c(
       person(
@@ -18,7 +18,7 @@ Description: Create scaled 'ggplot' representations of playing surfaces.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports: 
     ggfittext,
     ggplot2,
@@ -26,7 +26,7 @@ Imports:
     grid,
     rlang
 Depends: 
-    R (>= 3.3)
+    R (>= 3.5)
 Suggests: 
     data.table,
     gganimate,

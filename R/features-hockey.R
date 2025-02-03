@@ -1347,8 +1347,12 @@ hockey_goal_frame <- function(feature_radius = 0,
 
   # Compute the location of the point to use to trace out the rounded corners of
   # the goal
-  goal_arc_center_x <- goal_depth - feature_radius
-  goal_arc_center_y <- (goal_back_width / 2) - feature_radius
+  goal_arc_center_x <- goal_depth - feature_radius - goal_post_diameter
+  goal_arc_center_y <- (
+    (goal_back_width / 2) - 
+      feature_radius + 
+      (goal_post_diameter / 2)
+  )
 
   # Trace the path of the goal frame, starting with the exterior
   goal_frame_df <- rbind(
@@ -1424,8 +1428,12 @@ hockey_goal_frame_fill <- function(feature_radius = 0,
 
   # Compute the location of the point to use to trace out the rounded corners of
   # the goal
-  goal_arc_center_x <- goal_depth - feature_radius
-  goal_arc_center_y <- (goal_back_width / 2) - feature_radius
+  goal_arc_center_x <- goal_depth - feature_radius - goal_post_diameter
+  goal_arc_center_y <- (
+  (goal_back_width / 2) -
+    feature_radius +
+    (goal_post_diameter / 2)
+  )
 
   # Trace the path of the goal frame's interior
   goal_frame_fill_df <- rbind(

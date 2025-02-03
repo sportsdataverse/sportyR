@@ -1,5 +1,9 @@
 # sportyR 
 
+# sportyR 2.2.3
+
+- Fixed [#38](https://github.com/sportsdataverse/sportyR/issues/38) to natively support PWHL
+
 # sportyR 2.2.2
 
 - Fixed [#32](https://github.com/sportsdataverse/sportyR/issues/32) with plot titles not displaying correctly
