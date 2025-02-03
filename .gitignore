@@ -10,5 +10,5 @@ inst/doc
 /Meta/
 data-raw/rule-books/
 vignettes/*.png
-
+cache/
 /.quarto/

@@ -64,3 +64,4 @@
 ^pkgdown$
 ^doc$
 ^Meta$
+^cache/
