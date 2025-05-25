@@ -1,4 +1,33 @@
 {
+   "badminton": {
+        "custom": {
+            "court_length": 0.0,
+            "singles_width": 0.0,
+            "court_units": "",
+            "doubles_width": 0.0,
+            "serviceline_distance": 0.0,
+            "centerline_length": 0.0,
+            "net_length": 0.0,
+            "line_thickness": 0.0,
+            "backstop_distance": 0.0,
+            "sidestop_distance": 0
+        },
+
+        "bwf": {
+            "court_length": 13.4,
+            "singles_width": 2.53,
+            "court_units": "m",
+            "doubles_width": 6.1,
+            "short_serviceline_distance": 1.98,
+            "long_serviceline_distance": 5.86,
+            "centerline_length": 4.64,
+            "net_length": 6.1,
+            "line_thickness": 0.04,
+            "backstop_distance": 3.0,
+            "sidestop_distance": 2.0
+        }
+
+   },
     "baseball": {
         "custom": {
             "field_units": "",
