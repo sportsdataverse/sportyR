@@ -1,38 +1,36 @@
 # Surface Base Features --------------------------------------------------------
-
-#' The forecourt is the area between the [badminton_net()] and the [badminton_short_serviceline()].
-#' Left hand side of the court when facing the net from the nearest back line is the left
-#' service court. The right hand side is the right service court. This is constrained by
-#' the singles [badminton_sideline()].
+#' Badminton Forecourt Half
+#' The forecourt is the area between the [badminton_net()] and the
+#' [badminton_short_serviceline()]. This is constrained by the singles
+#' [badminton_sideline()].
 #'
-
-#'
-#' This is one half of the forecourt (either the left or right service court)
-#'
-#' @param short_serviceline_distance The distance from the net to the short service line
+#' @param short_serviceline_distance The distance from the net to the short
+#' service line
 #' @param singles_width The width of the singles court
 #'
 #' @return A data frame containing the bounding coordinates of one half of the
 #'   forecourt
 #'
 #' @keywords internal
-badminton_frontcourt_half <- function(short_serviceline_distance = 0,
+badminton_forecourt_half <- function(short_serviceline_distance = 0,
                                    singles_width = 0) {
-  frontcourt_half_df <- create_rectangle(
+  forecourt_half_df <- create_rectangle(
     x_min = 0,
     x_max = short_serviceline_distance,
     y_min = -singles_width / 2,
     y_max = singles_width / 2
   )
 
-  return(frontcourt_half_df)
+  return(forecourt_half_df)
 }
 
-#' The backcourt is the area behind the long service line on the court, contained
-#' within the singles sidelines
+#' Badminton Backcourt Half
+#' The backcourt is the area behind the long service line on the court,
+#' contained within the singles sidelines
 #'
 #' @param court_length The length of the court
-#' @param long_serviceline_distance The distance from the net to the short service line
+#' @param long_serviceline_distance The distance from the net to the short
+#' service line
 #' @param singles_width The width of the singles court
 #'
 #' @return A data frame containing the bounding coordinates of the backcourt
@@ -51,6 +49,7 @@ badminton_backcourt <- function(court_length = 0,
   return(backcourt_df)
 }
 
+#' Badminton Doubles Alley
 #' The doubles alley is the area between the singles and doubles sideline. It
 #' should run the entire length of the court
 #'
@@ -72,20 +71,18 @@ badminton_doubles_alley <- function(court_length = 0, feature_thickness = 0) {
   return(doubles_alley_df)
 }
 
-
-
-
-
 # Surface Boundaries -----------------------------------------------------------
 
-#' The back boundary line is the line behind which a player will serve the ball. It spans
-#' the entire width of the court, and its back edge denotes the furthest
-#' boundary inside of which a ball can land and be considered in play
+#' The back boundary line is the line behind which a player will serve the
+#' shuttlecock. It spans the entire width of the court, and its back edge
+#' denotes the furthest boundary inside of which a shuttlecock can land and be
+#' considered in play
 #'
 #' @param court_width The width of the court
 #' @param feature_thickness The thickness of the back boundary line
 #'
-#' @return A data frame containing the bounding coordinates of the back boundary line
+#' @return A data frame containing the bounding coordinates of the back
+#' boundary line
 #'
 #' @keywords internal
 badminton_back_boundary_line <- function(court_width = 0, feature_thickness = 0) {
@@ -98,7 +95,6 @@ badminton_back_boundary_line <- function(court_width = 0, feature_thickness = 0)
 
   return(boundary_df)
 }
-
 
 #' The sideline runs the entire length of the court, and there may be up to four
 #' sidelines on the court (this may refer to either the singles or doubles
@@ -122,7 +118,9 @@ badminton_sideline <- function(court_length = 0, feature_thickness = 0) {
   return(sideline_df)
 }
 
-badminton_centerline <- function(court_length = 0, short_serviceline_distance = 0, feature_thickness = 0) {
+badminton_centerline <-
+  function(court_length = 0, short_serviceline_distance = 0,
+           feature_thickness = 0) {
   centerline_df <- create_rectangle(
     x_min = short_serviceline_distance,
     x_max = (court_length)/2,
@@ -180,17 +178,14 @@ badminton_court_apron <- function(court_length = 0,
   return(court_apron_df)
 }
 
-
-
-
-
 # Surface Lines ----------------------------------------------------------------
 
 #' There are 2 service lines: Short and Long.
 
-#' The short serviceline is the line in front of which (nearest the net) a serve must
-#' land, and be on the proper side of the court to be considered legal and in
-#' play. Services that land in front of this land are called 'SHORT'.
+#' The short service line is the line closest to the net that marks the minimum
+#' distance a serve must travel. For a serve to be legal, it must land past this
+#' line and within the correct service court. Serves that land in front of the
+#' short service line are called 'short' and are considered faults.
 #'
 #' This line extends completely between the singles sidelines (but not extend to
 #' the doubles sidelines)
@@ -198,35 +193,39 @@ badminton_court_apron <- function(court_length = 0,
 #' @param singles_width The width of the singles service area (usually 5.18m)
 #' @param line_thickness The thickness of the short service line
 #'
-#' @return A data frame containing the bounding coordinates of the short service line
+#' @return A data frame containing the bounding coordinates of the short service
+#' line
 #'
 #' @keywords internal
-badminton_short_serviceline <- function(doubles_width = 0, line_thickness = 0, short_serviceline_distance = 0) {
-  x_pos <- short_serviceline_distance  # Distance from the net to the short service line (bwf standard is like 1.98m)
+badminton_short_serviceline <-
+  function(doubles_width = 0, line_thickness = 0, short_serviceline_distance = 0) {
+  # Distance from the net to the short service line (bwf standard is 1.98m)
+  x_pos <- short_serviceline_distance
 
   short_serviceline_df <- create_rectangle(
     x_min = x_pos - (line_thickness / 2),
     x_max = x_pos + (line_thickness / 2),
-    y_min = -(doubles_width/2),
-    y_max = (doubles_width/2)
+    y_min = -(doubles_width / 2),
+    y_max = (doubles_width / 2)
   )
 
   return(short_serviceline_df)
 }
 
-badminton_long_serviceline <- function(doubles_width = 0, line_thickness = 0, long_serviceline_distance = 0) {
-  x_pos <- long_serviceline_distance  # Distance from the net to long service line (bwf standard is like 1.98m)
+badminton_long_serviceline <-
+  function(doubles_width = 0, line_thickness = 0, long_serviceline_distance = 0) {
+  # Distance from the net to long service line (bwf standard is 5.86m)
+  x_pos <- long_serviceline_distance
 
   long_serviceline_df <- create_rectangle(
     x_min = x_pos - (line_thickness / 2),
     x_max = x_pos + (line_thickness / 2),
-    y_min = -(doubles_width/2),
-    y_max = (doubles_width/2)
+    y_min = -(doubles_width / 2),
+    y_max = (doubles_width / 2)
   )
 
   return(long_serviceline_df)
 }
-
 
 # Surface Features -------------------------------------------------------------
 

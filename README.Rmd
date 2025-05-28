@@ -184,7 +184,7 @@ units_df <- data.frame(
     rep("Volleyball", 3)
   ),
   league = c(
-    #Badminton
+    # Badminton
     "BWF",
     # Baseball
     "Little League",
@@ -342,7 +342,7 @@ The package maintainers and functional engineers
 
 Contribute by adding a new sport and become its general manager. Current
 general managers (and their sports) are:
-
+-   [Aiman Fariz](https://github.com/AimanFariz) - Badminton
 -   [Ross Drucker](https://github.com/rossdrucker) - Baseball
 -   [Ross Drucker](https://github.com/rossdrucker) - Basketball
 -   [Ross Drucker](https://github.com/rossdrucker) - Curling

@@ -7,14 +7,14 @@
 #'
 #' @param plot_background A hexadecimal string representing the color to use for
 #'   this feature
-#' @param back_boundary_line A hexadecimal string representing the color to use for this
-#'   feature
+#' @param back_boundary_line A hexadecimal string representing the color to use
+#' for this feature
 #' @param singles_sideline A hexadecimal string representing the color to use
 #'   for this feature
 #' @param doubles_sideline A hexadecimal string representing the color to use
 #'   for this feature
-#' @param serviceline A hexadecimal string representing the color to use for
-#'   this feature
+#' @param short_serviceline A hexadecimal string representing the color to use
+#' for this feature
 #' @param backcourt A hexadecimal string representing the color to use for this
 #'   feature
 #' @param doubles_alley A hexadecimal string representing the color to use for
@@ -28,23 +28,23 @@
 #'   resulting plot
 #'
 #' @keywords internal
-badminton_features_set_colors <- function(plot_background = 'white',
-                                       back_boundary_line = "#d3d3d3",
-                                       singles_sideline = "#d3d3d3",
-                                       doubles_sideline = "#d3d3d3",
-                                       serviceline = "#d3d3d3",
-                                       long_serviceline = "#d3d3d3",
-                                       centerline = "#d3d3d3",
-                                       backcourt = "#395d33",
-                                       doubles_alley = "#395d33",
-                                       court_apron = "#395d33",
-                                       net = "#d3d3d3") {
+badminton_features_set_colors <- function(plot_background = "#ffffff",
+                                          back_boundary_line = "#d3d3d3",
+                                          singles_sideline = "#d3d3d3",
+                                          doubles_sideline = "#d3d3d3",
+                                          short_serviceline = "#d3d3d3",
+                                          long_serviceline = "#d3d3d3",
+                                          centerline = "#d3d3d3",
+                                          backcourt = "#395d33",
+                                          doubles_alley = "#395d33",
+                                          court_apron = "#395d33",
+                                          net = "#d3d3d3") {
   feature_colors <- list(
     plot_background = plot_background,
     back_boundary_line = back_boundary_line,
     singles_sideline = singles_sideline,
     doubles_sideline = doubles_sideline,
-    serviceline = serviceline,
+    short_serviceline = short_serviceline,
     long_serviceline = long_serviceline,
     centerline = centerline,
     backcourt = backcourt,
@@ -56,8 +56,8 @@ badminton_features_set_colors <- function(plot_background = 'white',
   return(feature_colors)
 }
 
-#' Generate a \code{ggplot2} instance containing a badminton court for a specified
-#' league
+#' Generate a \code{ggplot2} instance containing a badminton court for a
+#' specified league
 #'
 #' @param league The league for which to draw the surface. This is
 #'   case-insensitive
@@ -148,7 +148,6 @@ geom_badminton <- function(league,
 
   # If the provided league is not currently supported, alert the user. This will
   # manifest by having the parameters list be NULL
-  print(court_params)
 
   if (is.null(court_params)) {
     stop(
@@ -164,14 +163,21 @@ geom_badminton <- function(league,
   # Update the court parameters as necessary
   court_params <- utils::modifyList(court_params, court_updates)
 
+  # Start by getting the colors to use to make the plot
+  feature_colors <- badminton_features_set_colors()
+
+  # Update the features' colors as specified by the user
+  feature_colors <- utils::modifyList(feature_colors, color_updates)
+
   # Feature initialization -----------------------------------------------------
   court_features <- list(
 
     ## Surface Base Features ---------------------------------------------------
 
-    #### Frontcourt Half (Left or Right Court) ####
-    frontcourt_half = badminton_frontcourt_half(
-      short_serviceline_distance = court_params$short_serviceline_distance %or% 0,
+    #### Forecourt Half (Left or Right Court) ####
+    forecourt_half = badminton_forecourt_half(
+      short_serviceline_distance =
+        court_params$short_serviceline_distance %or% 0,
       singles_width = court_params$singles_width %or% 0
     ),
 
@@ -193,8 +199,6 @@ geom_badminton <- function(league,
 
     ## Surface Boundaries ------------------------------------------------------
 
-
-
     #### Court Apron ####
     court_apron = badminton_court_apron(
       court_length = court_params$court_length %or% 0,
@@ -205,7 +209,6 @@ geom_badminton <- function(league,
 
     ## Surface Lines -----------------------------------------------------------
 
-
     #### back_boundary_line ####
     back_boundary_line = badminton_back_boundary_line(
       court_width = court_params$doubles_width %or% 0,
@@ -213,12 +216,12 @@ geom_badminton <- function(league,
     ),
 
     #### Short Serviceline ####
-    serviceline = badminton_short_serviceline(
+    short_serviceline = badminton_short_serviceline(
       doubles_width = court_params$doubles_width %or% 0,
       line_thickness = court_params$line_thickness %or% 0
     ),
 
-    #### long service line ####
+    #### Long Serviceline ####
     long_serviceline = badminton_long_serviceline(
       doubles_width = court_params$doubles_width %or% 0,
       line_thickness = court_params$line_thickness %or% 0
@@ -229,9 +232,11 @@ geom_badminton <- function(league,
       court_length = court_params$court_length %or% 0,
       feature_thickness = court_params$line_thickness %or% 0
     ),
-    ### Center Line
+
+    #### Center Line ####
     centerline = badminton_centerline(
-      short_serviceline_distance = court_params$short_serviceline_distance %or% 0,
+      short_serviceline_distance =
+        court_params$short_serviceline_distance %or% 0,
       court_length = court_params$court_length %or% 0,
       feature_thickness = court_params$line_thickness %or% 0
     ),
@@ -262,12 +267,6 @@ geom_badminton <- function(league,
   }
 
   # Generate the Plot ----------------------------------------------------------
-
-  # Start by getting the colors to use to make the plot
-  feature_colors <- badminton_features_set_colors()
-
-  # Update the features' colors as specified by the user
-  feature_colors <- utils::modifyList(feature_colors, color_updates)
 
   # Create the base of the plot
   court_plot <- create_plot_base(
@@ -319,7 +318,7 @@ geom_badminton <- function(league,
     rotation = rotation
   )
 
-  #### back_boundary_line ####
+  #### Back Boundary Line ####
   court_plot <- add_feature(
     court_plot,
     x_anchor = (court_params$court_length %or% 0) / 2,
@@ -361,13 +360,13 @@ geom_badminton <- function(league,
     rotation = rotation
   )
 
-  #### Short_Serviceline ####
+  #### Short Serviceline ####
   court_plot <- add_feature(
     court_plot,
     x_anchor = court_params$short_serviceline_distance %or% 0,
     y_anchor = 0,
-    feature_df = court_features$serviceline,
-    feature_color = feature_colors$serviceline,
+    feature_df = court_features$short_serviceline,
+    feature_color = feature_colors$short_serviceline,
     reflect_x = TRUE,
     reflect_y = FALSE,
     x_trans = x_trans,
@@ -375,7 +374,7 @@ geom_badminton <- function(league,
     rotation = rotation
   )
 
-  #### Long_Serviceline ####
+  #### Long Serviceline ####
   court_plot <- add_feature(
     court_plot,
     x_anchor = court_params$long_serviceline_distance %or% 0,
@@ -389,20 +388,19 @@ geom_badminton <- function(league,
     rotation = rotation
   )
 
-  ### CENTERLINE
+  #### Centerline ####
   court_plot <- add_feature(
     court_plot,
-    x_anchor = court_params$centerline_length %or%0,
-    y_anchor = 0,
+    x_anchor = 0,
+    y_anchor = court_params$centerline_length %or% 0,
     feature_df = court_features$centerline,
     feature_color = feature_colors$centerline,
     reflect_x = TRUE,
     reflect_y = FALSE,
     x_trans = x_trans,
     y_trans = y_trans,
-    rotation = -rotation
+    rotation = rotation
   )
-
 
   #### Net ####
   court_plot <- add_feature(
@@ -418,14 +416,12 @@ geom_badminton <- function(league,
     rotation = rotation
   )
 
-  # Set Display Range-----------------------------------------------------------
+  # Set Display Range -----------------------------------------------------------
   half_court_length <- ((court_params$court_length %or% 0) / 2) +
-    (court_params$backstop_distance %or% 20) +
-    5
+    (court_params$backstop_distance %or% 2) + 1
 
   half_court_width <- ((court_params$doubles_width %or% 0) / 2) +
-    (court_params$sidestop_distance %or% 10) +
-    5
+    (court_params$sidestop_distance %or% 1) + 1
 
   if (is.null(xlims)) {
     xlims <- switch(
@@ -514,9 +510,9 @@ geom_badminton <- function(league,
       # Receiving half
       "receive" = c(-half_court_width, half_court_width),
       "receiving" = c(-half_court_width, half_court_width),
-      "receivicehalf" = c(-half_court_width, half_court_width),
-      "receivice_half" = c(-half_court_width, half_court_width),
-      "receivice half" = c(-half_court_width, half_court_width),
+      "receiving_half" = c(-half_court_width, half_court_width),
+      "receiving_half" = c(-half_court_width, half_court_width),
+      "receiving half" = c(-half_court_width, half_court_width),
       "receivinghalf" = c(-half_court_width, half_court_width),
       "receiving_half" = c(-half_court_width, half_court_width),
       "receiving half" = c(-half_court_width, half_court_width),
