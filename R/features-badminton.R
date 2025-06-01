@@ -1,5 +1,6 @@
 # Surface Base Features --------------------------------------------------------
 #' Badminton Forecourt Half
+#'
 #' The forecourt is the area between the [badminton_net()] and the
 #' [badminton_short_serviceline()]. This is constrained by the singles
 #' [badminton_sideline()].
@@ -13,7 +14,7 @@
 #'
 #' @keywords internal
 badminton_forecourt_half <- function(short_serviceline_distance = 0,
-                                   singles_width = 0) {
+                                     singles_width = 0) {
   forecourt_half_df <- create_rectangle(
     x_min = 0,
     x_max = short_serviceline_distance,
@@ -25,6 +26,7 @@ badminton_forecourt_half <- function(short_serviceline_distance = 0,
 }
 
 #' Badminton Backcourt Half
+#'
 #' The backcourt is the area behind the long service line on the court,
 #' contained within the singles sidelines
 #'
@@ -37,8 +39,8 @@ badminton_forecourt_half <- function(short_serviceline_distance = 0,
 #'
 #' @keywords internal
 badminton_backcourt <- function(court_length = 0,
-                             long_serviceline_distance = 0,
-                             singles_width = 0) {
+                                long_serviceline_distance = 0,
+                                singles_width = 0) {
   backcourt_df <- create_rectangle(
     x_min = 0,
     x_max = (court_length / 2) - long_serviceline_distance,
@@ -50,6 +52,7 @@ badminton_backcourt <- function(court_length = 0,
 }
 
 #' Badminton Doubles Alley
+#'
 #' The doubles alley is the area between the singles and doubles sideline. It
 #' should run the entire length of the court
 #'
@@ -73,6 +76,8 @@ badminton_doubles_alley <- function(court_length = 0, feature_thickness = 0) {
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Back Boundary Line
+#'
 #' The back boundary line is the line behind which a player will serve the
 #' shuttlecock. It spans the entire width of the court, and its back edge
 #' denotes the furthest boundary inside of which a shuttlecock can land and be
@@ -85,7 +90,8 @@ badminton_doubles_alley <- function(court_length = 0, feature_thickness = 0) {
 #' boundary line
 #'
 #' @keywords internal
-badminton_back_boundary_line <- function(court_width = 0, feature_thickness = 0) {
+badminton_back_boundary_line <- function(court_width = 0,
+                                         feature_thickness = 0) {
   boundary_df <- create_rectangle(
     x_min = -feature_thickness,
     x_max = 0,
@@ -96,6 +102,8 @@ badminton_back_boundary_line <- function(court_width = 0, feature_thickness = 0)
   return(boundary_df)
 }
 
+#' Sideline
+#'
 #' The sideline runs the entire length of the court, and there may be up to four
 #' sidelines on the court (this may refer to either the singles or doubles
 #' sideline). Lines are considered in play, so the outer edge of the sideline
@@ -118,9 +126,9 @@ badminton_sideline <- function(court_length = 0, feature_thickness = 0) {
   return(sideline_df)
 }
 
-badminton_centerline <-
-  function(court_length = 0, short_serviceline_distance = 0,
-           feature_thickness = 0) {
+badminton_centerline <- function(court_length = 0,
+                                 short_serviceline_distance = 0,
+                                 feature_thickness = 0) {
   centerline_df <- create_rectangle(
     x_min = short_serviceline_distance,
     x_max = (court_length)/2,
@@ -131,6 +139,8 @@ badminton_centerline <-
   return(centerline_df)
 }
 
+#' Court Apron
+#'
 #' The court apron is referred to as the backstop and sidestop. These areas are
 #' entirely outside of the playing court, but legal shots made here are
 #' considered in play
@@ -147,9 +157,9 @@ badminton_centerline <-
 #'
 #' @keywords internal
 badminton_court_apron <- function(court_length = 0,
-                               court_width = 0,
-                               backstop_distance = 0,
-                               sidestop_distance = 0) {
+                                  court_width = 0,
+                                  backstop_distance = 0,
+                                  sidestop_distance = 0) {
   court_apron_df <- data.frame(
     x = c(
       0,
@@ -197,8 +207,9 @@ badminton_court_apron <- function(court_length = 0,
 #' line
 #'
 #' @keywords internal
-badminton_short_serviceline <-
-  function(doubles_width = 0, line_thickness = 0, short_serviceline_distance = 0) {
+badminton_short_serviceline <- function(doubles_width = 0,
+                                        line_thickness = 0,
+                                        short_serviceline_distance = 0) {
   # Distance from the net to the short service line (bwf standard is 1.98m)
   x_pos <- short_serviceline_distance
 
@@ -212,8 +223,9 @@ badminton_short_serviceline <-
   return(short_serviceline_df)
 }
 
-badminton_long_serviceline <-
-  function(doubles_width = 0, line_thickness = 0, long_serviceline_distance = 0) {
+badminton_long_serviceline <- function(doubles_width = 0,
+                                       line_thickness = 0,
+                                       long_serviceline_distance = 0) {
   # Distance from the net to long service line (bwf standard is 5.86m)
   x_pos <- long_serviceline_distance
 

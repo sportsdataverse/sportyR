@@ -8,13 +8,13 @@
 #' @param plot_background A hexadecimal string representing the color to use for
 #'   this feature
 #' @param back_boundary_line A hexadecimal string representing the color to use
-#' for this feature
+#'   for this feature
 #' @param singles_sideline A hexadecimal string representing the color to use
 #'   for this feature
 #' @param doubles_sideline A hexadecimal string representing the color to use
 #'   for this feature
 #' @param short_serviceline A hexadecimal string representing the color to use
-#' for this feature
+#'   for this feature
 #' @param backcourt A hexadecimal string representing the color to use for this
 #'   feature
 #' @param doubles_alley A hexadecimal string representing the color to use for
@@ -416,7 +416,7 @@ geom_badminton <- function(league,
     rotation = rotation
   )
 
-  # Set Display Range -----------------------------------------------------------
+  # Set Display Range ----------------------------------------------------------
   half_court_length <- ((court_params$court_length %or% 0) / 2) +
     (court_params$backstop_distance %or% 2) + 1
 
