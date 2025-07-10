@@ -3,6 +3,7 @@
 # sportyR 2.2.3
 
 - Fixed [#38](https://github.com/sportsdataverse/sportyR/issues/38) to natively support PWHL
+- Added titles to documentation
 
 # sportyR 2.2.2
 
