@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_center_line}
 \alias{hockey_center_line}
-\title{The center line is the line that divides the ice surface in half. Its center
-should lie directly in the center of the ice surface. Its line thickness
-should be given by 'major_line_thickness' as this is a major line on the ice
-surface}
+\title{Hockey Center Line}
 \usage{
 hockey_center_line(
   feature_thickness = 0,

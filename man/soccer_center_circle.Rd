@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_center_circle}
 \alias{soccer_center_circle}
-\title{The center circle is the circle located at the center of the field. Inside of
-the center circle is the center mark, where each half begins, as well as
-where play resumes following a goal}
+\title{Soccer Center Circle}
 \usage{
 soccer_center_circle(feature_radius = 0, feature_thickness = 0)
 }
@@ -17,6 +15,11 @@ soccer_center_circle(feature_radius = 0, feature_thickness = 0)
 A data frame containing the bounding coordinates of the center circle
 }
 \description{
+The center circle is the circle located at the center of the field. Inside of
+the center circle is the center mark, where each half begins, as well as
+where play resumes following a goal
+}
+\details{
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

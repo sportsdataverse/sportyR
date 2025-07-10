@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_sideline}
 \alias{volleyball_sideline}
-\title{The lines on the court that run the full length of the court are referred to
-as the sidelines, with the full width of the line being considered in bounds}
+\title{Volleyball Sideline}
 \usage{
 volleyball_sideline(court_length = 0, line_thickness = 0)
 }

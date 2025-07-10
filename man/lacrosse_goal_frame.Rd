@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_frame}
 \alias{lacrosse_goal_frame}
-\title{The goal frame is the posts through which the ball must pass in order to
-score a goal. It is usually triangular in shape}
+\title{Lacrosse Goal Frame}
 \usage{
 lacrosse_goal_frame(
   goal_frame_opening_interior = 0,

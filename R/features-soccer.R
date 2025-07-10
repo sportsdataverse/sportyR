@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Soccer Half Pitch
+#' 
 #' Half of the pitch is located on each side of the halfway line (see
 #' [soccer_halfway_line()] for more information)
 #'
@@ -27,6 +29,8 @@ soccer_half_pitch <- function(pitch_length = 0, pitch_width = 0) {
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Soccer Pitch Apron
+#' 
 #' The pitch should have an apron around it to do two things:
 #'
 #' 1) Replicate the spacing between the goal line/touchline and the nearest ad
@@ -84,6 +88,8 @@ soccer_pitch_apron <- function(pitch_length = 0,
   return(pitch_apron_df)
 }
 
+#' Soccer Touchline
+#' 
 #' The lines that run the full length of the pitch are called the touchlines. In
 #' some cases, they may also be referred to as the sidelines, as they comprise
 #' the sides of the pitch
@@ -107,6 +113,8 @@ soccer_touchline <- function(pitch_length = 0, feature_thickness = 0) {
   return(touchline_df)
 }
 
+#' Soccer Goal Line
+#' 
 #' The goal line is the line that runs the full width of the pitch. The ball
 #' must completely cross the goal line to score a goal for the attacking team
 #'
@@ -135,6 +143,8 @@ soccer_goal_line <- function(pitch_width = 0, feature_thickness = 0) {
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Soccer Halfway Line
+#' 
 #' The halfway line, aka the midfield line or center line, runs the width of the
 #' pitch, dividing it into two equal halves. The left half (in TV view) will be
 #' the defensive half, and the right half will be the offensive half
@@ -158,6 +168,8 @@ soccer_halfway_line <- function(pitch_width = 0, feature_thickness = 0) {
   return(halfway_line_df)
 }
 
+#' Soccer Penalty Box
+#' 
 #' The penalty box on the pitch is the larger of the two boxes that extend from
 #' the goal line. The penalty box is usually 16.5 meters (18 yards) from the
 #' goal line, but may be parameterized via this function
@@ -240,6 +252,8 @@ soccer_penalty_box <- function(feature_radius = 0,
   return(penalty_box_df)
 }
 
+#' Soccer Goal Box
+#' 
 #' The goal box is the smaller of the two boxes that extend from the goal line
 #' The goal box is usually 5.5 meters (6 yards) from the goal line, but may be
 #' parameterized via this function
@@ -296,6 +310,8 @@ soccer_goal_box <- function(feature_thickness = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Soccer Corner Arc
+#' 
 #' The corner arcs are the quarter-circles located where the touchline meets the
 #' goal line
 #'
@@ -326,6 +342,8 @@ soccer_corner_arc <- function(feature_radius = 0, feature_thickness = 0) {
   return(corner_arc_df)
 }
 
+#' Soccer Center Circle
+#' 
 #' The center circle is the circle located at the center of the field. Inside of
 #' the center circle is the center mark, where each half begins, as well as
 #' where play resumes following a goal
@@ -357,6 +375,8 @@ soccer_center_circle <- function(feature_radius = 0, feature_thickness = 0) {
   return(center_circle_df)
 }
 
+#' Soccer Center Mark
+#' 
 #' The center mark is where kickoffs for each half, as well as following any
 #' goal, are taken. The radius should be given to the outside of the mark. This
 #' feature is located at midfield
@@ -377,6 +397,8 @@ soccer_center_mark <- function(feature_radius = 0) {
   return(center_mark_df)
 }
 
+#' Soccer Penalty Mark
+#' 
 #' The penalty mark is the center point for the arc of the penalty box, as well
 #' as where any penalty kick is taken from
 #'
@@ -396,6 +418,8 @@ soccer_penalty_mark <- function(feature_radius = 0) {
   return(penalty_mark_df)
 }
 
+#' Soccer Corner Defensive Mark
+#' 
 #' The corner defensive marks on the pitch are typically located 9.15 meters (10
 #' yards) from the corner of the pitch. Defenders should be beyond these marks
 #' (either more towards the goal or more towards the halfway line) during corner
@@ -444,6 +468,8 @@ soccer_corner_defensive_marks <- function(feature_thickness = 0,
   return(corner_defensive_mark_df)
 }
 
+#' Soccer Goal
+#' 
 #' The goal is located beyond each goal line. By rule, the goal posts must be
 #' the same thickness as the goal line, and the posts must rest on the front
 #' edge of the goal line

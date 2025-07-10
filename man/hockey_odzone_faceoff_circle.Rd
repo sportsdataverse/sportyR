@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_odzone_faceoff_circle}
 \alias{hockey_odzone_faceoff_circle}
-\title{The non-centered faceoff circles are located in the offensive and defensive
-zones of the ice, with one on each side of the x-axis when viewing the rink
-in TV view. These circles differ from the center faceoff circle because they
-have hash marks that extend towards the boards on each side of the circle}
+\title{Hockey Non-Center Faceoff Circle}
 \usage{
 hockey_odzone_faceoff_circle(
   feature_radius = 0,
@@ -31,6 +28,12 @@ A data frame containing the bounding coordinates of the non-centered
 faceoff circle
 }
 \description{
+The non-centered faceoff circles are located in the offensive and defensive
+zones of the ice, with one on each side of the x-axis when viewing the rink
+in TV view. These circles differ from the center faceoff circle because they
+have hash marks that extend towards the boards on each side of the circle
+}
+\details{
 The non-centered faceoff circles are where faceoffs are taken after an icing
 call or to start a powerplay. They differ from the center ice faceoff circle
 because there are adjoining hash marks on these circles. It is also a

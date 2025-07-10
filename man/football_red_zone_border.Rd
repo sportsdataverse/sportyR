@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_red_zone_border}
 \alias{football_red_zone_border}
-\title{The field border (see \code{\link[=football_field_border]{football_field_border()}}) may have a different color
-along the red zone than it does along the rest of the field. This is not
-always the case, but the feature is provided for convenience}
+\title{Football Red Zone Border}
 \usage{
 football_red_zone_border(feature_thickness = 0)
 }

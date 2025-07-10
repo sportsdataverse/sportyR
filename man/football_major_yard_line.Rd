@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_major_yard_line}
 \alias{football_major_yard_line}
-\title{The major yard lines are the yard lines that span the entire width of the
-field. Typically, these lines are placed every 5 yards, but the customization
-is left to the user. These lines may feature a cross-hash, which runs in the
-x-direction}
+\title{Football Major Yard Line}
 \usage{
 football_major_yard_line(
   field_width = 0,

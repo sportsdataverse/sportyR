@@ -2,7 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_pitch_apron}
 \alias{soccer_pitch_apron}
-\title{The pitch should have an apron around it to do two things:}
+\title{Soccer Pitch Apron}
 \usage{
 soccer_pitch_apron(
   pitch_length = 0,
@@ -30,13 +30,12 @@ edge of the goal line}
 A data frame containing the bounding coordinates of the pitch's apron
 }
 \description{
-\enumerate{
-\item Replicate the spacing between the goal line/touchline and the nearest ad
-boards
-}
+The pitch should have an apron around it to do two things:
 }
 \details{
 \enumerate{
+\item Replicate the spacing between the goal line/touchline and the nearest ad
+boards
 \item Allow the goal line and touchline to be more clearly visible
 }
 

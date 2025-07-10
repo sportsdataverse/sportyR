@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_center_circle_outline}
 \alias{basketball_center_circle_outline}
-\title{The center circle is broken into two parts: the outline (this feature) and
-the fill, which is the court coloring inside of the inner edge of this circle}
+\title{Basketball Center Circle (Outline)}
 \usage{
 basketball_center_circle_outline(center_circle_radius = 0, line_thickness = 0)
 }

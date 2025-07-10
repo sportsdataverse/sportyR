@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_sideline}
 \alias{football_sideline}
-\title{The sidelines are the lines that run the length of the field, stretching from
-the back of one endzone to the back of the other endzone. Its interior edge
-is considered out of bounds}
+\title{Football Sideline}
 \usage{
 football_sideline(feature_thickness = 0, field_length = 0, endzone_length = 0)
 }

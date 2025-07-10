@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_off_ice_officials_box}
 \alias{hockey_off_ice_officials_box}
-\title{The off-ice officials' box is located between the two penalty boxes, opposite
-the team bench areas}
+\title{Hockey Off-Ice Officials' Box}
 \usage{
 hockey_off_ice_officials_box(
   feature_thickness = 0,
@@ -25,6 +24,10 @@ A data frame containing the bounding coordinates of the off-ice
 officials' box's outline
 }
 \description{
+The off-ice officials' box is located between the two penalty boxes, opposite
+the team bench areas
+}
+\details{
 This will have the same thickness as the boards, but will be located outside
 the ice surface
 }

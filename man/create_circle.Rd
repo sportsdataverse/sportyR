@@ -2,8 +2,7 @@
 % Please edit documentation in R/create-shapes.R
 \name{create_circle}
 \alias{create_circle}
-\title{Create a set of \code{x} and \code{y} coordinates that form a circle (or the
-arc of a circle)}
+\title{Create Circle}
 \usage{
 create_circle(center = c(0, 0), npoints = 1000, r = 1, start = 0, end = 2)
 }

@@ -2,12 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_backcourt}
 \alias{volleyball_backcourt}
-\title{The backcourt is the area between the the attack line (see
-\code{\link[=volleyball_attack_line]{volleyball_attack_line()}}) and the end line (see \code{\link[=volleyball_end_line]{volleyball_end_line()}}).
-Players playing in the back row of the rotation must take off from this area
-before attacking the ball. If considering the entirety of the volleyball
-court as being divided into thirds, this is \emph{either} of the outer thirds of
-the court}
+\title{Volleyball Backcourt}
 \usage{
 volleyball_backcourt(
   attack_line_edge_to_center_line = 0,

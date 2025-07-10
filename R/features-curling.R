@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Curling End
+#' 
 #' The curling sheet is the entire sheet, with the houses at either the top or
 #' bottom ends. This draws the area of the sheet from the hog line to the back
 #' board
@@ -43,6 +45,8 @@ curling_end <- function(sheet_length = 0,
   return(end_df)
 }
 
+#' Curling Centre Zone
+#' 
 #' The curling sheet is the entire sheet, with the houses at either the top or
 #' bottom ends. This draws the area between the hog lines
 #'
@@ -76,6 +80,8 @@ curling_centre_zone <- function(sheet_width = 0,
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Curling Apron
+#' 
 #' The apron of the sheet is what separates adjacent sheets, and in this context
 #' provides a border around the outside of the sheet
 #'
@@ -131,6 +137,8 @@ curling_sheet_apron <- function(sheet_length = 0,
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Curling Centre Line
+#' 
 #' The centre line is the line that runs the full length of the curling sheet,
 #' or the line \code{x = 0} in TV view
 #'
@@ -156,6 +164,8 @@ curling_centre_line <- function(line_thickness = 0,
   return(centre_line_df)
 }
 
+#' Curling Tee Line
+#' 
 #' The tee line is the line that runs through the center of the house. Its
 #' midpoints are connected by the centre line (see [curling_centre_line()] for
 #' more information)
@@ -178,6 +188,8 @@ curling_tee_line <- function(line_thickness = 0, sheet_width = 0) {
   return(tee_line_df)
 }
 
+#' Curling Back Line
+#' 
 #' The back line is the line in the back of the house. Its outer edge should be
 #' used as its anchor point
 #'
@@ -200,6 +212,8 @@ curling_back_line <- function(line_thickness = 0, sheet_width = 0) {
 }
 
 
+#' Curling Hog Line
+#' 
 #' The hog line is the line that begins the Free Guard Zone at each end of the
 #' ice. Its inner edge (relative to the nearest house) should be used as its
 #' anchor point
@@ -222,6 +236,8 @@ curling_hog_line <- function(line_thickness = 0, sheet_width = 0) {
   return(hog_line_df)
 }
 
+#' Curling Hack Line
+#' 
 #' The hack line connects the two footholds at each hack. It should be anchored
 #' at the terminus of the centre line (see [curling_centre_line()] for more
 #' information)
@@ -244,6 +260,8 @@ curling_hack_line <- function(line_thickness = 0, hack_width = 0) {
   return(hack_line_df)
 }
 
+#' Curling Courtesy Line
+#' 
 #' The courtesy lines are where players stand during the delivery process of
 #' each stone when the opposing team is throwing
 #'
@@ -271,6 +289,8 @@ curling_courtesy_line <- function(line_thickness = 0, line_length = 0) {
 
 # Surface Features -------------------------------------------------------------
 
+#' Curling Hack (Foothold)
+#' 
 #' The hack exits on both sides of the curling sheet between the back board and
 #' the back line. This is where a curler pushes off from, and it should be
 #' centered on the centre line (see [curling_centre_line()]). This function
@@ -295,6 +315,8 @@ curling_hack_foothold <- function(foothold_depth = 0, foothold_width = 0) {
   return(foothold_df)
 }
 
+#' Curling Button
+#' 
 #' The inner-most of the concentric circles comprising the house is called the
 #' button. This is the intersection of the tee line (see [curling_tee_line()])
 #' and the centre line (see [curling_centre_line()])
@@ -315,6 +337,8 @@ curling_button <- function(feature_radius = 0) {
   return(button_df)
 }
 
+#' Curling House Ring
+#' 
 #' The house is comprised of three concentric circles outside of the button of
 #' varying radii. This feature is designed to be each of the house rings
 #' excluding the button

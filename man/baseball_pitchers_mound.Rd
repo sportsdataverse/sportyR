@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_pitchers_mound}
 \alias{baseball_pitchers_mound}
-\title{The pitcher's mound. This is where the pitcher's plate is located, but the
-pitcher's plate is not necessarily centered on the pitcher's mound}
+\title{Baseball Pitcher's Mound}
 \usage{
 baseball_pitchers_mound(pitchers_mound_radius = 0)
 }

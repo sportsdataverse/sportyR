@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_infield_grass}
 \alias{baseball_infield_grass}
-\title{The dirt that comprises the infield grass. This is the area inside the lines
-drawn by the basepaths}
+\title{Baseball Infield Grass}
 \usage{
 baseball_infield_grass(
   home_plate_circle_radius = 0,

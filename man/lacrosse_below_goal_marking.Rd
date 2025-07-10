@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_below_goal_marking}
 \alias{lacrosse_below_goal_marking}
-\title{On some fields, there is a below goal marking. These are circles that should
-mirror each other, with their center points used as anchors}
+\title{Lacrosse Below-Goal Marking}
 \usage{
 lacrosse_below_goal_marking(below_goal_marking_radius = 0)
 }

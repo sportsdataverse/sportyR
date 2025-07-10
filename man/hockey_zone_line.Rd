@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_zone_line}
 \alias{hockey_zone_line}
-\title{The zone lines are the lines that separate the neutral zone from the
-offensive and defensive zones. Its line thickness should be given by
-'major_line_thickness' as this is a major line on the ice surface}
+\title{Hockey Zone Line (Blue Line)}
 \usage{
 hockey_zone_line(rink_width = 0, feature_thickness = 0)
 }

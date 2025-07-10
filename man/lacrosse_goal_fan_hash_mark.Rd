@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_fan_hash_mark}
 \alias{lacrosse_goal_fan_hash_mark}
-\title{The hash marks around the goal fan (see \code{\link[=lacrosse_goal_fan]{lacrosse_goal_fan()}}) are drawn
-independently from the goal fan itself. These should just be rectangles with
-anchor points along the circle}
+\title{Lacrosse Goal Fan Hash Mark}
 \usage{
 lacrosse_goal_fan_hash_mark(
   goal_fan_hash_mark_length = 0,

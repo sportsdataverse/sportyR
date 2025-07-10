@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-volleyball.R
 \name{geom_volleyball}
 \alias{geom_volleyball}
-\title{Generate a \code{ggplot2} instance containing a volleyball court for a
-specified league}
+\title{Draw Volleyball Court}
 \usage{
 geom_volleyball(
   league,

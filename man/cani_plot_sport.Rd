@@ -2,8 +2,7 @@
 % Please edit documentation in R/cani-functions.R
 \name{cani_plot_sport}
 \alias{cani_plot_sport}
-\title{Check to see if a sport can be plotted, and alert as to which league(s) are
-plottable for the sport}
+\title{Can I Plot Sport?}
 \usage{
 cani_plot_sport(sport_code)
 }

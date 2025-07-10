@@ -2,7 +2,7 @@
 % Please edit documentation in R/coordinate-transformations.R
 \name{reflect}
 \alias{reflect}
-\title{Perform a mathematical reflection of coordinates over a specified axis}
+\title{Reflect Coordinates}
 \usage{
 reflect(df, over_x = FALSE, over_y = TRUE)
 }

@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Volleyball Free Zone
+#' 
 #' The free zone is similar to the [basketball_court_apron()] in that it is the
 #' area outside the court. It may be the same color as the interior of the
 #' court, but isn't necessarily. Unlike [basketball_court_apron()] however, the
@@ -54,6 +56,8 @@ volleyball_free_zone <- function(court_length = 0,
   return(free_zone_df)
 }
 
+#' Volleyball Front Zone
+#' 
 #' The front zone is the area between the attack line (see
 #' [volleyball_attack_line()]) and the line running along \code{x = 0}. If
 #' considering the entirety of the volleyball court as being divided into
@@ -79,6 +83,8 @@ volleyball_front_zone <- function(attack_line_edge_to_center_line = 0,
   return(front_zone)
 }
 
+#' Volleyball Backcourt
+#' 
 #' The backcourt is the area between the the attack line (see
 #' [volleyball_attack_line()]) and the end line (see [volleyball_end_line()]).
 #' Players playing in the back row of the rotation must take off from this area
@@ -115,6 +121,8 @@ volleyball_backcourt <- function(attack_line_edge_to_center_line = 0,
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Volleyball Court Apron
+#' 
 #' The court apron is similar to the [basketball_court_apron()] in that it is
 #' the area outside the court. It may be the same color as the interior of the
 #' court, but isn't necessarily. Unlike [basketball_court_apron()] however, the
@@ -167,6 +175,8 @@ volleyball_court_apron <- function(court_length = 0,
   return(court_apron_df)
 }
 
+#' Volleyball End Line
+#' 
 #' The lines on the court that run the full width of the court are referred to
 #' as the end lines, with the full width of the line being considered in bounds
 #'
@@ -188,6 +198,8 @@ volleyball_end_line <- function(court_width = 0, line_thickness = 0) {
   return(end_line_df)
 }
 
+#' Volleyball Sideline
+#' 
 #' The lines on the court that run the full length of the court are referred to
 #' as the sidelines, with the full width of the line being considered in bounds
 #'
@@ -212,6 +224,8 @@ volleyball_sideline <- function(court_length = 0, line_thickness = 0) {
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Volleyball Attack Line
+#' 
 #' The attack line runs from sideline to sideline separating the court's
 #' backcourt ([volleyball_backcourt()]) from the front zone
 #' ([volleyball_front_zone()]). Players in the front row may attack from either
@@ -237,6 +251,8 @@ volleyball_attack_line <- function(court_width = 0, line_thickness = 0) {
   return(attack_line_df)
 }
 
+#' Volleyball Center Line
+#' 
 #' The center line's axis runs along \code{x = 0} when viewing the court in TV
 #' view, dividing the court into two equal halves
 #'
@@ -260,6 +276,8 @@ volleyball_center_line <- function(court_width = 0, line_thickness = 0) {
 
 # Surface Features -------------------------------------------------------------
 
+#' Volleyball Service Zone Mark
+#' 
 #' The service zone marks are the lines beyond the end lines that denote where a
 #' legal serve must take place. These appear as four hash marks that are out of
 #' bounds of the court, but contained within the free zone (see
@@ -284,6 +302,8 @@ volleyball_service_zone_mark <- function(service_zone_mark_length = 0,
   return(service_zone_mark_df)
 }
 
+#' Volleyball Substitution Zone Dash
+#' 
 #' The substitution zone is typically marked by a dashed line extending from the
 #' attack lines (see [volleyball_attack_line()] for more). This creates a single
 #' dash, and the dashes should be added to the plot accordingly

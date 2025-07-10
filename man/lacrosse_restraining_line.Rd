@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_restraining_line}
 \alias{lacrosse_restraining_line}
-\title{The restraining line spans the entire width of the field (where present) and
-connects to the defensive area lines (see \code{\link[=lacrosse_defensive_area_line]{lacrosse_defensive_area_line()}})}
+\title{Lacrosse Restraining Line}
 \usage{
 lacrosse_restraining_line(field_width = 0, line_thickness = 0)
 }

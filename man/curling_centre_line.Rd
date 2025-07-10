@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_centre_line}
 \alias{curling_centre_line}
-\title{The centre line is the line that runs the full length of the curling sheet,
-or the line \code{x = 0} in TV view}
+\title{Curling Centre Line}
 \usage{
 curling_centre_line(
   line_thickness = 0,

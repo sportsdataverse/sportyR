@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_tee_line}
 \alias{curling_tee_line}
-\title{The tee line is the line that runs through the center of the house. Its
-midpoints are connected by the centre line (see \code{\link[=curling_centre_line]{curling_centre_line()}} for
-more information)}
+\title{Curling Tee Line}
 \usage{
 curling_tee_line(line_thickness = 0, sheet_width = 0)
 }

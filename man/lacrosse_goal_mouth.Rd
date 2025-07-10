@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_mouth}
 \alias{lacrosse_goal_mouth}
-\title{The goal mouth is similar to the goal fan, except it is plainly a semi-circle
-located in front of the goal on fields for which it appears. The separation
-between the ends of it typically correspond to the diameter of the goal
-circle}
+\title{Lacrosse Goal Mouth}
 \usage{
 lacrosse_goal_mouth(
   goal_mouth_radius = 0,

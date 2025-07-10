@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Lacrosse Defensive Zone
+#' 
 #' The defensive zone is the TV-left area of the playing surface. In many cases,
 #' this will correspond to half of the field's length
 #'
@@ -84,6 +86,8 @@ lacrosse_defensive_zone <- function(field_length = 0,
   return(dzone_df)
 }
 
+#' Lacrosse Neutral Zone
+#' 
 #' The neutral zone corresponds to the area between the restraining lines. In
 #' cases where there are no restraining lines, this feature will have 0 length
 #'
@@ -105,6 +109,8 @@ lacrosse_neutral_zone <- function(nzone_length = 0, field_width = 0) {
   return(nzone_df)
 }
 
+#' Lacrosse Offensive Zone
+#' 
 #' The offensive zone is where a team tries to score a goal. It is the TV-right
 #' area on the field
 #'
@@ -187,6 +193,8 @@ lacrosse_offensive_zone <- function(field_length = 0,
   return(ozone_df)
 }
 
+#' Lacrosse Field Apron
+#' 
 #' Outdoor require should have a field apron so that boundary lines are more
 #' visible
 #'
@@ -243,6 +251,8 @@ lacrosse_field_apron <- function(field_length = 0,
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Lacrosse Sideline
+#' 
 #' The sidelines run the length of the field, with its interior edge designating
 #' the in-bounds area
 #'
@@ -264,6 +274,8 @@ lacrosse_sideline <- function(field_length = 0, line_thickness = 0) {
   return(sideline_df)
 }
 
+#' Lacrosse End Line
+#' 
 #' The end lines run the width of the field, with its interior edge designating
 #' the in-bounds area
 #'
@@ -285,6 +297,8 @@ lacrosse_end_line <- function(field_width = 0, line_thickness = 0) {
   return(end_line_df)
 }
 
+#' Lacrosse Boards
+#' 
 #' The boards are the wall around the outside of the field that constrain the
 #' playing surface. The boards are either typically ovular in shape, or not
 #' present if the field is outdoors
@@ -395,6 +409,8 @@ lacrosse_boards <- function(field_length = 0,
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Lacrosse Center Line
+#' 
 #' The center line divides the field of play into two equal halves, which are
 #' generated via [lacrosse_offensive_zone()], [lacrosse_defensive_zone()], and
 #' [lacrosse_neutral_zone()]. This line may not stretch the entire width of the
@@ -418,6 +434,8 @@ lacrosse_center_line <- function(center_line_width = 0, line_thickness = 0) {
   return(center_line_df)
 }
 
+#' Lacrosse Wing Line
+#' 
 #' The wing lines run parallel to the sidelines and cross the center line
 #'
 #' @param wing_line_length The length of the wing line
@@ -438,6 +456,8 @@ lacrosse_wing_line <- function(wing_line_length = 0, line_thickness = 0) {
   return(wing_line_df)
 }
 
+#' Lacrosse Restraining Line
+#' 
 #' The restraining line spans the entire width of the field (where present) and
 #' connects to the defensive area lines (see [lacrosse_defensive_area_line()])
 #'
@@ -460,6 +480,8 @@ lacrosse_restraining_line <- function(field_width = 0, line_thickness = 0) {
   return(restraining_line_df)
 }
 
+#' Lacrosse Defensive Area Line
+#' 
 #' The defensive-area lines run parallel to the sidelines and are connected to
 #' the end line (see [lacrosse_end_line()]) and restraining line (see
 #' [lacrosse_restraining_line()]) when these features are present
@@ -485,6 +507,8 @@ lacrosse_defensive_area_line <- function(defensive_area_line_length = 0,
   return(defensive_area_line_df)
 }
 
+#' Lacrosse Goal Line
+#' 
 #' The goal line is where the front edge of the goal sits. It spans the entire
 #' interior dimension of the goal mouth. Its anchoring \code{x} coordinate
 #' should be its center (e.g. half of the line's width should be on each side of
@@ -532,6 +556,8 @@ lacrosse_goal_line <- function(goal_frame_width = 0,
   return(goal_line_df)
 }
 
+#' Lacrosse Referee's Crease
+#' 
 #' The referee's crease is a semi-circle on the "bottom" of the boards (in TV
 #' view), centered on the line y = 0 (the center of the center line)
 #'
@@ -585,6 +611,8 @@ lacrosse_referee_crease <- function(referee_crease_radius = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Lacrosse Goal Circle (Outline)
+#' 
 #' The goal circle is a circular feature on the field that houses the goal line
 #' (see [lacrosse_goal_line()]) and the goal. Notably, for fields with a
 #' surrounding arc and/or fan around the goal area, this feature _only_
@@ -686,6 +714,8 @@ lacrosse_goal_circle <- function(goal_circle_radius = 0,
   return(goal_circle_df)
 }
 
+#' Lacrosse Goal Circle (Interior)
+#' 
 #' This feature is the area enclosed by the goal circle's outline. Please see
 #' [lacrosse_goal_circle()] for more information
 #'
@@ -739,6 +769,8 @@ lacrosse_goal_circle_fill <- function(goal_circle_radius = 0,
 }
 
 
+#' Lacrosse Goal Arc
+#' 
 #' The arc around the goal circle is a semi-circular area located around the
 #' goal circle (see [lacrosse_goal_circle()]) that may extend back to the end
 #' line, but also may be cut off at the goal line extended. The extension should
@@ -788,6 +820,8 @@ lacrosse_goal_arc <- function(goal_arc_extension = 0,
   return(goal_arc_df)
 }
 
+#' Lacrosse Goal Fan
+#' 
 #' The goal arc fan is present on some fields (e.g. NCAAW) as a quarter-circle
 #' located around the goal. The anchor for this feature should be given as the
 #' center of the goal line, but the radius of the arc actually corresponds to
@@ -866,6 +900,8 @@ lacrosse_goal_fan <- function(goal_fan_radius = 0,
   return(goal_fan_df)
 }
 
+#' Lacrosse Goal Fan Hash Mark
+#' 
 #' The hash marks around the goal fan (see [lacrosse_goal_fan()]) are drawn
 #' independently from the goal fan itself. These should just be rectangles with
 #' anchor points along the circle
@@ -899,6 +935,8 @@ lacrosse_goal_fan_hash_mark <- function(goal_fan_hash_mark_length = 0,
   return(goal_fan_hash_mark_df)
 }
 
+#' Lacrosse Goal Mouth Hash Mark
+#' 
 #' The goal mouth may have a hash mark that extends towards midfield from the
 #' goal line extended. This is that hash mark, and should be anchored using its
 #' outer edge
@@ -925,6 +963,8 @@ lacrosse_goal_mouth_hash_mark <- function(goal_mouth_hash_mark_length = 0,
   return(goal_mouth_hash_mark_df)
 }
 
+#' Lacrosse Goal Mouth
+#' 
 #' The goal mouth is similar to the goal fan, except it is plainly a semi-circle
 #' located in front of the goal on fields for which it appears. The separation
 #' between the ends of it typically correspond to the diameter of the goal
@@ -996,6 +1036,8 @@ lacrosse_goal_mouth <- function(goal_mouth_radius = 0,
   return(goal_mouth_df)
 }
 
+#' Lacrosse Below-Goal Marking
+#' 
 #' On some fields, there is a below goal marking. These are circles that should
 #' mirror each other, with their center points used as anchors
 #'
@@ -1017,6 +1059,8 @@ lacrosse_below_goal_marking <- function(below_goal_marking_radius = 0) {
   return(below_goal_marking_df)
 }
 
+#' Lacrosse Goal Frame
+#' 
 #' The goal frame is the posts through which the ball must pass in order to
 #' score a goal. It is usually triangular in shape
 #'
@@ -1056,6 +1100,8 @@ lacrosse_goal_frame <- function(goal_frame_opening_interior = 0,
   return(goal_frame_df)
 }
 
+#' Lacrosse Goal Net
+#' 
 #' The goal net is the netting that the ball must hit in order to score a point
 #'
 #' @param goal_frame_opening_interior The interior width of the goal frame's
@@ -1088,6 +1134,8 @@ lacrosse_goal_net <- function(goal_frame_opening_interior = 0,
   return(goal_net_df)
 }
 
+#' Lacrosse Referee's Crease (Outline)
+#' 
 #' The referee's crease is a semi-circle on the "bottom" of the boards (in TV
 #' view), centered on the line y = 0 (the center of the center line)
 #'
@@ -1135,6 +1183,8 @@ lacrosse_referee_crease <- function(referee_crease_radius = 0,
   return(referee_crease_df)
 }
 
+#' Lacrosse Referee's Crease (Interior)
+#' 
 #' The referee's crease is a semi-circle on the "bottom" of the boards (in TV
 #' view), centered on the line y = 0 (the center of the center line). This
 #' feature corresponds to the section of the field it encloses
@@ -1158,6 +1208,8 @@ lacrosse_referee_crease_fill <- function(referee_crease_radius = 0,
   return(referee_crease_fill_df)
 }
 
+#' Lacrosse Center Circle
+#' 
 #' The center circle is where play begins to start a game. This is located at
 #' the center of the field (when present)
 #'
@@ -1197,6 +1249,8 @@ lacrosse_center_circle <- function(center_circle_radius = 0,
   return(center_circle_df)
 }
 
+#' Lacrosse Player Bench (Outline)
+#' 
 #' The player benches are the areas outside the confines of the field where
 #' players not currently on the field are seated. They are to be on the same
 #' side of the field surface and separate, as close to center field as possible
@@ -1245,6 +1299,8 @@ lacrosse_player_bench_outline <- function(bench_area_outline_thickness = 0,
   return(bench_outline_df)
 }
 
+#' Lacrosse Player Bench (Interior)
+#' 
 #' The player benches are the areas outside the confines of the field where
 #' players not currently on the field are seated. They are to be on the same
 #' side of the field surface and separate, as close to center field as possible
@@ -1274,6 +1330,8 @@ lacrosse_player_bench_area_fill <- function(bench_area_outline_thickness = 0,
   return(bench_fill_df)
 }
 
+#' Lacrosse Penalty Box (Outline)
+#' 
 #' The penalty boxes are the areas outside the confines of the field where
 #' players serve time for a penalty incurred. They are to be on the same side of
 #' the field surface and separate, as close to center field as possible, for
@@ -1332,6 +1390,8 @@ lacrosse_penalty_box_outline <- function(penalty_box_outline_thickness = 0,
   return(penalty_box_outline_df)
 }
 
+#' Lacrosse Penalty Box (Interior)
+#' 
 #' The penalty boxes are the areas outside the confines of the field where
 #' players serve time for a penalty incurred. They are to be on the same side of
 #' the field surface and separate, as close to center field as possible, for
@@ -1364,6 +1424,8 @@ lacrosse_penalty_box_fill <- function(penalty_box_outline_thickness = 0,
   return(penalty_box_fill_df)
 }
 
+#' Lacrosse Off-Field Officials' Box
+#' 
 #' The off-field officials' box is located between the two penalty boxes,
 #' opposite the team bench areas
 #'
@@ -1393,6 +1455,8 @@ lacrosse_off_field_officials_box <- function(officials_box_thickness = 0,
   return(off_field_officials_box_df)
 }
 
+#' Lacrosse Faceoff Markers
+#' 
 #' The face-off markers are where face-offs occur. They may take one of two
 #' forms: an "X" shape or a circle
 #'
@@ -1445,6 +1509,8 @@ lacrosse_face_off_marker <- function(shape = "O",
   return(face_off_marker)
 }
 
+#' Lacrosse Change Area (Outline)
+#' 
 #' The change area is the box-shaped area in front of the team benches where a
 #' substitutions occur. This feature describes its outline; its interior fill
 #' is controlled by [lacrosse_change_area_fill()]
@@ -1485,6 +1551,8 @@ lacrosse_change_area_outline <- function(change_area_length = 0,
   return(change_area_outline_df)
 }
 
+#' Lacrosse Change Area (Interior)
+#' 
 #' The change area is the box-shaped area in front of the team benches where a
 #' substitutions occur. This feature describes its interior fill; its outline
 #' is controlled by [lacrosse_change_area_outline()]

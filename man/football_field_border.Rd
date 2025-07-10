@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_field_border}
 \alias{football_field_border}
-\title{The field border is the border line around the outer edge of the sideline and
-end line. They may not be present on every field, but this is not the same as
-the sideline or end line (although they may be the same color)}
+\title{Football Field Border}
 \usage{
 football_field_border(
   field_length = 0,

@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_face_off_marker}
 \alias{lacrosse_face_off_marker}
-\title{The face-off markers are where face-offs occur. They may take one of two
-forms: an "X" shape or a circle}
+\title{Lacrosse Faceoff Markers}
 \usage{
 lacrosse_face_off_marker(
   shape = "O",

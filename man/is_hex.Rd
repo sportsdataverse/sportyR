@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{is_hex}
 \alias{is_hex}
-\title{Identify if a passed color is a hexadecimal string}
+\title{Check If String Passed is Hexadecimal}
 \usage{
 is_hex(col_str = "")
 }

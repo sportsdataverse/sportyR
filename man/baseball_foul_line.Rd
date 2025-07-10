@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_foul_line}
 \alias{baseball_foul_line}
-\title{The foul line. These are the white lines that extend from the back tip of
-home plate (but not visibly through the batter's boxes) out to the fair/foul
-pole in the outfield. Since a ball on the line is considered in fair
-territory, the outer edge of the baseline must lie in fair territory (aka the
-line y = +/- x)}
+\title{Baseball Foul Line}
 \usage{
 baseball_foul_line(
   is_line_1b = FALSE,

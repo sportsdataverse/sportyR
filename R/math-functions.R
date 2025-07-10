@@ -1,3 +1,5 @@
+#' Quadratic Formula
+#' 
 #' Deploy the quadratic formula given inputs \code{a}, \code{b}, and \code{c}
 #' such that they satisfy the equation \code{(a * (x ^ 2)) + bx + c = 0}
 #'
@@ -28,6 +30,8 @@ quadratic_formula <- function(a, b, c) {
   return(solutions)
 }
 
+#' Euclidean Distance Formula
+#' 
 #' Get the Euclidean distance between two points
 #'
 #' @param point_1_x A point's (or vector of points') \code{x} coordinate

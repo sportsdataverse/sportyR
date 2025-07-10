@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_center_circle}
 \alias{lacrosse_center_circle}
-\title{The center circle is where play begins to start a game. This is located at
-the center of the field (when present)}
+\title{Lacrosse Center Circle}
 \usage{
 lacrosse_center_circle(center_circle_radius = 0, center_circle_thickness = 0)
 }

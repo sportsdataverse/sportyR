@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_defensive_zone}
 \alias{hockey_defensive_zone}
-\title{The defensive zone is the left "third" of the rink in TV view. This is the
-area that a team defends when attacking from left to right}
+\title{Hockey Defensive Zone}
 \usage{
 hockey_defensive_zone(
   rink_length = 0,

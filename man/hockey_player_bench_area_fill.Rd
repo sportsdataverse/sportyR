@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_player_bench_area_fill}
 \alias{hockey_player_bench_area_fill}
-\title{The player benches are the areas outside the confines of the rink where
-players not currently on the ice are seated. They are to be on the same side
-of the ice surface and separate, as close to center ice as possible}
+\title{Hockey Bench Area (Interior)}
 \usage{
 hockey_player_bench_area_fill(
   feature_thickness = 0,
@@ -25,6 +23,11 @@ A data frame containing the bounding coordinates of the player bench
 area's inner filling
 }
 \description{
+The player benches are the areas outside the confines of the rink where
+players not currently on the ice are seated. They are to be on the same side
+of the ice surface and separate, as close to center ice as possible
+}
+\details{
 This will have the same thickness as the boards, but will be located outside
 the ice surface
 }

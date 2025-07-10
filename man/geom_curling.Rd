@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-curling.R
 \name{geom_curling}
 \alias{geom_curling}
-\title{Generate a \code{ggplot2} instance containing a curling sheet for a specified
-league}
+\title{Draw Curling Sheet}
 \usage{
 geom_curling(
   league,

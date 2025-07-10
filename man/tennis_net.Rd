@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_net}
 \alias{tennis_net}
-\title{The net divides the court into two halves, and should run through the line
-\code{x = 0} when viewing the court in TV view}
+\title{Tennis Net}
 \usage{
 tennis_net(feature_thickness = 0, net_length = 0)
 }

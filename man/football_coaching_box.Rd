@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_coaching_box}
 \alias{football_coaching_box}
-\title{The coaching box is the area between the restricted area and team bench area.
-It may or may not be distinct from either of these areas, but is typically
-separated by the coaching box line (see \code{\link[=football_coaching_box_line]{football_coaching_box_line()}} for
-more information on the coaching box line)}
+\title{Football Coaching Box}
 \usage{
 football_coaching_box(coaching_box_length = 0, feature_thickness = 0)
 }

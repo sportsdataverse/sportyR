@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_center_mark}
 \alias{soccer_center_mark}
-\title{The center mark is where kickoffs for each half, as well as following any
-goal, are taken. The radius should be given to the outside of the mark. This
-feature is located at midfield}
+\title{Soccer Center Mark}
 \usage{
 soccer_center_mark(feature_radius = 0)
 }

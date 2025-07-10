@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_button}
 \alias{curling_button}
-\title{The inner-most of the concentric circles comprising the house is called the
-button. This is the intersection of the tee line (see \code{\link[=curling_tee_line]{curling_tee_line()}})
-and the centre line (see \code{\link[=curling_centre_line]{curling_centre_line()}})}
+\title{Curling Button}
 \usage{
 curling_button(feature_radius = 0)
 }

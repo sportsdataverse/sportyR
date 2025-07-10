@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_free_throw_lane_boundary}
 \alias{basketball_free_throw_lane_boundary}
-\title{The lines providing the boundary to the free throw lane. When a player is
-shooting a free throw, all non-shooting players must be outside of this
-boundary}
+\title{Basketball Free Throw Lane (Boundary)}
 \usage{
 basketball_free_throw_lane_boundary(
   lane_length = 0,
@@ -24,6 +22,11 @@ A data frame of the bounding coordinates of the free throw lane
 boundary
 }
 \description{
+The lines providing the boundary to the free throw lane. When a player is
+shooting a free throw, all non-shooting players must be outside of this
+boundary
+}
+\details{
 NOTE: This does not include lane space markings (blocks), which will be
 created via \code{\link[=basketball_lane_space_mark]{basketball_lane_space_mark()}}.
 }

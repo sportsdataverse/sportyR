@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_neutral_zone}
 \alias{hockey_neutral_zone}
-\title{The neutral zone is the middle "third" of the rink. This is the area between
-the two zone (blue) lines. The center of the neutral zone should lie along
-the line x = 0}
+\title{Hockey Neutral Zone}
 \usage{
 hockey_neutral_zone(rink_width = 0, feature_thickness = 0)
 }

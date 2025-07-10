@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_boards}
 \alias{hockey_boards}
-\title{The boards are the wall around the outside of the rink that constrain the
-playing surface. The boards are typically ovular in shape}
+\title{Hockey Boards}
 \usage{
 hockey_boards(
   rink_length = 0,

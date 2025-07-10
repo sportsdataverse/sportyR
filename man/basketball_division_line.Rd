@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_division_line}
 \alias{basketball_division_line}
-\title{The division line divides the court into two halves, and is sometimes
-referred to as the time line or half-court line. The center of this line goes
-through the y axis, with half of the line lying in a team's offensive half
-court and the other half in their defensive half court}
+\title{Basketball Division Line (Half Court Line)}
 \usage{
 basketball_division_line(
   court_width = 0,

@@ -2,8 +2,7 @@
 % Please edit documentation in R/create-shapes.R
 \name{create_diamond}
 \alias{create_diamond}
-\title{Create a set of \code{x} and \code{y} coordinates that form a diamond. This
-function is a wrapper on \code{create_rectangle()} above}
+\title{Create Diamond}
 \usage{
 create_diamond(height, width, center = c(0, 0))
 }

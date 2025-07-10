@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_goal_line}
 \alias{hockey_goal_line}
-\title{The goal lines are the lines over which a puck must cross (within the goal
-frame) in order to be considered a goal. Its line thickness should be given
-by 'minor_line_thickness' as this is a minor line on the ice surface.}
+\title{Hockey Goal Line}
 \usage{
 hockey_goal_line(
   rink_length = 0,
@@ -30,6 +28,11 @@ line}
 A data frame containing the bounding coordinates of the goal line
 }
 \description{
+The goal lines are the lines over which a puck must cross (within the goal
+frame) in order to be considered a goal. Its line thickness should be given
+by 'minor_line_thickness' as this is a minor line on the ice surface.
+}
+\details{
 This draws the right-side goal line (in TV view), starting with its left
 edge. This also accounts for a perfectly rectangular goal line if a user
 supplies a value that necessitates one. The line is rectangular in shape with

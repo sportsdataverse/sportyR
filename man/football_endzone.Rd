@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_endzone}
 \alias{football_endzone}
-\title{The endzones are the area beyond the goal line. Any offensive player who is
-in legal possession of the ball while in the endzone, or who catches the ball
-in the endzone, scores a touchdown for their team. This area stretches from
-the back field boundary to the edge of the goal line closest to the center of
-the field}
+\title{Football Endzone}
 \usage{
 football_endzone(field_width = 0, endzone_length = 0)
 }

@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_hog_line}
 \alias{curling_hog_line}
-\title{The hog line is the line that begins the Free Guard Zone at each end of the
-ice. Its inner edge (relative to the nearest house) should be used as its
-anchor point}
+\title{Curling Hog Line}
 \usage{
 curling_hog_line(line_thickness = 0, sheet_width = 0)
 }

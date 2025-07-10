@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot-helpers.R
 \name{add_feature}
 \alias{add_feature}
-\title{Add a surface's feature to a \code{ggplot2} instance}
+\title{Add Feature to Plot}
 \usage{
 add_feature(
   g,

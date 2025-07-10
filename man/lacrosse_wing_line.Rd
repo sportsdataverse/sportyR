@@ -2,7 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_wing_line}
 \alias{lacrosse_wing_line}
-\title{The wing lines run parallel to the sidelines and cross the center line}
+\title{Lacrosse Wing Line}
 \usage{
 lacrosse_wing_line(wing_line_length = 0, line_thickness = 0)
 }

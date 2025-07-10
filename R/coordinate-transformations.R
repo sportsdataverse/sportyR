@@ -1,3 +1,5 @@
+#' Reflect Coordinates
+#' 
 #' Perform a mathematical reflection of coordinates over a specified axis
 #'
 #' @param df The data frame to reflect. It must have \code{x} and \code{y}
@@ -29,6 +31,8 @@ reflect <- function(df,
   return(df)
 }
 
+#' Rotate Coordinates
+#' 
 #' Perform a mathematical rotation about (0, 0) of coordinates. This rotation is
 #' given as x' = x \* cos(theta) - y \* sin(theta) y' = x \* sin(theta) + y \*
 #' cos(theta)

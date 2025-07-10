@@ -1,3 +1,5 @@
+#' Create Circle
+#' 
 #' Create a set of \code{x} and \code{y} coordinates that form a circle (or the
 #' arc of a circle)
 #'
@@ -30,6 +32,8 @@ create_circle <- function(center = c(0, 0),
   return(circle_coords)
 }
 
+#' Create Rectangle
+#' 
 #' Create a set of \code{x} and \code{y} coordinates that form a rectangle
 #'
 #' @param x_min The minimum value of \code{x}
@@ -50,6 +54,8 @@ create_rectangle <- function(x_min, x_max, y_min, y_max) {
   return(rectangle_coords)
 }
 
+#' Create Square
+#' 
 #' Create a set of \code{x} and \code{y} coordinates that form a square. This
 #' function is a wrapper on \code{create_rectangle()} above
 #'
@@ -71,6 +77,8 @@ create_square <- function(side_length, center = c(0, 0)) {
   return(square_coords)
 }
 
+#' Create Diamond
+#' 
 #' Create a set of \code{x} and \code{y} coordinates that form a diamond. This
 #' function is a wrapper on \code{create_rectangle()} above
 #'
@@ -103,6 +111,8 @@ create_diamond <- function(height, width, center = c(0, 0)) {
   return(diamond_coords)
 }
 
+#' Create an "X" Shape
+#' 
 #' Create a set of \code{x} and \code{y} coordinates that form an "X"-like shape
 #'
 #' @param bar_length The length of one of the bars that forms the "X" shape,

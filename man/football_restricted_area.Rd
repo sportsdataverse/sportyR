@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_restricted_area}
 \alias{football_restricted_area}
-\title{The restricted area is the area nearest the sideline's exterior edge. This
-area is distinct from the coaching box (immediately behind the restricted
-area) and team bench area}
+\title{Football Restricted Area}
 \usage{
 football_restricted_area(restricted_area_length = 0, feature_thickness = 0)
 }

@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_free_throw_circle_fill}
 \alias{basketball_free_throw_circle_fill}
-\title{The filled-in section of the free throw circle. The circle is the area where
-a free throw shooter stands when attempting the free throw. The outline of
-this area will be created separately via
-\code{\link[=basketball_free_throw_circle]{basketball_free_throw_circle()}}}
+\title{Basketball Free Throw Circle (Interior)}
 \usage{
 basketball_free_throw_circle_fill(
   free_throw_circle_radius = 0,

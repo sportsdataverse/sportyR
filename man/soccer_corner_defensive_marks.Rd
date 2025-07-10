@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_corner_defensive_marks}
 \alias{soccer_corner_defensive_marks}
-\title{The corner defensive marks on the pitch are typically located 9.15 meters (10
-yards) from the corner of the pitch. Defenders should be beyond these marks
-(either more towards the goal or more towards the halfway line) during corner
-kicks}
+\title{Soccer Corner Defensive Mark}
 \usage{
 soccer_corner_defensive_marks(
   feature_thickness = 0,
@@ -34,9 +31,14 @@ A data frame containing the bounding coordinates of the corner
 defensive marks
 }
 \description{
-The marks should be outside the field of play
+The corner defensive marks on the pitch are typically located 9.15 meters (10
+yards) from the corner of the pitch. Defenders should be beyond these marks
+(either more towards the goal or more towards the halfway line) during corner
+kicks
 }
 \details{
+The marks should be outside the field of play
+
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

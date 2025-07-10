@@ -2,8 +2,7 @@
 % Please edit documentation in R/cani-functions.R
 \name{cani_plot_league}
 \alias{cani_plot_league}
-\title{Check to see if a league can be plotted, and alert as to which function(s)
-that league will work for}
+\title{Can I Plot League?}
 \usage{
 cani_plot_league(league_code)
 }

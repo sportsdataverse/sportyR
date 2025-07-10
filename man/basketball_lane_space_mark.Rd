@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_lane_space_mark}
 \alias{basketball_lane_space_mark}
-\title{The lane space marks, also known as the blocks, denote where non-shooting
-players stand during free throws. Players may not cross these lines before
-the ball touches the rim on the shot attempt}
+\title{Basketball Lane Space Mark (Blocks)}
 \usage{
 basketball_lane_space_mark(feature_thickness = 0, mark_depth = 0)
 }

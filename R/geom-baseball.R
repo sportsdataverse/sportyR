@@ -1,3 +1,5 @@
+#' Baseball Feature Colors
+#' 
 #' Set the colors to be used for the plot. The values provided in the arguments
 #' are the defaults, and, where specified, are the rule-book specified values.
 #'
@@ -56,6 +58,8 @@ baseball_features_set_colors <- function(plot_background = "#395d33",
   return(feature_colors)
 }
 
+#' Draw Baseball Field
+#' 
 #' Generate a \code{ggplot2} instance containing a baseball field for a
 #' specified league
 #'

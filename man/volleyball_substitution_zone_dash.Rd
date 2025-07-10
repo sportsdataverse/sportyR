@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_substitution_zone_dash}
 \alias{volleyball_substitution_zone_dash}
-\title{The substitution zone is typically marked by a dashed line extending from the
-attack lines (see \code{\link[=volleyball_attack_line]{volleyball_attack_line()}} for more). This creates a single
-dash, and the dashes should be added to the plot accordingly}
+\title{Volleyball Substitution Zone Dash}
 \usage{
 volleyball_substitution_zone_dash(dash_length = 0, line_thickness = 0)
 }

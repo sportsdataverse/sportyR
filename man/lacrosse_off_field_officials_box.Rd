@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_off_field_officials_box}
 \alias{lacrosse_off_field_officials_box}
-\title{The off-field officials' box is located between the two penalty boxes,
-opposite the team bench areas}
+\title{Lacrosse Off-Field Officials' Box}
 \usage{
 lacrosse_off_field_officials_box(
   officials_box_thickness = 0,
@@ -25,6 +24,10 @@ A data frame containing the bounding coordinates of the off-field
 officials' box's outline
 }
 \description{
+The off-field officials' box is located between the two penalty boxes,
+opposite the team bench areas
+}
+\details{
 This will have the same thickness as the boards, but will be located outside
 the field surface
 }

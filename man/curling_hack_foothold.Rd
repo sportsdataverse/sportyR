@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_hack_foothold}
 \alias{curling_hack_foothold}
-\title{The hack exits on both sides of the curling sheet between the back board and
-the back line. This is where a curler pushes off from, and it should be
-centered on the centre line (see \code{\link[=curling_centre_line]{curling_centre_line()}}). This function
-draws one of the footholds of the hack}
+\title{Curling Hack (Foothold)}
 \usage{
 curling_hack_foothold(foothold_depth = 0, foothold_width = 0)
 }

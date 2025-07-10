@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-soccer.R
 \name{geom_soccer}
 \alias{geom_soccer}
-\title{Generate a \code{ggplot2} instance containing a soccer pitch for a specified
-league}
+\title{Draw Soccer Pitch}
 \usage{
 geom_soccer(
   league,
