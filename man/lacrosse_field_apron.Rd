@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_field_apron}
 \alias{lacrosse_field_apron}
-\title{Outdoor require should have a field apron so that boundary lines are more
-visible}
+\title{Lacrosse Field Apron}
 \usage{
 lacrosse_field_apron(
   field_length = 0,

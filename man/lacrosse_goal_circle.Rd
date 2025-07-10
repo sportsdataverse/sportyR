@@ -2,12 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_circle}
 \alias{lacrosse_goal_circle}
-\title{The goal circle is a circular feature on the field that houses the goal line
-(see \code{\link[=lacrosse_goal_line]{lacrosse_goal_line()}}) and the goal. Notably, for fields with a
-surrounding arc and/or fan around the goal area, this feature \emph{only}
-circumscribes the goal. Those features will be handled separately. This
-feature may either be the full circle (e.g. all 360 degrees), or a partial
-circle that may be greater than a half-circle}
+\title{Lacrosse Goal Circle (Outline)}
 \usage{
 lacrosse_goal_circle(
   goal_circle_radius = 0,

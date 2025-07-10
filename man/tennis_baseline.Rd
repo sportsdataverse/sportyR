@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_baseline}
 \alias{tennis_baseline}
-\title{The baseline is the line behind which a player will serve the ball. It spans
-the entire width of the court, and its back edge denotes the furthest
-boundary inside of which a ball can land and be considered in play}
+\title{Tennis Baseline}
 \usage{
 tennis_baseline(court_width = 0, feature_thickness = 0)
 }

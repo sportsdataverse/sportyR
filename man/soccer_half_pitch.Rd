@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_half_pitch}
 \alias{soccer_half_pitch}
-\title{Half of the pitch is located on each side of the halfway line (see
-\code{\link[=soccer_halfway_line]{soccer_halfway_line()}} for more information)}
+\title{Soccer Half Pitch}
 \usage{
 soccer_half_pitch(pitch_length = 0, pitch_width = 0)
 }

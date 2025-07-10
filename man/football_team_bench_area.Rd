@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_team_bench_area}
 \alias{football_team_bench_area}
-\title{The team bench area is the area beyond the restricted area and coaching box.
-It is where the team benches, non-playing players, and team staff are to
-remain during the game}
+\title{Football Team Bench Area (Interior)}
 \usage{
 football_team_bench_area(
   team_bench_length_field_side = 0,

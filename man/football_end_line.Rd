@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_end_line}
 \alias{football_end_line}
-\title{The end line is the line beyond the back of the endzone. Its interior edge is
-considered out of bounds}
+\title{Football End Line}
 \usage{
 football_end_line(feature_thickness = 0, field_width = 0)
 }

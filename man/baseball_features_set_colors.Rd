@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-baseball.R
 \name{baseball_features_set_colors}
 \alias{baseball_features_set_colors}
-\title{Set the colors to be used for the plot. The values provided in the arguments
-are the defaults, and, where specified, are the rule-book specified values.}
+\title{Baseball Feature Colors}
 \usage{
 baseball_features_set_colors(
   plot_background = "#395d33",
@@ -54,6 +53,10 @@ A list of hexadecimal colors to use to color the features on the
 resulting plot
 }
 \description{
+Set the colors to be used for the plot. The values provided in the arguments
+are the defaults, and, where specified, are the rule-book specified values.
+}
+\details{
 Hexadecimal values are the passed vales to this function by default, but it
 is also possible to use string-named values (e.g. \code{"dodgerblue"}) when
 specifying.

@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_field_apron}
 \alias{football_field_apron}
-\title{The field should have an apron to appropriately see all out-of-bounds
-features. This is typically the same color as the field itself, but will be
-created separately so as to allow for more customized plotting}
+\title{Football Apron}
 \usage{
 football_field_apron(
   field_length = 0,

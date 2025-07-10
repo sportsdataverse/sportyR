@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot-helpers.R
 \name{create_plot_base}
 \alias{create_plot_base}
-\title{Create the base for the \code{ggplot2} instance with the correct theme
-elements}
+\title{Create Surface Plot Base}
 \usage{
 create_plot_base(plot_background = NULL)
 }

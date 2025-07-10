@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_service_zone_mark}
 \alias{volleyball_service_zone_mark}
-\title{The service zone marks are the lines beyond the end lines that denote where a
-legal serve must take place. These appear as four hash marks that are out of
-bounds of the court, but contained within the free zone (see
-\code{\link[=volleyball_free_zone]{volleyball_free_zone()}} for reference)}
+\title{Volleyball Service Zone Mark}
 \usage{
 volleyball_service_zone_mark(service_zone_mark_length = 0, line_thickness = 0)
 }

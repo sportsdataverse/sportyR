@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_center_mark}
 \alias{tennis_center_mark}
-\title{The center mark identifies the center point of the
-\code{\link[=tennis_baseline]{tennis_baseline()}}. The line should extend towards the net}
+\title{Tennis Baseline Center Mark}
 \usage{
 tennis_center_mark(center_mark_length = 0, feature_thickness = 0)
 }

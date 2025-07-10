@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-basketball.R
 \name{geom_basketball}
 \alias{geom_basketball}
-\title{Generate a \code{ggplot2} instance containing a basketball court for a
-specified league}
+\title{Draw Basketball Court}
 \usage{
 geom_basketball(
   league,

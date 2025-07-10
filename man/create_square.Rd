@@ -2,8 +2,7 @@
 % Please edit documentation in R/create-shapes.R
 \name{create_square}
 \alias{create_square}
-\title{Create a set of \code{x} and \code{y} coordinates that form a square. This
-function is a wrapper on \code{create_rectangle()} above}
+\title{Create Square}
 \usage{
 create_square(side_length, center = c(0, 0))
 }

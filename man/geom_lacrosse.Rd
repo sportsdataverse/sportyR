@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-lacrosse.R
 \name{geom_lacrosse}
 \alias{geom_lacrosse}
-\title{Generate a \code{ggplot2} instance containing a lacrosse field for a
-specified league}
+\title{Draw Lacrosse Field}
 \usage{
 geom_lacrosse(
   league,

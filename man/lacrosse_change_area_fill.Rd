@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_change_area_fill}
 \alias{lacrosse_change_area_fill}
-\title{The change area is the box-shaped area in front of the team benches where a
-substitutions occur. This feature describes its interior fill; its outline
-is controlled by \code{\link[=lacrosse_change_area_outline]{lacrosse_change_area_outline()}}}
+\title{Lacrosse Change Area (Interior)}
 \usage{
 lacrosse_change_area_fill(change_area_length = 0, change_area_width = 0)
 }

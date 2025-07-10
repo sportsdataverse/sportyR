@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_penalty_box}
 \alias{soccer_penalty_box}
-\title{The penalty box on the pitch is the larger of the two boxes that extend from
-the goal line. The penalty box is usually 16.5 meters (18 yards) from the
-goal line, but may be parameterized via this function}
+\title{Soccer Penalty Box}
 \usage{
 soccer_penalty_box(
   feature_radius = 0,
@@ -34,10 +32,14 @@ to the outer edge of the penalty box}
 A data frame containing the bounding coordinates of the penalty box
 }
 \description{
-This draws a half-box, which will include the circular portion at the top of
-the box. All dimensions given should be to the outside of the features
+The penalty box on the pitch is the larger of the two boxes that extend from
+the goal line. The penalty box is usually 16.5 meters (18 yards) from the
+goal line, but may be parameterized via this function
 }
 \details{
+This draws a half-box, which will include the circular portion at the top of
+the box. All dimensions given should be to the outside of the features
+
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

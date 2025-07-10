@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_backboard}
 \alias{basketball_backboard}
-\title{The backboard is the backing onto which the basket ring (created by
-\code{\link[=basketball_basket_ring]{basketball_basket_ring()}}) is affixed. This will be drawn as a
-rectangle on the court as the court is drawn from an aerial view}
+\title{Basketball Backboard}
 \usage{
 basketball_backboard(backboard_width = 0, backboard_thickness = 0)
 }

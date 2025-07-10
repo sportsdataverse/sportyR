@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_minor_yard_line}
 \alias{football_minor_yard_line}
-\title{The minor yard lines are the yard lines in between all of the major yard
-lines. Typically, there are four sets of minor yard lines: one near each
-sideline, and two near the middle of the field}
+\title{Football Minor Yard Line}
 \usage{
 football_minor_yard_line(yard_line_height = 0, feature_thickness = 0)
 }

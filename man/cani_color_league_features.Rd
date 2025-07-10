@@ -2,7 +2,7 @@
 % Please edit documentation in R/cani-functions.R
 \name{cani_color_league_features}
 \alias{cani_color_league_features}
-\title{Check to see what features of a surface can be colored}
+\title{Can I Color a League Feature?}
 \usage{
 cani_color_league_features(league_code, sport_name = NULL)
 }

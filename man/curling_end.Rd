@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_end}
 \alias{curling_end}
-\title{The curling sheet is the entire sheet, with the houses at either the top or
-bottom ends. This draws the area of the sheet from the hog line to the back
-board}
+\title{Curling End}
 \usage{
 curling_end(
   sheet_length = 0,

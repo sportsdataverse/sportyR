@@ -1,3 +1,5 @@
+#' Volleyball Feature Colors
+#' 
 #' Set the colors to be used for the plot. The values provided in the arguments
 #' are the defaults, and, where specified, are the rule-book specified values.
 #'
@@ -64,6 +66,8 @@ volleyball_features_set_colors <- function(plot_background = NULL,
   return(feature_colors)
 }
 
+#' Draw Volleyball Court
+#' 
 #' Generate a \code{ggplot2} instance containing a volleyball court for a
 #' specified league
 #'

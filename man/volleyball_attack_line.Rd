@@ -2,12 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_attack_line}
 \alias{volleyball_attack_line}
-\title{The attack line runs from sideline to sideline separating the court's
-backcourt (\code{\link[=volleyball_backcourt]{volleyball_backcourt()}}) from the front zone
-(\code{\link[=volleyball_front_zone]{volleyball_front_zone()}}). Players in the front row may attack from either
-side of this line, while players in the back row must begin their attack from
-the backcourt side of the line. The anchor point of this feature should be
-its outer edge}
+\title{Volleyball Attack Line}
 \usage{
 volleyball_attack_line(court_width = 0, line_thickness = 0)
 }

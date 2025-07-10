@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_arc}
 \alias{lacrosse_goal_arc}
-\title{The arc around the goal circle is a semi-circular area located around the
-goal circle (see \code{\link[=lacrosse_goal_circle]{lacrosse_goal_circle()}}) that may extend back to the end
-line, but also may be cut off at the goal line extended. The extension should
-be controlled via the \code{goal_arc_extension} parameter. Note: the hash
-marks are generated via \code{\link[=lacrosse_goal_fan_hash_mark]{lacrosse_goal_fan_hash_mark()}}}
+\title{Lacrosse Goal Arc}
 \usage{
 lacrosse_goal_arc(
   goal_arc_extension = 0,

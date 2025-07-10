@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Tennis Front Court
+#' 
 #' The front court is the area between the [tennis_net()] and the
 #' [tennis_serviceline()]. left-hand side of the court when facing the net from
 #' the nearest baseline is the ad court, and the right-hand side is the deuce
@@ -26,6 +28,8 @@ tennis_frontcourt_half <- function(serviceline_distance = 0,
   return(frontcourt_half_df)
 }
 
+#' Tennis Backcourt
+#' 
 #' The backcourt is the area behind the serviceline on the court, contained
 #' within the singles sidelines
 #'
@@ -49,6 +53,8 @@ tennis_backcourt <- function(court_length = 0,
   return(backcourt_df)
 }
 
+#' Tennis Doubles Alley
+#' 
 #' The doubles alley is the area between the singles and doubles sideline. It
 #' should run the entire length of the court
 #'
@@ -76,6 +82,8 @@ tennis_doubles_alley <- function(court_length = 0, feature_thickness = 0) {
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Tennis Baseline
+#' 
 #' The baseline is the line behind which a player will serve the ball. It spans
 #' the entire width of the court, and its back edge denotes the furthest
 #' boundary inside of which a ball can land and be considered in play
@@ -97,6 +105,8 @@ tennis_baseline <- function(court_width = 0, feature_thickness = 0) {
   return(baseline_df)
 }
 
+#' Tennis Sideline
+#' 
 #' The sideline runs the entire length of the court, and there may be up to four
 #' sidelines on the court (this may refer to either the singles or doubles
 #' sideline). Lines are considered in play, so the outer edge of the sideline
@@ -119,6 +129,8 @@ tennis_sideline <- function(court_length = 0, feature_thickness = 0) {
   return(sideline_df)
 }
 
+#' Tennis Court Apron
+#' 
 #' The court apron is referred to as the backstop and sidestop. These areas are
 #' entirely outside of the playing court, but legal shots made here are
 #' considered in play
@@ -172,6 +184,8 @@ tennis_court_apron <- function(court_length = 0,
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Tennis Serviceline
+#' 
 #' The serviceline is the line in front of which (nearest the net) a serve must
 #' land, and be on the proper side of the court to be considered legal and in
 #' play
@@ -196,6 +210,8 @@ tennis_serviceline <- function(singles_width = 0, feature_thickness = 0) {
   return(serviceline_df)
 }
 
+#' Tennis Center Serviceline
+#' 
 #' The center serviceline on the court divides the service area into two parts:
 #' the ad court (left) and the deuce court (right)
 #'
@@ -229,6 +245,8 @@ tennis_center_serviceline <- function(center_serviceline_length = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Tennis Baseline Center Mark
+#' 
 #' The center mark identifies the center point of the
 #' [tennis_baseline()]. The line should extend towards the net
 #'
@@ -250,6 +268,8 @@ tennis_center_mark <- function(center_mark_length = 0, feature_thickness = 0) {
   return(center_mark_df)
 }
 
+#' Tennis Net
+#' 
 #' The net divides the court into two halves, and should run through the line
 #' \code{x = 0} when viewing the court in TV view
 #'

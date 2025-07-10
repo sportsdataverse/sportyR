@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_courtesy_line}
 \alias{curling_courtesy_line}
-\title{The courtesy lines are where players stand during the delivery process of
-each stone when the opposing team is throwing}
+\title{Curling Courtesy Line}
 \usage{
 curling_courtesy_line(line_thickness = 0, line_length = 0)
 }

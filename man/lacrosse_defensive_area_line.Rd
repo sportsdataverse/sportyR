@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_defensive_area_line}
 \alias{lacrosse_defensive_area_line}
-\title{The defensive-area lines run parallel to the sidelines and are connected to
-the end line (see \code{\link[=lacrosse_end_line]{lacrosse_end_line()}}) and restraining line (see
-\code{\link[=lacrosse_restraining_line]{lacrosse_restraining_line()}}) when these features are present}
+\title{Lacrosse Defensive Area Line}
 \usage{
 lacrosse_defensive_area_line(
   defensive_area_line_length = 0,

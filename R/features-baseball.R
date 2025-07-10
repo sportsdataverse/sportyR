@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Baseball Infield Dirt
+#' 
 #' The dirt that comprises the infield. This includes the base paths, infield
 #' arc, and home plate circle.
 #'
@@ -104,6 +106,8 @@ baseball_infield_dirt <- function(home_plate_circle_radius = 0,
   return(infield_dirt)
 }
 
+#' Baseball Infield Grass
+#' 
 #' The dirt that comprises the infield grass. This is the area inside the lines
 #' drawn by the basepaths
 #'
@@ -267,6 +271,8 @@ baseball_infield_grass <- function(home_plate_circle_radius = 0,
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Baseball Batter's Box
+#' 
 #' The batter's boxes on the field. This is where a batter must stand to legally
 #' hit the ball
 #'
@@ -325,6 +331,8 @@ baseball_batters_box <- function(batters_box_length = 0,
   return(batters_box_df)
 }
 
+#' Baseball Catcher's Box
+#' 
 #' The catcher's box. This is where the catcher is located on defense, usually
 #' marked by two white lines and a back line as well. The box may take various
 #' shapes, which are controlled by the \code{catchers_box_shape} parameter
@@ -452,6 +460,8 @@ baseball_catchers_box <- function(catchers_box_depth = 0,
   return(catchers_box_df)
 }
 
+#' Baseball Foul Line
+#' 
 #' The foul line. These are the white lines that extend from the back tip of
 #' home plate (but not visibly through the batter's boxes) out to the fair/foul
 #' pole in the outfield. Since a ball on the line is considered in fair
@@ -538,6 +548,8 @@ baseball_foul_line <- function(is_line_1b = FALSE,
   return(foul_line_df)
 }
 
+#' Baseball Running Lane
+#' 
 #' The running lane is entirely in foul territory. The depth should be measured
 #' from the foul-side edge of the baseline to the outer edge of the running lane
 #' mark
@@ -619,6 +631,8 @@ baseball_running_lane <- function(running_lane_depth = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Baseball Home Plate
+#' 
 #' Home plate. This is a pentagonal shape with its back tip located at the
 #' origin of the coordinate system. The angled sides of home plate intersect the
 #' baselines
@@ -651,6 +665,8 @@ baseball_home_plate <- function(home_plate_edge_length = 0) {
   return(home_plate_df)
 }
 
+#' Baseball Base
+#' 
 #' One of the bases on the diamond, or really any base on the field. These are
 #' squares that are rotated 45 degrees
 #'
@@ -696,6 +712,8 @@ baseball_base <- function(base_side_length = 0,
   return(base_df)
 }
 
+#' Baseball Pitcher's Mound
+#' 
 #' The pitcher's mound. This is where the pitcher's plate is located, but the
 #' pitcher's plate is not necessarily centered on the pitcher's mound
 #'
@@ -716,6 +734,8 @@ baseball_pitchers_mound <- function(pitchers_mound_radius = 0) {
   return(pitchers_mound_df)
 }
 
+#' Baseball Pitcher's Plate
+#' 
 #' The pitcher's plate. This is where the pitcher must throw the ball from. It's
 #' usually a long rectangle with its front edge as its anchor point
 #'

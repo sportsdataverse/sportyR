@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_offensive_zone}
 \alias{lacrosse_offensive_zone}
-\title{The offensive zone is where a team tries to score a goal. It is the TV-right
-area on the field}
+\title{Lacrosse Offensive Zone}
 \usage{
 lacrosse_offensive_zone(
   field_length = 0,

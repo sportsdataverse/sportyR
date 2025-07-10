@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_boards}
 \alias{lacrosse_boards}
-\title{The boards are the wall around the outside of the field that constrain the
-playing surface. The boards are either typically ovular in shape, or not
-present if the field is outdoors}
+\title{Lacrosse Boards}
 \usage{
 lacrosse_boards(
   field_length = 0,

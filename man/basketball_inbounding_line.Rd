@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_inbounding_line}
 \alias{basketball_inbounding_line}
-\title{The inbounding line is where the ball is inbounded on the sideline when
-necessary. Lines drawn on the top of the court should be drawn in a top-down
-direction, and lines on the bottom of the court should be drawn in the
-bottom-up direction}
+\title{Basketball Inbounding Line}
 \usage{
 basketball_inbounding_line(
   line_thickness = 0,

@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_centre_zone}
 \alias{curling_centre_zone}
-\title{The curling sheet is the entire sheet, with the houses at either the top or
-bottom ends. This draws the area between the hog lines}
+\title{Curling Centre Zone}
 \usage{
 curling_centre_zone(
   sheet_width = 0,

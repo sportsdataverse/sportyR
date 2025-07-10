@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_center_line}
 \alias{lacrosse_center_line}
-\title{The center line divides the field of play into two equal halves, which are
-generated via \code{\link[=lacrosse_offensive_zone]{lacrosse_offensive_zone()}}, \code{\link[=lacrosse_defensive_zone]{lacrosse_defensive_zone()}}, and
-\code{\link[=lacrosse_neutral_zone]{lacrosse_neutral_zone()}}. This line may not stretch the entire width of the
-field, so a parameter is created instead}
+\title{Lacrosse Center Line}
 \usage{
 lacrosse_center_line(center_line_width = 0, line_thickness = 0)
 }

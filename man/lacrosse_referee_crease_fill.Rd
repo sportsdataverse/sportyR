@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_referee_crease_fill}
 \alias{lacrosse_referee_crease_fill}
-\title{The referee's crease is a semi-circle on the "bottom" of the boards (in TV
-view), centered on the line y = 0 (the center of the center line). This
-feature corresponds to the section of the field it encloses}
+\title{Lacrosse Referee's Crease (Interior)}
 \usage{
 lacrosse_referee_crease_fill(referee_crease_radius = 0, line_thickness = 0)
 }

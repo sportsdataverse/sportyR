@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_mouth_hash_mark}
 \alias{lacrosse_goal_mouth_hash_mark}
-\title{The goal mouth may have a hash mark that extends towards midfield from the
-goal line extended. This is that hash mark, and should be anchored using its
-outer edge}
+\title{Lacrosse Goal Mouth Hash Mark}
 \usage{
 lacrosse_goal_mouth_hash_mark(
   goal_mouth_hash_mark_length = 0,

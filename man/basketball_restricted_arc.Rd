@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_restricted_arc}
 \alias{basketball_restricted_arc}
-\title{The arc located in the free-throw lane is called the restricted arc. The
-interior radius should be specified for this feature.}
+\title{Basketball Restricted Arc}
 \usage{
 basketball_restricted_arc(
   feature_radius = 0,
@@ -24,7 +23,7 @@ A data frame containing the bounding coordinates of the restricted
 arc
 }
 \description{
-The arc located in the free-throw lane is called the restricted arc. The
+The arc located in the free throw lane is called the restricted arc. The
 interior radius should be specified for this feature.
 }
 \keyword{internal}

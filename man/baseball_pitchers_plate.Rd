@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_pitchers_plate}
 \alias{baseball_pitchers_plate}
-\title{The pitcher's plate. This is where the pitcher must throw the ball from. It's
-usually a long rectangle with its front edge as its anchor point}
+\title{Baseball Pitcher's Plate}
 \usage{
 baseball_pitchers_plate(pitchers_plate_length = 0, pitchers_plate_width = 0)
 }

@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_free_throw_circle_dash}
 \alias{basketball_free_throw_circle_dash}
-\title{On some courts, there are a series of dashes that comprise the bottom half of
-the free throw circle (e.g. the half closer to the basket). This function
-generates a single dash}
+\title{Basketball Free Throw Circle (Dashes)}
 \usage{
 basketball_free_throw_circle_dash(
   feature_radius = 0,

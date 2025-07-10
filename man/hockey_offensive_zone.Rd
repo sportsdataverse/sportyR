@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_offensive_zone}
 \alias{hockey_offensive_zone}
-\title{The offensive zone is the right "third" of the rink in TV view. This is the
-area that a team attacks to try to score a goal when attacking from left to
-right}
+\title{Hockey Offensive Zone}
 \usage{
 hockey_offensive_zone(
   rink_length = 0,

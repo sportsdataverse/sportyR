@@ -2,7 +2,7 @@
 % Please edit documentation in R/create-shapes.R
 \name{create_rectangle}
 \alias{create_rectangle}
-\title{Create a set of \code{x} and \code{y} coordinates that form a rectangle}
+\title{Create Rectangle}
 \usage{
 create_rectangle(x_min, x_max, y_min, y_max)
 }

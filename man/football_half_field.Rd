@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_half_field}
 \alias{football_half_field}
-\title{Each half of the football field spans from the edge of the goal line nearest
-to midfield to the center of the major yard line at midfield}
+\title{Football Half Field}
 \usage{
 football_half_field(field_length = 0, field_width = 0)
 }

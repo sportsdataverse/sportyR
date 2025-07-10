@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_circle_fill}
 \alias{lacrosse_goal_circle_fill}
-\title{This feature is the area enclosed by the goal circle's outline. Please see
-\code{\link[=lacrosse_goal_circle]{lacrosse_goal_circle()}} for more information}
+\title{Lacrosse Goal Circle (Interior)}
 \usage{
 lacrosse_goal_circle_fill(
   goal_circle_radius = 0,

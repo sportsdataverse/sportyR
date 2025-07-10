@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_end_line}
 \alias{lacrosse_end_line}
-\title{The end lines run the width of the field, with its interior edge designating
-the in-bounds area}
+\title{Lacrosse End Line}
 \usage{
 lacrosse_end_line(field_width = 0, line_thickness = 0)
 }

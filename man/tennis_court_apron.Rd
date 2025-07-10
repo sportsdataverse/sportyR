@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_court_apron}
 \alias{tennis_court_apron}
-\title{The court apron is referred to as the backstop and sidestop. These areas are
-entirely outside of the playing court, but legal shots made here are
-considered in play}
+\title{Tennis Court Apron}
 \usage{
 tennis_court_apron(
   court_length = 0,

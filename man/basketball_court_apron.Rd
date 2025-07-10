@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_court_apron}
 \alias{basketball_court_apron}
-\title{The apron of the court is the colored boundary around the exterior of some
-courts. If no such colored boundary exists, this should take the same color
-as the court floor}
+\title{Basketball Court Apron}
 \usage{
 basketball_court_apron(
   court_length = 0,

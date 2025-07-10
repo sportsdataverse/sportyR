@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_lower_defensive_box_mark}
 \alias{basketball_lower_defensive_box_mark}
-\title{The lower defensive box is an imaginary box on the court extending from the
-lines on the baseline to the lines inside the painted area. This box helps
-determine when a block/charge call should take place, as an offensive player
-is entitled to move outside of (and subsequently enter) this box without
-contact}
+\title{Basketball Lower Defensive Box Mark}
 \usage{
 basketball_lower_defensive_box_mark(
   drawn_direction = "",

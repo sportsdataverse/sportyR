@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_fan}
 \alias{lacrosse_goal_fan}
-\title{The goal arc fan is present on some fields (e.g. NCAAW) as a quarter-circle
-located around the goal. The anchor for this feature should be given as the
-center of the goal line, but the radius of the arc actually corresponds to
-a point on the goal circle (see \code{\link[=lacrosse_goal_circle]{lacrosse_goal_circle()}}) that runs through
-\code{y = 0}}
+\title{Lacrosse Goal Fan}
 \usage{
 lacrosse_goal_fan(
   goal_fan_radius = 0,

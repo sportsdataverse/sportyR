@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_house_ring}
 \alias{curling_house_ring}
-\title{The house is comprised of three concentric circles outside of the button of
-varying radii. This feature is designed to be each of the house rings
-excluding the button}
+\title{Curling House Ring}
 \usage{
 curling_house_ring(feature_radius = 0)
 }

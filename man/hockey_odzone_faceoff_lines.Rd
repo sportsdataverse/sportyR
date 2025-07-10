@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_odzone_faceoff_lines}
 \alias{hockey_odzone_faceoff_lines}
-\title{The offensive/defensive zone faceoff lines are the L-shaped lines where
-players on each team line up when taking a faceoff in either the offensive or
-defensive zones. There are four of these faceoff lines around each
-offensive/defensive faceoff spot}
+\title{Hockey Offensive/Defenive Zone Faceoff Line}
 \usage{
 hockey_odzone_faceoff_lines(
   feature_thickness = 0,
@@ -35,6 +32,12 @@ A data frame containing the bounding coordinates of the
 offensive/defensive zone faceoff lines
 }
 \description{
+The offensive/defensive zone faceoff lines are the L-shaped lines where
+players on each team line up when taking a faceoff in either the offensive or
+defensive zones. There are four of these faceoff lines around each
+offensive/defensive faceoff spot
+}
+\details{
 These lines are L-shaped, but can be thought of as two rectangles with
 thickness given by 'minor_line_thickness', and are usually red in color
 }

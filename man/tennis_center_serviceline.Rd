@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_center_serviceline}
 \alias{tennis_center_serviceline}
-\title{The center serviceline on the court divides the service area into two parts:
-the ad court (left) and the deuce court (right)}
+\title{Tennis Center Serviceline}
 \usage{
 tennis_center_serviceline(center_serviceline_length = 0, feature_thickness = 0)
 }
@@ -19,6 +18,10 @@ A data frame containing the bounding coordinates of the center
 serviceline
 }
 \description{
+The center serviceline on the court divides the service area into two parts:
+the ad court (left) and the deuce court (right)
+}
+\details{
 This line extends from the net to the back edge of the serviceline, and is
 centered on the line \code{x = 0}
 }

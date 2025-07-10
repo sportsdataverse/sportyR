@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_end_line}
 \alias{volleyball_end_line}
-\title{The lines on the court that run the full width of the court are referred to
-as the end lines, with the full width of the line being considered in bounds}
+\title{Volleyball End Line}
 \usage{
 volleyball_end_line(court_width = 0, line_thickness = 0)
 }

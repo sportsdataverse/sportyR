@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_referee_crease}
 \alias{hockey_referee_crease}
-\title{The referee's crease is a semi-circle on the "bottom" of the boards (in TV
-view), centered on the line y = 0 (the center of the center line)}
+\title{Hockey Referee's Crease}
 \usage{
 hockey_referee_crease(feature_radius = 0, feature_thickness = 0)
 }

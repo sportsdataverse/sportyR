@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_team_bench_line}
 \alias{basketball_team_bench_line}
-\title{Players not in the game must stay within the team bench lines unless moving
-to the substitution area (see \code{\link[=basketball_substitution_line]{basketball_substitution_line()}} class)}
+\title{Basketball Team Bench Line}
 \usage{
 basketball_team_bench_line(
   line_thickness = 0,

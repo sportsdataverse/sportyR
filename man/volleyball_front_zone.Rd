@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_front_zone}
 \alias{volleyball_front_zone}
-\title{The front zone is the area between the attack line (see
-\code{\link[=volleyball_attack_line]{volleyball_attack_line()}}) and the line running along \code{x = 0}. If
-considering the entirety of the volleyball court as being divided into
-thirds, this is \emph{half} of the middle third of the court}
+\title{Volleyball Front Zone}
 \usage{
 volleyball_front_zone(attack_line_edge_to_center_line = 0, court_width = 0)
 }

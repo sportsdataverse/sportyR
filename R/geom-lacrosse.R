@@ -1,3 +1,5 @@
+#' Lacrosse Feature Colors
+#' 
 #' Set the colors to be used for the plot. The values provided in the arguments
 #' are the defaults, and, where specified, are the rule-book specified values.
 #'
@@ -156,6 +158,8 @@ lacrosse_features_set_colors <- function(plot_background = NULL,
   return(feature_colors)
 }
 
+#' Draw Lacrosse Field
+#' 
 #' Generate a \code{ggplot2} instance containing a lacrosse field for a
 #' specified league
 #'

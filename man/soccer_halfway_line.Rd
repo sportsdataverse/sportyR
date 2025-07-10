@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_halfway_line}
 \alias{soccer_halfway_line}
-\title{The halfway line, aka the midfield line or center line, runs the width of the
-pitch, dividing it into two equal halves. The left half (in TV view) will be
-the defensive half, and the right half will be the offensive half}
+\title{Soccer Halfway Line}
 \usage{
 soccer_halfway_line(pitch_width = 0, feature_thickness = 0)
 }
@@ -17,6 +15,11 @@ soccer_halfway_line(pitch_width = 0, feature_thickness = 0)
 A data frame containing the bounding coordinates of the halfway line
 }
 \description{
+The halfway line, aka the midfield line or center line, runs the width of the
+pitch, dividing it into two equal halves. The left half (in TV view) will be
+the defensive half, and the right half will be the offensive half
+}
+\details{
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

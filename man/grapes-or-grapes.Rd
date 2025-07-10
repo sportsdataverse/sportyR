@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{\%or\%}
 \alias{\%or\%}
-\title{Set the default value when not provided in a list}
+\title{Supply Default Values}
 \usage{
 spec_val \%or\% default_val
 }

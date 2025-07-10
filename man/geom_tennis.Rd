@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-tennis.R
 \name{geom_tennis}
 \alias{geom_tennis}
-\title{Generate a \code{ggplot2} instance containing a tennis court for a specified
-league}
+\title{Draw Tennis Court}
 \usage{
 geom_tennis(
   league,
