@@ -3,9 +3,8 @@ test_that(
     # Create a lacrosse field plot
     nll_field <- geom_lacrosse("nll")
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(nll_field)[1], "gg")
-    expect_equal(class(nll_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(nll_field))
   }
 )
 
@@ -14,9 +13,8 @@ test_that(
     # Create a lacrosse field plot
     ncaaw_field <- geom_lacrosse("ncaaw", field_units = "ft", rotation = 270)
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(ncaaw_field)[1], "gg")
-    expect_equal(class(ncaaw_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(ncaaw_field))
   }
 )
 
@@ -35,9 +33,8 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(pll_field)[1], "gg")
-    expect_equal(class(pll_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(pll_field))
   }
 )
 
@@ -56,8 +53,7 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(ncaam_field)[1], "gg")
-    expect_equal(class(ncaam_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(ncaam_field))
   }
 )

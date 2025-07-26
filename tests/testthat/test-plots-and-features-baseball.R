@@ -3,9 +3,8 @@ test_that(
     # Create a baseball field plot
     mlb_field <- geom_baseball("mlb", rotation = -90)
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(mlb_field)[1], "gg")
-    expect_equal(class(mlb_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(mlb_field))
   }
 )
 
@@ -14,9 +13,8 @@ test_that(
     # Create a baseball field plot
     little_league_field <- geom_baseball("little league", field_units = "m")
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(little_league_field)[1], "gg")
-    expect_equal(class(little_league_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(little_league_field))
   }
 )
 
@@ -35,8 +33,7 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(ncaa_field)[1], "gg")
-    expect_equal(class(ncaa_field)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(ncaa_field))
   }
 )
