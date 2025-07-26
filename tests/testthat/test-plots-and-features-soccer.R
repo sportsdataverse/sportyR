@@ -61,6 +61,6 @@ test_that(
     )
 
     # Check the class of the resulting plot. This should be a ggplot object
-    expect_true(ggplot2::is_ggplot(nwsl_pitch)[1])
+    expect_true(ggplot2::is_ggplot(nwsl_pitch))
   }
 )
