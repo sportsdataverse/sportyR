@@ -4,6 +4,7 @@
 
 - Fixed [#38](https://github.com/sportsdataverse/sportyR/issues/38) to natively support PWHL
 - Added titles to documentation
+- Fixed [#48](https://github.com/sportsdataverse/sportyR/issues/48) to update ggplot2 tests
 
 # sportyR 2.2.2
 
