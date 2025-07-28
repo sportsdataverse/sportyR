@@ -36,7 +36,7 @@ suppressPackageStartupMessages(library(ggplot2))
 
 ## The Data
 
-For this example, I'll be using the data provided for the [Big Data Cup](https://www.stathletes.com/big-data-cup/), which is publicly available. Specifically, the data I'll use to demonstrate how to plot comes from the data provided for the [Big Data Cup - 2021](https://github.com/bigdatacup/Big-Data-Cup-2021).
+For this example, I'll be using the data provided for the [Big Data Cup](https://stathletes.com/big-data-cup), which is publicly available. Specifically, the data I'll use to demonstrate how to plot comes from the data provided for the [Big Data Cup - 2021](https://github.com/bigdatacup/Big-Data-Cup-2021).
 
 Start by reading in the data from the CSV file provided:
 
