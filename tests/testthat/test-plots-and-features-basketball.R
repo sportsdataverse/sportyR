@@ -9,11 +9,9 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(nba_court)[1], "gg")
-    expect_equal(class(nba_court)[2], "ggplot")
-    expect_equal(class(ncaa_court)[1], "gg")
-    expect_equal(class(ncaa_court)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(nba_court))
+    expect_true(ggplot2::is_ggplot(ncaa_court))
   }
 )
 
@@ -22,9 +20,8 @@ test_that(
     # Create a basketball court plot
     fiba_court <- geom_basketball("fiba", court_units = "ft", rotation = 270)
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(fiba_court)[1], "gg")
-    expect_equal(class(fiba_court)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(fiba_court))
   }
 )
 
@@ -43,8 +40,7 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(wnba_court)[1], "gg")
-    expect_equal(class(wnba_court)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(wnba_court))
   }
 )

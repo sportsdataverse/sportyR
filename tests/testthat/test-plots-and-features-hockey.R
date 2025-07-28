@@ -3,9 +3,8 @@ test_that(
     # Create a hockey rink plot
     nhl_rink <- geom_hockey("nhl")
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(nhl_rink)[1], "gg")
-    expect_equal(class(nhl_rink)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(nhl_rink))
   }
 )
 
@@ -14,9 +13,8 @@ test_that(
     # Create a hockey rink plot
     iihf_rink <- geom_hockey("iihf", rink_units = "ft", rotation = 270)
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(iihf_rink)[1], "gg")
-    expect_equal(class(iihf_rink)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(iihf_rink))
   }
 )
 
@@ -35,8 +33,7 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(phf_rink)[1], "gg")
-    expect_equal(class(phf_rink)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(phf_rink))
   }
 )
