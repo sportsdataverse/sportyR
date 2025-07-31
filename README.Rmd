@@ -172,6 +172,7 @@ parentheses):
 ```{r readme-plot-units-table, echo = FALSE}
 units_df <- data.frame(
   sport = c(
+    rep("Badminton", 1),
     rep("Baseball", 6),
     rep("Basketball", 6),
     rep("Curling", 1),
@@ -183,6 +184,8 @@ units_df <- data.frame(
     rep("Volleyball", 3)
   ),
   league = c(
+    # Badminton
+    "BWF",
     # Baseball
     "Little League",
     "MiLB",
@@ -246,6 +249,7 @@ units_df <- data.frame(
     "USA Volleyball"
   ),
   primary_unit = c(
+    rep("`m`", 1),
     rep("`ft`", 6),
     rep("`m`", 1),
     rep("`ft`", 5),
@@ -338,7 +342,7 @@ The package maintainers and functional engineers
 
 Contribute by adding a new sport and become its general manager. Current
 general managers (and their sports) are:
-
+-   [Aiman Fariz](https://github.com/AimanFariz) - Badminton
 -   [Ross Drucker](https://github.com/rossdrucker) - Baseball
 -   [Ross Drucker](https://github.com/rossdrucker) - Basketball
 -   [Ross Drucker](https://github.com/rossdrucker) - Curling
