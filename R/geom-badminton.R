@@ -1,3 +1,5 @@
+#' Badminton Feature Colors
+#'
 #' Set the colors to be used for the plot. The values provided in the arguments
 #' are the defaults, and, where specified, are the rule-book specified values.
 #'
@@ -56,6 +58,8 @@ badminton_features_set_colors <- function(plot_background = "#ffffff",
   return(feature_colors)
 }
 
+#' Draw Badminton Court
+#'
 #' Generate a \code{ggplot2} instance containing a badminton court for a
 #' specified league
 #'
@@ -118,15 +122,15 @@ badminton_features_set_colors <- function(plot_background = "#ffffff",
 #'   geom_badminton(league = "bwf", court_units = "m")
 #' }
 geom_badminton <- function(league,
-                        display_range = "full",
-                        court_updates = list(),
-                        color_updates = list(),
-                        rotation = 0,
-                        x_trans = 0,
-                        y_trans = 0,
-                        court_units = NULL,
-                        xlims = NULL,
-                        ylims = NULL) {
+                           display_range = "full",
+                           court_updates = list(),
+                           color_updates = list(),
+                           rotation = 0,
+                           x_trans = 0,
+                           y_trans = 0,
+                           court_units = NULL,
+                           xlims = NULL,
+                           ylims = NULL) {
   # Input cleansing and data gathering -----------------------------------------
 
   # If no league is supplied, error and alert user
@@ -447,24 +451,10 @@ geom_badminton <- function(league,
       ),
 
       # Service half
-      "serve" = c(-half_court_length, 1.5),
-      "serving" = c(-half_court_length, 1.5),
-      "servicehalf" = c(-half_court_length, 1.5),
-      "service_half" = c(-half_court_length, 1.5),
-      "service half" = c(-half_court_length, 1.5),
-      "servinghalf" = c(-half_court_length, 1.5),
-      "serving_half" = c(-half_court_length, 1.5),
-      "serving half" = c(-half_court_length, 1.5),
+      "serve" = c(-half_court_length, 0),
 
       # Receiving half
-      "receive" = c(-1.5, half_court_length),
-      "receiving" = c(-1.5, half_court_length),
-      "receivicehalf" = c(-1.5, half_court_length),
-      "receivice_half" = c(-1.5, half_court_length),
-      "receivice half" = c(-1.5, half_court_length),
-      "receivinghalf" = c(-1.5, half_court_length),
-      "receiving_half" = c(-1.5, half_court_length),
-      "receiving half" = c(-1.5, half_court_length),
+      "receive" = c(0, half_court_length),
 
       # Default case
       c(-half_court_length, half_court_length)
@@ -499,23 +489,9 @@ geom_badminton <- function(league,
 
       # Service half
       "serve" = c(-half_court_width, half_court_width),
-      "serving" = c(-half_court_width, half_court_width),
-      "servicehalf" = c(-half_court_width, half_court_width),
-      "service_half" = c(-half_court_width, half_court_width),
-      "service half" = c(-half_court_width, half_court_width),
-      "servinghalf" = c(-half_court_width, half_court_width),
-      "serving_half" = c(-half_court_width, half_court_width),
-      "serving half" = c(-half_court_width, half_court_width),
 
       # Receiving half
       "receive" = c(-half_court_width, half_court_width),
-      "receiving" = c(-half_court_width, half_court_width),
-      "receiving_half" = c(-half_court_width, half_court_width),
-      "receiving_half" = c(-half_court_width, half_court_width),
-      "receiving half" = c(-half_court_width, half_court_width),
-      "receivinghalf" = c(-half_court_width, half_court_width),
-      "receiving_half" = c(-half_court_width, half_court_width),
-      "receiving half" = c(-half_court_width, half_court_width),
 
       # Default case
       c(-half_court_width, half_court_width)

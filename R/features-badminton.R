@@ -1,5 +1,5 @@
 # Surface Base Features --------------------------------------------------------
-#' Badminton Forecourt Half
+#' Badminton Forecourt
 #'
 #' The forecourt is the area between the [badminton_net()] and the
 #' [badminton_short_serviceline()]. This is constrained by the singles
@@ -25,14 +25,16 @@ badminton_forecourt_half <- function(short_serviceline_distance = 0,
   return(forecourt_half_df)
 }
 
-#' Badminton Backcourt Half
+#' Badminton Backcourt
 #'
-#' The backcourt is the area behind the long service line on the court,
-#' contained within the singles sidelines
+#' For singles, the backcourt is the area between the midcourt and the back
+#' boundary line, inside the singles sidelines. For doubles, the backcourt is
+#' the area between the midcourt and the long service line, inside the doubles
+#' sidelines.
 #'
 #' @param court_length The length of the court
 #' @param long_serviceline_distance The distance from the net to the short
-#' service line
+#'   service line
 #' @param singles_width The width of the singles court
 #'
 #' @return A data frame containing the bounding coordinates of the backcourt
@@ -42,8 +44,8 @@ badminton_backcourt <- function(court_length = 0,
                                 long_serviceline_distance = 0,
                                 singles_width = 0) {
   backcourt_df <- create_rectangle(
-    x_min = 0,
-    x_max = (court_length / 2) - long_serviceline_distance,
+    x_max = court_length / 2,
+    x_min = long_serviceline_distance,
     y_min = -singles_width / 2,
     y_max = singles_width / 2
   )
@@ -53,8 +55,8 @@ badminton_backcourt <- function(court_length = 0,
 
 #' Badminton Doubles Alley
 #'
-#' The doubles alley is the area between the singles and doubles sideline. It
-#' should run the entire length of the court
+#' The doubles alley is the area between the singles and doubles sidelines. It
+#' runs the entire length of the court, along both sides.
 #'
 #' @param court_length The length of the court
 #' @param feature_thickness The thickness of the doubles alley (this is the
@@ -199,6 +201,16 @@ badminton_court_apron <- function(court_length = 0,
 #'
 #' This line extends completely between the singles sidelines (but not extend to
 #' the doubles sidelines)
+#'
+#' #' The long service line marks the maximum distance a serve can travel in
+#' doubles. For a serve to be legal in doubles, it must land in front of or on
+#' this line, within the correct service court. Serves that land beyond this
+#' line are faults. In doubles, this line runs between the doubles sidelines and
+#' is shorter than the back boundary line.
+#'
+#' In singles, the back boundary line acts as the long service line, meaning serves
+#' can land anywhere within the full length of the court.
+
 #'
 #' @param singles_width The width of the singles service area (usually 5.18m)
 #' @param line_thickness The thickness of the short service line
