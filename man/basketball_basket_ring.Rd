@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_basket_ring}
 \alias{basketball_basket_ring}
-\title{The hoop through which the ball must pass to score points for a team is
-called the basket ring}
+\title{Basketball Basket Ring (Rim)}
 \usage{
 basketball_basket_ring(
   basket_ring_connector_width = 0,
@@ -27,11 +26,14 @@ basket ring}
 A data frame of the boundary of the basket ring and connector
 }
 \description{
+The hoop through which the ball must pass to score points for a team is
+called the basket ring
+}
+\details{
 An explanation of the math used to generate the basket ring (and its
 connecting portion that attaches the ring to the backboard) is walked through
 below using NBA dimensions, but is generalized in the code
-}
-\details{
+
 The connector has a width of 7", so 3.5" are on each side of the x axis. The
 ring has a radius of 9", so the arcsine of these measurements should give the
 angle at which point the ring and connector connect

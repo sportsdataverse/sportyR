@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_team_bench_area_outline}
 \alias{football_team_bench_area_outline}
-\title{The outline of the team bench area runs beyond the team bench, but is inside
-of any field border that may run behind the team bench area (see
-\code{\link[=football_field_border]{football_field_border()}} for more information on this feature)}
+\title{Football Team Bench Area (Outline)}
 \usage{
 football_team_bench_area_outline(
   restricted_area_length = 0,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_net}
 \alias{lacrosse_goal_net}
-\title{The goal net is the netting that the ball must hit in order to score a point}
+\title{Lacrosse Goal Net}
 \usage{
 lacrosse_goal_net(
   goal_frame_opening_interior = 0,

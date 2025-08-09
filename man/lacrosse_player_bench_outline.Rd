@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_player_bench_outline}
 \alias{lacrosse_player_bench_outline}
-\title{The player benches are the areas outside the confines of the field where
-players not currently on the field are seated. They are to be on the same
-side of the field surface and separate, as close to center field as possible}
+\title{Lacrosse Player Bench (Outline)}
 \usage{
 lacrosse_player_bench_outline(
   bench_area_outline_thickness = 0,
@@ -25,6 +23,11 @@ A data frame containing the bounding coordinates of the player bench
 area
 }
 \description{
+The player benches are the areas outside the confines of the field where
+players not currently on the field are seated. They are to be on the same
+side of the field surface and separate, as close to center field as possible
+}
+\details{
 This will have the same thickness as the boards, but will be located outside
 the field surface. Each bench's outline will share the same color as the
 boards

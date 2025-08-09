@@ -2,9 +2,7 @@
 % Please edit documentation in R/coordinate-transformations.R
 \name{rotate_coords}
 \alias{rotate_coords}
-\title{Perform a mathematical rotation about (0, 0) of coordinates. This rotation is
-given as x' = x \* cos(theta) - y \* sin(theta) y' = x \* sin(theta) + y \*
-cos(theta)}
+\title{Rotate Coordinates}
 \usage{
 rotate_coords(df, angle = 90)
 }

@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_coaching_box_line}
 \alias{football_coaching_box_line}
-\title{The coaching box line is the line that separates the team bench area from the
-coaching box. This line should be a different color than the bench area and
-coaching box, which may be the same color}
+\title{Football Coaching Box Line}
 \usage{
 football_coaching_box_line(coaching_box_line_length = 0, feature_thickness = 0)
 }

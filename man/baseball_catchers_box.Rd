@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_catchers_box}
 \alias{baseball_catchers_box}
-\title{The catcher's box. This is where the catcher is located on defense, usually
-marked by two white lines and a back line as well. The box may take various
-shapes, which are controlled by the \code{catchers_box_shape} parameter}
+\title{Baseball Catcher's Box}
 \usage{
 baseball_catchers_box(
   catchers_box_depth = 0,

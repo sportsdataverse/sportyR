@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_try_mark}
 \alias{football_try_mark}
-\title{The try mark is the mark from which all tries start. This line is located
-directly on the line \code{y = 0}. This line is not typically considered an
-official yard line, which is why it is created independently}
+\title{Football Try Mark}
 \usage{
 football_try_mark(try_mark_width = 0, feature_thickness = 0)
 }

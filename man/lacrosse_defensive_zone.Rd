@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_defensive_zone}
 \alias{lacrosse_defensive_zone}
-\title{The defensive zone is the TV-left area of the playing surface. In many cases,
-this will correspond to half of the field's length}
+\title{Lacrosse Defensive Zone}
 \usage{
 lacrosse_defensive_zone(
   field_length = 0,

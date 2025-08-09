@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_back_line}
 \alias{curling_back_line}
-\title{The back line is the line in the back of the house. Its outer edge should be
-used as its anchor point}
+\title{Curling Back Line}
 \usage{
 curling_back_line(line_thickness = 0, sheet_width = 0)
 }

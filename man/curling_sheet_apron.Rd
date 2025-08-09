@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_sheet_apron}
 \alias{curling_sheet_apron}
-\title{The apron of the sheet is what separates adjacent sheets, and in this context
-provides a border around the outside of the sheet}
+\title{Curling Apron}
 \usage{
 curling_sheet_apron(
   sheet_length = 0,

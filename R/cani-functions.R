@@ -1,3 +1,5 @@
+#' Can I Plot League?
+#' 
 #' Check to see if a league can be plotted, and alert as to which function(s)
 #' that league will work for
 #'
@@ -120,6 +122,8 @@ cani_plot_league <- function(league_code) {
   }
 }
 
+#' Can I Plot Sport?
+#' 
 #' Check to see if a sport can be plotted, and alert as to which league(s) are
 #' plottable for the sport
 #'
@@ -239,6 +243,8 @@ cani_plot_sport <- function(sport_code) {
   }
 }
 
+#' Can I Color a League Feature?
+#' 
 #' Check to see what features of a surface can be colored
 #'
 #' @param league_code The case-insensitive league code to be plotted

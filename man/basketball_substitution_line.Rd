@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_substitution_line}
 \alias{basketball_substitution_line}
-\title{The substitution line is where players checking into the game wait for a
-stoppage. Lines drawn on the top of the court should be drawn in a top-down
-direction, and lines on the bottom of the court should be drawn in the
-bottom-up direction}
+\title{Basketball Substitution Line}
 \usage{
 basketball_substitution_line(
   line_thickness = 0,

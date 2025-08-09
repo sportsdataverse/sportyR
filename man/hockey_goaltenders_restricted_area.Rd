@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_goaltenders_restricted_area}
 \alias{hockey_goaltenders_restricted_area}
-\title{The goaltender's restricted area marks where a goaltender is legally allowed
-to handle the puck behind the net. This is often referred to as "the
-trapezoid" as it is trapezoidal in shape. Its line thickness should be given
-by 'minor_line_thickness' as this is a minor line on the ice surface}
+\title{Hockey Goaltender's Restricted Area (Trapezoid)}
 \usage{
 hockey_goaltenders_restricted_area(
   rink_length = 0,
@@ -34,10 +31,15 @@ A data frame containing the bounding coordinates of the goaltender's
 restricted area
 }
 \description{
-NOTE: This is not a requirement in all leagues, and may be omitted via the
-"has_trapezoid" key in the \code{rink_params} passed to \code{geom_{league}}
+The goaltender's restricted area marks where a goaltender is legally allowed
+to handle the puck behind the net. This is often referred to as "the
+trapezoid" as it is trapezoidal in shape. Its line thickness should be given
+by 'minor_line_thickness' as this is a minor line on the ice surface
 }
 \details{
+NOTE: This is not a requirement in all leagues, and may be omitted via the
+"has_trapezoid" key in the \code{rink_params} passed to \code{geom_{league}}
+
 This draws the goaltender's restricted area on the right side (in TV view) of
 the ice surface. The figure is composed of lines that outline a trapezoid in
 shape, and is usually red in color

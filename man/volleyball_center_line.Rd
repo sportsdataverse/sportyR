@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-volleyball.R
 \name{volleyball_center_line}
 \alias{volleyball_center_line}
-\title{The center line's axis runs along \code{x = 0} when viewing the court in TV
-view, dividing the court into two equal halves}
+\title{Volleyball Center Line}
 \usage{
 volleyball_center_line(court_width = 0, line_thickness = 0)
 }

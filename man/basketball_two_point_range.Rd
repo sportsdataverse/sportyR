@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_two_point_range}
 \alias{basketball_two_point_range}
-\title{If a court has a three-point line (see \code{\link[=basketball_three_point_line]{basketball_three_point_line()}}), then
-any made basket (not including free throws) made from inside of the arc are
-worth two points. The area inside of this arc is therefore referred to as two
-point range, which this feature draws. This feature is enclosed by the
-three-point line's outer edge and the baseline's inner edge}
+\title{Basketball Two-Point Range}
 \usage{
 basketball_two_point_range(
   basket_center_to_baseline = 0,
@@ -32,14 +28,20 @@ three-point line}
 A data frame of the bounding coordinates of two-point range
 }
 \description{
+If a court has a three-point line (see \code{\link[=basketball_three_point_line]{basketball_three_point_line()}}), then
+any made basket (not including free throws) made from inside of the arc are
+worth two points. The area inside of this arc is therefore referred to as two
+point range, which this feature draws. This feature is enclosed by the
+three-point line's outer edge and the baseline's inner edge
+}
+\details{
 It should also be noted that as this corresponds strictly to the area
 contained by the three-point line, the interior angle is what's needed. While
 utilizing the corner-three distance as the outer edge should work generally,
 an issue may arise if the z-order of the feature's plotting characteristic is
 changed to be greater than that of the three-point line itself. This should
 not happen, but the interior edge is therefore what is used here
-}
-\details{
+
 Start by getting the distance from the center of the basket to a corner
 three-point shot. This is referred to as \code{start_y}
 

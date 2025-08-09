@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_goal_frame_fill}
 \alias{hockey_goal_frame_fill}
-\title{The goal frame is where the puck enters after crossing the goal line to score
-a legal goal. The front face of the goal is flush with the goal line, while
-the back edge features rounded corners and expands outside of the front
-posts. The goal frame is composed of two pieces: the frame (see
-\code{\link[=hockey_goal_frame]{hockey_goal_frame()}}) and the fill (this function)}
+\title{Hockey Goal Frame Fill (Net)}
 \usage{
 hockey_goal_frame_fill(
   feature_radius = 0,
@@ -33,6 +29,13 @@ A data frame containing the bounding coordinates of the frame of the
 goal
 }
 \description{
+The goal frame is where the puck enters after crossing the goal line to score
+a legal goal. The front face of the goal is flush with the goal line, while
+the back edge features rounded corners and expands outside of the front
+posts. The goal frame is composed of two pieces: the frame (see
+\code{\link[=hockey_goal_frame]{hockey_goal_frame()}}) and the fill (this function)
+}
+\details{
 The goal frame has two thicknesses to be careful of: the outer diameter of
 the posts, and the outer diameter of the pipe in the back of the goal. The
 frame of the goal is usually red in color

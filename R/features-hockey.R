@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Hockey Defensive Zone
+#' 
 #' The defensive zone is the left "third" of the rink in TV view. This is the
 #' area that a team defends when attacking from left to right
 #'
@@ -70,6 +72,8 @@ hockey_defensive_zone <- function(rink_length = 0,
   return(dzone_df)
 }
 
+#' Hockey Neutral Zone
+#' 
 #' The neutral zone is the middle "third" of the rink. This is the area between
 #' the two zone (blue) lines. The center of the neutral zone should lie along
 #' the line x = 0
@@ -93,6 +97,8 @@ hockey_neutral_zone <- function(rink_width = 0, feature_thickness = 0) {
   return(nzone_df)
 }
 
+#' Hockey Offensive Zone
+#' 
 #' The offensive zone is the right "third" of the rink in TV view. This is the
 #' area that a team attacks to try to score a goal when attacking from left to
 #' right
@@ -170,6 +176,8 @@ hockey_offensive_zone <- function(rink_length = 0,
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Hockey Boards
+#' 
 #' The boards are the wall around the outside of the rink that constrain the
 #' playing surface. The boards are typically ovular in shape
 #'
@@ -279,6 +287,8 @@ hockey_boards <- function(rink_length = 0,
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Hockey Center Line
+#' 
 #' The center line is the line that divides the ice surface in half. Its center
 #' should lie directly in the center of the ice surface. Its line thickness
 #' should be given by 'major_line_thickness' as this is a major line on the ice
@@ -303,6 +313,8 @@ hockey_center_line <- function(feature_thickness = 0,
   return(center_line_df)
 }
 
+#' Hockey Referee's Crease
+#' 
 #' The referee's crease is a semi-circle on the "bottom" of the boards (in TV
 #' view), centered on the line y = 0 (the center of the center line)
 #'
@@ -350,6 +362,8 @@ hockey_referee_crease <- function(feature_radius = 0, feature_thickness = 0) {
   return(referee_crease_df)
 }
 
+#' Hockey Zone Line (Blue Line)
+#' 
 #' The zone lines are the lines that separate the neutral zone from the
 #' offensive and defensive zones. Its line thickness should be given by
 #' 'major_line_thickness' as this is a major line on the ice surface
@@ -371,6 +385,8 @@ hockey_zone_line <- function(rink_width = 0, feature_thickness = 0) {
   return(zone_line_df)
 }
 
+#' Hockey Goal Line
+#' 
 #' The goal lines are the lines over which a puck must cross (within the goal
 #' frame) in order to be considered a goal. Its line thickness should be given
 #' by 'minor_line_thickness' as this is a minor line on the ice surface.
@@ -462,6 +478,8 @@ hockey_goal_line <- function(rink_length = 0,
   }
 }
 
+#' Hockey Goaltender's Restricted Area (Trapezoid)
+#' 
 #' The goaltender's restricted area marks where a goaltender is legally allowed
 #' to handle the puck behind the net. This is often referred to as "the
 #' trapezoid" as it is trapezoidal in shape. Its line thickness should be given
@@ -532,6 +550,8 @@ hockey_goaltenders_restricted_area <- function(rink_length = 0,
   return(trapezoid_df)
 }
 
+#' Hockey Offensive/Defenive Zone Faceoff Line
+#' 
 #' The offensive/defensive zone faceoff lines are the L-shaped lines where
 #' players on each team line up when taking a faceoff in either the offensive or
 #' defensive zones. There are four of these faceoff lines around each
@@ -595,6 +615,8 @@ hockey_odzone_faceoff_lines <- function(feature_thickness = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Hockey Center Faceoff Spot
+#' 
 #' The center faceoff spot is the spot at which the game begins. Its center
 #' should lie directly in the center of the ice surface. Its radius is passed as
 #' a key in \code{rink_params}
@@ -616,6 +638,8 @@ hockey_center_faceoff_spot <- function(feature_radius = 0) {
   return(center_faceoff_spot_df)
 }
 
+#' Hockey Goal Crease (Outline)
+#' 
 #' The goal crease is the area where a goaltender plays their position. It is
 #' comprised of two components: the outline of the crease, and the filling in
 #' its boundary (see [hockey_goal_crease_fill()]). The goal crease may have two
@@ -909,6 +933,8 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
   return(goal_crease_outline_df)
 }
 
+#' Hockey Goal Crease (Interior)
+#' 
 #' The goal crease is the area where a goaltender plays their position. It is
 #' comprised of two components: the outline of the crease (see
 #' [hockey_goal_crease_outline()]), and the filling in its boundary. The goal
@@ -1044,6 +1070,8 @@ hockey_goal_crease_fill <- function(feature_radius = 0,
   return(goal_crease_fill_df)
 }
 
+#' Hockey Center Faceoff Circle
+#' 
 #' The center faceoff circle is where the each period of the game begins. It
 #' differs from the non-centered faceoff circles in that there are no adjoining
 #' hash marks on this circle. It is also a different color than the non-centered
@@ -1085,6 +1113,8 @@ hockey_center_faceoff_circle <- function(feature_radius = 0,
   return(center_faceoff_circle_df)
 }
 
+#' Hockey Non-Center Faceoff Circle
+#' 
 #' The non-centered faceoff circles are located in the offensive and defensive
 #' zones of the ice, with one on each side of the x-axis when viewing the rink
 #' in TV view. These circles differ from the center faceoff circle because they
@@ -1190,6 +1220,8 @@ hockey_odzone_faceoff_circle <- function(feature_radius = 0,
   return(odzone_faceoff_circle_df)
 }
 
+#' Hockey Non-Center Faceoff Spot (Ring)
+#' 
 #' The non-centered faceoff spots are located in the neutral, offensive and
 #' defensive zones of the ice, with one on each side of the x-axis when viewing
 #' the rink in TV view. These spots differ from the center faceoff spot because
@@ -1246,6 +1278,8 @@ hockey_nodzone_faceoff_spot_ring <- function(feature_radius = 0,
   return(nodzone_faceoff_spot_ring_df)
 }
 
+#' Hockey Non-Center Faceoff Spot (Stripe)
+#' 
 #' The non-centered faceoff spots are located in the neutral, offensive and
 #' defensive zones of the ice, with one on each side of the x-axis when viewing
 #' the rink in TV view. These spots differ from the center faceoff spot because
@@ -1316,6 +1350,8 @@ hockey_nodzone_faceoff_spot_stripe <- function(feature_radius = 0,
   return(nodzone_faceoff_spot_stripe_df)
 }
 
+#' Hockey Goal Frame
+#' 
 #' The goal frame is where the puck enters after crossing the goal line to score
 #' a legal goal. The front face of the goal is flush with the goal line, while
 #' the back edge features rounded corners and expands outside of the front
@@ -1397,6 +1433,8 @@ hockey_goal_frame <- function(feature_radius = 0,
   return(goal_frame_df)
 }
 
+#' Hockey Goal Frame Fill (Net)
+#' 
 #' The goal frame is where the puck enters after crossing the goal line to score
 #' a legal goal. The front face of the goal is flush with the goal line, while
 #' the back edge features rounded corners and expands outside of the front
@@ -1462,6 +1500,8 @@ hockey_goal_frame_fill <- function(feature_radius = 0,
   return(goal_frame_fill_df)
 }
 
+#' Hockey Bench Area (Outline)
+#' 
 #' The player benches are the areas outside the confines of the rink where
 #' players not currently on the ice are seated. They are to be on the same side
 #' of the ice surface and separate, as close to center ice as possible
@@ -1509,6 +1549,8 @@ hockey_player_bench_outline <- function(feature_thickness = 0,
   return(bench_outline_df)
 }
 
+#' Hockey Bench Area (Interior)
+#' 
 #' The player benches are the areas outside the confines of the rink where
 #' players not currently on the ice are seated. They are to be on the same side
 #' of the ice surface and separate, as close to center ice as possible
@@ -1538,6 +1580,8 @@ hockey_player_bench_area_fill <- function(feature_thickness = 0,
   return(bench_fill_df)
 }
 
+#' Hockey Penalty Box (Outline)
+#' 
 #' The penalty boxes are the areas outside the confines of the rink where
 #' players serve time for a penalty incurred. They are to be on the same side of
 #' the ice surface and separate, as close to center ice as possible, for each
@@ -1593,6 +1637,8 @@ hockey_penalty_box_outline <- function(feature_thickness = 0,
   return(penalty_box_outline_df)
 }
 
+#' Hockey Penalty Box (Interior)
+#' 
 #' The penalty boxes are the areas outside the confines of the rink where
 #' players serve time for a penalty incurred. They are to be on the same side of
 #' the ice surface and separate, as close to center ice as possible, for each
@@ -1624,6 +1670,8 @@ hockey_penalty_box_fill <- function(feature_thickness = 0,
   return(penalty_box_fill_df)
 }
 
+#' Hockey Off-Ice Officials' Box
+#' 
 #' The off-ice officials' box is located between the two penalty boxes, opposite
 #' the team bench areas
 #'

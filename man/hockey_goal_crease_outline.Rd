@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_goal_crease_outline}
 \alias{hockey_goal_crease_outline}
-\title{The goal crease is the area where a goaltender plays their position. It is
-comprised of two components: the outline of the crease, and the filling in
-its boundary (see \code{\link[=hockey_goal_crease_fill]{hockey_goal_crease_fill()}}). The goal crease may have two
-notches (one on each side of the line y = 0)}
+\title{Hockey Goal Crease (Outline)}
 \usage{
 hockey_goal_crease_outline(
   feature_radius = 0,
@@ -39,6 +36,12 @@ A data frame containing the bounding coordinates of the goal crease's
 outline
 }
 \description{
+The goal crease is the area where a goaltender plays their position. It is
+comprised of two components: the outline of the crease, and the filling in
+its boundary (see \code{\link[=hockey_goal_crease_fill]{hockey_goal_crease_fill()}}). The goal crease may have two
+notches (one on each side of the line y = 0)
+}
+\details{
 The outline of the goal crease should have thickness given by
 'minor_line_thickness', as this is a minor line on the ice surface, and the
 outline is usually red in color

@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Basketball Half Court
+#' 
 #' Each half court spans from the inner edge of the baseline to the center of
 #' the division line, and serves as the base layer of the court plot
 #'
@@ -24,6 +26,8 @@ basketball_half_court <- function(court_length = 0, court_width = 0) {
   return(half_court_df)
 }
 
+#' Basketball Two-Point Range
+#' 
 #' If a court has a three-point line (see [basketball_three_point_line()]), then
 #' any made basket (not including free throws) made from inside of the arc are
 #' worth two points. The area inside of this arc is therefore referred to as two
@@ -102,6 +106,8 @@ basketball_two_point_range <- function(basket_center_to_baseline = 0,
   return(two_point_range_df)
 }
 
+#' Basketball Center Circle (Interior)
+#' 
 #' The center circle is broken into two parts: the
 #' [basketball_center_circle_outline()], and the fill (this feature), which is
 #' the court coloring inside of the inner edge of this circle
@@ -126,6 +132,8 @@ basketball_center_circle_fill <- function(center_circle_radius = 0,
   return(center_circle_fill_df)
 }
 
+#' Basketball Painted Area
+#' 
 #' The painted area is the area contained by the free throw lane (see
 #' [basketball_free_throw_lane_boundary()] for more information on the free
 #' throw lane)
@@ -159,6 +167,8 @@ basketball_painted_area <- function(lane_length = 0,
   return(painted_area_df)
 }
 
+#' Basketball Free Throw Circle (Interior)
+#' 
 #' The filled-in section of the free throw circle. The circle is the area where
 #' a free throw shooter stands when attempting the free throw. The outline of
 #' this area will be created separately via
@@ -190,6 +200,8 @@ basketball_free_throw_circle_fill <- function(free_throw_circle_radius = 0,
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Basketball Court Apron
+#' 
 #' The apron of the court is the colored boundary around the exterior of some
 #' courts. If no such colored boundary exists, this should take the same color
 #' as the court floor
@@ -242,6 +254,8 @@ basketball_court_apron <- function(court_length = 0,
   return(court_apron_df)
 }
 
+#' Basketball Endline
+#' 
 #' The endline on a basketball court, also called the baseline, is located
 #' beyond each basket. In cases where the endline is the court apron, the
 #' endline should still be generated and its color should be set equal to the
@@ -265,6 +279,8 @@ basketball_endline <- function(court_width = 0, line_thickness = 0) {
   return(endline_df)
 }
 
+#' Basketball Sideline
+#' 
 #' The sideline on a basketball court run the full length of the court,
 #' typically with the team bench areas and substitution areas on their exterior.
 #' In cases where the sideline is the court apron, the sideline should still be
@@ -294,6 +310,8 @@ basketball_sideline <- function(court_length = 0, line_thickness = 0) {
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Basketball Center Circle (Outline)
+#' 
 #' The center circle is broken into two parts: the outline (this feature) and
 #' the fill, which is the court coloring inside of the inner edge of this circle
 #'
@@ -327,6 +345,8 @@ basketball_center_circle_outline <- function(center_circle_radius = 0,
   return(center_circle_outline_df)
 }
 
+#' Basketball Division Line (Half Court Line)
+#' 
 #' The division line divides the court into two halves, and is sometimes
 #' referred to as the time line or half-court line. The center of this line goes
 #' through the y axis, with half of the line lying in a team's offensive half
@@ -362,6 +382,8 @@ basketball_division_line <- function(court_width = 0,
   return(division_line_df)
 }
 
+#' Basketball Three-Point Line
+#' 
 #' An arc on the court, behind which any made basket counts as three points and
 #' in front of which, any made basket will count as two points (see
 #' [basketball_two_point_range()] for more information).
@@ -457,6 +479,8 @@ basketball_three_point_line <- function(basket_center_to_baseline = 0,
   return(three_point_line_df)
 }
 
+#' Basketball Free Throw Lane (Boundary)
+#' 
 #' The lines providing the boundary to the free throw lane. When a player is
 #' shooting a free throw, all non-shooting players must be outside of this
 #' boundary
@@ -503,6 +527,8 @@ basketball_free_throw_lane_boundary <- function(lane_length = 0,
   return(free_throw_lane_boundary_df)
 }
 
+#' Basketball Free Throw Circle (Outline)
+#' 
 #' The outline of the free throw circle. The interior filling area is created
 #' via [basketball_free_throw_circle_fill()]
 #'
@@ -544,6 +570,8 @@ basketball_free_throw_circle <- function(overhang = 0,
   return(free_throw_circle_outline_df)
 }
 
+#' Basketball Free Throw Circle (Dashes)
+#' 
 #' On some courts, there are a series of dashes that comprise the bottom half of
 #' the free throw circle (e.g. the half closer to the basket). This function
 #' generates a single dash
@@ -582,6 +610,8 @@ basketball_free_throw_circle_dash <- function(feature_radius = 0,
   return(free_throw_circle_dash_df)
 }
 
+#' Basketball Lane Space Mark (Blocks)
+#' 
 #' The lane space marks, also known as the blocks, denote where non-shooting
 #' players stand during free throws. Players may not cross these lines before
 #' the ball touches the rim on the shot attempt
@@ -605,6 +635,8 @@ basketball_lane_space_mark <- function(feature_thickness = 0, mark_depth = 0) {
   return(lane_space_mark_df)
 }
 
+#' Basketball Inbounding Line
+#' 
 #' The inbounding line is where the ball is inbounded on the sideline when
 #' necessary. Lines drawn on the top of the court should be drawn in a top-down
 #' direction, and lines on the bottom of the court should be drawn in the
@@ -643,6 +675,8 @@ basketball_inbounding_line <- function(line_thickness = 0,
   return(inbounding_line_df)
 }
 
+#' Basketball Substitution Line
+#' 
 #' The substitution line is where players checking into the game wait for a
 #' stoppage. Lines drawn on the top of the court should be drawn in a top-down
 #' direction, and lines on the bottom of the court should be drawn in the
@@ -680,6 +714,8 @@ basketball_substitution_line <- function(line_thickness = 0,
   return(substitution_line_df)
 }
 
+#' Basketball Team Bench Line
+#' 
 #' Players not in the game must stay within the team bench lines unless moving
 #' to the substitution area (see [basketball_substitution_line()] class)
 #'
@@ -714,7 +750,9 @@ basketball_team_bench_line <- function(line_thickness = 0,
   return(team_bench_line_df)
 }
 
-#' The arc located in the free-throw lane is called the restricted arc. The
+#' Basketball Restricted Arc
+#' 
+#' The arc located in the free throw lane is called the restricted arc. The
 #' interior radius should be specified for this feature.
 #'
 #' @param feature_radius The interior radius of the restricted arc
@@ -769,6 +807,8 @@ basketball_restricted_arc <- function(feature_radius = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Basketball Lower Defensive Box Mark
+#' 
 #' The lower defensive box is an imaginary box on the court extending from the
 #' lines on the baseline to the lines inside the painted area. This box helps
 #' determine when a block/charge call should take place, as an offensive player
@@ -809,6 +849,8 @@ basketball_lower_defensive_box_mark <- function(drawn_direction = "",
   return(lower_defensive_box_mark_df)
 }
 
+#' Basketball Backboard
+#' 
 #' The backboard is the backing onto which the basket ring (created by
 #' [basketball_basket_ring()]) is affixed. This will be drawn as a
 #' rectangle on the court as the court is drawn from an aerial view
@@ -833,6 +875,8 @@ basketball_backboard <- function(backboard_width = 0, backboard_thickness = 0) {
   return(backboard_df)
 }
 
+#' Basketball Basket Ring (Rim)
+#' 
 #' The hoop through which the ball must pass to score points for a team is
 #' called the basket ring
 #'
@@ -907,6 +951,8 @@ basketball_basket_ring <- function(basket_ring_connector_width = 0,
   return(basket_ring_df)
 }
 
+#' Basketball Net
+#' 
 #' To make the basket ring easier to identify, the nets will also be drawn onto
 #' the plot. They will typically be white in color
 #'

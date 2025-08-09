@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_penalty_mark}
 \alias{soccer_penalty_mark}
-\title{The penalty mark is the center point for the arc of the penalty box, as well
-as where any penalty kick is taken from}
+\title{Soccer Penalty Mark}
 \usage{
 soccer_penalty_mark(feature_radius = 0)
 }

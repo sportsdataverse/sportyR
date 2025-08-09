@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_three_point_line}
 \alias{basketball_three_point_line}
-\title{An arc on the court, behind which any made basket counts as three points and
-in front of which, any made basket will count as two points (see
-\code{\link[=basketball_two_point_range]{basketball_two_point_range()}} for more information).}
+\title{Basketball Three-Point Line}
 \usage{
 basketball_three_point_line(
   basket_center_to_baseline = 0,
@@ -30,10 +28,14 @@ three-point line}
 A data frame of the bounding coordinates of the three-point line
 }
 \description{
-Start by getting the distance from the center of the basket to a corner
-three-point shot. This is referred to as \code{start_y}
+An arc on the court, behind which any made basket counts as three points and
+in front of which, any made basket will count as two points (see
+\code{\link[=basketball_two_point_range]{basketball_two_point_range()}} for more information).
 }
 \details{
+Start by getting the distance from the center of the basket to a corner
+three-point shot. This is referred to as \code{start_y}
+
 Next, get the starting angle with which to trace out the two-point range.
 Taking the distance start_y to be a y coordinate, and the radius of the arc
 of the three-point line to be a radius, we the sine of the starting angle is

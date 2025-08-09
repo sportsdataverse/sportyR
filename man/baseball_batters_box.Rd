@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_batters_box}
 \alias{baseball_batters_box}
-\title{The batter's boxes on the field. This is where a batter must stand to legally
-hit the ball}
+\title{Baseball Batter's Box}
 \usage{
 baseball_batters_box(
   batters_box_length = 0,

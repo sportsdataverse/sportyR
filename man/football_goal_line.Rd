@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_goal_line}
 \alias{football_goal_line}
-\title{The goal lines are the lines the ball must cross while being either passed or
-ran in order to score a touchdown. The interior edge of the goal line
-(relative to the center of the field of play) should lie at the 0 yard line,
-and the center of the 1 yard line should be exactly 1 yard from this edge of
-the goal line}
+\title{Football Goal Line}
 \usage{
 football_goal_line(field_width = 0, feature_thickness = 0)
 }

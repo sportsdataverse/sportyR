@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_backcourt}
 \alias{tennis_backcourt}
-\title{The backcourt is the area behind the serviceline on the court, contained
-within the singles sidelines}
+\title{Tennis Backcourt}
 \usage{
 tennis_backcourt(court_length = 0, serviceline_distance = 0, singles_width = 0)
 }

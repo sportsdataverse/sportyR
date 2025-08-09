@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_base}
 \alias{baseball_base}
-\title{One of the bases on the diamond, or really any base on the field. These are
-squares that are rotated 45 degrees}
+\title{Baseball Base}
 \usage{
 baseball_base(
   base_side_length = 0,

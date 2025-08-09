@@ -1,5 +1,7 @@
 # Surface Base Features --------------------------------------------------------
 
+#' Football Half Field
+#' 
 #' Each half of the football field spans from the edge of the goal line nearest
 #' to midfield to the center of the major yard line at midfield
 #'
@@ -22,6 +24,8 @@ football_half_field <- function(field_length = 0,
   return(half_field_df)
 }
 
+#' Football Endzone
+#' 
 #' The endzones are the area beyond the goal line. Any offensive player who is
 #' in legal possession of the ball while in the endzone, or who catches the ball
 #' in the endzone, scores a touchdown for their team. This area stretches from
@@ -45,6 +49,8 @@ football_endzone <- function(field_width = 0, endzone_length = 0) {
   return(endzone_df)
 }
 
+#' Football Apron
+#' 
 #' The field should have an apron to appropriately see all out-of-bounds
 #' features. This is typically the same color as the field itself, but will be
 #' created separately so as to allow for more customized plotting
@@ -318,6 +324,8 @@ football_field_apron <- function(field_length = 0,
 
 # Surface Boundaries -----------------------------------------------------------
 
+#' Football End Line
+#' 
 #' The end line is the line beyond the back of the endzone. Its interior edge is
 #' considered out of bounds
 #'
@@ -338,6 +346,8 @@ football_end_line <- function(feature_thickness = 0, field_width = 0) {
   return(end_line)
 }
 
+#' Football Sideline
+#' 
 #' The sidelines are the lines that run the length of the field, stretching from
 #' the back of one endzone to the back of the other endzone. Its interior edge
 #' is considered out of bounds
@@ -362,6 +372,8 @@ football_sideline <- function(feature_thickness = 0,
   return(sideline)
 }
 
+#' Football Field Border
+#' 
 #' The field border is the border line around the outer edge of the sideline and
 #' end line. They may not be present on every field, but this is not the same as
 #' the sideline or end line (although they may be the same color)
@@ -562,6 +574,8 @@ football_field_border <- function(field_length = 0,
   }
 }
 
+#' Football Field Border Outline
+#' 
 #' The field border's outline is the outline around the outer edge of the field
 #' border. They may not be present on every field, but this is not the same as
 #' the sideline or end line (although they may be the same color)
@@ -1018,6 +1032,8 @@ football_field_border_outline <- function(field_length = 0,
   return(field_border_outline_df)
 }
 
+#' Football Red Zone Border
+#' 
 #' The field border (see [football_field_border()]) may have a different color
 #' along the red zone than it does along the rest of the field. This is not
 #' always the case, but the feature is provided for convenience
@@ -1038,6 +1054,8 @@ football_red_zone_border <- function(feature_thickness = 0) {
   return(red_zone_border_df)
 }
 
+#' Football Red Zone Border Outline
+#' 
 #' The outline of the [football_red_zone_border()] may be a different color than
 #' the rest of the field border. This is not always the case, but the feature is
 #' provided for convenience
@@ -1064,6 +1082,8 @@ football_red_zone_border_outline <- function(feature_thickness = 0) {
 
 # Surface Lines ----------------------------------------------------------------
 
+#' Football Goal Line
+#' 
 #' The goal lines are the lines the ball must cross while being either passed or
 #' ran in order to score a touchdown. The interior edge of the goal line
 #' (relative to the center of the field of play) should lie at the 0 yard line,
@@ -1087,6 +1107,8 @@ football_goal_line <- function(field_width = 0, feature_thickness = 0) {
   return(goal_line_df)
 }
 
+#' Football Major Yard Line
+#' 
 #' The major yard lines are the yard lines that span the entire width of the
 #' field. Typically, these lines are placed every 5 yards, but the customization
 #' is left to the user. These lines may feature a cross-hash, which runs in the
@@ -1159,6 +1181,8 @@ football_major_yard_line <- function(field_width = 0,
   return(major_yard_line_df)
 }
 
+#' Football Minor Yard Line
+#' 
 #' The minor yard lines are the yard lines in between all of the major yard
 #' lines. Typically, there are four sets of minor yard lines: one near each
 #' sideline, and two near the middle of the field
@@ -1181,6 +1205,8 @@ football_minor_yard_line <- function(yard_line_height = 0,
   return(minor_yard_line_df)
 }
 
+#' Football Try Mark
+#' 
 #' The try mark is the mark from which all tries start. This line is located
 #' directly on the line \code{y = 0}. This line is not typically considered an
 #' official yard line, which is why it is created independently
@@ -1202,6 +1228,8 @@ football_try_mark <- function(try_mark_width = 0, feature_thickness = 0) {
   return(try_mark_df)
 }
 
+#' Football Coaching Box Line
+#' 
 #' The coaching box line is the line that separates the team bench area from the
 #' coaching box. This line should be a different color than the bench area and
 #' coaching box, which may be the same color
@@ -1231,6 +1259,8 @@ football_coaching_box_line <- function(coaching_box_line_length = 0,
 
 # Surface Features -------------------------------------------------------------
 
+#' Football Directional Arrow (For Yard Lines)
+#' 
 #' The directional arrows point towards the nearest goal line from the yardage
 #' marker they are closest to. These arrows are described by their base (which
 #' runs parallel to the goal line) and their length, which extends from the tip
@@ -1261,6 +1291,8 @@ football_directional_arrow <- function(arrow_base = 0, arrow_length = 0) {
   return(arrow_df)
 }
 
+#' Football Restricted Area
+#' 
 #' The restricted area is the area nearest the sideline's exterior edge. This
 #' area is distinct from the coaching box (immediately behind the restricted
 #' area) and team bench area
@@ -1284,6 +1316,8 @@ football_restricted_area <- function(restricted_area_length = 0,
   return(restricted_area_df)
 }
 
+#' Football Coaching Box
+#' 
 #' The coaching box is the area between the restricted area and team bench area.
 #' It may or may not be distinct from either of these areas, but is typically
 #' separated by the coaching box line (see [football_coaching_box_line()] for
@@ -1308,6 +1342,8 @@ football_coaching_box <- function(coaching_box_length = 0,
   return(coaching_box_df)
 }
 
+#' Football Team Bench Area (Interior)
+#' 
 #' The team bench area is the area beyond the restricted area and coaching box.
 #' It is where the team benches, non-playing players, and team staff are to
 #' remain during the game
@@ -1345,6 +1381,8 @@ football_team_bench_area <- function(team_bench_length_field_side = 0,
   return(team_bench_area_df)
 }
 
+#' Football Team Bench Area (Outline)
+#' 
 #' The outline of the team bench area runs beyond the team bench, but is inside
 #' of any field border that may run behind the team bench area (see
 #' [football_field_border()] for more information on this feature)

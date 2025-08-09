@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_goal_box}
 \alias{soccer_goal_box}
-\title{The goal box is the smaller of the two boxes that extend from the goal line
-The goal box is usually 5.5 meters (6 yards) from the goal line, but may be
-parameterized via this function}
+\title{Soccer Goal Box}
 \usage{
 soccer_goal_box(
   feature_thickness = 0,
@@ -27,6 +25,11 @@ to the outer edge of the goal box}
 A data frame containing the bounding coordinates of the goal box
 }
 \description{
+The goal box is the smaller of the two boxes that extend from the goal line
+The goal box is usually 5.5 meters (6 yards) from the goal line, but may be
+parameterized via this function
+}
+\details{
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

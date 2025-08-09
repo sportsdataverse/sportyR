@@ -2,7 +2,7 @@
 % Please edit documentation in R/unit-conversions.R
 \name{convert_units}
 \alias{convert_units}
-\title{Convert all units, regardless of starting and ending units}
+\title{Convert Units}
 \usage{
 convert_units(meas, from_unit, to_unit, conversion_columns = NULL)
 }

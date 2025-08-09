@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_free_throw_circle}
 \alias{basketball_free_throw_circle}
-\title{The outline of the free throw circle. The interior filling area is created
-via \code{\link[=basketball_free_throw_circle_fill]{basketball_free_throw_circle_fill()}}}
+\title{Basketball Free Throw Circle (Outline)}
 \usage{
 basketball_free_throw_circle(
   overhang = 0,

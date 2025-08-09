@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_penalty_box_fill}
 \alias{lacrosse_penalty_box_fill}
-\title{The penalty boxes are the areas outside the confines of the field where
-players serve time for a penalty incurred. They are to be on the same side of
-the field surface and separate, as close to center field as possible, for
-each team. This will not include the off-field officials' box; see
-\code{\link[=lacrosse_off_field_officials_box]{lacrosse_off_field_officials_box()}} for more information}
+\title{Lacrosse Penalty Box (Interior)}
 \usage{
 lacrosse_penalty_box_fill(
   penalty_box_outline_thickness = 0,
@@ -28,6 +24,13 @@ A data frame containing the bounding coordinates of the penalty box's
 inner filling
 }
 \description{
+The penalty boxes are the areas outside the confines of the field where
+players serve time for a penalty incurred. They are to be on the same side of
+the field surface and separate, as close to center field as possible, for
+each team. This will not include the off-field officials' box; see
+\code{\link[=lacrosse_off_field_officials_box]{lacrosse_off_field_officials_box()}} for more information
+}
+\details{
 This will have the same thickness as the boards, but will be located outside
 the field surface
 }

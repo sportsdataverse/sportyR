@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-football.R
 \name{geom_football}
 \alias{geom_football}
-\title{Generate a \code{ggplot2} instance containing a football field for a
-specified league}
+\title{Draw Football Field}
 \usage{
 geom_football(
   league,

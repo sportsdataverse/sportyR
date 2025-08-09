@@ -1,3 +1,5 @@
+#' Supply Default Values
+#' 
 #' Set the default value when not provided in a list
 #'
 #' @param spec_val The specified value to use (assuming it's provided)
@@ -26,6 +28,8 @@
   }
 }
 
+#' Check If String Passed is Hexadecimal
+#' 
 #' Identify if a passed color is a hexadecimal string
 #'
 #' @param col_str The potentially-hexadecimal string to check
@@ -58,6 +62,8 @@ is_hex <- function(col_str = "") {
   return(TRUE)
 }
 
+#' Load Default Surface Parameters
+#' 
 #' Load default parameters for a specified league. This should only be used when
 #' debugging the package
 #'

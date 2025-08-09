@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-baseball.R
 \name{geom_baseball}
 \alias{geom_baseball}
-\title{Generate a \code{ggplot2} instance containing a baseball field for a
-specified league}
+\title{Draw Baseball Field}
 \usage{
 geom_baseball(
   league,

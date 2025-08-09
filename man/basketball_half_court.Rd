@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_half_court}
 \alias{basketball_half_court}
-\title{Each half court spans from the inner edge of the baseline to the center of
-the division line, and serves as the base layer of the court plot}
+\title{Basketball Half Court}
 \usage{
 basketball_half_court(court_length = 0, court_width = 0)
 }

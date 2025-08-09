@@ -1,3 +1,5 @@
+#' Create Surface Plot Base
+#' 
 #' Create the base for the \code{ggplot2} instance with the correct theme
 #' elements
 #'
@@ -38,6 +40,8 @@ create_plot_base <- function(plot_background = NULL) {
   return(g)
 }
 
+#' Add Feature to Plot
+#' 
 #' Add a surface's feature to a \code{ggplot2} instance
 #'
 #' @param g The \code{ggplot2} instance onto which the feature will be added

@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_corner_arc}
 \alias{soccer_corner_arc}
-\title{The corner arcs are the quarter-circles located where the touchline meets the
-goal line}
+\title{Soccer Corner Arc}
 \usage{
 soccer_corner_arc(feature_radius = 0, feature_thickness = 0)
 }
@@ -16,6 +15,10 @@ soccer_corner_arc(feature_radius = 0, feature_thickness = 0)
 A data frame containing the bounding coordinates of the corner arc
 }
 \description{
+The corner arcs are the quarter-circles located where the touchline meets the
+goal line
+}
+\details{
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

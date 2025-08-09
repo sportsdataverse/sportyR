@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_center_faceoff_spot}
 \alias{hockey_center_faceoff_spot}
-\title{The center faceoff spot is the spot at which the game begins. Its center
-should lie directly in the center of the ice surface. Its radius is passed as
-a key in \code{rink_params}}
+\title{Hockey Center Faceoff Spot}
 \usage{
 hockey_center_faceoff_spot(feature_radius = 0)
 }

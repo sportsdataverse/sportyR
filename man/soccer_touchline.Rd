@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_touchline}
 \alias{soccer_touchline}
-\title{The lines that run the full length of the pitch are called the touchlines. In
-some cases, they may also be referred to as the sidelines, as they comprise
-the sides of the pitch}
+\title{Soccer Touchline}
 \usage{
 soccer_touchline(pitch_length = 0, feature_thickness = 0)
 }
@@ -17,6 +15,11 @@ soccer_touchline(pitch_length = 0, feature_thickness = 0)
 A data frame containing the bounding coordinates of the touchline
 }
 \description{
+The lines that run the full length of the pitch are called the touchlines. In
+some cases, they may also be referred to as the sidelines, as they comprise
+the sides of the pitch
+}
+\details{
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

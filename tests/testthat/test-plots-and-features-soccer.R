@@ -3,9 +3,8 @@ test_that(
     # Create a soccer pitch plot
     epl_pitch <- geom_soccer("epl")
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(epl_pitch)[1], "gg")
-    expect_equal(class(epl_pitch)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(epl_pitch))
   }
 )
 
@@ -14,9 +13,8 @@ test_that(
     # Create a soccer pitch plot
     nwsl_pitch <- geom_soccer("nwsl", pitch_units = "in", rotation = 270)
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(nwsl_pitch)[1], "gg")
-    expect_equal(class(nwsl_pitch)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(nwsl_pitch))
   }
 )
 
@@ -30,9 +28,8 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(nwsl_pitch)[1], "gg")
-    expect_equal(class(nwsl_pitch)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(nwsl_pitch))
   }
 )
 
@@ -63,8 +60,7 @@ test_that(
       )
     )
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(nwsl_pitch)[1], "gg")
-    expect_equal(class(nwsl_pitch)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(nwsl_pitch))
   }
 )

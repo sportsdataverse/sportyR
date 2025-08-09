@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_frontcourt_half}
 \alias{tennis_frontcourt_half}
-\title{The front court is the area between the \code{\link[=tennis_net]{tennis_net()}} and the
-\code{\link[=tennis_serviceline]{tennis_serviceline()}}. left-hand side of the court when facing the net from
-the nearest baseline is the ad court, and the right-hand side is the deuce
-court. This is constrained by the singles \code{\link[=tennis_sideline]{tennis_sideline()}}.}
+\title{Tennis Front Court}
 \usage{
 tennis_frontcourt_half(serviceline_distance = 0, singles_width = 0)
 }
@@ -19,6 +16,12 @@ A data frame containing the bounding coordinates of one half of the
 frontcourt
 }
 \description{
+The front court is the area between the \code{\link[=tennis_net]{tennis_net()}} and the
+\code{\link[=tennis_serviceline]{tennis_serviceline()}}. left-hand side of the court when facing the net from
+the nearest baseline is the ad court, and the right-hand side is the deuce
+court. This is constrained by the singles \code{\link[=tennis_sideline]{tennis_sideline()}}.
+}
+\details{
 This is one half of the front court (either the ad or deuce court)
 }
 \keyword{internal}

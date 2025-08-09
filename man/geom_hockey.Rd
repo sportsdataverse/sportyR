@@ -2,8 +2,7 @@
 % Please edit documentation in R/geom-hockey.R
 \name{geom_hockey}
 \alias{geom_hockey}
-\title{Generate a \code{ggplot2} instance containing an ice rink for a specified
-league}
+\title{Draw Hockey Rink}
 \usage{
 geom_hockey(
   league,

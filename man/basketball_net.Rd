@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_net}
 \alias{basketball_net}
-\title{To make the basket ring easier to identify, the nets will also be drawn onto
-the plot. They will typically be white in color}
+\title{Basketball Net}
 \usage{
 basketball_net(basket_ring_inner_radius = 0)
 }

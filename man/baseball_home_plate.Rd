@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_home_plate}
 \alias{baseball_home_plate}
-\title{Home plate. This is a pentagonal shape with its back tip located at the
-origin of the coordinate system. The angled sides of home plate intersect the
-baselines}
+\title{Baseball Home Plate}
 \usage{
 baseball_home_plate(home_plate_edge_length = 0)
 }

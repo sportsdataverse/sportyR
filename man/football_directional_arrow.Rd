@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-football.R
 \name{football_directional_arrow}
 \alias{football_directional_arrow}
-\title{The directional arrows point towards the nearest goal line from the yardage
-marker they are closest to. These arrows are described by their base (which
-runs parallel to the goal line) and their length, which extends from the tip
-to the base}
+\title{Football Directional Arrow (For Yard Lines)}
 \usage{
 football_directional_arrow(arrow_base = 0, arrow_length = 0)
 }

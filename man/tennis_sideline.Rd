@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_sideline}
 \alias{tennis_sideline}
-\title{The sideline runs the entire length of the court, and there may be up to four
-sidelines on the court (this may refer to either the singles or doubles
-sideline). Lines are considered in play, so the outer edge of the sideline
-will lie along \code{x = court_width / 2}}
+\title{Tennis Sideline}
 \usage{
 tennis_sideline(court_length = 0, feature_thickness = 0)
 }

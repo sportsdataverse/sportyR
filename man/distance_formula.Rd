@@ -2,7 +2,7 @@
 % Please edit documentation in R/math-functions.R
 \name{distance_formula}
 \alias{distance_formula}
-\title{Get the Euclidean distance between two points}
+\title{Euclidean Distance Formula}
 \usage{
 distance_formula(point_1_x, point_1_y, point_2_x = 0, point_2_y = 0)
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{load_default_parameters}
 \alias{load_default_parameters}
-\title{Load default parameters for a specified league. This should only be used when
-debugging the package}
+\title{Load Default Surface Parameters}
 \usage{
 load_default_parameters(
   league = "",

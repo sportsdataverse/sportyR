@@ -2,11 +2,7 @@
 % Please edit documentation in R/features-hockey.R
 \name{hockey_nodzone_faceoff_spot_ring}
 \alias{hockey_nodzone_faceoff_spot_ring}
-\title{The non-centered faceoff spots are located in the neutral, offensive and
-defensive zones of the ice, with one on each side of the x-axis when viewing
-the rink in TV view. These spots differ from the center faceoff spot because
-they have a larger diameter, differ in color, and have a colored stripe that
-runs through its center.}
+\title{Hockey Non-Center Faceoff Spot (Ring)}
 \usage{
 hockey_nodzone_faceoff_spot_ring(feature_radius = 0, feature_thickness = 0)
 }
@@ -20,11 +16,17 @@ A data frame containing the bounding coordinates of a non-centered
 faceoff spot ring
 }
 \description{
+The non-centered faceoff spots are located in the neutral, offensive and
+defensive zones of the ice, with one on each side of the x-axis when viewing
+the rink in TV view. These spots differ from the center faceoff spot because
+they have a larger diameter, differ in color, and have a colored stripe that
+runs through its center.
+}
+\details{
 This function is responsible for creating the outer ring, not the colored
 stripe running through it. Please see \code{\link[=hockey_nodzone_faceoff_spot_stripe]{hockey_nodzone_faceoff_spot_stripe()}}
 for more information on it
-}
-\details{
+
 The non-centered faceoff spots are where faceoffs are taken after an icing
 call or to start a powerplay. They differ from the center ice faceoff spot in
 size, color, and form. The thickness should be given by

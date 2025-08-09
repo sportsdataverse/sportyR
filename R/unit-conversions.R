@@ -1,3 +1,5 @@
+#' Convert Units
+#' 
 #' Convert all units, regardless of starting and ending units
 #'
 #' @param meas A measurement in any unit of length

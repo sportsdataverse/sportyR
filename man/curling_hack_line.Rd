@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-curling.R
 \name{curling_hack_line}
 \alias{curling_hack_line}
-\title{The hack line connects the two footholds at each hack. It should be anchored
-at the terminus of the centre line (see \code{\link[=curling_centre_line]{curling_centre_line()}} for more
-information)}
+\title{Curling Hack Line}
 \usage{
 curling_hack_line(line_thickness = 0, hack_width = 0)
 }

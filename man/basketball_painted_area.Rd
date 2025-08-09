@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-basketball.R
 \name{basketball_painted_area}
 \alias{basketball_painted_area}
-\title{The painted area is the area contained by the free throw lane (see
-\code{\link[=basketball_free_throw_lane_boundary]{basketball_free_throw_lane_boundary()}} for more information on the free
-throw lane)}
+\title{Basketball Painted Area}
 \usage{
 basketball_painted_area(
   lane_length = 0,
@@ -29,6 +27,11 @@ A data frame of the bounding coordinates of the free throw lane's
 painted area
 }
 \description{
+The painted area is the area contained by the free throw lane (see
+\code{\link[=basketball_free_throw_lane_boundary]{basketball_free_throw_lane_boundary()}} for more information on the free
+throw lane)
+}
+\details{
 The painted area may be a different color than the rest of the two point
 range area (see \code{\link[=basketball_two_point_range]{basketball_two_point_range()}} for more information on
 two-point range), but may also be the same color

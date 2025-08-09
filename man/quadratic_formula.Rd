@@ -2,8 +2,7 @@
 % Please edit documentation in R/math-functions.R
 \name{quadratic_formula}
 \alias{quadratic_formula}
-\title{Deploy the quadratic formula given inputs \code{a}, \code{b}, and \code{c}
-such that they satisfy the equation \code{(a * (x ^ 2)) + bx + c = 0}}
+\title{Quadratic Formula}
 \usage{
 quadratic_formula(a, b, c)
 }

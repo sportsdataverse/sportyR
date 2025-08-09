@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-tennis.R
 \name{tennis_doubles_alley}
 \alias{tennis_doubles_alley}
-\title{The doubles alley is the area between the singles and doubles sideline. It
-should run the entire length of the court}
+\title{Tennis Doubles Alley}
 \usage{
 tennis_doubles_alley(court_length = 0, feature_thickness = 0)
 }

@@ -2,10 +2,7 @@
 % Please edit documentation in R/features-lacrosse.R
 \name{lacrosse_goal_line}
 \alias{lacrosse_goal_line}
-\title{The goal line is where the front edge of the goal sits. It spans the entire
-interior dimension of the goal mouth. Its anchoring \code{x} coordinate
-should be its center (e.g. half of the line's width should be on each side of
-the \code{x} anchor)}
+\title{Lacrosse Goal Line}
 \usage{
 lacrosse_goal_line(
   goal_frame_width = 0,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/create-shapes.R
 \name{create_x_shape}
 \alias{create_x_shape}
-\title{Create a set of \code{x} and \code{y} coordinates that form an "X"-like shape}
+\title{Create an "X" Shape}
 \usage{
 create_x_shape(bar_length, bar_width, rotation = 45)
 }

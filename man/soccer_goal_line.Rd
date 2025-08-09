@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-soccer.R
 \name{soccer_goal_line}
 \alias{soccer_goal_line}
-\title{The goal line is the line that runs the full width of the pitch. The ball
-must completely cross the goal line to score a goal for the attacking team}
+\title{Soccer Goal Line}
 \usage{
 soccer_goal_line(pitch_width = 0, feature_thickness = 0)
 }
@@ -16,6 +15,10 @@ soccer_goal_line(pitch_width = 0, feature_thickness = 0)
 A data frame containing the bounding coordinates of the goal line
 }
 \description{
+The goal line is the line that runs the full width of the pitch. The ball
+must completely cross the goal line to score a goal for the attacking team
+}
+\details{
 The line thickness will be uniform for all features on the pitch
 }
 \keyword{internal}

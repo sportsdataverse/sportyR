@@ -2,8 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_infield_dirt}
 \alias{baseball_infield_dirt}
-\title{The dirt that comprises the infield. This includes the base paths, infield
-arc, and home plate circle.}
+\title{Baseball Infield Dirt}
 \usage{
 baseball_infield_dirt(
   home_plate_circle_radius = 0,
@@ -29,6 +28,10 @@ A data frame that comprises the entirety of the infield dirt and dirt
 circles around home plate
 }
 \description{
+The dirt that comprises the infield. This includes the base paths, infield
+arc, and home plate circle.
+}
+\details{
 The home plate circle may be drawn over in other shapes as needed (example:
 Detroit's Comerica Park has a home plate shaped dirt area as the home plate
 "circle")

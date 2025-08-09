@@ -3,9 +3,8 @@ test_that(
     # Create a tennis court plot
     itf_court <- geom_tennis("itf")
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(itf_court)[1], "gg")
-    expect_equal(class(itf_court)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(itf_court))
   }
 )
 
@@ -14,8 +13,7 @@ test_that(
     # Create a tennis court plot
     ita_court <- geom_tennis("ita", court_units = "m", rotation = 270)
 
-    # Check the class of the resulting plot. This should be "gg" and "ggplot"
-    expect_equal(class(ita_court)[1], "gg")
-    expect_equal(class(ita_court)[2], "ggplot")
+    # Check the class of the resulting plot. This should be a ggplot object
+    expect_true(ggplot2::is_ggplot(ita_court))
   }
 )

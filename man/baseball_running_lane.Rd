@@ -2,9 +2,7 @@
 % Please edit documentation in R/features-baseball.R
 \name{baseball_running_lane}
 \alias{baseball_running_lane}
-\title{The running lane is entirely in foul territory. The depth should be measured
-from the foul-side edge of the baseline to the outer edge of the running lane
-mark}
+\title{Baseball Running Lane}
 \usage{
 baseball_running_lane(
   running_lane_depth = 0,
@@ -30,6 +28,11 @@ the running lane}
 A data frame containing the running lane's bounding coordinates
 }
 \description{
+The running lane is entirely in foul territory. The depth should be measured
+from the foul-side edge of the baseline to the outer edge of the running lane
+mark
+}
+\details{
 All measurements should be given "looking down the line" (e.g. as they would
 be measured by an observer standing behind home plate)
 }
