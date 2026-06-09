@@ -1,0 +1,60 @@
+# Baseball Foul Line
+
+The foul line. These are the white lines that extend from the back tip
+of home plate (but not visibly through the batter's boxes) out to the
+fair/foul pole in the outfield. Since a ball on the line is considered
+in fair territory, the outer edge of the baseline must lie in fair
+territory (aka the line y = +/- x)
+
+## Usage
+
+``` r
+baseball_foul_line(
+  is_line_1b = FALSE,
+  line_distance = 0,
+  batters_box_length = 0,
+  batters_box_width = 0,
+  batters_box_y_adj = 0,
+  home_plate_side_to_batters_box = 0,
+  foul_line_thickness = 0
+)
+```
+
+## Arguments
+
+- is_line_1b:
+
+  Whether or not the line is the first base line
+
+- line_distance:
+
+  The straight-line distance from the back tip of home plate to the
+  terminus of the line at the foul pole
+
+- batters_box_length:
+
+  The length of the batter's box (in the y direction) measured from the
+  outside of the chalk lines
+
+- batters_box_width:
+
+  The width of the batter's box (in the x direction) measured from the
+  outside of the chalk lines
+
+- batters_box_y_adj:
+
+  The shift off of center in the y direction that the batter's box is to
+  be moved to properly align
+
+- home_plate_side_to_batters_box:
+
+  The distance from the outer edge of the batter's box to the inner edge
+  of home plate
+
+- foul_line_thickness:
+
+  The thickness of the chalk line that comprise the foul line
+
+## Value
+
+A data frame containing the foul line's bounding coordinates

@@ -1,0 +1,52 @@
+# Lacrosse Penalty Box (Outline)
+
+The penalty boxes are the areas outside the confines of the field where
+players serve time for a penalty incurred. They are to be on the same
+side of the field surface and separate, as close to center field as
+possible, for each team. This will also include the off-field officials'
+box
+
+## Usage
+
+``` r
+lacrosse_penalty_box_outline(
+  penalty_box_outline_thickness = 0,
+  penalty_box_length = 0,
+  penalty_box_width = 0,
+  penalty_box_separation = 0,
+  penalty_box_depth = 0
+)
+```
+
+## Arguments
+
+- penalty_box_outline_thickness:
+
+  The thickness of the outline of the penalty box
+
+- penalty_box_length:
+
+  The length of the penalty box
+
+- penalty_box_width:
+
+  The width of the penalty box
+
+- penalty_box_separation:
+
+  The separation between the two penalty boxes
+
+- penalty_box_depth:
+
+  The depth at which the penalty box extends from the outer edge of the
+  boards
+
+## Value
+
+A data frame containing the bounding coordinates of the penalty box
+
+## Details
+
+This will have the same thickness as the boards, but will be located
+outside the field surface. Each penalty box's outline will share the
+same color as the boards
