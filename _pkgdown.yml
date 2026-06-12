@@ -4,6 +4,7 @@ description: "Create scaled ggplot representations of playing surfaces. Playing 
 
 template:
   bootstrap: 5
+  light-switch: true
   bootswatch: cosmo
   bslib:
     primary: "#1fb22e" # Navbar color
@@ -27,7 +28,7 @@ authors:
 navbar:
   structure:
     left: [home, reference, articles, news, network, ]
-    right: [twitter, github]
+    right: [search, twitter, github, lightswitch]
   components:
     home:
       title: sportyR • Drawing regulation playing surfaces
@@ -35,6 +36,7 @@ navbar:
         A set of functions for drawing regulation playing surfaces
         with 'ggplot2'.
       icon: fa-home
+      aria-label: Home
       href: index.html
     reference:
       icon: "fas fa-code"
@@ -123,9 +125,11 @@ navbar:
         href: https://github.com/nntrn/nfl-nerd/
     twitter:
       icon: "fab fa-x-twitter fa-lg"
+      aria-label: X (Twitter)
       href: https://x.com/rossdrucker9
     github:
       icon: "fab fa-github fa-lg"
+      aria-label: GitHub
       href: https://github.com/sportsdataverse/sportyR
 reference:
 - title: "Surface Plotters"
