@@ -2,8 +2,8 @@
 
 ## Authors
 
-- **[Ross Drucker](https://twitter.com/rossdrucker9)**. Author,
-  maintainer. [](https://orcid.org/0000-0002-0688-0235)
+- **[Ross Drucker](https://x.com/rossdrucker9)**. Author, maintainer.
+  [](https://orcid.org/0000-0002-0688-0235)
 
 ## Citation
 
