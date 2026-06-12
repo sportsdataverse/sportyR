@@ -57,3 +57,23 @@ h1, h2, .h1, .h2 {
 pre, code {
   font-family: "Roboto Mono", Consolas, Inconsolata, monospace;
 }
+
+/* -- Dark-mode legibility (dark only; light theme, fonts, glow, navbar untouched) -- */
+[data-bs-theme="dark"] body {
+  color: #EAEBEC;
+}
+[data-bs-theme="dark"] :is(#main, aside) h1,
+[data-bs-theme="dark"] :is(#main, aside) h2,
+[data-bs-theme="dark"] :is(#main, aside) h3,
+[data-bs-theme="dark"] :is(#main, aside) h4,
+[data-bs-theme="dark"] :is(#main, aside) h5,
+[data-bs-theme="dark"] :is(#main, aside) h6,
+[data-bs-theme="dark"] :is(#main, aside) .h1,
+[data-bs-theme="dark"] :is(#main, aside) .h2,
+[data-bs-theme="dark"] :is(#main, aside) .h3,
+[data-bs-theme="dark"] :is(#main, aside) .h4 {
+  color: #EAEBEC;
+}
+[data-bs-theme="dark"] :is(#main, aside) a {
+  color: #5BD86A;
+}
