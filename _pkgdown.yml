@@ -23,7 +23,7 @@ template:
 
 authors:
   Ross Drucker:
-    href: https://twitter.com/rossdrucker9
+    href: https://x.com/rossdrucker9
 navbar:
   structure:
     left: [home, reference, articles, news, network, ]
@@ -122,8 +122,8 @@ navbar:
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
     twitter:
-      icon: "fab fa-twitter fa-lg"
-      href: http://twitter.com/rossdrucker9
+      icon: "fab fa-x-twitter fa-lg"
+      href: https://x.com/rossdrucker9
     github:
       icon: "fab fa-github fa-lg"
       href: https://github.com/sportsdataverse/sportyR
