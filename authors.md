@@ -12,12 +12,12 @@ Source:
 
 Drucker R (2026). *sportyR: Plot Scaled 'ggplot' Representations of
 Sports Playing Surfaces*. R package version 2.2.3,
-<https://sportyr.sportsdataverse.org/>.
+<https://sportyR.sportsdataverse.org/>.
 
     @Manual{,
       title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
       author = {Ross Drucker},
       year = {2026},
       note = {R package version 2.2.3},
-      url = {https://sportyr.sportsdataverse.org/},
+      url = {https://sportyR.sportsdataverse.org/},
     }
