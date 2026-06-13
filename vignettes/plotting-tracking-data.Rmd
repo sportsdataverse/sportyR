@@ -2,7 +2,7 @@
 title: "Plotting Tracking Data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{plotting-tracking-data}
+  %\VignetteIndexEntry{Plotting Tracking Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

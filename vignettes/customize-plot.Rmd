@@ -2,7 +2,7 @@
 title: "Customizing Plots"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{customize-plot}
+  %\VignetteIndexEntry{Customizing Plots}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

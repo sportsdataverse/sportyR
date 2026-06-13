@@ -2,7 +2,7 @@
 title: "Animating Tracking Data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{animating-tracking-data}
+  %\VignetteIndexEntry{Animating Tracking Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
