@@ -77,3 +77,16 @@ pre, code {
 [data-bs-theme="dark"] :is(#main, aside) a {
   color: #5BD86A;
 }
+
+/* Dark mode: dark-green navbar (light mode keeps the bright-green navbar), light
+   nav text, and a legible version badge (.text-muted above is a dark brown that
+   vanishes on the dark navbar). */
+[data-bs-theme="dark"] .navbar {
+  background-color: #0e4f17 !important;
+}
+[data-bs-theme="dark"] .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+[data-bs-theme="dark"] .text-muted {
+  color: #c9d6c9 !important;
+}
