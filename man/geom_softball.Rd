@@ -18,7 +18,7 @@ geom_softball(
 )
 }
 \arguments{
-\item{league}{The league for which to draw the surface (e.g., "NCAA", "USA", "WBSC", "AUSL").}
+\item{league}{The league for which to draw the surface (e.g., "NCAA", "WBSC", "AUSL").}
 
 \item{display_range}{String indicating display region: "full" or "infield".}
 
