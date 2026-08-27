@@ -6,7 +6,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 author: "Ross Drucker <br><a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a> <a href='https://github.com/rossdrucker9' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker9?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker9'/></a>"
-description: "In order to run the following vignettes, you'll need the sportyR and ggplot2 libraries loaded into your workspace."
+description: "Overlaying player and ball tracking coordinates onto a <code>sportyR</code> surface, including how to align a provider's coordinate system with the plot."
 opengraph:
   image:
     src: "https://raw.githubusercontent.com/sportsdataverse/sportyR/main/man/figures/sportyR_gh.png"

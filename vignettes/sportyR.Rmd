@@ -6,7 +6,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 author: "Ross Drucker <br><a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a> <a href='https://github.com/rossdrucker9' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker9?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker9'/></a>"
-description: "Welcome to sportyR! I'm Ross Drucker, the author of the sportyR package."
+description: "Drawing regulation playing surfaces for a dozen sports from a single call - <code>geom_baseball()</code>, <code>geom_hockey()</code>, <code>geom_basketball()</code> and the rest of the family."
 opengraph:
   image:
     src: "https://raw.githubusercontent.com/sportsdataverse/sportyR/main/man/figures/sportyR_gh.png"
