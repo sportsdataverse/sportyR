@@ -7,7 +7,7 @@ for geospatial analysis of sports data. I’m excited to showcase some of
 the main functionalities of the package here, as well as continue to
 develop the package to meet the needs of the sports analytics community.
 
-### **Installing R, RStudio, and [`sportyR`](https://sportyr.sportsdataverse.org)**
+#### **Installing R, RStudio, and [`sportyR`](https://sportyr.sportsdataverse.org)**
 
 (This section courtesy of [Saiem
 Gilani](https://twitter.com/saiemgilani). Give him a follow!)
@@ -63,7 +63,7 @@ environment.
 library(sportyR)
 ```
 
-### **Understanding and Exploring the Package**
+#### **Understanding and Exploring the Package**
 
 The package itself is really an extension of
 [`ggplot2`](https://ggplot2.tidyverse.org/), but the aim is to focus
@@ -106,7 +106,7 @@ There’s one other `cani_{question}()` function I’ll highlight more in a
 bit, but first let’s start acting on the answers to these kinds of
 questions.
 
-### **The `geom_{sport}()` Functions**
+#### **The `geom_{sport}()` Functions**
 
 Now that we can ask questions to the package and get answers, let’s
 start using this information to make plots. Say for example we’re
@@ -165,7 +165,7 @@ Easy as that to get started. Here’s a quick overview of the arguments
   You’re welcome to change the units of the data as well, but this is
   provided for convenience
 
-## Follow the [sportsdataverse](https://twitter.com/sportsdataverse) on Twitter and Star This Repo
+### Follow the [sportsdataverse](https://twitter.com/sportsdataverse) on Twitter and Star This Repo
 
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportyR_pkg?&label=%40sportyR_pkg&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR_pkg)
@@ -176,8 +176,39 @@ Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsda
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=ff552e&logo=github&style=flat&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR/stargazers/)
 
-## **Author**
+## **Our Authors**
 
-- [Ross Drucker](https://twitter.com/rossdrucker9)
-  [![@rossdrucker9](https://img.shields.io/twitter/follow/rossdrucker9?color=ff552e&label=%40rossdrucker9&logo=twitter&style=flat)](https://twitter.com/rossdrucker9)
-  [![@rossdrucker](https://img.shields.io/github/followers/rossdrucker?color=ff552e&logo=Github&style=flat)](https://github.com/rossdrucker)
+- [Ross Drucker](https://x.com/rossdrucker9)
+  [![@rossdrucker9](https://img.shields.io/twitter/follow/rossdrucker9?color=blue&label=%40rossdrucker9&logo=x&style=for-the-badge)](https://x.com/rossdrucker9)
+  [![@rossdrucker](https://img.shields.io/github/followers/rossdrucker?color=eee&logo=Github&style=for-the-badge)](https://github.com/rossdrucker)
+
+### **Citation**
+
+To cite the [**`sportyR`**](https://sportyR.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{sportyr,
+  author = {Ross Drucker},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+  url = {https://sportyR.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package

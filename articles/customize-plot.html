@@ -17,6 +17,13 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Customizing Plots">
+<meta name="description" content="Recolouring, resizing and re-orienting a &lt;code&gt;sportyR&lt;/code&gt; surface, overriding the league defaults to match a team palette or a different coordinate convention.">
+<meta property="og:description" content="Recolouring, resizing and re-orienting a &lt;code&gt;sportyR&lt;/code&gt; surface, overriding the league defaults to match a team palette or a different coordinate convention.">
+<meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/man/figures/sportyR_gh.png">
+<meta property="og:image:alt" content="sportyR social preview hex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@sportyR_pkg">
+<meta name="twitter:site" content="@sportsdataverse">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -113,6 +120,10 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Customizing Plots</h1>
+                        <h4 data-toc-skip class="author">Ross Drucker
+<br><a href="https://x.com/rossdrucker9" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge" alt="@rossdrucker9"></a>
+<a href="https://github.com/rossdrucker" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@rossdrucker"></a>
+</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/sportyR/blob/main/vignettes/customize-plot.Rmd" class="external-link"><code>vignettes/customize-plot.Rmd</code></a></small>
@@ -210,7 +221,68 @@ college football field:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="customize-plot-customizing-plots-blue-ncaaf-field-1.png" class="r-plt" alt="" width="100%"></p>
-  </main>
+<div class="section level2">
+<h2 id="our-authors">
+<strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
+</h2>
+<ul>
+<li>
+<a href="https://x.com/rossdrucker9" class="external-link">Ross Drucker</a>
+<a href="https://x.com/rossdrucker9" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge" alt="@rossdrucker9"></a>
+<a href="https://github.com/rossdrucker" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@rossdrucker"></a>
+</li>
+</ul>
+<div class="section level3">
+<h3 id="citation">
+<strong>Citation</strong><a class="anchor" aria-label="anchor" href="#citation"></a>
+</h3>
+<p>To cite the <a href="https://sportyR.sportsdataverse.org/"><strong><code>sportyR</code></strong></a>
+R package in publications, use:</p>
+<p>BibTeX Citation</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">sportyr</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ross Drucker},</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  <span class="dt">title</span> = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://sportyR.sportsdataverse.org/},</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="related-sportsdataverse-packages">
+<strong>Related SportsDataverse packages</strong><a class="anchor" aria-label="anchor" href="#related-sportsdataverse-packages"></a>
+</h3>
+<ul>
+<li>
+<a href="https://cfbfastR.sportsdataverse.org/" class="external-link"><strong>cfbfastR</strong></a>
+- college football</li>
+<li>
+<a href="https://hoopR.sportsdataverse.org/" class="external-link"><strong>hoopR</strong></a> -
+men’s basketball</li>
+<li>
+<a href="https://wehoop.sportsdataverse.org/" class="external-link"><strong>wehoop</strong></a> -
+women’s basketball</li>
+<li>
+<a href="https://baseballr.sportsdataverse.org/" class="external-link"><strong>baseballr</strong></a>
+- baseball</li>
+<li>
+<a href="https://fastRhockey.sportsdataverse.org/" class="external-link"><strong>fastRhockey</strong></a>
+- hockey</li>
+<li>
+<a href="https://oddsapiR.sportsdataverse.org/" class="external-link"><strong>oddsapiR</strong></a>
+- betting odds</li>
+<li>
+<a href="https://sportyR.sportsdataverse.org/"><strong>sportyR</strong></a>
+- playing surfaces</li>
+<li>
+<a href="https://py.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-py</strong></a>
+- the Python package</li>
+<li>
+<a href="https://r.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-R</strong></a>
+- the R meta-package</li>
+</ul>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

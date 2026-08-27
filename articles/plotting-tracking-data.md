@@ -9,7 +9,7 @@ library(sportyR)
 library(ggplot2)
 ```
 
-## Introduction
+### Introduction
 
 `sportyR` seeks to make plotting geospatial tracking data as
 straight-forward as possible, allowing you to focus more on the analysis
@@ -17,7 +17,7 @@ than on the visuals. I’ll demonstrate a few examples here on how to use
 the package to display “static” data, or data that shows a snapshot in
 time
 
-## The Data
+### The Data
 
 For this example, I’ll be using the data provided for the [Big Data
 Cup](https://stathletes.com/big-data-cup), which is publicly available.
@@ -110,7 +110,7 @@ whitecaps_shots["y"] <- 85 - whitecaps_shots["y"]
 
 This positions the data correctly, so let’s move on to plotting
 
-## Drawing the Plot
+### Drawing the Plot
 
 Since this data pertains to the Premier Hockey Federation (PHF), we’ll
 start the plotting by drawing a PHF-sized rink. We’ll use `x_trans` and
@@ -131,7 +131,7 @@ phf_rink
 Now all that’s left to do is to add the data points to the plot! Because
 of how `ggplot2` is designed, this is very straightforward.
 
-## Adding the Data
+### Adding the Data
 
 ``` r
 
@@ -143,7 +143,7 @@ phf_rink +
 
 ![](plotting-tracking-data-add-bdc-shot-data-to-plot-1.png)
 
-## Two-Coordinate Data
+### Two-Coordinate Data
 
 Pretend instead that we want to look at where a team’s passes were
 executed during the game. This is also very easy to do. Let’s take the
@@ -180,3 +180,40 @@ phf_rink +
 And there you have it! This works for any geospatial data, for any sport
 (supported by `sportyR`), and for any league (supported by `sportyR`).
 Give it a try, and please reach out if you have ideas for improvements!
+
+## **Our Authors**
+
+- [Ross Drucker](https://x.com/rossdrucker9)
+  [![@rossdrucker9](https://img.shields.io/twitter/follow/rossdrucker9?color=blue&label=%40rossdrucker9&logo=x&style=for-the-badge)](https://x.com/rossdrucker9)
+  [![@rossdrucker](https://img.shields.io/github/followers/rossdrucker?color=eee&logo=Github&style=for-the-badge)](https://github.com/rossdrucker)
+
+### **Citation**
+
+To cite the [**`sportyR`**](https://sportyR.sportsdataverse.org/) R
+package in publications, use:
+
+BibTeX Citation
+
+``` bibtex
+@misc{sportyr,
+  author = {Ross Drucker},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+  url = {https://sportyR.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+### **Related SportsDataverse packages**
+
+- [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college
+  football
+- [**hoopR**](https://hoopR.sportsdataverse.org/) - men’s basketball
+- [**wehoop**](https://wehoop.sportsdataverse.org/) - women’s basketball
+- [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+- [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+- [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+- [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+- [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python
+  package
+- [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R
+  meta-package

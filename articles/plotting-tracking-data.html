@@ -17,6 +17,13 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
 <meta property="og:title" content="Plotting Tracking Data">
+<meta name="description" content="Overlaying player and ball tracking coordinates onto a &lt;code&gt;sportyR&lt;/code&gt; surface, including how to align a provider's coordinate system with the plot.">
+<meta property="og:description" content="Overlaying player and ball tracking coordinates onto a &lt;code&gt;sportyR&lt;/code&gt; surface, including how to align a provider's coordinate system with the plot.">
+<meta property="og:image" content="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/man/figures/sportyR_gh.png">
+<meta property="og:image:alt" content="sportyR social preview hex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@sportyR_pkg">
+<meta name="twitter:site" content="@sportsdataverse">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -113,6 +120,10 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Plotting Tracking Data</h1>
+                        <h4 data-toc-skip class="author">Ross Drucker
+<br><a href="https://x.com/rossdrucker9" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge" alt="@rossdrucker9"></a>
+<a href="https://github.com/rossdrucker" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@rossdrucker"></a>
+</h4>
             
       
       <small class="dont-index">Source: <a href="https://github.com/sportsdataverse/sportyR/blob/main/vignettes/plotting-tracking-data.Rmd" class="external-link"><code>vignettes/plotting-tracking-data.Rmd</code></a></small>
@@ -127,18 +138,18 @@ workspace.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sportyR.sportsdataverse.org/">sportyR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
-<div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h2>
+<div class="section level3">
+<h3 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h3>
 <p><code>sportyR</code> seeks to make plotting geospatial tracking data
 as straight-forward as possible, allowing you to focus more on the
 analysis than on the visuals. I’ll demonstrate a few examples here on
 how to use the package to display “static” data, or data that shows a
 snapshot in time</p>
 </div>
-<div class="section level2">
-<h2 id="the-data">The Data<a class="anchor" aria-label="anchor" href="#the-data"></a>
-</h2>
+<div class="section level3">
+<h3 id="the-data">The Data<a class="anchor" aria-label="anchor" href="#the-data"></a>
+</h3>
 <p>For this example, I’ll be using the data provided for the <a href="https://stathletes.com/big-data-cup" class="external-link">Big Data Cup</a>, which is
 publicly available. Specifically, the data I’ll use to demonstrate how
 to plot comes from the data provided for the <a href="https://github.com/bigdatacup/Big-Data-Cup-2021" class="external-link">Big Data Cup -
@@ -147,7 +158,7 @@ to plot comes from the data provided for the <a href="https://github.com/bigdata
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read data from the Big Data Cup</span></span>
 <span><span class="va">bdc_data</span> <span class="op">&lt;-</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html" class="external-link">fread</a></span><span class="op">(</span></span>
-<span>  <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span></span>
+<span>  <span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/glue/man/glue.html" class="external-link">glue</a></span><span class="op">(</span></span>
 <span>    <span class="st">"https://raw.githubusercontent.com/bigdatacup/Big-Data-Cup-2021"</span>,</span>
 <span>    <span class="st">"/main/hackathon_nwhl.csv"</span></span>
 <span>  <span class="op">)</span></span>
@@ -389,9 +400,9 @@ appropriate transformation.</p>
 <span><span class="va">whitecaps_shots</span><span class="op">[</span><span class="st">"y"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">85</span> <span class="op">-</span> <span class="va">whitecaps_shots</span><span class="op">[</span><span class="st">"y"</span><span class="op">]</span></span></code></pre></div>
 <p>This positions the data correctly, so let’s move on to plotting</p>
 </div>
-<div class="section level2">
-<h2 id="drawing-the-plot">Drawing the Plot<a class="anchor" aria-label="anchor" href="#drawing-the-plot"></a>
-</h2>
+<div class="section level3">
+<h3 id="drawing-the-plot">Drawing the Plot<a class="anchor" aria-label="anchor" href="#drawing-the-plot"></a>
+</h3>
 <p>Since this data pertains to the Premier Hockey Federation (PHF),
 we’ll start the plotting by drawing a PHF-sized rink. We’ll use
 <code>x_trans</code> and <code>y_trans</code> to align the data and plot
@@ -408,9 +419,9 @@ works in practice</p>
 Because of how <code>ggplot2</code> is designed, this is very
 straightforward.</p>
 </div>
-<div class="section level2">
-<h2 id="adding-the-data">Adding the Data<a class="anchor" aria-label="anchor" href="#adding-the-data"></a>
-</h2>
+<div class="section level3">
+<h3 id="adding-the-data">Adding the Data<a class="anchor" aria-label="anchor" href="#adding-the-data"></a>
+</h3>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add the shots to the plot</span></span>
 <span><span class="va">phf_rink</span> <span class="op">+</span></span>
@@ -418,9 +429,9 @@ straightforward.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">pride_shots</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#fec52e"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="plotting-tracking-data-add-bdc-shot-data-to-plot-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
-<div class="section level2">
-<h2 id="two-coordinate-data">Two-Coordinate Data<a class="anchor" aria-label="anchor" href="#two-coordinate-data"></a>
-</h2>
+<div class="section level3">
+<h3 id="two-coordinate-data">Two-Coordinate Data<a class="anchor" aria-label="anchor" href="#two-coordinate-data"></a>
+</h3>
 <p>Pretend instead that we want to look at where a team’s passes were
 executed during the game. This is also very easy to do. Let’s take the
 same dataset we had before, <code>bdc_data</code>, and this time subset
@@ -452,6 +463,66 @@ to the plot:</p>
 sport (supported by <code>sportyR</code>), and for any league (supported
 by <code>sportyR</code>). Give it a try, and please reach out if you
 have ideas for improvements!</p>
+</div>
+<div class="section level2">
+<h2 id="our-authors">
+<strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
+</h2>
+<ul>
+<li>
+<a href="https://x.com/rossdrucker9" class="external-link">Ross Drucker</a>
+<a href="https://x.com/rossdrucker9" target="blank" class="external-link"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge" alt="@rossdrucker9"></a>
+<a href="https://github.com/rossdrucker" target="blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@rossdrucker"></a>
+</li>
+</ul>
+<div class="section level3">
+<h3 id="citation">
+<strong>Citation</strong><a class="anchor" aria-label="anchor" href="#citation"></a>
+</h3>
+<p>To cite the <a href="https://sportyR.sportsdataverse.org/"><strong><code>sportyR</code></strong></a>
+R package in publications, use:</p>
+<p>BibTeX Citation</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">sportyr</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ross Drucker},</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="dt">title</span> = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://sportyR.sportsdataverse.org/},</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="dt">year</span> = {2026}</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="related-sportsdataverse-packages">
+<strong>Related SportsDataverse packages</strong><a class="anchor" aria-label="anchor" href="#related-sportsdataverse-packages"></a>
+</h3>
+<ul>
+<li>
+<a href="https://cfbfastR.sportsdataverse.org/" class="external-link"><strong>cfbfastR</strong></a>
+- college football</li>
+<li>
+<a href="https://hoopR.sportsdataverse.org/" class="external-link"><strong>hoopR</strong></a> -
+men’s basketball</li>
+<li>
+<a href="https://wehoop.sportsdataverse.org/" class="external-link"><strong>wehoop</strong></a> -
+women’s basketball</li>
+<li>
+<a href="https://baseballr.sportsdataverse.org/" class="external-link"><strong>baseballr</strong></a>
+- baseball</li>
+<li>
+<a href="https://fastRhockey.sportsdataverse.org/" class="external-link"><strong>fastRhockey</strong></a>
+- hockey</li>
+<li>
+<a href="https://oddsapiR.sportsdataverse.org/" class="external-link"><strong>oddsapiR</strong></a>
+- betting odds</li>
+<li>
+<a href="https://sportyR.sportsdataverse.org/"><strong>sportyR</strong></a>
+- playing surfaces</li>
+<li>
+<a href="https://py.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-py</strong></a>
+- the Python package</li>
+<li>
+<a href="https://r.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-R</strong></a>
+- the R meta-package</li>
+</ul>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
