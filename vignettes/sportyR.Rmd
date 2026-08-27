@@ -5,7 +5,7 @@ vignette: >
   %\VignetteIndexEntry{Getting Started}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-author: "Ross Drucker <br><a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a> <a href='https://github.com/rossdrucker9' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker9?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker9'/></a>"
+author: "Ross Drucker <br><a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a> <a href='https://github.com/rossdrucker' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker'/></a>"
 description: "Drawing regulation playing surfaces for a dozen sports from a single call - <code>geom_baseball()</code>, <code>geom_hockey()</code>, <code>geom_basketball()</code> and the rest of the family."
 opengraph:
   image:
@@ -136,20 +136,16 @@ Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsda
 
 [![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=ff552e&logo=github&style=flat&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR/stargazers/)
 
-## **Author**
-
--   [Ross Drucker](https://twitter.com/rossdrucker9) <a href="https://twitter.com/rossdrucker9" target="blank"><img src="https://img.shields.io/twitter/follow/rossdrucker9?color=ff552e&amp;label=%40rossdrucker9&amp;logo=twitter&amp;style=flat" alt="@rossdrucker9"/></a> <a href="https://github.com/rossdrucker" target="blank"><img src="https://img.shields.io/github/followers/rossdrucker?color=ff552e&amp;logo=Github&amp;style=flat" alt="@rossdrucker"/></a>
-
 # **Our Authors**
 -   [Ross Drucker](https://x.com/rossdrucker9)
 <a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a>
-<a href='https://github.com/rossdrucker9' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker9?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker9'/></a>
+<a href='https://github.com/rossdrucker' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker'/></a>
 
 ## **Citation**
 
 To cite the [**`sportyR`**](https://sportyR.sportsdataverse.org/) R package in publications, use:
 
-BibTex Citation
+BibTeX Citation
 
 ```bibtex
 @misc{sportyr,
