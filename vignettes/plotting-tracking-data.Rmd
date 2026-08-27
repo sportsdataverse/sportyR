@@ -5,6 +5,14 @@ vignette: >
   %\VignetteIndexEntry{Plotting Tracking Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+author: "Ross Drucker <br><a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a> <a href='https://github.com/rossdrucker9' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker9?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker9'/></a>"
+description: "In order to run the following vignettes, you'll need the sportyR and ggplot2 libraries loaded into your workspace."
+opengraph:
+  image:
+    src: "https://raw.githubusercontent.com/sportsdataverse/sportyR/main/man/figures/sportyR_gh.png"
+  twitter:
+    card: summary_large_image
+    creator: "@sportyR_pkg"
 ---
 
 ```{r vignette-options, include = FALSE}
@@ -143,3 +151,35 @@ phf_rink +
 ```
 
 And there you have it! This works for any geospatial data, for any sport (supported by `sportyR`), and for any league (supported by `sportyR`). Give it a try, and please reach out if you have ideas for improvements!
+
+# **Our Authors**
+-   [Ross Drucker](https://x.com/rossdrucker9)
+<a href='https://x.com/rossdrucker9' target='blank'><img src='https://img.shields.io/twitter/follow/rossdrucker9?color=blue&amp;label=%40rossdrucker9&amp;logo=x&amp;style=for-the-badge' alt='@rossdrucker9'/></a>
+<a href='https://github.com/rossdrucker9' target='blank'><img src='https://img.shields.io/github/followers/rossdrucker9?color=eee&amp;logo=Github&amp;style=for-the-badge' alt='@rossdrucker9'/></a>
+
+## **Citation**
+
+To cite the [**`sportyR`**](https://sportyR.sportsdataverse.org/) R package in publications, use:
+
+BibTex Citation
+
+```bibtex
+@misc{sportyr,
+  author = {Ross Drucker},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+  url = {https://sportyR.sportsdataverse.org/},
+  year = {2026}
+}
+```
+
+## **Related SportsDataverse packages**
+
+-   [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) - college football
+-   [**hoopR**](https://hoopR.sportsdataverse.org/) - men's basketball
+-   [**wehoop**](https://wehoop.sportsdataverse.org/) - women's basketball
+-   [**baseballr**](https://baseballr.sportsdataverse.org/) - baseball
+-   [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) - hockey
+-   [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) - betting odds
+-   [**sportyR**](https://sportyR.sportsdataverse.org/) - playing surfaces
+-   [**sportsdataverse-py**](https://py.sportsdataverse.org/) - the Python package
+-   [**sportsdataverse-R**](https://r.sportsdataverse.org/) - the R meta-package
