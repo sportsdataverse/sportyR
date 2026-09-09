@@ -1,0 +1,20 @@
+## DESCRIPTION carries no Date field, so fall back to the build year.
+year <- if (!is.null(meta$Date)) sub("-.*", "", meta$Date) else format(Sys.Date(), "%Y")
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(
+  bibtype  = "Misc",
+  header   = "To cite the sportyR R package in publications, use:",
+  key      = "drucker_sportyR",
+  author   = person("Ross", "Drucker", email = "ross.a.drucker@gmail.com",
+                    comment = c(ORCID = "0000-0002-0688-0235")),
+  title    = "sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.",
+  url      = "https://sportyR.sportsdataverse.org/",
+  year     = year,
+  note     = note,
+  textVersion = paste0(
+    "Ross Drucker (", year, "). sportyR: Plot Scaled 'ggplot' Representations ",
+    "of Sports Playing Surfaces. ", note,
+    ". Retrieved from https://sportyR.sportsdataverse.org/"
+  )
+)

@@ -332,6 +332,31 @@ By regularly reporting issues, making very slight modifications, fixing
 typos, or just helping others navigate their own issues, you're able to
 join the Scout Team!
 
+## Cheat sheet
+
+A printable one-page reference for `sportyR` — every surface function and the
+arguments that shape it — is available as a free PDF:
+
+📄 **[Download the sportyR cheat sheet (PDF)](https://sportsdataverse.org/cheatsheets/sportyR.pdf)**
+
+Light and dark, US Letter landscape. Every SportsDataverse package has one —
+browse them all at **[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
+
+## Citation
+
+To cite the `sportyR` R package in publications, use:
+
+``` bibtex
+@misc{drucker_sportyR,
+  author = {Ross Drucker},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
+  url = {https://sportyR.sportsdataverse.org/},
+  year = {2020}
+}
+```
+
+`citation("sportyR")` returns the same entry with the installed version.
+
 ### Acknowledgements
 
 Much of the underling code structure in `sportyR`, beginning with
