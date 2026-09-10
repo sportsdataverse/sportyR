@@ -8,16 +8,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/sportsdataverse/sportyR/blob/main/DESCRIPTION)
+[`inst/CITATION`](https://github.com/sportsdataverse/sportyR/blob/main/inst/CITATION)
 
-Drucker R (2026). *sportyR: Plot Scaled 'ggplot' Representations of
-Sports Playing Surfaces*. R package version 2.2.3,
-<https://sportyR.sportsdataverse.org/>.
+Ross Drucker (2020). sportyR: Plot Scaled 'ggplot' Representations of
+Sports Playing Surfaces. R package version 2.2.3. Retrieved from
+https://sportyR.sportsdataverse.org/
 
-    @Manual{,
-      title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+    @Misc{drucker_sportyR,
       author = {Ross Drucker},
-      year = {2026},
-      note = {R package version 2.2.3},
+      title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
       url = {https://sportyR.sportsdataverse.org/},
+      year = {2020},
+      note = {R package version 2.2.3},
     }
