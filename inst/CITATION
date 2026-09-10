@@ -13,6 +13,7 @@ bibentry(
                     comment = c(ORCID = "0000-0002-0688-0235")),
   title    = "sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.",
   url      = "https://sportyR.sportsdataverse.org/",
+  doi      = "10.32614/CRAN.package.sportyR",
   year     = year,
   note     = note,
   textVersion = paste0(
