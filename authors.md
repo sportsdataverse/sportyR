@@ -18,6 +18,7 @@ https://sportyR.sportsdataverse.org/
       author = {Ross Drucker},
       title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
       url = {https://sportyR.sportsdataverse.org/},
+      doi = {10.32614/CRAN.package.sportyR},
       year = {2020},
       note = {R package version 2.2.3},
     }
