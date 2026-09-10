@@ -355,7 +355,7 @@ To cite the `sportyR` R package in publications, use:
 }
 ```
 
-`citation("sportyR")` returns the same entry with the installed version.
+`citation("sportyR")` returns this entry with the installed version number attached.
 
 ### Acknowledgements
 
