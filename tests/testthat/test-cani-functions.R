@@ -12,7 +12,7 @@ test_that(
     regexp = glue::glue(
       "NCAA can be used in the following functions: geom_baseball(), ",
       "geom_basketball(), geom_football(), geom_hockey(), geom_soccer(), ",
-      "geom_tennis(), or geom_volleyball()"
+      "geom_softball(), geom_tennis(), or geom_volleyball()"
     )
   )
   expect_message(

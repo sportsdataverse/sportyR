@@ -1,5 +1,13 @@
 # sportyR 
 
+## New Sports and Leagues Supported
+
+### Softball
+- NCAA (per the NCAA Softball Rules, Rule 2: Field of Play)
+- Added `geom_softball()`, along with the internal `softball_*()` feature
+  functions, `softball_features_set_colors()`, and `"softball"` entries in
+  `surface_dimensions`
+
 # sportyR 2.2.3
 
 - Fixed [#38](https://github.com/sportsdataverse/sportyR/issues/38) to natively support PWHL
