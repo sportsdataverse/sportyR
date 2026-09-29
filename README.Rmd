@@ -40,7 +40,7 @@ As the field of sports analytics evolve, there's a growing need for
 methods to both track and visualize players throughout the game. This
 package aims to make this easy regardless of sport needed to be plotted.
 
-This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, soccer, and tennis in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy).
+This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, soccer, softball and tennis in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy).
 
 
 ## Installation
@@ -132,9 +132,9 @@ through the `rotation` parameter to each `geom_{sport}()` function.
 
 There are a few exceptions to this:
 
--   `geom_baseball()` is displayed from the high-home view by default,
-    as baseball coordinates typically have the `+y` axis extending from
-    the back tip of home plate towards center field
+-   `geom_baseball()` and `geom_softball()` are displayed from the high-home 
+    view by default, as base/softball coordinates typically have the `+y` axis 
+    extending from the back tip of home plate towards center field
 
 -   `geom_tennis()` is displayed with the court diagrammed from the
     perspective of the chair umpire
@@ -179,6 +179,7 @@ units_df <- data.frame(
     rep("Hockey", 11),
     rep("Lacrosse", 7),
     rep("Soccer", 5),
+    rep("Softball", 4),
     rep("Tennis", 6),
     rep("Volleyball", 3)
   ),
@@ -233,6 +234,11 @@ units_df <- data.frame(
     "MLS",
     "NCAA",
     "NWSL",
+    # Softball
+    "AUSL",
+    "JDL (JD.League)",
+    "NCAA",
+    "WBSC",
     # Tennis
     "ATP",
     "ITA",
@@ -262,7 +268,7 @@ units_df <- data.frame(
     rep("`ft`", 1),
     rep("`m`", 2),
     rep("`yd`", 3),
-    rep("`ft`", 6),
+    rep("`ft`", 10),
     rep("`m`", 3)
   )
 )
@@ -311,6 +317,11 @@ geom_soccer(
     pitch_width = 75
   )
 )
+```
+
+```{r readme-softball-example}
+# Draw a regulation NCAA softball infield plot
+geom_softball(league = "NCAA", display_range = "infield")
 ```
 
 It's also possible to plot partial surfaces and rotated surfaces:

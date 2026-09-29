@@ -340,6 +340,7 @@ cani_color_league_features <- function(league_code, sport_name = NULL) {
       "lacrosse" = lacrosse_features_set_colors(),
       "soccer" = soccer_features_set_colors(),
       "tennis" = tennis_features_set_colors(),
+      "softball" = softball_features_set_colors(),
       stop(
         glue::glue(
           "Sorry, {toupper(league_code)} is not a viable league to plot ",
@@ -377,6 +378,7 @@ cani_color_league_features <- function(league_code, sport_name = NULL) {
           "lacrosse" = lacrosse_features_set_colors(),
           "soccer" = soccer_features_set_colors(),
           "tennis" = tennis_features_set_colors(),
+          "softball" = softball_features_set_colors(),
           stop(
             glue::glue(
               "Sorry, {tolower(sport_name)} is not a viable sport to plot ",
