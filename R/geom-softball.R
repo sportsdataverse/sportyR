@@ -155,6 +155,10 @@ geom_softball <- function(league,
   # Update the field parameters as necessary
   field_params <- utils::modifyList(field_params, field_updates)
 
+  # The amount of space to leave around the field when setting the display
+  # range of the plot. This is given in the field's rule-book units
+  display_padding <- 5
+
   # Feature initialization -----------------------------------------------------
   field_features <- list(
 
@@ -294,10 +298,10 @@ geom_softball <- function(league,
   # Coordinate Transformations -------------------------------------------------
 
   # Convert the units as needed
-  if (
-    !is.null(field_units) &&
+  needs_unit_conversion <- !is.null(field_units) &&
     tolower(field_params$field_units %or% "ft") != tolower(field_units)
-  ) {
+
+  if (needs_unit_conversion) {
     field_features <- lapply(
       field_features,
       convert_units,
@@ -322,6 +326,14 @@ geom_softball <- function(league,
           param
         }
       }
+    )
+
+    # Convert the display padding as well so the plot's margins stay the same
+    # size relative to the field
+    display_padding <- convert_units(
+      display_padding,
+      from_unit = field_from_unit,
+      to_unit = field_units
     )
   }
 
@@ -543,14 +555,19 @@ geom_softball <- function(league,
   right_field_distance_x <- (
     (field_params$right_field_distance %or% 0) * cos(pi / 4)
   )
-  left_infield_distance_x <- -(field_params$infield_arc_radius %or% 0) - 5
-  right_infield_distance_x <- (field_params$infield_arc_radius %or% 0) + 5
-  backstop_radius_y <- -(field_params$backstop_radius %or% 0) - 5
-  center_field_distance_y <- (field_params$center_field_distance %or% 0) + 5
-  home_plate_circle_y <- -(field_params$home_plate_circle_radius %or% 0) - 5
+  left_infield_distance_x <- -(field_params$infield_arc_radius %or% 0) -
+    display_padding
+  right_infield_distance_x <- (field_params$infield_arc_radius %or% 0) +
+    display_padding
+  backstop_radius_y <- -(field_params$backstop_radius %or% 0) -
+    display_padding
+  center_field_distance_y <- (field_params$center_field_distance %or% 0) +
+    display_padding
+  home_plate_circle_y <- -(field_params$home_plate_circle_radius %or% 0) -
+    display_padding
   infield_arc_y <- (field_params$pitchers_plate_front_to_home_plate %or% 0) +
     (field_params$infield_arc_radius %or% 0) +
-    5
+    display_padding
 
 
   if (is.null(xlims)) {

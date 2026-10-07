@@ -1,4 +1,4 @@
-# sportyR 
+# sportyR 2.3.0
 
 ## New Sports and Leagues Supported
 
