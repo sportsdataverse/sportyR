@@ -152,6 +152,7 @@ reference:
     - "`geom_hockey`"
     - "`geom_lacrosse`"
     - "`geom_soccer`"
+    - "`geom_softball`"
     - "`geom_tennis`"
     - "`geom_volleyball`"
 - title: "cani_ Functions"
