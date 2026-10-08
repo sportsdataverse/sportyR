@@ -37,7 +37,7 @@
 
     <a class="navbar-brand me-2" href="index.html">sportyR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,7 +127,7 @@
 <!-- badges: start -->
 
 <p>As the field of sports analytics evolve, there’s a growing need for methods to both track and visualize players throughout the game. This package aims to make this easy regardless of sport needed to be plotted.</p>
-<p>This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, soccer, and tennis in <strong>R</strong>. For the <strong>Python</strong> version of this package, click <a href="https://github.com/sportsdataverse/sportypy" class="external-link">here</a>.</p>
+<p>This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, lacrosse, soccer, softball, tennis, and volleyball in <strong>R</strong>. For the <strong>Python</strong> version of this package, click <a href="https://github.com/sportsdataverse/sportypy" class="external-link">here</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -169,6 +169,7 @@
 <p>There are a few exceptions to this:</p>
 <ul>
 <li><p><code><a href="reference/geom_baseball.html">geom_baseball()</a></code> is displayed from the high-home view by default, as baseball coordinates typically have the <code>+y</code> axis extending from the back tip of home plate towards center field</p></li>
+<li><p><code><a href="reference/geom_softball.html">geom_softball()</a></code> is also displayed from the high-home view by default, following the same coordinate convention as <code><a href="reference/geom_baseball.html">geom_baseball()</a></code></p></li>
 <li><p><code><a href="reference/geom_tennis.html">geom_tennis()</a></code> is displayed with the court diagrammed from the perspective of the chair umpire</p></li>
 </ul>
 </div>
@@ -427,6 +428,11 @@ plot of chunk readme-display-range-curling-demo
 <td align="center"><code>yd</code></td>
 </tr>
 <tr>
+<td align="center">Softball</td>
+<td align="center">NCAA</td>
+<td align="center"><code>ft</code></td>
+</tr>
+<tr>
 <td align="center">Tennis</td>
 <td align="center">ATP</td>
 <td align="center"><code>ft</code></td>
@@ -547,6 +553,8 @@ plot of chunk readme-nhl-example
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Hockey</li>
 <li>
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Soccer</li>
+<li>
+<a href="https://github.com/billyfryer" class="external-link">Billy Fryer</a> - Softball</li>
 <li>
 <a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> - Tennis</li>
 <li>

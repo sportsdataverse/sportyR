@@ -18,6 +18,8 @@ Functions that do the actual plotting of the surfaces
   : Draw Lacrosse Field
 - [`geom_soccer()`](https://sportyR.sportsdataverse.org/reference/geom_soccer.md)
   : Draw Soccer Pitch
+- [`geom_softball()`](https://sportyR.sportsdataverse.org/reference/geom_softball.md)
+  : Draw Softball Field
 - [`geom_tennis()`](https://sportyR.sportsdataverse.org/reference/geom_tennis.md)
   : Draw Tennis Court
 - [`geom_volleyball()`](https://sportyR.sportsdataverse.org/reference/geom_volleyball.md)

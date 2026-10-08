@@ -11,7 +11,7 @@ Source:
 [`inst/CITATION`](https://github.com/sportsdataverse/sportyR/blob/main/inst/CITATION)
 
 Ross Drucker (2020). sportyR: Plot Scaled 'ggplot' Representations of
-Sports Playing Surfaces. R package version 2.2.3. Retrieved from
+Sports Playing Surfaces. R package version 2.3.0. Retrieved from
 https://sportyR.sportsdataverse.org/
 
     @Misc{drucker_sportyR,
@@ -20,5 +20,5 @@ https://sportyR.sportsdataverse.org/
       url = {https://sportyR.sportsdataverse.org/},
       doi = {10.32614/CRAN.package.sportyR},
       year = {2020},
-      note = {R package version 2.2.3},
+      note = {R package version 2.3.0},
     }

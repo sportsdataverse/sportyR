@@ -1,5 +1,18 @@
 # Changelog
 
+## sportyR 2.3.0
+
+### New Sports and Leagues Supported
+
+#### Softball
+
+- NCAA (per the NCAA Softball Rules, Rule 2: Field of Play)
+- Added
+  [`geom_softball()`](https://sportyR.sportsdataverse.org/reference/geom_softball.md),
+  along with the internal `softball_*()` feature functions,
+  [`softball_features_set_colors()`](https://sportyR.sportsdataverse.org/reference/softball_features_set_colors.md),
+  and `"softball"` entries in `surface_dimensions`
+
 ## sportyR 2.2.3
 
 CRAN release: 2025-07-28

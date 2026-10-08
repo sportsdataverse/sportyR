@@ -6,9 +6,9 @@ package aims to make this easy regardless of sport needed to be plotted.
 
 This repository contains code necessary to draw scale versions of
 playing surfaces to visualize play-by-play data for baseball,
-basketball, curling, football, hockey, soccer, and tennis in **R**. For
-the **Python** version of this package, click
-[here](https://github.com/sportsdataverse/sportypy).
+basketball, curling, football, hockey, lacrosse, soccer, softball,
+tennis, and volleyball in **R**. For the **Python** version of this
+package, click [here](https://github.com/sportsdataverse/sportypy).
 
 ## Installation
 
@@ -107,6 +107,11 @@ There are a few exceptions to this:
   coordinates typically have the `+y` axis extending from the back tip
   of home plate towards center field
 
+- [`geom_softball()`](https://sportyR.sportsdataverse.org/reference/geom_softball.md)
+  is also displayed from the high-home view by default, following the
+  same coordinate convention as
+  [`geom_baseball()`](https://sportyR.sportsdataverse.org/reference/geom_baseball.md)
+
 - [`geom_tennis()`](https://sportyR.sportsdataverse.org/reference/geom_tennis.md)
   is displayed with the court diagrammed from the perspective of the
   chair umpire
@@ -200,6 +205,7 @@ parentheses):
 |   Soccer   |               MLS                |         `yd`          |
 |   Soccer   |               NCAA               |         `yd`          |
 |   Soccer   |               NWSL               |         `yd`          |
+|  Softball  |               NCAA               |         `ft`          |
 |   Tennis   |               ATP                |         `ft`          |
 |   Tennis   |               ITA                |         `ft`          |
 |   Tennis   |               ITF                |         `ft`          |
@@ -304,6 +310,7 @@ general managers (and their sports) are:
 - [Ross Drucker](https://github.com/rossdrucker) - Football
 - [Ross Drucker](https://github.com/rossdrucker) - Hockey
 - [Ross Drucker](https://github.com/rossdrucker) - Soccer
+- [Billy Fryer](https://github.com/billyfryer) - Softball
 - [Ross Drucker](https://github.com/rossdrucker) - Tennis
 - [Ross Drucker](https://github.com/rossdrucker) - Volleyball
 
