@@ -8,7 +8,11 @@ This repository contains code necessary to draw scale versions of
 playing surfaces to visualize play-by-play data for baseball,
 basketball, curling, football, hockey, lacrosse, soccer, softball,
 tennis, and volleyball in **R**. For the **Python** version of this
-package, click [here](https://github.com/sportsdataverse/sportypy).
+package, click [here](https://github.com/sportsdataverse/sportypy). For
+the **JavaScript / TypeScript** version, see
+[`@sportsdataverse/sporty`](https://www.npmjs.com/package/@sportsdataverse/sporty)
+([docs](https://plot.sportsdataverse.org/guides/surfaces),
+[GitHub](https://github.com/sportsdataverse/sdvplot-js)).
 
 ## Installation
 
