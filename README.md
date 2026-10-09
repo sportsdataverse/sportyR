@@ -13,6 +13,7 @@ downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&lab
 [![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/sportyR/R-CMD-check?label=R-CMD-Check&logo=R&&style=flat&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://img.shields.io/codecov/c/github/sportsdataverse/sportyR?color=ff552e&label=codecov&logo=codecov)](https://codecov.io/gh/sportsdataverse/sportyR)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&logo=github&color=ff552e)](https://github.com/sportsdataverse/sportyR/)
+[![npm](https://img.shields.io/npm/v/@sportsdataverse/sporty?label=npm&logo=npm&style=flat&color=ff552e)](https://www.npmjs.com/package/@sportsdataverse/sporty)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportyR_pkg?&label=%40sportyR_pkg&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR_pkg)
 [![Twitter
@@ -24,7 +25,7 @@ As the field of sports analytics evolve, there's a growing need for
 methods to both track and visualize players throughout the game. This
 package aims to make this easy regardless of sport needed to be plotted.
 
-This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, lacrosse, soccer, softball, tennis, and volleyball in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy).
+This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, lacrosse, soccer, softball, tennis, and volleyball in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy). For the **JavaScript / TypeScript** version, see [`@sportsdataverse/sporty`](https://www.npmjs.com/package/@sportsdataverse/sporty) ([docs](https://plot.sportsdataverse.org/guides/surfaces), [GitHub](https://github.com/sportsdataverse/sdvplot-js)).
 
 
 ## Installation
