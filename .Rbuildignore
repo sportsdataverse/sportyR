@@ -66,3 +66,4 @@
 ^Meta$
 ^cache/
 ^CRAN-SUBMISSION$
+^\.claude$
