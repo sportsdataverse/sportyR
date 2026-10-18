@@ -1317,7 +1317,7 @@ lacrosse_player_bench_area_fill <- function(bench_area_outline_thickness = 0,
 #' the boards
 #'
 #' @param penalty_box_outline_thickness The thickness of the outline of the penalty box
-#' @param penalty_box_length The length of the penalty box
+#' @param penalty_box_length The interior length of the penalty box
 #' @param penalty_box_width The width of the penalty box
 #' @param penalty_box_separation The separation between the two penalty boxes
 #' @param penalty_box_depth The depth at which the penalty box extends from the
@@ -1335,11 +1335,13 @@ lacrosse_penalty_box_outline <- function(penalty_box_outline_thickness = 0,
     x = c(
       0,
       (penalty_box_separation / 2) +
+        penalty_box_length + (2 * penalty_box_outline_thickness),
+      (penalty_box_separation / 2) +
+        penalty_box_length + (2 * penalty_box_outline_thickness),
+      (penalty_box_separation / 2) +
         penalty_box_length + penalty_box_outline_thickness,
       (penalty_box_separation / 2) +
         penalty_box_length + penalty_box_outline_thickness,
-      (penalty_box_separation / 2) + penalty_box_length,
-      (penalty_box_separation / 2) + penalty_box_length,
       (penalty_box_separation / 2) + penalty_box_outline_thickness,
       (penalty_box_separation / 2) + penalty_box_outline_thickness,
       penalty_box_separation / 2,

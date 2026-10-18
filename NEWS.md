@@ -42,6 +42,10 @@
   Rulebook's bench-area diagram draws the line behind the bench parallel to it. The branch for slanted benches
   had been applied to rectangular ones and vice versa; NCAA, NFHS and CFL are unchanged
   ([#71](https://github.com/sportsdataverse/sportyR/issues/71))
+- `geom_lacrosse()`: each NLL and World Lacrosse penalty box is now `penalty_box_length` (8 ft) inside, its
+  outer wall moved out by one wall thickness (0.25 ft); it was 7.75 ft inside. The 24 ft of NLL Rule 8.1 is read
+  as the sum of the three interiors (two penalty boxes and the officials' box), as for the benches
+  ([#72](https://github.com/sportsdataverse/sportyR/issues/72))
 
 ## Changed output
 

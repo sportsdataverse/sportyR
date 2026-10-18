@@ -314,3 +314,33 @@ test_that("the NFL field border follows the bench's slanted side (#71)", {
       n$field_border_thickness
   )
 })
+
+test_that("each NLL / World Lacrosse penalty box is penalty_box_length inside (#72)", {
+  for (league in c("nll", "world lacrosse")) {
+    params <- surface_dimensions[["lacrosse"]][[league]]
+    t <- params$boards_thickness
+    outline <- lacrosse_penalty_box_outline(
+      penalty_box_outline_thickness = t,
+      penalty_box_length = params$penalty_box_length,
+      penalty_box_separation = params$penalty_box_separation,
+      penalty_box_depth = params$penalty_box_depth
+    )
+
+    # Walls along x: the divider ends at separation / 2 + t, the outer wall is
+    # one wall thickness thick, and the box between them is 8 ft inside
+    divider_inside <- (params$penalty_box_separation / 2) + t
+    outer_wall_inside <- max(outline$x) - t
+    expect_equal(outer_wall_inside - divider_inside, params$penalty_box_length)
+
+    # 8 + 8 + 8 = 24 ft of interior (NLL Rule 8.1, reading (a))
+    expect_equal(
+      (2 * (outer_wall_inside - divider_inside)) + params$penalty_box_separation,
+      24
+    )
+
+    # The fill (#61) sits exactly inside the walls
+    p <- geom_lacrosse(league, color_updates = list(team_b_penalty_box = "#654321"))
+    fill <- layers_filled(p, "#654321")[[1]]$data
+    expect_equal(range(fill$x), c(divider_inside, outer_wall_inside))
+  }
+})

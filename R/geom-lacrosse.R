@@ -1216,7 +1216,7 @@ geom_lacrosse <- function(league,
       boards_thickness,
     ((field_params$penalty_box_separation %or% 0) / 2) +
       (field_params$penalty_box_length %or% 0) +
-      boards_thickness
+      (2 * boards_thickness)
   )
 
   half_field_width <- ((field_params$field_width %or% 0) / 2) + max(

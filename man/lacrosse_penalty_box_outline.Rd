@@ -15,7 +15,7 @@ lacrosse_penalty_box_outline(
 \arguments{
 \item{penalty_box_outline_thickness}{The thickness of the outline of the penalty box}
 
-\item{penalty_box_length}{The length of the penalty box}
+\item{penalty_box_length}{The interior length of the penalty box}
 
 \item{penalty_box_width}{The width of the penalty box}
 
