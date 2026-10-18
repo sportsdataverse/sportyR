@@ -94,6 +94,20 @@
 - Added `geom_softball()`, along with the internal `softball_*()` feature
   functions, `softball_features_set_colors()`, and `"softball"` entries in
   `surface_dimensions`
+- Softball support contributed by Billy Fryer
+  ([@billyfryer](https://github.com/billyfryer), [#52](https://github.com/sportsdataverse/sportyR/pull/52))
+
+## Patches/Bug Fixes
+- The `geom_lacrosse()` example now uses a lacrosse league (`"NLL"`) instead
+  of the volleyball league `"FIVB"`
+
+## Other Changes
+- Added a package citation (`citation("sportyR")`) and a softball example to
+  the introductory vignette
+- Fixed redirecting and broken URLs in the vignette and README
+- Documentation regenerated with roxygen2 8.1.0
+- Every test file now starts with `skip_on_cran()`; CI sets `NOT_CRAN=true`
+  and an R-hub workflow was added
 
 ## Features
 

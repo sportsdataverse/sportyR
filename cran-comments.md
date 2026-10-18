@@ -1,17 +1,34 @@
+## Release summary
+
+sportyR 2.3.0 (update of 2.2.3, currently on CRAN). Adds NCAA softball
+(`geom_softball()`, contributed by Billy Fryer, #52), fixes the
+`geom_lacrosse()` example, repairs broken/redirecting URLs, and adds
+`skip_on_cran()` to every test file. See NEWS.md.
+
 ## Test environments
-* local OS X install, R 4.0.3
-* OS X 10.15.7, R 4.0.5
-* Microsoft Windows Server 2019 10.0.17763, R 4.0.5
-* Microsoft Windows Server 2019 10.0.17763, R 3.6.3
-* ubuntu 18.04.5, R Under development
-* ubuntu 18.04.5, R 4.0.5
-* ubuntu 18.04.5, R 3.6.3
-* ubuntu 18.04.5, R 3.5.3
-* ubuntu 18.04.5, R 3.4.4
-* ubuntu 18.04.5, R 3.3.3
+
+* Local Windows 10, R 4.6.1 (2026-06-24): `devtools::check(args = "--as-cran")`
+* GitHub Actions (`R-CMD-check`): macOS-latest (release), windows-latest
+  (release), ubuntu-latest (devel, release, oldrel-1)
+* win-builder (devel and release): NOT run for this submission -- the upload
+  to win-builder.r-project.org timed out from the preparation machine. The
+  maintainer should submit these before sending to CRAN.
+* R-hub v2: workflow `.github/workflows/rhub.yaml` is in the repository; no
+  R-hub run has been recorded yet.
 
 ## R CMD check results
-There were no ERRORs, WARNINGs, or NOTEs
 
-## Downstream dependencies
-There are currently no downstream dependencies for this package
+0 errors | 0 warnings | 1 note
+
+* checking for non-standard things in the check directory ... NOTE
+  Found the following files/directories: ''NULL''
+
+  This note appears only with `devtools::check()` on Windows and is not
+  produced by the package; it does not occur on the GitHub Actions runs.
+
+## Reverse dependencies
+
+`tools::package_dependencies("sportyR", reverse = TRUE, which = "all")`
+against the CRAN package database (2026-10-18) returns no reverse
+dependencies (Depends, Imports, LinkingTo, Suggests, Enhances), so no
+reverse dependency checks were needed.
