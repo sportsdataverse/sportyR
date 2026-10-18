@@ -816,7 +816,7 @@ geom_lacrosse <- function(league,
     field_plot,
     x_anchor = -(
       ((field_params$penalty_box_separation %or% 0) / 2) +
-        ((field_params$board_thickness %or% 0)) +
+        ((field_params$boards_thickness %or% 0)) +
         ((field_params$penalty_box_length %or% 0) / 2)
     ),
     y_anchor = -(field_params$field_width %or% 0) / 2,
@@ -833,7 +833,7 @@ geom_lacrosse <- function(league,
     field_plot,
     x_anchor = (
       ((field_params$penalty_box_separation %or% 0) / 2) +
-        ((field_params$board_thickness %or% 0)) +
+        ((field_params$boards_thickness %or% 0)) +
         ((field_params$penalty_box_length %or% 0) / 2)
     ),
     y_anchor = -(field_params$field_width %or% 0) / 2,

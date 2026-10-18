@@ -5,6 +5,9 @@
 - `geom_lacrosse()`: the NLL and World Lacrosse neutral zones now span the 85 ft between the restraining
   lines; the zones read a key the data did not have, so the neutral zone was always 0 long
   ([#60](https://github.com/sportsdataverse/sportyR/issues/60))
+- `geom_lacrosse()`: the NLL and World Lacrosse penalty box fills now start at the inside edge of the boards;
+  their anchor read `board_thickness` instead of `boards_thickness`
+  ([#61](https://github.com/sportsdataverse/sportyR/issues/61))
 
 # sportyR 2.3.0
 
