@@ -509,6 +509,10 @@ test_that("drawing a custom surface in other units explains the missing units", 
 })
 
 test_that("geom_basketball(\"custom\") draws (#77)", {
+  # ggplotGrob() opens a device; a null pdf keeps Rplots.pdf out of the tree
+  grDevices::pdf(NULL)
+  on.exit(grDevices::dev.off(), add = TRUE)
+
   # Empty JSON arrays arrive as list(); %or% falls back to the default
   expect_equal(list() %or% 0, 0)
   expect_equal(numeric(0) %or% 1, 1)
