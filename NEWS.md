@@ -106,8 +106,6 @@
   the introductory vignette
 - Fixed redirecting and broken URLs in the vignette and README
 - Documentation regenerated with roxygen2 8.1.0
-- Every test file now starts with `skip_on_cran()`; CI sets `NOT_CRAN=true`
-  and an R-hub workflow was added
 
 ## Features
 
