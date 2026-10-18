@@ -30,8 +30,9 @@
   Sections 6-7: an arc of 10.6 m about the centre of the goal line, ending on 45-degree lines from where the goal
   line extended crosses the goal circle (it was a 13.2 m arc about a point behind the goal line). Its hash marks
   sit on that circle, the 12 m marks past the painted arc as in the rule book's Diagram 2, and the two marks on
-  the goal line extended are 30.5 cm long (were 0.4058 m)
-  ([#69](https://github.com/sportsdataverse/sportyR/issues/69))
+  the goal line extended are 30.5 cm long (were 0.4058 m). Leagues without a goal fan no longer draw a hidden,
+  zero-size fan polygon (the picture is unchanged), and `geom_lacrosse("custom")` now draws instead of failing
+  with "'from' must be a finite number" ([#69](https://github.com/sportsdataverse/sportyR/issues/69))
 - `geom_lacrosse()`: the PLL two-point arc now follows the 2024 PLL Rulebook (II. The Field, G): its lines run
   parallel to the sidelines 13 yd from the centre of the goal line, from the end line until they are 15 yd from
   it, joined by a 15 yd arc; it was a 15 yd semicircle with its lines 15 yd out. New

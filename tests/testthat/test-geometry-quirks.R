@@ -98,6 +98,10 @@ test_that("the women's 8-meter arc follows NCAA Rule 1, Sections 6-7 (#69)", {
     # Section 7: the two marks on the goal line extended are 30.5 cm long
     expect_equal(params$goal_mouth_hash_mark_length, 0.305)
   }
+
+  # A field with no goal fan draws nothing for it (and "custom" now draws)
+  expect_equal(nrow(lacrosse_goal_fan(goal_circle_radius = 3)), 0)
+  expect_no_error(geom_lacrosse("custom"))
 })
 
 test_that("display_range = \"full\" contains every drawn feature (#63)", {
@@ -238,8 +242,20 @@ test_that("the PLL two-point arc follows the 2024 PLL Rulebook, II.G (#70)", {
   expect_true(all(abs(d[front] - 15) < 1e-9 | abs(d[front] - (15 - t)) < 1e-9))
   expect_equal(min(x), -15, tolerance = 1e-4)
 
-  # Without the key the arc falls back to a semi-circle
-  semi <- lacrosse_goal_arc(goal_arc_extension = 15, goal_arc_radius = 15)
+  # Without the key the arc falls back to a semi-circle: every point in front
+  # of the goal line is on its outer (15 yd) or inner (15 - t) edge
+  semi <- lacrosse_goal_arc(
+    goal_arc_extension = 15,
+    goal_arc_radius = 15,
+    line_thickness = t
+  )
+  semi_d <- sqrt(semi$x^2 + semi$y^2)
+  semi_front <- semi$x < -1e-9
+  expect_true(any(semi_front))
+  expect_true(all(
+    abs(semi_d[semi_front] - 15) < 1e-9 |
+      abs(semi_d[semi_front] - (15 - t)) < 1e-9
+  ))
   expect_equal(max(abs(semi$y)), 15)
 })
 
@@ -291,6 +307,28 @@ test_that("the NFL field border follows the bench's slanted side (#71)", {
   expect_true(any(
     abs(outline$x - border$x[i]) < 1e-9 & abs(outline$y - border$y[i]) < 1e-9
   ))
+
+  # So does the apron's bump round the bench (19.14685 yd from center)
+  apron <- football_field_apron(
+    field_length = q$field_length,
+    field_width = q$field_width,
+    endzone_length = q$endzone_length,
+    boundary_thickness = q$boundary_line_thickness,
+    field_border_thickness = q$field_border_thickness,
+    restricted_area_length = q$team_bench_length_field_side,
+    restricted_area_width = q$restricted_area_width,
+    coaching_box_length = q$team_bench_length_field_side,
+    coaching_box_width = q$coaching_box_width,
+    team_bench_length_field_side = q$team_bench_length_field_side,
+    team_bench_length_back_side = q$team_bench_length_back_side,
+    team_bench_width = q$team_bench_width,
+    team_bench_area_border_thickness = q$team_bench_area_border_thickness,
+    extra_apron_padding = q$extra_apron_padding,
+    bench_shape = q$bench_shape
+  )
+  bump <- abs(apron$y - border$y[i]) < 1e-9
+  expect_equal(max(apron$x[bump]), border$x[i], tolerance = 1e-9)
+  expect_equal(border$x[i], 19.14685, tolerance = 1e-6)
 
   # Rectangular benches keep their corner at the bench's field-side end
   n <- surface_dimensions[["football"]][["ncaa"]]
