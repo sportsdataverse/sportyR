@@ -172,7 +172,8 @@ lacrosse_features_set_colors <- function(plot_background = NULL,
 #'   The possible display ranges are:
 #'   \describe{
 #'     \item{\code{"full"}}{
-#'       The full field. This is the default
+#'       The full field, including any player benches, penalty boxes, and
+#'       off-field officials' box outside it. This is the default
 #'     }
 #'     \item{\code{"offense"}}{
 #'       The offensive half of the field. This is the right half of the field
@@ -1213,11 +1214,28 @@ geom_lacrosse <- function(league,
 
 
   # Set Display Range-----------------------------------------------------------
-  half_field_length <- ((field_params$field_length %or% 0) / 2) +
-    (field_params$field_apron_thickness %or% 0)
+  # The display covers the apron and, on surfaces that have them, the player
+  # benches, penalty boxes, and off-field officials' box outside the boards
+  boards_thickness <- field_params$boards_thickness %or% 0
 
-  half_field_width <- ((field_params$field_width %or% 0) / 2) +
-    (field_params$field_apron_thickness %or% 0)
+  half_field_length <- max(
+    ((field_params$field_length %or% 0) / 2) +
+      (field_params$field_apron_thickness %or% 0),
+    ((field_params$bench_separation %or% 0) / 2) +
+      (field_params$bench_length %or% 0) +
+      boards_thickness,
+    ((field_params$penalty_box_separation %or% 0) / 2) +
+      (field_params$penalty_box_length %or% 0) +
+      boards_thickness
+  )
+
+  half_field_width <- ((field_params$field_width %or% 0) / 2) + max(
+    field_params$field_apron_thickness %or% 0,
+    (2 * boards_thickness) + max(
+      field_params$bench_depth %or% 0,
+      field_params$penalty_box_depth %or% 0
+    )
+  )
 
   if (is.null(xlims)) {
     xlims <- switch(

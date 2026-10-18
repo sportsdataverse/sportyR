@@ -12,6 +12,9 @@
   are rotated by, so each sits on the fan arc, perpendicular to it, at its stated distance along the arc; they
   were placed `s / goal_fan_radius` but rotated `s / (goal_fan_radius + goal_circle_radius)` radians from the
   centre mark ([#62](https://github.com/sportsdataverse/sportyR/issues/62))
+- `geom_lacrosse()`: `display_range = "full"` (and the half-field ranges) now take in the NLL and World Lacrosse
+  player benches, penalty boxes and off-field officials' box, whose outer 0.5 ft was cut off by a range that
+  stopped at the apron ([#63](https://github.com/sportsdataverse/sportyR/issues/63))
 
 # sportyR 2.3.0
 

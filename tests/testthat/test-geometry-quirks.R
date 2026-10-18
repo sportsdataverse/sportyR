@@ -65,3 +65,17 @@ test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s 
     tolerance = 1e-6
   )
 })
+
+test_that("display_range = \"full\" contains every drawn feature (#63)", {
+  leagues <- setdiff(names(surface_dimensions[["lacrosse"]]), "custom")
+  for (league in leagues) {
+    p <- geom_lacrosse(league)
+    xs <- unlist(lapply(p$layers, function(l) l$data$x))
+    ys <- unlist(lapply(p$layers, function(l) l$data$y))
+    lims <- p$coordinates$limits
+    expect_true(min(xs) >= lims$x[1] - 1e-9, label = league)
+    expect_true(max(xs) <= lims$x[2] + 1e-9, label = league)
+    expect_true(min(ys) >= lims$y[1] - 1e-9, label = league)
+    expect_true(max(ys) <= lims$y[2] + 1e-9, label = league)
+  }
+})
