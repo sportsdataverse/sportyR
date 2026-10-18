@@ -1,5 +1,10 @@
 # sportyR 2.4.0
 
+## New Functions
+- `get_surface_dimensions(sport, league = NULL)` returns the rule-book parameters the `geom_*()` functions draw
+  from, for one league or every league of a sport, so other packages no longer need to read the internal
+  `surface_dimensions` ([#73](https://github.com/sportsdataverse/sportyR/issues/73))
+
 ## Patches/Bug Fixes
 - `geom_lacrosse()`: the NLL and World Lacrosse neutral zones now span the 85 ft between the restraining
   lines; the zones read a key the data did not have, so the neutral zone was always 0 long
