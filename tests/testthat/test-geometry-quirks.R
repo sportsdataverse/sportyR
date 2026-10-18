@@ -382,3 +382,53 @@ test_that("each NLL / World Lacrosse penalty box is penalty_box_length inside (#
     expect_equal(range(fill$x), c(divider_inside, outer_wall_inside))
   }
 })
+
+test_that("every geom_*() scales its anchors and limits with the units (#74)", {
+  surfaces <- list(
+    baseball = function(u, ...) geom_baseball("mlb", field_units = u, ...),
+    basketball = function(u, ...) geom_basketball("nba", court_units = u, ...),
+    curling = function(u, ...) geom_curling("wcf", sheet_units = u, ...),
+    football = function(u, ...) geom_football("nfl", field_units = u, ...),
+    hockey = function(u, ...) geom_hockey("nhl", rink_units = u, ...),
+    lacrosse = function(u, ...) geom_lacrosse("nll", field_units = u, ...),
+    soccer = function(u, ...) geom_soccer("fifa", pitch_units = u, ...),
+    softball = function(u, ...) geom_softball("ncaa", field_units = u, ...),
+    tennis = function(u, ...) geom_tennis("itf", court_units = u, ...),
+    volleyball = function(u, ...) geom_volleyball("fivb", court_units = u, ...)
+  )
+  native_units <- c(
+    baseball = "ft", basketball = "ft", curling = "ft", football = "yd",
+    hockey = "ft", lacrosse = "ft", soccer = "m", softball = "ft",
+    tennis = "ft", volleyball = "m"
+  )
+  coords <- function(p, axis) unlist(lapply(p$layers, function(l) l$data[[axis]]))
+
+  for (sport in names(surfaces)) {
+    target <- if (native_units[[sport]] == "m") "ft" else "m"
+    f <- convert_units(1, from_unit = native_units[[sport]], to_unit = target)
+
+    native <- surfaces[[sport]](NULL)
+    converted <- surfaces[[sport]](target)
+
+    # Every feature, and where it sits, scales by the unit factor
+    expect_equal(coords(converted, "x"), coords(native, "x") * f, label = sport)
+    expect_equal(coords(converted, "y"), coords(native, "y") * f, label = sport)
+
+    # So does the display range
+    expect_equal(
+      converted$coordinates$limits$x,
+      native$coordinates$limits$x * f,
+      label = sport
+    )
+    expect_equal(
+      converted$coordinates$limits$y,
+      native$coordinates$limits$y * f,
+      label = sport
+    )
+  }
+
+  # Translations stay in the requested units
+  moved <- geom_lacrosse("nll", field_units = "m", x_trans = 3)
+  still <- geom_lacrosse("nll", field_units = "m")
+  expect_equal(moved$coordinates$limits$x, still$coordinates$limits$x + 3)
+})

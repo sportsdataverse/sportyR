@@ -52,6 +52,13 @@
   outer wall moved out by one wall thickness (0.25 ft); it was 7.75 ft inside. The 24 ft of NLL Rule 8.1 is read
   as the sum of the three interiors (two penalty boxes and the officials' box), as for the benches
   ([#72](https://github.com/sportsdataverse/sportyR/issues/72))
+- `geom_baseball()`, `geom_basketball()`, `geom_curling()`, `geom_football()`, `geom_hockey()`,
+  `geom_lacrosse()`, `geom_soccer()`, `geom_tennis()` and `geom_volleyball()`: drawing in other units
+  (`field_units`, `court_units`, `rink_units`, `pitch_units`, `sheet_units`) now scales the features' positions
+  and the display range along with their shapes. Before, the shapes were converted but placed with unconverted
+  anchors, and the plot limits stayed in the rule book's units. `x_trans`, `y_trans`, `xlims` and `ylims` are
+  in the requested units, as before (`geom_softball()` already handled this)
+  ([#74](https://github.com/sportsdataverse/sportyR/issues/74))
 
 ## Changed output
 

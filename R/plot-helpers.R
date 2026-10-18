@@ -211,3 +211,52 @@ add_feature <- function(g,
   # Return the ggplot2 instance with the feature added appropriately
   return(g)
 }
+
+#' Unit Conversion Factor
+#'
+#' The factor that converts a length in \code{from_unit} to \code{to_unit}
+#'
+#' @param from_unit The units the surface's parameters are given in
+#' @param to_unit The units to draw the surface in. \code{NULL} keeps the
+#'   parameters' units
+#'
+#' @return A single number: 1 when no conversion is needed
+#'
+#' @keywords internal
+unit_conversion_factor <- function(from_unit, to_unit = NULL) {
+  if (is.null(to_unit) || tolower(from_unit) == tolower(to_unit)) {
+    return(1)
+  }
+
+  convert_units(1, from_unit = from_unit, to_unit = to_unit)
+}
+
+#' Scale a Plot's Units
+#'
+#' Scale every layer's \code{x} and \code{y} coordinates by a unit conversion
+#' factor. The \code{geom_*()} functions draw a surface in its rule book's units
+#' (so feature anchors, translations and display ranges are consistent) and then
+#' scale the finished surface to the requested units
+#'
+#' @param g A \code{ggplot2} instance
+#' @param unit_factor The factor to scale by (see [unit_conversion_factor()])
+#'
+#' @return The \code{ggplot2} instance with its layers scaled
+#'
+#' @keywords internal
+scale_plot_units <- function(g, unit_factor = 1) {
+  if (unit_factor == 1) {
+    return(g)
+  }
+
+  for (i in seq_along(g$layers)) {
+    layer_data <- g$layers[[i]]$data
+    if (is.data.frame(layer_data) && all(c("x", "y") %in% names(layer_data))) {
+      layer_data$x <- layer_data$x * unit_factor
+      layer_data$y <- layer_data$y * unit_factor
+      g$layers[[i]]$data <- layer_data
+    }
+  }
+
+  g
+}

@@ -296,18 +296,21 @@ geom_soccer <- function(league,
 
   # Coordinate Transformations -------------------------------------------------
 
-  # Convert the units as needed
-  if (
-    !is.null(pitch_units) &&
-    tolower(pitch_params$pitch_units %or% "ft") != tolower(pitch_units)
-  )  {
-    pitch_features <- lapply(
-      pitch_features,
-      convert_units,
-      from_unit = pitch_params$pitch_units %or% "ft",
-      to_unit = pitch_units,
-      conversion_columns = c("x", "y")
-    )
+  # Convert the units as needed. The surface is drawn in the rule book's
+  # units, so feature anchors and the display range stay consistent with the
+  # features, and the finished plot is scaled to the requested units below.
+  # Translations and limits passed in are in the requested units
+  unit_factor <- unit_conversion_factor(
+    from_unit = pitch_params$pitch_units %or% "ft",
+    to_unit = pitch_units
+  )
+  x_trans <- x_trans / unit_factor
+  y_trans <- y_trans / unit_factor
+  if (!is.null(xlims)) {
+    xlims <- xlims / unit_factor
+  }
+  if (!is.null(ylims)) {
+    ylims <- ylims / unit_factor
   }
 
   # Generate the Plot ----------------------------------------------------------
@@ -676,6 +679,11 @@ geom_soccer <- function(league,
     xlims <- c(min(plot_lims$x), max(plot_lims$x))
     ylims <- c(min(plot_lims$y), max(plot_lims$y))
   }
+
+  # Scale the finished surface and its limits to the requested units
+  pitch_plot <- scale_plot_units(pitch_plot, unit_factor)
+  xlims <- xlims * unit_factor
+  ylims <- ylims * unit_factor
 
   ## Force the aspect ratio to be 1/1, and the x and y limits to be set
   pitch_plot <- pitch_plot +
