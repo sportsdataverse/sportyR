@@ -219,13 +219,30 @@ add_feature <- function(g,
 #' @param from_unit The units the surface's parameters are given in
 #' @param to_unit The units to draw the surface in. \code{NULL} keeps the
 #'   parameters' units
+#' @param surface The surface's name in its \code{geom_*()} arguments
+#'   (\code{"field"}, \code{"court"}, \code{"rink"}, \code{"pitch"} or
+#'   \code{"sheet"}), used to name the arguments in the error message
 #'
 #' @return A single number: 1 when no conversion is needed
 #'
 #' @keywords internal
-unit_conversion_factor <- function(from_unit, to_unit = NULL) {
+unit_conversion_factor <- function(from_unit,
+                                   to_unit = NULL,
+                                   surface = "field") {
   if (is.null(to_unit) || tolower(from_unit) == tolower(to_unit)) {
     return(1)
+  }
+
+  # Custom surfaces carry no rule-book units (an empty *_units entry)
+  if (is.null(from_unit) || !nzchar(from_unit)) {
+    stop(
+      glue::glue(
+        "This {surface} has no rule-book units (custom surfaces have none), so ",
+        "it cannot be drawn in {to_unit}. Set {surface}_units in the ",
+        "dimensions first, e.g. {surface}_updates = list({surface}_units = ",
+        "\"ft\")"
+      )
+    )
   }
 
   convert_units(1, from_unit = from_unit, to_unit = to_unit)

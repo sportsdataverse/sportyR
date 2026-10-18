@@ -281,7 +281,8 @@ geom_baseball <- function(league,
   # Translations and limits passed in are in the requested units
   unit_factor <- unit_conversion_factor(
     from_unit = field_params$field_units %or% "ft",
-    to_unit = field_units
+    to_unit = field_units,
+    surface = "field"
   )
   x_trans <- x_trans / unit_factor
   y_trans <- y_trans / unit_factor

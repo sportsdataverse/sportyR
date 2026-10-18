@@ -302,7 +302,8 @@ geom_soccer <- function(league,
   # Translations and limits passed in are in the requested units
   unit_factor <- unit_conversion_factor(
     from_unit = pitch_params$pitch_units %or% "ft",
-    to_unit = pitch_units
+    to_unit = pitch_units,
+    surface = "pitch"
   )
   x_trans <- x_trans / unit_factor
   y_trans <- y_trans / unit_factor

@@ -485,3 +485,25 @@ test_that("x_trans / y_trans move every football layer by exactly that much (#76
   expect_equal(coords(moved, "x"), coords(base, "x") + 3)
   expect_equal(coords(moved, "y"), coords(base, "y") - 2)
 })
+
+test_that("drawing a custom surface in other units explains the missing units", {
+  expect_error(
+    geom_lacrosse("custom", field_units = "m"),
+    "This field has no rule-book units"
+  )
+  expect_error(
+    geom_hockey("custom", rink_units = "m"),
+    "Set rink_units in the dimensions first"
+  )
+
+  # Once the units are set, the custom surface converts
+  expect_no_error(
+    geom_lacrosse(
+      "custom",
+      field_updates = list(field_units = "ft"),
+      field_units = "m"
+    )
+  )
+  expect_equal(unit_conversion_factor("ft", "m"), 0.3048)
+  expect_equal(unit_conversion_factor("", NULL), 1)
+})

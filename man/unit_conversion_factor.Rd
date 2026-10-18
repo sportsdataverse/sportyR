@@ -4,13 +4,17 @@
 \alias{unit_conversion_factor}
 \title{Unit Conversion Factor}
 \usage{
-unit_conversion_factor(from_unit, to_unit = NULL)
+unit_conversion_factor(from_unit, to_unit = NULL, surface = "field")
 }
 \arguments{
 \item{from_unit}{The units the surface's parameters are given in}
 
 \item{to_unit}{The units to draw the surface in. \code{NULL} keeps the
 parameters' units}
+
+\item{surface}{The surface's name in its \code{geom_*()} arguments
+(\code{"field"}, \code{"court"}, \code{"rink"}, \code{"pitch"} or
+\code{"sheet"}), used to name the arguments in the error message}
 }
 \value{
 A single number: 1 when no conversion is needed

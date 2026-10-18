@@ -441,7 +441,8 @@ geom_hockey <- function(league,
   # Translations and limits passed in are in the requested units
   unit_factor <- unit_conversion_factor(
     from_unit = rink_params$rink_units %or% "ft",
-    to_unit = rink_units
+    to_unit = rink_units,
+    surface = "rink"
   )
   x_trans <- x_trans / unit_factor
   y_trans <- y_trans / unit_factor

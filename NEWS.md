@@ -67,6 +67,9 @@
 - `geom_football()`: the invisible bounding box drawn with each yardage number is no longer translated twice
   by `x_trans` / `y_trans`; it moved by double the translation, away from its number
   ([#76](https://github.com/sportsdataverse/sportyR/issues/76))
+- Drawing a `custom` surface in other units (e.g. `geom_lacrosse("custom", field_units = "m")`) now explains
+  that custom surfaces have no rule-book units and how to set them, instead of failing with
+  "' is not a viable unit at this time.'"
 
 ## Changed output
 
