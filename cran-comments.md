@@ -23,8 +23,8 @@ sportyR 2.3.0 (update of 2.2.3, currently on CRAN). Adds NCAA softball
 * checking for non-standard things in the check directory ... NOTE
   Found the following files/directories: ''NULL''
 
-  This note appears only with `devtools::check()` on Windows and is not
-  produced by the package; it does not occur on the GitHub Actions runs.
+  This note appears with `devtools::check()` on the local Windows setup and is not
+  produced by the package; it is a local-environment artifact.
 
 ## Reverse dependencies
 
