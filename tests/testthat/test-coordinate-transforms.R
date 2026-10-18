@@ -1,3 +1,5 @@
+skip_on_cran()
+
 # Test the coordinate transformations
 test_that(
   "Rotate a unit square about the origin in either direction", {
