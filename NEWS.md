@@ -70,6 +70,9 @@
 - Drawing a `custom` surface in other units (e.g. `geom_lacrosse("custom", field_units = "m")`) now explains
   that custom surfaces have no rule-book units and how to set them, instead of failing with
   "' is not a viable unit at this time.'"
+- `geom_basketball("custom")` draws again: the custom template's empty JSON arrays arrive as `list()`, which
+  `%or%` could not handle (it now falls back to the default for any zero-length value) and which the lane and
+  display-range code read directly ([#77](https://github.com/sportsdataverse/sportyR/issues/77))
 
 ## Changed output
 

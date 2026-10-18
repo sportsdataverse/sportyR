@@ -507,3 +507,24 @@ test_that("drawing a custom surface in other units explains the missing units", 
   expect_equal(unit_conversion_factor("ft", "m"), 0.3048)
   expect_equal(unit_conversion_factor("", NULL), 1)
 })
+
+test_that("geom_basketball(\"custom\") draws (#77)", {
+  # Empty JSON arrays arrive as list(); %or% falls back to the default
+  expect_equal(list() %or% 0, 0)
+  expect_equal(numeric(0) %or% 1, 1)
+  expect_equal(c(3, 4) %or% 0, c(3, 4))
+
+  # The custom template's asin(0 / 0) on its zero-size court warns NaN
+  p <- suppressWarnings(geom_basketball("custom"))
+  expect_s3_class(p, "ggplot")
+  expect_no_error(ggplot2::ggplotGrob(p))
+
+  # Every other sport's custom template builds too, except football (a
+  # zero-length field, a separate problem)
+  for (geom in list(
+    geom_baseball, geom_curling, geom_hockey, geom_lacrosse, geom_soccer,
+    geom_softball, geom_tennis, geom_volleyball
+  )) {
+    expect_no_error(ggplot2::ggplotGrob(suppressWarnings(geom("custom"))))
+  }
+})
