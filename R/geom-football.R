@@ -1037,8 +1037,6 @@ geom_football <- function(league,
       y_min = min(yardage_marker_rot["y"]),
       y_max = max(yardage_marker_rot["y"])
     )
-    bb_polygon["x"] <- bb_polygon["x"] + x_trans
-    bb_polygon["y"] <- bb_polygon["y"] + y_trans
     field_plot <- field_plot +
       ggplot2::geom_polygon(
         data = bb_polygon,

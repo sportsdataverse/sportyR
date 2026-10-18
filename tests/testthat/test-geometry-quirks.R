@@ -470,3 +470,18 @@ test_that("goal-fan hash marks bisect the fan's line (#75)", {
     tolerance = 1e-9
   )
 })
+
+test_that("x_trans / y_trans move every football layer by exactly that much (#76)", {
+  coords <- function(p, axis) {
+    columns <- paste0(axis, c("", "_min", "_max", "min", "max"))
+    unlist(lapply(p$layers, function(l) {
+      unlist(l$data[intersect(columns, names(l$data))], use.names = FALSE)
+    }))
+  }
+
+  base <- geom_football("nfl")
+  moved <- geom_football("nfl", x_trans = 3, y_trans = -2)
+
+  expect_equal(coords(moved, "x"), coords(base, "x") + 3)
+  expect_equal(coords(moved, "y"), coords(base, "y") - 2)
+})

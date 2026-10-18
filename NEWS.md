@@ -55,14 +55,18 @@
 - `geom_baseball()`, `geom_basketball()`, `geom_curling()`, `geom_football()`, `geom_hockey()`,
   `geom_lacrosse()`, `geom_soccer()`, `geom_tennis()` and `geom_volleyball()`: drawing in other units
   (`field_units`, `court_units`, `rink_units`, `pitch_units`, `sheet_units`) now scales the features' positions
-  (including the football yardage numbers) and the display range along with their shapes. Before, the shapes were converted but placed with unconverted
-  anchors, and the plot limits stayed in the rule book's units. `x_trans`, `y_trans`, `xlims` and `ylims` are
-  in the requested units, as before (`geom_softball()` already handled this)
+  (including the football yardage numbers) and the display range along with their shapes. Before, the shapes
+  were converted but placed with unconverted anchors, and the plot limits stayed in the rule book's units.
+  `x_trans`, `y_trans`, `xlims` and `ylims` are in the requested units, as before (`geom_softball()` already
+  handled this)
   ([#74](https://github.com/sportsdataverse/sportyR/issues/74))
 - `geom_lacrosse()`: the women's 8-meter-arc hash marks are now centred on the middle of the arc's line
   (`goal_fan_radius - goal_fan_line_thickness / 2`), so they bisect it as NCAA Women's Lacrosse Rule 1,
   Section 7 requires; they straddled the line's outer edge
   ([#75](https://github.com/sportsdataverse/sportyR/issues/75))
+- `geom_football()`: the invisible bounding box drawn with each yardage number is no longer translated twice
+  by `x_trans` / `y_trans`; it moved by double the translation, away from its number
+  ([#76](https://github.com/sportsdataverse/sportyR/issues/76))
 
 ## Changed output
 
