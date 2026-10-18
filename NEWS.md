@@ -26,6 +26,14 @@
   1-2-3-a and 1-2-4-a; it was 1.3333 yd, which put the coaching line 4.33 ft out
   ([#66](https://github.com/sportsdataverse/sportyR/issues/66))
 
+## Changed output
+
+- `geom_football()` now draws the white field border outline by default: `field_border_outline` and
+  `red_zone_border_outline` default to `#ffffff` instead of transparent `#ffffff00`. NCAA and NFL fields gain a
+  white line around the field border and both team areas; leagues without a border look the same. Pass the old
+  colours in `color_updates` to keep the previous look
+  ([#67](https://github.com/sportsdataverse/sportyR/issues/67))
+
 # sportyR 2.3.0
 
 ## New Sports and Leagues Supported

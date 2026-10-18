@@ -128,3 +128,25 @@ test_that("the NCAA football coaching line is six feet outside the sideline (#66
     tolerance = 1e-4
   )
 })
+
+test_that("geom_football() draws a white field border outline by default (#67)", {
+  colors <- football_features_set_colors()
+  expect_equal(colors$field_border_outline, "#ffffff")
+  expect_equal(colors$red_zone_border_outline, "#ffffff")
+
+  # The fills are unchanged
+  expect_equal(colors$field_border, "#196f0c")
+  expect_equal(colors$red_zone_border, "#196f0c00")
+
+  # NCAA has a field border, so its outline reaches past the border's outer edge
+  params <- surface_dimensions[["football"]][["ncaa"]]
+  p <- geom_football("ncaa", color_updates = list(field_border_outline = "#123456"))
+  default <- geom_football("ncaa")
+  outline_y <- max(layers_filled(p, "#123456")[[1]]$data$y)
+  white_y <- vapply(
+    layers_filled(default, "#ffffff"),
+    function(l) max(l$data$y),
+    numeric(1)
+  )
+  expect_true(any(abs(white_y - outline_y) < 1e-9))
+})
