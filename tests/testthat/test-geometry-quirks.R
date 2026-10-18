@@ -95,3 +95,16 @@ test_that("a goal arc added without a thickness is not drawn as a solid block (#
     expect_equal(area(arc$data), 0, tolerance = 1e-6)
   }
 })
+
+test_that("a user-supplied centre face-off marker colour is kept (#65)", {
+  p <- geom_lacrosse(
+    "ncaam",
+    color_updates = list(center_face_off_marker = "#ff0000")
+  )
+  expect_length(layers_filled(p, "#ff0000"), 1)
+  expect_length(layers_filled(p, "#ffcb05"), 0)
+
+  # Without a user colour the contrasting default still applies
+  p <- geom_lacrosse("ncaam")
+  expect_length(layers_filled(p, "#ffcb05"), 1)
+})

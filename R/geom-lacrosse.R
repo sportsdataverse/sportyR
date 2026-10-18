@@ -302,14 +302,17 @@ geom_lacrosse <- function(league,
     field_params$center_face_off_marker_color_contrasting %or% FALSE
   )
 
-  if (center_face_off_marker_color_contrasting == TRUE) {
-    if (feature_colors$center_face_off_marker == feature_colors$center_line) {
-      color_updates[["center_face_off_marker"]] <- "#ffcb05"
-    }
-  }
-
   # Update the features' colors as specified by the user
   feature_colors <- utils::modifyList(feature_colors, color_updates)
+
+  # Apply the contrasting color only when the user did not choose one
+  if (
+    center_face_off_marker_color_contrasting == TRUE &&
+      is.null(color_updates[["center_face_off_marker"]]) &&
+      feature_colors$center_face_off_marker == feature_colors$center_line
+  ) {
+    feature_colors$center_face_off_marker <- "#ffcb05"
+  }
 
   # Feature initialization -----------------------------------------------------
   field_features <- list(

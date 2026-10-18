@@ -18,6 +18,9 @@
 - `geom_lacrosse()`: `goal_arc_line_thickness` now defaults to 0 like every other feature argument; a goal arc
   added through `field_updates` without a thickness was drawn as a solid block
   ([#64](https://github.com/sportsdataverse/sportyR/issues/64))
+- `geom_lacrosse()`: a `center_face_off_marker` colour passed in `color_updates` is kept; the contrasting
+  default (`#ffcb05`, NCAA men's) is applied only when the user did not choose a colour and the marker would
+  match the centre line ([#65](https://github.com/sportsdataverse/sportyR/issues/65))
 
 # sportyR 2.3.0
 
