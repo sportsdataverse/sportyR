@@ -79,3 +79,19 @@ test_that("display_range = \"full\" contains every drawn feature (#63)", {
     expect_true(max(ys) <= lims$y[2] + 1e-9, label = league)
   }
 })
+
+test_that("a goal arc added without a thickness is not drawn as a solid block (#64)", {
+  area <- function(d) {
+    abs(sum(d$x * c(d$y[-1], d$y[1]) - c(d$x[-1], d$x[1]) * d$y)) / 2
+  }
+  p <- geom_lacrosse(
+    "ncaam",
+    field_updates = list(goal_arc_radius = 15, goal_arc_extension = 15),
+    color_updates = list(goal_arc = "#123456")
+  )
+  arcs <- layers_filled(p, "#123456")
+  expect_length(arcs, 2)
+  for (arc in arcs) {
+    expect_equal(area(arc$data), 0, tolerance = 1e-6)
+  }
+})

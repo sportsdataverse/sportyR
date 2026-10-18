@@ -15,6 +15,9 @@
 - `geom_lacrosse()`: `display_range = "full"` (and the half-field ranges) now take in the NLL and World Lacrosse
   player benches, penalty boxes and off-field officials' box, whose outer 0.5 ft was cut off by a range that
   stopped at the apron ([#63](https://github.com/sportsdataverse/sportyR/issues/63))
+- `geom_lacrosse()`: `goal_arc_line_thickness` now defaults to 0 like every other feature argument; a goal arc
+  added through `field_updates` without a thickness was drawn as a solid block
+  ([#64](https://github.com/sportsdataverse/sportyR/issues/64))
 
 # sportyR 2.3.0
 
