@@ -208,3 +208,37 @@ test_that("a user border outline colour wins on any field (#67)", {
     expect_true(length(layers_filled(p, "#ff0000")) > 0, label = league)
   }
 })
+
+test_that("the PLL two-point arc follows the 2024 PLL Rulebook, II.G (#70)", {
+  params <- surface_dimensions[["lacrosse"]][["pll"]]
+  goal_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
+
+  p <- geom_lacrosse("pll", color_updates = list(goal_arc = "#123456"))
+  arc <- Filter(
+    function(l) mean(l$data$x) > 0,
+    layers_filled(p, "#123456")
+  )[[1]]$data
+  x <- arc$x - goal_x
+  y <- arc$y
+  nearest <- function(px, py) min(sqrt((x - px)^2 + (y - py)^2))
+
+  # Parallel lines 13 yd from the center of the goal line, from the end line...
+  expect_equal(max(abs(y)), 13)
+  for (s in c(-1, 1)) {
+    expect_lt(nearest(params$goal_line_center_to_end_line, s * 13), 1e-9)
+    # ...to where they are 15 yd from the center of the goal line
+    expect_lt(nearest(-sqrt(15^2 - 13^2), s * 13), 1e-9)
+  }
+
+  # A uniform 15 yd arc between them: every point in front of where the lines
+  # meet the arc lies on its outer (15 yd) or inner edge
+  d <- sqrt(x^2 + y^2)
+  t <- params$goal_arc_line_thickness
+  front <- x < -sqrt(15^2 - 13^2) - 1e-9
+  expect_true(all(abs(d[front] - 15) < 1e-9 | abs(d[front] - (15 - t)) < 1e-9))
+  expect_equal(min(x), -15, tolerance = 1e-4)
+
+  # Without the key the arc falls back to a semi-circle
+  semi <- lacrosse_goal_arc(goal_arc_extension = 15, goal_arc_radius = 15)
+  expect_equal(max(abs(semi$y)), 15)
+})

@@ -32,6 +32,11 @@
   sit on that circle, the 12 m marks past the painted arc as in the rule book's Diagram 2, and the two marks on
   the goal line extended are 30.5 cm long (were 0.4058 m)
   ([#69](https://github.com/sportsdataverse/sportyR/issues/69))
+- `geom_lacrosse()`: the PLL two-point arc now follows the 2024 PLL Rulebook (II. The Field, G): its lines run
+  parallel to the sidelines 13 yd from the centre of the goal line, from the end line until they are 15 yd from
+  it, joined by a 15 yd arc; it was a 15 yd semicircle with its lines 15 yd out. New
+  `surface_dimensions` key `goal_arc_parallel_line_to_center` (PLL: 13 yd); without it the arc stays a
+  semicircle ([#70](https://github.com/sportsdataverse/sportyR/issues/70))
 
 ## Changed output
 

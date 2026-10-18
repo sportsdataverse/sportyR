@@ -771,49 +771,69 @@ lacrosse_goal_circle_fill <- function(goal_circle_radius = 0,
 
 #' Lacrosse Goal Arc
 #' 
-#' The arc around the goal circle is a semi-circular area located around the
-#' goal circle (see [lacrosse_goal_circle()]) that may extend back to the end
-#' line, but also may be cut off at the goal line extended. The extension should
-#' be controlled via the \code{goal_arc_extension} parameter. Note: the hash
-#' marks are generated via [lacrosse_goal_fan_hash_mark()]
+#' The arc around the goal circle (the PLL two-point arc) is made of two lines
+#' parallel to the sidelines, \code{goal_arc_parallel_line_to_center} from the
+#' center of the goal line, that run from the end line (see
+#' \code{goal_arc_extension}) until they are \code{goal_arc_radius} from the
+#' center of the goal line, joined by an arc of \code{goal_arc_radius} about the
+#' center of the goal line (2024 PLL Rulebook, II. The Field, G. Two-Point
+#' Arc). When the parallel lines are \code{goal_arc_radius} from the center,
+#' the arc is a semi-circle. Note: the hash marks are generated via
+#' [lacrosse_goal_fan_hash_mark()]
 #'
 #' @param goal_arc_extension The extension from the goal line towards the end
 #'   line
 #' @param goal_arc_radius The outer radius of the goal arc, measured from the
 #'   center of the goal line
 #' @param line_thickness The thickness of the goal arc
+#' @param goal_arc_parallel_line_to_center The distance from the center of the
+#'   goal line to the outer edge of each line parallel to the sidelines,
+#'   measured along the goal line extended. Defaults to \code{goal_arc_radius}
 #'
 #' @return A data frame containing the the bounding coordinates of the goal arc
 #'
 #' @keywords internal
 lacrosse_goal_arc <- function(goal_arc_extension = 0,
                               goal_arc_radius = 0,
-                              line_thickness = 0) {
+                              line_thickness = 0,
+                              goal_arc_parallel_line_to_center =
+                                goal_arc_radius) {
+  # Outer and inner edges of the parallel lines and of the arc
+  w_outer <- min(goal_arc_parallel_line_to_center, goal_arc_radius)
+  w_inner <- w_outer - line_thickness
+  r_inner <- goal_arc_radius - line_thickness
+
+  # Where the parallel lines meet the arc, towards the center of the field
+  x_outer <- -sqrt(max((goal_arc_radius^2) - (w_outer^2), 0))
+  x_inner <- -sqrt(max((r_inner^2) - (w_inner^2), 0))
+  theta_outer <- atan2(w_outer, x_outer) / pi
+  theta_inner <- atan2(w_inner, x_inner) / pi
+
   # Create the goal arc
   goal_arc_df <- rbind(
     data.frame(
-      x = goal_arc_extension,
-      y = goal_arc_radius
+      x = c(goal_arc_extension, x_outer),
+      y = c(w_outer, w_outer)
     ),
     create_circle(
       center = c(0, 0),
-      start = 0.5,
-      end = 1.5,
+      start = theta_outer,
+      end = 2 - theta_outer,
       r = goal_arc_radius
     ),
     data.frame(
-      x = c(goal_arc_extension, goal_arc_extension),
-      y = c(-goal_arc_radius, -goal_arc_radius + line_thickness)
+      x = c(x_outer, goal_arc_extension, goal_arc_extension, x_inner),
+      y = c(-w_outer, -w_outer, -w_inner, -w_inner)
     ),
     create_circle(
       center = c(0, 0),
-      start = 1.5,
-      end = 0.5,
-      r = goal_arc_radius - line_thickness
+      start = 2 - theta_inner,
+      end = theta_inner,
+      r = r_inner
     ),
     data.frame(
-      x = c(goal_arc_extension, goal_arc_extension),
-      y = c(goal_arc_radius - line_thickness, goal_arc_radius)
+      x = c(x_inner, goal_arc_extension, goal_arc_extension),
+      y = c(w_inner, w_inner, w_outer)
     )
   )
 

@@ -479,7 +479,10 @@ geom_lacrosse <- function(league,
     goal_arc = lacrosse_goal_arc(
       goal_arc_extension = field_params$goal_arc_extension %or% 0,
       goal_arc_radius = field_params$goal_arc_radius %or% 0,
-      line_thickness = field_params$goal_arc_line_thickness %or% 0
+      line_thickness = field_params$goal_arc_line_thickness %or% 0,
+      goal_arc_parallel_line_to_center =
+        field_params$goal_arc_parallel_line_to_center %or%
+        (field_params$goal_arc_radius %or% 0)
     ),
 
     #### Goal Fan ####
