@@ -108,3 +108,23 @@ test_that("a user-supplied centre face-off marker colour is kept (#65)", {
   p <- geom_lacrosse("ncaam")
   expect_length(layers_filled(p, "#ffcb05"), 1)
 })
+
+test_that("the NCAA football coaching line is six feet outside the sideline (#66)", {
+  params <- surface_dimensions[["football"]][["ncaa"]]
+
+  # Rule 1-2-2: measured from the inside edge of the sideline
+  coaching_line <- params$boundary_line_thickness + params$restricted_area_width
+  expect_equal(coaching_line, 2.0, tolerance = 1e-4)
+
+  # Rule 1-2-3-a: the limit line (back of the coaching box) is 12 feet out
+  expect_equal(coaching_line + params$coaching_box_width, 4.0, tolerance = 1e-4)
+
+  # The drawn coaching box starts at the coaching line
+  p <- geom_football("ncaa", color_updates = list(coaching_box = "#123456"))
+  box <- layers_filled(p, "#123456")[[1]]$data
+  expect_equal(
+    min(box$y),
+    (params$field_width / 2) + 2.0,
+    tolerance = 1e-4
+  )
+})

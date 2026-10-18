@@ -21,6 +21,10 @@
 - `geom_lacrosse()`: a `center_face_off_marker` colour passed in `color_updates` is kept; the contrasting
   default (`#ffcb05`, NCAA men's) is applied only when the user did not choose a colour and the marker would
   match the centre line ([#65](https://github.com/sportsdataverse/sportyR/issues/65))
+- NCAA football: `restricted_area_width` is now 1.8889 yd, so the coaching line sits six feet outside the
+  sideline (measured from its inside edge) and the limit line twelve feet out, per NCAA Football Rules 1-2-2,
+  1-2-3-a and 1-2-4-a; it was 1.3333 yd, which put the coaching line 4.33 ft out
+  ([#66](https://github.com/sportsdataverse/sportyR/issues/66))
 
 # sportyR 2.3.0
 
