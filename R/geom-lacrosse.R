@@ -320,14 +320,14 @@ geom_lacrosse <- function(league,
       field_length = field_params$field_length %or% 0,
       field_width = field_params$field_width %or% 0,
       corner_radius = field_params$corner_radius %or% 0,
-      nzone_length = field_params$nzone_length %or% 0,
+      nzone_length = field_params$neutral_zone_length %or% 0,
       field_shape = field_params$field_shape %or% "rectangle"
     ),
 
     #### Neutral Zone ####
     neutral_zone = lacrosse_neutral_zone(
       field_width = field_params$field_width %or% 0,
-      nzone_length = field_params$nzone_length %or% 0
+      nzone_length = field_params$neutral_zone_length %or% 0
     ),
 
     #### Offensive Zone ####
@@ -335,7 +335,7 @@ geom_lacrosse <- function(league,
       field_length = field_params$field_length %or% 0,
       field_width = field_params$field_width %or% 0,
       corner_radius = field_params$corner_radius %or% 0,
-      nzone_length = field_params$nzone_length %or% 0,
+      nzone_length = field_params$neutral_zone_length %or% 0,
       field_shape = field_params$field_shape %or% "rectangle"
     ),
 

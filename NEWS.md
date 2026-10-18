@@ -1,3 +1,11 @@
+# sportyR 2.4.0
+
+## Bug fixes
+
+- `geom_lacrosse()`: the NLL and World Lacrosse neutral zones now span the 85 ft between the restraining
+  lines; the zones read a key the data did not have, so the neutral zone was always 0 long
+  ([#60](https://github.com/sportsdataverse/sportyR/issues/60))
+
 # sportyR 2.3.0
 
 ## New Sports and Leagues Supported
