@@ -55,7 +55,7 @@
 - `geom_baseball()`, `geom_basketball()`, `geom_curling()`, `geom_football()`, `geom_hockey()`,
   `geom_lacrosse()`, `geom_soccer()`, `geom_tennis()` and `geom_volleyball()`: drawing in other units
   (`field_units`, `court_units`, `rink_units`, `pitch_units`, `sheet_units`) now scales the features' positions
-  and the display range along with their shapes. Before, the shapes were converted but placed with unconverted
+  (including the football yardage numbers) and the display range along with their shapes. Before, the shapes were converted but placed with unconverted
   anchors, and the plot limits stayed in the rule book's units. `x_trans`, `y_trans`, `xlims` and `ylims` are
   in the requested units, as before (`geom_softball()` already handled this)
   ([#74](https://github.com/sportsdataverse/sportyR/issues/74))

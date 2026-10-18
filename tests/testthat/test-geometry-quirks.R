@@ -401,7 +401,14 @@ test_that("every geom_*() scales its anchors and limits with the units (#74)", {
     hockey = "ft", lacrosse = "ft", soccer = "m", softball = "ft",
     tennis = "ft", volleyball = "m"
   )
-  coords <- function(p, axis) unlist(lapply(p$layers, function(l) l$data[[axis]]))
+  # Every position column of every layer, including the yardage-number boxes
+  # (x_min / x_max / y_min / y_max)
+  coords <- function(p, axis) {
+    columns <- paste0(axis, c("", "_min", "_max", "min", "max"))
+    unlist(lapply(p$layers, function(l) {
+      unlist(l$data[intersect(columns, names(l$data))], use.names = FALSE)
+    }))
+  }
 
   for (sport in names(surfaces)) {
     target <- if (native_units[[sport]] == "m") "ft" else "m"

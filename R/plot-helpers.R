@@ -233,10 +233,10 @@ unit_conversion_factor <- function(from_unit, to_unit = NULL) {
 
 #' Scale a Plot's Units
 #'
-#' Scale every layer's \code{x} and \code{y} coordinates by a unit conversion
-#' factor. The \code{geom_*()} functions draw a surface in its rule book's units
-#' (so feature anchors, translations and display ranges are consistent) and then
-#' scale the finished surface to the requested units
+#' Scale every layer's position columns (\code{x}, \code{y}, and box corners)
+#' by a unit conversion factor. The \code{geom_*()} functions draw a surface in
+#' its rule book's units (so feature anchors, translations and display ranges
+#' are consistent) and then scale the finished surface to the requested units
 #'
 #' @param g A \code{ggplot2} instance
 #' @param unit_factor The factor to scale by (see [unit_conversion_factor()])
@@ -249,11 +249,22 @@ scale_plot_units <- function(g, unit_factor = 1) {
     return(g)
   }
 
+  # Every position column a layer can carry: points and polygons use x / y,
+  # boxes (e.g. the football yardage numbers drawn with ggfittext) use the
+  # x_min / x_max / y_min / y_max columns or their xmin / ymax spellings
+  position_columns <- c(
+    "x", "y",
+    "x_min", "x_max", "y_min", "y_max",
+    "xmin", "xmax", "ymin", "ymax"
+  )
+
   for (i in seq_along(g$layers)) {
     layer_data <- g$layers[[i]]$data
-    if (is.data.frame(layer_data) && all(c("x", "y") %in% names(layer_data))) {
-      layer_data$x <- layer_data$x * unit_factor
-      layer_data$y <- layer_data$y * unit_factor
+    if (is.data.frame(layer_data)) {
+      to_scale <- intersect(position_columns, names(layer_data))
+      for (column in to_scale) {
+        layer_data[[column]] <- layer_data[[column]] * unit_factor
+      }
       g$layers[[i]]$data <- layer_data
     }
   }

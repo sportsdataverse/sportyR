@@ -15,9 +15,9 @@ scale_plot_units(g, unit_factor = 1)
 The \code{ggplot2} instance with its layers scaled
 }
 \description{
-Scale every layer's \code{x} and \code{y} coordinates by a unit conversion
-factor. The \code{geom_*()} functions draw a surface in its rule book's units
-(so feature anchors, translations and display ranges are consistent) and then
-scale the finished surface to the requested units
+Scale every layer's position columns (\code{x}, \code{y}, and box corners)
+by a unit conversion factor. The \code{geom_*()} functions draw a surface in
+its rule book's units (so feature anchors, translations and display ranges
+are consistent) and then scale the finished surface to the requested units
 }
 \keyword{internal}
