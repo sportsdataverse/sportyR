@@ -1158,55 +1158,6 @@ lacrosse_goal_net <- function(goal_frame_opening_interior = 0,
   return(goal_net_df)
 }
 
-#' Lacrosse Referee's Crease (Outline)
-#' 
-#' The referee's crease is a semi-circle on the "bottom" of the boards (in TV
-#' view), centered on the line y = 0 (the center of the center line)
-#'
-#' @param referee_crease_radius The radius of the referee's crease
-#' @param line_thickness The thickness with which to draw the referee's crease
-#'
-#' @return A data frame of the bounding coordinates of the referee's crease
-#'
-#' @keywords internal
-lacrosse_referee_crease <- function(referee_crease_radius = 0,
-                                    line_thickness = 0) {
-  referee_crease_df <- rbind(
-    data.frame(
-      x = c(referee_crease_radius),
-      y = c(0)
-    ),
-    create_circle(
-      center = c(0, 0),
-      start = 0,
-      end = 1,
-      r = referee_crease_radius
-    ),
-    data.frame(
-      x = c(
-        -referee_crease_radius,
-        -referee_crease_radius + line_thickness
-      ),
-      y = c(
-        0,
-        0
-      )
-    ),
-    create_circle(
-      center = c(0, 0),
-      start = 1,
-      end = 0,
-      r = referee_crease_radius - line_thickness
-    ),
-    data.frame(
-      x = c(referee_crease_radius),
-      y = c(0)
-    )
-  )
-
-  return(referee_crease_df)
-}
-
 #' Lacrosse Referee's Crease (Interior)
 #' 
 #' The referee's crease is a semi-circle on the "bottom" of the boards (in TV
