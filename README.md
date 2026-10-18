@@ -299,7 +299,11 @@ geom_basketball("nba", display_range = "offense", rotation = 270)
 <p class="caption">plot of chunk readme-nhl-example</p>
 </div>
 
-## Star History
+## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
+
+[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
+
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR)
 
 <a href="https://github.com/sportsdataverse/sportyR/stargazers">
   <picture>
