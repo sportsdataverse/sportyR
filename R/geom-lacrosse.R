@@ -573,6 +573,11 @@ geom_lacrosse <- function(league,
     separations <- field_params$goal_fan_hash_mark_separation_from_center
     for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
+
+      # The goal fan is an arc of radius goal_fan_radius + goal_circle_radius
+      # (see lacrosse_goal_fan()), so a hash mark at arc distance separation
+      # from the fan's center sits theta = separation / radius radians from it.
+      # Rotating the mark by -theta keeps it perpendicular to the arc
       theta <- separation / (
         (field_params$goal_fan_radius %or% 1) +
           (field_params$goal_circle_radius %or% 0)
@@ -1039,7 +1044,15 @@ geom_lacrosse <- function(league,
     separations <- field_params$goal_fan_hash_mark_separation_from_center
     for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
-      theta <- (separation / (field_params$goal_fan_radius %or% 1)) / pi
+      # Use the same angle as the hash mark's rotation (in half-turns here) so
+      # the mark is placed where it is oriented: on the arc, at arc distance
+      # separation from the fan's center
+      theta <- (
+        separation / (
+          (field_params$goal_fan_radius %or% 1) +
+            (field_params$goal_circle_radius %or% 0)
+        )
+      ) / pi
       field_plot <- add_feature(
         field_plot,
         x_anchor = (

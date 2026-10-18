@@ -8,6 +8,10 @@
 - `geom_lacrosse()`: the NLL and World Lacrosse penalty box fills now start at the inside edge of the boards;
   their anchor read `board_thickness` instead of `boards_thickness`
   ([#61](https://github.com/sportsdataverse/sportyR/issues/61))
+- `geom_lacrosse()`: the goal-fan hash marks (NCAA and USA Lacrosse women's) are now placed at the angle they
+  are rotated by, so each sits on the fan arc, perpendicular to it, at its stated distance along the arc; they
+  were placed `s / goal_fan_radius` but rotated `s / (goal_fan_radius + goal_circle_radius)` radians from the
+  centre mark ([#62](https://github.com/sportsdataverse/sportyR/issues/62))
 
 # sportyR 2.3.0
 

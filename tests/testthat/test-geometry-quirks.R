@@ -26,3 +26,42 @@ test_that("penalty box fills start at the inside edge of the boards (#61)", {
   expect_equal(max(layers_filled(p, "#123456")[[1]]$data$x), -4.25)
   expect_equal(min(layers_filled(p, "#654321")[[1]]$data$x), 4.25)
 })
+
+test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s (#62)", {
+  params <- surface_dimensions[["lacrosse"]][["ncaaw"]]
+  r <- params$goal_fan_radius + params$goal_circle_radius
+  center_x <- (params$field_length / 2) - params$goal_line_center_to_end_line +
+    params$goal_circle_radius
+
+  p <- geom_lacrosse("ncaaw", color_updates = list(goal_fan_hash_mark = "#123456"))
+  marks <- layers_filled(p, "#123456")
+
+  # The right-hand, upper copy of every mark (x > 0, y >= 0)
+  marks <- Filter(
+    function(l) mean(l$data$x) > 0 && mean(l$data$y) >= -1e-9,
+    marks
+  )
+  arc_distances <- vapply(marks, function(l) {
+    v <- l$data[1:4, c("x", "y")]
+    centre <- colMeans(v)
+    radial <- centre - c(center_x, 0)
+
+    # Centre on the fan arc
+    expect_equal(sqrt(sum(radial^2)), r, tolerance = 1e-6)
+
+    # Long axis along the radius (perpendicular to the arc)
+    e1 <- unlist(v[2, ] - v[1, ])
+    e2 <- unlist(v[3, ] - v[2, ])
+    long <- if (sum(e1^2) > sum(e2^2)) e1 else e2
+    cross <- long[1] * radial[2] - long[2] * radial[1]
+    expect_equal(unname(cross), 0, tolerance = 1e-6)
+
+    r * atan2(radial[2], -radial[1])
+  }, numeric(1))
+
+  expect_equal(
+    sort(unname(arc_distances)),
+    sort(params$goal_fan_hash_mark_separation_from_center),
+    tolerance = 1e-6
+  )
+})
