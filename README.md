@@ -299,6 +299,15 @@ geom_basketball("nba", display_range = "offense", rotation = 270)
 <p class="caption">plot of chunk readme-nhl-example</p>
 </div>
 
+## Star History
+
+<a href="https://github.com/sportsdataverse/sportyR/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/sportyR" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png" width="600">
+  </picture>
+</a>
+
 ## License
 
 This package is released under the [GPL 3.0

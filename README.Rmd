@@ -329,6 +329,15 @@ It's also possible to plot partial surfaces and rotated surfaces:
 geom_basketball("nba", display_range = "offense", rotation = 270)
 ```
 
+## Star History
+
+<a href="https://github.com/sportsdataverse/sportyR/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/sportyR" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png" width="600">
+  </picture>
+</a>
+
 ## License
 
 This package is released under the [GPL 3.0
