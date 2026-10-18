@@ -29,9 +29,10 @@ test_that("penalty box fills start at the inside edge of the boards (#61)", {
 
 test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s (#62)", {
   params <- surface_dimensions[["lacrosse"]][["ncaaw"]]
-  r <- params$goal_fan_radius + params$goal_circle_radius
-  center_x <- (params$field_length / 2) - params$goal_line_center_to_end_line +
-    params$goal_circle_radius
+  # The fan's arc has radius goal_fan_radius about the center of the goal line
+  # (#69)
+  r <- params$goal_fan_radius
+  center_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
 
   p <- geom_lacrosse("ncaaw", color_updates = list(goal_fan_hash_mark = "#123456"))
   marks <- layers_filled(p, "#123456")
@@ -64,6 +65,39 @@ test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s 
     sort(params$goal_fan_hash_mark_separation_from_center),
     tolerance = 1e-6
   )
+})
+
+test_that("the women's 8-meter arc follows NCAA Rule 1, Sections 6-7 (#69)", {
+  for (league in c("ncaaw", "usaw")) {
+    params <- surface_dimensions[["lacrosse"]][[league]]
+    r <- params$goal_fan_radius
+    g <- params$goal_circle_radius
+    goal_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
+
+    p <- geom_lacrosse(league, color_updates = list(goal_fan = "#123456"))
+    fan <- Filter(
+      function(l) mean(l$data$x) > 0,
+      layers_filled(p, "#123456")
+    )[[1]]$data
+    x <- fan$x - goal_x
+    y <- fan$y
+    d <- sqrt(x^2 + y^2)
+
+    # The arc is 10.6 m from the center of the goal line, never further
+    expect_equal(max(d), r, tolerance = 1e-6, label = league)
+
+    # The ends start on the goal circle where the goal line extended crosses it
+    # (B) and run at 45 degrees to the goal line extended to the arc (C)
+    u <- (-g + sqrt(g^2 + 2 * (r^2 - g^2))) / 2
+    nearest <- function(px, py) min(sqrt((x - px)^2 + (y - py)^2))
+    for (s in c(-1, 1)) {
+      expect_lt(nearest(0, s * g), 1e-6)
+      expect_lt(nearest(-u, s * (g + u)), 1e-6)
+    }
+
+    # Section 7: the two marks on the goal line extended are 30.5 cm long
+    expect_equal(params$goal_mouth_hash_mark_length, 0.305)
+  }
 })
 
 test_that("display_range = \"full\" contains every drawn feature (#63)", {

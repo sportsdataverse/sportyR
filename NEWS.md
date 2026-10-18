@@ -26,6 +26,12 @@
   sideline (measured from its inside edge) and the limit line twelve feet out, per NCAA Football Rules 1-2-2,
   1-2-3-a and 1-2-4-a; it was 1.3333 yd, which put the coaching line 4.33 ft out
   ([#66](https://github.com/sportsdataverse/sportyR/issues/66))
+- `geom_lacrosse()`: the NCAA and USA Lacrosse women's 8-meter arc now follows NCAA Women's Lacrosse Rule 1,
+  Sections 6-7: an arc of 10.6 m about the centre of the goal line, ending on 45-degree lines from where the goal
+  line extended crosses the goal circle (it was a 13.2 m arc about a point behind the goal line). Its hash marks
+  sit on that circle, the 12 m marks past the painted arc as in the rule book's Diagram 2, and the two marks on
+  the goal line extended are 30.5 cm long (were 0.4058 m)
+  ([#69](https://github.com/sportsdataverse/sportyR/issues/69))
 
 ## Changed output
 

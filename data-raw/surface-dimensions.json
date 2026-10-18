@@ -2141,7 +2141,7 @@
         "restraining_line_thickness": 0.101,
         "restraining_line_outer_edge_to_center": 24.0,
 
-        "goal_mouth_hash_mark_length": 0.4058,
+        "goal_mouth_hash_mark_length": 0.305,
         "goal_mouth_hash_mark_line_thickness": 0.101,
 
         "goal_fan_hash_mark_length": 0.3048,
@@ -2333,7 +2333,7 @@
         "restraining_line_thickness": 0.101,
         "restraining_line_outer_edge_to_center": 24.0,
 
-        "goal_mouth_hash_mark_length": 0.4058,
+        "goal_mouth_hash_mark_length": 0.305,
         "goal_mouth_hash_mark_line_thickness": 0.101,
 
         "goal_fan_hash_mark_length": 0.3048,

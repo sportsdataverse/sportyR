@@ -822,11 +822,13 @@ lacrosse_goal_arc <- function(goal_arc_extension = 0,
 
 #' Lacrosse Goal Fan
 #' 
-#' The goal arc fan is present on some fields (e.g. NCAAW) as a quarter-circle
-#' located around the goal. The anchor for this feature should be given as the
-#' center of the goal line, but the radius of the arc actually corresponds to
-#' a point on the goal circle (see [lacrosse_goal_circle()]) that runs through
-#' \code{y = 0}
+#' The goal fan is the 8-meter arc present on some fields (e.g. NCAAW). The
+#' anchor for this feature should be given as the center of the goal line. It is
+#' made of two straight lines that start where the goal line extended crosses the
+#' goal circle (see [lacrosse_goal_circle()]) and run towards the center of the
+#' field at 45 degrees to the goal line extended, joined by an arc of radius
+#' \code{goal_fan_radius} about the center of the goal line (NCAA Women's
+#' Lacrosse Rules, Rule 1, Section 6)
 #'
 #' @param goal_fan_radius The outer radius of the goal fan, measured from the
 #'   center of the goal line to the outer edge of the goal fan
@@ -839,61 +841,63 @@ lacrosse_goal_arc <- function(goal_arc_extension = 0,
 lacrosse_goal_fan <- function(goal_fan_radius = 0,
                               goal_circle_radius = 0,
                               line_thickness = 0) {
+  # Without an arc outside the goal circle there is no goal fan to draw
+  if (goal_fan_radius <= goal_circle_radius) {
+    return(data.frame(x = numeric(0), y = numeric(0)))
+  }
+
+  # Direction of the upper 45-degree line, towards the center of the field
+  direction <- c(-1, 1) / sqrt(2)
+
+  # Distance along the line from point p (in the direction above) to the circle
+  # of the given radius about the center of the goal line
+  distance_to_circle <- function(p, radius) {
+    b <- sum(p * direction)
+    -b + sqrt((b^2) - sum(p^2) + (radius^2))
+  }
+
+  # Outer edge of the line: from the goal circle on the goal line extended (B)
+  # to the arc (C)
+  b_outer <- c(0, goal_circle_radius)
+  c_outer <- b_outer + (distance_to_circle(b_outer, goal_fan_radius) * direction)
+
+  # Inner edge of the line: the same line moved towards the goal by the line's
+  # thickness, from the goal circle to the inner edge of the arc
+  inner_base <- b_outer + (line_thickness * c(-1, -1) / sqrt(2))
+  b_inner <- inner_base +
+    (distance_to_circle(inner_base, goal_circle_radius) * direction)
+  c_inner <- inner_base +
+    (distance_to_circle(inner_base, goal_fan_radius - line_thickness) * direction)
+
+  # Angles (in half-turns) at which the lines meet the arc
+  theta_outer <- atan2(c_outer[2], c_outer[1]) / pi
+  theta_inner <- atan2(c_inner[2], c_inner[1]) / pi
+
   # Create the goal fan
   goal_fan_df <- rbind(
     data.frame(
-      x = c(
-        goal_circle_radius * cos(0.5 * pi),
-        (goal_circle_radius * cos(0.5 * pi)) + (line_thickness * cos(0.75 * pi))
-      ),
-      y = c(
-        goal_circle_radius * sin(0.5 * pi),
-        (goal_circle_radius * sin(0.5 * pi)) + (line_thickness * sin(0.75 * pi))
-      )
+      x = c(b_outer[1], c_outer[1]),
+      y = c(b_outer[2], c_outer[2])
     ),
     create_circle(
-      center = c(goal_circle_radius, 0),
-      start = 0.75,
-      end = 1.25,
-      r = goal_fan_radius + goal_circle_radius
+      center = c(0, 0),
+      start = theta_outer,
+      end = 2 - theta_outer,
+      r = goal_fan_radius
     ),
     data.frame(
-      x = c(
-        goal_circle_radius * cos(1.5 * pi),
-        (goal_circle_radius * cos(1.5 * pi)) + (line_thickness * cos(1.25 * pi))
-      ),
-      y = c(
-        goal_circle_radius * sin(1.5 * pi),
-        (goal_circle_radius * sin(1.5 * pi)) - (line_thickness * sin(1.25 * pi))
-      )
+      x = c(c_outer[1], b_outer[1], b_inner[1], c_inner[1]),
+      y = -c(c_outer[2], b_outer[2], b_inner[2], c_inner[2])
     ),
     create_circle(
-      center = c(goal_circle_radius, 0),
-      start = 1.25 - (
-        (
-          line_thickness / (
-            goal_fan_radius + (goal_circle_radius) - line_thickness)
-        ) / pi
-      ),
-      end = 0.75 + (
-        (
-          line_thickness / (
-            goal_fan_radius + (goal_circle_radius) - line_thickness)
-        ) / pi
-      ),
-      r = goal_fan_radius + goal_circle_radius - line_thickness
+      center = c(0, 0),
+      start = 2 - theta_inner,
+      end = theta_inner,
+      r = goal_fan_radius - line_thickness
     ),
     data.frame(
-      x = c(
-        (goal_circle_radius * cos(0.5 * pi)) +
-          (line_thickness * cos(0.75 * pi)),
-        goal_circle_radius * cos(0.5 * pi)
-      ),
-      y = c(
-        (goal_circle_radius * sin(0.5 * pi)) -
-          (line_thickness * sin(0.75 * pi)),
-        goal_circle_radius * sin(0.5 * pi)
-      )
+      x = c(c_inner[1], b_inner[1], b_outer[1]),
+      y = c(c_inner[2], b_inner[2], b_outer[2])
     )
   )
 
