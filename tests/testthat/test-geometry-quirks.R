@@ -30,8 +30,8 @@ test_that("penalty box fills start at the inside edge of the boards (#61)", {
 test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s (#62)", {
   params <- surface_dimensions[["lacrosse"]][["ncaaw"]]
   # The fan's arc has radius goal_fan_radius about the center of the goal line
-  # (#69)
-  r <- params$goal_fan_radius
+  # (#69), and the marks sit on the middle of its line (#75)
+  r <- params$goal_fan_radius - (params$goal_fan_line_thickness / 2)
   center_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
 
   p <- geom_lacrosse("ncaaw", color_updates = list(goal_fan_hash_mark = "#123456"))
@@ -431,4 +431,35 @@ test_that("every geom_*() scales its anchors and limits with the units (#74)", {
   moved <- geom_lacrosse("nll", field_units = "m", x_trans = 3)
   still <- geom_lacrosse("nll", field_units = "m")
   expect_equal(moved$coordinates$limits$x, still$coordinates$limits$x + 3)
+})
+
+test_that("goal-fan hash marks bisect the fan's line (#75)", {
+  params <- surface_dimensions[["lacrosse"]][["ncaaw"]]
+  goal_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
+
+  p <- geom_lacrosse(
+    "ncaaw",
+    color_updates = list(goal_fan = "#123456", goal_fan_hash_mark = "#654321")
+  )
+
+  # The fan's line near its apex (right-hand goal) runs between these radii
+  fan <- Filter(
+    function(l) mean(l$data$x) > 0,
+    layers_filled(p, "#123456")
+  )[[1]]$data
+  near_apex <- abs(fan$y) < 1
+  d <- sqrt((fan$x[near_apex] - goal_x)^2 + fan$y[near_apex]^2)
+  expect_equal(diff(range(d)), params$goal_fan_line_thickness, tolerance = 1e-9)
+  line_middle <- mean(range(d))
+
+  # The center hash mark's midpoint is on the middle of that line
+  center_mark <- Filter(
+    function(l) mean(l$data$x) > 0 && abs(mean(l$data$y[1:4])) < 1e-9,
+    layers_filled(p, "#654321")
+  )[[1]]$data
+  expect_equal(
+    goal_x - mean(center_mark$x[1:4]),
+    line_middle,
+    tolerance = 1e-9
+  )
 })

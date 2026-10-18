@@ -59,6 +59,10 @@
   anchors, and the plot limits stayed in the rule book's units. `x_trans`, `y_trans`, `xlims` and `ylims` are
   in the requested units, as before (`geom_softball()` already handled this)
   ([#74](https://github.com/sportsdataverse/sportyR/issues/74))
+- `geom_lacrosse()`: the women's 8-meter-arc hash marks are now centred on the middle of the arc's line
+  (`goal_fan_radius - goal_fan_line_thickness / 2`), so they bisect it as NCAA Women's Lacrosse Rule 1,
+  Section 7 requires; they straddled the line's outer edge
+  ([#75](https://github.com/sportsdataverse/sportyR/issues/75))
 
 ## Changed output
 

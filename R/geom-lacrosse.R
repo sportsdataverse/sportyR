@@ -581,12 +581,16 @@ geom_lacrosse <- function(league,
     for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
 
-      # The goal fan's arc has radius goal_fan_radius about the center of the
-      # goal line (see lacrosse_goal_fan()), so a hash mark at arc distance
-      # separation from the fan's center sits theta = separation / radius
-      # radians from it. Rotating the mark by -theta keeps it perpendicular to
-      # the arc
-      theta <- separation / (field_params$goal_fan_radius %or% 1)
+      # The goal fan's line runs from goal_fan_radius - thickness to
+      # goal_fan_radius about the center of the goal line (see
+      # lacrosse_goal_fan()). The hash marks bisect the arc (NCAA Women's
+      # Lacrosse Rule 1, Section 7), so they are centered on the line's middle,
+      # and a hash mark at arc distance separation from the fan's center sits
+      # theta = separation / radius radians from it. Rotating the mark by
+      # -theta keeps it perpendicular to the arc
+      hash_mark_radius <- (field_params$goal_fan_radius %or% 1) -
+        ((field_params$goal_fan_line_thickness %or% 0) / 2)
+      theta <- separation / hash_mark_radius
       field_features[[glue::glue("goal_fan_hash_mark_{separation}")]] <-
         lacrosse_goal_fan_hash_mark(
           goal_fan_hash_mark_length =
@@ -1055,16 +1059,18 @@ geom_lacrosse <- function(league,
       # Use the same angle as the hash mark's rotation (in half-turns here) so
       # the mark is placed where it is oriented: on the arc, at arc distance
       # separation from the fan's center
-      theta <- (separation / (field_params$goal_fan_radius %or% 1)) / pi
+      hash_mark_radius <- (field_params$goal_fan_radius %or% 1) -
+        ((field_params$goal_fan_line_thickness %or% 0) / 2)
+      theta <- (separation / hash_mark_radius) / pi
       field_plot <- add_feature(
         field_plot,
         x_anchor = (
           ((field_params$field_length %or% 0) / 2) -
             (field_params$goal_line_center_to_end_line %or% 0) +
-            ((field_params$goal_fan_radius %or% 0) * cos((1 - theta) * pi))
+            (hash_mark_radius * cos((1 - theta) * pi))
         ),
         y_anchor = (
-          (field_params$goal_fan_radius %or% 0) * sin((1 - theta) * pi)
+          hash_mark_radius * sin((1 - theta) * pi)
         ),
         feature_df =
           field_features[[glue::glue("goal_fan_hash_mark_{separation}")]],
