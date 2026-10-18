@@ -242,3 +242,75 @@ test_that("the PLL two-point arc follows the 2024 PLL Rulebook, II.G (#70)", {
   semi <- lacrosse_goal_arc(goal_arc_extension = 15, goal_arc_radius = 15)
   expect_equal(max(abs(semi$y)), 15)
 })
+
+test_that("the NFL field border follows the bench's slanted side (#71)", {
+  q <- surface_dimensions[["football"]][["nfl"]]
+  args <- list(
+    field_length = q$field_length,
+    field_width = q$field_width,
+    endzone_length = q$endzone_length,
+    boundary_line_thickness = q$boundary_line_thickness,
+    restricted_area_length = q$team_bench_length_field_side,
+    restricted_area_width = q$restricted_area_width,
+    coaching_box_length = q$team_bench_length_field_side,
+    coaching_box_width = q$coaching_box_width,
+    team_bench_length_field_side = q$team_bench_length_field_side,
+    team_bench_length_back_side = q$team_bench_length_back_side,
+    team_bench_width = q$team_bench_width,
+    team_bench_area_border_thickness = q$team_bench_area_border_thickness,
+    field_border_thickness = q$field_border_thickness,
+    surrounds_team_bench_area = TRUE,
+    bench_shape = q$bench_shape
+  )
+  border <- do.call(
+    football_field_border,
+    c(
+      args[names(args) != "field_border_thickness"],
+      list(feature_thickness = q$field_border_thickness)
+    )
+  )
+  outline <- do.call(
+    football_field_border_outline,
+    c(args, list(feature_thickness = q$minor_line_thickness))
+  )
+
+  # The border's outer corner behind the bench, and the next vertex down its
+  # outer edge towards the field
+  top <- which(abs(border$y - max(border$y)) < 1e-9)
+  i <- top[which.max(border$x[top])]
+  j <- c(i - 1, i + 1)[border$y[c(i - 1, i + 1)] < max(border$y) - 1e-9][1]
+  edge <- (border$x[j] - border$x[i]) / (border$y[i] - border$y[j])
+
+  # Parallel to the bench's slanted side
+  bench_side <- (
+    (q$team_bench_length_field_side - q$team_bench_length_back_side) / 2
+  ) / q$team_bench_width
+  expect_equal(edge, bench_side, tolerance = 1e-9)
+
+  # The white outline starts from that same corner
+  expect_true(any(
+    abs(outline$x - border$x[i]) < 1e-9 & abs(outline$y - border$y[i]) < 1e-9
+  ))
+
+  # Rectangular benches keep their corner at the bench's field-side end
+  n <- surface_dimensions[["football"]][["ncaa"]]
+  rect <- football_field_border(
+    field_width = n$field_width,
+    feature_thickness = n$field_border_thickness,
+    boundary_line_thickness = n$boundary_line_thickness,
+    restricted_area_width = n$restricted_area_width,
+    coaching_box_width = n$coaching_box_width,
+    team_bench_length_field_side = n$team_bench_length_field_side,
+    team_bench_length_back_side = n$team_bench_length_back_side,
+    team_bench_width = n$team_bench_width,
+    team_bench_area_border_thickness = n$team_bench_area_border_thickness,
+    surrounds_team_bench_area = TRUE,
+    bench_shape = n$bench_shape
+  )
+  expect_equal(
+    max(rect$x[abs(rect$y - max(rect$y)) < 1e-9]),
+    (n$team_bench_length_field_side / 2) +
+      n$team_bench_area_border_thickness +
+      n$field_border_thickness
+  )
+})

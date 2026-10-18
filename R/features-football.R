@@ -111,7 +111,12 @@ football_field_apron <- function(field_length = 0,
 
   ext_y <- starting_depth + extra_apron_padding
 
-  if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
+  # A slanted (e.g. trapezoidal) bench: the corner follows the bench's side
+  if (
+    !(tolower(bench_shape) %in% c("rectangle", "rectangular")) &&
+      team_bench_width > 0 &&
+      team_bench_length_back_side != team_bench_length_field_side
+  ) {
     m <- team_bench_width / (
       (team_bench_length_back_side / 2) - (team_bench_length_field_side / 2)
     )
@@ -124,9 +129,9 @@ football_field_apron <- function(field_length = 0,
 
     outer_corner_x_dist <- (((y2 - y1) / m) + x1)
   } else {
-    outer_corner_x_dist <- (team_bench_length_back_side / 2) +
+    outer_corner_x_dist <- (team_bench_length_field_side / 2) +
       team_bench_area_border_thickness +
-      (field_border_thickness / 2)
+      field_border_thickness
   }
 
   field_apron_df <- data.frame(
@@ -460,7 +465,12 @@ football_field_border <- function(field_length = 0,
       team_bench_width +
       team_bench_area_border_thickness
 
-    if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
+    # A slanted (e.g. trapezoidal) bench: the corner follows the bench's side
+    if (
+      !(tolower(bench_shape) %in% c("rectangle", "rectangular")) &&
+        team_bench_width > 0 &&
+        team_bench_length_back_side != team_bench_length_field_side
+    ) {
       m <- team_bench_width / (
         (team_bench_length_back_side / 2) - (team_bench_length_field_side / 2)
       )
@@ -474,9 +484,9 @@ football_field_border <- function(field_length = 0,
 
       outer_corner_x_dist <- (((y2 - y1) / m) + x1)
     } else {
-      outer_corner_x_dist <- (team_bench_length_back_side / 2) +
+      outer_corner_x_dist <- (team_bench_length_field_side / 2) +
         team_bench_area_border_thickness +
-        (feature_thickness / 2)
+        feature_thickness
     }
 
     field_border_df <- data.frame(
@@ -687,7 +697,12 @@ football_field_border_outline <- function(field_length = 0,
       team_bench_area_border_thickness +
       field_border_thickness
 
-    if (tolower(bench_shape) %in% c("rectangle", "rectangular")) {
+    # A slanted (e.g. trapezoidal) bench: the corner follows the bench's side
+    if (
+      !(tolower(bench_shape) %in% c("rectangle", "rectangular")) &&
+        team_bench_width > 0 &&
+        team_bench_length_back_side != team_bench_length_field_side
+    ) {
       m <- team_bench_width / (
         (team_bench_length_back_side / 2) - (team_bench_length_field_side / 2)
       )
@@ -700,9 +715,9 @@ football_field_border_outline <- function(field_length = 0,
 
       outer_corner_x_dist <- (((y2 - y1) / m) + x1)
     } else {
-      outer_corner_x_dist <- (team_bench_length_back_side / 2) +
+      outer_corner_x_dist <- (team_bench_length_field_side / 2) +
         team_bench_area_border_thickness +
-        (field_border_thickness / 2)
+        field_border_thickness
     }
 
     field_border_outline_df <- data.frame(

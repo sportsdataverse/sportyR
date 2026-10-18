@@ -37,6 +37,11 @@
   it, joined by a 15 yd arc; it was a 15 yd semicircle with its lines 15 yd out. New
   `surface_dimensions` key `goal_arc_parallel_line_to_center` (PLL: 13 yd); without it the arc stays a
   semicircle ([#70](https://github.com/sportsdataverse/sportyR/issues/70))
+- NFL football: where the field border, its outline and the apron wrap round the trapezoid team bench, their
+  outer corner now follows the bench's slanted side (19.15 yd from centre, was 19.41 yd), as the 2026 NFL
+  Rulebook's bench-area diagram draws the line behind the bench parallel to it. The branch for slanted benches
+  had been applied to rectangular ones and vice versa; NCAA, NFHS and CFL are unchanged
+  ([#71](https://github.com/sportsdataverse/sportyR/issues/71))
 
 ## Changed output
 
