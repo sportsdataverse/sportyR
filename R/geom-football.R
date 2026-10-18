@@ -67,9 +67,9 @@ football_features_set_colors <- function(plot_background = NULL,
                                          end_line = "#ffffff",
                                          sideline = "#ffffff",
                                          field_border = "#196f0c",
-                                         field_border_outline = "#ffffff",
+                                         field_border_outline = "#ffffff00",
                                          red_zone_border = "#196f0c00",
-                                         red_zone_border_outline = "#ffffff",
+                                         red_zone_border_outline = "#ffffff00",
                                          major_yard_line = "#ffffff",
                                          goal_line = "#ffffff",
                                          minor_yard_line = "#ffffff",
@@ -663,6 +663,13 @@ geom_football <- function(league,
 
   # Start by getting the colors to use to make the plot
   feature_colors <- football_features_set_colors()
+
+  # Bordered fields (field_bordered) get a white outline around the field
+  # border by default; other fields keep the transparent default
+  if (isTRUE(field_params$field_bordered)) {
+    feature_colors$field_border_outline <- "#ffffff"
+    feature_colors$red_zone_border_outline <- "#ffffff"
+  }
 
   # Update the features' colors as specified by the user
   feature_colors <- utils::modifyList(feature_colors, color_updates)

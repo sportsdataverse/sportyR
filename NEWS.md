@@ -28,11 +28,10 @@
 
 ## Changed output
 
-- `geom_football()` now draws the white field border outline by default: `field_border_outline` and
-  `red_zone_border_outline` default to `#ffffff` instead of transparent `#ffffff00`. NCAA and NFL fields gain a
-  white line around the field border and both team areas; leagues without a border look the same. Pass the old
-  colours in `color_updates` to keep the previous look
-  ([#67](https://github.com/sportsdataverse/sportyR/issues/67))
+- football: `field_bordered` is now read; NCAA, NFHS and NFL draw a white border outline by default; CFL is
+  unchanged. `field_bordered` is now `true` for NCAA, NFHS (11/9/8/6) and NFL, and bordered fields default
+  `field_border_outline` and `red_zone_border_outline` to `#ffffff` (otherwise transparent `#ffffff00`); a
+  colour passed in `color_updates` always wins ([#67](https://github.com/sportsdataverse/sportyR/issues/67))
 
 # sportyR 2.3.0
 

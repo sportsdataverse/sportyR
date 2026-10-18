@@ -129,24 +129,48 @@ test_that("the NCAA football coaching line is six feet outside the sideline (#66
   )
 })
 
-test_that("geom_football() draws a white field border outline by default (#67)", {
-  colors <- football_features_set_colors()
-  expect_equal(colors$field_border_outline, "#ffffff")
-  expect_equal(colors$red_zone_border_outline, "#ffffff")
+# Default fills of the border-outline layers, located by tagging them with a
+# unique colour and reading the same layers from the default plot
+outline_fills <- function(league) {
+  tagged <- geom_football(
+    league,
+    color_updates = list(
+      field_border_outline = "#123456",
+      red_zone_border_outline = "#654321"
+    )
+  )
+  default <- geom_football(league)
+  fills <- vapply(tagged$layers, function(l) {
+    if (is.null(l$aes_params$fill)) NA_character_ else l$aes_params$fill
+  }, character(1))
+  idx <- which(fills %in% c("#123456", "#654321"))
+  expect_true(length(idx) > 0)
+  for (i in idx) {
+    expect_equal(default$layers[[i]]$data, tagged$layers[[i]]$data)
+  }
+  vapply(default$layers[idx], function(l) l$aes_params$fill, character(1))
+}
+
+test_that("bordered football fields draw a white border outline by default (#67)", {
+  expect_true(surface_dimensions[["football"]][["ncaa"]]$field_bordered)
+  expect_true(all(outline_fills("ncaa") == "#ffffff"))
+  expect_true(all(outline_fills("nfl") == "#ffffff"))
+  expect_true(all(outline_fills("nfhs11") == "#ffffff"))
+})
+
+test_that("unbordered football fields keep the transparent outline (#67)", {
+  expect_false(surface_dimensions[["football"]][["cfl"]]$field_bordered)
+  expect_true(all(outline_fills("cfl") == "#ffffff00"))
 
   # The fills are unchanged
+  colors <- football_features_set_colors()
   expect_equal(colors$field_border, "#196f0c")
   expect_equal(colors$red_zone_border, "#196f0c00")
+})
 
-  # NCAA has a field border, so its outline reaches past the border's outer edge
-  params <- surface_dimensions[["football"]][["ncaa"]]
-  p <- geom_football("ncaa", color_updates = list(field_border_outline = "#123456"))
-  default <- geom_football("ncaa")
-  outline_y <- max(layers_filled(p, "#123456")[[1]]$data$y)
-  white_y <- vapply(
-    layers_filled(default, "#ffffff"),
-    function(l) max(l$data$y),
-    numeric(1)
-  )
-  expect_true(any(abs(white_y - outline_y) < 1e-9))
+test_that("a user border outline colour wins on any field (#67)", {
+  for (league in c("cfl", "ncaa")) {
+    p <- geom_football(league, color_updates = list(field_border_outline = "#ff0000"))
+    expect_true(length(layers_filled(p, "#ff0000")) > 0, label = league)
+  }
 })
