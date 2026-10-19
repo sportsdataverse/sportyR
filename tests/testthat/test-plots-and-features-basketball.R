@@ -16,6 +16,17 @@ test_that(
 )
 
 test_that(
+  "geom_basketball() accepts a custom surface with empty features", {
+    expect_warning(
+      custom_court <- geom_basketball("custom"),
+      "NaNs produced"
+    )
+
+    expect_true(ggplot2::is_ggplot(custom_court))
+  }
+)
+
+test_that(
   "geom_basketball() can successfully transform coordinates", {
     # Create a basketball court plot
     fiba_court <- geom_basketball("fiba", court_units = "ft", rotation = 270)

@@ -1,3 +1,8 @@
+# sportyR (development version)
+
+- Fixed [#77](https://github.com/sportsdataverse/sportyR/issues/77) so
+  `geom_basketball("custom")` accepts empty optional dimensions.
+
 # sportyR 2.3.0
 
 ## New Sports and Leagues Supported

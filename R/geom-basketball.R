@@ -426,7 +426,7 @@ geom_basketball <- function(league,
     lane_space_mark_visibility = c()
   )
 
-  for(i in seq_len(nrow(court_params$lane_space_mark_lengths))) {
+  for(i in seq_len(NROW(court_params$lane_space_mark_lengths))) {
     lane_space_marks <- rbind(
       lane_space_marks,
       data.frame(
@@ -1245,10 +1245,10 @@ geom_basketball <- function(league,
 
   if (is.null(xlims)) {
     three_point_arc_distance <- max(
-      court_params$basket_center_to_three_point_arc
-    ) %or% 0
+      court_params$basket_center_to_three_point_arc %or% 0
+    )
 
-    lane_length <- max(court_params$lane_length) %or% 0
+    lane_length <- max(court_params$lane_length %or% 0)
 
     xlims <- switch(
       tolower(display_range),
@@ -1529,7 +1529,7 @@ geom_basketball <- function(league,
   }
 
   if (is.null(ylims)) {
-    lane_width <- (max(court_params$lane_width) %or% 0) / 2
+    lane_width <- max(court_params$lane_width %or% 0) / 2
 
     ylims <- switch(
       tolower(display_range),
