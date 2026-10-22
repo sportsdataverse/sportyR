@@ -96,7 +96,7 @@ and take the following arguments:
     desired league
 
   - `rotation`: An angle (in degrees) that you’d like to rotate the plot
-    by, where +is counterclockwise
+    by, where positive angles rotate counterclockwise
 
   - `xlims` and `ylims`: Any limits you’d like to put on the plot in the
     x and y direction. These will overwrite anything set by the
@@ -149,7 +149,7 @@ similar to the following:
 geom_football("nfl", display_range = "red zone")
 ```
 
-<img src="man/figures/README-readme-display-range-demo-1.png" alt="" width="100%" />
+<img src="man/figures/README-readme-display-range-demo-1.png" alt="The red zone of an NFL field, from the 20-yard line to the back of the end zone" width="100%" />
 
 Another use case would be to make the data you’re viewing easier to see.
 Say you wanted to look at curling data, but only cared about stone
@@ -161,7 +161,7 @@ there). You might do this:
 geom_curling("wcf", display_range = "house")
 ```
 
-<img src="man/figures/README-readme-display-range-curling-demo-1.png" alt="" width="100%" />
+<img src="man/figures/README-readme-display-range-curling-demo-1.png" alt="The house at one end of a WCF curling sheet: the rings around the button" width="100%" />
 
 ## Plot Units
 
@@ -256,7 +256,7 @@ a call to the proper `geom_{sport}()` function like so:
 geom_baseball("mlb", display_range = "infield")
 ```
 
-<img src="man/figures/README-readme-mlb-example-1.png" alt="" width="100%" />
+<img src="man/figures/README-readme-mlb-example-1.png" alt="The infield of an MLB baseball field: the diamond, bases, pitcher's mound and infield dirt" width="100%" />
 
 ``` r
 # Create a 100m by 75m FIFA pitch
@@ -269,7 +269,7 @@ geom_soccer(
 )
 ```
 
-<img src="man/figures/README-readme-fifa-example-1.png" alt="" width="100%" />
+<img src="man/figures/README-readme-fifa-example-1.png" alt="A full FIFA soccer pitch, 100 m long and 75 m wide" width="100%" />
 
 It’s also possible to plot partial surfaces and rotated surfaces:
 
@@ -278,7 +278,7 @@ It’s also possible to plot partial surfaces and rotated surfaces:
 geom_basketball("nba", display_range = "offense", rotation = 270)
 ```
 
-<img src="man/figures/README-readme-nhl-example-1.png" alt="" width="100%" />
+<img src="man/figures/README-readme-nhl-example-1.png" alt="The offensive half of an NBA basketball court, rotated 270 degrees so the basket is at the bottom" width="100%" />
 
 ## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
 

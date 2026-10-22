@@ -106,7 +106,7 @@ and take the following arguments:
     desired league
 
 -   `rotation`: An angle (in degrees) that you'd like to rotate the plot
-    by, where +\theta is counterclockwise
+    by, where positive angles rotate counterclockwise
 
 -   `xlims` and `ylims`: Any limits you'd like to put on the plot in the
     x and y direction. These will overwrite anything set by the
@@ -154,7 +154,7 @@ to display. As an example, if you're trying to limit the analysis of NFL
 data to being inside of the red zone, you may want to do something
 similar to the following:
 
-```{r readme-display-range-demo, dev = "png"}
+```{r readme-display-range-demo, dev = "png", fig.alt = "The red zone of an NFL field, from the 20-yard line to the back of the end zone"}
 # Display only the red zone of the football field
 geom_football("nfl", display_range = "red zone")
 ```
@@ -162,7 +162,7 @@ geom_football("nfl", display_range = "red zone")
 
 Another use case would be to make the data you're viewing easier to see. Say you wanted to look at curling data, but only cared about stone positions in the house (and not the path as to how the stones got there). You might do this:
 
-```{r readme-display-range-curling-demo, dev = "png"}
+```{r readme-display-range-curling-demo, dev = "png", fig.alt = "The house at one end of a WCF curling sheet: the rings around the button"}
 # Display only the house on a curling sheet
 geom_curling("wcf", display_range = "house")
 ```
@@ -306,12 +306,12 @@ possible through `reflect()`.
 Most playing surfaces are standard in size, so they can be rendered via
 a call to the proper `geom_{sport}()` function like so:
 
-```{r readme-mlb-example}
+```{r readme-mlb-example, fig.alt = "The infield of an MLB baseball field: the diamond, bases, pitcher's mound and infield dirt"}
 # Draw a basic MLB infield plot
 geom_baseball("mlb", display_range = "infield")
 ```
 
-```{r readme-fifa-example}
+```{r readme-fifa-example, fig.alt = "A full FIFA soccer pitch, 100 m long and 75 m wide"}
 # Create a 100m by 75m FIFA pitch
 geom_soccer(
   "fifa",
@@ -324,7 +324,7 @@ geom_soccer(
 
 It's also possible to plot partial surfaces and rotated surfaces:
 
-```{r readme-nhl-example}
+```{r readme-nhl-example, fig.alt = "The offensive half of an NBA basketball court, rotated 270 degrees so the basket is at the bottom"}
 # Draw half of a rotated NBA court
 geom_basketball("nba", display_range = "offense", rotation = 270)
 ```
