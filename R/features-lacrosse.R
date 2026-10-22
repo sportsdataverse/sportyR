@@ -1117,7 +1117,7 @@ lacrosse_goal_frame <- function(goal_frame_opening_interior = 0,
       (-goal_frame_opening_interior / 2) - goal_post_thickness,
       0,
       (goal_frame_opening_interior / 2) + goal_post_thickness,
-      0
+      goal_frame_opening_interior / 2
     )
   )
 
@@ -1151,7 +1151,7 @@ lacrosse_goal_net <- function(goal_frame_opening_interior = 0,
       goal_frame_opening_interior / 2,
       0,
       -goal_frame_opening_interior / 2,
-      goal_frame_opening_interior
+      goal_frame_opening_interior / 2
     )
   )
 
@@ -1256,7 +1256,7 @@ lacrosse_player_bench_outline <- function(bench_area_outline_thickness = 0,
       bench_length,
       0,
       0,
-      bench_area_outline_thickness
+      -bench_area_outline_thickness
     ),
     y = c(
       bench_area_outline_thickness,
