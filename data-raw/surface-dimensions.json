@@ -2612,6 +2612,88 @@
         }
     },
 
+    "softball": {
+        "custom": {
+            "field_units": "",
+
+            "left_field_distance": 0.0,
+            "right_field_distance": 0.0,
+            "center_field_distance": 0.0,
+
+            "baseline_distance": 0.0,
+            "running_lane_start_distance": 0.0,
+            "running_lane_depth": 0.0,
+            "running_lane_length": 0.0,
+
+            "pitchers_plate_front_to_home_plate": 0.0,
+            "pitchers_plate_width": 0.0,
+            "pitchers_plate_length": 0.0,
+            "pitchers_circle_radius": 0.0,
+            "pitchers_lane_length": 0.0,
+
+            "base_side_length": 0.0,
+            "home_plate_edge_length": 0.0,
+
+            "infield_arc_radius": 0.0,
+            "line_width": 0.0,
+            "foul_line_to_foul_grass": 0.0,
+
+            "batters_box_length": 0.0,
+            "batters_box_width": 0.0,
+            "batters_box_y_adj": 0.0,
+            "home_plate_side_to_batters_box": 0.0,
+            "catchers_box_depth": 0.0,
+            "catchers_box_width": 0.0,
+
+            "coaches_box_depth": 0.0,
+            "coaches_box_length": 0.0,
+            "coaches_box_width": 0.0,
+
+            "backstop_radius": 0.0,
+            "home_plate_circle_radius": 0.0
+        },
+
+        "ncaa": {
+            "field_units": "ft",
+
+            "left_field_distance": 190.0,
+            "right_field_distance": 190.0,
+            "center_field_distance": 220.0,
+
+            "baseline_distance": 60.0,
+            "running_lane_start_distance": 30.0,
+            "running_lane_depth": 3.0,
+            "running_lane_length": 30.0,
+
+            "pitchers_plate_front_to_home_plate": 43.0,
+            "pitchers_plate_width": 0.5,
+            "pitchers_plate_length": 2.0,
+            "pitchers_circle_radius": 8.0,
+            "pitchers_lane_length": 8.0,
+
+            "base_side_length": 1.25,
+            "home_plate_edge_length": 1.4167,
+
+            "infield_arc_radius": 60.0,
+            "line_width": 0.25,
+            "foul_line_to_foul_grass": 3.0,
+
+            "batters_box_length": 7.0,
+            "batters_box_width": 3.0,
+            "batters_box_y_adj": 1.2083,
+            "home_plate_side_to_batters_box": 0.5,
+            "catchers_box_depth": 7.0,
+            "catchers_box_width": 8.4167,
+
+            "coaches_box_depth": 8.0,
+            "coaches_box_length": 15.0,
+            "coaches_box_width": 3.0,
+
+            "backstop_radius": 25.0,
+            "home_plate_circle_radius": 13.0
+        }
+    },
+
     "tennis": {
         "custom": {
             "court_length": 0.0,

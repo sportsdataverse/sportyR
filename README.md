@@ -13,6 +13,7 @@ downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&lab
 [![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/sportyR/R-CMD-check?label=R-CMD-Check&logo=R&&style=flat&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://img.shields.io/codecov/c/github/sportsdataverse/sportyR?color=ff552e&label=codecov&logo=codecov)](https://codecov.io/gh/sportsdataverse/sportyR)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&logo=github&color=ff552e)](https://github.com/sportsdataverse/sportyR/)
+[![npm](https://img.shields.io/npm/v/@sportsdataverse/sporty?label=npm&logo=npm&style=flat&color=ff552e)](https://www.npmjs.com/package/@sportsdataverse/sporty)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportyR_pkg?&label=%40sportyR_pkg&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportyR_pkg)
 [![Twitter
@@ -24,7 +25,7 @@ As the field of sports analytics evolve, there's a growing need for
 methods to both track and visualize players throughout the game. This
 package aims to make this easy regardless of sport needed to be plotted.
 
-This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, soccer, and tennis in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy).
+This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, lacrosse, soccer, softball, tennis, and volleyball in **R**. For the **Python** version of this package, click [here](https://github.com/sportsdataverse/sportypy). For the **JavaScript / TypeScript** version, see [`@sportsdataverse/sporty`](https://www.npmjs.com/package/@sportsdataverse/sporty) ([docs](https://plot.sportsdataverse.org/guides/surfaces), [GitHub](https://github.com/sportsdataverse/sdvplot-js)).
 
 
 ## Installation
@@ -123,6 +124,10 @@ There are a few exceptions to this:
     as baseball coordinates typically have the `+y` axis extending from
     the back tip of home plate towards center field
 
+-   `geom_softball()` is also displayed from the high-home view by
+    default, following the same coordinate convention as
+    `geom_baseball()`
+
 -   `geom_tennis()` is displayed with the court diagrammed from the
     perspective of the chair umpire
 
@@ -215,6 +220,7 @@ parentheses):
 |   Soccer   |               MLS                |         `yd`          |
 |   Soccer   |               NCAA               |         `yd`          |
 |   Soccer   |               NWSL               |         `yd`          |
+|  Softball  |               NCAA               |         `ft`          |
 |   Tennis   |               ATP                |         `ft`          |
 |   Tennis   |               ITA                |         `ft`          |
 |   Tennis   |               ITF                |         `ft`          |
@@ -293,6 +299,19 @@ geom_basketball("nba", display_range = "offense", rotation = 270)
 <p class="caption">plot of chunk readme-nhl-example</p>
 </div>
 
+## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
+
+[![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
+
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR)
+
+<a href="https://github.com/sportsdataverse/sportyR/stargazers">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history-dark.svg">
+    <img alt="Star history of sportsdataverse/sportyR" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png" width="600">
+  </picture>
+</a>
+
 ## License
 
 This package is released under the [GPL 3.0
@@ -318,6 +337,7 @@ general managers (and their sports) are:
 -   [Ross Drucker](https://github.com/rossdrucker) - Football
 -   [Ross Drucker](https://github.com/rossdrucker) - Hockey
 -   [Ross Drucker](https://github.com/rossdrucker) - Soccer
+-   [Billy Fryer](https://github.com/billyfryer) - Softball
 -   [Ross Drucker](https://github.com/rossdrucker) - Tennis
 -   [Ross Drucker](https://github.com/rossdrucker) - Volleyball
 
@@ -331,6 +351,32 @@ Join that sport's coaching staff!
 By regularly reporting issues, making very slight modifications, fixing
 typos, or just helping others navigate their own issues, you're able to
 join the Scout Team!
+
+## Cheat sheet
+
+A printable one-page reference for `sportyR` — every surface function and the
+arguments that shape it — is available as a free PDF:
+
+📄 **[Download the sportyR cheat sheet (PDF)](https://sportsdataverse.org/cheatsheets/sportyR.pdf)**
+
+Light and dark, US Letter landscape. Every SportsDataverse package has one —
+browse them all at **[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
+
+## Citation
+
+To cite the `sportyR` R package in publications, use:
+
+``` bibtex
+@misc{drucker_sportyR,
+  author = {Ross Drucker},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
+  url = {https://sportyR.sportsdataverse.org/},
+  doi = {10.32614/CRAN.package.sportyR},
+  year = {2020}
+}
+```
+
+`citation("sportyR")` returns this entry with the installed version number attached.
 
 ### Acknowledgements
 

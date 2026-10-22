@@ -67,3 +67,4 @@
 ^cache/
 ^CRAN-SUBMISSION$
 ^\.releaserc\.json$
+^\.claude$

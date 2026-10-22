@@ -6,6 +6,14 @@ template:
   bootstrap: 5
   light-switch: true
   bootswatch: cosmo
+  includes:
+    in_header: |
+      <!-- Privacy-friendly analytics by Plausible -->
+      <script async src="https://plausible.io/js/pa-WlBI56z9de18Ag4GQ4cc6.js"></script>
+      <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+      </script>
   bslib:
     primary: "#1fb22e" # Navbar color
     secondary: "#1fb22e" # Secondary navbar color
@@ -67,6 +75,8 @@ navbar:
       menu:
       - text: SportsDataverse
         href: https://sportsdataverse.org/
+      - text: "Cheat Sheet (PDF)"
+        href: https://sportsdataverse.org/cheatsheets/sportyR.pdf
       - text: --------------------------------
       - text: "R Packages"
       - text: sportsdataverse-R
@@ -107,6 +117,10 @@ navbar:
         href: https://recruitR.sportsdataverse.org/
       - text: puntr
         href: https://puntalytics.github.io/puntr/
+      - text: cfbseedR
+        href: https://cfbseedR.sportsdataverse.org/
+      - text: sdvplotR
+        href: https://sdvplotR.sportsdataverse.org/
       - text: --------------------------------
       - text: "Python Packages"
       - text: sportsdataverse-py
@@ -117,12 +131,16 @@ navbar:
         href: https://github.com/nwslR/nwslpy/
       - text: collegebaseball
         href: https://github.com/nathanblumenfeld/collegebaseball/
+      - text: sdvplot
+        href: https://sdvplot.sportsdataverse.org/
       - text: --------------------------------
       - text: "Node.js Packages"
       - text: sportsdataverse.js
         href: https://js.sportsdataverse.org/
       - text: nfl-nerd
         href: https://github.com/nntrn/nfl-nerd/
+      - text: sdvplot-js
+        href: https://plot.sportsdataverse.org/
     twitter:
       icon: "fab fa-x-twitter fa-lg"
       aria-label: X (Twitter)
@@ -142,6 +160,7 @@ reference:
     - "`geom_hockey`"
     - "`geom_lacrosse`"
     - "`geom_soccer`"
+    - "`geom_softball`"
     - "`geom_tennis`"
     - "`geom_volleyball`"
 - title: "cani_ Functions"
