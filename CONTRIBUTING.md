@@ -127,7 +127,7 @@ Because the release workflow handles versioning, please **don't** change the `Ve
 
 PRs and issues are labeled automatically, so there's no need to label them yourself:
 
-- PRs get a label for each sport whose files they change (e.g. `lacrosse`), area labels (`ci`, `tests`, `documentation`) from the files they change, and a label from the title's type (`fix` adds `bug`, `feat` adds `enhancement`, `docs` adds `documentation`, `test` adds `tests`, `ci` adds `ci`)
+- PRs get a label for each sport whose files they change (e.g. `lacrosse`), area labels (`ci`, `tests`, `docs`) from the files they change, and a label from the title's type (`fix` adds `bug`, `feat` adds `enhancement`, `docs` adds `docs`, `test` adds `tests`, `ci` adds `ci`)
 
 - Issues get their label from the template they were opened with
 
