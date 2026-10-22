@@ -68,12 +68,12 @@ jobs:
 
       # rocker/r-ver:devel points at CRAN source, and PPM only serves binaries to
       # a release-looking user agent, so point at PPM and identify as release R
-      # (what setup-r's use-public-rspm and http-user-agent inputs do)
+      # (what setup-r's use-public-rspm and http-user-agent inputs do). The devel
+      # image is Ubuntu 26.04, which PPM has no binaries for yet, so use noble's
       - name: Use Posit Package Manager binaries
         if: ${{ matrix.config.http-user-agent }}
         run: |
-          . /etc/os-release
-          echo "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/${VERSION_CODENAME}/latest'), HTTPUserAgent = '${{ matrix.config.http-user-agent }}')" >> "$(R RHOME)/etc/Rprofile.site"
+          echo "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/noble/latest'), HTTPUserAgent = '${{ matrix.config.http-user-agent }}')" >> "$(R RHOME)/etc/Rprofile.site"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
