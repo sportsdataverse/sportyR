@@ -23,10 +23,13 @@ create_circle <- function(center = c(0, 0),
                           r = 1,
                           start = 0,
                           end = 2) {
-  pts <- seq(start * pi, end * pi, length.out = npoints)
+  # The angles are kept in units of pi so that cospi() and sinpi() can be used.
+  # These return exact values at the quarter points (e.g. cospi(0.5) is exactly
+  # 0, where cos(pi / 2) is 6.1e-17), so arcs meet on the axes without a seam
+  pts <- seq(start, end, length.out = npoints)
   circle_coords <- data.frame(
-    x = center[1] + (r * cos(pts)),
-    y = center[2] + (r * sin(pts))
+    x = center[1] + (r * cospi(pts)),
+    y = center[2] + (r * sinpi(pts))
   )
 
   return(circle_coords)
@@ -166,4 +169,79 @@ create_x_shape <- function(bar_length, bar_width, rotation = 45) {
   )
 
   return(x_shape_df)
+}
+
+#' Split a Feature Into Rings
+#'
+#' A feature's data frame can hold several closed rings back to back, where each
+#' ring ends on the point it started from. This splits the data frame at every
+#' return to a ring's first point. Repeated consecutive points are dropped
+#' first, so a ring that sits on a single point does not split into pieces
+#'
+#' @param df A data frame with \code{x} and \code{y} columns
+#' @param tolerance The distance below which two points are the same point.
+#'   Default: \code{1e-9}
+#'
+#' @return A list of two column matrices (\code{x} and \code{y}), one for each
+#'   ring
+#'
+#' @keywords internal
+split_rings <- function(df, tolerance = 1e-9) {
+  coords <- as.matrix(df[, c("x", "y")])
+  if (nrow(coords) < 2) {
+    return(list(coords))
+  }
+
+  # Drop each point that repeats the one before it
+  is_repeat <- rowSums(abs(diff(coords))) < tolerance
+  coords <- coords[c(TRUE, !is_repeat), , drop = FALSE]
+
+  rings <- list()
+  ring_start <- 1
+  for (i in seq_len(nrow(coords))[-1]) {
+    # A ring ends when the path is back at the ring's first point
+    if (i > ring_start &&
+        all(abs(coords[i, ] - coords[ring_start, ]) < tolerance)) {
+      rings[[length(rings) + 1]] <- coords[ring_start:i, , drop = FALSE]
+      ring_start <- i + 1
+    }
+  }
+
+  # Keep any trailing path that never closed on its first point
+  if (ring_start < nrow(coords)) {
+    rings[[length(rings) + 1]] <- coords[ring_start:nrow(coords), , drop = FALSE]
+  }
+
+  return(rings)
+}
+
+#' Check Whether a Feature Has Area
+#'
+#' Sums the unsigned area (shoelace formula) of each ring in a feature, so rings
+#' that wind in opposite directions do not cancel. A feature with a zero-width
+#' ring, a line, or a single point has no area
+#'
+#' @param df A data frame with \code{x} and \code{y} columns
+#' @param tolerance The area at or below which a feature has no area. Default:
+#'   \code{1e-9}
+#'
+#' @return \code{TRUE} if at least one ring in the feature has area, otherwise
+#'   \code{FALSE}
+#'
+#' @keywords internal
+has_area <- function(df, tolerance = 1e-9) {
+  if (nrow(df) < 3) {
+    return(FALSE)
+  }
+
+  ring_areas <- vapply(
+    split_rings(df),
+    function(ring) {
+      n <- nrow(ring)
+      abs(sum(ring[-n, 1] * ring[-1, 2] - ring[-1, 1] * ring[-n, 2])) / 2
+    },
+    numeric(1)
+  )
+
+  return(any(ring_areas > tolerance))
 }
