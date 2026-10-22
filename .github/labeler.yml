@@ -41,13 +41,27 @@ ci:
 tests:
   - changed-files:
       - any-glob-to-any-file: ["tests/**"]
+# Applied when ANY changed file is a docs file, or when ALL changed files are
+# docs, man/, or NEWS.md. man/ and NEWS.md only count on their own because
+# most code PRs regenerate man/ and add a NEWS entry
 docs:
-  - changed-files:
-      - any-glob-to-any-file:
-          - "vignettes/**"
-          - "README.Rmd"
-          - "README.md"
-          - "CONTRIBUTING.md"
-          - "CODE-OF-CONDUCT.md"
-          - "_pkgdown.yml"
-          - "pkgdown/**"
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "vignettes/**"
+              - "README.Rmd"
+              - "README.md"
+              - "CONTRIBUTING.md"
+              - "CODE-OF-CONDUCT.md"
+              - "_pkgdown.yml"
+              - "pkgdown/**"
+          - any-glob-to-all-files:
+              - "vignettes/**"
+              - "README.Rmd"
+              - "README.md"
+              - "CONTRIBUTING.md"
+              - "CODE-OF-CONDUCT.md"
+              - "_pkgdown.yml"
+              - "pkgdown/**"
+              - "man/**"
+              - "NEWS.md"
