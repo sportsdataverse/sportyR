@@ -26,7 +26,7 @@ lacrosse_penalty_box_outline(
 
 - penalty_box_length:
 
-  The length of the penalty box
+  The interior length of the penalty box
 
 - penalty_box_width:
 

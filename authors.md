@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/sportsdataverse/sportyR/blob/v2.3.0/inst/CITATION)
+[`inst/CITATION`](https://github.com/sportsdataverse/sportyR/blob/main/inst/CITATION)
 
 Ross Drucker (2020). sportyR: Plot Scaled 'ggplot' Representations of
 Sports Playing Surfaces. R package version 2.3.0. Retrieved from

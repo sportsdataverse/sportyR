@@ -25,6 +25,13 @@ Functions that do the actual plotting of the surfaces
 - [`geom_volleyball()`](https://sportyR.sportsdataverse.org/reference/geom_volleyball.md)
   : Draw Volleyball Court
 
+## Surface Dimensions
+
+The rule-book parameters the surface plotters draw from
+
+- [`get_surface_dimensions()`](https://sportyR.sportsdataverse.org/reference/get_surface_dimensions.md)
+  : Get a Surface's Dimensions
+
 ## cani\_ Functions
 
 Functions that help navigate the options of the package, attempting to

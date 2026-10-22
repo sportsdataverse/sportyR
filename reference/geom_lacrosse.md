@@ -36,7 +36,8 @@ geom_lacrosse(
 
   `"full"`
 
-  :   The full field. This is the default
+  :   The full field, including any player benches, penalty boxes, and
+      off-field officials' box outside it. This is the default
 
   `"offense"`
 
