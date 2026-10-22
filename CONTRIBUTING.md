@@ -97,11 +97,11 @@ Your request will be checked against the following points:
 
 PRs against `main` run the following GitHub Actions workflows, and any that run should pass before a PR is merged. Each one only runs when the PR changes the files it checks, so, for example, a PR that only touches the README skips the first three:
 
-- **R-CMD-check** &mdash; `R CMD check` on macOS, Windows, and Ubuntu, across R-devel, the current release, and the previous release. Runs when `R/`, `tests/`, `man/`, `inst/`, `DESCRIPTION`, `NAMESPACE`, or `.Rbuildignore` change. Run `devtools::check()` locally to catch problems first
+- **R-CMD-check** &mdash; `R CMD check` on macOS, Windows, and Ubuntu, across R-devel, the current release, and the previous release. Runs when `R/`, `src/`, `data/`, `tests/`, `man/`, `inst/`, `DESCRIPTION`, `NAMESPACE`, or `.Rbuildignore` change. Run `devtools::check()` locally to catch problems first
 
 - **lint** &mdash; `lintr::lint_package()` with the settings in `.lintr`. Runs when `R/`, `tests/`, or `.lintr` change. Run it locally and fix any lints your changes introduce
 
-- **test-coverage** &mdash; runs the test suite through `covr` and reports the result to [Codecov](https://codecov.io/gh/sportsdataverse/sportyR). Runs when `R/`, `tests/`, `DESCRIPTION`, or `NAMESPACE` change
+- **test-coverage** &mdash; runs the test suite through `covr` and reports the result to [Codecov](https://codecov.io/gh/sportsdataverse/sportyR). Runs when `R/`, `src/`, `data/`, `tests/`, `DESCRIPTION`, or `NAMESPACE` change
 
 - **pkgdown** &mdash; builds the [package website](https://sportyR.sportsdataverse.org). Runs when the R code, documentation, vignettes, README, NEWS, or site configuration change. Run `pkgdown::build_site()` locally if you've changed documentation, vignettes, or `_pkgdown.yml`
 

@@ -8,6 +8,8 @@ on:
     branches: [main, master]
     paths: &coverage-paths
       - "R/**"
+      - "src/**"
+      - "data/**"
       - "tests/**"
       - "DESCRIPTION"
       - "NAMESPACE"
