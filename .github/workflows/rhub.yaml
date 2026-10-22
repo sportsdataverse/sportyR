@@ -56,6 +56,8 @@ jobs:
         config: ${{ fromJson(needs.setup.outputs.containers) }}
     container:
       image: ${{ matrix.config.container }}
+    env:
+      NOT_CRAN: true
 
     steps:
       - uses: r-hub/actions/checkout@v1
@@ -81,6 +83,8 @@ jobs:
       fail-fast: false
       matrix:
         config: ${{ fromJson(needs.setup.outputs.platforms) }}
+    env:
+      NOT_CRAN: true
 
     steps:
       - uses: r-hub/actions/checkout@v1
