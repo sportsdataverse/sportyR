@@ -432,6 +432,11 @@ test_that("every geom_*() scales its anchors and limits with the units (#74)", {
       native$coordinates$limits$y * f,
       label = sport
     )
+
+    # Limits passed in are in the requested units, so they come back as given
+    limited <- surfaces[[sport]](target, xlims = c(-10, 10), ylims = c(-5, 5))
+    expect_equal(limited$coordinates$limits$x, c(-10, 10), label = sport)
+    expect_equal(limited$coordinates$limits$y, c(-5, 5), label = sport)
   }
 
   # Translations stay in the requested units
