@@ -1,10 +1,21 @@
 # Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+#
+# Only runs when the package code or its tests change, so docs-only and CI-only
+# changes skip it. Use "Run workflow" in the Actions tab to force a run
 on:
   push:
     branches: [main, master]
+    paths: &coverage-paths
+      - "R/**"
+      - "tests/**"
+      - "DESCRIPTION"
+      - "NAMESPACE"
+      - ".github/workflows/test-coverage.yaml"
   pull_request:
     branches: [main, master]
+    paths: *coverage-paths
+  workflow_dispatch:
 
 name: test-coverage
 
