@@ -212,3 +212,28 @@ test_that("features with no area and no outline are not drawn (#79)", {
     expect_length(invisible_empty_layers(p), 0)
   }
 })
+
+test_that("add_feature() keeps a no-area feature only when its outline is visible (#79)", {
+  line <- create_rectangle(-1, 1, 0, 0)
+  square <- create_square(2)
+  n_layers <- function(feature_df, outline) {
+    p <- add_feature(
+      ggplot2::ggplot(),
+      x_anchor = 0,
+      y_anchor = 0,
+      feature_df = feature_df,
+      feature_color = "#123456",
+      feature_outline_color = outline,
+      reflect_x = FALSE,
+      reflect_y = FALSE
+    )
+    length(p$layers)
+  }
+
+  # No area and no outline: skipped
+  expect_equal(n_layers(line, "#ffffff00"), 0)
+  # No area but a visible outline: drawn as a stroke, as before
+  expect_equal(n_layers(line, "#ff0000"), 1)
+  # Has area: drawn whatever the outline is
+  expect_equal(n_layers(square, "#ffffff00"), 1)
+})
