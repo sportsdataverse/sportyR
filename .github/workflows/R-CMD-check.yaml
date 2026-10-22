@@ -66,11 +66,14 @@ jobs:
           r-version: ${{ matrix.config.r }}
           use-public-rspm: true
 
-      # PPM has no binaries for R-devel, so identify as release R to get them
-      # (what setup-r's http-user-agent input does outside a container)
-      - name: Set HTTP user agent
+      # rocker/r-ver:devel points at CRAN source, and PPM only serves binaries to
+      # a release-looking user agent, so point at PPM and identify as release R
+      # (what setup-r's use-public-rspm and http-user-agent inputs do)
+      - name: Use Posit Package Manager binaries
         if: ${{ matrix.config.http-user-agent }}
-        run: echo "options(HTTPUserAgent = '${{ matrix.config.http-user-agent }}')" >> "$(R RHOME)/etc/Rprofile.site"
+        run: |
+          . /etc/os-release
+          echo "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/${VERSION_CODENAME}/latest'), HTTPUserAgent = '${{ matrix.config.http-user-agent }}')" >> "$(R RHOME)/etc/Rprofile.site"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
