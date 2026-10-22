@@ -26,7 +26,7 @@ version](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label
 [![CRAN
 downloads](https://img.shields.io/badge/dynamic/json?style=flat&color=ff552e&label=Downloads&query=%24[0].downloads&url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FsportyR)](https://CRAN.R-project.org/package=sportyR)
 [![Version-Number](https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&logo=R&style=flat&color=ff552e&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/)
-[![R-CMD-check](https://img.shields.io/github/workflow/status/sportsdataverse/sportyR/R-CMD-check?label=R-CMD-Check&logo=R&&style=flat&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://img.shields.io/github/actions/workflow/status/sportsdataverse/sportyR/R-CMD-check.yaml?branch=main&label=R-CMD-Check&logo=R&style=flat&logoColor=1d9bf0)](https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml)
 [![codecov](https://img.shields.io/codecov/c/github/sportsdataverse/sportyR?color=ff552e&label=codecov&logo=codecov)](https://codecov.io/gh/sportsdataverse/sportyR)
 [![Lifecycle:maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&logo=github&color=ff552e)](https://github.com/sportsdataverse/sportyR/)
 [![npm](https://img.shields.io/npm/v/@sportsdataverse/sporty?label=npm&logo=npm&style=flat&color=ff552e)](https://www.npmjs.com/package/@sportsdataverse/sporty)
@@ -345,7 +345,7 @@ geom_basketball("nba", display_range = "offense", rotation = 270)
 ## License
 
 This package is released under the [GPL 3.0
-License](https://github.com/sportsdataverse/sportyR/blob/master/LICENSE.md).
+License](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Contributions
 
@@ -366,6 +366,7 @@ general managers (and their sports) are:
 -   [Ross Drucker](https://github.com/rossdrucker) - Curling
 -   [Ross Drucker](https://github.com/rossdrucker) - Football
 -   [Ross Drucker](https://github.com/rossdrucker) - Hockey
+-   [Ross Drucker](https://github.com/rossdrucker) - Lacrosse
 -   [Ross Drucker](https://github.com/rossdrucker) - Soccer
 -   [Billy Fryer](https://github.com/billyfryer) - Softball
 -   [Ross Drucker](https://github.com/rossdrucker) - Tennis
