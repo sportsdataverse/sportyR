@@ -22,11 +22,11 @@ If you're using `sportyR` in an academic context, please do your best to cite th
 
 ### Scouting Reports - Bugs and Feature Suggestions
 
-Like any good sports organization, `sportyR` does its best to scout for itself and solve problems before they become problems. Given a tough test, problems are sure to arise. They can be overcome in their next match, however, by making use of good scouting (bug) reports. Please create an [Issue](https://github.com/sportsdataverse/sportyR/issues) when you find something that needs to be fixed. Here's a good general guide to follow for creating one:
+Like any good sports organization, `sportyR` does its best to scout for itself and solve problems before they become problems. Given a tough test, problems are sure to arise. They can be overcome in their next match, however, by making use of good scouting (bug) reports. Please create an [Issue](https://github.com/sportsdataverse/sportyR/issues/new/choose) when you find something that needs to be fixed, picking the template that fits best: **Bug report**, **Dimension correction**, **New sport or league**, or **Feature request**. Here's a good general guide to follow for creating one:
 
 1) Please double check the [README](https://www.github.com/sportsdataverse/sportyR) and the [Issues](https://github.com/sportsdataverse/sportyR/issues) pages to be sure that your problem hasn't already been solved. This isn't meant to stop you from reporting your problem, but rather to be sure that it's a new one so it can be properly addressed.
 
-2) Title your issue with a clear description of what you're looking for. Titling your Issue "This is weird..." doesn't give as good of an idea of what you're after as titling your Issue "NCAA Football hashmarks are out of place." Even better if you can prefix/tag your Issue with `bug` or `feature-request`
+2) Title your issue with a clear description of what you're looking for. Titling your Issue "This is weird..." doesn't give as good of an idea of what you're after as titling your Issue "NCAA Football hashmarks are out of place." The issue templates add a title prefix (and, for most, a label) for you
 
 3) Spend some time creating a detailed explanation, with a reproducible example, of the problem you're having. Without being able to understand the issue, it's even harder to find what's causing it to occur. Do your best to make sure your code is well-formatted and easy for others to read:
 
@@ -62,7 +62,7 @@ To become a Coach or General Manager, submit a [Pull Request](https://github.com
 
 2) Run the same checks that CI runs (see **Continuous Integration** below) and fix anything they flag
 
-3) Push your branch to GitHub and open your PR against `main`. Title your PR using [Conventional Commits](https://www.conventionalcommits.org/) (see **PR Titles and Releases** below) so that it's obvious what its overarching goal is
+3) Push your branch to GitHub and open your PR against `main`. Title your PR using [Conventional Commits](https://www.conventionalcommits.org/) (see **PR Titles and Releases** below) so that it's obvious what its overarching goal is, and fill in the PR template's checklist
 
 4) Discuss the PR in as much detail as possible. Provide links to your sources, and clearly explain why the PR is necessary and how it can be used. Any deviations from the conventions of the rest of the package should be clearly explained, but only if the deviation is necessary
 
