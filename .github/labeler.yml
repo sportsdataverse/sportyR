@@ -1,0 +1,67 @@
+# Labels applied to pull requests by the labeler workflow, based on the files
+# they change. Labels are only added, never removed, so manual labels stick
+# Format: https://github.com/actions/labeler#create-githublabeleryml
+
+# Sports: the sport's features, geom, and test files
+baseball:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-baseball.R", "tests/testthat/*-baseball.R"]
+basketball:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-basketball.R", "tests/testthat/*-basketball.R"]
+curling:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-curling.R", "tests/testthat/*-curling.R"]
+football:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-football.R", "tests/testthat/*-football.R"]
+hockey:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-hockey.R", "tests/testthat/*-hockey.R"]
+lacrosse:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-lacrosse.R", "tests/testthat/*-lacrosse.R"]
+soccer:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-soccer.R", "tests/testthat/*-soccer.R"]
+softball:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-softball.R", "tests/testthat/*-softball.R"]
+tennis:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-tennis.R", "tests/testthat/*-tennis.R"]
+volleyball:
+  - changed-files:
+      - any-glob-to-any-file: ["R/*-volleyball.R", "tests/testthat/*-volleyball.R"]
+
+# Areas
+ci:
+  - changed-files:
+      - any-glob-to-any-file: [".github/**", ".releaserc.json", ".lintr"]
+tests:
+  - changed-files:
+      - any-glob-to-any-file: ["tests/**"]
+# Applied when ANY changed file is a docs file, or when ALL changed files are
+# docs, man/, or NEWS.md. man/ and NEWS.md only count on their own because
+# most code PRs regenerate man/ and add a NEWS entry
+docs:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              - "vignettes/**"
+              - "README.Rmd"
+              - "README.md"
+              - "CONTRIBUTING.md"
+              - "CODE-OF-CONDUCT.md"
+              - "_pkgdown.yml"
+              - "pkgdown/**"
+          - any-glob-to-all-files:
+              - "vignettes/**"
+              - "README.Rmd"
+              - "README.md"
+              - "CONTRIBUTING.md"
+              - "CODE-OF-CONDUCT.md"
+              - "_pkgdown.yml"
+              - "pkgdown/**"
+              - "man/**"
+              - "NEWS.md"

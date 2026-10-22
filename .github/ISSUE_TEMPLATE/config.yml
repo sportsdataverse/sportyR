@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: sportyR documentation
+    url: https://sportyR.sportsdataverse.org
+    about: Function reference and articles on plotting and customizing surfaces.
+  - name: sportyR cheat sheet
+    url: https://sportsdataverse.org/cheatsheets/sportyR.pdf
+    about: A one-page reference for every surface function and its arguments.

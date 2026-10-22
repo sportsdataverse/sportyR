@@ -1,0 +1,48 @@
+name: Bug report
+description: Something in sportyR errors, warns, or draws incorrectly
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for scouting this out! Before filing, please check the [open and closed issues](https://github.com/sportsdataverse/sportyR/issues?q=is%3Aissue) to see if it's already been reported.
+
+        If a surface is drawn cleanly but a measurement doesn't match the rule book, use the **Dimension correction** template instead.
+  - type: input
+    id: function
+    attributes:
+      label: Function and league
+      description: Which function and league (or sport) is affected?
+      placeholder: 'geom_football("nfl")'
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem, including any error or warning message in full.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: reprex
+    attributes:
+      label: Reproducible example
+      description: |
+        The smallest amount of code that shows the problem. A [reprex](https://reprex.tidyverse.org/) is ideal. Wrap the code in a fenced block (start it with ```` ```r ```` and end it with ```` ``` ````). Screenshots of the plot are welcome too: drag them into this box.
+    validations:
+      required: true
+  - type: textarea
+    id: session
+    attributes:
+      label: Session info
+      description: Paste the output of `sessionInfo()` (or `sessioninfo::session_info()`).
+      render: text
+    validations:
+      required: true

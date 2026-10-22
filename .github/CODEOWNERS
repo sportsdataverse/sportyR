@@ -1,0 +1,25 @@
+# Each sport's General Manager is automatically requested to review PRs that
+# change that sport's features, geom, or test files. Owners must have write
+# access to the repository. GitHub never requests a review from a PR's author.
+# Syntax: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+/R/*-baseball.R                     @rossdrucker
+/tests/testthat/*-baseball.R        @rossdrucker
+/R/*-basketball.R                   @rossdrucker
+/tests/testthat/*-basketball.R      @rossdrucker
+/R/*-curling.R                      @rossdrucker
+/tests/testthat/*-curling.R         @rossdrucker
+/R/*-football.R                     @rossdrucker
+/tests/testthat/*-football.R        @rossdrucker
+/R/*-hockey.R                       @rossdrucker
+/tests/testthat/*-hockey.R          @rossdrucker
+/R/*-lacrosse.R                     @rossdrucker
+/tests/testthat/*-lacrosse.R        @rossdrucker
+/R/*-soccer.R                       @rossdrucker
+/tests/testthat/*-soccer.R          @rossdrucker
+/R/*-softball.R                     @billyfryer
+/tests/testthat/*-softball.R        @billyfryer
+/R/*-tennis.R                       @rossdrucker
+/tests/testthat/*-tennis.R          @rossdrucker
+/R/*-volleyball.R                   @rossdrucker
+/tests/testthat/*-volleyball.R      @rossdrucker

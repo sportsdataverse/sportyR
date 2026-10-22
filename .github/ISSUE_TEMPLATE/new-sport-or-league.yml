@@ -1,0 +1,42 @@
+name: New sport or league
+description: Request (or offer to build) a sport or league sportyR doesn't draw yet
+title: "[New]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Want to build it yourself? See the [contributing guide](https://github.com/sportsdataverse/sportyR/blob/main/CONTRIBUTING.md). Adding a new sport makes you its General Manager!
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you requesting?
+      options:
+        - A new league for a sport sportyR already supports
+        - A new sport
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Sport and league
+      placeholder: "Cricket, ICC"
+    validations:
+      required: true
+  - type: textarea
+    id: rules
+    attributes:
+      label: Rule book
+      description: A link to the rule book (or the section with the surface's dimensions) the drawing should follow.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: How you'd use it, features that make this surface unusual, or reference images.
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contributing
+      options:
+        - label: I'd like to build this myself and open a pull request

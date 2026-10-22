@@ -1,0 +1,101 @@
+# Adds labels to pull requests and issues. PR labels are only ever added,
+# never removed, so labels applied by hand are left alone. The one removal is
+# on issues: switching between "new league request" and "new sport request".
+#
+# Pull requests get:
+#   - sport and area labels (e.g. lacrosse, ci, tests) from the files they
+#     change, as configured in .github/labeler.yml
+#   - a label from the Conventional Commit type in the title, e.g.
+#     "fix(...)" -> bug, "feat(...)" -> enhancement
+# Issues opened from the "New sport or league" form get "new league request"
+# or "new sport request" based on the form's dropdown answer. The other issue
+# forms set their labels themselves.
+#
+# Review requests for each sport's General Manager come from .github/CODEOWNERS.
+#
+# pull_request_target runs with the base repository's token so labels can be
+# added to PRs from forks. That's safe here because no job checks out or runs
+# the PR's code: the labeler reads its config from the base branch and the
+# title is only matched against a regex.
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
+  issues:
+    types: [opened, edited]
+
+name: labeler
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  label-pr-files:
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v7
+
+  label-pr-title:
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            const TYPE_LABELS = {
+              fix: "bug",
+              feat: "enhancement",
+              docs: "docs",
+              test: "tests",
+              ci: "ci"
+            };
+            // Matches "type:", "type(scope):", "type!:", and "type(scope)!:"
+            const match = context.payload.pull_request.title.match(/^(\w+)(?:\([^)]*\))?!?:/);
+            const label = match && TYPE_LABELS[match[1].toLowerCase()];
+            if (!label) {
+              core.info("Title has no type that maps to a label");
+              return;
+            }
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              labels: [label]
+            });
+
+  label-issue:
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v9
+        with:
+          script: |
+            // Option text from .github/ISSUE_TEMPLATE/new-sport-or-league.yml
+            const REQUEST_LABELS = {
+              "A new league for a sport sportyR already supports": "new league request",
+              "A new sport": "new sport request"
+            };
+            // Issue forms render each answer under a "### <field label>" heading
+            const body = context.payload.issue.body || "";
+            const match = body.match(/### What are you requesting\?\s+(.+)/);
+            const label = match && REQUEST_LABELS[match[1].trim()];
+            if (!label) {
+              core.info("Not a new sport or league request");
+              return;
+            }
+            const issue = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number
+            };
+            // The two request labels are mutually exclusive, so if the
+            // dropdown answer was edited, drop the label for the old answer
+            const current = context.payload.issue.labels.map((l) => l.name);
+            for (const other of Object.values(REQUEST_LABELS)) {
+              if (other !== label && current.includes(other)) {
+                await github.rest.issues.removeLabel({ ...issue, name: other });
+              }
+            }
+            await github.rest.issues.addLabels({ ...issue, labels: [label] });
