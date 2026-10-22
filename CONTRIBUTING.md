@@ -76,7 +76,7 @@ Your request will be checked against the following points:
 
 - **Code Style and File Naming** &mdash; Please follow [the tidyverse styleguide](https://style.tidyverse.org/), with the only deviation being explicit calls to `return()` in order to return what's needed from each function. Maintaining consistent styling facilitates easier current maintenance and future development.
 
-    Additionally, please keep consistent with the naming of new files, especially when adding a new sport. Files that contain a new league should be named as `features-{sport}.R`, and if this is a new sport entirely, be sure to add the corresponding `geom-{new sport here}.R` file as well. Dimensions should be maintained in the `data-raw/surface-dimensions.json` file, and `data-raw/internal-datasets.R` should be sourced to incorporate new changes. Please parameterize the surface to the best of your abilities, and ask with any questions!
+    Additionally, please keep consistent with the naming of new files, especially when adding a new sport. Files that contain a new league should be named as `features-{sport}.R`, and if this is a new sport entirely, be sure to add the corresponding `geom-{new sport here}.R` file as well. Dimensions should be maintained in the `data-raw/surface-dimensions.json` file, and `data-raw/internal-datasets.R` should be sourced (from the package root) to rebuild `R/sysdata.rda`. Commit the updated `R/sysdata.rda` alongside the JSON; CI fails if the two are out of sync. Please parameterize the surface to the best of your abilities, and ask with any questions!
 
 - **Documentation** &mdash; When introducing new code, please make sure you document it appropriately. Documentation comes in two main forms: `roxygen2` documentation for the functions you write, and comments throughout the code that explain what your code is trying to achieve. Both types of documentation are very important! Be sure to run `devtools::document()` to be sure your documentation files are properly created before submitting, and be sure to check for spelling and grammar.
     
@@ -104,6 +104,8 @@ PRs against `main` run the following GitHub Actions workflows, and any that run 
 - **test-coverage** &mdash; runs the test suite through `covr` and reports the result to [Codecov](https://codecov.io/gh/sportsdataverse/sportyR). Runs when `R/`, `src/`, `data/`, `tests/`, `DESCRIPTION`, or `NAMESPACE` change
 
 - **pkgdown** &mdash; builds the [package website](https://sportyR.sportsdataverse.org). Runs when the R code, documentation, vignettes, README, NEWS, or site configuration change. Run `pkgdown::build_site()` locally if you've changed documentation, vignettes, or `_pkgdown.yml`
+
+- **sysdata** &mdash; rebuilds `R/sysdata.rda` from `data-raw/` and fails if it doesn't match the committed file. Runs when `data-raw/` or `R/sysdata.rda` change. Run `Rscript .github/scripts/check-sysdata.R` locally to check before pushing
 
 ### PR Titles and Releases
 
