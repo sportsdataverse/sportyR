@@ -8,9 +8,10 @@
  *   2. Prepend the generated release notes to NEWS.md under a
  *      `# <package> <version>` heading, which is the format pkgdown expects
  *
- * If NEWS.md starts with a development heading (`# sportyR` or
- * `# sportyR (development version)`), any hand-written notes beneath it are
- * kept and placed above the generated notes in the new release section.
+ * If NEWS.md starts with a development heading (`# sportyR`,
+ * `# sportyR (development version)`, or a heading for the version being
+ * released), any hand-written notes beneath it are kept and placed above the
+ * generated notes in the new release section.
  *
  * Writing the files here (rather than via @semantic-release/exec) avoids
  * passing commit-message text through a shell.
@@ -60,17 +61,23 @@ function formatNotes(notes) {
 /**
  * Split NEWS.md into any hand-written development notes and the rest.
  *
+ * A leading heading for the version being released (e.g. a manual
+ * `# sportyR 2.3.0` written before the release ran) is treated the same as a
+ * development heading, so its notes are merged rather than duplicated.
+ *
  * @param {string} news Contents of NEWS.md
  * @param {string} pkg The package name
+ * @param {string} version The version being released
  * @returns {{devNotes: string, rest: string}} Notes found under a leading
  *     development heading (or "" if there is none), and the remaining text
  */
-function splitDevelopmentSection(news, pkg) {
-    // Matches "# pkg", "# pkg " and "# pkg (development version)" on the first
-    // non-blank line, then lazily captures everything up to the next
-    // top-level heading (or end of file)
+function splitDevelopmentSection(news, pkg, version) {
+    const escapedVersion = version.replace(/\./g, "\\.");
+    // Matches "# pkg", "# pkg ", "# pkg (development version)" and
+    // "# pkg <version>" on the first non-blank line, then lazily captures
+    // everything up to the next top-level heading (or end of file)
     const devPattern = new RegExp(
-        `^\\s*#\\s+${pkg}(?:\\s+\\(development version\\))?[ \\t]*\\n([\\s\\S]*?)(?=^#\\s|(?![\\s\\S]))`,
+        `^\\s*#\\s+${pkg}(?:\\s+\\(development version\\)|\\s+${escapedVersion})?[ \\t]*\\n([\\s\\S]*?)(?=^#\\s|(?![\\s\\S]))`,
         "m"
     );
     const match = news.match(devPattern);
@@ -122,7 +129,7 @@ function prepare(pluginConfig, context) {
 
     const newsPath = path.join(cwd, NEWS_FILE);
     const news = fs.existsSync(newsPath) ? fs.readFileSync(newsPath, "utf8") : "";
-    const { devNotes, rest } = splitDevelopmentSection(news, pkg);
+    const { devNotes, rest } = splitDevelopmentSection(news, pkg, version);
     const body = [devNotes, formatNotes(nextRelease.notes)]
         .filter((section) => section.length > 0)
         .join("\n\n");
