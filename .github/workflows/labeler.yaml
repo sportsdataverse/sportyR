@@ -46,7 +46,7 @@ jobs:
             const TYPE_LABELS = {
               fix: "bug",
               feat: "enhancement",
-              docs: "documentation",
+              docs: "docs",
               test: "tests",
               ci: "ci"
             };

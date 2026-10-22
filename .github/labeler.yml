@@ -41,7 +41,7 @@ ci:
 tests:
   - changed-files:
       - any-glob-to-any-file: ["tests/**"]
-documentation:
+docs:
   - changed-files:
       - any-glob-to-any-file:
           - "vignettes/**"
