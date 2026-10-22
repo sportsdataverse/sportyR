@@ -17,7 +17,9 @@
 #   2. Add the app to main's "Allow specified actors to bypass required pull
 #      requests" list
 #   3. Store its Client ID as the RELEASE_APP_CLIENT_ID secret and a private
-#      key as the RELEASE_APP_PRIVATE_KEY secret
+#      key as the RELEASE_APP_PRIVATE_KEY secret in the "release" environment,
+#      with that environment's deployment branches limited to main so the
+#      secrets can't be used from a manual run on another branch
 on:
   push:
     branches: [main]
@@ -36,6 +38,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: release
     # The release commit itself carries [skip ci], but guard against loops anyway
     if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
     steps:
@@ -48,6 +51,9 @@ jobs:
 
       - uses: actions/checkout@v5
         with:
+          # Check out main's current head rather than the triggering SHA, so a
+          # run that queued behind another release isn't left behind main
+          ref: main
           # semantic-release needs full history and tags to find the last release
           fetch-depth: 0
           # semantic-release pushes with GITHUB_TOKEN below, not the checkout token
