@@ -154,11 +154,12 @@ To cite the [**`sportyR`**](https://sportyR.sportsdataverse.org/) R package in p
 BibTeX Citation
 
 ```bibtex
-@misc{sportyr,
+@misc{drucker_sportyR,
   author = {Ross Drucker},
-  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
   url = {https://sportyR.sportsdataverse.org/},
-  year = {2026}
+  doi = {10.32614/CRAN.package.sportyR},
+  year = {2020}
 }
 ```
 
