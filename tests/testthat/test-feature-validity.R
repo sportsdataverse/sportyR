@@ -116,6 +116,10 @@ test_that("the NHL trapezoid is two simple strips from the goal line (#79)", {
   expect_equal(vapply(rings, count_crossings, numeric(1)), c(0, 0))
   expect_equal(vapply(rings, count_reversals, numeric(1)), c(0, 0))
   expect_equal(vapply(rings, nrow, integer(1)), c(5L, 5L))
+
+  # Each strip is its own polygon group, so the plot does not join the strips
+  expect_equal(unique(df$group), 1:2)
+  expect_equal(df$group, rep(1:2, each = 5))
 })
 
 test_that("the mirrored faceoff lines keep their thickness on the same side (#79)", {
@@ -159,6 +163,7 @@ test_that("circle-based hockey features are simple closed rings (#79)", {
   )
   expect_equal(count_crossings(as.matrix(circle)), 0)
   expect_equal(count_reversals(as.matrix(circle)), 0)
+  expect_equal(circle[nrow(circle), ], circle[1, ], ignore_attr = TRUE)
 
   spot_ring <- hockey_nodzone_faceoff_spot_ring(
     feature_radius = 1,
