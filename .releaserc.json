@@ -1,0 +1,17 @@
+{
+    "branches": ["main"],
+    "tagFormat": "v${version}",
+    "plugins": [
+        ["@semantic-release/commit-analyzer", {"preset": "conventionalcommits"}],
+        ["@semantic-release/release-notes-generator", {"preset": "conventionalcommits"}],
+        "./.github/scripts/semantic-release-r-package.cjs",
+        [
+            "@semantic-release/git",
+            {
+                "assets": ["DESCRIPTION", "NEWS.md"],
+                "message": "chore(release): v${nextRelease.version} [skip ci]"
+            }
+        ],
+        "@semantic-release/github"
+    ]
+}
