@@ -18,12 +18,16 @@ source("data-raw/internal-datasets.R", local = new.env())
 regenerated <- new.env()
 load("R/sysdata.rda", envir = regenerated)
 
+# all.names = TRUE so objects whose names start with "." are compared too
+committed_names <- ls(committed, all.names = TRUE)
+regenerated_names <- ls(regenerated, all.names = TRUE)
+
 # Objects in only one of the two files, then objects whose contents differ
-only_committed <- setdiff(ls(committed), ls(regenerated))
-only_regenerated <- setdiff(ls(regenerated), ls(committed))
+only_committed <- setdiff(committed_names, regenerated_names)
+only_regenerated <- setdiff(regenerated_names, committed_names)
 changed <- Filter(
   function(name) !identical(committed[[name]], regenerated[[name]]),
-  intersect(ls(committed), ls(regenerated))
+  intersect(committed_names, regenerated_names)
 )
 
 if (length(c(only_committed, only_regenerated, changed)) > 0) {
@@ -40,6 +44,6 @@ if (length(c(only_committed, only_regenerated, changed)) > 0) {
 
 message(
   "R/sysdata.rda matches data-raw/ (",
-  paste(ls(committed), collapse = ", "),
+  paste(committed_names, collapse = ", "),
   ")"
 )
