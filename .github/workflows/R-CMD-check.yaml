@@ -47,7 +47,7 @@ jobs:
         config:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel',    container: 'rocker/r-ver:devel'}
+          - {os: ubuntu-latest,   r: 'devel',    container: 'rocker/r-ver:devel', http-user-agent: 'R/4.6.1 R (4.6.1 x86_64-pc-linux-gnu x86_64 linux-gnu)'}
           - {os: ubuntu-latest,   r: 'release',  container: 'rocker/r-ver:4.6'}
           - {os: ubuntu-latest,   r: 'oldrel-1', container: 'rocker/r-ver:4.5'}
 
@@ -65,6 +65,12 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
           use-public-rspm: true
+
+      # PPM has no binaries for R-devel, so identify as release R to get them
+      # (what setup-r's http-user-agent input does outside a container)
+      - name: Set HTTP user agent
+        if: ${{ matrix.config.http-user-agent }}
+        run: echo "options(HTTPUserAgent = '${{ matrix.config.http-user-agent }}')" >> "$(R RHOME)/etc/Rprofile.site"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
