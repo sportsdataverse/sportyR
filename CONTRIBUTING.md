@@ -95,7 +95,7 @@ Your request will be checked against the following points:
 
 ### Continuous Integration
 
-PRs against `main` run the following GitHub Actions workflows, and any that run should pass before a PR is merged. Each one only runs when the PR changes the files it checks, so, for example, a PR that only touches the README skips the first three:
+PRs against `main` run the following GitHub Actions workflows, and any that run should pass before a PR is merged. Each one only runs when the PR changes the files it checks (listed below) or its own workflow file in `.github/workflows/`, so, for example, a PR that only touches the README skips the first three:
 
 - **R-CMD-check** &mdash; `R CMD check` on macOS, Windows, and Ubuntu, across R-devel, the current release, and the previous release. Runs when `R/`, `src/`, `data/`, `tests/`, `man/`, `inst/`, `DESCRIPTION`, `NAMESPACE`, or `.Rbuildignore` change. Run `devtools::check()` locally to catch problems first
 
