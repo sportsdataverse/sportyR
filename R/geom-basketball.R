@@ -426,7 +426,8 @@ geom_basketball <- function(league,
     lane_space_mark_visibility = c()
   )
 
-  for(i in seq_len(nrow(court_params$lane_space_mark_lengths))) {
+  # NROW(): a custom court's empty lane_space_mark_lengths arrives as list()
+  for (i in seq_len(NROW(court_params$lane_space_mark_lengths))) {
     lane_space_marks <- rbind(
       lane_space_marks,
       data.frame(
@@ -772,18 +773,22 @@ geom_basketball <- function(league,
 
   # Coordinate Transformations -------------------------------------------------
 
-  # Convert the units as needed
-  if (
-    !is.null(court_units) &&
-    tolower(court_params$court_units %or% "ft") != tolower(court_units)
-  )  {
-    court_features <- lapply(
-      court_features,
-      convert_units,
-      from_unit = court_params$court_units %or% "ft",
-      to_unit = court_units,
-      conversion_columns = c("x", "y")
-    )
+  # Convert the units as needed. The surface is drawn in the rule book's
+  # units, so feature anchors and the display range stay consistent with the
+  # features, and the finished plot is scaled to the requested units below.
+  # Translations and limits passed in are in the requested units
+  unit_factor <- unit_conversion_factor(
+    from_unit = court_params$court_units %or% "ft",
+    to_unit = court_units,
+    surface = "court"
+  )
+  x_trans <- x_trans / unit_factor
+  y_trans <- y_trans / unit_factor
+  if (!is.null(xlims)) {
+    xlims <- xlims / unit_factor
+  }
+  if (!is.null(ylims)) {
+    ylims <- ylims / unit_factor
   }
 
   # Generate the Plot ----------------------------------------------------------
@@ -1245,10 +1250,10 @@ geom_basketball <- function(league,
 
   if (is.null(xlims)) {
     three_point_arc_distance <- max(
-      court_params$basket_center_to_three_point_arc
-    ) %or% 0
+      court_params$basket_center_to_three_point_arc %or% 0
+    )
 
-    lane_length <- max(court_params$lane_length) %or% 0
+    lane_length <- max(court_params$lane_length %or% 0)
 
     xlims <- switch(
       tolower(display_range),
@@ -1529,7 +1534,7 @@ geom_basketball <- function(league,
   }
 
   if (is.null(ylims)) {
-    lane_width <- (max(court_params$lane_width) %or% 0) / 2
+    lane_width <- max(court_params$lane_width %or% 0) / 2
 
     ylims <- switch(
       tolower(display_range),
@@ -1651,6 +1656,11 @@ geom_basketball <- function(league,
     xlims <- c(min(plot_lims$x), max(plot_lims$x))
     ylims <- c(min(plot_lims$y), max(plot_lims$y))
   }
+
+  # Scale the finished surface and its limits to the requested units
+  court_plot <- scale_plot_units(court_plot, unit_factor)
+  xlims <- xlims * unit_factor
+  ylims <- ylims * unit_factor
 
   ## Force the aspect ratio to be 1/1, and the x and y limits to be set
   court_plot <- court_plot +

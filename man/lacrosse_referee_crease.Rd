@@ -5,8 +5,6 @@
 \title{Lacrosse Referee's Crease}
 \usage{
 lacrosse_referee_crease(referee_crease_radius = 0, line_thickness = 0)
-
-lacrosse_referee_crease(referee_crease_radius = 0, line_thickness = 0)
 }
 \arguments{
 \item{referee_crease_radius}{The radius of the referee's crease}
@@ -15,13 +13,8 @@ lacrosse_referee_crease(referee_crease_radius = 0, line_thickness = 0)
 }
 \value{
 A data frame of the bounding coordinates of the referee's crease
-
-A data frame of the bounding coordinates of the referee's crease
 }
 \description{
-The referee's crease is a semi-circle on the "bottom" of the boards (in TV
-view), centered on the line y = 0 (the center of the center line)
-
 The referee's crease is a semi-circle on the "bottom" of the boards (in TV
 view), centered on the line y = 0 (the center of the center line)
 }

@@ -172,7 +172,8 @@ lacrosse_features_set_colors <- function(plot_background = NULL,
 #'   The possible display ranges are:
 #'   \describe{
 #'     \item{\code{"full"}}{
-#'       The full field. This is the default
+#'       The full field, including any player benches, penalty boxes, and
+#'       off-field officials' box outside it. This is the default
 #'     }
 #'     \item{\code{"offense"}}{
 #'       The offensive half of the field. This is the right half of the field
@@ -301,14 +302,17 @@ geom_lacrosse <- function(league,
     field_params$center_face_off_marker_color_contrasting %or% FALSE
   )
 
-  if (center_face_off_marker_color_contrasting == TRUE) {
-    if (feature_colors$center_face_off_marker == feature_colors$center_line) {
-      color_updates[["center_face_off_marker"]] <- "#ffcb05"
-    }
-  }
-
   # Update the features' colors as specified by the user
   feature_colors <- utils::modifyList(feature_colors, color_updates)
+
+  # Apply the contrasting color only when the user did not choose one
+  if (
+    center_face_off_marker_color_contrasting == TRUE &&
+      is.null(color_updates[["center_face_off_marker"]]) &&
+      feature_colors$center_face_off_marker == feature_colors$center_line
+  ) {
+    feature_colors$center_face_off_marker <- "#ffcb05"
+  }
 
   # Feature initialization -----------------------------------------------------
   field_features <- list(
@@ -320,14 +324,14 @@ geom_lacrosse <- function(league,
       field_length = field_params$field_length %or% 0,
       field_width = field_params$field_width %or% 0,
       corner_radius = field_params$corner_radius %or% 0,
-      nzone_length = field_params$nzone_length %or% 0,
+      nzone_length = field_params$neutral_zone_length %or% 0,
       field_shape = field_params$field_shape %or% "rectangle"
     ),
 
     #### Neutral Zone ####
     neutral_zone = lacrosse_neutral_zone(
       field_width = field_params$field_width %or% 0,
-      nzone_length = field_params$nzone_length %or% 0
+      nzone_length = field_params$neutral_zone_length %or% 0
     ),
 
     #### Offensive Zone ####
@@ -335,7 +339,7 @@ geom_lacrosse <- function(league,
       field_length = field_params$field_length %or% 0,
       field_width = field_params$field_width %or% 0,
       corner_radius = field_params$corner_radius %or% 0,
-      nzone_length = field_params$nzone_length %or% 0,
+      nzone_length = field_params$neutral_zone_length %or% 0,
       field_shape = field_params$field_shape %or% "rectangle"
     ),
 
@@ -475,7 +479,10 @@ geom_lacrosse <- function(league,
     goal_arc = lacrosse_goal_arc(
       goal_arc_extension = field_params$goal_arc_extension %or% 0,
       goal_arc_radius = field_params$goal_arc_radius %or% 0,
-      line_thickness = field_params$goal_arc_line_thickness
+      line_thickness = field_params$goal_arc_line_thickness %or% 0,
+      goal_arc_parallel_line_to_center =
+        field_params$goal_arc_parallel_line_to_center %or%
+        (field_params$goal_arc_radius %or% 0)
     ),
 
     #### Goal Fan ####
@@ -573,10 +580,17 @@ geom_lacrosse <- function(league,
     separations <- field_params$goal_fan_hash_mark_separation_from_center
     for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
-      theta <- separation / (
-        (field_params$goal_fan_radius %or% 1) +
-          (field_params$goal_circle_radius %or% 0)
-      )
+
+      # The goal fan's line runs from goal_fan_radius - thickness to
+      # goal_fan_radius about the center of the goal line (see
+      # lacrosse_goal_fan()). The hash marks bisect the arc (NCAA Women's
+      # Lacrosse Rule 1, Section 7), so they are centered on the line's middle,
+      # and a hash mark at arc distance separation from the fan's center sits
+      # theta = separation / radius radians from it. Rotating the mark by
+      # -theta keeps it perpendicular to the arc
+      hash_mark_radius <- (field_params$goal_fan_radius %or% 1) -
+        ((field_params$goal_fan_line_thickness %or% 0) / 2)
+      theta <- separation / hash_mark_radius
       field_features[[glue::glue("goal_fan_hash_mark_{separation}")]] <-
         lacrosse_goal_fan_hash_mark(
           goal_fan_hash_mark_length =
@@ -590,18 +604,22 @@ geom_lacrosse <- function(league,
 
   # Coordinate Transformations -------------------------------------------------
 
-  # Convert the units as needed
-  if (
-    !is.null(field_units) &&
-    tolower(field_params$field_units %or% "ft") != tolower(field_units)
-  )  {
-    field_features <- lapply(
-      field_features,
-      convert_units,
-      from_unit = field_params$field_units %or% "ft",
-      to_unit = field_units,
-      conversion_columns = c("x", "y")
-    )
+  # Convert the units as needed. The surface is drawn in the rule book's
+  # units, so feature anchors and the display range stay consistent with the
+  # features, and the finished plot is scaled to the requested units below.
+  # Translations and limits passed in are in the requested units
+  unit_factor <- unit_conversion_factor(
+    from_unit = field_params$field_units %or% "ft",
+    to_unit = field_units,
+    surface = "field"
+  )
+  x_trans <- x_trans / unit_factor
+  y_trans <- y_trans / unit_factor
+  if (!is.null(xlims)) {
+    xlims <- xlims / unit_factor
+  }
+  if (!is.null(ylims)) {
+    ylims <- ylims / unit_factor
   }
 
   # Generate the Plot ----------------------------------------------------------
@@ -816,7 +834,7 @@ geom_lacrosse <- function(league,
     field_plot,
     x_anchor = -(
       ((field_params$penalty_box_separation %or% 0) / 2) +
-        ((field_params$board_thickness %or% 0)) +
+        ((field_params$boards_thickness %or% 0)) +
         ((field_params$penalty_box_length %or% 0) / 2)
     ),
     y_anchor = -(field_params$field_width %or% 0) / 2,
@@ -833,7 +851,7 @@ geom_lacrosse <- function(league,
     field_plot,
     x_anchor = (
       ((field_params$penalty_box_separation %or% 0) / 2) +
-        ((field_params$board_thickness %or% 0)) +
+        ((field_params$boards_thickness %or% 0)) +
         ((field_params$penalty_box_length %or% 0) / 2)
     ),
     y_anchor = -(field_params$field_width %or% 0) / 2,
@@ -1039,25 +1057,21 @@ geom_lacrosse <- function(league,
     separations <- field_params$goal_fan_hash_mark_separation_from_center
     for (i in seq_along(separations)) {
       separation <- field_params$goal_fan_hash_mark_separation_from_center[i]
-      theta <- (separation / (field_params$goal_fan_radius %or% 1)) / pi
+      # Use the same angle as the hash mark's rotation (in half-turns here) so
+      # the mark is placed where it is oriented: on the arc, at arc distance
+      # separation from the fan's center
+      hash_mark_radius <- (field_params$goal_fan_radius %or% 1) -
+        ((field_params$goal_fan_line_thickness %or% 0) / 2)
+      theta <- (separation / hash_mark_radius) / pi
       field_plot <- add_feature(
         field_plot,
         x_anchor = (
           ((field_params$field_length %or% 0) / 2) -
             (field_params$goal_line_center_to_end_line %or% 0) +
-            (field_params$goal_circle_radius %or% 0) +
-            (
-              (
-                (field_params$goal_fan_radius %or% 0) +
-                  (field_params$goal_circle_radius %or% 0)
-              ) * cos((1 - theta) * pi)
-            )
+            (hash_mark_radius * cos((1 - theta) * pi))
         ),
         y_anchor = (
-          (
-            (field_params$goal_fan_radius %or% 0) +
-              (field_params$goal_circle_radius %or% 0)
-          ) * sin((1 - theta) * pi)
+          hash_mark_radius * sin((1 - theta) * pi)
         ),
         feature_df =
           field_features[[glue::glue("goal_fan_hash_mark_{separation}")]],
@@ -1200,11 +1214,28 @@ geom_lacrosse <- function(league,
 
 
   # Set Display Range-----------------------------------------------------------
-  half_field_length <- ((field_params$field_length %or% 0) / 2) +
-    (field_params$field_apron_thickness %or% 0)
+  # The display covers the apron and, on surfaces that have them, the player
+  # benches, penalty boxes, and off-field officials' box outside the boards
+  boards_thickness <- field_params$boards_thickness %or% 0
 
-  half_field_width <- ((field_params$field_width %or% 0) / 2) +
-    (field_params$field_apron_thickness %or% 0)
+  half_field_length <- max(
+    ((field_params$field_length %or% 0) / 2) +
+      (field_params$field_apron_thickness %or% 0),
+    ((field_params$bench_separation %or% 0) / 2) +
+      (field_params$bench_length %or% 0) +
+      boards_thickness,
+    ((field_params$penalty_box_separation %or% 0) / 2) +
+      (field_params$penalty_box_length %or% 0) +
+      (2 * boards_thickness)
+  )
+
+  half_field_width <- ((field_params$field_width %or% 0) / 2) + max(
+    field_params$field_apron_thickness %or% 0,
+    (2 * boards_thickness) + max(
+      field_params$bench_depth %or% 0,
+      field_params$penalty_box_depth %or% 0
+    )
+  )
 
   if (is.null(xlims)) {
     xlims <- switch(
@@ -1326,6 +1357,11 @@ geom_lacrosse <- function(league,
     xlims <- c(min(plot_lims$x), max(plot_lims$x))
     ylims <- c(min(plot_lims$y), max(plot_lims$y))
   }
+
+  # Scale the finished surface and its limits to the requested units
+  field_plot <- scale_plot_units(field_plot, unit_factor)
+  xlims <- xlims * unit_factor
+  ylims <- ylims * unit_factor
 
   ## Force the aspect ratio to be 1/1, and the x and y limits to be set
   field_plot <- field_plot +

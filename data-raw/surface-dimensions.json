@@ -1025,14 +1025,14 @@
 
             "number_font": "Clarendon-Regular",
 
-            "restricted_area_width": 1.3333,
+            "restricted_area_width": 1.8889,
             "coaching_box_width": 2.0,
             "team_bench_width": 4.0,
             "team_bench_length_field_side": 60.0,
             "team_bench_length_back_side": 60.0,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "rectangular",
-            "field_bordered": false
+            "field_bordered": true
         },
 
         "nfhs11": {
@@ -1103,7 +1103,7 @@
             "team_bench_length_back_side": 50.0,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "rectangular",
-            "field_bordered": false
+            "field_bordered": true
         },
 
         "nfhs9": {
@@ -1170,7 +1170,7 @@
             "team_bench_length_back_side": 30.0,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "rectangular",
-            "field_bordered": false
+            "field_bordered": true
         },
 
         "nfhs8": {
@@ -1237,7 +1237,7 @@
             "team_bench_length_back_side": 30.0,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "rectangular",
-            "field_bordered": false
+            "field_bordered": true
         },
 
         "nfhs6": {
@@ -1304,7 +1304,7 @@
             "team_bench_length_back_side": 30.0,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "rectangular",
-            "field_bordered": false
+            "field_bordered": true
         },
 
         "nfl": {
@@ -1377,7 +1377,7 @@
             "team_bench_length_back_side": 37.2639,
             "team_bench_area_border_thickness": 0.1111,
             "bench_shape": "trapezoid",
-            "field_bordered": false
+            "field_bordered": true
         }
     },
 
@@ -2141,7 +2141,7 @@
         "restraining_line_thickness": 0.101,
         "restraining_line_outer_edge_to_center": 24.0,
 
-        "goal_mouth_hash_mark_length": 0.4058,
+        "goal_mouth_hash_mark_length": 0.305,
         "goal_mouth_hash_mark_line_thickness": 0.101,
 
         "goal_fan_hash_mark_length": 0.3048,
@@ -2260,6 +2260,7 @@
 
         "goal_arc_extension": 15.0,
         "goal_arc_radius": 15.0,
+        "goal_arc_parallel_line_to_center": 13.0,
         "goal_arc_line_thickness": 0.1111,
 
         "goal_frame_opening_interior": 2.0,
@@ -2333,7 +2334,7 @@
         "restraining_line_thickness": 0.101,
         "restraining_line_outer_edge_to_center": 24.0,
 
-        "goal_mouth_hash_mark_length": 0.4058,
+        "goal_mouth_hash_mark_length": 0.305,
         "goal_mouth_hash_mark_line_thickness": 0.101,
 
         "goal_fan_hash_mark_length": 0.3048,

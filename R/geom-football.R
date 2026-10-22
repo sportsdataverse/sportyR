@@ -645,24 +645,35 @@ geom_football <- function(league,
 
   # Coordinate Transformations -------------------------------------------------
 
-  # Convert the units as needed
-  if (
-    !is.null(field_units) &&
-      tolower(field_params$field_units %or% "ft") != tolower(field_units)
-  ) {
-    field_features <- lapply(
-      field_features,
-      convert_units,
-      from_unit = field_params$field_units %or% "ft",
-      to_unit = field_units,
-      conversion_columns = c("x", "y")
-    )
+  # Convert the units as needed. The surface is drawn in the rule book's
+  # units, so feature anchors and the display range stay consistent with the
+  # features, and the finished plot is scaled to the requested units below.
+  # Translations and limits passed in are in the requested units
+  unit_factor <- unit_conversion_factor(
+    from_unit = field_params$field_units %or% "ft",
+    to_unit = field_units,
+    surface = "field"
+  )
+  x_trans <- x_trans / unit_factor
+  y_trans <- y_trans / unit_factor
+  if (!is.null(xlims)) {
+    xlims <- xlims / unit_factor
+  }
+  if (!is.null(ylims)) {
+    ylims <- ylims / unit_factor
   }
 
   # Generate the Plot ----------------------------------------------------------
 
   # Start by getting the colors to use to make the plot
   feature_colors <- football_features_set_colors()
+
+  # Bordered fields (field_bordered) get a white outline around the field
+  # border by default; other fields keep the transparent default
+  if (isTRUE(field_params$field_bordered)) {
+    feature_colors$field_border_outline <- "#ffffff"
+    feature_colors$red_zone_border_outline <- "#ffffff"
+  }
 
   # Update the features' colors as specified by the user
   feature_colors <- utils::modifyList(feature_colors, color_updates)
@@ -1027,8 +1038,6 @@ geom_football <- function(league,
       y_min = min(yardage_marker_rot["y"]),
       y_max = max(yardage_marker_rot["y"])
     )
-    bb_polygon["x"] <- bb_polygon["x"] + x_trans
-    bb_polygon["y"] <- bb_polygon["y"] + y_trans
     field_plot <- field_plot +
       ggplot2::geom_polygon(
         data = bb_polygon,
@@ -1293,6 +1302,11 @@ geom_football <- function(league,
     xlims <- c(min(plot_lims$x), max(plot_lims$x))
     ylims <- c(min(plot_lims$y), max(plot_lims$y))
   }
+
+  # Scale the finished surface and its limits to the requested units
+  field_plot <- scale_plot_units(field_plot, unit_factor)
+  xlims <- xlims * unit_factor
+  ylims <- ylims * unit_factor
 
   ## Force the aspect ratio to be 1/1, and the x and y limits to be set
   field_plot <- field_plot +

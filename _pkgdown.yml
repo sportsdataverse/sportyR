@@ -163,6 +163,10 @@ reference:
     - "`geom_softball`"
     - "`geom_tennis`"
     - "`geom_volleyball`"
+- title: "Surface Dimensions"
+  desc: The rule-book parameters the surface plotters draw from
+  contents:
+    - "`get_surface_dimensions`"
 - title: "cani_ Functions"
   desc: >
     Functions that help navigate the options of the package,

@@ -11,10 +11,12 @@
 #' @keywords internal
 `%or%` <- function(spec_val, default_val) {
   cmp <- function(spec_val, default_val) {
+      # Check the length before is.na() / is.nan(): an empty JSON array arrives
+      # as list(), and is.nan() has no method for lists
       if (is.null(spec_val) ||
+          length(spec_val) == 0 ||
           is.na(spec_val) ||
-          is.nan(spec_val) ||
-          length(spec_val) == 0) {
+          is.nan(spec_val)) {
       return(default_val)
     } else {
       return(spec_val)
