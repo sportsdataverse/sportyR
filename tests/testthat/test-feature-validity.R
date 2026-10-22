@@ -131,12 +131,13 @@ test_that("the mirrored faceoff lines keep their thickness on the same side (#79
   # from the first set's (the upright would span [-2, -1.833] and cross)
   lines <- layers_filled(p, "#123456")
   expect_length(lines, 8)
-  areas <- vapply(lines, function(l) {
+  # Newer ggplot2 names its layers, so the names are dropped before comparing
+  areas <- unname(vapply(lines, function(l) {
     sum(vapply(split_rings(l$data), function(ring) {
       n <- nrow(ring)
       abs(sum(ring[-n, 1] * ring[-1, 2] - ring[-1, 1] * ring[-n, 2])) / 2
     }, numeric(1)))
-  }, numeric(1))
+  }, numeric(1)))
   expect_equal(areas, rep(areas[1], 8))
   for (l in lines) {
     expect_equal(vapply(split_rings(l$data), nrow, integer(1)), c(7L, 7L))
