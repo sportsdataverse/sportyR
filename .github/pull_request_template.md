@@ -28,4 +28,4 @@ Closes #
 - [ ] `lintr::lint_package()` reports no new lints
 - [ ] New or changed code is covered by tests in `tests/testthat/`
 - [ ] `DESCRIPTION`'s `Version` and `NEWS.md`'s version headings are unchanged (notes, if any, go under `# sportyR (development version)`)
-- [ ] If this adds a sport, I've listed myself under General Managers in `README.Rmd` and `README.md`
+- [ ] If this adds a sport, I've listed myself under General Managers in `README.Rmd` and `README.md`, and added the sport to `.github/CODEOWNERS` and `.github/labeler.yml`

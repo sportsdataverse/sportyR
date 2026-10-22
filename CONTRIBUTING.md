@@ -46,7 +46,7 @@ Want to join `sportyR`'s team and help shape the package? Great! We're always re
 
     When you become a League Officer, you should list yourself in the [README](https://github.com/sportsdataverse/sportyR), and also list yourself in the [DESCRIPTION](https://github.com/sportsdataverse/sportyR/blob/main/DESCRIPTION) file with the role of `"aut"`
 
-- **General Managers** &mdash; Writing the code that extends `sportyR`'s sport-plotting reach by developing for new sports will earn you a spot as a **General Manager**. Please list yourself (in alphabetical-by-sport order) in the [README](https://github.com/sportsdataverse/sportyR) with what sport you've added.
+- **General Managers** &mdash; Writing the code that extends `sportyR`'s sport-plotting reach by developing for new sports will earn you a spot as a **General Manager**. Please list yourself (in alphabetical-by-sport order) in the [README](https://github.com/sportsdataverse/sportyR) with what sport you've added. Also add your sport's files to [`.github/CODEOWNERS`](.github/CODEOWNERS) with your GitHub username, and add a label for your sport to [`.github/labeler.yml`](.github/labeler.yml), following the existing sports in each.
     
     Note that by contributing a new sport, you'll be considered the General Manager of that sport. You may be asked to assist in sport-specific issues if the League Office is unable to provide a clear answer
 
@@ -120,5 +120,15 @@ PRs are squash-merged, so your PR title becomes the commit message on `main`. Re
 The scope is optional, but naming the sport (`basketball`, `lacrosse`, ...) or area (`pkgdown`, `ci`, ...) you changed is helpful.
 
 Because the release workflow handles versioning, please **don't** change the `Version` field in `DESCRIPTION` or add a new version heading to `NEWS.md`. When a release is cut, the workflow bumps `DESCRIPTION`, adds the release notes to `NEWS.md`, tags the release, and comments on the PRs and issues it includes. If you'd like to describe your change in more detail than the PR title, add your notes under a `# sportyR (development version)` heading at the top of `NEWS.md` (create the heading if it isn't there). Those notes will be folded into the next release's section.
+
+### Labels and Reviewers
+
+PRs and issues are labeled automatically, so there's no need to label them yourself:
+
+- PRs get a label for each sport whose files they change (e.g. `lacrosse`), area labels (`ci`, `tests`, `documentation`) from the files they change, and a label from the title's type (`fix` adds `bug`, `feat` adds `enhancement`, `docs` adds `documentation`, `test` adds `tests`, `ci` adds `ci`)
+
+- Issues get their label from the template they were opened with
+
+If your PR changes a sport's files, that sport's General Manager is automatically requested as a reviewer.
 
 Although this seems like a lot of work and a big hassle, the League Office doesn't expect perfection and is on hand to help out as needed.
