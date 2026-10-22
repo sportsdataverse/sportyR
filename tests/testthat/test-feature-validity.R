@@ -1,5 +1,10 @@
 skip_on_cran()
 
+# Layers of a sportyR plot drawn with the given fill colour
+layers_filled <- function(p, fill) {
+  Filter(function(l) identical(l$aes_params$fill, fill), p$layers)
+}
+
 # Count the proper crossings (two edges that strictly cross) in a closed ring
 count_crossings <- function(ring, tolerance = 1e-9) {
   n <- nrow(ring) - 1
@@ -35,6 +40,28 @@ count_crossings <- function(ring, tolerance = 1e-9) {
   }
 
   crossings
+}
+
+# Count the vertices of a closed ring where the path turns straight back along
+# the edge it just travelled. These zero-width spikes are not proper crossings,
+# so count_crossings() does not see them
+count_reversals <- function(ring, tolerance = 1e-9) {
+  if (any(abs(ring[1, ] - ring[nrow(ring), ]) > tolerance)) {
+    ring <- rbind(ring, ring[1, ])
+  }
+  # Drop the repeated closing point so that every vertex has two neighbours
+  vertices <- ring[-nrow(ring), , drop = FALSE]
+  n <- nrow(vertices)
+  previous <- vertices[c(n, seq_len(n - 1)), , drop = FALSE]
+  following <- vertices[c(seq_len(n)[-1], 1), , drop = FALSE]
+  incoming <- vertices - previous
+  outgoing <- following - vertices
+
+  # Parallel edges (zero cross product) that point in opposite directions
+  cross_product <- incoming[, 1] * outgoing[, 2] - incoming[, 2] * outgoing[, 1]
+  dot_product <- rowSums(incoming * outgoing)
+  lengths <- sqrt(rowSums(incoming^2)) * sqrt(rowSums(outgoing^2))
+  sum(abs(cross_product) <= tolerance * lengths & dot_product < 0)
 }
 
 # Count the rings that cross themselves, over all the layers of a plot
@@ -87,24 +114,29 @@ test_that("the NHL trapezoid is two simple strips from the goal line (#79)", {
   rings <- split_rings(df)
   expect_length(rings, 2)
   expect_equal(vapply(rings, count_crossings, numeric(1)), c(0, 0))
+  expect_equal(vapply(rings, count_reversals, numeric(1)), c(0, 0))
   expect_equal(vapply(rings, nrow, integer(1)), c(5L, 5L))
 })
 
 test_that("the mirrored faceoff lines keep their thickness on the same side (#79)", {
-  p <- geom_hockey("nhl")
+  p <- geom_hockey("nhl", color_updates = list(faceoff_line = "#123456"))
   expect_true(all(crossing_rings(p) == 0))
 
-  # The upright of the mirrored L must span [-2.167, -2], not [-2, -1.833]
-  lines_1 <- hockey_odzone_faceoff_lines(
-    feature_thickness = 2 / 12,
-    faceoff_line_dist_x = 2,
-    faceoff_line_dist_y = 0.75,
-    faceoff_line_length = 4,
-    faceoff_line_width = 3
-  )
-  lines_2 <- reflect(lines_1, over_x = FALSE, over_y = TRUE)
-  expect_equal(range(lines_2$x[1:7]), c(-6, -2))
-  expect_equal(count_crossings(as.matrix(lines_2[1:7, ])), 0)
+  # Both sets of lines are drawn in all four quadrants. If the mirrored set
+  # had its thickness on the wrong side its rings would differ in area
+  # from the first set's (the upright would span [-2, -1.833] and cross)
+  lines <- layers_filled(p, "#123456")
+  expect_length(lines, 8)
+  areas <- vapply(lines, function(l) {
+    sum(vapply(split_rings(l$data), function(ring) {
+      n <- nrow(ring)
+      abs(sum(ring[-n, 1] * ring[-1, 2] - ring[-1, 1] * ring[-n, 2])) / 2
+    }, numeric(1)))
+  }, numeric(1))
+  expect_equal(areas, rep(areas[1], 8))
+  for (l in lines) {
+    expect_equal(vapply(split_rings(l$data), nrow, integer(1)), c(7L, 7L))
+  }
 })
 
 test_that("the NHL goal crease's inner arc meets the inner straight sides (#79)", {
@@ -126,6 +158,7 @@ test_that("circle-based hockey features are simple closed rings (#79)", {
     feature_thickness = 2 / 12
   )
   expect_equal(count_crossings(as.matrix(circle)), 0)
+  expect_equal(count_reversals(as.matrix(circle)), 0)
 
   spot_ring <- hockey_nodzone_faceoff_spot_ring(
     feature_radius = 1,
@@ -146,6 +179,7 @@ test_that("lacrosse goal and bench outlines close on their first point (#79)", {
     expect_equal(df[nrow(df), ], df[1, ], ignore_attr = TRUE)
     expect_length(split_rings(df), 1)
     expect_equal(count_crossings(as.matrix(df)), 0)
+    expect_equal(count_reversals(as.matrix(df)), 0)
     expect_true(has_area(df))
   }
 })
