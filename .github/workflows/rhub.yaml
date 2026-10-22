@@ -11,6 +11,9 @@ run-name: >-
   ${{ github.event.inputs.id || format('Manual run by @{0}', github.triggering_actor) }}:
   ${{ github.event.inputs.name || github.event.inputs.config }}
 
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
     inputs:
