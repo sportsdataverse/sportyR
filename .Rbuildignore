@@ -66,4 +66,5 @@
 ^Meta$
 ^cache/
 ^CRAN-SUBMISSION$
+^\.releaserc\.json$
 ^\.claude$
