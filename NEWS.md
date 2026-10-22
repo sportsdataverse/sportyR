@@ -8,6 +8,17 @@
   functions, `softball_features_set_colors()`, and `"softball"` entries in
   `surface_dimensions`
 
+## Features
+
+* **pkgdown:** add dark-mode toggle + search + a11y labels ([417697b](https://github.com/sportsdataverse/sportyR/commit/417697b137d4e4ae2ec953837e06e3a569c56da9))
+* **themes:** 1280x640 social cards ([#48](https://github.com/sportsdataverse/sportyR/issues/48)) ([480fdfe](https://github.com/sportsdataverse/sportyR/commit/480fdfe506fd1d517e953854d2ae4f30f5fa4d69))
+
+## Bug Fixes
+
+* **claude:** limit attribution guard to commit and PR commands ([#56](https://github.com/sportsdataverse/sportyR/issues/56)) ([2574ee3](https://github.com/sportsdataverse/sportyR/commit/2574ee33b3e42ef1ab7564b86bad209b7178fc1e))
+* **claude:** replace stacked attribution guard with the scoped one ([#57](https://github.com/sportsdataverse/sportyR/issues/57)) ([562e8c4](https://github.com/sportsdataverse/sportyR/commit/562e8c410d6f8ce255b7ead68eb6c6580889ad44))
+* **pkgdown:** dark-green dark-mode navbar + legible nav text & version badge ([a421ad3](https://github.com/sportsdataverse/sportyR/commit/a421ad32a5ffb21204d382d62fe23fb201674dc4))
+
 # sportyR 2.2.3
 
 - Fixed [#38](https://github.com/sportsdataverse/sportyR/issues/38) to natively support PWHL
