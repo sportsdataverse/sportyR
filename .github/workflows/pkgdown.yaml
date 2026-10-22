@@ -31,6 +31,12 @@ on:
 
 name: pkgdown
 
+# A new push to a pull request cancels that PR's stale run; pushes to main and
+# manual runs always finish
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   pkgdown:
     runs-on: ubuntu-latest
