@@ -141,6 +141,35 @@
   `color_updates` always wins
   ([\#67](https://github.com/sportsdataverse/sportyR/issues/67))
 
+### Features
+
+- lacrosse and football geometry fixes, unit scaling,
+  get_surface_dimensions()
+  ([\#60](https://github.com/sportsdataverse/sportyR/issues/60)-[\#77](https://github.com/sportsdataverse/sportyR/issues/77))
+  ([\#68](https://github.com/sportsdataverse/sportyR/issues/68))
+  ([fb7ffe5](https://github.com/sportsdataverse/sportyR/commit/fb7ffe560e697a9fe7758599502fef9433b727f4)),
+  closes [\#61](https://github.com/sportsdataverse/sportyR/issues/61)
+  [\#62](https://github.com/sportsdataverse/sportyR/issues/62)
+  [\#63](https://github.com/sportsdataverse/sportyR/issues/63)
+  [\#64](https://github.com/sportsdataverse/sportyR/issues/64)
+  [\#65](https://github.com/sportsdataverse/sportyR/issues/65)
+  [\#66](https://github.com/sportsdataverse/sportyR/issues/66)
+  [\#67](https://github.com/sportsdataverse/sportyR/issues/67)
+  [\#67](https://github.com/sportsdataverse/sportyR/issues/67)
+  [\#65](https://github.com/sportsdataverse/sportyR/issues/65)
+  [\#69](https://github.com/sportsdataverse/sportyR/issues/69)
+  [\#70](https://github.com/sportsdataverse/sportyR/issues/70)
+  [\#71](https://github.com/sportsdataverse/sportyR/issues/71)
+  [\#72](https://github.com/sportsdataverse/sportyR/issues/72)
+  [70/#71](https://github.com/70/sportyR/issues/71)
+  [\#73](https://github.com/sportsdataverse/sportyR/issues/73)
+  [\#74](https://github.com/sportsdataverse/sportyR/issues/74)
+  [\#75](https://github.com/sportsdataverse/sportyR/issues/75)
+  [\#74](https://github.com/sportsdataverse/sportyR/issues/74)
+  [\#76](https://github.com/sportsdataverse/sportyR/issues/76)
+  [\#74](https://github.com/sportsdataverse/sportyR/issues/74)
+  [\#74](https://github.com/sportsdataverse/sportyR/issues/74)
+
 ## sportyR 2.3.0
 
 ### New Sports and Leagues Supported
