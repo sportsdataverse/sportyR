@@ -543,6 +543,9 @@ hockey_goaltenders_restricted_area <- function(rink_length = 0,
     reflect(upper_strip_df, over_x = TRUE, over_y = FALSE)
   )
 
+  # Give each strip its own polygon group so that the plot does not connect them
+  trapezoid_df$group <- rep(1:2, each = nrow(upper_strip_df))
+
   # See note above for an explanation of why the absolute value is used here
   trapezoid_df["x"] <- trapezoid_df["x"] - abs(x_anchor)
 
@@ -1116,6 +1119,10 @@ hockey_center_faceoff_circle <- function(feature_radius = 0,
       start = 1.5,
       end = 0.5,
       r = feature_radius - feature_thickness
+    ),
+    data.frame(
+      x = c(0),
+      y = c(feature_radius)
     )
   )
 
