@@ -35,8 +35,7 @@ body:
     attributes:
       label: Reproducible example
       description: |
-        The smallest amount of code that shows the problem. A [reprex](https://reprex.tidyverse.org/) is ideal. Screenshots of the plot are welcome too.
-      render: r
+        The smallest amount of code that shows the problem. A [reprex](https://reprex.tidyverse.org/) is ideal. Wrap the code in a fenced block (start it with ```` ```r ```` and end it with ```` ``` ````). Screenshots of the plot are welcome too: drag them into this box.
     validations:
       required: true
   - type: textarea
