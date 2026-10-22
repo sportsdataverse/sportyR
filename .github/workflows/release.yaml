@@ -17,7 +17,7 @@
 #   2. Add the app to main's "Allow specified actors to bypass required pull
 #      requests" list
 #   3. Store its Client ID as the RELEASE_APP_CLIENT_ID secret and a private
-#      key as the RELEASE_APP_PRIVATE_KEY secret in the "release" environment,
+#      key as the RELEASE_APP_PRIVATE_KEY secret in the "releases" environment,
 #      with that environment's deployment branches limited to main so the
 #      secrets can't be used from a manual run on another branch
 on:
@@ -38,7 +38,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    environment: release
+    environment: releases
     # The release commit itself carries [skip ci], but guard against loops anyway
     if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
     steps:
