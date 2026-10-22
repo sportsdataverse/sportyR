@@ -340,14 +340,6 @@ geom_hockey <- function(league,
       faceoff_line_width = rink_params$faceoff_line_width %or% 0
     ),
 
-    odzone_faceoff_lines_2 = hockey_odzone_faceoff_lines(
-      feature_thickness = rink_params$minor_line_thickness %or% 0,
-      faceoff_line_dist_x = -1 * rink_params$faceoff_line_dist_x %or% 0,
-      faceoff_line_dist_y = rink_params$faceoff_line_dist_y %or% 0,
-      faceoff_line_length = -1 * rink_params$faceoff_line_length %or% 0,
-      faceoff_line_width = rink_params$faceoff_line_width %or% 0
-    ),
-
     ## Surface Features --------------------------------------------------------
 
     #### Center Faceoff Spot ####
@@ -418,6 +410,14 @@ geom_hockey <- function(league,
       goal_depth = rink_params$goal_depth %or% 0,
       goal_post_diameter = rink_params$goal_post_diameter %or% 0
     )
+  )
+
+  # The second set of faceoff lines is the mirror image of the first, so that
+  # the thickness of the lines stays on the same side of each edge
+  rink_features[["odzone_faceoff_lines_2"]] <- reflect(
+    rink_features$odzone_faceoff_lines_1,
+    over_x = FALSE,
+    over_y = TRUE
   )
 
   #### Goaltender's Restricted Area (when necessary) ####

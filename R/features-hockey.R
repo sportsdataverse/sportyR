@@ -515,17 +515,15 @@ hockey_goaltenders_restricted_area <- function(rink_length = 0,
   half_short_base_width <- short_base_width / 2
   half_long_base_width <- long_base_width / 2
 
-  # Now trace out the trapezoid. NOTE: The absolute value is used here to always
-  # force the calculation to be done for the right side of the ice (in TV view),
-  # which will be adjusted as necessary in the feature's translate_feature()
-  # method
-  trapezoid_df <- data.frame(
+  # Now trace out the trapezoid. It is made of two parallelogram strips (one on
+  # each side of the net) that start on the goal line and run to the boards. The
+  # strips are drawn as separate rings so that neither ring crosses or retraces
+  # itself. NOTE: The absolute value is used here to always force the
+  # calculation to be done for the right side of the ice (in TV view), which
+  # will be adjusted as necessary in the feature's translate_feature() method
+  upper_strip_df <- data.frame(
     x = c(
       abs(x_anchor),
-      rink_length / 2,
-      rink_length / 2,
-      abs(x_anchor) - (feature_thickness / 2),
-      abs(x_anchor) - (feature_thickness / 2),
       rink_length / 2,
       rink_length / 2,
       abs(x_anchor),
@@ -536,12 +534,13 @@ hockey_goaltenders_restricted_area <- function(rink_length = 0,
       half_long_base_width,
       half_long_base_width - feature_thickness,
       half_short_base_width - feature_thickness,
-      -half_short_base_width + feature_thickness,
-      -half_long_base_width + feature_thickness,
-      -half_long_base_width,
-      -half_short_base_width,
       half_short_base_width
     )
+  )
+
+  trapezoid_df <- rbind(
+    upper_strip_df,
+    reflect(upper_strip_df, over_x = TRUE, over_y = FALSE)
   )
 
   # See note above for an explanation of why the absolute value is used here
@@ -685,6 +684,16 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
     theta <- acos(half_crease_width / feature_radius) / pi
   }
 
+  # The inner arc meets the inner straight sides of the crease, which are
+  # inset by feature_thickness, so it starts at its own angle
+  inner_radius <- feature_radius - feature_thickness
+  if (inner_radius <= 0 ||
+      abs((half_crease_width - feature_thickness) / inner_radius) > 1) {
+    inner_theta <- theta
+  } else {
+    inner_theta <- acos((half_crease_width - feature_thickness) / inner_radius) / pi
+  }
+
   goal_crease_outline_df <- switch(
     crease_style,
 
@@ -733,9 +742,9 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
       ),
       create_circle(
         center = c(0, 0),
-        start = 1.5 - theta,
-        end = 0.5 + theta,
-        r = feature_radius - feature_thickness
+        start = 1.5 - inner_theta,
+        end = 0.5 + inner_theta,
+        r = inner_radius
       ),
       data.frame(
         x = c(
@@ -1100,7 +1109,7 @@ hockey_center_faceoff_circle <- function(feature_radius = 0,
     ),
     data.frame(
       x = c(0, 0),
-      y = c(-feature_radius, -feature_radius - feature_thickness)
+      y = c(-feature_radius, -feature_radius + feature_thickness)
     ),
     create_circle(
       center = c(0, 0),
@@ -1531,7 +1540,7 @@ hockey_player_bench_outline <- function(feature_thickness = 0,
       bench_length,
       0,
       0,
-      feature_thickness
+      -feature_thickness
     ),
     y = c(
       feature_thickness,
