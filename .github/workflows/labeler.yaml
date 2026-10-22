@@ -1,5 +1,6 @@
-# Adds labels to pull requests and issues. Labels are only ever added, never
-# removed, so labels applied by hand are left alone.
+# Adds labels to pull requests and issues. PR labels are only ever added,
+# never removed, so labels applied by hand are left alone. The one removal is
+# on issues: switching between "new league request" and "new sport request".
 #
 # Pull requests get:
 #   - sport and area labels (e.g. lacrosse, ci, tests) from the files they
@@ -84,9 +85,17 @@ jobs:
               core.info("Not a new sport or league request");
               return;
             }
-            await github.rest.issues.addLabels({
+            const issue = {
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.payload.issue.number,
-              labels: [label]
-            });
+              issue_number: context.payload.issue.number
+            };
+            // The two request labels are mutually exclusive, so if the
+            // dropdown answer was edited, drop the label for the old answer
+            const current = context.payload.issue.labels.map((l) => l.name);
+            for (const other of Object.values(REQUEST_LABELS)) {
+              if (other !== label && current.includes(other)) {
+                await github.rest.issues.removeLabel({ ...issue, name: other });
+              }
+            }
+            await github.rest.issues.addLabels({ ...issue, labels: [label] });
