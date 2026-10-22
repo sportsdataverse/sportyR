@@ -23,9 +23,10 @@ maintainers who do not follow the Code of Conduct may be removed from
 the project team.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may
-be reported by opening an issue, or contacting emailing the project lead
+be reported by opening an issue, or emailing the project lead
 (<ross.a.drucker@gmail.com>).
 
 This Code of Conduct is adapted from the [Contributor
-Covenant](http:contributor-covenant.org), version 1.0.0, available at
+Covenant](https://www.contributor-covenant.org), version 1.0.0,
+available at
 <https://www.contributor-covenant.org/version/1/0/0/code-of-conduct.html>

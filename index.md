@@ -303,7 +303,7 @@ sportsdataverse/sportyR](https://raw.githubusercontent.com/sportsdataverse/sport
 ## License
 
 This package is released under the [GPL 3.0
-License](https://github.com/sportsdataverse/sportyR/blob/master/LICENSE.md).
+License](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Contributions
 
@@ -324,6 +324,7 @@ general managers (and their sports) are:
 - [Ross Drucker](https://github.com/rossdrucker) - Curling
 - [Ross Drucker](https://github.com/rossdrucker) - Football
 - [Ross Drucker](https://github.com/rossdrucker) - Hockey
+- [Ross Drucker](https://github.com/rossdrucker) - Lacrosse
 - [Ross Drucker](https://github.com/rossdrucker) - Soccer
 - [Billy Fryer](https://github.com/billyfryer) - Softball
 - [Ross Drucker](https://github.com/rossdrucker) - Tennis
