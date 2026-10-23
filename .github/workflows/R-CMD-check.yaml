@@ -24,10 +24,10 @@ on:
 
 name: R-CMD-check
 
-# A new push to a pull request cancels that PR's stale run; pushes to main and
-# manual runs always finish
+# A new push to a pull request cancels that PR's stale run. Other runs (pushes to
+# main, manual runs) get their own group so none is dropped from the queue
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
