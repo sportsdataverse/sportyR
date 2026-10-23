@@ -24,11 +24,25 @@ on:
 
 name: R-CMD-check
 
+# A new push to a pull request cancels that PR's stale run. Other runs (pushes to
+# main, manual runs) get their own group so none is dropped from the queue
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    # The release and oldrel-1 ubuntu jobs run in a rocker/r-ver image that already
+    # ships R, the system libraries and a Posit Package Manager binary repo, so
+    # setup-r (and its slow apt-get install) is skipped. R-devel stays on setup-r:
+    # its image is Ubuntu 26.04 and PPM has no R 4.7 binaries, so it compiled every
+    # package from source (~15 min). The release tag follows R; bump the oldrel-1
+    # tag when a new R minor is released
+    container: ${{ matrix.config.container }}
 
     strategy:
       fail-fast: false
@@ -36,9 +50,9 @@ jobs:
         config:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - {os: ubuntu-latest,   r: 'devel',    http-user-agent: 'release'}
+          - {os: ubuntu-latest,   r: 'release',  container: 'rocker/r-ver:latest'}
+          - {os: ubuntu-latest,   r: 'oldrel-1', container: 'rocker/r-ver:4.5'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -50,6 +64,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r@v2
+        if: ${{ !matrix.config.container }}
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}

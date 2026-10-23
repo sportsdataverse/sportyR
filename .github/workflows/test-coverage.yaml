@@ -21,18 +21,22 @@ on:
 
 name: test-coverage
 
+# A new push to a pull request cancels that PR's stale run. Other runs (pushes to
+# main, manual runs) get their own group so none is dropped from the queue
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   test-coverage:
     runs-on: ubuntu-latest
+    # R and the system libraries come from the image, so setup-r is not needed
+    container: rocker/r-ver:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v5
-
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          use-public-rspm: true
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
