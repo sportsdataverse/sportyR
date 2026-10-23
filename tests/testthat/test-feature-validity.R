@@ -100,6 +100,10 @@ test_that("split_rings() and has_area() read back-to-back rings (#79)", {
   # A line, a single point and a collapsed rectangle have no area
   expect_false(has_area(data.frame(x = c(0, 1, 0), y = c(0, 0, 0))))
   expect_false(has_area(data.frame(x = 0, y = 0)))
+
+  # Repeats of one point are still a single ring, not an empty list
+  expect_length(split_rings(data.frame(x = c(1, 1, 1), y = c(2, 2, 2))), 1)
+  expect_false(has_area(data.frame(x = c(1, 1, 1), y = c(2, 2, 2))))
   expect_false(has_area(create_rectangle(-100, 100, 0, 0)))
 })
 
