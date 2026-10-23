@@ -31,7 +31,7 @@ jobs:
   test-coverage:
     runs-on: ubuntu-latest
     # R and the system libraries come from the image, so setup-r is not needed
-    container: rocker/r-ver:4.6
+    container: rocker/r-ver:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 

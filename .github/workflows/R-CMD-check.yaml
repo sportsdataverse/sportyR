@@ -40,7 +40,8 @@ jobs:
     # ships R, the system libraries and a Posit Package Manager binary repo, so
     # setup-r (and its slow apt-get install) is skipped. R-devel stays on setup-r:
     # its image is Ubuntu 26.04 and PPM has no R 4.7 binaries, so it compiled every
-    # package from source (~15 min). Bump the tags when a new R minor is released
+    # package from source (~15 min). The release tag follows R; bump the oldrel-1
+    # tag when a new R minor is released
     container: ${{ matrix.config.container }}
 
     strategy:
@@ -50,7 +51,7 @@ jobs:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel',    http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release',  container: 'rocker/r-ver:4.6'}
+          - {os: ubuntu-latest,   r: 'release',  container: 'rocker/r-ver:latest'}
           - {os: ubuntu-latest,   r: 'oldrel-1', container: 'rocker/r-ver:4.5'}
 
     env:
