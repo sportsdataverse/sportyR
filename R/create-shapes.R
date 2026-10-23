@@ -196,6 +196,11 @@ split_rings <- function(df, tolerance = 1e-9) {
   is_repeat <- rowSums(abs(diff(coords))) < tolerance
   coords <- coords[c(TRUE, !is_repeat), , drop = FALSE]
 
+  # A feature that sits on one point is a single ring of that point
+  if (nrow(coords) == 1) {
+    return(list(coords))
+  }
+
   rings <- list()
   ring_start <- 1
   for (i in seq_len(nrow(coords))[-1]) {
