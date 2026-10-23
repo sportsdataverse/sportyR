@@ -43,7 +43,7 @@ Welcome to `sportyR`! I'm Ross Drucker, the author of the [`sportyR`](https://sp
 -   **Mac OS X** - Select Latest Release, but check to make sure your OS is the correct version. Look through Binaries for Legacy OS X Systems if you are on an older release
 -   **Linux** - Select the appropriate distro and follow the installation instructions
 
-3.  Head to [RStudio.com](https://posit.co/download/rstudio-desktop/ "Download the appropriate version of RStudio (Free) for your operating system to use with R")
+3.  Head to [RStudio.com](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads "Download the appropriate version of RStudio (Free) for your operating system to use with R")
 4.  Follow the associated download and installation instructions for RStudio.
 5.  Start peering over the [RStudio IDE Cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rstudio-ide.pdf). *An IDE is an integrated development environment.*
 6.  For **Windows** users: I recommend you install [Rtools](https://cran.r-project.org/bin/windows/Rtools/). This is not an R package! It is "a collection of resources for building packages for R under Microsoft Windows, or for building R itself". Go to <https://cran.r-project.org/bin/windows/Rtools/> and follow the directions for installation.
@@ -95,6 +95,12 @@ or
 cani_plot_league("PHF")
 ```
 
+Newer sports work the same way, for example softball (added in 2.3.0):
+
+```{r cani-example-3}
+cani_plot_sport("softball")
+```
+
 I'll highlight the fact that these are **case-insensitive** searches. Ask away to your heart's content!
 
 There's one other `cani_{question}()` function I'll highlight more in a bit, but first let's start acting on the answers to these kinds of questions.
@@ -134,7 +140,7 @@ Follow](https://img.shields.io/twitter/follow/sportyR_pkg?&label=%40sportyR_pkg&
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
 
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=ff552e&logo=github&style=flat&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR/stargazers/)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=ff552e&logo=github&style=flat&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR)
 
 # **Our Authors**
 -   [Ross Drucker](https://x.com/rossdrucker9)
@@ -148,11 +154,12 @@ To cite the [**`sportyR`**](https://sportyR.sportsdataverse.org/) R package in p
 BibTeX Citation
 
 ```bibtex
-@misc{sportyr,
+@misc{drucker_sportyR,
   author = {Ross Drucker},
-  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
   url = {https://sportyR.sportsdataverse.org/},
-  year = {2026}
+  doi = {10.32614/CRAN.package.sportyR},
+  year = {2020}
 }
 ```
 

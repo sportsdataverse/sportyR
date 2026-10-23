@@ -112,6 +112,6 @@ specified league
 \examples{
 \dontrun{
   geom_lacrosse(league = "NCAA", rotation = 270, display_range = "offense")
-  geom_lacrosse(league = "FIVB", field_units = "ft")
+  geom_lacrosse(league = "NLL", field_units = "ft")
 }
 }

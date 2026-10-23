@@ -73,6 +73,8 @@
 - `geom_basketball("custom")` now draws: the custom template's empty JSON arrays arrive as `list()`, which
   `%or%` could not handle (it now falls back to the default for any zero-length value) and which the lane and
   display-range code read directly ([#77](https://github.com/sportsdataverse/sportyR/issues/77))
+- The `geom_lacrosse()` example now uses a lacrosse league (`"NLL"`) instead
+  of the volleyball league `"FIVB"`
 
 ## Changed output
 
@@ -80,6 +82,13 @@
   unchanged. `field_bordered` is now `true` for NCAA, NFHS (11/9/8/6) and NFL, and bordered fields default
   `field_border_outline` and `red_zone_border_outline` to `#ffffff` (otherwise transparent `#ffffff00`); a
   colour passed in `color_updates` always wins ([#67](https://github.com/sportsdataverse/sportyR/issues/67))
+
+## Other Changes
+- Added a package citation (`citation("sportyR")`) and a softball example to
+  the introductory vignette
+- Fixed redirecting and broken URLs in the vignette and README
+- Documentation regenerated with roxygen2 8.1.0
+- Every test file now starts with `skip_on_cran()`
 
 ## Features
 
@@ -94,6 +103,8 @@
 - Added `geom_softball()`, along with the internal `softball_*()` feature
   functions, `softball_features_set_colors()`, and `"softball"` entries in
   `surface_dimensions`
+- Softball support contributed by Billy Fryer
+  ([@billyfryer](https://github.com/billyfryer), [#52](https://github.com/sportsdataverse/sportyR/pull/52))
 
 ## Features
 

@@ -1,3 +1,5 @@
+skip_on_cran()
+
 test_that(
   glue::glue(
     "convert_units() works with all possible input unit arguments (i.e. 'in' ",

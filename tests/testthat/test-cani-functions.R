@@ -1,3 +1,5 @@
+skip_on_cran()
+
 # Test the cani_plot functions to ensure that they work properly. They should
 # each return a specific message about what leagues/sports are available to be
 # plotted
