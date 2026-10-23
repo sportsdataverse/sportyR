@@ -36,9 +36,11 @@ jobs:
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
-    # Ubuntu jobs run in a rocker/r-ver image that already ships R, the system
-    # libraries and a Posit Package Manager binary repo, so setup-r (and its slow
-    # apt-get install) is skipped. Bump the tags when a new R minor is released
+    # The release and oldrel-1 ubuntu jobs run in a rocker/r-ver image that already
+    # ships R, the system libraries and a Posit Package Manager binary repo, so
+    # setup-r (and its slow apt-get install) is skipped. R-devel stays on setup-r:
+    # its image is Ubuntu 26.04 and PPM has no R 4.7 binaries, so it compiled every
+    # package from source (~15 min). Bump the tags when a new R minor is released
     container: ${{ matrix.config.container }}
 
     strategy:
@@ -47,7 +49,7 @@ jobs:
         config:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel',    container: 'rocker/r-ver:devel', http-user-agent: 'R/4.6.1 R (4.6.1 x86_64-pc-linux-gnu x86_64 linux-gnu)'}
+          - {os: ubuntu-latest,   r: 'devel',    http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release',  container: 'rocker/r-ver:4.6'}
           - {os: ubuntu-latest,   r: 'oldrel-1', container: 'rocker/r-ver:4.5'}
 
@@ -64,16 +66,8 @@ jobs:
         if: ${{ !matrix.config.container }}
         with:
           r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-
-      # rocker/r-ver:devel points at CRAN source, and PPM only serves binaries to
-      # a release-looking user agent, so point at PPM and identify as release R
-      # (what setup-r's use-public-rspm and http-user-agent inputs do). The devel
-      # image is Ubuntu 26.04, which PPM has no binaries for yet, so use noble's
-      - name: Use Posit Package Manager binaries
-        if: ${{ matrix.config.http-user-agent }}
-        run: |
-          echo "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/noble/latest'), HTTPUserAgent = '${{ matrix.config.http-user-agent }}')" >> "$(R RHOME)/etc/Rprofile.site"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
