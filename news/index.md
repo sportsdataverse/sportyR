@@ -130,6 +130,10 @@
   any zero-length value) and which the lane and display-range code read
   directly
   ([\#77](https://github.com/sportsdataverse/sportyR/issues/77))
+- The
+  [`geom_lacrosse()`](https://sportyR.sportsdataverse.org/reference/geom_lacrosse.md)
+  example now uses a lacrosse league (`"NLL"`) instead of the volleyball
+  league `"FIVB"`
 
 ### Changed output
 
@@ -140,6 +144,14 @@
   `#ffffff` (otherwise transparent `#ffffff00`); a colour passed in
   `color_updates` always wins
   ([\#67](https://github.com/sportsdataverse/sportyR/issues/67))
+
+### Other Changes
+
+- Added a package citation (`citation("sportyR")`) and a softball
+  example to the introductory vignette
+- Fixed redirecting and broken URLs in the vignette and README
+- Documentation regenerated with roxygen2 8.1.0
+- Every test file now starts with `skip_on_cran()`
 
 ### Features
 
@@ -182,6 +194,9 @@
   along with the internal `softball_*()` feature functions,
   [`softball_features_set_colors()`](https://sportyR.sportsdataverse.org/reference/softball_features_set_colors.md),
   and `"softball"` entries in `surface_dimensions`
+- Softball support contributed by Billy Fryer
+  ([@billyfryer](https://github.com/billyfryer),
+  [\#52](https://github.com/sportsdataverse/sportyR/pull/52))
 
 ### Features
 

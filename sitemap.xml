@@ -1,5 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://sportyR.sportsdataverse.org/404.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/CLAUDE.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/CODE-OF-CONDUCT.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/CONTRIBUTING.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/articles/animating-tracking-data.html</loc></url>
@@ -8,6 +9,7 @@
 <url><loc>https://sportyR.sportsdataverse.org/articles/plotting-tracking-data.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/articles/sportyR.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/authors.html</loc></url>
+<url><loc>https://sportyR.sportsdataverse.org/copilot-instructions.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/index.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/news/index.html</loc></url>
 <url><loc>https://sportyR.sportsdataverse.org/reference/add_feature.html</loc></url>

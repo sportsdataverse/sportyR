@@ -24,7 +24,7 @@ Gilani](https://twitter.com/saiemgilani). Give him a follow!)
   instructions
 
 3.  Head to
-    [RStudio.com](https://posit.co/download/rstudio-desktop/ "Download the appropriate version of RStudio (Free) for your operating system to use with R")
+    [RStudio.com](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads "Download the appropriate version of RStudio (Free) for your operating system to use with R")
 4.  Follow the associated download and installation instructions for
     RStudio.
 5.  Start peering over the [RStudio IDE
@@ -97,6 +97,14 @@ or
 # See if a league comes pre-packaged with sportyR
 cani_plot_league("PHF")
 #> A plot for PHF can be created via the geom_hockey() function
+```
+
+Newer sports work the same way, for example softball (added in 2.3.0):
+
+``` r
+
+cani_plot_sport("softball")
+#> A plot for softball can be created via the geom_softball() function for the following league: NCAA
 ```
 
 I’ll highlight the fact that these are **case-insensitive** searches.
@@ -174,7 +182,7 @@ Follow](https://img.shields.io/twitter/follow/sportyR_pkg?&label=%40sportyR_pkg&
 Follow](https://img.shields.io/twitter/follow/sportsdataverse?&label=%40sportsdataverse&logo=twitter&style=flat&color=ff552e)](https://twitter.com/sportsdataverse)
 
 [![GitHub
-stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=ff552e&logo=github&style=flat&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR/stargazers/)
+stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=ff552e&logo=github&style=flat&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR)
 
 ## **Our Authors**
 
@@ -190,11 +198,12 @@ package in publications, use:
 BibTeX Citation
 
 ``` bibtex
-@misc{sportyr,
+@misc{drucker_sportyR,
   author = {Ross Drucker},
-  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
+  title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},
   url = {https://sportyR.sportsdataverse.org/},
-  year = {2026}
+  doi = {10.32614/CRAN.package.sportyR},
+  year = {2020}
 }
 ```
 
