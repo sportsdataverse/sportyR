@@ -1,3 +1,5 @@
+skip_on_cran()
+
 test_that(
   "geom_curling() returns a plot when called with a league", {
     # Create a curling sheet plot

@@ -1,3 +1,5 @@
+skip_on_cran()
+
 test_that(
   "quadratic_formula() errors out when not given a squared term", {
     # This should error because of zero-division

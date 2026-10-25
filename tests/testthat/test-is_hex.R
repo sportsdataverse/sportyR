@@ -1,3 +1,5 @@
+skip_on_cran()
+
 test_that("is_hex() returns FALSE for invalid strings", {
   # The following should return false from is_hex():
   # - Empty strings

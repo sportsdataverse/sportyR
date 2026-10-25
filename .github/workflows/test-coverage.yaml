@@ -27,6 +27,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+permissions:
+  contents: read
+
 jobs:
   test-coverage:
     runs-on: ubuntu-latest
@@ -34,6 +37,7 @@ jobs:
     container: rocker/r-ver:latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      NOT_CRAN: true
 
     steps:
       - uses: actions/checkout@v5

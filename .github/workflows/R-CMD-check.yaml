@@ -30,6 +30,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+permissions:
+  contents: read
+
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
@@ -57,6 +60,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      NOT_CRAN: true
 
     steps:
       - uses: actions/checkout@v5

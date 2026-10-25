@@ -68,3 +68,4 @@
 ^CRAN-SUBMISSION$
 ^\.releaserc\.json$
 ^\.claude$
+^CLAUDE\.md$

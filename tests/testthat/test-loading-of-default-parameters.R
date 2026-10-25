@@ -1,3 +1,5 @@
+skip_on_cran()
+
 test_that(
   glue::glue(
     "load_default_parameters() loads the correct variables into the global env"

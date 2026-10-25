@@ -1,3 +1,5 @@
+skip_on_cran()
+
 test_that("create_square() correctly generates a square", {
   # Unit square centered around (0, 0)
   unit_square <- data.frame(
