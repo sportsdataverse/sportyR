@@ -168,7 +168,7 @@ BibTeX Citation
   author = {Ross Drucker},
   title = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces},
   url = {https://sportyR.sportsdataverse.org/},
-  year = {2026}
+  year = {2020}
 }
 ```
 
