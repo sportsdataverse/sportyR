@@ -216,10 +216,23 @@ test_that("the nhl92 goal crease is its arc band and two L-marks", {
     expect_true(has_area(ring))
   }
 
+  # The band is a half annulus: every point is on the outer or the inner arc,
+  # and its area leaves out the hole
+  inner_radius <- dims$goal_crease_radius - dims$minor_line_thickness
+  band <- rings[[1]]
+  band_radii <- sqrt(rowSums(band^2))
+  on_outer_arc <- abs(band_radii - dims$goal_crease_radius) < 1e-9
+  on_inner_arc <- abs(band_radii - inner_radius) < 1e-9
+  expect_true(all(on_outer_arc | on_inner_arc))
+  expect_true(sum(on_inner_arc) > 2)
+  n <- nrow(band)
+  band_area <- abs(sum(band[-n, 1] * band[-1, 2] - band[-1, 1] * band[-n, 2])) / 2
+  expect_equal(band_area, pi * (dims$goal_crease_radius^2 - inner_radius^2) / 2,
+               tolerance = 1e-4)
+
   # The L-marks are mirror images of one another and sit inside the band's hole
   expect_equal(rings[[3]], cbind(x = rings[[2]][, "x"], y = -rings[[2]][, "y"]),
                ignore_attr = TRUE)
-  inner_radius <- dims$goal_crease_radius - dims$minor_line_thickness
   l_marks <- rbind(rings[[2]], rings[[3]])
   expect_true(all(sqrt(rowSums(l_marks^2)) < inner_radius))
 })
