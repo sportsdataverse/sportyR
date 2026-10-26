@@ -77,7 +77,7 @@ lacrosse_defensive_zone <- function(field_length = 0,
     # Create the defensive zone
     dzone_df <- create_rectangle(
       x_min = -field_length / 2,
-      x_max = 0,
+      x_max = -nzone_length / 2,
       y_min = -field_width / 2,
       y_max = field_width / 2
     )
@@ -183,7 +183,7 @@ lacrosse_offensive_zone <- function(field_length = 0,
     )
   } else {
     ozone_df <- create_rectangle(
-      x_min = 0,
+      x_min = nzone_length / 2,
       x_max = field_length / 2,
       y_min = -field_width / 2,
       y_max = field_width / 2
