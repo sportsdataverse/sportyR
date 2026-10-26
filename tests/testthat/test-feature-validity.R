@@ -194,9 +194,38 @@ test_that("lacrosse goal and bench outlines close on their first point", {
   }
 })
 
-test_that("hockey features are simple rings in every league but the OHL", {
-  # OHL: the nhl92 crease style overlaps the L-marks on its arc
-  for (league in setdiff(names(surface_dimensions[["hockey"]]), c("ohl", "custom"))) {
+test_that("the nhl92 goal crease is its arc band and two L-marks", {
+  dims <- surface_dimensions[["hockey"]][["ohl"]]
+  df <- hockey_goal_crease_outline(
+    feature_radius = dims$goal_crease_radius,
+    feature_thickness = dims$minor_line_thickness,
+    crease_style = dims$goal_crease_style,
+    crease_length = dims$goal_crease_length,
+    crease_width = dims$goal_crease_width,
+    notch_dist_x = dims$goal_crease_notch_dist_x,
+    notch_width = dims$goal_crease_notch_width
+  )
+  expect_equal(unique(df$group), 1:3)
+
+  rings <- lapply(split(df[, c("x", "y")], df$group), as.matrix)
+  for (ring in rings) {
+    expect_equal(ring[nrow(ring), ], ring[1, ])
+    expect_length(split_rings(ring), 1)
+    expect_equal(count_crossings(ring), 0)
+    expect_equal(count_reversals(ring), 0)
+    expect_true(has_area(ring))
+  }
+
+  # The L-marks are mirror images of one another and sit inside the band's hole
+  expect_equal(rings[[3]], cbind(x = rings[[2]][, "x"], y = -rings[[2]][, "y"]),
+               ignore_attr = TRUE)
+  inner_radius <- dims$goal_crease_radius - dims$minor_line_thickness
+  l_marks <- rbind(rings[[2]], rings[[3]])
+  expect_true(all(sqrt(rowSums(l_marks^2)) < inner_radius))
+})
+
+test_that("hockey features are simple rings in every league", {
+  for (league in setdiff(names(surface_dimensions[["hockey"]]), "custom")) {
     p <- geom_hockey(league)
     expect_true(all(crossing_rings(p) == 0), info = league)
   }

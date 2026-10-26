@@ -859,30 +859,38 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
     ),
 
     # nhl92 crease style: full semi-circle outline with two L-shaped marks
-    # adjoining the semi-circle, but not extending back towards the goal line
-    "nhl92" = rbind(
-      create_circle(
-        center = c(0, 0),
-        start = 0.5,
-        end = 1.5,
-        r = feature_radius
-      ),
-      create_circle(
-        center = c(0, 0),
-        start = 1.5,
-        end = 1.5 - theta,
-        r = feature_radius - feature_thickness
-      ),
-      data.frame(
+    # adjoining the semi-circle, but not extending back towards the goal line.
+    # The semi-circle's band and each L-mark are separate rings, each in its own
+    # polygon group, so that no ring crosses itself or another
+    "nhl92" = {
+      arc_band_df <- rbind(
+        create_circle(
+          center = c(0, 0),
+          start = 0.5,
+          end = 1.5,
+          r = feature_radius
+        ),
+        create_circle(
+          center = c(0, 0),
+          start = 1.5,
+          end = 0.5,
+          r = max(inner_radius, 0)
+        ),
+        data.frame(
+          x = 0,
+          y = feature_radius
+        )
+      )
+
+      lower_l_mark_df <- data.frame(
         x = c(
-          -notch_dist_x,
+          -notch_dist_x - feature_thickness,
           -notch_dist_x + notch_width,
           -notch_dist_x + notch_width,
           -notch_dist_x,
           -notch_dist_x,
           -notch_dist_x - feature_thickness,
-          -notch_dist_x - feature_thickness,
-          -notch_dist_x
+          -notch_dist_x - feature_thickness
         ),
         y = c(
           -half_crease_width,
@@ -891,49 +899,19 @@ hockey_goal_crease_outline <- function(feature_radius = 0,
           -half_crease_width + feature_thickness,
           -half_crease_width + feature_thickness + notch_width,
           -half_crease_width + feature_thickness + notch_width,
-          -half_crease_width,
           -half_crease_width
         )
-      ),
-      create_circle(
-        center = c(0, 0),
-        start = 1.5 - theta,
-        end = 0.5 + theta,
-        r = feature_radius - feature_thickness
-      ),
-      data.frame(
-        x = c(
-          -notch_dist_x,
-          -notch_dist_x + notch_width,
-          -notch_dist_x + notch_width,
-          -notch_dist_x,
-          -notch_dist_x,
-          -notch_dist_x - feature_thickness,
-          -notch_dist_x - feature_thickness,
-          -notch_dist_x
-        ),
-        y = c(
-          half_crease_width,
-          half_crease_width,
-          half_crease_width - feature_thickness,
-          half_crease_width - feature_thickness,
-          half_crease_width - feature_thickness - notch_width,
-          half_crease_width - feature_thickness - notch_width,
-          half_crease_width,
-          half_crease_width
-        )
-      ),
-      create_circle(
-        center = c(0, 0),
-        start = 0.5 + theta,
-        end = 0.5,
-        r = feature_radius - feature_thickness
-      ),
-      data.frame(
-        x = c(0, 0),
-        y = c(feature_radius - feature_thickness, feature_radius)
       )
-    ),
+
+      upper_l_mark_df <- reflect(lower_l_mark_df, over_x = TRUE, over_y = FALSE)
+
+      nhl92_df <- rbind(arc_band_df, lower_l_mark_df, upper_l_mark_df)
+      nhl92_df$group <- rep(
+        1:3,
+        c(nrow(arc_band_df), nrow(lower_l_mark_df), nrow(upper_l_mark_df))
+      )
+      nhl92_df
+    },
 
     # Default case
     data.frame(
