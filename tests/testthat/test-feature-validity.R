@@ -227,6 +227,49 @@ test_that("lacrosse goal mouth stubs end on the inner arc (#87)", {
   }
 })
 
+test_that("custom lacrosse goal mouths are the band and stubs' union (#87)", {
+  # Area of the half annulus plus the parts of the stubs inside its hole
+  expected_area <- function(radius, thickness, separation) {
+    inner_radius <- radius - thickness
+    if (inner_radius <= 0) {
+      return(pi * radius^2 / 2)
+    }
+    corner_x <- -min(thickness, sqrt(max(inner_radius^2 - separation^2, 0)))
+    stub_area <- 0
+    if (corner_x < 0) {
+      stub_area <- 2 * stats::integrate(
+        function(x) sqrt(inner_radius^2 - x^2) - separation,
+        lower = corner_x,
+        upper = 0
+      )$value
+    }
+    pi * (radius^2 - inner_radius^2) / 2 + stub_area
+  }
+
+  # radius, thickness, separation
+  cases <- list(
+    thick_band = c(1, 0.6, 0.2),
+    thick_band_no_separation = c(1, 0.6, 0),
+    separation_past_stub_edge = c(14.6, 0.101, 14.4995),
+    separation_past_inner_arc = c(3, 0.1, 2.95),
+    thicker_than_radius = c(1, 1.2, 0.3)
+  )
+  for (case in names(cases)) {
+    dims <- cases[[case]]
+    df <- lacrosse_goal_mouth(dims[1], dims[2], dims[3])
+    ring <- as.matrix(df)
+    n <- nrow(ring)
+    expect_equal(df[n, ], df[1, ], ignore_attr = TRUE, info = case)
+    expect_length(split_rings(df), 1)
+    expect_equal(count_crossings(ring), 0, info = case)
+    expect_equal(count_reversals(ring), 0, info = case)
+
+    area <- abs(sum(ring[-n, 1] * ring[-1, 2] - ring[-1, 1] * ring[-n, 2])) / 2
+    expect_equal(area, expected_area(dims[1], dims[2], dims[3]),
+                 tolerance = 1e-4, info = case)
+  }
+})
+
 test_that("lacrosse features are simple rings in every league (#79, #87)", {
   for (league in setdiff(names(surface_dimensions[["lacrosse"]]), "custom")) {
     p <- geom_lacrosse(league)
