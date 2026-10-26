@@ -1,3 +1,9 @@
+# sportyR 2.4.1
+
+## Bug Fixes
+
+* make feature polygons simple closed rings ([#79](https://github.com/sportsdataverse/sportyR/issues/79)) ([#85](https://github.com/sportsdataverse/sportyR/issues/85)) ([69e371b](https://github.com/sportsdataverse/sportyR/commit/69e371b5b278c8afa7db2ded1eeeba4083f87647))
+
 # sportyR 2.4.0
 
 ## New Functions
