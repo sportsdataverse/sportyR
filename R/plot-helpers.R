@@ -107,6 +107,14 @@ add_feature <- function(g,
     feature_outline_color <- NA
   }
 
+  # A feature with no area and no visible outline would not show up anyway
+  # (e.g. a line that has no thickness in a given league), so it is not added
+  outline_visible <- !is.na(feature_outline_color) &&
+    !identical(substr(feature_outline_color, 8, 9), "00")
+  if (!outline_visible && !has_area(feature_df)) {
+    return(g)
+  }
+
   # Add the feature based on the reflections
   if (reflect_x && reflect_y) {
     g <- g +
