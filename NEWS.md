@@ -1,3 +1,9 @@
+# sportyR 2.4.2
+
+## Bug Fixes
+
+* **lacrosse:** end goal mouth stubs on the inner arc ([#89](https://github.com/sportsdataverse/sportyR/issues/89)) ([1b13ebd](https://github.com/sportsdataverse/sportyR/commit/1b13ebd72295b190697ca0e911d258fc4c8592b4)), closes [#87](https://github.com/sportsdataverse/sportyR/issues/87) [#87](https://github.com/sportsdataverse/sportyR/issues/87)
+
 # sportyR 2.4.1
 
 ## Bug Fixes
