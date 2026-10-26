@@ -1,3 +1,9 @@
+# sportyR 2.4.4
+
+## Bug Fixes
+
+* **lacrosse:** stop rectangular zones at the neutral zone edges ([#92](https://github.com/sportsdataverse/sportyR/issues/92)) ([66bf91f](https://github.com/sportsdataverse/sportyR/commit/66bf91fc95723488d58ef4535a5f7be33397b182))
+
 # sportyR 2.4.3
 
 ## Bug Fixes
