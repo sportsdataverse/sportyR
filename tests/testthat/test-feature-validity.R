@@ -80,7 +80,7 @@ invisible_empty_layers <- function(p) {
   }, p$layers)
 }
 
-test_that("create_circle() puts the quarter points exactly on the axes (#79)", {
+test_that("create_circle() puts the quarter points exactly on the axes", {
   half <- create_circle(r = 15, start = 0.5, end = 1.5, npoints = 101)
   expect_identical(half$x[1], 0)
   expect_identical(half$y[1], 15)
@@ -88,7 +88,7 @@ test_that("create_circle() puts the quarter points exactly on the axes (#79)", {
   expect_identical(half$y[101], -15)
 })
 
-test_that("split_rings() and has_area() read back-to-back rings (#79)", {
+test_that("split_rings() and has_area() read back-to-back rings", {
   square <- create_square(2)
   two_squares <- rbind(square, create_square(2, center = c(5, 0)))
   expect_length(split_rings(two_squares), 2)
@@ -107,7 +107,7 @@ test_that("split_rings() and has_area() read back-to-back rings (#79)", {
   expect_false(has_area(create_rectangle(-100, 100, 0, 0)))
 })
 
-test_that("the NHL trapezoid is two simple strips from the goal line (#79)", {
+test_that("the NHL trapezoid is two simple strips from the goal line", {
   df <- hockey_goaltenders_restricted_area(
     rink_length = 200,
     feature_thickness = 2 / 12,
@@ -126,7 +126,7 @@ test_that("the NHL trapezoid is two simple strips from the goal line (#79)", {
   expect_equal(df$group, rep(1:2, each = 5))
 })
 
-test_that("the mirrored faceoff lines keep their thickness on the same side (#79)", {
+test_that("the mirrored faceoff lines keep their thickness on the same side", {
   p <- geom_hockey("nhl", color_updates = list(faceoff_line = "#123456"))
   expect_true(all(crossing_rings(p) == 0))
 
@@ -148,7 +148,7 @@ test_that("the mirrored faceoff lines keep their thickness on the same side (#79
   }
 })
 
-test_that("the NHL goal crease's inner arc meets the inner straight sides (#79)", {
+test_that("the NHL goal crease's inner arc meets the inner straight sides", {
   df <- hockey_goal_crease_outline(
     feature_radius = 6,
     feature_thickness = 2 / 12,
@@ -161,7 +161,7 @@ test_that("the NHL goal crease's inner arc meets the inner straight sides (#79)"
   expect_equal(sum(vapply(split_rings(df), count_crossings, numeric(1))), 0)
 })
 
-test_that("circle-based hockey features are simple closed rings (#79)", {
+test_that("circle-based hockey features are simple closed rings", {
   circle <- hockey_center_faceoff_circle(
     feature_radius = 15,
     feature_thickness = 2 / 12
@@ -179,7 +179,7 @@ test_that("circle-based hockey features are simple closed rings (#79)", {
   expect_equal(vapply(rings, count_crossings, numeric(1)), c(0, 0))
 })
 
-test_that("lacrosse goal and bench outlines close on their first point (#79)", {
+test_that("lacrosse goal and bench outlines close on their first point", {
   frame <- lacrosse_goal_frame(4.75, 1 / 24, 3.82)
   net <- lacrosse_goal_net(4.75, 1 / 24, 3.82)
   bench <- lacrosse_player_bench_outline(0.25, 20, 5)
@@ -194,7 +194,7 @@ test_that("lacrosse goal and bench outlines close on their first point (#79)", {
   }
 })
 
-test_that("hockey features are simple rings in every league but the OHL (#79)", {
+test_that("hockey features are simple rings in every league but the OHL", {
   # OHL: the nhl92 crease style overlaps the L-marks on its arc
   for (league in setdiff(names(surface_dimensions[["hockey"]]), c("ohl", "custom"))) {
     p <- geom_hockey(league)
@@ -202,7 +202,7 @@ test_that("hockey features are simple rings in every league but the OHL (#79)", 
   }
 })
 
-test_that("lacrosse goal mouth stubs end on the inner arc (#87)", {
+test_that("lacrosse goal mouth stubs end on the inner arc", {
   for (league in c("ncaam", "ncaaw", "usaw")) {
     dims <- surface_dimensions[["lacrosse"]][[league]]
     df <- lacrosse_goal_mouth(
@@ -227,7 +227,7 @@ test_that("lacrosse goal mouth stubs end on the inner arc (#87)", {
   }
 })
 
-test_that("custom lacrosse goal mouths are the band and stubs' union (#87)", {
+test_that("custom lacrosse goal mouths are the band and stubs' union", {
   # Area of the half annulus plus the parts of the stubs inside its hole
   expected_area <- function(radius, thickness, separation) {
     inner_radius <- radius - thickness
@@ -270,21 +270,21 @@ test_that("custom lacrosse goal mouths are the band and stubs' union (#87)", {
   }
 })
 
-test_that("lacrosse features are simple rings in every league (#79, #87)", {
+test_that("lacrosse features are simple rings in every league", {
   for (league in setdiff(names(surface_dimensions[["lacrosse"]]), "custom")) {
     p <- geom_lacrosse(league)
     expect_true(all(crossing_rings(p) == 0), info = league)
   }
 })
 
-test_that("features with no area and no outline are not drawn (#79)", {
+test_that("features with no area and no outline are not drawn", {
   for (league in c("nhl", "nll")) {
     p <- if (league == "nhl") geom_hockey(league) else geom_lacrosse(league)
     expect_length(invisible_empty_layers(p), 0)
   }
 })
 
-test_that("add_feature() keeps a no-area feature only when its outline is visible (#79)", {
+test_that("add_feature() keeps a no-area feature only when its outline is visible", {
   line <- create_rectangle(-1, 1, 0, 0)
   square <- create_square(2)
   n_layers <- function(feature_df, outline) {

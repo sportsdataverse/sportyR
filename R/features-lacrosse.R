@@ -1011,7 +1011,7 @@ lacrosse_goal_mouth <- function(goal_mouth_radius = 0,
   # each stub's edge, and its corners are where the stub's inner edge
   # (x = -line_thickness) or its end (|y| = separation) first meets the inner
   # arc. The inner arc is cut back to start and end at those corners so that
-  # the band does not cross itself (#87)
+  # the band does not cross itself
   inner_radius <- goal_mouth_radius - line_thickness
   corner_x <- -min(
     line_thickness,

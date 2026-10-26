@@ -1,6 +1,6 @@
 skip_on_cran()
 
-test_that("get_surface_dimensions() returns one league's parameters (#73)", {
+test_that("get_surface_dimensions() returns one league's parameters", {
   nll <- get_surface_dimensions("lacrosse", "NLL")
   expect_type(nll, "list")
   expect_equal(nll$field_length, 200)
@@ -14,13 +14,13 @@ test_that("get_surface_dimensions() returns one league's parameters (#73)", {
   )
 })
 
-test_that("get_surface_dimensions() returns every league of a sport (#73)", {
+test_that("get_surface_dimensions() returns every league of a sport", {
   hockey <- get_surface_dimensions("Hockey")
   expect_identical(hockey, surface_dimensions[["hockey"]])
   expect_true("nhl" %in% names(hockey))
 })
 
-test_that("get_surface_dimensions() errors clearly on unknown input (#73)", {
+test_that("get_surface_dimensions() errors clearly on unknown input", {
   expect_error(get_surface_dimensions("quidditch"), "not a supported sport")
   expect_error(
     get_surface_dimensions("lacrosse", "XYZ"),
