@@ -1005,6 +1005,17 @@ lacrosse_goal_mouth_hash_mark <- function(goal_mouth_hash_mark_length = 0,
 lacrosse_goal_mouth <- function(goal_mouth_radius = 0,
                                 line_thickness = 0,
                                 goal_mouth_semi_circle_separation = 0) {
+  # The straight stubs along the goal line extended span x in
+  # [-line_thickness, 0], so each stub's inner edge (x = -line_thickness) meets
+  # the inner arc at |y| = sqrt(inner_radius^2 - line_thickness^2), not at the
+  # arc's end. The inner arc is cut back to start and end at those points so
+  # that the band does not cross itself (#87)
+  inner_radius <- goal_mouth_radius - line_thickness
+  inner_arc_offset <- 0
+  if (inner_radius > 0) {
+    inner_arc_offset <- asin(min(line_thickness / inner_radius, 1)) / pi
+  }
+
   # Create the goal mouth
   goal_mouth_df <- rbind(
     data.frame(
@@ -1027,30 +1038,26 @@ lacrosse_goal_mouth <- function(goal_mouth_radius = 0,
       x = c(
         0,
         0,
-        -line_thickness,
         -line_thickness
       ),
       y = c(
         -goal_mouth_radius,
         -goal_mouth_semi_circle_separation,
-        -goal_mouth_semi_circle_separation,
-        -goal_mouth_radius + line_thickness
+        -goal_mouth_semi_circle_separation
       )
     ),
     create_circle(
       center = c(0, 0),
-      start = 1.5,
-      end = 0.5,
-      r = goal_mouth_radius - line_thickness
+      start = 1.5 - inner_arc_offset,
+      end = 0.5 + inner_arc_offset,
+      r = inner_radius
     ),
     data.frame(
       x = c(
         -line_thickness,
-        -line_thickness,
         0
       ),
       y = c(
-        goal_mouth_radius - line_thickness,
         goal_mouth_semi_circle_separation,
         goal_mouth_semi_circle_separation
       )

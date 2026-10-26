@@ -202,9 +202,32 @@ test_that("hockey features are simple rings in every league but the OHL (#79)", 
   }
 })
 
-test_that("lacrosse features are simple rings where the goal mouth is a ring (#79)", {
-  # NCAA and USA Lacrosse women's goal mouths overlap their own end caps
-  for (league in c("nll", "world lacrosse", "pll", "usam")) {
+test_that("lacrosse goal mouth stubs end on the inner arc (#87)", {
+  for (league in c("ncaam", "ncaaw", "usaw")) {
+    dims <- surface_dimensions[["lacrosse"]][[league]]
+    df <- lacrosse_goal_mouth(
+      goal_mouth_radius = dims$goal_mouth_radius,
+      line_thickness = dims$goal_mouth_line_thickness,
+      goal_mouth_semi_circle_separation =
+        dims$goal_mouth_semi_circle_separation %or% 0
+    )
+    expect_equal(df[nrow(df), ], df[1, ], ignore_attr = TRUE, info = league)
+    # With no separation (NCAA men's) the band passes back through its first
+    # point, so it reads as the outer D and its hole
+    rings <- split_rings(df)
+    expect_true(all(vapply(rings, count_crossings, numeric(1)) == 0), info = league)
+    expect_true(has_area(df), info = league)
+
+    # The inner arc starts and ends on the stubs' inner edge
+    on_inner_edge <- abs(df$x + dims$goal_mouth_line_thickness) < 1e-9
+    inner_radius <- dims$goal_mouth_radius - dims$goal_mouth_line_thickness
+    on_inner_arc <- abs(sqrt(df$x^2 + df$y^2) - inner_radius) < 1e-9
+    expect_equal(sum(on_inner_edge & on_inner_arc), 2, info = league)
+  }
+})
+
+test_that("lacrosse features are simple rings in every league (#79, #87)", {
+  for (league in setdiff(names(surface_dimensions[["lacrosse"]]), "custom")) {
     p <- geom_lacrosse(league)
     expect_true(all(crossing_rings(p) == 0), info = league)
   }
