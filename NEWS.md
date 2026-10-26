@@ -1,3 +1,9 @@
+# sportyR 2.4.3
+
+## Bug Fixes
+
+* **hockey:** draw the nhl92 goal crease as simple rings ([#90](https://github.com/sportsdataverse/sportyR/issues/90)) ([12ad992](https://github.com/sportsdataverse/sportyR/commit/12ad992fbe556dc343bbc8fd14db1b01ae59e13d)), closes [#86](https://github.com/sportsdataverse/sportyR/issues/86)
+
 # sportyR 2.4.2
 
 ## Bug Fixes
