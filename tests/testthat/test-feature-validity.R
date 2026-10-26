@@ -215,7 +215,8 @@ test_that("lacrosse goal mouth stubs end on the inner arc (#87)", {
     # With no separation (NCAA men's) the band passes back through its first
     # point, so it reads as the outer D and its hole
     rings <- split_rings(df)
-    expect_true(all(vapply(rings, count_crossings, numeric(1)) == 0), info = league)
+    crossings <- vapply(rings, count_crossings, numeric(1))
+    expect_true(all(crossings == 0), info = league)
     expect_true(has_area(df), info = league)
 
     # The inner arc starts and ends on the stubs' inner edge
