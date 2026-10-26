@@ -59,3 +59,18 @@ test_that(
     expect_true(ggplot2::is_ggplot(ncaam_field))
   }
 )
+
+test_that(
+  "rectangular lacrosse zones tile the field without overlapping", {
+    # Zone features for a rectangular field with a 10 unit neutral zone
+    args <- list(field_length = 100, field_width = 60, nzone_length = 10)
+    dzone <- do.call(lacrosse_defensive_zone, args)
+    nzone <- lacrosse_neutral_zone(nzone_length = 10, field_width = 60)
+    ozone <- do.call(lacrosse_offensive_zone, args)
+
+    # The zones should abut at the neutral zone's edges
+    expect_equal(range(dzone$x), c(-50, -5))
+    expect_equal(range(nzone$x), c(-5, 5))
+    expect_equal(range(ozone$x), c(5, 50))
+  }
+)
