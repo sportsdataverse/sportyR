@@ -5,7 +5,7 @@ layers_filled <- function(p, fill) {
   Filter(function(l) identical(l$aes_params$fill, fill), p$layers)
 }
 
-test_that("NLL and World Lacrosse neutral zones span the restraining lines (#60)", {
+test_that("NLL and World Lacrosse neutral zones span the restraining lines", {
   for (league in c("nll", "world lacrosse")) {
     p <- geom_lacrosse(league, color_updates = list(neutral_zone = "#123456"))
     nz <- layers_filled(p, "#123456")
@@ -14,7 +14,7 @@ test_that("NLL and World Lacrosse neutral zones span the restraining lines (#60)
   }
 })
 
-test_that("penalty box fills start at the inside edge of the boards (#61)", {
+test_that("penalty box fills start at the inside edge of the boards", {
   p <- geom_lacrosse(
     "nll",
     color_updates = list(
@@ -27,10 +27,10 @@ test_that("penalty box fills start at the inside edge of the boards (#61)", {
   expect_equal(min(layers_filled(p, "#654321")[[1]]$data$x), 4.25)
 })
 
-test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s (#62)", {
+test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s", {
   params <- surface_dimensions[["lacrosse"]][["ncaaw"]]
   # The fan's arc has radius goal_fan_radius about the center of the goal line
-  # (#69), and the marks sit on the middle of its line (#75)
+  # and the marks sit on the middle of its line
   r <- params$goal_fan_radius - (params$goal_fan_line_thickness / 2)
   center_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
 
@@ -67,7 +67,7 @@ test_that("goal-fan hash marks sit on the fan, perpendicular, at arc distance s 
   )
 })
 
-test_that("the women's 8-meter arc follows NCAA Rule 1, Sections 6-7 (#69)", {
+test_that("the women's 8-meter arc follows NCAA Rule 1, Sections 6-7", {
   for (league in c("ncaaw", "usaw")) {
     params <- surface_dimensions[["lacrosse"]][[league]]
     r <- params$goal_fan_radius
@@ -104,7 +104,7 @@ test_that("the women's 8-meter arc follows NCAA Rule 1, Sections 6-7 (#69)", {
   expect_no_error(geom_lacrosse("custom"))
 })
 
-test_that("display_range = \"full\" contains every drawn feature (#63)", {
+test_that("display_range = \"full\" contains every drawn feature", {
   leagues <- setdiff(names(surface_dimensions[["lacrosse"]]), "custom")
   for (league in leagues) {
     p <- geom_lacrosse(league)
@@ -118,17 +118,17 @@ test_that("display_range = \"full\" contains every drawn feature (#63)", {
   }
 })
 
-test_that("a goal arc added without a thickness is not drawn as a solid block (#64)", {
+test_that("a goal arc added without a thickness is not drawn as a solid block", {
   p <- geom_lacrosse(
     "ncaam",
     field_updates = list(goal_arc_radius = 15, goal_arc_extension = 15),
     color_updates = list(goal_arc = "#123456")
   )
-  # With no thickness the arc has no area, so add_feature() leaves it out (#79)
+  # With no thickness the arc has no area, so add_feature() leaves it out
   expect_length(layers_filled(p, "#123456"), 0)
 })
 
-test_that("a user-supplied centre face-off marker colour is kept (#65)", {
+test_that("a user-supplied centre face-off marker colour is kept", {
   p <- geom_lacrosse(
     "ncaam",
     color_updates = list(center_face_off_marker = "#ff0000")
@@ -141,7 +141,7 @@ test_that("a user-supplied centre face-off marker colour is kept (#65)", {
   expect_length(layers_filled(p, "#ffcb05"), 1)
 })
 
-test_that("the NCAA football coaching line is six feet outside the sideline (#66)", {
+test_that("the NCAA football coaching line is six feet outside the sideline", {
   params <- surface_dimensions[["football"]][["ncaa"]]
 
   # Rule 1-2-2: measured from the inside edge of the sideline
@@ -183,14 +183,14 @@ outline_fills <- function(league) {
   vapply(default$layers[idx], function(l) l$aes_params$fill, character(1))
 }
 
-test_that("bordered football fields draw a white border outline by default (#67)", {
+test_that("bordered football fields draw a white border outline by default", {
   expect_true(surface_dimensions[["football"]][["ncaa"]]$field_bordered)
   expect_true(all(outline_fills("ncaa") == "#ffffff"))
   expect_true(all(outline_fills("nfl") == "#ffffff"))
   expect_true(all(outline_fills("nfhs11") == "#ffffff"))
 })
 
-test_that("unbordered football fields keep the transparent outline (#67)", {
+test_that("unbordered football fields keep the transparent outline", {
   expect_false(surface_dimensions[["football"]][["cfl"]]$field_bordered)
   expect_true(all(outline_fills("cfl") == "#ffffff00"))
 
@@ -200,14 +200,14 @@ test_that("unbordered football fields keep the transparent outline (#67)", {
   expect_equal(colors$red_zone_border, "#196f0c00")
 })
 
-test_that("a user border outline colour wins on any field (#67)", {
+test_that("a user border outline colour wins on any field", {
   for (league in c("cfl", "ncaa")) {
     p <- geom_football(league, color_updates = list(field_border_outline = "#ff0000"))
     expect_true(length(layers_filled(p, "#ff0000")) > 0, label = league)
   }
 })
 
-test_that("the PLL two-point arc follows the 2024 PLL Rulebook, II.G (#70)", {
+test_that("the PLL two-point arc follows the 2024 PLL Rulebook, II.G", {
   params <- surface_dimensions[["lacrosse"]][["pll"]]
   goal_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
 
@@ -253,7 +253,7 @@ test_that("the PLL two-point arc follows the 2024 PLL Rulebook, II.G (#70)", {
   expect_equal(max(abs(semi$y)), 15)
 })
 
-test_that("the NFL field border follows the bench's slanted side (#71)", {
+test_that("the NFL field border follows the bench's slanted side", {
   q <- surface_dimensions[["football"]][["nfl"]]
   args <- list(
     field_length = q$field_length,
@@ -347,7 +347,7 @@ test_that("the NFL field border follows the bench's slanted side (#71)", {
   )
 })
 
-test_that("each NLL / World Lacrosse penalty box is penalty_box_length inside (#72)", {
+test_that("each NLL / World Lacrosse penalty box is penalty_box_length inside", {
   for (league in c("nll", "world lacrosse")) {
     params <- surface_dimensions[["lacrosse"]][[league]]
     t <- params$boards_thickness
@@ -370,14 +370,14 @@ test_that("each NLL / World Lacrosse penalty box is penalty_box_length inside (#
       24
     )
 
-    # The fill (#61) sits exactly inside the walls
+    # The penalty box fill sits exactly inside the walls
     p <- geom_lacrosse(league, color_updates = list(team_b_penalty_box = "#654321"))
     fill <- layers_filled(p, "#654321")[[1]]$data
     expect_equal(range(fill$x), c(divider_inside, outer_wall_inside))
   }
 })
 
-test_that("every geom_*() scales its anchors and limits with the units (#74)", {
+test_that("every geom_*() scales its anchors and limits with the units", {
   surfaces <- list(
     baseball = function(u, ...) geom_baseball("mlb", field_units = u, ...),
     basketball = function(u, ...) geom_basketball("nba", court_units = u, ...),
@@ -439,7 +439,7 @@ test_that("every geom_*() scales its anchors and limits with the units (#74)", {
   expect_equal(moved$coordinates$limits$x, still$coordinates$limits$x + 3)
 })
 
-test_that("goal-fan hash marks bisect the fan's line (#75)", {
+test_that("goal-fan hash marks bisect the fan's line", {
   params <- surface_dimensions[["lacrosse"]][["ncaaw"]]
   goal_x <- (params$field_length / 2) - params$goal_line_center_to_end_line
 
@@ -470,7 +470,7 @@ test_that("goal-fan hash marks bisect the fan's line (#75)", {
   )
 })
 
-test_that("x_trans / y_trans move every football layer by exactly that much (#76)", {
+test_that("x_trans / y_trans move every football layer by exactly that much", {
   coords <- function(p, axis) {
     columns <- paste0(axis, c("", "_min", "_max", "min", "max"))
     unlist(lapply(p$layers, function(l) {
@@ -507,7 +507,7 @@ test_that("drawing a custom surface in other units explains the missing units", 
   expect_equal(unit_conversion_factor("", NULL), 1)
 })
 
-test_that("geom_basketball(\"custom\") draws (#77)", {
+test_that("geom_basketball(\"custom\") draws", {
   # ggplotGrob() opens a device; a null pdf keeps Rplots.pdf out of the tree
   grDevices::pdf(NULL)
   on.exit(grDevices::dev.off(), add = TRUE)

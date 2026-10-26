@@ -1005,6 +1005,43 @@ lacrosse_goal_mouth_hash_mark <- function(goal_mouth_hash_mark_length = 0,
 lacrosse_goal_mouth <- function(goal_mouth_radius = 0,
                                 line_thickness = 0,
                                 goal_mouth_semi_circle_separation = 0) {
+  # The goal mouth is the union of the half annulus and the straight stubs
+  # along the goal line extended (x in [-line_thickness, 0], |y| at least the
+  # semi-circle separation). The hole inside it is bounded by the inner arc and
+  # each stub's edge, and its corners are where the stub's inner edge
+  # (x = -line_thickness) or its end (|y| = separation) first meets the inner
+  # arc. The inner arc is cut back to start and end at those corners so that
+  # the band does not cross itself
+  inner_radius <- goal_mouth_radius - line_thickness
+  corner_x <- -min(
+    line_thickness,
+    sqrt(max(inner_radius^2 - goal_mouth_semi_circle_separation^2, 0))
+  )
+  corner_y <- sqrt(max(inner_radius^2 - corner_x^2, 0))
+
+  # With no hole left (the line is thicker than the inner radius and the stubs
+  # meet), the goal mouth is the solid half disk
+  if (inner_radius <= 0 || corner_y == 0) {
+    goal_mouth_df <- rbind(
+      create_circle(
+        center = c(0, 0),
+        start = 0.5,
+        end = 1.5,
+        r = goal_mouth_radius
+      ),
+      data.frame(
+        x = 0,
+        y = goal_mouth_radius
+      )
+    )
+
+    return(goal_mouth_df)
+  }
+
+  # The angle, in units of pi, between the bottom of the inner arc and the
+  # hole's corner
+  inner_arc_offset <- asin(-corner_x / inner_radius) / pi
+
   # Create the goal mouth
   goal_mouth_df <- rbind(
     data.frame(
@@ -1027,35 +1064,37 @@ lacrosse_goal_mouth <- function(goal_mouth_radius = 0,
       x = c(
         0,
         0,
-        -line_thickness,
-        -line_thickness
+        corner_x
       ),
       y = c(
         -goal_mouth_radius,
         -goal_mouth_semi_circle_separation,
-        -goal_mouth_semi_circle_separation,
-        -goal_mouth_radius + line_thickness
+        -goal_mouth_semi_circle_separation
       )
     ),
     create_circle(
       center = c(0, 0),
-      start = 1.5,
-      end = 0.5,
-      r = goal_mouth_radius - line_thickness
+      start = 1.5 - inner_arc_offset,
+      end = 0.5 + inner_arc_offset,
+      r = inner_radius
     ),
     data.frame(
       x = c(
-        -line_thickness,
-        -line_thickness,
+        corner_x,
         0
       ),
       y = c(
-        goal_mouth_radius - line_thickness,
         goal_mouth_semi_circle_separation,
         goal_mouth_semi_circle_separation
       )
     )
   )
+
+  # Where a corner lies on the inner arc or the goal line extended, it repeats
+  # the point next to it, so repeated points are dropped
+  is_repeat <- c(FALSE, rowSums(abs(diff(as.matrix(goal_mouth_df)))) < 1e-12)
+  goal_mouth_df <- goal_mouth_df[!is_repeat, ]
+  rownames(goal_mouth_df) <- NULL
 
   return(goal_mouth_df)
 }
