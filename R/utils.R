@@ -161,7 +161,8 @@ load_default_parameters <- function(league = "",
 #' @keywords internal
 same_color <- function(a, b) {
   identical(
-    grDevices::col2rgb(a, alpha = TRUE),
-    grDevices::col2rgb(b, alpha = TRUE)
+    # unname() drops the column names col2rgb() copies from a named vector
+    unname(grDevices::col2rgb(a, alpha = TRUE)),
+    unname(grDevices::col2rgb(b, alpha = TRUE))
   )
 }
