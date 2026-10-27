@@ -1,3 +1,9 @@
+# sportyR 2.4.5
+
+## Bug Fixes
+
+* **lacrosse:** compare face-off marker and center line by rendered color ([#94](https://github.com/sportsdataverse/sportyR/issues/94)) ([cb68a2e](https://github.com/sportsdataverse/sportyR/commit/cb68a2ef3d4f8c76bfd1c5a67405a5f30243e4fd))
+
 # sportyR 2.4.4
 
 ## Bug Fixes
