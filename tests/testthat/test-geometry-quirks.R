@@ -175,8 +175,10 @@ outline_fills <- function(league) {
   fills <- vapply(tagged$layers, function(l) {
     if (is.null(l$aes_params$fill)) NA_character_ else l$aes_params$fill
   }, character(1))
+  # Both tagged layers must be drawn, so a missing outline cannot go unnoticed
+  expect_true("#123456" %in% fills)
+  expect_true("#654321" %in% fills)
   idx <- which(fills %in% c("#123456", "#654321"))
-  expect_true(length(idx) > 0)
   for (i in idx) {
     expect_equal(default$layers[[i]]$data, tagged$layers[[i]]$data)
   }
