@@ -309,7 +309,7 @@ geom_lacrosse <- function(league,
   if (
     center_face_off_marker_color_contrasting == TRUE &&
       is.null(color_updates[["center_face_off_marker"]]) &&
-      feature_colors$center_face_off_marker == feature_colors$center_line
+      same_color(feature_colors$center_face_off_marker, feature_colors$center_line)
   ) {
     feature_colors$center_face_off_marker <- "#ffcb05"
   }
