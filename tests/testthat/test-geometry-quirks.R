@@ -141,6 +141,36 @@ test_that("a user-supplied centre face-off marker colour is kept", {
   expect_length(layers_filled(p, "#ffcb05"), 1)
 })
 
+test_that("the contrasting centre face-off marker matches on rendered colour", {
+  # Each spelling of white renders the same as the default #ffffff marker
+  for (white in c("white", "#FFFFFF", "#ffffffff")) {
+    p <- geom_lacrosse("ncaam", color_updates = list(center_line = white))
+    expect_length(layers_filled(p, "#ffcb05"), 1)
+  }
+
+  # A named colour vector compares on its value, not its name
+  p <- geom_lacrosse("ncaam", color_updates = list(center_line = c(a = "white")))
+  expect_length(layers_filled(p, "#ffcb05"), 1)
+
+  # A centre line that renders differently keeps the default white marker
+  p <- geom_lacrosse("ncaam", color_updates = list(center_line = "#123456"))
+  expect_length(layers_filled(p, "#ffcb05"), 0)
+
+  # The marker is still drawn white: recolouring it removes exactly one white
+  # layer, since other white features share the fill
+  p_red <- geom_lacrosse(
+    "ncaam",
+    color_updates = list(
+      center_line = "#123456",
+      center_face_off_marker = "#ff0000"
+    )
+  )
+  expect_length(
+    layers_filled(p, "#ffffff"),
+    length(layers_filled(p_red, "#ffffff")) + 1
+  )
+})
+
 test_that("the NCAA football coaching line is six feet outside the sideline", {
   params <- surface_dimensions[["football"]][["ncaa"]]
 

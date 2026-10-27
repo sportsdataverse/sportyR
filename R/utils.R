@@ -144,3 +144,25 @@ load_default_parameters <- function(league = "",
   xlims <<- xlims
   ylims <<- ylims
 }
+
+#' Check If Two Colors Render the Same
+#'
+#' Compare two colors by their RGBA values rather than their spelling, so that
+#' \code{"white"}, \code{"#FFFFFF"}, \code{"#ffffff"} and \code{"#ffffffff"} all
+#' count as the same color
+#'
+#' @param a The first color, in any form understood by
+#'   \code{grDevices::col2rgb()}
+#' @param b The second color, in any form understood by
+#'   \code{grDevices::col2rgb()}
+#'
+#' @return A boolean indicating if the two colors have identical RGBA values
+#'
+#' @keywords internal
+same_color <- function(a, b) {
+  identical(
+    # unname() drops the column names col2rgb() copies from a named vector
+    unname(grDevices::col2rgb(a, alpha = TRUE)),
+    unname(grDevices::col2rgb(b, alpha = TRUE))
+  )
+}
