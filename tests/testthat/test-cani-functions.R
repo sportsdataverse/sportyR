@@ -95,3 +95,19 @@ test_that("cani_color_league_features() returns error with bad league", {
     expect_error(cani_color_league_features("badleague"))
   )
 })
+
+test_that("cani_plot_sport() returns correct message for a one-league sport", {
+  # No sport in the shipped dimensions has exactly one league, so swap in a
+  # single-league sport (plus the ignored "custom" entry) to reach that branch
+  local_mocked_bindings(
+    surface_dimensions = list(curling = list(wcf = list(), custom = list()))
+  )
+  expect_message(
+    cani_plot_sport("curling"),
+    fixed = TRUE,
+    regexp = glue::glue(
+      "A plot for curling can be created via the geom_curling() function ",
+      "for the following league: WCF"
+    )
+  )
+})
