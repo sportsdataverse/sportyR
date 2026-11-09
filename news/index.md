@@ -2,6 +2,8 @@
 
 ## sportyR 2.4.5
 
+CRAN release: 2026-10-28
+
 ### Bug Fixes
 
 - **lacrosse:** compare face-off marker and center line by rendered

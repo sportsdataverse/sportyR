@@ -1,4 +1,4 @@
-# sportyR
+# **sportyR**
 
 As the field of sports analytics evolve, there’s a growing need for
 methods to both track and visualize players throughout the game. This
@@ -14,7 +14,7 @@ the **JavaScript / TypeScript** version, see
 ([docs](https://plot.sportsdataverse.org/guides/surfaces),
 [GitHub](https://github.com/sportsdataverse/sdvplot-js)).
 
-## Installation
+## **Installation**
 
 The most recent release of `sportyR` is available on
 [CRAN](https://CRAN.R-project.org/package=sportyR), and it can be
@@ -26,13 +26,25 @@ installed directly via:
 install.packages("sportyR")
 ```
 
+The latest build can also be installed from
+[R-universe](https://sportsdataverse.r-universe.dev/sportyR) with:
+
+``` r
+
+install.packages("sportyR", repos = c("https://sportsdataverse.r-universe.dev", getOption("repos")))
+```
+
 The development version of `sportyR` can be installed from
 [GitHub](https://github.com/sportsdataverse/sportyR) with:
 
 ``` r
 
 # Install development version from GitHub
-devtools::install_github("sportsdataverse/sportyR")
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pak("sportsdataverse/sportyR")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/sportyR")
 ```
 
 Once the library is installed, be sure to load it into the working
@@ -44,7 +56,28 @@ environment.
 library(sportyR)
 ```
 
-## Plotting Functions
+## **Quick start**
+
+Every surface is one `geom_{sport}()` call that returns a `ggplot2`
+object, ready for your data layers:
+
+``` r
+
+library(sportyR)
+
+# A full NBA court in TV view
+geom_basketball("nba")
+
+# Only the red zone of an NFL field
+geom_football("nfl", display_range = "red zone")
+
+# Check whether a league can be plotted
+cani_plot_league("NHL")
+```
+
+The sections below cover the shared arguments, display ranges and units.
+
+## **Plotting Functions**
 
 All plotting functions in this library are named as `geom_{sport}()`,
 and take the following arguments:
@@ -92,7 +125,7 @@ and take the following arguments:
   You’re welcome to change the units of the data as well, but this is
   provided for convenience
 
-## TV View and Display Ranges
+## **TV View and Display Ranges**
 
 ### TV View
 
@@ -153,7 +186,7 @@ geom_curling("wcf", display_range = "house")
 ![The house at one end of a WCF curling sheet: the rings around the
 button](reference/figures/README-readme-display-range-curling-demo-1.png)
 
-## Plot Units
+## **Plot Units**
 
 Each plot function has a standardized unit of measure in which the plot
 is created, and is standardized by the primary units specified in their
@@ -239,7 +272,7 @@ data frames’ coordinates ***so long as they contain an*** `x` ***and***
 function. Reflection is also possible through
 [`reflect()`](https://sportyR.sportsdataverse.org/reference/reflect.md).
 
-## Surface Examples
+## **Surface Examples**
 
 Most playing surfaces are standard in size, so they can be rendered via
 a call to the proper `geom_{sport}()` function like so:
@@ -281,23 +314,80 @@ geom_basketball("nba", display_range = "offense", rotation = 270)
 the basket is at the
 bottom](reference/figures/README-readme-nhl-example-1.png)
 
-## Follow the SportsDataverse (@SportsDataverse) on X and star this repo
+## **Documentation**
+
+The [**`sportyR`** documentation
+website](https://sportyR.sportsdataverse.org/) has the [function
+reference](https://sportyR.sportsdataverse.org/reference/index.html) and
+these articles:
+
+- [Getting
+  Started](https://sportyR.sportsdataverse.org/articles/sportyR.html)
+- [Customizing
+  Plots](https://sportyR.sportsdataverse.org/articles/customize-plot.html)
+- [Plotting Tracking
+  Data](https://sportyR.sportsdataverse.org/articles/plotting-tracking-data.html)
+- [Animating Tracking
+  Data](https://sportyR.sportsdataverse.org/articles/animating-tracking-data.html)
+
+Release notes are in the
+[NEWS](https://sportyR.sportsdataverse.org/news/index.html).
+
+## **Companion packages**
+
+- [**`sportypy`**](https://sportypy.sportsdataverse.org/) is the Python
+  version of `sportyR`.
+- [**`@sportsdataverse/sporty`**](https://plot.sportsdataverse.org/guides/surfaces)
+  draws the same surfaces in JavaScript / TypeScript.
+- [**`sdvplotR`**](https://sdvplotR.sportsdataverse.org/) paints
+  `sportyR` surfaces in a team’s colors and adds team logos.
+
+## **The SportsDataverse**
+
+[**`sportyR`**](https://sportyR.sportsdataverse.org/) is part of the
+[SportsDataverse](https://sportsdataverse.org/), a set of open-source
+packages for sports data.
+
+| Package | Sport / Scope |
+|----|----|
+| [**cfbfastR**](https://cfbfastR.sportsdataverse.org/) | College football |
+| [**hoopR**](https://hoopR.sportsdataverse.org/) | Men’s basketball (NBA and NCAA) |
+| [**wehoop**](https://wehoop.sportsdataverse.org/) | Women’s basketball (WNBA and NCAA) |
+| [**fastRhockey**](https://fastRhockey.sportsdataverse.org/) | Hockey (NHL and PWHL) |
+| [**baseballr**](https://billpetti.github.io/baseballr/) | Baseball (MLB, MiLB, NCAA) |
+| [**softballR**](https://github.com/sportsdataverse/softballR) | College softball |
+| [**oddsapiR**](https://oddsapiR.sportsdataverse.org/) | Sports betting odds |
+| [**recruitR**](https://recruitR.sportsdataverse.org/) | College football recruiting |
+| [**usfootballR**](https://usfootballR.sportsdataverse.org/) | US soccer |
+| [**cfbseedR**](https://cfbseedR.sportsdataverse.org/) · [**cfb4th**](https://cfb4th.sportsdataverse.org/) | CFB playoff simulation · fourth-down decisions |
+| [**cfbplotR**](https://cfbplotR.sportsdataverse.org/) · [**sdvplotR**](https://sdvplotR.sportsdataverse.org/) · [**sportyR**](https://sportyR.sportsdataverse.org/) | Logos, colors, tables · playing surfaces |
+| [**sportsdataverse-R**](https://r.sportsdataverse.org/) | Umbrella R metapackage |
+| [**sportsdataverse-py**](https://py.sportsdataverse.org/) · [**sportsdataverse.js**](https://js.sportsdataverse.org/) | Python and Node.js |
+
+See the full ecosystem at
+[sportsdataverse.org](https://sportsdataverse.org/).
+
+## **Follow the [SportsDataverse](https://x.com/SportsDataverse) on X and star this repo**
 
 [![X
 Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
+
+[![X
+Follow](https://img.shields.io/twitter/follow/sportyR_pkg?color=blue&label=%40sportyR_pkg&logo=x&style=for-the-badge)](https://x.com/sportyR_pkg)
 
 [![GitHub
 stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR)
 
 [![Star history of
-sportsdataverse/sportyR](https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png)](https://github.com/sportsdataverse/sportyR/stargazers)
+sportsdataverse/sportyR](https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png)](https://github.com/sportsdataverse/sportyR)
 
-## License
+## **Our Authors**
 
-This package is released under the [GPL 3.0
-License](https://www.gnu.org/licenses/gpl-3.0.html).
+- [Ross Drucker](https://github.com/rossdrucker) [![ORCID
+  logo](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0002-0688-0235)  
+  [![@rossdrucker](https://img.shields.io/github/followers/rossdrucker?color=eee&logo=Github&style=for-the-badge)](https://github.com/rossdrucker)
 
-## Contributions
+## **Contributions**
 
 ### League Office
 
@@ -333,7 +423,22 @@ By regularly reporting issues, making very slight modifications, fixing
 typos, or just helping others navigate their own issues, you’re able to
 join the Scout Team!
 
-## Cheat sheet
+## **Special Thanks**
+
+### Acknowledgements
+
+Much of the underling code structure in `sportyR`, beginning with
+`v2.0.0`, was influenced by [The
+Bucketless](https://github.com/the-bucketless)’s work on the
+[hockey_rink](https://github.com/the-bucketless/hockey_rink) package for
+Python.
+
+### `sportyR`tist
+
+The `sportyR` logo was created by Lindsey Kelso. Check her out on
+[Instagram](https://www.instagram.com/kelsokreationsbylindsey)!
+
+## **Cheat sheet**
 
 A printable one-page reference for `sportyR` — every surface function
 and the arguments that shape it — is available as a free PDF:
@@ -345,7 +450,14 @@ Light and dark, US Letter landscape. Every SportsDataverse package has
 one — browse them all at
 **[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
-## Citation
+## **Code of Conduct**
+
+Please note that the sportyR project is released with a [Contributor
+Code of
+Conduct](https://github.com/sportsdataverse/sportyR/blob/main/CODE-OF-CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
+
+## **Citations**
 
 To cite the `sportyR` R package in publications, use:
 
@@ -362,18 +474,10 @@ To cite the `sportyR` R package in publications, use:
 `citation("sportyR")` returns this entry with the installed version
 number attached.
 
-### Acknowledgements
+## **License**
 
-Much of the underling code structure in `sportyR`, beginning with
-`v2.0.0`, was influenced by [The
-Bucketless](https://github.com/the-bucketless)’s work on the
-[hockey_rink](https://github.com/the-bucketless/hockey_rink) package for
-Python.
-
-### `sportyR`tist
-
-The `sportyR` logo was created by Lindsey Kelso. Check her out on
-[Instagram](https://www.instagram.com/kelsokreationsbylindsey)!
+`sportyR` is released under the [GPL (\>= 3)
+License](https://www.gnu.org/licenses/gpl-3.0.html).
 
 # Package index
 

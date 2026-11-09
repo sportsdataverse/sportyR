@@ -229,10 +229,9 @@ README skips the first three:
   `NAMESPACE`, or `.Rbuildignore` change. Run `devtools::check()`
   locally to catch problems first
 
-- **lint** —
-  [`lintr::lint_package()`](https://lintr.r-lib.org/reference/lint.html)
-  with the settings in `.lintr`. Runs when `R/`, `tests/`, or `.lintr`
-  change. Run it locally and fix any lints your changes introduce
+- **lint** — `lintr::lint_package()` with the settings in `.lintr`. Runs
+  when `R/`, `tests/`, or `.lintr` change. Run it locally and fix any
+  lints your changes introduce
 
 - **test-coverage** — runs the test suite through `covr` and reports the
   result to [Codecov](https://codecov.io/gh/sportsdataverse/sportyR).

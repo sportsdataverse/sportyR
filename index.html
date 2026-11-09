@@ -124,31 +124,61 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="sportyr-">sportyR <a class="anchor" aria-label="anchor" href="#sportyr-"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="sportyr-">
+<strong>sportyR</strong> 
+<a class="anchor" aria-label="anchor" href="#sportyr-"></a>
 </h1>
 </div>
 <!-- badges: start -->
 
+<!-- badges: end -->
 <p>As the field of sports analytics evolve, there’s a growing need for methods to both track and visualize players throughout the game. This package aims to make this easy regardless of sport needed to be plotted.</p>
 <p>This repository contains code necessary to draw scale versions of playing surfaces to visualize play-by-play data for baseball, basketball, curling, football, hockey, lacrosse, soccer, softball, tennis, and volleyball in <strong>R</strong>. For the <strong>Python</strong> version of this package, click <a href="https://github.com/sportsdataverse/sportypy" class="external-link">here</a>. For the <strong>JavaScript / TypeScript</strong> version, see <a href="https://www.npmjs.com/package/@sportsdataverse/sporty" class="external-link"><code>@sportsdataverse/sporty</code></a> (<a href="https://plot.sportsdataverse.org/guides/surfaces" class="external-link">docs</a>, <a href="https://github.com/sportsdataverse/sdvplot-js" class="external-link">GitHub</a>).</p>
 <div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+<h2 id="installation">
+<strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>The most recent release of <code>sportyR</code> is available on <a href="https://CRAN.R-project.org/package=sportyR" class="external-link">CRAN</a>, and it can be installed directly via:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install released version from CRAN</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sportyR"</span><span class="op">)</span></span></code></pre></div>
-<p>The development version of <code>sportyR</code> can be installed from <a href="https://github.com/sportsdataverse/sportyR" class="external-link">GitHub</a> with:</p>
+<p>The latest build can also be installed from <a href="https://sportsdataverse.r-universe.dev/sportyR" class="external-link">R-universe</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install development version from GitHub</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"sportsdataverse/sportyR"</span><span class="op">)</span></span></code></pre></div>
-<p>Once the library is installed, be sure to load it into the working environment.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"sportyR"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://sportsdataverse.r-universe.dev"</span>, <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>The development version of <code>sportyR</code> can be installed from <a href="https://github.com/sportsdataverse/sportyR" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Install development version from GitHub</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"pak"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sportsdataverse/sportyR"</span><span class="op">)</span></span>
+<span><span class="co"># or, with remotes:</span></span>
+<span><span class="co"># if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")</span></span>
+<span><span class="co"># remotes::install_github("sportsdataverse/sportyR")</span></span></code></pre></div>
+<p>Once the library is installed, be sure to load it into the working environment.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Required to use package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sportyR.sportsdataverse.org/">sportyR</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="plotting-functions">Plotting Functions<a class="anchor" aria-label="anchor" href="#plotting-functions"></a>
+<h2 id="quick-start">
+<strong>Quick start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
+</h2>
+<p>Every surface is one <code>geom_{sport}()</code> call that returns a <code>ggplot2</code> object, ready for your data layers:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sportyR.sportsdataverse.org/">sportyR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># A full NBA court in TV view</span></span>
+<span><span class="fu"><a href="reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span><span class="st">"nba"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Only the red zone of an NFL field</span></span>
+<span><span class="fu"><a href="reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, display_range <span class="op">=</span> <span class="st">"red zone"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check whether a league can be plotted</span></span>
+<span><span class="fu"><a href="reference/cani_plot_league.html">cani_plot_league</a></span><span class="op">(</span><span class="st">"NHL"</span><span class="op">)</span></span></code></pre></div>
+<p>The sections below cover the shared arguments, display ranges and units.</p>
+</div>
+<div class="section level2">
+<h2 id="plotting-functions">
+<strong>Plotting Functions</strong><a class="anchor" aria-label="anchor" href="#plotting-functions"></a>
 </h2>
 <p>All plotting functions in this library are named as <code>geom_{sport}()</code>, and take the following arguments:</p>
 <ul>
@@ -163,7 +193,8 @@
 </ul>
 </div>
 <div class="section level2">
-<h2 id="tv-view-and-display-ranges">TV View and Display Ranges<a class="anchor" aria-label="anchor" href="#tv-view-and-display-ranges"></a>
+<h2 id="tv-view-and-display-ranges">
+<strong>TV View and Display Ranges</strong><a class="anchor" aria-label="anchor" href="#tv-view-and-display-ranges"></a>
 </h2>
 <div class="section level3">
 <h3 id="tv-view">TV View<a class="anchor" aria-label="anchor" href="#tv-view"></a>
@@ -180,19 +211,20 @@
 <h3 id="display-ranges">Display Ranges<a class="anchor" aria-label="anchor" href="#display-ranges"></a>
 </h3>
 <p>Related to the idea of custom displays of the plot is the concept of the <code>display_range</code> parameter in the <code>geom_{sport}()</code> function. This is unique to each sport, but globally supported across the package. This parameter allows the specification of a designated region of the surface to display. As an example, if you’re trying to limit the analysis of NFL data to being inside of the red zone, you may want to do something similar to the following:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Display only the red zone of the football field</span></span>
 <span><span class="fu"><a href="reference/geom_football.html">geom_football</a></span><span class="op">(</span><span class="st">"nfl"</span>, display_range <span class="op">=</span> <span class="st">"red zone"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-display-range-demo-1.png" alt="The red zone of an NFL field, from the 20-yard line to the back of the end zone" width="100%"></p>
 <p>Another use case would be to make the data you’re viewing easier to see. Say you wanted to look at curling data, but only cared about stone positions in the house (and not the path as to how the stones got there). You might do this:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Display only the house on a curling sheet</span></span>
 <span><span class="fu"><a href="reference/geom_curling.html">geom_curling</a></span><span class="op">(</span><span class="st">"wcf"</span>, display_range <span class="op">=</span> <span class="st">"house"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-display-range-curling-demo-1.png" alt="The house at one end of a WCF curling sheet: the rings around the button" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="plot-units">Plot Units<a class="anchor" aria-label="anchor" href="#plot-units"></a>
+<h2 id="plot-units">
+<strong>Plot Units</strong><a class="anchor" aria-label="anchor" href="#plot-units"></a>
 </h2>
 <p>Each plot function has a standardized unit of measure in which the plot is created, and is standardized by the primary units specified in their respective rule books. They are as follows (and any explanation is in parentheses):</p>
 <table class="table">
@@ -479,14 +511,15 @@
 <p>As mentioned <a href="#plotting-functions">above</a>, the <code>geom_{sport}()</code> family of functions allow for rotations of surfaces via the <code>rotation</code> argument. To make this easy, <code>sportyR</code> also allows for the rotation of data frames’ coordinates <strong><em>so long as they contain an</em></strong> <code>x</code> <strong><em>and</em></strong> <code>y</code> <strong><em>column</em></strong> via the <code><a href="reference/rotate_coords.html">rotate_coords()</a></code> function. Reflection is also possible through <code><a href="reference/reflect.html">reflect()</a></code>.</p>
 </div>
 <div class="section level2">
-<h2 id="surface-examples">Surface Examples<a class="anchor" aria-label="anchor" href="#surface-examples"></a>
+<h2 id="surface-examples">
+<strong>Surface Examples</strong><a class="anchor" aria-label="anchor" href="#surface-examples"></a>
 </h2>
 <p>Most playing surfaces are standard in size, so they can be rendered via a call to the proper <code>geom_{sport}()</code> function like so:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw a basic MLB infield plot</span></span>
 <span><span class="fu"><a href="reference/geom_baseball.html">geom_baseball</a></span><span class="op">(</span><span class="st">"mlb"</span>, display_range <span class="op">=</span> <span class="st">"infield"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-mlb-example-1.png" alt="The infield of an MLB baseball field: the diamond, bases, pitcher's mound and infield dirt" width="100%"></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a 100m by 75m FIFA pitch</span></span>
 <span><span class="fu"><a href="reference/geom_soccer.html">geom_soccer</a></span><span class="op">(</span></span>
 <span>  <span class="st">"fifa"</span>,</span>
@@ -497,25 +530,136 @@
 <span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-fifa-example-1.png" alt="A full FIFA soccer pitch, 100 m long and 75 m wide" width="100%"></p>
 <p>It’s also possible to plot partial surfaces and rotated surfaces:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Draw half of a rotated NBA court</span></span>
 <span><span class="fu"><a href="reference/geom_basketball.html">geom_basketball</a></span><span class="op">(</span><span class="st">"nba"</span>, display_range <span class="op">=</span> <span class="st">"offense"</span>, rotation <span class="op">=</span> <span class="fl">270</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-readme-nhl-example-1.png" alt="The offensive half of an NBA basketball court, rotated 270 degrees so the basket is at the bottom" width="100%"></p>
 </div>
 <div class="section level2">
-<h2 id="follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo">Follow the SportsDataverse (@SportsDataverse) on X and star this repo<a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-sportsdataverse-on-x-and-star-this-repo"></a>
+<h2 id="documentation">
+<strong>Documentation</strong><a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
+<p>The <a href="https://sportyR.sportsdataverse.org/"><strong><code>sportyR</code></strong> documentation website</a> has the <a href="https://sportyR.sportsdataverse.org/reference/index.html">function reference</a> and these articles:</p>
+<ul>
+<li><a href="https://sportyR.sportsdataverse.org/articles/sportyR.html">Getting Started</a></li>
+<li><a href="https://sportyR.sportsdataverse.org/articles/customize-plot.html">Customizing Plots</a></li>
+<li><a href="https://sportyR.sportsdataverse.org/articles/plotting-tracking-data.html">Plotting Tracking Data</a></li>
+<li><a href="https://sportyR.sportsdataverse.org/articles/animating-tracking-data.html">Animating Tracking Data</a></li>
+</ul>
+<p>Release notes are in the <a href="https://sportyR.sportsdataverse.org/news/index.html">NEWS</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="companion-packages">
+<strong>Companion packages</strong><a class="anchor" aria-label="anchor" href="#companion-packages"></a>
+</h2>
+<ul>
+<li>
+<a href="https://sportypy.sportsdataverse.org/" class="external-link"><strong><code>sportypy</code></strong></a> is the Python version of <code>sportyR</code>.</li>
+<li>
+<a href="https://plot.sportsdataverse.org/guides/surfaces" class="external-link"><strong><code>@sportsdataverse/sporty</code></strong></a> draws the same surfaces in JavaScript / TypeScript.</li>
+<li>
+<a href="https://sdvplotR.sportsdataverse.org/" class="external-link"><strong><code>sdvplotR</code></strong></a> paints <code>sportyR</code> surfaces in a team’s colors and adds team logos.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="the-sportsdataverse">
+<strong>The SportsDataverse</strong><a class="anchor" aria-label="anchor" href="#the-sportsdataverse"></a>
+</h2>
+<p><a href="https://sportyR.sportsdataverse.org/"><strong><code>sportyR</code></strong></a> is part of the <a href="https://sportsdataverse.org/" class="external-link">SportsDataverse</a>, a set of open-source packages for sports data.</p>
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Package</th>
+<th>Sport / Scope</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><a href="https://cfbfastR.sportsdataverse.org/" class="external-link"><strong>cfbfastR</strong></a></td>
+<td>College football</td>
+</tr>
+<tr>
+<td><a href="https://hoopR.sportsdataverse.org/" class="external-link"><strong>hoopR</strong></a></td>
+<td>Men’s basketball (NBA and NCAA)</td>
+</tr>
+<tr>
+<td><a href="https://wehoop.sportsdataverse.org/" class="external-link"><strong>wehoop</strong></a></td>
+<td>Women’s basketball (WNBA and NCAA)</td>
+</tr>
+<tr>
+<td><a href="https://fastRhockey.sportsdataverse.org/" class="external-link"><strong>fastRhockey</strong></a></td>
+<td>Hockey (NHL and PWHL)</td>
+</tr>
+<tr>
+<td><a href="https://billpetti.github.io/baseballr/" class="external-link"><strong>baseballr</strong></a></td>
+<td>Baseball (MLB, MiLB, NCAA)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sportsdataverse/softballR" class="external-link"><strong>softballR</strong></a></td>
+<td>College softball</td>
+</tr>
+<tr>
+<td><a href="https://oddsapiR.sportsdataverse.org/" class="external-link"><strong>oddsapiR</strong></a></td>
+<td>Sports betting odds</td>
+</tr>
+<tr>
+<td><a href="https://recruitR.sportsdataverse.org/" class="external-link"><strong>recruitR</strong></a></td>
+<td>College football recruiting</td>
+</tr>
+<tr>
+<td><a href="https://usfootballR.sportsdataverse.org/" class="external-link"><strong>usfootballR</strong></a></td>
+<td>US soccer</td>
+</tr>
+<tr>
+<td>
+<a href="https://cfbseedR.sportsdataverse.org/" class="external-link"><strong>cfbseedR</strong></a> · <a href="https://cfb4th.sportsdataverse.org/" class="external-link"><strong>cfb4th</strong></a>
+</td>
+<td>CFB playoff simulation · fourth-down decisions</td>
+</tr>
+<tr>
+<td>
+<a href="https://cfbplotR.sportsdataverse.org/" class="external-link"><strong>cfbplotR</strong></a> · <a href="https://sdvplotR.sportsdataverse.org/" class="external-link"><strong>sdvplotR</strong></a> · <a href="https://sportyR.sportsdataverse.org/"><strong>sportyR</strong></a>
+</td>
+<td>Logos, colors, tables · playing surfaces</td>
+</tr>
+<tr>
+<td><a href="https://r.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-R</strong></a></td>
+<td>Umbrella R metapackage</td>
+</tr>
+<tr>
+<td>
+<a href="https://py.sportsdataverse.org/" class="external-link"><strong>sportsdataverse-py</strong></a> · <a href="https://js.sportsdataverse.org/" class="external-link"><strong>sportsdataverse.js</strong></a>
+</td>
+<td>Python and Node.js</td>
+</tr>
+</tbody>
+</table>
+<p>See the full ecosystem at <a href="https://sportsdataverse.org/" class="external-link">sportsdataverse.org</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="follow-the-sportsdataverse-on-x-and-star-this-repo">
+<strong>Follow the <a href="https://x.com/SportsDataverse" class="external-link">SportsDataverse</a> on X and star this repo</strong><a class="anchor" aria-label="anchor" href="#follow-the-sportsdataverse-on-x-and-star-this-repo"></a>
 </h2>
 <p><a href="https://x.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></p>
+<p><a href="https://x.com/sportyR_pkg" class="external-link"><img src="https://img.shields.io/twitter/follow/sportyR_pkg?color=blue&amp;label=%40sportyR_pkg&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></p>
 <p><a href="https://github.com/sportsdataverse/sportyR" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=eee&amp;logo=github&amp;style=for-the-badge&amp;label=Star%20sportyR&amp;maxAge=2592000" alt="GitHub stars"></a></p>
-<p><a href="https://github.com/sportsdataverse/sportyR/stargazers" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history-dark.svg"><img alt="Star history of sportsdataverse/sportyR" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png" width="600"></picture></a></p>
+<p><a href="https://github.com/sportsdataverse/sportyR" class="external-link"> <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history-dark.svg"><img alt="Star history of sportsdataverse/sportyR" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png" width="600"></picture></a></p>
 </div>
 <div class="section level2">
-<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+<h2 id="our-authors">
+<strong>Our Authors</strong><a class="anchor" aria-label="anchor" href="#our-authors"></a>
 </h2>
-<p>This package is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" class="external-link">GPL 3.0 License</a>.</p>
+<ul>
+<li>
+<a href="https://github.com/rossdrucker" class="external-link">Ross Drucker</a> <a href="https://orcid.org/0000-0002-0688-0235" target="orcid.widget" aria-label="ORCID" class="external-link"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID logo" style="width:1em;margin-right:.5em;"></a><br><a href="https://github.com/rossdrucker" target="_blank" class="external-link"><img src="https://img.shields.io/github/followers/rossdrucker?color=eee&amp;logo=Github&amp;style=for-the-badge" alt="@rossdrucker"></a>
+</li>
+</ul>
 </div>
 <div class="section level2">
-<h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
+<h2 id="contributions">
+<strong>Contributions</strong><a class="anchor" aria-label="anchor" href="#contributions"></a>
 </h2>
 <div class="section level3">
 <h3 id="league-office">League Office<a class="anchor" aria-label="anchor" href="#league-office"></a>
@@ -565,24 +709,9 @@
 </div>
 </div>
 <div class="section level2">
-<h2 id="cheat-sheet">Cheat sheet<a class="anchor" aria-label="anchor" href="#cheat-sheet"></a>
+<h2 id="special-thanks">
+<strong>Special Thanks</strong><a class="anchor" aria-label="anchor" href="#special-thanks"></a>
 </h2>
-<p>A printable one-page reference for <code>sportyR</code> — every surface function and the arguments that shape it — is available as a free PDF:</p>
-<p>📄 <strong><a href="https://sportsdataverse.org/cheatsheets/sportyR.pdf" class="external-link">Download the sportyR cheat sheet (PDF)</a></strong></p>
-<p>Light and dark, US Letter landscape. Every SportsDataverse package has one — browse them all at <strong><a href="https://sportsdataverse.org/cheatsheets" class="external-link">sportsdataverse.org/cheatsheets</a></strong>.</p>
-</div>
-<div class="section level2">
-<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
-</h2>
-<p>To cite the <code>sportyR</code> R package in publications, use:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">drucker_sportyR</span>,</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ross Drucker},</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="dt">title</span> = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://sportyR.sportsdataverse.org/},</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.sportyR},</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="dt">year</span> = {2020}</span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>}</span></code></pre></div>
-<p><code>citation("sportyR")</code> returns this entry with the installed version number attached.</p>
 <div class="section level3">
 <h3 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h3>
@@ -593,7 +722,42 @@
 <code>sportyR</code>tist<a class="anchor" aria-label="anchor" href="#sportyrtist"></a>
 </h3>
 <p>The <code>sportyR</code> logo was created by Lindsey Kelso. Check her out on <a href="https://www.instagram.com/kelsokreationsbylindsey" class="external-link">Instagram</a>!</p>
+<!-- cheatsheet-section -->
 </div>
+</div>
+<div class="section level2">
+<h2 id="cheat-sheet">
+<strong>Cheat sheet</strong><a class="anchor" aria-label="anchor" href="#cheat-sheet"></a>
+</h2>
+<p>A printable one-page reference for <code>sportyR</code> — every surface function and the arguments that shape it — is available as a free PDF:</p>
+<p>📄 <strong><a href="https://sportsdataverse.org/cheatsheets/sportyR.pdf" class="external-link">Download the sportyR cheat sheet (PDF)</a></strong></p>
+<p>Light and dark, US Letter landscape. Every SportsDataverse package has one — browse them all at <strong><a href="https://sportsdataverse.org/cheatsheets" class="external-link">sportsdataverse.org/cheatsheets</a></strong>.</p>
+</div>
+<div class="section level2">
+<h2 id="code-of-conduct">
+<strong>Code of Conduct</strong><a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
+</h2>
+<p>Please note that the sportyR project is released with a <a href="https://github.com/sportsdataverse/sportyR/blob/main/CODE-OF-CONDUCT.md" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+<div class="section level2">
+<h2 id="citations">
+<strong>Citations</strong><a class="anchor" aria-label="anchor" href="#citations"></a>
+</h2>
+<p>To cite the <code>sportyR</code> R package in publications, use:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">drucker_sportyR</span>,</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="dt">author</span> = {Ross Drucker},</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="dt">title</span> = {sportyR: Plot Scaled 'ggplot' Representations of Sports Playing Surfaces.},</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="dt">url</span> = {https://sportyR.sportsdataverse.org/},</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="dt">doi</span> = {10.32614/CRAN.package.sportyR},</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>  <span class="dt">year</span> = {2020}</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>}</span></code></pre></div>
+<p><code>citation("sportyR")</code> returns this entry with the installed version number attached.</p>
+</div>
+<div class="section level2">
+<h2 id="license">
+<strong>License</strong><a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p><code>sportyR</code> is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" class="external-link">GPL (&gt;= 3) License</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -637,15 +801,21 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=flat&amp;color=ff552e&amp;label=CRAN%20version&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR" alt="CRAN version"></a></li>
-<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=flat&amp;color=ff552e&amp;label=Downloads&amp;query=%24%5B0%5D.downloads&amp;url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FsportyR" alt="CRAN downloads"></a></li>
-<li><a href="https://github.com/sportsdataverse/sportyR/" class="external-link"><img src="https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&amp;logo=R&amp;style=flat&amp;color=ff552e&amp;logoColor=1d9bf0" alt="Version-Number"></a></li>
-<li><a href="https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/sportsdataverse/sportyR/R-CMD-check.yaml?branch=main&amp;label=R-CMD-Check&amp;logo=R&amp;style=flat&amp;logoColor=1d9bf0" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/sportsdataverse/sportyR" class="external-link"><img src="https://img.shields.io/codecov/c/github/sportsdataverse/sportyR?color=ff552e&amp;label=codecov&amp;logo=codecov" alt="codecov"></a></li>
-<li><a href="https://github.com/sportsdataverse/sportyR/" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=flat&amp;logo=github&amp;color=ff552e" alt="Lifecycle:maturing"></a></li>
-<li><a href="https://www.npmjs.com/package/@sportsdataverse/sporty" class="external-link"><img src="https://img.shields.io/npm/v/@sportsdataverse/sporty?label=npm&amp;logo=npm&amp;style=flat&amp;color=ff552e" alt="npm"></a></li>
-<li><a href="https://twitter.com/sportyR_pkg" class="external-link"><img src="https://img.shields.io/twitter/follow/sportyR_pkg?&amp;label=%40sportyR_pkg&amp;logo=twitter&amp;style=flat&amp;color=ff552e" alt="Twitter Follow"></a></li>
-<li><a href="https://twitter.com/sportsdataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/sportsdataverse?&amp;label=%40sportsdataverse&amp;logo=twitter&amp;style=flat&amp;color=ff552e" alt="Twitter Follow"></a></li>
+<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=CRAN%20version&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fcrandb.r-pkg.org%2FsportyR" alt="CRAN version"></a></li>
+<li><a href="https://CRAN.R-project.org/package=sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=Downloads&amp;query=%24%5B0%5D.downloads&amp;url=https%3A%2F%2Fcranlogs.r-pkg.org%2Fdownloads%2Ftotal%2F2021-10-26%3Alast-day%2FsportyR" alt="CRAN downloads"></a></li>
+<li><a href="https://sportsdataverse.r-universe.dev/sportyR" class="external-link"><img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&amp;color=success&amp;label=r-universe&amp;prefix=v&amp;query=%24.Version&amp;url=https%3A%2F%2Fsportsdataverse.r-universe.dev%2Fapi%2Fpackages%2FsportyR" alt="R-universe"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/" class="external-link"><img src="https://img.shields.io/github/r-package/v/sportsdataverse/sportyR?label=sportyR&amp;logo=R&amp;style=for-the-badge" alt="Version-Number"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/sportsdataverse/sportyR/R-CMD-check.yaml?branch=main&amp;label=R-CMD-Check&amp;logo=R&amp;logoColor=white&amp;style=for-the-badge" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/sportsdataverse/sportyR" class="external-link"><img src="https://img.shields.io/codecov/c/github/sportsdataverse/sportyR?logo=codecov&amp;style=for-the-badge" alt="Codecov"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://img.shields.io/github/actions/workflow/status/sportsdataverse/sportyR/pkgdown.yaml?branch=main&amp;label=pkgdown&amp;logo=github&amp;style=for-the-badge" alt="pkgdown"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&amp;logo=github" alt="Lifecycle: stable"></a></li>
+<li><a href="https://www.gnu.org/licenses/gpl-3.0.html" class="external-link"><img src="https://img.shields.io/badge/License-GPL%20%28%3E%3D%203%29-blue.svg?style=for-the-badge" alt="License: GPL (&gt;= 3)"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR/graphs/contributors" class="external-link"><img src="https://img.shields.io/github/contributors/sportsdataverse/sportyR?style=for-the-badge" alt="Contributors"></a></li>
+<li><a href="https://github.com/sportsdataverse/sportyR" class="external-link"><img src="https://img.shields.io/github/stars/sportsdataverse/sportyR?style=for-the-badge&amp;logo=github" alt="GitHub stars"></a></li>
+<li><a href="https://x.com/SportsDataverse" class="external-link"><img src="https://img.shields.io/twitter/follow/SportsDataverse?color=blue&amp;label=%40SportsDataverse&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
+<li><a href="https://x.com/sportyR_pkg" class="external-link"><img src="https://img.shields.io/twitter/follow/sportyR_pkg?color=blue&amp;label=%40sportyR_pkg&amp;logo=x&amp;style=for-the-badge" alt="X Follow"></a></li>
+<li><a href="https://pypi.org/project/sportypy/" class="external-link"><img src="https://img.shields.io/pypi/v/sportypy?label=PyPI%20sportypy&amp;logo=pypi&amp;logoColor=white&amp;style=for-the-badge&amp;color=success" alt="PyPI sportypy"></a></li>
+<li><a href="https://www.npmjs.com/package/@sportsdataverse/sporty" class="external-link"><img src="https://img.shields.io/npm/v/@sportsdataverse/sporty?label=npm%20sporty&amp;logo=npm&amp;style=for-the-badge&amp;color=success" alt="npm sporty"></a></li>
 </ul>
 </div>
 
