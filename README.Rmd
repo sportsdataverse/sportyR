@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **sportyR** <a href='https://sportyR.sportsdataverse.org/'><img src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"/></a>
+# **sportyR** <a href='https://sportyR.sportsdataverse.org/'><img alt="sportyR hex logo" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/main/logos/sportyr-logo-hex.png" align="right" width="120"/></a>
 
 <!-- badges: start -->
 
@@ -32,7 +32,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg?style=for-the-badge&logo=github)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License: GPL (>= 3)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%203%29-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![Contributors](https://img.shields.io/github/contributors/sportsdataverse/sportyR?style=for-the-badge)](https://github.com/sportsdataverse/sportyR/graphs/contributors)
-[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/sportyR/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR?style=for-the-badge&logo=github)](https://github.com/sportsdataverse/sportyR)
 [![X Follow](https://img.shields.io/twitter/follow/SportsDataverse?color=blue&label=%40SportsDataverse&logo=x&style=for-the-badge)](https://x.com/SportsDataverse)
 [![X Follow](https://img.shields.io/twitter/follow/sportyR_pkg?color=blue&label=%40sportyR_pkg&logo=x&style=for-the-badge)](https://x.com/sportyR_pkg)
 [![PyPI sportypy](https://img.shields.io/pypi/v/sportypy?label=PyPI%20sportypy&logo=pypi&logoColor=white&style=for-the-badge&color=success)](https://pypi.org/project/sportypy/)
@@ -73,7 +73,9 @@ The development version of `sportyR` can be installed from
 # Install development version from GitHub
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pak("sportsdataverse/sportyR")
-# or: remotes::install_github("sportsdataverse/sportyR")
+# or, with remotes:
+# if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+# remotes::install_github("sportsdataverse/sportyR")
 ```
 
 Once the library is installed, be sure to load it into the working
@@ -414,7 +416,7 @@ See the full ecosystem at [sportsdataverse.org](https://sportsdataverse.org/).
 
 [![GitHub stars](https://img.shields.io/github/stars/sportsdataverse/sportyR.svg?color=eee&logo=github&style=for-the-badge&label=Star%20sportyR&maxAge=2592000)](https://github.com/sportsdataverse/sportyR)
 
-<a href="https://github.com/sportsdataverse/sportyR/stargazers">
+<a href="https://github.com/sportsdataverse/sportyR">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history-dark.svg">
     <img alt="Star history of sportsdataverse/sportyR" src="https://raw.githubusercontent.com/sportsdataverse/sportyR/star-history/star-history.png" width="600">
