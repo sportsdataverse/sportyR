@@ -442,6 +442,11 @@ Light and dark, US Letter landscape. Every SportsDataverse package has
 one — browse them all at
 **[sportsdataverse.org/cheatsheets](https://sportsdataverse.org/cheatsheets)**.
 
+## **Code of Conduct**
+
+Please note that the sportyR project is released with a [Contributor Code of Conduct](https://github.com/sportsdataverse/sportyR/blob/main/CODE-OF-CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
+
 ## **Citations**
 
 To cite the `sportyR` R package in publications, use:
